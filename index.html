@@ -265,6 +265,9 @@
       box-shadow: 0 10px 34px rgba(0, 0, 0, .28);
     }
 
+    /* Na projeção o cartão é bem mais largo: o triângulo acompanha. */
+    .fac-map #svgwrap svg { max-width: 720px; }
+
     .legend {
       display: flex;
       justify-content: space-between;
@@ -1095,7 +1098,7 @@
       <circle cx="11" cy="11" r="7" fill="#231F20" stroke="#E8172D" stroke-width="3"/>`);
     const other = sw(`<circle cx="11" cy="11" r="9" fill="#FFFFFF" stroke="#231F20" stroke-opacity="0.14"/>
       <circle cx="11" cy="11" r="6" fill="#E8172D" stroke="#231F20" stroke-width="1.5"/>`);
-    const avg = sw(`<circle cx="11" cy="11" r="8" fill="none" stroke="#F16978" stroke-width="3" stroke-dasharray="4,3"/>`);
+    const avg = sw(`<circle cx="11" cy="11" r="8" fill="none" stroke="#0097A7" stroke-width="3" stroke-dasharray="4,3"/>`);
     return `
       <div class="maplegend">
         ${hasMine ? `<span>${mine}<b>voc\u00ea</b></span>` : ''}
@@ -1144,7 +1147,7 @@
       const c = toXY(avgBary);
       centroidSvg = `
         <circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="30" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="9"/>
-        <circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="30" fill="none" stroke="#F16978" stroke-width="5" stroke-dasharray="9,7"/>`;
+        <circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="30" fill="none" stroke="#0097A7" stroke-width="5" stroke-dasharray="9,7"/>`;
     }
     // A placa clara existe para o diagrama sobreviver ao cartão escuro. A grade
     // repete o fundo da tela de abertura, na escala do viewBox de 1024.
@@ -1202,17 +1205,45 @@
     const graticule = [];
     for(let gx=0; gx<=360; gx+=30){ graticule.push(`<line x1="${gx}" y1="0" x2="${gx}" y2="200" stroke="#e6e6e6" stroke-width="0.5"/>`); }
     for(let gy=0; gy<=200; gy+=20){ graticule.push(`<line x1="0" y1="${gy}" x2="360" y2="${gy}" stroke="#e6e6e6" stroke-width="0.5"/>`); }
-    const dotsSvg = pts.map(p=>{
+    // Cidades vizinhas viram pontos quase sobrepostos e os rótulos se atropelam.
+    // Cada rótulo procura a primeira faixa livre, alternando acima e abaixo do
+    // ponto e afastando-se aos poucos até não colidir com nenhum já colocado.
+    const placed = [];
+    function labelY(x, y, r){
+      const cands = [];
+      for(let k=0; k<7; k++){
+        cands.push(y - r - 4 - k*9);
+        cands.push(y + r + 8 + k*9);
+      }
+      for(const ly of cands){
+        if(ly < 8 || ly > 194) continue;
+        if(!placed.some(q => Math.abs(q.x - x) < 38 && Math.abs(q.y - ly) < 8.5)) return ly;
+      }
+      return y - r - 4;
+    }
+    const dotsSvg = pts.slice().sort((a,b)=>b.count-a.count).map(p=>{
       const xy = geoToXY(p.lat, p.lon);
       const r = 4 + (p.count / maxCount) * 10;
-      const label = `${p.city || 'Local desconhecido'}${p.city && p.country ? ', ' : ''}${p.country || ''} (${p.count})`;
+      const name = p.city || 'Local desconhecido';
+      const label = `${name}${p.country ? ', ' + p.country : ''} (${p.count})`;
+      const ly = labelY(xy.x, xy.y, r);
+      placed.push({ x: xy.x, y: ly });
+      // Linha-guia quando o rótulo precisou se afastar do próprio ponto.
+      const gap = Math.abs(ly - xy.y) - r;
+      const leader = gap > 12
+        ? `<line x1="${xy.x.toFixed(1)}" y1="${(xy.y + (ly > xy.y ? r : -r)).toFixed(1)}"
+                 x2="${xy.x.toFixed(1)}" y2="${(ly + (ly > xy.y ? -5 : 2)).toFixed(1)}"
+                 stroke="#231F20" stroke-opacity="0.25" stroke-width="0.6"/>`
+        : '';
       return `<g>
         <circle cx="${xy.x.toFixed(1)}" cy="${xy.y.toFixed(1)}" r="${r.toFixed(1)}" fill="#E8172D" fill-opacity="0.55" stroke="white" stroke-width="1"/>
-        <text x="${xy.x.toFixed(1)}" y="${(xy.y - r - 3).toFixed(1)}" text-anchor="middle" font-size="7" fill="#231F20">${label}</text>
+        ${leader}
+        <text x="${xy.x.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" font-size="7" font-weight="600"
+              fill="#231F20" stroke="#FAFAFA" stroke-width="2.4" paint-order="stroke">${label}</text>
       </g>`;
     }).join('');
     return `
-      <svg viewBox="0 0 360 200" width="100%" style="max-width:560px;background:#fafafa;border-radius:8px;">
+      <svg viewBox="0 0 360 200" width="100%" style="max-width:820px;display:block;margin:0 auto;background:#fafafa;border-radius:10px;">
         ${graticule.join('')}
         <line x1="180" y1="0" x2="180" y2="200" stroke="#ccc" stroke-width="1"/>
         <line x1="0" y1="100" x2="360" y2="100" stroke="#ccc" stroke-width="1"/>
