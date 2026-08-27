@@ -171,6 +171,11 @@ get.geojs.io          Geolocalização aproximada por IP (timeout de 4s via Prom
 - **Normalização baricêntrica** — `sm`, `ud` e `vs` são divididos pela soma; a
   escolha binária da Q3 entra com peso 9 (privacidade) ou 2 (personalização).
   As coordenadas dos vértices são ancoradas em espaço de imagem 1024×1024.
+- **Debrief com os dados da própria pessoa** — os três passos que fecham a
+  dinâmica não são texto genérico: cada cartão mostra o valor que aquela pessoa
+  produziu na tela correspondente (ordem de chegada e aparelho no SMCAS, número
+  de ajustes e qual das quatro versões do enunciado ela recebeu no UDCAS, a
+  escolha binária no VSCAS). Quem está ao lado vê números diferentes.
 - **Legenda desenhada, não nomeada** — os três marcadores do mapa (você, demais
   participantes, média do grupo) aparecem como SVG de verdade ao lado do rótulo.
   A versão anterior dizia “seu ponto: vermelho” para um ponto de miolo escuro com
