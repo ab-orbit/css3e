@@ -3,7 +3,7 @@
 > **App ao vivo:** https://ab-orbit.github.io/css3e/
 > **Tela de abertura:** https://ab-orbit.github.io/css3e/index_extended.html
 > **Modo facilitador:** https://ab-orbit.github.io/css3e/?facilitador=1
-> **Material de apoio:** [mapa de superfície contextual](https://ab-orbit.github.io/css3e/resources/) · [relatório técnico (PDF)](https://ab-orbit.github.io/css3e/resources/relatorio_contexto_sem_consentimento.pdf)
+> **Material de apoio:** [mapa de superfície contextual](https://ab-orbit.github.io/css3e/resources/) · [5 simuladores](https://ab-orbit.github.io/css3e/resources/cases/) · [relatório técnico (PDF)](https://ab-orbit.github.io/css3e/resources/relatorio_contexto_sem_consentimento.pdf)
 
 Dinâmica interativa de sala de aula que **demonstra na prática** — no próprio
 navegador do participante — as três categorias de sistemas sensíveis ao contexto
@@ -227,6 +227,7 @@ get.geojs.io          Geolocalização aproximada por IP (timeout de 4s via Prom
 | `three-categories.png` | Imagem do triângulo das 3 categorias (também embutida em base64 no `index.html`) |
 | `resources/index.html` | Material de apoio: mapa de superfície contextual, com matriz observar/inferir/fazer |
 | `resources/relatorio_contexto_sem_consentimento.pdf` | Relatório técnico completo (fonte LaTeX ao lado, `.tex`) |
+| `resources/cases/` | Cinco simuladores interativos de adaptação contextual, com folha de estilo compartilhada |
 | `artigo_original.pdf` | Artigo de Shishkov et al. (2018), versão de repositório institucional |
 | `apresentacao_artigo.pdf` | Slides da apresentação (28 páginas) |
 
@@ -234,15 +235,41 @@ get.geojs.io          Geolocalização aproximada por IP (timeout de 4s via Prom
 
 ## Material de apoio (`resources/`)
 
-Dois documentos aprofundam o que a dinâmica demonstra. Ambos aparecem com
+Três recursos aprofundam o que a dinâmica demonstra. Todos aparecem com
 pré-visualização ao vivo no fim da tela de abertura — a página real embutida em
 escala reduzida, não uma captura — e como links no fim das duas telas de mapa,
 a do participante e a do facilitador.
 
-| Documento | O que traz |
+| Recurso | O que traz |
 |---|---|
 | [**Mapa de superfície contextual**](https://ab-orbit.github.io/css3e/resources/) (`resources/index.html`) | Doze famílias de sinais, cada uma com um drawer técnico: o que dá para observar, o que dá para inferir, riscos e contraexemplos. Inclui a matriz “pode observar / pode inferir / deve fazer”, o pipeline `ObservedContext → DerivedContext → Policy → Adaptation` e uma leitura local do contexto de quem está acessando. |
+| [**5 simuladores**](https://ab-orbit.github.io/css3e/resources/cases/) (`resources/cases/`) | Onde o material deixa de descrever e passa a deixar experimentar (detalhes abaixo). |
 | [**Contexto sem consentimento**](https://ab-orbit.github.io/css3e/resources/relatorio_contexto_sem_consentimento.pdf) (PDF) | Relatório técnico: inventário dos sinais disponíveis sem prompt, separação entre contexto observado e inferido, e os deveres de finalidade que a disponibilidade técnica não dispensa. Fonte LaTeX em `resources/relatorio_contexto_sem_consentimento.tex`. |
+
+### Os cinco simuladores (`resources/cases/`)
+
+A tela de abertura mostra o que **o seu** aparelho recebeu. Os simuladores
+invertem isso: você mexe nos sinais e acompanha a política e a interface se
+reorganizarem ao vivo, com o rastro da decisão impresso embaixo de cada um no
+formato `sinal → contexto → decisão → experiência`.
+
+| Case | Sinais que você controla | O que muda na tela |
+|---|---|---|
+| 01 · Interação & viewport | viewport, pointer, hover, pontos de toque | Colunas, densidade, navegação, alvos de toque, e se as ações podem ou não se esconder atrás do hover |
+| 02 · Orçamento de recursos | Save-Data, throughput, RTT, compute, bateria, carregando | Resolução de mídia, autoplay, prefetch, sincronização, complexidade do gráfico |
+| 03 · Preferências de apresentação | tema, movimento, contraste, transparência | Aplicação direta da preferência, sem inferir condição pessoal a partir dela |
+| 04 · Contexto regional & temporal | locale, timezone, região aproximada, hora local | Formatos por `Intl`, horário dos eventos, moeda, atalhos regionais e bloco temporal |
+| 05 · Contexto composto | os quatro anteriores, combinados | Uma policy única, com precedência explícita entre preferência declarada, preferência de sistema, capacidade observada e região |
+
+Dois princípios que o conjunto sustenta, e que valem para o código de vocês:
+
+- **O quadro de preview assume a largura simulada.** Nos cases 01 e 05, escolher
+  “390 px” estreita o quadro de verdade; quando a janela não comporta a largura
+  pedida, a página diz isso em vez de fingir.
+- **Idioma, fuso e região são sinais independentes.** O case 04 deixa os três
+  controles livres justamente para você montar a combinação incoerente —
+  `en-US` + `America/Recife` + Madrid — e ver de onde vêm os defaults errados de
+  quem trata os três como uma coisa só.
 
 A regra que os dois defendem, e que a dinâmica encena: **escolha o sinal menos
 identificável capaz de resolver o problema.** Se media query resolve layout, não

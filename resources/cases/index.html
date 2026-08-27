@@ -1,0 +1,32 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>5 cases · adaptação contextual dinâmica</title><link rel="stylesheet" href="style.css"></head><body><header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>Context-aware adaptation</div><nav class="nav"><a class="btn" href="../index.html">&#8592; Material de apoio</a><a class="btn primary" href="case-1.html">Iniciar simuladores</a></nav></div></header><main class="wrap"><section class="hero"><div><div class="eyebrow">5 simuladores aplicados · sem prompt de permissão</div><h1>Troque o contexto. Veja a experiência mudar.</h1><p>Os cases não descrevem apenas o que poderia ser adaptado. Cada página permite alterar sinais simulados disponíveis ao browser/aplicação e observar, em tempo real, a política e a interface resultantes.</p><div class="callout warnbox"><b>Regra:</b> adaptar às condições observadas, não fabricar identidade. Cada simulador mostra <i>sinal → contexto → decisão → experiência</i>.</div><div class="context-strip" id="detected"></div></div><aside class="paper hero-card"><div class="eyebrow">A própria galeria se adapta</div><h3 id="galleryMode">Calculando contexto de apresentação…</h3><p style="color:#6B6567">Viewport e modalidade de pointer definem quantos cards cabem por linha e o tamanho mínimo de interação. Nenhum card deve ficar “meio visível”.</p><div class="legend"><div><span class="pill obs">OBSERVADO</span><span>viewport, pointer, hover, motion, locale.</span></div><div><span class="pill inf">SIMULADO</span><span>Nas páginas, você altera os sinais para testar contrafactuais.</span></div></div></aside></section>
+<section class="section"><h2>Galeria de cases</h2><p>Cada case isola uma dimensão de contexto. O quinto combina tudo e explicita precedência e conflitos.</p><div class="gallery"><a class="case-card" href="case-1.html"><div class="case-no">CASE 01</div><h3>Interação & viewport</h3><p>Layout, densidade, navegação e targets mudam conforme espaço, touch, pointer e hover.</p><div class="pill obs">viewport + pointer + hover + touch</div><div class="arrow">Simular →</div></a><a class="case-card" href="case-2.html"><div class="case-no">CASE 02</div><h3>Orçamento de recursos</h3><p>Mídia, prefetch, sincronização e complexidade mudam conforme rede, compute, Save-Data e energia.</p><div class="pill obs">Save-Data + RTT + throughput + CPU + memória + bateria</div><div class="arrow">Simular →</div></a><a class="case-card" href="case-3.html"><div class="case-no">CASE 03</div><h3>Preferências de apresentação</h3><p>Tema, movimento, contraste e transparência são aplicados diretamente, sem inferir condição pessoal.</p><div class="pill obs">dark + reduced-motion + contrast + transparency</div><div class="arrow">Simular →</div></a><a class="case-card" href="case-4.html"><div class="case-no">CASE 04</div><h3>Contexto regional & temporal</h3><p>Idioma, locale, timezone e região aproximada adaptam formatos, horários, defaults e conteúdo contextual.</p><div class="pill obs">language + locale + timezone + região aproximada</div><div class="arrow">Simular →</div></a><a class="case-card" href="case-5.html"><div class="case-no">CASE 05</div><h3>Contexto composto</h3><p>Interação, recursos, preferências e região convergem para uma experiência coerente e reversível.</p><div class="pill obs">cases 1–4 + precedência + provenance</div><div class="arrow">Simular →</div></a></div></section>
+<section class="section"><h2>Como os cinco se combinam</h2><div class="flow"><div class="step"><b>1. Interação</b><small>Como a interface pode ser operada agora.</small></div><div class="step"><b>2. Recursos</b><small>Quanto é razoável baixar, processar e animar.</small></div><div class="step"><b>3. Apresentação</b><small>Como a UI deve respeitar preferências explícitas.</small></div><div class="step"><b>4. Região & tempo</b><small>Como formatar e contextualizar sem assumir identidade.</small></div><div class="step"><b>5. Composição</b><small>Como sinais simultâneos viram uma policy única.</small></div></div></section>
+<section class="section"><h2>Arquitetura de decisão</h2><div class="paper panel"><pre>ObservedContext
+      ↓
+NormalizedContext { value, source, timestamp }
+      ↓
+DerivedContext { only when needed, confidence, evidence, ttl }
+      ↓
+Policy Engine { purpose, precedence, constraints, override }
+      ↓
+Adaptation { layout, interaction, presentation, content context, resources }
+      ↓
+New observation → reevaluate</pre></div></section></main><footer><div class="wrap"><a href="../index.html">Mapa de superfície contextual</a> &#183; <a href="../relatorio_contexto_sem_consentimento.pdf">Relatório PDF</a> &#183; <a href="../../index_extended.html">Tela de abertura</a> &#183; <a href="../../index.html">Dinâmica</a><br><br>5 simuladores &#183; adaptação contextual dinâmica &#183; material de apoio de CSS3E, IN1133 Contexto Computacional, CIn/UFPE.</div></footer><script>
+const m=q=>matchMedia(q).matches;
+// A galeria diz que se adapta, então precisa reavaliar a cada mudança de janela.
+function readContext(){
+  const w=innerWidth;
+  const mode=w<600?'1 coluna · viewport compacto':w<900?'2 colunas · viewport intermediário':w<1180?'3 colunas · viewport médio':'5 colunas · viewport amplo';
+  document.getElementById('galleryMode').textContent=mode+(m('(pointer: coarse)')?' · touch/coarse pointer':' · fine pointer');
+  document.getElementById('detected').innerHTML=[
+    `viewport ${innerWidth}×${innerHeight}`,
+    m('(pointer: coarse)')?'pointer coarse':'pointer fine',
+    m('(hover: hover)')?'hover disponível':'sem hover',
+    m('(prefers-reduced-motion: reduce)')?'motion reduzido':'motion normal',
+    m('(prefers-color-scheme: dark)')?'tema escuro':'tema claro',
+    navigator.language
+  ].map(x=>`<span class="context-chip">${x}</span>`).join('');
+}
+addEventListener('resize',readContext);
+readContext();
+</script></body></html>

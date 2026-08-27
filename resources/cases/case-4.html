@@ -1,0 +1,39 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Case 04 · Contexto regional & temporal</title><link rel="stylesheet" href="style.css"></head><body><header class="topbar"><div class="wrap"><div class="brand"><span class="dot"></span>Context-aware adaptation</div><nav class="nav"><a class="btn" href="index.html">Galeria</a><a class="btn primary" href="case-4.html">Case 04</a></nav></div></header><main class="wrap"><div class="crumb"><a href="index.html">Galeria</a> / Case 04</div><section class="case-hero"><div class="eyebrow">CASE 04 · SIMULADOR</div><h1>Contexto regional & temporal</h1><p style="font-size:19px;color:rgba(255,255,255,.68);max-width:850px">Idioma, locale, timezone e região aproximada alteram formatos, horários, defaults e conteúdo contextual. A região é tratada como hipótese operacional, não como identidade.</p></section><section class="section"><div class="simulator"><aside class="controls"><h3>Sinais simulados</h3><div class="control"><label for="locale">Idioma / locale</label><select id="locale"><option value="pt-BR">pt-BR</option><option value="en-US">en-US</option><option value="es-ES">es-ES</option></select></div><div class="control"><label for="tz">Timezone</label><select id="tz"><option value="America/Recife">America/Recife</option><option value="America/New_York">America/New_York</option><option value="Europe/Madrid">Europe/Madrid</option></select></div><div class="control"><label for="region">Região aproximada</label><select id="region"><option value="BR-PE">Pernambuco, BR</option><option value="US-NY">New York, US</option><option value="ES-MD">Madrid, ES</option><option value="unknown">indisponível</option></select></div><div class="control"><label for="hour">Hora local <span id="hourv">10:00</span></label><input id="hour" type="range" min="0" max="23" value="10"></div><div class="callout goodbox"><b>Teste:</b> os três controles são independentes de propósito. Escolha <code>en-US</code> com <code>America/Recife</code> e região Madrid: idioma, fuso e região são sinais distintos, e tratá-los como um só é de onde vêm os defaults errados.</div></aside><div><div class="decision"><div class="d"><b>Formato</b><span id="format"></span></div><div class="d"><b>Contexto</b><span id="regional"></span></div><div class="d"><b>Momento</b><span id="moment"></span></div></div><div class="preview"><div class="preview-head"><span>Portal de serviços</span><span id="badge"></span></div><div id="preview" class="preview-body"></div></div><div class="policy-trace" id="trace"></div></div></div></section><section class="section"><div class="case-grid"><div class="panel"><h3>O que é adaptado</h3><p>Idioma inicial, formatos de data/número, timezone de eventos, unidade/moeda quando o domínio justificar, sugestões regionais e priorização temporal.</p></div><div class="panel"><h3>O que não concluir</h3><div class="callout">`pt-BR + America/Recife + IP em PE` não prova nacionalidade, residência ou origem. Serve para defaults contextuais que devem ser fáceis de corrigir.</div></div></div><div class="nextprev"><a class="btn" href="case-3.html">← Case 03</a><a class="btn primary" href="case-5.html">Case 05 →</a></div></section></main><footer><div class="wrap"><a href="index.html">Galeria</a> &#183; <a href="../index.html">Material de apoio</a> &#183; <a href="../../index.html">Dinâmica</a><br><br>Case 04 · contexto regional e temporal.</div></footer><script>
+const $=id=>document.getElementById(id);
+const configs={
+  'pt-BR':{lang:'Português'},
+  'en-US':{lang:'English'},
+  'es-ES':{lang:'Español'}
+};
+// Data de referência fixa para a demonstração ser estável entre sessões; a
+// formatação é real, feita por Intl com o locale escolhido.
+const REF=new Date(2026,7,27,10,30);
+const fmtDate=(l,tz)=>new Intl.DateTimeFormat(l,{day:'2-digit',month:'2-digit',year:'numeric',timeZone:tz}).format(REF);
+const fmtTime=(l,tz)=>new Intl.DateTimeFormat(l,{hour:'2-digit',minute:'2-digit',timeZone:tz}).format(REF);
+const regions={
+  'BR-PE':{label:'Pernambuco, BR',currency:'BRL',locale:'pt-BR',tz:'America/Recife',links:['Serviços em Pernambuco','Calendário local','Atendimento regional']},
+  'US-NY':{label:'New York, US',currency:'USD',locale:'en-US',tz:'America/New_York',links:['New York services','Local schedule','Regional support']},
+  'ES-MD':{label:'Madrid, ES',currency:'EUR',locale:'es-ES',tz:'Europe/Madrid',links:['Servicios en Madrid','Calendario local','Soporte regional']},
+  'unknown':{label:'indisponível',currency:null,locale:null,tz:null,links:['Conteúdo global','Configurar região']}
+};
+function greeting(locale,h){
+  if(locale==='en-US') return h<12?'Good morning':h<18?'Good afternoon':'Good evening';
+  if(locale==='es-ES') return h<12?'Buenos días':h<20?'Buenas tardes':'Buenas noches';
+  return h<12?'Bom dia':h<18?'Boa tarde':'Boa noite';
+}
+function render(){
+ const l=$('locale').value,tz=$('tz').value,r=$('region').value,h=+$('hour').value,c=configs[l],reg=regions[r];
+ $('hourv').textContent=String(h).padStart(2,'0')+':00';
+ const currency=reg.currency;
+ const dateStr=fmtDate(l,tz);
+ const fmt=currency?new Intl.NumberFormat(l,{style:'currency',currency}).format(12543.72):new Intl.NumberFormat(l,{maximumFractionDigits:2}).format(12543.72);
+ const moment=h<6?'madrugada':h<12?'manhã':h<18?'tarde':'noite';
+ $('format').textContent=`${dateStr} · ${currency||'sem moeda presumida'} · ${fmt}`;
+ $('regional').textContent=r==='unknown'?'sem região; defaults neutros':reg.label;
+ $('moment').textContent=moment;
+ $('badge').textContent=`${l} · ${tz} · ${currency||'—'}`;
+ const next=(h+2)%24;
+ $('preview').innerHTML=`<div class="locale-banner"><b>${greeting(l,h)}</b><br>Horários exibidos em <b>${tz}</b>. <span style="color:#6b6567">Alterar</span></div><div class="two-col"><div><h3>Próximo compromisso</h3><div class="demo-card"><b>${dateStr} · ${String(next).padStart(2,'0')}:30</b><p>${l==='es-ES'?'Reunión de seguimiento':l==='en-US'?'Follow-up meeting':'Reunião de acompanhamento'}</p></div><h3>${l==='es-ES'?'Valor de referencia':l==='en-US'?'Reference value':'Valor de referência'}</h3><div class="price">${fmt}</div><p style="color:#6b6567;font-size:13px">Moeda derivada da <b>região aproximada/comercial</b>, não do idioma.</p></div><div><h3>${l==='es-ES'?'Atajos contextuales':l==='en-US'?'Context shortcuts':'Atalhos contextuais'}</h3><div class="region-links">${reg.links.map(x=>`<span>${x}</span>`).join('')}</div><p style="color:#6b6567;margin-top:16px">Sugestões regionais são defaults reversíveis; não alteram fatos, permissões ou elegibilidade.</p></div></div>`;
+ $('trace').textContent=`ObservedContext { locale:${l}, timezone:${tz}, approximateRegion:${r}, localHour:${h} }\n→ date/number formatting = locale ${l} → ${dateStr}\n→ event time = timezone ${tz}\n→ currency/default services = region ${r} (${currency||'none'})\n→ temporalPresentation = ${moment}\n→ identity claims = none`;
+}
+['locale','tz','region','hour'].forEach(id=>$(id).addEventListener('input',render));render();</script></body></html>
