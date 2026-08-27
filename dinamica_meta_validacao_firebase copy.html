@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O sistema que reage a você</title>
+  <style>
+    :root {
+      --red: #E8172D;
+      --dark: #231F20;
+      --light: #F2F2F2;
+      --pink: #F16978;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: var(--white);
+      color: var(--dark);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--red), var(--pink));
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin: 0 0 14px 0;
+      font-weight: 800;
+    }
+
+    p.lead {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #4a4a4a;
+      margin: 0 0 22px 0;
+    }
+
+    .sysmsg {
+      background: var(--light);
+      border-left: 3px solid var(--red);
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+
+    .sysmsg b {
+      color: var(--red);
+    }
+
+    button {
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 22px;
+      cursor: pointer;
+      width: 100%;
+      transition: transform .12s ease, opacity .12s ease;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      opacity: .92;
+    }
+
+    .btn-secondary {
+      background: var(--light);
+      color: var(--dark);
+      margin-top: 10px;
+    }
+
+    .slider-wrap {
+      margin: 26px 0 8px 0;
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--red);
+      height: 6px;
+    }
+
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .slider-labels span {
+      max-width: 44%;
+    }
+
+    .slider-labels span:last-child {
+      text-align: right;
+    }
+
+    .choice-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 18px 0 6px 0;
+    }
+
+    .choice {
+      border: 2px solid var(--light);
+      background: var(--light);
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.45;
+      transition: border-color .15s, background .15s;
+    }
+
+    .choice b {
+      display: block;
+      font-size: 14.5px;
+      margin-bottom: 3px;
+    }
+
+    .choice:hover {
+      border-color: var(--pink);
+    }
+
+    .choice.selected {
+      border-color: var(--red);
+      background: #fff0f1;
+    }
+
+    .progress {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 18px;
+    }
+
+    .progress i {
+      flex: 1;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--light);
+    }
+
+    .progress i.done {
+      background: var(--red);
+    }
+
+    .fieldrow {
+      margin-bottom: 16px;
+    }
+
+    .fieldrow label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .fieldrow input[type=text] {
+      width: 100%;
+      padding: 11px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #ddd;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    /* Map screen */
+    .mapcard {
+      max-width: 640px;
+    }
+
+    #svgwrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 6px 0 14px 0;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      background: var(--light);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+    }
+
+    .stat .num {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--red);
+    }
+
+    .stat .lbl {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .debrief {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #333;
+    }
+
+    .debrief b {
+      color: var(--red);
+    }
+
+    .debrief ol {
+      padding-left: 18px;
+      margin: 10px 0;
+    }
+
+    .debrief li {
+      margin-bottom: 8px;
+    }
+
+    .facilitator-badge {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      background: var(--red);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 20px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .fac-map {
+      max-width: 900px;
+    }
+
+    .fac-map h1 {
+      font-size: 30px;
+    }
+
+    .small-link {
+      font-size: 12px;
+      color: #999;
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    /* Variante escura: aplicada de verdade quando o SO do participante prefere modo escuro.
+     Isso é a demonstração viva de SMCAS — o cartão muda de aparência sem ninguém pedir. */
+    .card.dark {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .card.dark h1 {
+      color: var(--white);
+    }
+
+    .card.dark p.lead {
+      color: #c9c9c9;
+    }
+
+    .card.dark .sysmsg {
+      background: #2f2b2c;
+      color: #eee;
+      border-left-color: var(--pink);
+    }
+
+    .card.dark .slider-labels {
+      color: #bbb;
+    }
+
+    .card.dark .choice {
+      background: #2f2b2c;
+      border-color: #2f2b2c;
+      color: #eee;
+    }
+
+    .card.dark .choice:hover {
+      border-color: var(--pink);
+    }
+
+    .card.dark .choice.selected {
+      border-color: var(--red);
+      background: #3a1416;
+    }
+
+    .card.dark .btn-secondary {
+      background: #2f2b2c;
+      color: white;
+    }
+
+    .card.dark .stat {
+      background: #2f2b2c;
+    }
+
+    .card.dark .stat .lbl {
+      color: #bbb;
+    }
+
+    .card.dark .debrief {
+      color: #ddd;
+    }
+
+    .card.dark .hint {
+      color: #999;
+    }
+
+    .card.dark .small-link {
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script type="module">
+    // ====== CONFIGURAÇÃO DO FIREBASE ======
+    // 1) Crie um projeto em https://console.firebase.google.com (gratuito)
+    // 2) Ative "Firestore Database" (modo produção) em Build > Firestore Database
+    // 3) Em Configurações do projeto > Geral > "Seus apps" > Web (</>), copie o objeto
+    //    firebaseConfig gerado e cole abaixo, substituindo os valores de exemplo.
+    // 4) Em Firestore > Regras, cole (e ajuste o prazo de expiração):
+    //
+    //    rules_version = '2';
+    //    service cloud.firestore {
+    //      match /databases/{database}/documents {
+    //        match /sessions/{sessionId} {
+    //          allow read, write: if true;
+    //          match /responses/{responseId} {
+    //            allow read, write: if true;
+    //          }
+    //        }
+    //      }
+    //    }
+    //
+    //    ATENÇÃO: isso libera escrita para qualquer pessoa com o link do app,
+    //    sem autenticação — aceitável para um workshop pontual. Delete o
+    //    projeto (ou aperte as regras) depois de usar.
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getFirestore, doc, collection, setDoc, deleteDoc,
+      onSnapshot, getDocs, runTransaction
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAMKRzexQAX-60VPUdUkQ5eKQTao35ekyQ",
+      authDomain: "css-3-categories.firebaseapp.com",
+      projectId: "css-3-categories",
+      storageBucket: "css-3-categories.firebasestorage.app",
+      messagingSenderId: "914361950201",
+      appId: "1:914361950201:web:194b33b6b03b80c6e62728"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const fbApp = initializeApp(firebaseConfig);
+    const db = getFirestore(fbApp);
+
+    // Expondo no escopo global para o restante do script (não-módulo) usar.
+    window.__fb = { db, doc, collection, setDoc, deleteDoc, onSnapshot, getDocs, runTransaction };
+    window.dispatchEvent(new Event('fb-ready'));
+  </script>
+  <script>
+    (function () {
+      // ---------- Firestore helpers (substituem window.storage) ----------
+      // Estrutura: sessions/{sessionTag} { count }
+      //            sessions/{sessionTag}/responses/{participantId} { sm, ud, vs, device, ts }
+      function fb() { return window.__fb; }
+
+      async function saveResponse(sessionTag, participantId, payload) {
+        const { db, doc, setDoc } = fb();
+        try {
+          await setDoc(
+            doc(db, 'sessions', sessionTag, 'responses', participantId),
+            { ...payload, ts: Date.now() }
+          );
+          return true;
+        } catch (e) { console.error('Firestore save failed', e); return false; }
+      }
+
+      // Incremento atômico via transação — resolve o problema de corrida que
+      // existia na versão com window.storage (duas pessoas podiam pegar o
+      // mesmo número se entrassem no mesmo instante).
+      async function nextArrivalNumber(sessionTag) {
+        const { db, doc, runTransaction } = fb();
+        const ref = doc(db, 'sessions', sessionTag);
+        try {
+          const newCount = await runTransaction(db, async (tx) => {
+            const snap = await tx.get(ref);
+            const current = snap.exists() ? (snap.data().count || 0) : 0;
+            const next = current + 1;
+            tx.set(ref, { count: next }, { merge: true });
+            return next;
+          });
+          return newCount;
+        } catch (e) { console.error('Firestore transaction failed', e); return 1; }
+      }
+
+      function subscribeResponses(sessionTag, onChange) {
+        const { db, collection, onSnapshot } = fb();
+        return onSnapshot(collection(db, 'sessions', sessionTag, 'responses'), (snap) => {
+          const dots = [];
+          snap.forEach(d => dots.push(d.data()));
+          onChange(dots);
+        }, (err) => { console.error('Firestore listener error', err); });
+      }
+
+      async function resetSession(sessionTag) {
+        const { db, doc, collection, getDocs, deleteDoc, setDoc } = fb();
+        try {
+          const snap = await getDocs(collection(db, 'sessions', sessionTag, 'responses'));
+          const deletions = [];
+          snap.forEach(d => deletions.push(deleteDoc(d.ref)));
+          await Promise.all(deletions);
+          await setDoc(doc(db, 'sessions', sessionTag), { count: 0 }, { merge: true });
+        } catch (e) { console.error('Firestore reset failed', e); }
+      }
+
+      // ---------- state ----------
+      const params = new URLSearchParams(location.search);
+      const isFacilitator = params.get('facilitador') === '1' || params.get('facilitator') === '1';
+      let sessionTag = (params.get('sessao') || 'geral').replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 40) || 'geral';
+      const participantId = 'p' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
+
+      const answers = { device: null, sm: 5, ud: 5, vs: null };
+
+      // Sinais que realmente variam entre participantes, mesmo em sessão síncrona
+      // no mesmo fuso horário — diferente de hora do dia, que seria igual para todos.
+      const isMobile = window.innerWidth < 640;
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+      answers.device = isMobile ? 'mobile' : 'desktop';
+
+      function detectOS() {
+        const ua = navigator.userAgent || '';
+        if (/Windows/i.test(ua)) return 'Windows';
+        if (/Android/i.test(ua)) return 'Android';
+        if (/iPhone|iPad|iPod/i.test(ua)) return 'iOS';
+        if (/Macintosh|Mac OS X/i.test(ua)) return 'macOS';
+        if (/Linux/i.test(ua)) return 'Linux';
+        return 'Outro';
+      }
+      const osName = detectOS();
+      const locale = navigator.language || 'desconhecido';
+      const sysTz = (Intl.DateTimeFormat().resolvedOptions().timeZone) || 'desconhecido';
+
+      // Geolocalização aproximada por IP — não é GPS, é uma estimativa (às vezes
+      // erra por dezenas de km, e mostra o servidor em vez da pessoa se houver VPN).
+      // Serviço externo (geojs.io); se a rede bloquear, degradamos silenciosamente.
+      let geo = { city: null, region: null, country: null, lat: null, lon: null };
+      async function fetchGeo() {
+        try {
+          // Sem AbortController aqui de propósito: em ambientes com proxy de rede
+          // (ex: sandbox de artefato), options com AbortSignal podem causar
+          // DataCloneError. Timeout via Promise.race em vez de sinal de cancelamento.
+          const fetchPromise = fetch('https://get.geojs.io/v1/ip/geo.json').then(r => r.json());
+          const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('geo timeout')), 4000));
+          const data = await Promise.race([fetchPromise, timeoutPromise]);
+          geo = {
+            city: data.city || null,
+            region: data.region || null,
+            country: data.country || null,
+            lat: data.latitude ? parseFloat(data.latitude) : null,
+            lon: data.longitude ? parseFloat(data.longitude) : null
+          };
+        } catch (e) {
+          console.warn('Geolocaliza\u00e7\u00e3o por IP indispon\u00edvel', e);
+        }
+        return geo;
+      }
+
+      const cardCls = 'card' + (prefersDark ? ' dark' : '');
+
+      const app = document.getElementById('app');
+
+      // Ordem de chegada nesta sessão — o sistema reagindo ao seu próprio estado
+      // interno (quantas pessoas já entraram), não a algo sobre você individualmente.
+      async function getArrivalNumber() {
+        return await nextArrivalNumber(sessionTag);
+      }
+
+      function progressBar(step, total) {
+        let html = '<div class="progress">';
+        for (let i = 0; i < total; i++) {
+          html += `<i class="${i < step ? 'done' : ''}"></i>`;
+        }
+        html += '</div>';
+        return html;
+      }
+
+      // ---------- SCREEN 0: landing (silent SMCAS demo) ----------
+      async function renderLanding() {
+        app.innerHTML = `<div class="${cardCls}"><p class="lead">carregando\u2026</p></div>`;
+        const [arrivalNumber] = await Promise.all([getArrivalNumber(), fetchGeo()]);
+        const entradaTxt = isTouch ? 'toque' : 'mouse/trackpad';
+        const temaTxt = prefersDark ? 'escuro' : 'claro';
+        const localTxt = geo.city
+          ? `${geo.city}${geo.region ? ', ' + geo.region : ''}${geo.country ? ' (' + geo.country + ')' : ''}`
+          : null;
+        app.innerHTML = `
+      <div class="${cardCls}">
+        <div class="eyebrow">Antes de come\u00e7armos</div>
+        <h1>Este sistema j\u00e1 sabia v\u00e1rias coisas sobre voc\u00ea antes de perguntar.</h1>
+        <div class="sysmsg">
+          <b>Sistema:</b> voc\u00ea \u00e9 a <b>${arrivalNumber}\u00aa pessoa</b> a entrar
+          nesta sess\u00e3o. Detectei um <b>${isMobile ? 'celular' : 'computador'}</b>
+          rodando <b>${osName}</b>, entrada por <b>${entradaTxt}</b>, tema
+          <b>${temaTxt}</b>${localTxt ? `, e \u2014 pelo seu IP, sem voc\u00ea digitar nada \u2014
+          algo perto de <b>${localTxt}</b>` : ''}. Fuso do sistema: <b>${sysTz}</b>.
+        </div>
+        <p class="lead">Nada disso veio de um formul\u00e1rio. Nenhuma dessas informa\u00e7\u00f5es
+        exigiu permiss\u00e3o de localiza\u00e7\u00e3o do navegador \u2014 s\u00e3o coisas que qualquer site
+        capta por padr\u00e3o. Guarde isso: no final, vamos ver o quanto disso, somado
+        entre todo mundo, forma um retrato bem preciso do grupo.</p>
+        <button class="btn-primary" id="start">Entrar na din\u00e2mica</button>
+        ${isFacilitator ? '' : `<div class="small-link">Sess\u00e3o: <b>${sessionTag}</b></div>`}
+      </div>
+    `;
+        document.getElementById('start').onclick = renderQ1;
+      }
+
+      // ---------- SCREEN 1: Q_SM slider ----------
+      function renderQ1() {
+        app.innerHTML = `
+      <div class="${cardCls}">
+        ${progressBar(1, 3)}
+        <div class="eyebrow">Pergunta 1 de 3</div>
+        <h1>O quanto voc\u00ea confia no piloto autom\u00e1tico?</h1>
+        <p class="lead">Pense nos sistemas que voc\u00ea usa no trabalho ou no dia a dia.</p>
+        <div class="slider-wrap">
+          <input type="range" min="0" max="10" value="5" id="slider1">
+          <div class="slider-labels">
+            <span>Prefiro controlar tudo eu mesmo(a), mesmo que d\u00ea mais trabalho</span>
+            <span>Prefiro que o sistema decida e otimize sozinho, mesmo sem eu ver como</span>
+          </div>
+        </div>
+        <button class="btn-primary" id="next" style="margin-top:22px;">Continuar</button>
+      </div>
+    `;
+        document.getElementById('next').onclick = function () {
+          answers.sm = parseInt(document.getElementById('slider1').value, 10);
+          renderQ2();
+        };
+      }
+
+      // ---------- SCREEN 2: Q_UD slider (question text branches on Q1) ----------
+      function renderQ2() {
+        const leanAuto = answers.sm >= 6;
+        const leanManual = answers.sm <= 4;
+        let framing;
+        if (leanAuto) {
+          framing = 'Voc\u00ea disse que confia no piloto autom\u00e1tico. Mesmo assim:';
+        } else if (leanManual) {
+          framing = 'Voc\u00ea disse que prefere controlar tudo. Ainda assim:';
+        } else {
+          framing = 'Voc\u00ea ficou no meio-termo na pergunta anterior. Agora:';
+        }
+        app.innerHTML = `
+      <div class="${cardCls}">
+        ${progressBar(2, 3)}
+        <div class="eyebrow">Pergunta 2 de 3</div>
+        <h1>${framing} o sistema deveria mudar de cara conforme voc\u00ea?</h1>
+        <p class="lead">Repare: esta pergunta j\u00e1 foi reescrita com base na sua resposta anterior.</p>
+        <div class="slider-wrap">
+          <input type="range" min="0" max="10" value="5" id="slider2">
+          <div class="slider-labels">
+            <span>Prefiro sempre a mesma experi\u00eancia, para todo mundo</span>
+            <span>Prefiro que se adapte a mim: hor\u00e1rio, dispositivo, experi\u00eancia</span>
+          </div>
+        </div>
+        <button class="btn-primary" id="next" style="margin-top:22px;">Continuar</button>
+      </div>
+    `;
+        document.getElementById('next').onclick = function () {
+          answers.ud = parseInt(document.getElementById('slider2').value, 10);
+          renderQ3();
+        };
+      }
+
+      // ---------- SCREEN 3: Q_VS forced binary choice ----------
+      function renderQ3() {
+        app.innerHTML = `
+      <div class="${cardCls}">
+        ${progressBar(3, 3)}
+        <div class="eyebrow">Pergunta 3 de 3 \u2014 sem meio-termo</div>
+        <h1>Se voc\u00ea tivesse que escolher, sem meio-termo:</h1>
+        <div class="choice-grid">
+          <div class="choice" data-v="personalizacao">
+            <b>Personaliza\u00e7\u00e3o m\u00e1xima</b>
+            O sistema usa tudo que sabe sobre mim para me atender melhor, mesmo que isso signifique menos privacidade.
+          </div>
+          <div class="choice" data-v="privacidade">
+            <b>Privacidade m\u00e1xima</b>
+            O sistema sabe o m\u00ednimo poss\u00edvel sobre mim, mesmo perdendo precis\u00e3o e personaliza\u00e7\u00e3o.
+          </div>
+        </div>
+        <button class="btn-primary" id="submit" style="margin-top:10px;" disabled>Ver o mapa coletivo</button>
+      </div>
+    `;
+        let chosen = null;
+        document.querySelectorAll('.choice').forEach(el => {
+          el.onclick = function () {
+            document.querySelectorAll('.choice').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+            chosen = el.dataset.v;
+            document.getElementById('submit').disabled = false;
+          };
+        });
+        document.getElementById('submit').onclick = async function () {
+          answers.vs = chosen;
+          await submitAndShowMap();
+        };
+      }
+
+      // ---------- scoring: barycentric normalization ----------
+      function computeBary(a) {
+        const smRaw = a.sm;                 // 0-10
+        const udRaw = a.ud;                 // 0-10
+        const vsRaw = a.vs === 'privacidade' ? 9 : 2; // forced choice -> weight
+        const sum = smRaw + udRaw + vsRaw;
+        const sm = sum > 0 ? smRaw / sum : 1 / 3;
+        const ud = sum > 0 ? udRaw / sum : 1 / 3;
+        const vs = sum > 0 ? vsRaw / sum : 1 / 3;
+        return { sm, ud, vs };
+      }
+
+      async function submitAndShowMap() {
+        const bary = computeBary(answers);
+        const payload = {
+          sm: bary.sm, ud: bary.ud, vs: bary.vs,
+          device: answers.device,
+          os: osName, locale: locale, tz: sysTz,
+          city: geo.city, region: geo.region, country: geo.country,
+          lat: geo.lat, lon: geo.lon
+        };
+        await saveResponse(sessionTag, participantId, payload);
+        renderMap(bary);
+      }
+
+      // ---------- triangle math ----------
+      // vertices in SVG space (viewBox 0 0 320 300)
+      const V = {
+        SM: { x: 160, y: 20 },   // top = SMCAS
+        UD: { x: 20, y: 270 },  // bottom-left = UDCAS
+        VS: { x: 300, y: 270 }   // bottom-right = VSCAS
+      };
+      function toXY(bary) {
+        return {
+          x: bary.sm * V.SM.x + bary.ud * V.UD.x + bary.vs * V.VS.x,
+          y: bary.sm * V.SM.y + bary.ud * V.UD.y + bary.vs * V.VS.y
+        };
+      }
+
+      function svgTriangle(dots, myXY) {
+        let dotSvg = dots.map(d => {
+          const p = toXY(d);
+          return `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5.5" fill="#231F20" fill-opacity="0.55" stroke="white" stroke-width="1"/>`;
+        }).join('');
+        let mySvg = '';
+        if (myXY) {
+          mySvg = `<circle cx="${myXY.x.toFixed(1)}" cy="${myXY.y.toFixed(1)}" r="9" fill="#E8172D" stroke="white" stroke-width="2.5"/>`;
+        }
+        let centroidSvg = '';
+        if (dots.length > 0) {
+          const avg = dots.reduce((acc, d) => ({ sm: acc.sm + d.sm, ud: acc.ud + d.ud, vs: acc.vs + d.vs }), { sm: 0, ud: 0, vs: 0 });
+          const n = dots.length;
+          const avgBary = { sm: avg.sm / n, ud: avg.ud / n, vs: avg.vs / n };
+          const c = toXY(avgBary);
+          centroidSvg = `<circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="7" fill="none" stroke="#F16978" stroke-width="2.5" stroke-dasharray="3,3"/>`;
+        }
+        return `
+      <svg viewBox="0 0 320 300" width="100%" style="max-width:420px;">
+        <polygon points="${V.SM.x},${V.SM.y} ${V.UD.x},${V.UD.y} ${V.VS.x},${V.VS.y}"
+                 fill="#F2F2F2" stroke="#ddd" stroke-width="1.5"/>
+        ${dotSvg}
+        ${centroidSvg}
+        ${mySvg}
+        <text x="${V.SM.x}" y="${V.SM.y - 8}" text-anchor="middle" font-size="12" font-weight="800" fill="#E8172D">SMCAS</text>
+        <text x="${V.UD.x - 4}" y="${V.UD.y + 20}" text-anchor="start" font-size="12" font-weight="800" fill="#E8172D">UDCAS</text>
+        <text x="${V.VS.x + 4}" y="${V.VS.y + 20}" text-anchor="end" font-size="12" font-weight="800" fill="#E8172D">VSCAS</text>
+      </svg>
+    `;
+      }
+
+      // ---------- Mapa de proximidade (geolocalização aproximada por IP) ----------
+      // Não é um mapa cartográfico real (sem contornos de continente) — é uma
+      // grade lat/long simples e honesta sobre sua própria imprecisão.
+      function geoToXY(lat, lon) {
+        // Equiretangular simples. viewBox 0 0 360 200. lon -180..180 -> x 0..360. lat 90..-90 -> y 0..200.
+        const x = (lon + 180) * (360 / 360);
+        const y = (90 - lat) * (200 / 180);
+        return { x, y };
+      }
+
+      function svgClusterMap(dots) {
+        const withGeo = dots.filter(d => typeof d.lat === 'number' && typeof d.lon === 'number');
+        if (withGeo.length === 0) {
+          return '<p class="hint" style="text-align:center;padding:20px 0;">Ainda sem localizações suficientes para plotar.</p>';
+        }
+        // Agrupa por cidade para mostrar contagem em vez de pontos 100% sobrepostos.
+        const groups = {};
+        withGeo.forEach(d => {
+          const key = `${d.city || '?'}|${d.country || '?'}`;
+          if (!groups[key]) groups[key] = { city: d.city, country: d.country, lat: d.lat, lon: d.lon, count: 0 };
+          groups[key].count += 1;
+        });
+        const pts = Object.values(groups);
+        const maxCount = Math.max(...pts.map(p => p.count));
+        const graticule = [];
+        for (let gx = 0; gx <= 360; gx += 30) { graticule.push(`<line x1="${gx}" y1="0" x2="${gx}" y2="200" stroke="#e6e6e6" stroke-width="0.5"/>`); }
+        for (let gy = 0; gy <= 200; gy += 20) { graticule.push(`<line x1="0" y1="${gy}" x2="360" y2="${gy}" stroke="#e6e6e6" stroke-width="0.5"/>`); }
+        const dotsSvg = pts.map(p => {
+          const xy = geoToXY(p.lat, p.lon);
+          const r = 4 + (p.count / maxCount) * 10;
+          const label = `${p.city || 'Local desconhecido'}${p.city && p.country ? ', ' : ''}${p.country || ''} (${p.count})`;
+          return `<g>
+        <circle cx="${xy.x.toFixed(1)}" cy="${xy.y.toFixed(1)}" r="${r.toFixed(1)}" fill="#E8172D" fill-opacity="0.55" stroke="white" stroke-width="1"/>
+        <text x="${xy.x.toFixed(1)}" y="${(xy.y - r - 3).toFixed(1)}" text-anchor="middle" font-size="7" fill="#231F20">${label}</text>
+      </g>`;
+        }).join('');
+        return `
+      <svg viewBox="0 0 360 200" width="100%" style="max-width:560px;background:#fafafa;border-radius:8px;">
+        ${graticule.join('')}
+        <line x1="180" y1="0" x2="180" y2="200" stroke="#ccc" stroke-width="1"/>
+        <line x1="0" y1="100" x2="360" y2="100" stroke="#ccc" stroke-width="1"/>
+        ${dotsSvg}
+      </svg>
+      <p class="hint" style="text-align:center;">Posições aproximadas por IP (n\u00e3o \u00e9 GPS) \u2014 ilustrativo, n\u00e3o cartogr\u00e1fico.</p>
+    `;
+      }
+
+      function breakdownHtml(dots) {
+        const osCounts = {};
+        const deviceCounts = {};
+        const themeCounts = { claro: 0, escuro: 0 };
+        dots.forEach(d => {
+          const os = d.os || 'Desconhecido';
+          osCounts[os] = (osCounts[os] || 0) + 1;
+          const dev = d.device === 'mobile' ? 'M\u00f3vel' : (d.device === 'manual' ? 'Manual' : 'Desktop');
+          deviceCounts[dev] = (deviceCounts[dev] || 0) + 1;
+        });
+        function bars(counts) {
+          const total = Object.values(counts).reduce((a, b) => a + b, 0) || 1;
+          return Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([k, v]) => `
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <div style="width:70px;font-size:11.5px;color:#555;">${k}</div>
+          <div style="flex:1;background:#eee;border-radius:4px;overflow:hidden;height:10px;">
+            <div style="width:${(v / total * 100).toFixed(0)}%;background:#E8172D;height:100%;"></div>
+          </div>
+          <div style="width:22px;font-size:11.5px;color:#555;text-align:right;">${v}</div>
+        </div>`).join('');
+        }
+        return `
+      <div style="margin-top:10px;">
+        <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:8px;">Sistema operacional</div>
+        ${bars(osCounts)}
+        <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;margin:14px 0 8px 0;">Tipo de dispositivo</div>
+        ${bars(deviceCounts)}
+      </div>
+    `;
+      }
+
+      let unsubscribe = null;
+
+      function renderMap(myBary) {
+        const myXY = myBary ? toXY(myBary) : null;
+        app.innerHTML = `
+      <div class="${cardCls} mapcard">
+        <div class="eyebrow">Mapa coletivo \u2014 sess\u00e3o "${sessionTag}"</div>
+        <h1>Onde o grupo est\u00e1 caindo, agora?</h1>
+        <div class="stat">
+          <div><div class="lbl">participantes at\u00e9 agora</div><div class="num" id="countnum">\u2026</div></div>
+          <div style="text-align:right;"><div class="lbl">seu ponto</div><div class="num" style="color:#231F20;">\u25CF vermelho</div></div>
+        </div>
+        <div id="svgwrap"><div style="padding:40px 0;color:#888;">carregando\u2026</div></div>
+        <div class="debrief">
+          <b>O que acabou de acontecer:</b>
+          <ol>
+            <li>O sistema reagiu \u00e0 sua ordem de chegada, aparelho, entrada e tema <b>sem perguntar</b> \u2014 isso \u00e9 <b>SMCAS</b> (otimiza\u00e7\u00e3o/rea\u00e7\u00e3o interna a estado do pr\u00f3prio sistema).</li>
+            <li>A 2\u00aa pergunta mudou de reda\u00e7\u00e3o <b>por causa da sua resposta</b> \u00e0 1\u00aa \u2014 isso \u00e9 <b>UDCAS</b> (adapta\u00e7\u00e3o \u00e0 situa\u00e7\u00e3o do usu\u00e1rio).</li>
+            <li>A 3\u00aa pergunta te for\u00e7ou a escolher <b>um valor</b>, sem meio-termo \u2014 isso \u00e9 <b>VSCAS</b> (sensibilidade a valores).</li>
+          </ol>
+          <b>Agora olhem o mapa juntos:</b> o grupo est\u00e1 puxando mais para algum v\u00e9rtice? Isso diz algo sobre como esta organiza\u00e7\u00e3o tende a projetar sistemas?
+        </div>
+
+        <div style="border-top:1px solid #eee;margin-top:20px;padding-top:18px;">
+          <div class="eyebrow">Sem voc\u00ea revelar nada</div>
+          <h1 style="font-size:17px;">O que o sistema j\u00e1 sabia sobre o grupo</h1>
+          <div id="clusterwrap"><div style="padding:20px 0;color:#888;">carregando\u2026</div></div>
+          <div id="breakdownwrap"></div>
+        </div>
+      </div>
+    `;
+        if (unsubscribe) unsubscribe();
+        unsubscribe = subscribeResponses(sessionTag, (dots) => {
+          document.getElementById('countnum').textContent = dots.length;
+          document.getElementById('svgwrap').innerHTML = svgTriangle(dots, myXY);
+          document.getElementById('clusterwrap').innerHTML = svgClusterMap(dots);
+          document.getElementById('breakdownwrap').innerHTML = breakdownHtml(dots);
+        });
+      }
+
+      // ---------- Facilitator screen (projection, no questions) ----------
+      function renderFacilitator() {
+        document.body.insertAdjacentHTML('afterbegin', '<div class="facilitator-badge">Modo facilitador</div>');
+        app.innerHTML = `
+      <div class="${cardCls} fac-map">
+        <div class="eyebrow">Sess\u00e3o "${sessionTag}" \u2014 vis\u00e3o de proje\u00e7\u00e3o</div>
+        <h1>Mapa coletivo ao vivo</h1>
+        <div class="stat">
+          <div><div class="lbl">participantes</div><div class="num" id="countnum">\u2026</div></div>
+          <button class="btn-secondary" id="resetBtn" style="width:auto;padding:10px 18px;">Reiniciar rodada</button>
+        </div>
+        <div id="svgwrap"><div style="padding:40px 0;color:#888;">carregando\u2026</div></div>
+        <p class="hint">Compartilhe o link sem "?facilitador=1" com os participantes.
+        Todos que entrarem com <b>?sessao=${sessionTag}</b> aparecem aqui.</p>
+
+        <div style="border-top:1px solid #eee;margin-top:18px;padding-top:16px;">
+          <div class="eyebrow">Reforço para o debrief final</div>
+          <h1 style="font-size:19px;">Onde est\u00e1 o grupo, e em que rodam</h1>
+          <div id="clusterwrap"><div style="padding:20px 0;color:#888;">carregando\u2026</div></div>
+          <div id="breakdownwrap"></div>
+        </div>
+
+        <div style="border-top:1px solid #eee;margin-top:18px;padding-top:16px;">
+          <button class="btn-secondary" id="manualToggle" style="background:transparent;border:1.5px dashed #ccc;">
+            + Adicionar resposta manual (para quem n\u00e3o conseguiu conectar)
+          </button>
+          <div id="manualPanel" style="display:none;margin-top:14px;">
+            <div class="slider-wrap">
+              <div class="slider-labels"><span>Controlar tudo</span><span>Piloto autom\u00e1tico</span></div>
+              <input type="range" min="0" max="10" value="5" id="manualSm">
+            </div>
+            <div class="slider-wrap">
+              <div class="slider-labels"><span>Sempre igual</span><span>Se adapta a mim</span></div>
+              <input type="range" min="0" max="10" value="5" id="manualUd">
+            </div>
+            <div class="choice-grid" style="margin-top:14px;">
+              <div class="choice" data-v="personalizacao" id="manualChoiceA"><b>Personaliza\u00e7\u00e3o m\u00e1xima</b></div>
+              <div class="choice" data-v="privacidade" id="manualChoiceB"><b>Privacidade m\u00e1xima</b></div>
+            </div>
+            <button class="btn-primary" id="manualAdd" style="margin-top:12px;" disabled>Adicionar ao mapa</button>
+          </div>
+        </div>
+      </div>
+    `;
+        document.getElementById('resetBtn').onclick = async function () {
+          if (!confirm('Isso apaga todas as respostas desta sess\u00e3o. Confirmar?')) return;
+          await resetSession(sessionTag);
+        };
+
+        // Entrada manual — cobre quem não conseguiu conectar pela rede institucional.
+        document.getElementById('manualToggle').onclick = function () {
+          const panel = document.getElementById('manualPanel');
+          panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        };
+        let manualVs = null;
+        document.getElementById('manualChoiceA').onclick = function () {
+          manualVs = 'personalizacao';
+          document.getElementById('manualChoiceA').classList.add('selected');
+          document.getElementById('manualChoiceB').classList.remove('selected');
+          document.getElementById('manualAdd').disabled = false;
+        };
+        document.getElementById('manualChoiceB').onclick = function () {
+          manualVs = 'privacidade';
+          document.getElementById('manualChoiceB').classList.add('selected');
+          document.getElementById('manualChoiceA').classList.remove('selected');
+          document.getElementById('manualAdd').disabled = false;
+        };
+        document.getElementById('manualAdd').onclick = async function () {
+          const sm = parseInt(document.getElementById('manualSm').value, 10);
+          const ud = parseInt(document.getElementById('manualUd').value, 10);
+          const bary = computeBary({ sm, ud, vs: manualVs });
+          const manualId = 'manual-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+          await saveResponse(sessionTag, manualId, { sm: bary.sm, ud: bary.ud, vs: bary.vs, device: 'manual' });
+          document.getElementById('manualPanel').style.display = 'none';
+          document.getElementById('manualAdd').disabled = true;
+          manualVs = null;
+          document.querySelectorAll('#manualPanel .choice').forEach(c => c.classList.remove('selected'));
+        };
+        if (unsubscribe) unsubscribe();
+        unsubscribe = subscribeResponses(sessionTag, (dots) => {
+          document.getElementById('countnum').textContent = dots.length;
+          document.getElementById('svgwrap').innerHTML = svgTriangle(dots, null);
+          document.getElementById('clusterwrap').innerHTML = svgClusterMap(dots);
+          document.getElementById('breakdownwrap').innerHTML = breakdownHtml(dots);
+        });
+      }
+
+      // ---------- boot com fallback de rede ----------
+      // Redes institucionais (universidade/empresa) por vezes bloqueiam domínios
+      // do Google Cloud. Se o Firestore não responder em 6s, mostramos uma saída
+      // clara em vez de deixar a pessoa presa em "carregando...".
+      let resolved = false;
+      function boot() {
+        resolved = true;
+        if (isFacilitator) {
+          renderFacilitator();
+        } else {
+          renderLanding();
+        }
+      }
+      function renderConnectionIssue() {
+        app.innerHTML = `
+      <div class="card">
+        <div class="eyebrow">Conex\u00e3o lenta ou bloqueada</div>
+        <h1>N\u00e3o consegui falar com o banco de dados.</h1>
+        <p class="lead">Isso costuma acontecer quando a rede local (universidade, empresa)
+        bloqueia dom\u00ednios do Google Cloud.</p>
+        <div class="sysmsg">
+          <b>1.</b> Se poss\u00edvel, troque para <b>dados m\u00f3veis do celular</b> ou um hotspot pessoal.<br><br>
+          <b>2.</b> Clique em "Tentar novamente" abaixo.<br><br>
+          <b>3.</b> Se continuar travado, avise o facilitador pelo chat/voz \u2014 ele pode
+          adicionar sua resposta manualmente, sem voc\u00ea perder a din\u00e2mica.
+        </div>
+        <button class="btn-primary" onclick="location.reload()">Tentar novamente</button>
+      </div>
+    `;
+      }
+      if (window.__fb) {
+        boot();
+      } else {
+        window.addEventListener('fb-ready', function () { if (!resolved) boot(); });
+        setTimeout(function () { if (!resolved) renderConnectionIssue(); }, 6000);
+      }
+    })();
+  </script>
+</body>
+
+</html>
