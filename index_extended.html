@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>70 coisas que este site decidiu por você</title>
+  <meta name="description" content="Painel de evidências: o que um sistema adapta sobre você sem exibir um único prompt de permissão.">
+  <style>
+    :root {
+      --ink: #231F20;
+      --ink-deep: #171415;
+      --paper: #FFFFFF;
+      --paper-2: #F2F2F2;
+      --signal: #E8172D;
+      --signal-2: #F16978;
+      --graphite: #6B6567;
+      --held: #2E7D5B;
+
+      --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+      --gut: clamp(20px, 4vw, 56px);
+      --rule: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--ui);
+      -webkit-font-smoothing: antialiased;
+      /* Papel milimetrado: a página é um instrumento, não um folheto. */
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .028) 1px, transparent 1px);
+      background-size: 34px 34px, 34px 34px;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 var(--gut);
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--signal-2);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ---------- barra de estado ---------- */
+    .statusbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(23, 20, 21, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: var(--rule);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .statusbar .wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 42px;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .statusbar .live,
+    .statusbar .clock {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 620px) {
+      .only-wide { display: none; }
+      .statusbar .wrap { gap: 10px; }
+    }
+
+    .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--signal-2);
+      white-space: nowrap;
+    }
+
+    .blip {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--signal);
+      box-shadow: 0 0 0 0 rgba(232, 23, 45, .7);
+      animation: pulse 2.2s infinite;
+      flex: none;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 9px rgba(232, 23, 45, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(232, 23, 45, 0); }
+    }
+
+    .statusbar .clock { color: rgba(255, 255, 255, .55); white-space: nowrap; }
+    .statusbar .clock b { color: var(--paper); font-weight: 600; }
+
+    /* ---------- hero ---------- */
+    .hero { padding: clamp(56px, 11vw, 128px) 0 clamp(34px, 5vw, 60px); }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--signal);
+      margin: 0 0 22px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7.4vw, 86px);
+      line-height: .98;
+      letter-spacing: -.035em;
+      font-weight: 800;
+      margin: 0;
+      max-width: 17ch;
+    }
+
+    h1 .count {
+      font-family: var(--mono);
+      font-weight: 700;
+      color: var(--signal);
+      letter-spacing: -.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lede {
+      margin: 30px 0 0;
+      max-width: 62ch;
+      font-size: clamp(15.5px, 1.5vw, 18px);
+      line-height: 1.6;
+      color: rgba(255, 255, 255, .74);
+    }
+
+    .lede b { color: var(--paper); font-weight: 600; }
+
+    .receipt {
+      margin-top: 26px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 6px 22px;
+      padding: 13px 18px;
+      border: var(--rule);
+      border-left: 3px solid var(--held);
+      background: rgba(46, 125, 91, .09);
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: .04em;
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .receipt span { white-space: nowrap; }
+    .receipt b { color: #7FD8B2; font-weight: 600; }
+
+    /* ---------- decisões ---------- */
+    .decisions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      gap: 2px;
+      background: rgba(255, 255, 255, .12);
+      border: var(--rule);
+      margin: clamp(38px, 6vw, 66px) 0 0;
+    }
+
+    .dec {
+      background: var(--paper);
+      color: var(--ink);
+      padding: 20px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      min-height: 158px;
+    }
+
+    .dec .icon { color: var(--signal); }
+    .dec .k {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--graphite);
+    }
+    .dec .v {
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: -.015em;
+      margin-top: auto;
+    }
+    .dec .why {
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.45;
+      color: var(--graphite);
+      border-top: 1px solid var(--paper-2);
+      padding-top: 9px;
+    }
+
+    /* ---------- famílias ---------- */
+    .fam { padding: clamp(48px, 7vw, 86px) 0 0; }
+
+    .fam-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-bottom: 18px;
+      border-bottom: var(--rule);
+      margin-bottom: 22px;
+    }
+
+    .fam-head h2 {
+      font-size: clamp(21px, 2.6vw, 29px);
+      letter-spacing: -.02em;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .fam-head .n {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--signal-2);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .fam-head p {
+      margin: 0;
+      flex-basis: 100%;
+      max-width: 66ch;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+      gap: 12px;
+    }
+
+    /* ---------- célula: a assinatura ---------- */
+    .cell {
+      background: var(--paper);
+      color: var(--ink);
+      padding: 15px 15px 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .5s ease, transform .5s ease;
+      transition-delay: var(--d, 0ms);
+    }
+
+    .cell.on { opacity: 1; transform: none; }
+
+    .cell-top {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .cell-top .icon { color: var(--signal); flex: none; }
+
+    .cell-top h3 {
+      margin: 0;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: -.005em;
+      line-height: 1.25;
+    }
+
+    .rows { display: grid; gap: 5px; }
+
+    .row {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 9px;
+      align-items: baseline;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      line-height: 1.4;
+    }
+
+    .row .lbl {
+      font-size: 9.5px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #A9A3A5;
+    }
+
+    .row.was .val {
+      color: var(--graphite);
+      transition: color .45s ease .18s;
+    }
+
+    .cell.on .row.was .val {
+      color: #B8B2B4;
+      text-decoration: line-through;
+      text-decoration-color: rgba(232, 23, 45, .55);
+    }
+
+    .row .val { overflow-wrap: anywhere; min-width: 0; }
+
+    .row.now .val {
+      color: var(--ink);
+      font-weight: 600;
+      border-left: 3px solid var(--signal);
+      padding-left: 8px;
+      margin-left: -11px;
+    }
+
+    /* estados alternativos */
+    .cell.same .row.now .val { border-left-color: #C9C4C5; }
+    .cell.same .row.was .val,
+    .cell.on.same .row.was .val { text-decoration: none; color: var(--graphite); }
+    .cell.held { background: #F6FAF8; }
+    .cell.held .cell-top .icon { color: var(--held); }
+    .cell.held .row.now .val { border-left-color: var(--held); color: var(--held); }
+    .cell.held .row.was .val,
+    .cell.on.held .row.was .val { text-decoration: none; }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-left: auto;
+      color: #C9C4C5;
+      flex: none;
+    }
+
+    .cell.diff .tag { color: var(--signal); }
+    .cell.held .tag { color: var(--held); }
+
+    /* ---------- amostras vivas ---------- */
+    .samples {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .sample {
+      background: var(--paper);
+      color: var(--ink);
+      padding: 17px;
+    }
+
+    .sample h4 {
+      margin: 0 0 4px;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+
+    .sample p {
+      margin: 0 0 14px;
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: var(--graphite);
+      font-family: var(--mono);
+    }
+
+    .split { display: flex; gap: 10px; align-items: flex-end; }
+    .split > div { flex: 1; }
+
+    .split .cap {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #A9A3A5;
+      margin-bottom: 7px;
+    }
+
+    .btn-demo {
+      display: block;
+      width: 100%;
+      border: 0;
+      background: var(--paper-2);
+      color: var(--ink);
+      font-family: var(--ui);
+      font-weight: 700;
+      border-radius: 7px;
+      cursor: default;
+      line-height: 1;
+    }
+
+    .btn-demo.tight { font-size: 11px; padding: 8px 6px; }
+    .btn-demo.loose { font-size: 13px; padding: 15px 8px; background: var(--signal); color: #fff; }
+
+    .colbars { display: flex; gap: 4px; height: 54px; }
+    .colbars i { flex: 1; background: var(--paper-2); border-radius: 3px; }
+    .colbars.mine i { background: var(--signal-2); }
+
+    .density { display: grid; gap: var(--g, 9px); }
+    .density i { display: block; height: 6px; background: var(--paper-2); border-radius: 3px; }
+    .density.mine i { background: var(--signal-2); }
+
+    .swatch { height: 54px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; }
+
+    /* ---------- limite ---------- */
+    .limit {
+      margin: clamp(52px, 8vw, 96px) 0 0;
+      border: var(--rule);
+      border-left: 3px solid var(--signal);
+      padding: clamp(24px, 4vw, 40px);
+      background: rgba(232, 23, 45, .05);
+    }
+
+    .limit h2 {
+      margin: 0 0 14px;
+      font-size: clamp(20px, 2.6vw, 30px);
+      letter-spacing: -.02em;
+      font-weight: 800;
+      max-width: 20ch;
+    }
+
+    .limit p {
+      margin: 0 0 18px;
+      max-width: 64ch;
+      font-size: 15px;
+      line-height: 1.62;
+      color: rgba(255, 255, 255, .74);
+    }
+
+    .limit ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 8px 22px;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .limit li {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      color: rgba(255, 255, 255, .45);
+      line-height: 1.45;
+    }
+
+    .limit li s { text-decoration-color: var(--signal); }
+    .limit li .icon { color: var(--signal); flex: none; margin-top: 1px; }
+
+    /* ---------- recursos ---------- */
+    .res {
+      margin: clamp(52px, 8vw, 96px) 0 0;
+    }
+
+    .res-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-bottom: 18px;
+      border-bottom: var(--rule);
+      margin-bottom: 22px;
+    }
+
+    .res-head h2 {
+      margin: 0;
+      font-size: clamp(21px, 2.6vw, 29px);
+      letter-spacing: -.02em;
+      font-weight: 800;
+    }
+
+    .res-head p {
+      margin: 0;
+      flex-basis: 100%;
+      max-width: 66ch;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 14px;
+    }
+
+    .res-card {
+      background: var(--paper);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* O preview é uma miniatura viva do documento, não uma captura: a página
+       real é embutida em escala reduzida e não recebe cliques. */
+    .res-frame {
+      position: relative;
+      height: 232px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--paper-2);
+      background: var(--paper-2);
+    }
+
+    .res-frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 0;
+      pointer-events: none;
+    }
+
+    .res-frame.scaled iframe {
+      width: 200%;
+      height: 200%;
+      transform: scale(.5);
+      transform-origin: 0 0;
+    }
+
+    /* O leitor de PDF embutido desenha a própria barra de rolagem; o quadro é
+       um pouco mais largo que o recorte para ela ficar de fora. */
+    .res-frame.plain iframe {
+      width: calc(100% + 20px);
+      height: 100%;
+    }
+
+    .res-frame .fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: var(--graphite);
+    }
+
+    .res-body {
+      padding: 17px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      flex: 1;
+    }
+
+    .res-body .k {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--signal);
+    }
+
+    .res-body h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -.015em;
+      line-height: 1.25;
+    }
+
+    .res-body p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--graphite);
+    }
+
+    .res-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .res-actions a {
+      font-family: var(--ui);
+      font-size: 12.5px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 9px 13px;
+      border-radius: 8px;
+      background: var(--paper-2);
+      color: var(--ink);
+    }
+
+    .res-actions a.go { background: var(--signal); color: #fff; }
+    .res-actions a:hover { opacity: .88; }
+
+    /* ---------- saída ---------- */
+    .outro {
+      padding: clamp(56px, 9vw, 110px) 0 clamp(60px, 9vw, 120px);
+      border-top: var(--rule);
+      margin-top: clamp(52px, 8vw, 96px);
+    }
+
+    .outro h2 {
+      font-size: clamp(24px, 4vw, 44px);
+      letter-spacing: -.03em;
+      line-height: 1.08;
+      font-weight: 800;
+      margin: 0 0 18px;
+      max-width: 20ch;
+    }
+
+    .outro p {
+      margin: 0 0 30px;
+      max-width: 58ch;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--signal);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 17px 26px;
+      border-radius: 10px;
+      transition: transform .14s ease, background .14s ease;
+    }
+
+    .cta:hover { background: #cf1428; transform: translateY(-1px); }
+    .cta:active { transform: translateY(0) scale(.99); }
+
+    .foot {
+      margin-top: 34px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, .4);
+      max-width: 70ch;
+    }
+
+    .foot a { color: rgba(255, 255, 255, .68); }
+
+    .icon { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.7; fill: none; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+    .icon-lg { width: 22px; height: 22px; }
+    .icon-sm { width: 14px; height: 14px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .cell { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Conjunto de ícones. Traço único, 24px, reaproveitado por <use>. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-hash" viewBox="0 0 24 24"><path d="M5 9h14M5 15h14M10 4 8 20M16 4l-2 16"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 20V9"/></symbol>
+      <symbol id="i-columns" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/></symbol>
+      <symbol id="i-rows" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-hand" viewBox="0 0 24 24"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V12m0-1a1.5 1.5 0 0 1 3 0v4.5a5.5 5.5 0 0 1-5.5 5.5H11a5 5 0 0 1-5-5v-4a1.5 1.5 0 0 1 3 0"/></symbol>
+      <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></symbol>
+      <symbol id="i-rotate" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></symbol>
+      <symbol id="i-fold" viewBox="0 0 24 24"><path d="M4 5v14l8-3V2L4 5ZM20 5v14l-8-3V2l8 3Z"/></symbol>
+      <symbol id="i-appwindow" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M6.5 7h.01M9 7h.01"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m4 17 5-4.5 4 3.5 3-2.5 4 3.5"/></symbol>
+      <symbol id="i-video" viewBox="0 0 24 24"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="m15 11 6-3.5v9L15 13"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5Z"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0 4-4m-4 4-4-4M4 19h16"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 14 9 5 9-5"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></symbol>
+      <symbol id="i-arrows" viewBox="0 0 24 24"><path d="M4 9h13l-3-3M20 15H7l3 3"/></symbol>
+      <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 3s6 6.4 6 10.4A6 6 0 0 1 6 13.4C6 9.4 12 3 12 3Z"/></symbol>
+      <symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 3v3M14.5 3v3M9.5 18v3M14.5 18v3M3 9.5h3M3 14.5h3M18 9.5h3M18 14.5h3"/></symbol>
+      <symbol id="i-chip" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4v4H7zM15 10h2M15 14h2"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-.6 4M20 5v6h-6"/></symbol>
+      <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+      <symbol id="i-sync" viewBox="0 0 24 24"><path d="M4 9a8 8 0 0 1 13.7-4.7L20 6M20 15a8 8 0 0 1-13.7 4.7L4 18M20 4v3h-3M4 20v-3h3"/></symbol>
+      <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="8" width="17" height="9" rx="2"/><path d="M22 11v3"/><rect x="4.5" y="10.5" width="6" height="4" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2.5 9a15 15 0 0 1 19 0M6 12.5a10 10 0 0 1 12 0M9.5 16a5 5 0 0 1 5 0"/><circle cx="12" cy="19.3" r=".9" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-wifioff" viewBox="0 0 24 24"><path d="M3 3l18 18M9.5 16a5 5 0 0 1 5 0M6 12.5a10 10 0 0 1 4-2.3M2.5 9a15 15 0 0 1 5-3.2M15 6.2A15 15 0 0 1 21.5 9"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 15V10a6 6 0 1 0-12 0v5l-2 3h16l-2-3ZM10 21h4"/></symbol>
+      <symbol id="i-history" viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1L3.5 8.5M3.5 4v4.5H8"/><path d="M12 8v4.5l3 1.8"/></symbol>
+      <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4V4Z"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-7 9 7M6 10v10h12V10"/></symbol>
+      <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></symbol>
+      <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .9-1 1.6v.4"/><circle cx="12" cy="17" r=".9" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9.5 17h5M10 20.5h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.3 1 2.1h5c0-.8.4-1.6 1-2.1A6 6 0 0 0 12 3Z"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 7h11M9 12h11M9 17h11M4.5 6.5v1.2M4 11h1v2M4 17.5h1.6M4 17.5a.8.8 0 1 1 1.4.5L4 20h1.6"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5h6a2.5 2.5 0 0 1 2 1 2.5 2.5 0 0 1 2-1h6v14h-6a2.5 2.5 0 0 0-2 1 2.5 2.5 0 0 0-2-1H4V4.5Z"/><path d="M12 5.5v14"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.4 3 7.8 7 9 4-1.2 7-4.6 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-shieldx" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.4 3 7.8 7 9 4-1.2 7-4.6 7-9V6l-7-3Z"/><path d="m10 10 4 4M14 10l-4 4"/></symbol>
+      <symbol id="i-puzzle" viewBox="0 0 24 24"><path d="M10 4h4v2.2a1.8 1.8 0 1 0 3.6 0V4H20v4h-2.2a1.8 1.8 0 1 0 0 3.6H20V20h-4v-2.2a1.8 1.8 0 1 0-3.6 0V20H4v-4h2.2a1.8 1.8 0 1 0 0-3.6H4V8h6V4Z"/></symbol>
+      <symbol id="i-tools" viewBox="0 0 24 24"><path d="m14 7 3-3a4 4 0 0 1-5 5L5.5 15.5a2.1 2.1 0 0 0 3 3L15 12a4 4 0 0 1 5-5l-3 3"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 17a8 8 0 1 1 16 0"/><path d="m12 17 4.5-5"/><circle cx="12" cy="17" r="1.2" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+      <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 12h2.5l2-6 3 13 3-16 3 12 2-3H21"/></symbol>
+      <symbol id="i-type" viewBox="0 0 24 24"><path d="M4 6.5V5h11v1.5M9.5 5v14M7 19h5"/><path d="M14 12.5V11h6v1.5M17 11v8M15.5 19h3"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.8-6 10-6 10 6 10 6-3.8 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 3.5L16 11H5"/></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-5-6 6 6-6 6"/></symbol>
+      <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m6 6 12 12"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="statusbar">
+    <div class="wrap">
+      <span class="live"><span class="blip"></span> <span id="probeState">lendo o aparelho…</span></span>
+      <span class="clock" id="clock"></span>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Sem um único prompt de permissão</p>
+      <h1>Esta página se reescreveu <span class="count" id="bigcount">—</span> vezes antes de você tocar em nada.</h1>
+      <p class="lede">A conversa sobre dados costuma começar em <b>o que você aceitou entregar</b>.
+        Ela deveria começar aqui: no que já foi lido, decidido e aplicado enquanto a página
+        carregava. Abaixo estão <b><span id="totaldim">60</span> dimensões</b> que um sistema adapta sozinho — cada uma com
+        o que um sistema genérico faria e o que <b>este</b> escolheu para o seu aparelho, agora.</p>
+      <p class="receipt" id="receipt">
+        <span><b>0</b> caixas de permissão</span>
+        <span><b>0</b> requisições de rede</span>
+        <span><b>0</b> cookies</span>
+        <span><b>0</b> campos preenchidos por você</span>
+      </p>
+
+      <div class="decisions" id="decisions"></div>
+    </div>
+  </header>
+
+  <main id="families"></main>
+
+  <div class="wrap">
+    <section class="limit">
+      <h2>O que dava para fazer e ficou de fora</h2>
+      <p>Cada item acima é adaptação: o sistema muda a si mesmo para servir melhor. A lista abaixo é
+        outra coisa — é identificação. Mesmas APIs, mesma ausência de permissão, finalidade diferente.
+        Nada disto foi executado nesta página.</p>
+      <ul>
+        <li><svg class="icon icon-sm"><use href="#i-ban"/></svg><s>Hash de canvas como identificador estável</s></li>
+        <li><svg class="icon icon-sm"><use href="#i-ban"/></svg><s>Vendor e renderer da GPU via WebGL debug info</s></li>
+        <li><svg class="icon icon-sm"><use href="#i-ban"/></svg><s>Impressão digital de áudio pelo AudioContext</s></li>
+        <li><svg class="icon icon-sm"><use href="#i-ban"/></svg><s>Lista de fontes instaladas e vozes do sistema</s></li>
+        <li><svg class="icon icon-sm"><use href="#i-ban"/></svg><s>Identificador combinado, persistente entre sessões</s></li>
+        <li><svg class="icon icon-sm"><use href="#i-ban"/></svg><s>Envio de qualquer sinal desta tela a um servidor</s></li>
+      </ul>
+    </section>
+
+    <section class="res">
+      <div class="res-head">
+        <h2>Material de apoio</h2>
+        <span class="n" style="font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal-2);margin-left:auto;">2 documentos</span>
+        <p>Os dois aprofundam o que esta tela demonstra: onde cada sinal nasce, qual adaptação
+          ele justifica e onde a mesma leitura vira identificação. Pré-visualização ao vivo,
+          abre em aba nova.</p>
+      </div>
+      <div class="res-grid">
+        <article class="res-card">
+          <div class="res-frame scaled">
+            <iframe src="resources/index.html" title="Pré-visualização do mapa de superfície contextual" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
+          </div>
+          <div class="res-body">
+            <div class="k">Página interativa</div>
+            <h3>Mapa de superfície contextual</h3>
+            <p>Doze famílias de sinais, cada uma com o que dá para observar, o que dá para
+              inferir e o que não se deve fazer. Traz a matriz “pode observar / pode inferir /
+              deve fazer” e uma leitura local do seu próprio contexto.</p>
+            <div class="res-actions">
+              <a class="go" href="resources/index.html" target="_blank" rel="noopener">Abrir a página</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="res-card">
+          <div class="res-frame plain">
+            <div class="fallback">Pré-visualização de PDF indisponível neste navegador.<br>Use “Abrir o relatório”.</div>
+            <iframe src="resources/relatorio_contexto_sem_consentimento.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0" title="Pré-visualização do relatório técnico" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
+          <div class="res-body">
+            <div class="k">Relatório técnico · PDF</div>
+            <h3>Contexto sem consentimento</h3>
+            <p>O documento longo por trás desta tela: inventário dos sinais disponíveis sem
+              prompt, separação entre contexto observado e inferido, e os limites de finalidade
+              que a disponibilidade técnica não dispensa.</p>
+            <div class="res-actions">
+              <a class="go" href="resources/relatorio_contexto_sem_consentimento.pdf" target="_blank" rel="noopener">Abrir o relatório</a>
+              <a href="resources/relatorio_contexto_sem_consentimento.tex" target="_blank" rel="noopener">Fonte LaTeX</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="outro">
+      <h2>Adaptar é serviço. Identificar é outra decisão.</h2>
+      <p>A diferença entre as duas listas não é técnica — as duas usam as mesmas APIs abertas, sem
+        permissão nenhuma. A diferença é a finalidade que alguém escolheu. É exatamente essa escolha
+        que o artigo chama de <b>VSCAS</b>. Agora entre na dinâmica e veja onde a turma inteira cai.</p>
+      <a class="cta" id="enter" href="index.html">Entrar na dinâmica <svg class="icon icon-lg" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <p class="foot">
+        Tela de abertura do material sobre <b>Three Categories of Context-Aware Systems</b>
+        (Shishkov, Larsen, Warnier &amp; Janssen, BMSD 2018) — IN1133 Contexto Computacional, CIn/UFPE.
+        Esta página não faz nenhuma requisição de rede: tudo que você lê foi medido no seu próprio
+        navegador e fica nele. A única gravação local é um contador de visitas em
+        <code>localStorage</code>, usado na célula “continuidade da sessão” e apagável em
+        <a href="#" id="wipe">um clique</a>.
+      </p>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var nav = navigator, W = window, D = document;
+      var $ = function (s) { return D.querySelector(s); };
+      var mq = function (q) { try { return W.matchMedia(q).matches; } catch (e) { return false; } };
+      var has = function (o, k) { try { return k in o; } catch (e) { return false; } };
+      var esc = function (s) {
+        return String(s).replace(/[&<>"]/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+        });
+      };
+
+      // ============================================================
+      // 1) LEITURA — só APIs que nunca exibem caixa de permissão.
+      //    Nenhuma chamada de rede, nenhum getCurrentPosition,
+      //    nenhum getUserMedia, nenhum Notification.requestPermission.
+      // ============================================================
+      var S = {};
+
+      S.locale = nav.language || 'en-US';
+      S.langs = (nav.languages && nav.languages.length ? nav.languages : [S.locale]);
+      try { S.ro = Intl.DateTimeFormat().resolvedOptions(); } catch (e) { S.ro = {}; }
+      S.tz = S.ro.timeZone || 'desconhecido';
+      S.region = (function () {
+        try { return new Intl.Locale(S.locale).maximize().region; }
+        catch (e) { return (S.locale.split('-')[1] || '—'); }
+      })();
+      S.now = new Date();
+      S.hour = S.now.getHours();
+      S.offset = -S.now.getTimezoneOffset() / 60;
+
+      function fmt(loc, opt) { try { return new Intl.DateTimeFormat(loc, opt).format(S.now); } catch (e) { return '—'; } }
+      function num(loc, n, opt) { try { return new Intl.NumberFormat(loc, opt).format(n); } catch (e) { return '—'; } }
+
+      S.dateNow = fmt(S.locale, { day: '2-digit', month: '2-digit', year: 'numeric' });
+      S.dateDef = fmt('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      S.dateLong = fmt(S.locale, { weekday: 'long', day: 'numeric', month: 'long' });
+      S.dateLongDef = fmt('en-US', { weekday: 'long', day: 'numeric', month: 'long' });
+      S.numNow = num(S.locale, 1234567.891);
+      S.numDef = num('en-US', 1234567.891);
+      S.timeNow = fmt(S.locale, { hour: 'numeric', minute: '2-digit' });
+      S.timeDef = fmt('en-US', { hour: 'numeric', minute: '2-digit' });
+      S.cycle = (function () {
+        try { return new Intl.DateTimeFormat(S.locale, { hour: 'numeric' }).resolvedOptions().hourCycle; }
+        catch (e) { return 'h23'; }
+      })();
+      S.h12 = S.cycle === 'h12' || S.cycle === 'h11';
+
+      S.coarse = mq('(pointer: coarse)');
+      S.hover = mq('(hover: hover)');
+      S.anyHover = mq('(any-hover: hover)');
+      S.finePointer = mq('(any-pointer: fine)');
+      S.dark = mq('(prefers-color-scheme: dark)');
+      S.reduce = mq('(prefers-reduced-motion: reduce)');
+      S.contrastMore = mq('(prefers-contrast: more)');
+      S.lessTransp = mq('(prefers-reduced-transparency: reduce)');
+      S.forced = mq('(forced-colors: active)');
+      S.portrait = mq('(orientation: portrait)');
+      S.hdr = mq('(dynamic-range: high)');
+      S.slowPaint = mq('(update: slow)');
+      S.standalone = mq('(display-mode: standalone)') || mq('(display-mode: fullscreen)') || nav.standalone === true;
+      S.folded = mq('(horizontal-viewport-segments: 2)') || mq('(vertical-viewport-segments: 2)') ||
+        mq('(screen-spanning: single-fold-vertical)') || mq('(screen-spanning: single-fold-horizontal)');
+
+      S.vw = W.innerWidth; S.vh = W.innerHeight;
+      S.dpr = W.devicePixelRatio || 1;
+      S.sw = (screen && screen.width) || S.vw;
+      S.sh = (screen && screen.height) || S.vh;
+      S.touchPoints = nav.maxTouchPoints || 0;
+      S.cols = S.vw < 640 ? 1 : S.vw < 1024 ? 2 : S.vw < 1400 ? 3 : 4;
+      S.mobile = S.vw < 640 || (S.coarse && S.vw < 900);
+
+      var c = nav.connection || nav.mozConnection || nav.webkitConnection || null;
+      S.conn = c ? (c.effectiveType || '?') : null;
+      S.downlink = c && typeof c.downlink === 'number' ? c.downlink : null;
+      S.rtt = c && typeof c.rtt === 'number' ? c.rtt : null;
+      S.saveData = !!(c && c.saveData);
+      S.online = nav.onLine !== false;
+
+      S.cores = nav.hardwareConcurrency || null;
+      S.ram = nav.deviceMemory || null;
+      S.gpc = nav.globalPrivacyControl === true;
+      S.dnt = nav.doNotTrack === '1' || W.doNotTrack === '1';
+      S.uaMobile = nav.userAgentData ? nav.userAgentData.mobile : null;
+      S.platform = (nav.userAgentData && nav.userAgentData.platform) || (function () {
+        var u = nav.userAgent || '';
+        if (/Windows/i.test(u)) return 'Windows';
+        if (/Android/i.test(u)) return 'Android';
+        if (/iPhone|iPad|iPod/i.test(u)) return 'iOS';
+        if (/Mac OS X/i.test(u)) return 'macOS';
+        if (/Linux/i.test(u)) return 'Linux';
+        return 'desconhecida';
+      })();
+
+      S.sw_ = has(nav, 'serviceWorker');
+      S.syncMgr = has(W, 'SyncManager');
+      S.idle = has(W, 'requestIdleCallback');
+      S.scheduler = has(W, 'scheduler');
+      S.webgl2 = (function () {
+        try { return !!D.createElement('canvas').getContext('webgl2'); } catch (e) { return false; }
+      })();
+      S.notif = (W.Notification && Notification.permission) || 'indisponível';
+
+      // Codecs — canPlayType não pede permissão nem baixa nada.
+      var v = D.createElement('video');
+      function can(t) { try { return v.canPlayType(t) === 'probably' || v.canPlayType(t) === 'maybe'; } catch (e) { return false; } }
+      S.av1 = can('video/mp4; codecs="av01.0.05M.08"');
+      S.hevc = can('video/mp4; codecs="hvc1.1.6.L93.B0"');
+      S.vp9 = can('video/webm; codecs="vp9"');
+      S.h264 = can('video/mp4; codecs="avc1.42E01E"');
+      S.bestCodec = S.av1 ? 'AV1' : S.hevc ? 'HEVC' : S.vp9 ? 'VP9' : S.h264 ? 'H.264' : 'nenhum';
+
+      var cv = D.createElement('canvas'); cv.width = cv.height = 1;
+      function imgOk(t) { try { return cv.toDataURL(t).indexOf('data:' + t) === 0; } catch (e) { return false; } }
+      S.currency = ({ BR: 'BRL', US: 'USD', GB: 'GBP', JP: 'JPY', IN: 'INR', CA: 'CAD', AU: 'AUD',
+        MX: 'MXN', AR: 'ARS', CL: 'CLP', CO: 'COP', CH: 'CHF', SE: 'SEK', NO: 'NOK', DK: 'DKK',
+        PL: 'PLN', RU: 'RUB', CN: 'CNY', KR: 'KRW', ZA: 'ZAR', AO: 'AOA', MZ: 'MZN',
+        PT: 'EUR', ES: 'EUR', FR: 'EUR', DE: 'EUR', IT: 'EUR', NL: 'EUR', IE: 'EUR' })[S.region] || 'USD';
+
+      S.avif = imgOk('image/avif');
+      S.webp = imgOk('image/webp');
+      S.bestImg = S.avif ? 'AVIF' : S.webp ? 'WebP' : 'JPEG';
+
+      S.navType = (function () {
+        try { return performance.getEntriesByType('navigation')[0].type; } catch (e) { return 'navigate'; }
+      })();
+      S.referrer = D.referrer ? (D.referrer.split('/')[2] || D.referrer) : null;
+
+      // Único armazenamento desta página: contador de visitas, local, apagável.
+      S.visits = 1; S.storageOk = true;
+      try {
+        S.visits = parseInt(localStorage.getItem('css3e.visits') || '0', 10) + 1;
+        localStorage.setItem('css3e.visits', String(S.visits));
+      } catch (e) { S.storageOk = false; S.visits = null; }
+
+      // Derivações — as decisões que o sistema toma a partir dos sinais.
+      S.thrifty = S.saveData || S.conn === 'slow-2g' || S.conn === '2g' || (S.ram !== null && S.ram <= 2);
+      S.rich = !S.thrifty && (S.conn === '4g' || S.conn === null) && (S.cores === null || S.cores >= 4);
+      S.imgPlan = (S.thrifty ? '1x ' + S.bestImg + ' 480px' : (S.dpr >= 2 ? '2x ' : '1x ') + S.bestImg + ' ' + (S.vw < 640 ? 720 : 1280) + 'px');
+      S.videoPlan = S.thrifty ? '480p · ' + S.bestCodec : (S.vw < 640 ? '720p · ' : '1080p · ') + S.bestCodec;
+      S.bitrate = S.thrifty ? '0,8 Mbps' : (S.downlink ? Math.max(1, Math.min(8, Math.round(S.downlink * 0.6))) + ' Mbps' : '4 Mbps');
+      S.autoplay = S.thrifty ? 'bloqueado' : 'liberado, sem som';
+      S.prefetch = S.thrifty ? 'desligado' : 'próximas 3 telas';
+      S.tap = S.coarse ? 48 : 32;
+      S.polling = S.thrifty ? '120 s' : S.conn === '3g' ? '45 s' : '15 s';
+      S.density = S.coarse ? 'espaçada' : 'compacta';
+      S.motion = S.reduce ? 'desligadas' : (S.slowPaint || S.thrifty ? 'só o essencial' : 'completas');
+      S.gfx = !S.webgl2 ? 'sem 3D' : (S.cores && S.cores >= 8 && !S.thrifty ? 'alta' : S.cores && S.cores >= 4 ? 'média' : 'baixa');
+      S.greeting = S.hour < 5 ? 'madrugada' : S.hour < 12 ? 'manhã' : S.hour < 18 ? 'tarde' : 'noite';
+      S.returning = S.visits !== null && S.visits > 1;
+
+      // ============================================================
+      // 2) AS 60 DIMENSÕES
+      //    was  = o que um sistema genérico entregaria a todo mundo
+      //    now  = o que este entregou ao seu aparelho
+      //    state: diff (mudou) | same (coincidiu) | held (limite respeitado)
+      // ============================================================
+      function d(icon, name, was, now, state) {
+        return { icon: icon, name: name, was: was, now: now, state: state || (String(was) === String(now) ? 'same' : 'diff') };
+      }
+
+      var FAMILIES = [
+        {
+          title: 'Idioma, formato e lugar',
+          note: 'Nada disto veio de um seletor de país. Veio do cabeçalho de idioma e do relógio do sistema — os dois primeiros bytes que qualquer site recebe.',
+          items: [
+            d('i-globe', 'Idioma', 'en-US', S.locale),
+            d('i-globe', 'Idiomas aceitos', 'en', S.langs.slice(0, 3).join(', ') + (S.langs.length > 3 ? ' +' + (S.langs.length - 3) : '')),
+            d('i-pin', 'Regionalização inicial', 'US', S.region || '—'),
+            d('i-calendar', 'Datas', S.dateDef, S.dateNow),
+            d('i-calendar', 'Data por extenso', S.dateLongDef, S.dateLong),
+            d('i-hash', 'Números', S.numDef, S.numNow),
+            d('i-clock', 'Hora', S.timeDef, S.timeNow),
+            d('i-clock', 'Relógio de 12 ou 24 h', '12 h (AM/PM)', S.h12 ? '12 h (AM/PM)' : '24 h'),
+            d('i-pin', 'Timezone', 'UTC+0', S.tz + ' (UTC' + (S.offset >= 0 ? '+' : '') + S.offset + ')'),
+            d('i-globe', 'Conteúdo regional', 'catálogo global', 'catálogo de ' + (S.region || '—')),
+            d('i-clock', 'Conteúdo temporal', 'mesma home o dia todo', 'bloco de ' + S.greeting)
+          ]
+        },
+        {
+          title: 'Layout e interação',
+          note: 'A largura da janela, o tipo de ponteiro e a existência de hover chegam sem pedir nada. Bastam para redesenhar a navegação inteira antes do primeiro toque.',
+          items: [
+            d('i-layout', 'Layout', 'largura fixa 1024px', S.mobile ? 'coluna única fluida' : 'grade fluida ' + S.vw + 'px'),
+            d('i-columns', 'Número de colunas', '3', String(S.cols)),
+            d('i-menu', 'Navegação', 'barra horizontal', S.mobile ? 'menu recolhido' : 'barra horizontal'),
+            d('i-menu', 'Posição de menus', 'topo', S.coarse ? 'rodapé, ao alcance do polegar' : 'topo'),
+            d('i-target', 'Tamanho de botões', '32px de altura', S.tap + 'px de altura'),
+            d('i-hand', 'Targets de toque', '24 × 24px', S.tap + ' × ' + S.tap + 'px'),
+            d('i-rows', 'Densidade informacional', 'compacta', S.density),
+            d('i-hand', 'Componentes touch ou hover', 'tooltip no hover', S.hover ? 'tooltip no hover' : 'detalhe em toque, sem tooltip'),
+            d('i-keyboard', 'Teclado ou ponteiro', 'atalhos visíveis', S.finePointer ? 'atalhos visíveis' : 'atalhos ocultos'),
+            d('i-rotate', 'Orientação', 'paisagem', S.portrait ? 'retrato' : 'paisagem'),
+            d('i-fold', 'Foldables', 'tela única', S.folded ? 'dois segmentos, evita a dobra' : 'tela única'),
+            d('i-appwindow', 'PWA ou navegador', 'aba de navegador', S.standalone ? 'app instalado, sem barra' : 'aba de navegador'),
+            d('i-type', 'Complexidade da interface', 'tudo visível sempre', S.mobile ? 'avançado atrás de um toque' : 'tudo visível sempre'),
+            d('i-ban', 'Ações incompatíveis', '“arraste para reordenar”', S.coarse ? 'segure e mova, sem arrastar fino' : '“arraste para reordenar”')
+          ]
+        },
+        {
+          title: 'Mídia, rede e peso',
+          note: 'A Network Information API entrega tipo de conexão, latência estimada e o pedido explícito de economia de dados. Cada byte enviado a seguir é uma decisão tomada com isso.',
+          items: [
+            d('i-download', 'Tamanho de recursos', 'pacote único, 2,4 MB', S.thrifty ? 'mínimo, sob demanda' : 'pacote dividido por rota'),
+            d('i-image', 'Imagens', 'JPEG 1x 1280px', S.imgPlan),
+            d('i-monitor', 'Densidade de tela', '1x', S.dpr.toFixed(1).replace('.', ',') + 'x (' + S.sw + '×' + S.sh + ')'),
+            d('i-video', 'Qualidade de vídeo', '1080p H.264', S.videoPlan),
+            d('i-gauge', 'Bitrate', '5 Mbps fixo', S.bitrate),
+            d('i-monitor', 'Resolução entregue', '1080p', S.thrifty ? '480p' : S.vw < 640 ? '720p' : '1080p'),
+            d('i-wave', 'Codecs', 'H.264 para todos', S.bestCodec + ' disponível'),
+            d('i-play', 'Autoplay', 'liga sozinho', S.autoplay),
+            d('i-download', 'Prefetch', 'pré-carrega tudo', S.prefetch),
+            d('i-layers', 'Lazy loading', 'desligado', S.thrifty ? 'agressivo, só o visível' : 'abaixo da dobra'),
+            d('i-eye', 'Preferência de mídia', 'vídeo em destaque', S.thrifty ? 'imagem estática no lugar do vídeo' : 'vídeo em destaque')
+          ]
+        },
+        {
+          title: 'Movimento, cor e visão',
+          note: 'Preferências de acessibilidade do sistema operacional atravessam o navegador em texto puro. Ignorá-las é uma escolha, não um limite técnico.',
+          items: [
+            d('i-spark', 'Animações', 'completas', S.motion),
+            d('i-arrows', 'Transições', 'deslizar 300ms', S.reduce ? 'corte seco, 0ms' : 'deslizar 300ms'),
+            d('i-droplet', 'Transparência', 'vidro fosco', S.lessTransp ? 'fundo sólido' : 'vidro fosco'),
+            d('i-contrast', 'Contraste', 'padrão AA', S.contrastMore ? 'reforçado, além de AA' : (S.forced ? 'cores do sistema' : 'padrão AA')),
+            d('i-moon', 'Dark ou light', 'claro', S.dark ? 'escuro' : 'claro')
+          ]
+        },
+        {
+          title: 'Energia, processamento e trabalho de fundo',
+          note: 'Núcleos, memória e bateria dizem quanto trabalho a página pode empurrar para o seu aparelho — e quanto ela deveria devolver ao servidor.',
+          items: [
+            d('i-cpu', 'Processamento local', 'tudo no servidor', S.cores ? (S.cores >= 4 ? 'no aparelho, ' + S.cores + ' núcleos' : 'no servidor, ' + S.cores + ' núcleos') : 'no servidor'),
+            d('i-chip', 'Memória disponível', 'assume 8 GB', S.ram ? '~' + String(S.ram).replace('.', ',') + ' GB' : 'não informada'),
+            d('i-chip', 'Complexidade gráfica', 'cenas 3D completas', S.gfx),
+            d('i-refresh', 'Polling', '5 s fixo', S.polling),
+            d('i-db', 'Caching', 'sem cache', S.sw_ ? 'service worker, casca offline' : 'só cache HTTP'),
+            d('i-layers', 'Tarefas em background', 'na thread principal', S.idle ? (S.scheduler ? 'agendador de prioridade' : 'requestIdleCallback') : 'na thread principal'),
+            d('i-sync', 'Sincronização', 'a cada carregamento', S.syncMgr ? 'background sync na volta da rede' : 'na volta da aba'),
+            d('i-battery', 'Recursos energéticos', 'sem consideração', 'aguardando leitura', 'diff')
+          ]
+        },
+        {
+          title: 'Rede instável e continuidade',
+          note: 'O estado da conexão e o tipo de navegação chegam de graça. É a diferença entre uma tela em branco e uma retomada de onde você parou.',
+          items: [
+            d('i-wifi', 'Estado da conexão', 'assume online', S.online ? 'online, ' + (S.conn || 'tipo não informado') : 'offline'),
+            d('i-wifioff', 'Comportamento offline', 'erro de rede', S.sw_ ? 'casca em cache, fila de envio' : 'aviso antes de perder o formulário'),
+            d('i-bell', 'Alertas de conexão', 'silêncio até falhar', S.saveData ? 'avisa antes de gastar dados' : 'avisa só ao cair'),
+            d('i-history', 'Continuidade da sessão', 'primeira visita, sempre', S.returning ? 'visita nº ' + S.visits + ' neste navegador' : 'primeira visita neste navegador'),
+            d('i-bookmark', 'Retomada de tarefa', 'volta ao início', S.navType === 'back_forward' ? 'volta pelo histórico, restaura posição' : S.navType === 'reload' ? 'recarregou, mantém rascunho' : 'entrada nova'),
+            d('i-compass', 'Conteúdo previamente relevante', 'nada lembrado', S.referrer ? 'chegou por ' + S.referrer : (S.returning ? 'retoma o último ponto' : 'nada a retomar'))
+          ]
+        },
+        {
+          title: 'O que aparece primeiro, e como é explicado',
+          note: 'Esta é a família mais silenciosa e a mais determinante: nenhuma dessas escolhas parece uma configuração, mas todas mudam o que você vê primeiro.',
+          items: [
+            d('i-home', 'Home contextual', 'mesma home para todos', 'bloco de ' + S.greeting + ' em ' + (S.region || '—')),
+            d('i-compass', 'Onboarding', 'tour de 5 passos', S.returning ? 'pulado, você já esteve aqui' : 'tour de 5 passos'),
+            d('i-list', 'Ordem de conteúdo', 'ordem editorial fixa', S.mobile ? 'essencial primeiro, resto abaixo' : 'ordem editorial fixa'),
+            d('i-bulb', 'Sugestões', 'as mais populares', S.returning ? 'a partir do que ficou pendente' : 'as mais populares'),
+            d('i-flag', 'Priorização de ações', 'todas com o mesmo peso', S.coarse ? 'uma ação principal por tela' : 'ação principal e secundárias'),
+            d('i-target', 'CTA', '“Saiba mais”', S.coarse ? '“Continuar”, largura total' : '“Entrar na dinâmica”'),
+            d('i-book', 'Nível de explicação', 'texto longo para todos', S.returning ? 'resumido, sem repetir o básico' : 'completo, primeira vez'),
+            d('i-help', 'Ajuda contextual', 'link para a central', S.coarse ? 'dica em linha, sem hover' : 'dica ao passar o mouse'),
+            d('i-puzzle', 'Feature availability', 'tudo ligado', [S.sw_ ? 'offline' : null, S.webgl2 ? '3D' : null, S.syncMgr ? 'sync' : null].filter(Boolean).join(' · ') || 'básico'),
+            d('i-tools', 'Fallback de features', 'quebra em silêncio', S.avif ? 'AVIF direto' : S.webp ? 'WebP no lugar de AVIF' : 'JPEG, sem formato moderno')
+          ]
+        },
+        {
+          title: 'Sinais que mandam parar',
+          note: 'Os mesmos canais abertos que entregam tudo acima também carregam recusas explícitas. Ler os primeiros e ignorar estes é uma escolha deliberada.',
+          items: [
+            d('i-shield', 'Global Privacy Control', 'ignorado', S.gpc ? 'presente — venda e compartilhamento desligados' : 'não enviado por este navegador', S.gpc ? 'held' : 'same'),
+            d('i-shield', 'Do Not Track', 'ignorado', S.dnt ? 'presente — nenhum rastreamento entre sites' : 'não enviado por este navegador', S.dnt ? 'held' : 'same'),
+            d('i-shieldx', 'Permissão de notificação', 'pede na primeira tela', S.notif === 'default' ? 'estado lido, nada pedido' : 'estado: ' + S.notif, 'held'),
+            d('i-shieldx', 'Permissão de localização', 'pede na primeira tela', 'aguardando leitura', 'held'),
+            d('i-eye', 'Redução de movimento', 'ignorada', S.reduce ? 'respeitada em toda a página' : 'não solicitada', S.reduce ? 'held' : 'same')
+          ]
+        }
+      ];
+
+      // ============================================================
+      // 3) DESENHO
+      // ============================================================
+      function icon(id, cls) {
+        return '<svg class="icon ' + (cls || '') + '" aria-hidden="true"><use href="#' + id + '"/></svg>';
+      }
+
+      function cellHTML(it, i) {
+        var tag = it.state === 'held' ? 'limite' : it.state === 'diff' ? 'adaptado' : 'padrão';
+        return '<article class="cell ' + it.state + '" style="--d:' + Math.min(i * 26, 420) + 'ms">' +
+          '<div class="cell-top">' + icon(it.icon) + '<h3>' + esc(it.name) + '</h3>' +
+          '<span class="tag">' + tag + '</span></div>' +
+          '<div class="rows">' +
+          '<div class="row was"><span class="lbl">genérico</span><span class="val">' + esc(it.was) + '</span></div>' +
+          '<div class="row now"><span class="lbl">você</span><span class="val">' + esc(it.now) + '</span></div>' +
+          '</div></article>';
+      }
+
+      var famHTML = FAMILIES.map(function (f) {
+        return '<section class="fam"><div class="wrap">' +
+          '<div class="fam-head"><h2>' + esc(f.title) + '</h2>' +
+          '<span class="n">' + f.items.length + ' dimensões</span>' +
+          '<p>' + esc(f.note) + '</p></div>' +
+          '<div class="grid">' + f.items.map(cellHTML).join('') + '</div>' +
+          (f.title === 'Layout e interação' ? SAMPLES_LAYOUT() : '') +
+          (f.title === 'Idioma, formato e lugar' ? SAMPLES_FORMAT() : '') +
+          '</div></section>';
+      });
+
+      // Amostras vivas: os mesmos dados renderizados dos dois jeitos, lado a lado.
+      function SAMPLES_FORMAT() {
+        return '<div class="samples">' +
+          '<div class="sample"><h4>A mesma quantia, dois leitores</h4>' +
+          '<p>Intl.NumberFormat, sem escolha sua</p>' +
+          '<div class="split">' +
+          '<div><div class="cap">en-US · USD</div><div class="swatch" style="background:var(--paper-2)">' + esc(num('en-US', 1234567.891, { style: 'currency', currency: 'USD' })) + '</div></div>' +
+          '<div><div class="cap">' + esc(S.locale) + ' · ' + esc(S.currency) + '</div><div class="swatch" style="background:var(--signal);color:#fff">' + esc(num(S.locale, 1234567.891, { style: 'currency', currency: S.currency })) + '</div></div>' +
+          '</div></div>' +
+          '<div class="sample"><h4>A mesma data, dois calendários de leitura</h4>' +
+          '<p>Intl.DateTimeFormat, sem escolha sua</p>' +
+          '<div class="split">' +
+          '<div><div class="cap">en-US</div><div class="swatch" style="background:var(--paper-2)">' + esc(S.dateDef) + '</div></div>' +
+          '<div><div class="cap">' + esc(S.locale) + '</div><div class="swatch" style="background:var(--signal);color:#fff">' + esc(S.dateNow) + '</div></div>' +
+          '</div></div>' +
+          '</div>';
+      }
+
+      function SAMPLES_LAYOUT() {
+        var g = S.coarse ? 15 : 7;
+        return '<div class="samples">' +
+          '<div class="sample"><h4>Alvo de toque, em tamanho real</h4>' +
+          '<p>pointer: ' + (S.coarse ? 'coarse' : 'fine') + ' · ' + S.touchPoints + ' pontos de toque</p>' +
+          '<div class="split">' +
+          '<div><div class="cap">genérico</div><button class="btn-demo tight" tabindex="-1" aria-hidden="true">Continuar</button></div>' +
+          '<div><div class="cap">você</div><button class="btn-demo loose" tabindex="-1" aria-hidden="true">Continuar</button></div>' +
+          '</div></div>' +
+          '<div class="sample"><h4>Colunas, em tamanho real</h4>' +
+          '<p>largura da janela: ' + S.vw + 'px</p>' +
+          '<div class="split">' +
+          '<div><div class="cap">genérico · 3</div><div class="colbars"><i></i><i></i><i></i></div></div>' +
+          '<div><div class="cap">você · ' + S.cols + '</div><div class="colbars mine">' + new Array(S.cols + 1).join('<i></i>') + '</div></div>' +
+          '</div></div>' +
+          '<div class="sample"><h4>Densidade, em tamanho real</h4>' +
+          '<p>espaçamento entre linhas: ' + g + 'px</p>' +
+          '<div class="split">' +
+          '<div><div class="cap">genérico</div><div class="density" style="--g:7px"><i></i><i></i><i></i><i></i></div></div>' +
+          '<div><div class="cap">você · ' + S.density + '</div><div class="density mine" style="--g:' + g + 'px"><i></i><i></i><i></i><i></i></div></div>' +
+          '</div></div>' +
+          '</div>';
+      }
+
+      $('#families').innerHTML = famHTML.join('');
+
+      // Decisões do topo — seis leituras que resumem o resto.
+      var DEC = [
+        { i: 'i-calendar', k: 'Formato', v: S.dateNow + ' · ' + S.timeNow, why: 'de ' + S.locale + ' e ' + S.tz },
+        { i: 'i-hand', k: 'Alvo de toque', v: S.tap + ' × ' + S.tap + ' px', why: 'de pointer: ' + (S.coarse ? 'coarse' : 'fine') },
+        { i: 'i-image', k: 'Imagem', v: S.imgPlan, why: 'de ' + S.dpr.toFixed(1).replace('.', ',') + 'x, ' + (S.conn || 'rede não informada') + (S.saveData ? ', economia de dados' : '') },
+        { i: 'i-spark', k: 'Movimento', v: 'Animações ' + S.motion, why: S.reduce ? 'de prefers-reduced-motion: reduce' : 'de prefers-reduced-motion não definido' },
+        { i: 'i-refresh', k: 'Polling', v: 'A cada ' + S.polling, why: 'de ' + (S.conn || 'rede não informada') + (S.rtt !== null ? ', ' + S.rtt + ' ms de latência' : '') },
+        { i: 'i-moon', k: 'Tema', v: S.dark ? 'Escuro' : 'Claro', why: 'de prefers-color-scheme' }
+      ];
+      $('#decisions').innerHTML = DEC.map(function (o) {
+        return '<div class="dec">' + icon(o.i, 'icon-lg') +
+          '<div class="k">' + esc(o.k) + '</div>' +
+          '<div class="v">' + esc(o.v) + '</div>' +
+          '<div class="why">' + esc(o.why) + '</div></div>';
+      }).join('');
+
+      // Contagem honesta: só o que de fato divergiu do padrão genérico.
+      var cells = Array.prototype.slice.call(D.querySelectorAll('.cell'));
+      function diffCount() { return D.querySelectorAll('.cell.diff').length; }
+
+      var total = 0;
+      FAMILIES.forEach(function (f) { total += f.items.length; });
+      $('#probeState').innerHTML = total + ' dimensões<span class="only-wide"> lidas</span>, 0 permissões<span class="only-wide"> pedidas</span>';
+      $('#totaldim').textContent = total;
+
+      // ---------- leituras assíncronas (nenhuma pede permissão) ----------
+      function patch(name, now, state) {
+        cells.forEach(function (el) {
+          var h = el.querySelector('h3');
+          if (!h || h.textContent !== name) return;
+          el.querySelector('.row.now .val').textContent = now;
+          if (state) { el.className = 'cell ' + state + (el.classList.contains('on') ? ' on' : ''); }
+          el.querySelector('.tag').textContent = state === 'held' ? 'limite' : state === 'diff' ? 'adaptado' : 'padrão';
+          countUp();
+        });
+      }
+
+      if (nav.getBattery) {
+        nav.getBattery().then(function (b) {
+          var pct = Math.round(b.level * 100);
+          patch('Recursos energéticos', pct + '%' + (b.charging ? ', carregando' : ', na bateria') +
+            (pct <= 20 && !b.charging ? ' — modo econômico' : ''), 'diff');
+        }).catch(function () { patch('Recursos energéticos', 'API bloqueada neste navegador', 'held'); });
+      } else {
+        patch('Recursos energéticos', 'API indisponível neste navegador', 'held');
+      }
+
+      if (nav.permissions && nav.permissions.query) {
+        // query() lê o estado sem exibir caixa nenhuma.
+        nav.permissions.query({ name: 'geolocation' }).then(function (p) {
+          patch('Permissão de localização', 'estado “' + p.state + '”, lido sem pedir', 'held');
+        }).catch(function () { patch('Permissão de localização', 'estado não legível, nada pedido', 'held'); });
+      } else {
+        patch('Permissão de localização', 'não consultável, nada pedido', 'held');
+      }
+
+      // ---------- relógio ao vivo, no formato detectado ----------
+      var clockFmt;
+      try { clockFmt = new Intl.DateTimeFormat(S.locale, { hour: '2-digit', minute: '2-digit', second: '2-digit' }); }
+      catch (e) { clockFmt = null; }
+      function tick() {
+        var d0 = new Date();
+        $('#clock').innerHTML = esc(S.locale) + ' · <b>' + esc(clockFmt ? clockFmt.format(d0) : d0.toTimeString().slice(0, 8)) +
+          '</b><span class="only-wide"> · ' + esc(S.tz) + '</span>';
+      }
+      tick(); setInterval(tick, 1000);
+
+      // ---------- contador do título ----------
+      var shown = 0, target = diffCount(), reduce = S.reduce;
+      function countUp() {
+        target = diffCount();
+        if (reduce) { shown = target; $('#bigcount').textContent = target; return; }
+        var step = function () {
+          if (shown < target) { shown += Math.max(1, Math.ceil((target - shown) / 6)); $('#bigcount').textContent = shown; requestAnimationFrame(step); }
+          else { $('#bigcount').textContent = target; }
+        };
+        requestAnimationFrame(step);
+      }
+      countUp();
+
+      // ---------- revelação em cascata ----------
+      if ('IntersectionObserver' in W && !reduce) {
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: .15 });
+        cells.forEach(function (el) { io.observe(el); });
+      } else {
+        cells.forEach(function (el) { el.classList.add('on'); });
+      }
+
+      // ---------- saída para a dinâmica, preservando a sessão ----------
+      var p = new URLSearchParams(location.search);
+      var sess = p.get('sessao') || p.get('sessão');
+      if (sess) { $('#enter').setAttribute('href', 'index.html?sessao=' + encodeURIComponent(sess)); }
+
+      $('#wipe').addEventListener('click', function (ev) {
+        ev.preventDefault();
+        try { localStorage.removeItem('css3e.visits'); } catch (e) { }
+        this.textContent = 'apagado';
+        this.removeAttribute('href');
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,7 +1,9 @@
 # CSS3E — As 3 Categorias de Sistemas Sensíveis ao Contexto
 
 > **App ao vivo:** https://ab-orbit.github.io/css3e/
+> **Tela de abertura:** https://ab-orbit.github.io/css3e/index_extended.html
 > **Modo facilitador:** https://ab-orbit.github.io/css3e/?facilitador=1
+> **Material de apoio:** [mapa de superfície contextual](https://ab-orbit.github.io/css3e/resources/) · [relatório técnico (PDF)](https://ab-orbit.github.io/css3e/resources/relatorio_contexto_sem_consentimento.pdf)
 
 Dinâmica interativa de sala de aula que **demonstra na prática** — no próprio
 navegador do participante — as três categorias de sistemas sensíveis ao contexto
@@ -107,6 +109,40 @@ a decisão de não fazer.**
 
 ---
 
+## Tela de abertura: `index_extended.html`
+
+Painel de evidências para abrir a apresentação, antes da dinâmica. A tese é
+mostrada em vez de explicada: a página lê o aparelho e exibe **70 dimensões de
+adaptação**, cada uma como um par lado a lado — o que um sistema genérico
+entregaria a todo mundo, e o que **este** entregou ao aparelho de quem está
+olhando. Divididas em oito famílias:
+
+| Família | Exemplos |
+|---|---|
+| Idioma, formato e lugar | locale, região, datas, números, hora, 12/24 h, timezone, conteúdo regional e temporal |
+| Layout e interação | colunas, navegação, posição de menus, alvo de toque, densidade, touch vs. hover, orientação, foldables, PWA |
+| Mídia, rede e peso | formato e densidade de imagem, resolução, bitrate, codecs, autoplay, prefetch, lazy loading |
+| Movimento, cor e visão | animações, transições, transparência, contraste, dark/light |
+| Energia e processamento | núcleos, memória, complexidade gráfica, polling, cache, tarefas de fundo, sincronização, bateria |
+| Rede instável e continuidade | estado da conexão, comportamento offline, alertas, visita nº, retomada de tarefa |
+| O que aparece primeiro | home contextual, onboarding, ordem de conteúdo, sugestões, CTA, nível de explicação, ajuda |
+| Sinais que mandam parar | GPC, DNT, estado das permissões lido sem pedir, redução de movimento |
+
+Três decisões de implementação que sustentam a honestidade da tela:
+
+- **Zero requisições de rede.** Nenhum `fetch`, nenhuma fonte externa, nenhum
+  Firebase. Funciona inteira numa rede institucional que bloqueie Google Cloud —
+  o mesmo problema que a dinâmica principal já enfrentou.
+- **Zero prompts.** Só APIs que nunca abrem caixa de permissão. `permissions.query()`
+  aparece na tela justamente por ler o estado de uma permissão **sem** solicitá-la.
+- **Um único armazenamento local**, o contador de visitas em `localStorage`, usado
+  na célula "continuidade da sessão", declarado no rodapé e apagável em um clique.
+
+Fecha com a lista do que ficou de fora — canvas, GPU, áudio, fontes, identificador
+persistente — e o CTA para a dinâmica, preservando `?sessao=`.
+
+---
+
 ## Arquitetura
 
 Página única, sem build, sem dependências instaladas, sem backend próprio.
@@ -135,6 +171,13 @@ get.geojs.io          Geolocalização aproximada por IP (timeout de 4s via Prom
 - **Normalização baricêntrica** — `sm`, `ud` e `vs` são divididos pela soma; a
   escolha binária da Q3 entra com peso 9 (privacidade) ou 2 (personalização).
   As coordenadas dos vértices são ancoradas em espaço de imagem 1024×1024.
+- **Legenda desenhada, não nomeada** — os três marcadores do mapa (você, demais
+  participantes, média do grupo) aparecem como SVG de verdade ao lado do rótulo.
+  A versão anterior dizia “seu ponto: vermelho” para um ponto de miolo escuro com
+  anel vermelho; nenhum marcador é mais descrito por cor.
+- **Placa clara sob o diagrama** — o triângulo é desenhado sobre uma placa branca
+  com grade, mesmo no cartão escuro, e a imagem fica a 65% de opacidade: legível o
+  bastante para orientar, discreta o bastante para os pontos dominarem.
 - **Fallback de rede (6s)** — redes institucionais frequentemente bloqueiam
   domínios do Google Cloud. Se o Firestore não responder, a pessoa vê uma tela de
   instruções (trocar para dados móveis, tentar de novo, avisar o facilitador) em
@@ -173,11 +216,37 @@ get.geojs.io          Geolocalização aproximada por IP (timeout de 4s via Prom
 | Arquivo | O que é |
 |---|---|
 | `index.html` | **Versão publicada.** Firebase/Firestore + fingerprint demo + dossiê + imagem embutida |
+| `index_extended.html` | **Tela de abertura visual.** Painel de evidências com 70 dimensões de adaptação, sem rede e sem Firebase |
 | `dinamica_meta_validacao.html` | Versão anterior, sobre `window.storage` (polling de 2,5s, sem transação atômica) |
 | `dinamica_meta_validacao_firebase copy.html` | Passo intermediário da migração para Firestore, antes das telas de dossiê e fingerprint |
 | `three-categories.png` | Imagem do triângulo das 3 categorias (também embutida em base64 no `index.html`) |
+| `resources/index.html` | Material de apoio: mapa de superfície contextual, com matriz observar/inferir/fazer |
+| `resources/relatorio_contexto_sem_consentimento.pdf` | Relatório técnico completo (fonte LaTeX ao lado, `.tex`) |
 | `artigo_original.pdf` | Artigo de Shishkov et al. (2018), versão de repositório institucional |
 | `apresentacao_artigo.pdf` | Slides da apresentação (28 páginas) |
+
+---
+
+## Material de apoio (`resources/`)
+
+Dois documentos aprofundam o que a dinâmica demonstra. Ambos aparecem com
+pré-visualização ao vivo no fim da tela de abertura — a página real embutida em
+escala reduzida, não uma captura — e como links no fim das duas telas de mapa,
+a do participante e a do facilitador.
+
+| Documento | O que traz |
+|---|---|
+| [**Mapa de superfície contextual**](https://ab-orbit.github.io/css3e/resources/) (`resources/index.html`) | Doze famílias de sinais, cada uma com um drawer técnico: o que dá para observar, o que dá para inferir, riscos e contraexemplos. Inclui a matriz “pode observar / pode inferir / deve fazer”, o pipeline `ObservedContext → DerivedContext → Policy → Adaptation` e uma leitura local do contexto de quem está acessando. |
+| [**Contexto sem consentimento**](https://ab-orbit.github.io/css3e/resources/relatorio_contexto_sem_consentimento.pdf) (PDF) | Relatório técnico: inventário dos sinais disponíveis sem prompt, separação entre contexto observado e inferido, e os deveres de finalidade que a disponibilidade técnica não dispensa. Fonte LaTeX em `resources/relatorio_contexto_sem_consentimento.tex`. |
+
+A regra que os dois defendem, e que a dinâmica encena: **escolha o sinal menos
+identificável capaz de resolver o problema.** Se media query resolve layout, não
+colete modelo de aparelho. Se `MediaCapabilities` resolve vídeo, não identifique
+a GPU.
+
+O `resources/index.html` usa o mesmo tema visual do restante da aplicação — fundo
+ink com papel milimetrado, painéis em papel, vermelho como único acento e valores
+medidos em mono — e liga de volta para a tela de abertura e para a dinâmica.
 
 ---
 

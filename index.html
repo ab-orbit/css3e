@@ -22,11 +22,21 @@
     body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      min-height: 100%;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--dark);
       color: var(--white);
       -webkit-font-smoothing: antialiased;
+    }
+
+    /* Papel milimetrado: mesmo fundo da tela de abertura, para as duas telas
+       lerem como partes do mesmo instrumento. */
+    body {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .028) 1px, transparent 1px);
+      background-size: 34px 34px, 34px 34px;
+      background-attachment: fixed;
     }
 
     #app {
@@ -248,6 +258,13 @@
       margin: 6px 0 14px 0;
     }
 
+    /* A placa do mapa é sempre clara, inclusive no cartão escuro: o diagrama
+       das três categorias tem traço fino e some quando fica esmaecido no escuro. */
+    #svgwrap svg {
+      border-radius: 14px;
+      box-shadow: 0 10px 34px rgba(0, 0, 0, .28);
+    }
+
     .legend {
       display: flex;
       justify-content: space-between;
@@ -324,6 +341,187 @@
       margin-top: 18px;
       text-align: center;
     }
+
+    /* Retrato do grupo: um bloco por conjunto de campos gravados. */
+    .breakdown { margin-top: 12px; }
+
+    .bnote {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #777;
+      margin: 0 0 16px 0;
+    }
+
+    .bgroup {
+      border-top: 1px solid #eee;
+      padding-top: 12px;
+      margin-bottom: 18px;
+    }
+
+    .bgroup header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .bgroup h4 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+
+    .bgroup header code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 10.5px;
+      color: #999;
+      margin-left: auto;
+    }
+
+    .bchart { margin-bottom: 13px; }
+
+    .blabel {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 6px;
+    }
+
+    .brow {
+      display: grid;
+      grid-template-columns: minmax(92px, 42%) 1fr 26px;
+      gap: 9px;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    /* Rótulos quebram em duas linhas em vez de virar reticências: numa projeção
+       ninguém pode passar o mouse para descobrir o que foi cortado. */
+    .bk {
+      font-size: 11.5px;
+      line-height: 1.3;
+      color: #555;
+      overflow-wrap: anywhere;
+    }
+
+    .btrack {
+      background: #eee;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 10px;
+    }
+
+    .bfill {
+      background: var(--red);
+      height: 100%;
+      border-radius: 4px;
+    }
+
+    .bv {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11.5px;
+      color: #555;
+      text-align: right;
+    }
+
+    .card.dark .bnote { color: #999; }
+    .card.dark .bgroup { border-top-color: #3a3536; }
+    .card.dark .bgroup header code { color: #777; }
+    .card.dark .blabel { color: #888; }
+    .card.dark .bk,
+    .card.dark .bv { color: #ccc; }
+    .card.dark .btrack { background: #3a3536; }
+
+    /* Duas colunas de blocos quando há largura, como na projeção. */
+    @media (min-width: 720px) {
+      .breakdown {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 26px;
+        align-items: start;
+      }
+
+      .bnote { grid-column: 1 / -1; }
+    }
+
+    /* Legenda do mapa: cada marcador é desenhado, não nomeado por cor — a versão
+       anterior dizia "vermelho" para um ponto que é escuro com anel vermelho. */
+    .maplegend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 14px 0;
+    }
+
+    .maplegend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .maplegend b {
+      color: #333;
+      font-weight: 700;
+    }
+
+    .card.dark .maplegend span { color: #aaa; }
+    .card.dark .maplegend b { color: #eee; }
+
+    .resources {
+      border-top: 1px solid #eee;
+      margin-top: 20px;
+      padding-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+    }
+
+    .card.dark .resources { border-top-color: #3a3536; }
+
+    .reslink {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: var(--light);
+      border-radius: 10px;
+      padding: 13px 14px;
+    }
+
+    .card.dark .reslink { background: #2f2b2c; }
+
+    .reslink .k {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 5px;
+    }
+
+    .reslink .t {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .reslink .d {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    .card.dark .reslink .d { color: #aaa; }
+
+    .reslink:hover { outline: 2px solid var(--pink); }
 
     /* Variante escura: aplicada de verdade quando o SO do participante prefere modo escuro.
      Isso é a demonstração viva de SMCAS — o cartão muda de aparência sem ninguém pedir. */
@@ -889,20 +1087,54 @@
     };
   }
 
+  // A legenda desenha os marcadores de verdade, em vez de nomear cores. Antes
+  // dizia "seu ponto: vermelho" para um ponto de miolo escuro com anel vermelho.
+  function mapLegend(hasMine){
+    const sw = (inner) => `<svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">${inner}</svg>`;
+    const mine = sw(`<circle cx="11" cy="11" r="10" fill="#FFFFFF" stroke="#231F20" stroke-opacity="0.14"/>
+      <circle cx="11" cy="11" r="7" fill="#231F20" stroke="#E8172D" stroke-width="3"/>`);
+    const other = sw(`<circle cx="11" cy="11" r="9" fill="#FFFFFF" stroke="#231F20" stroke-opacity="0.14"/>
+      <circle cx="11" cy="11" r="6" fill="#E8172D" stroke="#231F20" stroke-width="1.5"/>`);
+    const avg = sw(`<circle cx="11" cy="11" r="8" fill="none" stroke="#F16978" stroke-width="3" stroke-dasharray="4,3"/>`);
+    return `
+      <div class="maplegend">
+        ${hasMine ? `<span>${mine}<b>voc\u00ea</b></span>` : ''}
+        <span>${other}${hasMine ? 'demais participantes' : 'participantes'}</span>
+        <span>${avg}m\u00e9dia do grupo</span>
+      </div>`;
+  }
+
+  // Material de apoio, ligado a partir das duas telas de mapa.
+  function resourcesBlock(){
+    return `
+      <div class="resources">
+        <a class="reslink" href="resources/index.html" target="_blank" rel="noopener">
+          <div class="k">P\u00e1gina interativa</div>
+          <div class="t">Mapa de superf\u00edcie contextual</div>
+          <div class="d">Doze fam\u00edlias de sinais: o que d\u00e1 para observar, o que d\u00e1 para inferir e o que n\u00e3o se deve fazer.</div>
+        </a>
+        <a class="reslink" href="resources/relatorio_contexto_sem_consentimento.pdf" target="_blank" rel="noopener">
+          <div class="k">Relat\u00f3rio t\u00e9cnico \u00b7 PDF</div>
+          <div class="t">Contexto sem consentimento</div>
+          <div class="d">O documento longo por tr\u00e1s da din\u00e2mica: invent\u00e1rio dos sinais sem prompt e os limites de finalidade.</div>
+        </a>
+      </div>`;
+  }
+
   function svgTriangle(dots, myXY){
     // Pontos com halo branco por baixo para se destacarem sobre a imagem,
     // mesmo esmaecida.
     let dotSvg = dots.map(d=>{
       const p = toXY(d);
       return `
-        <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="21" fill="white" fill-opacity="0.9"/>
-        <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="15" fill="#E8172D" fill-opacity="0.85" stroke="#231F20" stroke-width="2"/>`;
+        <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="20" fill="#FFFFFF" fill-opacity="0.95" stroke="#231F20" stroke-opacity="0.14" stroke-width="1.5"/>
+        <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="14" fill="#E8172D" stroke="#231F20" stroke-width="2.5"/>`;
     }).join('');
     let mySvg = '';
     if(myXY){
       mySvg = `
-        <circle cx="${myXY.x.toFixed(1)}" cy="${myXY.y.toFixed(1)}" r="34" fill="white" fill-opacity="0.95"/>
-        <circle cx="${myXY.x.toFixed(1)}" cy="${myXY.y.toFixed(1)}" r="26" fill="#231F20" stroke="#E8172D" stroke-width="5"/>`;
+        <circle cx="${myXY.x.toFixed(1)}" cy="${myXY.y.toFixed(1)}" r="34" fill="#FFFFFF" fill-opacity="0.98" stroke="#231F20" stroke-opacity="0.14" stroke-width="1.5"/>
+        <circle cx="${myXY.x.toFixed(1)}" cy="${myXY.y.toFixed(1)}" r="25" fill="#231F20" stroke="#E8172D" stroke-width="5"/>`;
     }
     let centroidSvg = '';
     if(dots.length>0){
@@ -910,17 +1142,35 @@
       const n = dots.length;
       const avgBary = {sm:avg.sm/n, ud:avg.ud/n, vs:avg.vs/n};
       const c = toXY(avgBary);
-      centroidSvg = `<circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="24" fill="none" stroke="#F16978" stroke-width="5" stroke-dasharray="8,6"/>`;
+      centroidSvg = `
+        <circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="30" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="9"/>
+        <circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="30" fill="none" stroke="#F16978" stroke-width="5" stroke-dasharray="9,7"/>`;
     }
+    // A placa clara existe para o diagrama sobreviver ao cartão escuro. A grade
+    // repete o fundo da tela de abertura, na escala do viewBox de 1024.
     return `
-      <svg viewBox="0 0 1024 1024" width="100%" style="max-width:520px;display:block;margin:0 auto;">
-        <image href="${THREE_CATEGORIES_IMG}" x="0" y="0" width="1024" height="1024" opacity="0.32"/>
-        <text x="${V.SM.x}" y="602" text-anchor="middle" font-size="30" font-weight="800" fill="#E8172D">SMCAS</text>
-        <text x="${V.UD.x}" y="602" text-anchor="middle" font-size="30" font-weight="800" fill="#E8172D">UDCAS</text>
-        <text x="${V.VS.x}" y="1015" text-anchor="middle" font-size="30" font-weight="800" fill="#E8172D">VSCAS</text>
+      <svg viewBox="0 0 1024 1112" width="100%" style="max-width:560px;display:block;margin:0 auto;">
+        <defs>
+          <pattern id="mapgrid" width="64" height="64" patternUnits="userSpaceOnUse">
+            <path d="M64 0H0V64" fill="none" stroke="#231F20" stroke-opacity="0.07" stroke-width="1.5"/>
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="1024" height="1112" rx="26" fill="#FFFFFF"/>
+        <rect x="0" y="0" width="1024" height="1112" rx="26" fill="url(#mapgrid)"/>
+        <image href="${THREE_CATEGORIES_IMG}" x="0" y="0" width="1024" height="1024" opacity="0.65"/>
         ${dotSvg}
         ${centroidSvg}
         ${mySvg}
+        <!-- Faixa de legenda: a imagem já rotula as três regiões em inglês, então
+             os acrônimos do artigo ficam fora do desenho, sem sobrepor nada. -->
+        <path d="M0 1024h1024v62a26 26 0 0 1-26 26H26a26 26 0 0 1-26-26z" fill="#F2F2F2"/>
+        <path d="M0 1024h1024" stroke="#231F20" stroke-opacity="0.12" stroke-width="1.5"/>
+        <g font-size="32" font-weight="800" fill="#E8172D" text-anchor="middle" letter-spacing="1.5">
+          <text x="${V.SM.x}" y="1080">SMCAS</text>
+          <text x="${V.UD.x}" y="1080">UDCAS</text>
+          <text x="${V.VS.x}" y="1080">VSCAS</text>
+        </g>
+        <rect x="0.75" y="0.75" width="1022.5" height="1110.5" rx="26" fill="none" stroke="#231F20" stroke-opacity="0.12" stroke-width="1.5"/>
       </svg>
     `;
   }
@@ -972,33 +1222,92 @@
     `;
   }
 
+  // Retrato do grupo a partir de tudo que foi de fato gravado em cada resposta.
+  // Cada bloco corresponde a um conjunto de campos do payload — nada aqui é
+  // inferido além do agrupamento em faixas dos valores numéricos.
   function breakdownHtml(dots){
-    const osCounts = {};
-    const deviceCounts = {};
-    const themeCounts = { claro:0, escuro:0 };
-    dots.forEach(d=>{
-      const os = d.os || 'Desconhecido';
-      osCounts[os] = (osCounts[os]||0) + 1;
-      const dev = d.device === 'mobile' ? 'M\u00f3vel' : (d.device === 'manual' ? 'Manual' : 'Desktop');
-      deviceCounts[dev] = (deviceCounts[dev]||0) + 1;
-    });
+    if(!dots.length) return '';
+
+    const tally = (fn) => {
+      const c = {};
+      dots.forEach(d=>{ const k = fn(d); if(k!=null) c[k] = (c[k]||0)+1; });
+      return c;
+    };
+    const band = (v, cuts, labels, suffix) => {
+      if(v==null) return null;
+      for(let i=0;i<cuts.length;i++){ if(v<=cuts[i]) return labels[i]; }
+      return labels[labels.length-1] + (suffix||'');
+    };
+
+    const GROUPS = [
+      { title:'Aparelho', fields:'os · device · cpuCores · ramApprox', charts:[
+        ['Sistema operacional', tally(d=>d.os || 'N\u00e3o informado')],
+        ['Tipo de dispositivo', tally(d=>d.device==='mobile'?'M\u00f3vel':d.device==='manual'?'Entrada manual':'Desktop')],
+        ['N\u00facleos de CPU', tally(d=>band(d.cpuCores,[2,4,8],['at\u00e9 2','3 a 4','5 a 8','9 ou mais']) || 'N\u00e3o informado')],
+        ['Mem\u00f3ria aproximada', tally(d=>band(d.ramApprox,[2,4,8],['at\u00e9 2 GB','3 a 4 GB','5 a 8 GB','mais de 8 GB']) || 'N\u00e3o informada')]
+      ]},
+      { title:'Lugar e idioma', fields:'city · region · country · tz · languages', charts:[
+        ['Cidade (por IP)', tally(d=>d.city || 'N\u00e3o resolvida')],
+        ['Pa\u00eds (por IP)', tally(d=>d.country || 'N\u00e3o resolvido')],
+        ['Fuso do sistema', tally(d=>d.tz || 'N\u00e3o informado')],
+        ['Idioma principal', tally(d=>(d.languages||'').split(',')[0].trim() || 'N\u00e3o informado')]
+      ]},
+      { title:'Rede', fields:'connType · saveData', charts:[
+        ['Tipo de conex\u00e3o', tally(d=>d.connType || 'N\u00e3o informado')],
+        ['Economia de dados', tally(d=>d.saveData==null?'N\u00e3o informada':(d.saveData?'Ativada':'Desativada'))]
+      ]},
+      { title:'Acessibilidade declarada ao sistema', fields:'reducedMotion · highContrast', charts:[
+        ['Menos anima\u00e7\u00e3o', tally(d=>d.reducedMotion==null?'N\u00e3o informada':(d.reducedMotion?'Pediu':'N\u00e3o pediu'))],
+        ['Mais contraste', tally(d=>d.highContrast==null?'N\u00e3o informada':(d.highContrast?'Pediu':'N\u00e3o pediu'))]
+      ]},
+      { title:'Comportamento observado, sem pergunta', fields:'smMoves · smSeconds', charts:[
+        ['Ajustes no 1\u00ba slider', tally(d=>band(d.smMoves,[0,2,5,10],['nenhum','1 a 2','3 a 5','6 a 10','mais de 10']) || 'N\u00e3o registrado')],
+        ['Tempo para decidir', tally(d=>band(d.smSeconds,[3,8,20],['at\u00e9 3 s','4 a 8 s','9 a 20 s','mais de 20 s']) || 'N\u00e3o registrado')]
+      ]},
+      { title:'Posi\u00e7\u00e3o declarada', fields:'sm · ud · vs', charts:[
+        ['Escolha da 3\u00aa pergunta', tally(d=>d.vs==null?'N\u00e3o registrada':(d.vs>0.35?'Privacidade m\u00e1xima':'Personaliza\u00e7\u00e3o m\u00e1xima'))],
+        ['V\u00e9rtice mais forte', tally(d=>{
+          if(d.sm==null) return 'N\u00e3o registrado';
+          const m = Math.max(d.sm,d.ud,d.vs);
+          return m===d.sm?'SMCAS':m===d.ud?'UDCAS':'VSCAS';
+        })]
+      ]}
+    ];
+
     function bars(counts){
-      const total = Object.values(counts).reduce((a,b)=>a+b,0) || 1;
-      return Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-          <div style="width:70px;font-size:11.5px;color:#555;">${k}</div>
-          <div style="flex:1;background:#eee;border-radius:4px;overflow:hidden;height:10px;">
-            <div style="width:${(v/total*100).toFixed(0)}%;background:#E8172D;height:100%;"></div>
-          </div>
-          <div style="width:22px;font-size:11.5px;color:#555;text-align:right;">${v}</div>
+      const entries = Object.entries(counts).sort((a,b)=>b[1]-a[1] || a[0].localeCompare(b[0]));
+      const max = Math.max(...entries.map(e=>e[1]), 1);
+      return entries.map(([k,v])=>`
+        <div class="brow">
+          <div class="bk" title="${k}">${k}</div>
+          <div class="btrack"><div class="bfill" style="width:${Math.max(3, v/max*100).toFixed(0)}%"></div></div>
+          <div class="bv">${v}</div>
         </div>`).join('');
     }
+
+    const blocks = GROUPS.map(g=>{
+      const charts = g.charts.filter(c=>Object.keys(c[1]).length);
+      if(!charts.length) return '';
+      return `
+        <section class="bgroup">
+          <header>
+            <h4>${g.title}</h4>
+            <code>${g.fields}</code>
+          </header>
+          ${charts.map(([label,counts])=>`
+            <div class="bchart">
+              <div class="blabel">${label}</div>
+              ${bars(counts)}
+            </div>`).join('')}
+        </section>`;
+    }).join('');
+
     return `
-      <div style="margin-top:10px;">
-        <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:8px;">Sistema operacional</div>
-        ${bars(osCounts)}
-        <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;margin:14px 0 8px 0;">Tipo de dispositivo</div>
-        ${bars(deviceCounts)}
+      <div class="breakdown">
+        <p class="bnote">${dots.length} ${dots.length===1?'resposta':'respostas'} \u00b7
+        cada bloco abaixo \u00e9 um conjunto de campos realmente gravado. Ningu\u00e9m digitou nada
+        disso: as tr\u00eas perguntas produziram apenas o \u00faltimo bloco.</p>
+        ${blocks}
       </div>
     `;
   }
@@ -1020,8 +1329,8 @@
         ${warningHtml}
         <div class="stat">
           <div><div class="lbl">participantes at\u00e9 agora</div><div class="num" id="countnum">\u2026</div></div>
-          <div style="text-align:right;"><div class="lbl">seu ponto</div><div class="num" style="color:#231F20;">\u25CF vermelho</div></div>
         </div>
+        ${mapLegend(true)}
         <div id="svgwrap"><div style="padding:40px 0;color:#888;">carregando\u2026</div></div>
         <div class="debrief">
           <b>O que acabou de acontecer:</b>
@@ -1044,6 +1353,7 @@
           <button class="btn-secondary" id="dossieBtn" style="width:auto;padding:10px 16px;">Revelar meu doss\u00ea individual</button>
           <button class="btn-secondary" id="fpBtn" style="width:auto;padding:10px 16px;">At\u00e9 onde isso poderia ir?</button>
         </div>
+        ${resourcesBlock()}
       </div>
     `;
     document.getElementById('dossieBtn').onclick = function(){ renderDossie(function(){ renderMap(myBary, saved); }); };
@@ -1109,6 +1419,7 @@
           <div><div class="lbl">participantes</div><div class="num" id="countnum">\u2026</div></div>
           <button class="btn-secondary" id="resetBtn" style="width:auto;padding:10px 18px;">Reiniciar rodada</button>
         </div>
+        ${mapLegend(false)}
         <div id="svgwrap"><div style="padding:40px 0;color:#888;">carregando\u2026</div></div>
         <p class="hint">Compartilhe o link sem "?facilitador=1" com os participantes.
         Todos que entrarem com <b>?sessao=${sessionTag}</b> aparecem aqui.</p>
@@ -1140,6 +1451,7 @@
             <button class="btn-primary" id="manualAdd" style="margin-top:12px;" disabled>Adicionar ao mapa</button>
           </div>
         </div>
+        ${resourcesBlock()}
       </div>
     `;
     document.getElementById('resetBtn').onclick = async function(){

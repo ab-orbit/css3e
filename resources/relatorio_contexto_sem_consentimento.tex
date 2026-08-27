@@ -1,0 +1,386 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs,longtable,tabularx,array}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\definecolor{navy}{HTML}{0B172A}
+\definecolor{cyan}{HTML}{0077B6}
+\definecolor{green}{HTML}{087A50}
+\definecolor{amber}{HTML}{9A6500}
+\definecolor{red}{HTML}{B4233D}
+\definecolor{light}{HTML}{F3F6FA}
+\hypersetup{colorlinks=true,linkcolor=cyan,urlcolor=cyan,citecolor=cyan,pdftitle={Contexto Web sem Prompt de Permissão},pdfauthor={Relatório técnico}}
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}\fancyhf{}\lhead{Context-sensitive systems}\rhead{Agosto de 2026}\cfoot{\thepage/\pageref{LastPage}}
+\titleformat{\section}{\Large\bfseries\color{navy}}{\thesection}{.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{navy}}{\thesubsection}{.6em}{}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=3pt}
+\newtcolorbox{noteBox}[1][]{colback=light,colframe=cyan,arc=2mm,boxrule=.7pt,title=#1,fonttitle=\bfseries}
+\newtcolorbox{riskBox}[1][]{colback=red!4,colframe=red,arc=2mm,boxrule=.7pt,title=#1,fonttitle=\bfseries}
+\newtcolorbox{goodBox}[1][]{colback=green!4,colframe=green,arc=2mm,boxrule=.7pt,title=#1,fonttitle=\bfseries}
+\begin{document}
+\begin{titlepage}
+\color{navy}
+\vspace*{2cm}
+{\small RELATÓRIO TÉCNICO \textbullet\ PRIVACY BY DESIGN \textbullet\ CONTEXT-AWARE SYSTEMS\par}
+\vspace{.8cm}
+{\Huge\bfseries Contexto Web sem Prompt de Permissão\par}
+\vspace{.5cm}
+{\Large Inventário técnico, inferências, limites jurídicos, princípios éticos e padrões de implementação\par}
+\vfill
+\begin{noteBox}[Escopo]
+Este relatório trata de dados, sinais e capacidades que uma aplicação web pode observar, solicitar ou derivar sem apresentar ao usuário um \emph{prompt} de permissão do navegador. Essa disponibilidade técnica \textbf{não equivale} a autorização jurídica automática para tratamento. A legitimidade depende de finalidade, base legal, necessidade, transparência, proporcionalidade, segurança e demais requisitos aplicáveis.
+\end{noteBox}
+\vfill
+{\large Atualizado em 27 de agosto de 2026\par}
+{\small Compatibilidade de APIs varia por navegador, versão, secure context, Permissions Policy e mecanismos anti-fingerprinting.\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Resumo executivo}
+Uma página web consegue construir contexto útil antes de solicitar localização, câmera, microfone ou qualquer outra permissão sensível. Esse contexto inclui idioma, locale, timezone, dimensões e orientação do viewport, preferências de cor e movimento, modalidade de entrada, capacidades computacionais aproximadas, conectividade, codecs, estado próprio da aplicação e sinais comportamentais produzidos durante a sessão. O servidor também observa informações de rede e protocolo, incluindo endereço IP público, horário, headers e características da conexão.
+
+O desenho tecnicamente e juridicamente mais defensável não é ``coletar tudo o que o browser deixa''. É selecionar o \textbf{sinal menos identificável capaz de resolver uma finalidade explícita}. A adaptação deve priorizar sinais declarativos e de baixa entropia, como media queries, feature detection e preferências explícitas; manter observação separada de inferência; atribuir confiança a inferências; evitar categorias sensíveis; limitar retenção; e permitir reversão pelo usuário.
+
+\begin{goodBox}[Princípio central]
+Se CSS \texttt{prefers-reduced-motion} resolve uma necessidade de acessibilidade, não existe razão técnica para inferir diagnóstico de saúde. Se \texttt{pointer: coarse} resolve o tamanho dos controles, não existe razão para descobrir o modelo exato do aparelho. Se \texttt{MediaCapabilities} resolve seleção de vídeo, não existe razão para identificar a GPU.
+\end{goodBox}
+
+\section{Distinção crítica: permissão do browser, consentimento e base legal}
+Três conceitos diferentes são frequentemente confundidos:
+\begin{enumerate}
+\item \textbf{Prompt de permissão do navegador}: interface técnica que protege recursos como geolocation, camera e microphone.
+\item \textbf{Consentimento}: uma das hipóteses legais possíveis para tratamento de dados, com requisitos próprios.
+\item \textbf{Base legal}: fundamento jurídico que autoriza determinado tratamento. Na LGPD, consentimento é apenas uma das hipóteses do art. 7º.
+\end{enumerate}
+
+A LGPD define dado pessoal como informação relacionada a pessoa natural identificada ou identificável e estabelece princípios de finalidade, adequação, necessidade, livre acesso, qualidade, transparência, segurança, prevenção, não discriminação e responsabilização (arts. 5º e 6º). O art. 7º lista hipóteses legais distintas, incluindo consentimento, execução contratual e legítimo interesse, entre outras. Fonte oficial: \href{https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm}{Lei nº 13.709/2018, texto compilado}.
+
+\begin{riskBox}[Erro de arquitetura]
+Implementar a regra ``se não aparece popup do browser, posso coletar'' confunde uma barreira técnica com uma análise jurídica. Também ignora expectativas legítimas do titular e os riscos acumulados quando múltiplos sinais aparentemente banais são combinados.
+\end{riskBox}
+
+\section{Taxonomia de acesso}
+\begin{longtable}{p{2.5cm}p{4.2cm}p{7.4cm}}
+\toprule
+\textbf{Classe} & \textbf{Descrição} & \textbf{Exemplos}\\\midrule\endhead
+A -- passivo & Observado pelo servidor ou entregue automaticamente na navegação & IP público, timestamp, headers, protocolo HTTP, TLS/ALPN, Fetch Metadata, Referer conforme política.\\
+B -- baixa entropia & Exposto pelo browser para adaptação ou compatibilidade & idioma, timezone, viewport, orientação, pointer, hover, color scheme, reduced motion.\\
+C -- moderada & Pode aumentar informação sobre o ambiente, mas possui usos funcionais claros & hardwareConcurrency, deviceMemory, storage estimate, network information, media capabilities.\\
+D -- alta entropia & Pode contribuir materialmente para fingerprinting & UA high-entropy hints, WebGL renderer/vendor, combinações de canvas/audio/graphics.\\
+E -- comportamento & Surge durante interação normal, sem prompt de permissão & clique, scroll, focus, visibility, sequência de telas, duração e erros.\\
+F -- protegido & Normalmente requer autorização, gesto ou mecanismo adicional & geolocation precisa, câmera, microfone, screen capture, Bluetooth, USB, Serial, HID, notificações.\\
+\bottomrule
+\end{longtable}
+
+\section{Inventário técnico por domínio}
+\subsection{Rede, protocolo e infraestrutura}
+O servidor pode observar ou derivar da requisição e da infraestrutura:
+\begin{itemize}
+\item endereço IP público, IPv4/IPv6, horário da conexão e edge/CDN utilizado;
+\item HTTP/1.1, HTTP/2 ou HTTP/3; TCP/QUIC; versão TLS e ALPN conforme infraestrutura;
+\item headers como \texttt{Accept}, \texttt{Accept-Encoding}, \texttt{Accept-Language}, \texttt{Sec-Fetch-*}, \texttt{Sec-GPC}, \texttt{Save-Data} e cookies first-party existentes;
+\item Referer, limitado por Referrer Policy;
+\item latência observada, TTFB, throughput próprio e padrões de reconexão;
+\item por enriquecimento externo do IP: país/região/cidade aproximada, ASN, ISP/operadora, hosting/VPN/proxy/Tor e reputação. Esses itens são inferências dependentes da qualidade da base externa.
+\end{itemize}
+\textbf{Uso recomendado}: adaptação de payload, CDN, cache, idioma sugerido e detecção operacional de abuso com controles adequados.\\
+\textbf{Evitar}: tratar GeoIP como localização precisa; usar rede como proxy de renda, etnia ou vulnerabilidade; manter fingerprint TLS para rastreamento desnecessário.
+
+\subsection{User-Agent e Client Hints}
+A plataforma pode expor \texttt{navigator.userAgent}, \texttt{navigator.userAgentData} e Client Hints. Valores de baixa entropia incluem brands, mobile e platform. Em implementações compatíveis, \texttt{getHighEntropyValues()} pode retornar architecture, bitness, formFactors, fullVersionList, model e platformVersion, sujeito a políticas e decisão do user agent. MDN classifica essa API como de disponibilidade limitada e ressalta seu potencial de fingerprinting: \href{https://developer.mozilla.org/en-US/docs/Web/API/NavigatorUAData/getHighEntropyValues}{NavigatorUAData.getHighEntropyValues()}.
+
+\textbf{Boa prática}: feature detection antes de identificação de browser/modelo.\\
+\textbf{Contraexemplo}: solicitar todos os high-entropy hints apenas para analytics ou personalização vaga.
+
+\subsection{Idioma, locale e tempo}
+Sem prompt, uma aplicação pode ler:
+\begin{itemize}
+\item \texttt{navigator.language} e \texttt{navigator.languages};
+\item locale resolvido por \texttt{Intl}, calendário, numbering system e convenções de formatação;
+\item timezone IANA, UTC offset, hora local, dia da semana e duração da sessão.
+\end{itemize}
+\textbf{Uso}: traduzir, formatar datas/números e respeitar horários locais.\\
+\textbf{Contraexemplo}: promover idioma ou timezone a nacionalidade, residência ou identidade cultural.
+
+\subsection{Tela, viewport e forma de exibição}
+Pode-se observar screen width/height, available area, colorDepth, devicePixelRatio, innerWidth/innerHeight, VisualViewport, orientação e, em implementações específicas, se o display é estendido. \texttt{Screen.isExtended}, por exemplo, é experimental e de disponibilidade limitada: \href{https://developer.mozilla.org/en-US/docs/Web/API/Screen/isExtended}{MDN}.
+
+CSS media features também expõem width, height, aspect-ratio, orientation, resolution, gamut, HDR/dynamic range, pointer, hover e outras capacidades.\\
+\textbf{Uso}: responsividade e ergonomia.\\
+\textbf{Contraexemplo}: combinar dimensões raras com GPU e fontes para identificação persistente.
+
+\subsection{Entrada, touch e modalidade de interação}
+Disponíveis sem prompt: \texttt{maxTouchPoints}, pointer/any-pointer, hover/any-hover e Pointer Events durante a interação. Durante a sessão, mouse, touch ou pen podem ser distinguidos pelo tipo do evento.\\
+\textbf{Uso}: targets de toque maiores, suporte a teclado, eliminação de interações hover-only.\\
+\textbf{Contraexemplo}: transformar cadência de digitação ou gesto em biometria comportamental sem necessidade explícita.
+
+\subsection{Preferências visuais, acessibilidade e privacidade}
+Media queries permitem responder a \texttt{prefers-color-scheme}, \texttt{prefers-reduced-motion}, \texttt{prefers-contrast}, \texttt{forced-colors} e, onde implementado, redução de transparência. O W3C documenta \texttt{prefers-reduced-motion} como técnica para evitar movimento em conteúdo interativo no contexto de WCAG 2.2: \href{https://www.w3.org/WAI/WCAG22/Techniques/css/C39}{Technique C39}. WCAG 2.2 é Recommendation do W3C e abrange acessibilidade em diferentes tipos de dispositivo: \href{https://www.w3.org/TR/WCAG22/}{WCAG 2.2}.
+
+GPC pode ser exposto por header e API em browsers compatíveis.\\
+\textbf{Uso}: respeitar diretamente a preferência.\\
+\textbf{Contraexemplo}: inferir doença, deficiência ou perfil psicológico a partir do sinal.
+
+\subsection{Hardware e capacidade computacional}
+\texttt{navigator.hardwareConcurrency} expõe processadores lógicos disponíveis. \texttt{navigator.deviceMemory}, em browsers compatíveis, fornece memória aproximada e propositalmente arredondada. Touch points e benchmarks internos podem complementar um orçamento de recursos.\\
+\textbf{Uso}: progressive enhancement, complexidade de processamento, degradação funcional.\\
+\textbf{Contraexemplo}: manter perfil granular de hardware para reidentificação.
+
+\subsection{GPU, WebGL e WebGPU}
+WebGL permite feature detection, limites e extensões. A extensão \texttt{WEBGL\_debug\_renderer\_info} pode expor vendor e renderer, mas pode ser desabilitada por configurações anti-fingerprinting. A própria MDN recomenda uso apenas em casos específicos de otimização/debug: \href{https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_debug_renderer_info}{WEBGL debug renderer info}.\\
+\textbf{Uso}: compatibilidade gráfica baseada em features/limits.\\
+\textbf{Contraexemplo}: fingerprint com renderer, shaders, canvas e extensões.
+
+\subsection{Mídia, codecs e eficiência}
+\texttt{canPlayType} e Media Capabilities permitem verificar codecs, perfis e, onde suportado, smoothness e eficiência energética de decoding/encoding.\\
+\textbf{Uso}: escolher codec, resolução e bitrate.\\
+\textbf{Contraexemplo}: sondagem massiva de codecs sem finalidade funcional para aumentar unicidade do dispositivo.
+
+\subsection{Câmeras e microfones: existência não é conteúdo}
+\texttt{enumerateDevices()} pode expor uma visão limitada de devices em determinadas condições, mas labels e detalhes ficam restritos sem permissão. O acesso ao conteúdo de câmera e microfone por \texttt{getUserMedia()} é protegido. Isso ilustra uma distinção útil: \emph{capacidade disponível} não equivale a \emph{acesso ao sensor}.
+
+\subsection{Rede percebida pelo browser}
+Onde Network Information API é implementada, podem existir effectiveType, downlink, RTT e Save Data. Além disso, uma aplicação pode medir a qualidade real contra seu próprio backend.\\
+\textbf{Uso}: reduzir prefetch, imagens e bitrate.\\
+\textbf{Contraexemplo}: usar conexão lenta como proxy socioeconômico.
+
+\subsection{Storage, cookies e estado próprio}
+Sem prompt, uma origem pode usar ou inspecionar, conforme políticas do navegador, cookies first-party, localStorage, sessionStorage, IndexedDB, Cache Storage e \texttt{StorageManager.estimate()}. Em retornos posteriores, o próprio serviço pode conhecer preferências explicitamente salvas, sessão, tenant, role, onboarding e histórico interno.
+
+O Guia Orientativo de Cookies da ANPD alerta para riscos de falta de transparência, coleta massiva, rastreamento e criação de perfis, e estende suas orientações de forma geral a tecnologias similares de rastreamento. Também enfatiza finalidade, necessidade, adequação e configuração adequada de mecanismos de escolha: \href{https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia_orientativo_cookies_e_protecao_de_dados_pessoais}{ANPD -- Cookies e proteção de dados pessoais}.
+
+\subsection{URL, referrer e contexto de navegação}
+A própria URL pode trazer path, query string, hash, UTM, campaign, tenant, convite ou deep-link. Referrer pode indicar origem da navegação conforme política.\\
+\textbf{Uso}: continuidade de fluxo, atribuição estritamente necessária e configuração inicial.\\
+\textbf{Contraexemplo}: incluir dados pessoais ou sensíveis em query strings que podem aparecer em logs, analytics ou referrers.
+
+\subsection{Visibilidade, foco e ciclo de vida da página}
+Page Visibility, focus/blur, resize, orientation e navigation timing permitem pausar vídeo, reduzir polling, retomar conteúdo e evitar desperdício de recursos.\\
+\textbf{Uso}: performance e continuidade.\\
+\textbf{Contraexemplo}: interpretar troca de tab como desinteresse pessoal ou penalizar o usuário.
+
+\subsection{Comportamento durante a sessão}
+Clicks, scroll, focus, erros, retries, tempo na tela e sequência de navegação são observáveis quando ocorrem. Podem sustentar inferências como ``fricção provável'' ou ``usuário recorrente em determinada tarefa'', desde que limitadas ao serviço e tratadas como hipóteses.\\
+\textbf{Contraexemplo}: construir traços psicológicos, vulnerabilidades ou categorias sensíveis por inferência opaca.
+
+\section{Inferências: como modelar sem fingir certeza}
+O objeto de contexto deve separar sinal e derivação. Uma estrutura mínima:
+\begin{verbatim}
+ObservedContext {
+  signal, value, source, timestamp,
+  entropy_class, retention, purpose
+}
+DerivedContext {
+  hypothesis, confidence, evidence_refs,
+  purpose, expiry, prohibited_uses
+}
+AdaptationPolicy {
+  trigger, action, reversible,
+  user_override, audit_reason
+}
+\end{verbatim}
+
+Exemplo aceitável:
+\begin{verbatim}
+observed: pointer=coarse, maxTouchPoints=5
+inference: touch_first_interface, confidence=0.91
+action: min_target_size=44px
+\end{verbatim}
+
+Exemplo inaceitável:
+\begin{verbatim}
+observed: prefers-reduced-motion=reduce
+inference: user_has_vestibular_disorder
+profile: health_condition=true
+\end{verbatim}
+
+\section{Matriz de adaptação recomendada}
+\begin{longtable}{p{3.4cm}p{4cm}p{6.3cm}}
+\toprule
+\textbf{Objetivo} & \textbf{Sinal mínimo} & \textbf{Implementação recomendada}\\\midrule\endhead
+Layout responsivo & viewport + CSS media/container queries & Preferir CSS; não coletar modelo do dispositivo.\\
+Touch-first & pointer/hover/maxTouchPoints & Aumentar targets; manter teclado e pointer alternativos.\\
+Tema & prefers-color-scheme + preferência interna & Respeitar sistema inicialmente e oferecer override persistente.\\
+Movimento & prefers-reduced-motion & Remover movimento não essencial; não inferir saúde.\\
+Contraste & forced-colors/prefers-contrast & Garantir legibilidade e não sobrescrever escolhas do sistema.\\
+Idioma & navigator.languages + escolha explícita & Sugerir; usuário deve poder trocar; persistir escolha explícita.\\
+Datas/hora & Intl + timezone & Formatar localmente; não inferir residência.\\
+Rede limitada & Save-Data/ECT + medição própria & Menor payload, lazy loading, retry/backoff e opção manual.\\
+Vídeo & MediaCapabilities & Escolher codec/bitrate; evitar GPU fingerprint.\\
+Baixo recurso & hardwareConcurrency/deviceMemory/benchmark mínimo & Progressive enhancement e limites de trabalho local.\\
+Retomada & estado first-party próprio & Restaurar tarefa com retenção limitada e transparência.\\
+Ajuda contextual & erros/retries/abandono dentro da sessão & Oferecer ajuda; evitar classificação psicológica.\\
+\bottomrule
+\end{longtable}
+
+\section{Princípios jurídicos aplicados ao design}
+\subsection{Finalidade}
+Cada sinal precisa ter propósito legítimo, específico e explícito. ``Personalização'' isoladamente é amplo demais para justificar captura indiscriminada.
+
+\subsection{Adequação}
+O sinal escolhido deve ser compatível com a finalidade. Para responsividade, viewport é adequado; renderer GPU normalmente não é.
+
+\subsection{Necessidade / minimização}
+A LGPD exige limitação ao mínimo necessário. A ANPD reforça essa lógica no Guia de Cookies. A W3C, em seus Web Platform Design Principles, inclui explicitamente ``Minimize user data'': \href{https://www.w3.org/TR/design-principles/}{Web Platform Design Principles}.
+
+\subsection{Transparência}
+Mesmo sem depender de consentimento, o tratamento deve ser explicável. Uma política de contexto deve informar categorias, finalidades, retenção, inferências e controles relevantes.
+
+\subsection{Não discriminação}
+Sinais técnicos não devem virar proxies para características protegidas ou decisões desvantajosas. Inferências de categoria sensível merecem proibição por padrão.
+
+\subsection{Responsabilização}
+Deve existir inventário de sinais, dono, finalidade, base legal, retenção, risco, testes e evidência de revisão.
+
+\section{Legítimo interesse: não é passe livre}
+A ANPD publicou guia específico para legítimo interesse e descreve teste de balanceamento em fases de finalidade, necessidade, balanceamento e salvaguardas: \href{https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia_orientativo_hipoteses_legais_tratamento_de_dados_pessoais_legitimo_interesse}{Guia ANPD -- Legítimo Interesse}. O Glossário da ANPD define legítima expectativa como expectativa razoável do titular demonstrável pelo controlador.
+
+Para contexto web, perguntas mínimas são:
+\begin{enumerate}
+\item A finalidade é específica e legítima?
+\item O sinal é realmente necessário ou existe alternativa menos invasiva?
+\item O usuário esperaria esse uso naquele contexto?
+\item A inferência aumenta risco ou assimetria de poder?
+\item Existe override, opt-out quando pertinente, retenção curta e transparência?
+\end{enumerate}
+
+\section{Privacy by design e referenciais éticos}
+O EDPB, nas Guidelines 4/2019 sobre proteção de dados desde a concepção e por padrão, trata privacy by design/default como obrigação de incorporar medidas e princípios ao desenho do tratamento: \href{https://www.edpb.europa.eu/documents/guideline/guidelines-42019-on-article-25-data-protection-by-design-and-by-default_en}{EDPB Guidelines 4/2019}.
+
+A W3C publicou \emph{Privacy Principles} como Statement em 15 de maio de 2025, propondo princípios para uma web confiável e orientando a relação entre tecnologia e política: \href{https://www.w3.org/TR/privacy-principles/}{W3C Privacy Principles}. Em 12 de dezembro de 2024, publicou também \emph{Ethical Web Principles}, incluindo privacidade, controle individual, transparência e prevenção de dano: \href{https://www.w3.org/TR/ethical-web-principles/}{W3C Ethical Web Principles}.
+
+O NIST Privacy Framework é um instrumento de gestão de risco de privacidade organizacional e pode ser usado para conectar inventário técnico, governança e controles: \href{https://www.nist.gov/privacy-framework}{NIST Privacy Framework}.
+
+\section{Padrões positivos e anti-patterns}
+\begin{longtable}{p{7cm}p{7cm}}
+\toprule
+\textbf{Faça} & \textbf{Não faça}\\\midrule\endhead
+Use media queries para adaptar UI. & Colete modelo/renderer quando viewport e capabilities bastam.\\
+Guarde preferência explicitamente escolhida. & Re-inferira preferência a cada sessão ignorando a escolha do usuário.\\
+Rotule inferências e confidence. & Salve inferência como atributo factual.\\
+Expire contexto derivado. & Mantenha perfil comportamental indefinidamente.\\
+Use feature detection. & User-Agent sniffing extensivo como regra principal.\\
+Respeite GPC/Save-Data/reduced-motion. & Use sinais de privacidade para contornar bloqueios.\\
+Agregue analytics quando possível. & Reidentifique indivíduos com fingerprint probabilístico.\\
+Minimize URL data. & Coloque PII/sensíveis em query strings.\\
+Separe segurança antifraude de personalização. & Reutilize indicadores de risco para marketing sem compatibilidade de finalidade.\\
+Ofereça override e explique adaptações importantes. & Faça mudança opaca que altere preço, elegibilidade ou acesso.\\
+\bottomrule
+\end{longtable}
+
+\section{Fingerprinting: fronteira que deve ser tratada como risco}
+Fingerprinting surge quando múltiplos sinais de ambiente são combinados para tornar um browser distinguível, mesmo sem cookie persistente. Font metrics, canvas, WebGL renderer, audio processing, listas de codecs e outras características podem aumentar a entropia do conjunto.
+
+\begin{riskBox}[Política recomendada]
+Proibir fingerprinting para personalização e analytics convencionais. Se uma finalidade de segurança exigir sinais de maior entropia, separar o pipeline, documentar necessidade, aplicar retenção curta, restringir acesso e impedir reutilização para marketing ou perfil comportamental.
+\end{riskBox}
+
+\section{Arquitetura de referência}
+\begin{verbatim}
+Browser / Request
+    |
+    +-- Low Entropy Collector ------+
+    +-- Capability Detection ------+--> ObservedContext Store
+    +-- Own App State -------------+       (short retention)
+    +-- Session Events ------------+
+                                         |
+                                         v
+                                  Derivation Engine
+                                  confidence + evidence
+                                         |
+                                         v
+                                  Policy Decision Point
+                                purpose / legal basis /
+                                constraints / overrides
+                                         |
+                                         v
+                                    Adaptation Layer
+                           UI | content | media | resources
+\end{verbatim}
+
+Recomenda-se um \textbf{High Entropy Gate} separado, desligado por padrão. Qualquer nova probe deve exigir justificativa, revisão de risco e teste de alternativa menos invasiva.
+
+\section{Esquema de governança sugerido}
+Para cada sinal/contexto, mantenha:
+\begin{itemize}
+\item nome técnico e API/origem;
+\item classe de entropia;
+\item finalidade autorizada;
+\item base legal analisada;
+\item dado pessoal: sim/não/condicional;
+\item inferências permitidas e proibidas;
+\item retenção e TTL;
+\item compartilhamentos/terceiros;
+\item risco de discriminação;
+\item risco de fingerprinting;
+\item fallback quando indisponível;
+\item user override;
+\item owner e data da última revisão.
+\end{itemize}
+
+\section{Checklist de implementação}
+\begin{enumerate}
+\item Começar pela finalidade da adaptação, não pela lista de APIs disponíveis.
+\item Resolver primeiro com CSS, feature detection ou estado explícito do usuário.
+\item Classificar cada sinal por entropia e identificabilidade.
+\item Separar ObservedContext de DerivedContext.
+\item Exigir confidence e evidence refs para toda inferência.
+\item Definir lista explícita de inferências proibidas, especialmente sensíveis.
+\item Definir TTL para observações e inferências.
+\item Evitar third-party enrichment salvo necessidade demonstrada.
+\item Tornar adaptações reversíveis e preservar override do usuário.
+\item Respeitar preferências de privacidade e acessibilidade sem inferir diagnósticos.
+\item Revisar compatibilidade de browser e fallback.
+\item Executar teste de necessidade: existe sinal menos invasivo?
+\item Executar revisão jurídica aplicável e teste de balanceamento quando pertinente.
+\item Documentar e auditar mudanças no catálogo de contexto.
+\end{enumerate}
+
+\section{Sinais que permanecem fora do escopo sem autorização adequada}
+Uma URL, por si só, não dá acesso irrestrito a geolocation precisa, câmera, microfone, screen capture, Bluetooth, USB, Serial, HID, arquivos locais, contatos, outras abas, histórico completo do navegador, senhas ou conteúdo de outros sites. Algumas APIs exigem permissão, secure context, user activation, Permissions Policy ou combinações desses mecanismos.
+
+A arquitetura deve preservar essa fronteira. Não se deve tentar reproduzir dados protegidos por meio de inferências agressivas quando o usuário negou ou não concedeu a capacidade protegida.
+
+\section{Conclusão}
+Sistemas sensíveis a contexto podem adaptar significativamente usabilidade, acessibilidade, conteúdo e consumo de recursos sem recorrer a sensores invasivos. O valor está menos em maximizar observabilidade e mais em \textbf{escolher contexto proporcional ao problema}. Um sistema maduro trata cada sinal como uma decisão de produto e governança: por que existe, qual problema resolve, quanto identifica, quanto dura, o que pode ser inferido e qual uso é proibido.
+
+A regra operacional pode ser resumida em quatro linhas:
+\begin{enumerate}
+\item observar apenas o necessário;
+\item inferir explicitamente e com incerteza;
+\item adaptar de forma reversível;
+\item nunca usar disponibilidade técnica como substituto para legitimidade jurídica ou ética.
+\end{enumerate}
+
+\section*{Referências essenciais}
+\begin{itemize}
+\item BRASIL. Lei nº 13.709/2018 (LGPD), texto compilado. \url{https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm}
+\item ANPD. Guia Orientativo Cookies e Proteção de Dados Pessoais. \url{https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia_orientativo_cookies_e_protecao_de_dados_pessoais}
+\item ANPD. Guia Orientativo Hipóteses Legais de Tratamento de Dados Pessoais -- Legítimo Interesse. \url{https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia_orientativo_hipoteses_legais_tratamento_de_dados_pessoais_legitimo_interesse}
+\item W3C. Privacy Principles, Statement, 15 May 2025. \url{https://www.w3.org/TR/privacy-principles/}
+\item W3C. Ethical Web Principles, Statement, 12 Dec 2024. \url{https://www.w3.org/TR/ethical-web-principles/}
+\item W3C. Web Platform Design Principles. \url{https://www.w3.org/TR/design-principles/}
+\item W3C. Web Content Accessibility Guidelines (WCAG) 2.2. \url{https://www.w3.org/TR/WCAG22/}
+\item EDPB. Guidelines 4/2019 on Article 25 Data Protection by Design and by Default. \url{https://www.edpb.europa.eu/documents/guideline/guidelines-42019-on-article-25-data-protection-by-design-and-by-default_en}
+\item NIST. Privacy Framework. \url{https://www.nist.gov/privacy-framework}
+\item MDN. NavigatorUAData.getHighEntropyValues(). \url{https://developer.mozilla.org/en-US/docs/Web/API/NavigatorUAData/getHighEntropyValues}
+\item MDN. WEBGL\_debug\_renderer\_info. \url{https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_debug_renderer_info}
+\end{itemize}
+
+\vfill
+\begin{center}\small Este material é um relatório técnico de arquitetura e privacidade; não substitui análise jurídica específica do controlador, finalidade, público, jurisdição e fluxo de dados concretos.\end{center}
+\end{document}
