@@ -3,9 +3,88 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Além do Algoritmo</title>
-<meta name="description" content="Como o contexto está redefinindo a inteligência das máquinas: SMCAS, UDCAS, VSCAS, SDBC e AORTA explicados a partir do caso dos drones de fronteira.">
+<title>Além do Algoritmo: Como o Contexto Está Redefinindo a Inteligência das Máquinas</title>
+<meta name="description" content="SMCAS, UDCAS e VSCAS explicados a partir do caso dos drones de fronteira: por que um sistema realmente inteligente é o que sabe qual regra vale para cada situação, não o que segue sempre a mesma regra. Ensaio baseado em Shishkov, Larsen, Warnier &amp; Janssen (BMSD 2018).">
+<meta name="keywords" content="sistemas sensíveis ao contexto, context-aware systems, SMCAS, UDCAS, VSCAS, SDBC, AORTA, computação autonômica, ciclo MAPE, value sensitive design, ética em IA, inteligência artificial, drones, segurança de fronteira, contexto computacional, CIn UFPE">
+<meta name="author" content="Bruna Juliana Melo da Costa, Jefferson Wellington da Cunha">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/blog.html">
+<meta name="theme-color" content="#171415">
+
+<!-- Open Graph / Facebook, LinkedIn, WhatsApp -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/blog.html">
+<meta property="og:title" content="Além do Algoritmo: Como o Contexto Está Redefinindo a Inteligência das Máquinas">
+<meta property="og:description" content="Um GPS que insiste na rota &#8220;ecologicamente correta&#8221; durante uma emergência médica não é burro — é surdo ao ambiente. SMCAS, UDCAS, VSCAS, SDBC e AORTA, explicados a partir do caso dos drones de fronteira.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="Diagrama das três categorias de sistemas sensíveis ao contexto: autogerenciável, centrado no usuário e sensível a valores.">
+<meta property="article:published_time" content="2026-08-28">
+<meta property="article:author" content="Bruna Juliana Melo da Costa">
+<meta property="article:author" content="Jefferson Wellington da Cunha">
+<meta property="article:section" content="Contexto Computacional">
+<meta property="article:tag" content="Context-Aware Systems">
+<meta property="article:tag" content="SDBC">
+<meta property="article:tag" content="AORTA">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Além do Algoritmo: Como o Contexto Está Redefinindo a Inteligência das Máquinas">
+<meta name="twitter:description" content="SMCAS, UDCAS, VSCAS, SDBC e AORTA — explicados a partir do caso dos drones de fronteira.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta name="twitter:image:alt" content="Diagrama das três categorias de sistemas sensíveis ao contexto.">
+
 <link rel="stylesheet" href="resources/cases/style.css">
+
+<!-- Dados estruturados: ajudam buscadores e assistentes de IA a citar a
+     fonte original e a autoria corretamente, em vez de tratar o texto
+     como conteúdo anônimo. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/blog.html" },
+  "headline": "Além do Algoritmo: Como o Contexto Está Redefinindo a Inteligência das Máquinas",
+  "alternativeHeadline": "Como o contexto está redefinindo a inteligência das máquinas",
+  "description": "SMCAS, UDCAS e VSCAS explicados a partir do caso dos drones de fronteira: por que um sistema realmente inteligente é o que sabe qual regra vale para cada situação.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "author": [
+    { "@type": "Person", "name": "Bruna Juliana Melo da Costa" },
+    { "@type": "Person", "name": "Jefferson Wellington da Cunha" }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Centro de Informática, UFPE",
+    "url": "https://ab-orbit.github.io/css3e/"
+  },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "Three Categories of Context-Aware Systems",
+    "author": ["Boris Shishkov", "John Bruntse Larsen", "Martijn Warnier", "Marijn Janssen"],
+    "datePublished": "2018",
+    "sameAs": "https://doi.org/10.1007/978-3-319-94214-8_12",
+    "url": "https://ab-orbit.github.io/css3e/resources/ThreeCategoriesofCAS.pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Context-aware computing" },
+    { "@type": "Thing", "name": "Self-Managing Context-Aware Systems (SMCAS)" },
+    { "@type": "Thing", "name": "User-Driven Context-Aware Systems (UDCAS)" },
+    { "@type": "Thing", "name": "Value-Sensitive Context-Aware Systems (VSCAS)" },
+    { "@type": "Thing", "name": "Software Derived from Business Components (SDBC)" },
+    { "@type": "Thing", "name": "AORTA agent reasoning framework" }
+  ],
+  "keywords": "sistemas sensíveis ao contexto, SMCAS, UDCAS, VSCAS, SDBC, AORTA, computação autonômica, value sensitive design",
+  "wordCount": 950,
+  "url": "https://ab-orbit.github.io/css3e/blog.html"
+}
+</script>
+
 <style>
 /* -------------------------------------------------------------
    Complementos de leitura para esta página. Base visual (paleta,
@@ -14,7 +93,7 @@
 
 .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
 
-.post-hero{padding:60px 0 20px;max-width:840px}
+.post-hero{padding:60px 0 20px}
 .post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
 .post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
 .post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
@@ -22,13 +101,13 @@
 .byline b{color:var(--paper);font-weight:750}
 .byline .sep{color:var(--line)}
 
-.post-cover{max-width:840px;margin:8px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+.post-cover{margin:8px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
 .post-cover .band{padding:46px var(--gut);display:flex;flex-direction:column;gap:10px}
 .post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
 .post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
 .post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
 
-article.post{max-width:720px;padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
 article.post p{margin:0 0 26px}
 article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
 article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
@@ -45,17 +124,17 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 
 .drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
 
-.closer{max-width:720px;padding:6px 0 40px}
+.closer{padding:6px 0 40px}
 .closer .callout{font-size:17px;line-height:1.6}
 
-.toc-rail{max-width:720px;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
 .toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
 .toc-rail a:hover{border-color:var(--signal);color:#fff}
 
-.share{max-width:720px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
 .share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
 
-.related{max-width:840px;padding:10px 0 60px}
+.related{padding:10px 0 60px}
 .related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
 .related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
