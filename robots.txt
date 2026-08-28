@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Crawlers de assistentes de IA / LLM answer engines — permitidos
+# explicitamente para que o conteúdo possa ser citado com atribuição.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://ab-orbit.github.io/css3e/sitemap.xml
