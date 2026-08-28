@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Além do Algoritmo</title>
+<meta name="description" content="Como o contexto está redefinindo a inteligência das máquinas: SMCAS, UDCAS, VSCAS, SDBC e AORTA explicados a partir do caso dos drones de fronteira.">
+<link rel="stylesheet" href="resources/cases/style.css">
+<style>
+/* -------------------------------------------------------------
+   Complementos de leitura para esta página. Base visual (paleta,
+   tipografia, cartões, botões) vem de resources/cases/style.css.
+   ------------------------------------------------------------- */
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.post-hero{padding:60px 0 20px;max-width:840px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+
+.post-cover{max-width:840px;margin:8px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+.post-cover .band{padding:46px var(--gut);display:flex;flex-direction:column;gap:10px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+
+article.post{max-width:720px;padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post em{color:rgba(255,255,255,.95);font-style:italic}
+article.post .term{color:var(--signal-2);font-weight:750;font-style:normal}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+article.post ul li b{color:#fff}
+
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+
+.closer{max-width:720px;padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+
+.toc-rail{max-width:720px;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+
+.share{max-width:720px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+
+.related{max-width:840px;padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+@media(max-width:900px){.related-grid{grid-template-columns:1fr}}
+@media(max-width:700px){
+  article.post{font-size:16.5px}
+  blockquote.pull{font-size:20px;margin-left:0;margin-right:0}
+  .post-cover .band{padding:30px var(--gut)}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Blog · CSS3E</div>
+    <nav class="nav">
+      <a class="btn" href="index.html">Dinâmica</a>
+      <a class="btn" href="artigo.html">Leitura do artigo</a>
+      <a class="btn" href="resources/index.html">Material de apoio</a>
+      <a class="btn primary" href="Além do Algoritmo_ Como o Contexto Está Redefinindo a Inteligência das Máquinas.pdf">PDF do ensaio</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="post-hero">
+    <p class="post-kicker">Ensaio · contexto computacional</p>
+    <h1>Além do algoritmo: como o contexto está redefinindo a inteligência das máquinas</h1>
+    <p class="post-dek">Um GPS que insiste na rota “ecologicamente correta” durante uma emergência médica não é burro — é surdo ao ambiente. A diferença entre as duas coisas é o assunto deste ensaio.</p>
+    <div class="byline">
+      <span><b>Baseado em</b> Shishkov, Larsen, Warnier &amp; Janssen (BMSD 2018)</span>
+      <span class="sep">·</span>
+      <span>6 min de leitura</span>
+      <span class="sep">·</span>
+      <span>SMCAS · UDCAS · VSCAS · SDBC · AORTA</span>
+    </div>
+  </section>
+
+  <div class="post-cover">
+    <div class="band">
+      <span>O argumento em uma frase</span>
+      <b style="font-size:22px;line-height:1.3;max-width:60ch">Sistema inteligente não é o que segue a regra certa — é o que sabe qual regra vale para esta situação.</b>
+      <div class="trio">
+        <i>SMCAS · otimiza a si mesmo</i>
+        <i>UDCAS · otimiza o serviço</i>
+        <i>VSCAS · protege um valor</i>
+      </div>
+    </div>
+  </div>
+
+  <nav class="toc-rail" aria-label="Seções do ensaio">
+    <a href="#s1">1 · Despertar situacional</a>
+    <a href="#s2">2 · SMCAS</a>
+    <a href="#s3">3 · UDCAS</a>
+    <a href="#s4">4 · VSCAS</a>
+    <a href="#s5">5 · Drones e tensão</a>
+    <a href="#s6">Conclusão</a>
+  </nav>
+
+  <article class="post">
+
+    <p class="drop">Imagine a frustração de utilizar um GPS que, em meio a uma emergência médica, continua sugerindo a rota “ecologicamente correta” apenas porque essa é a sua configuração padrão. Esse é o problema das tecnologias <strong>surdas</strong> ao ambiente: elas seguem algoritmos cegos, ignorando a urgência ou as nuances da realidade.</p>
+
+    <h2 id="s1"><span class="no">01</span>O despertar da consciência situacional</h2>
+    <p>Para superar essa barreira, o design de sistemas modernos está migrando para a <span class="term">consciência situacional</span>. A verdadeira inteligência das máquinas reside na adaptabilidade — a capacidade de ajustar o comportamento dependendo da situação específica, ou o “estado de contexto”.</p>
+    <p>Como especialista em design de sistemas, vejo que essa evolução exige uma ponte sólida entre o ambiente de negócios e a especificação de software. É aqui que entra a abordagem <span class="term">SDBC</span> (Software Derived from Business Components): a premissa de que sistemas sensíveis ao contexto não nascem do vácuo, mas da derivação metodológica de especificações técnicas a partir de modelos empresariais profundos.</p>
+
+    <h2 id="s2"><span class="no">02</span>A autonomia começa “dentro de casa” (SMCAS)</h2>
+    <p>A primeira categoria fundamental é o <strong>Self-Managing Context-Aware System (SMCAS)</strong>. Enraizados nos princípios da Computação Autonômica, esses sistemas focam na otimização de processos internos para reduzir custos de manutenção e a dependência de supervisão humana constante.</p>
+    <p>O “sistema nervoso” dessa autonomia é o <span class="term">Ciclo MAPE</span> (Monitorar, Analisar, Planejar e Executar). Através de mecanismos de feedback, o sistema monitora o ambiente, analisa os dados, planeja mudanças e as implementa por meio de “efetores”, alterando o próprio comportamento ou o ambiente ao redor.</p>
+
+    <blockquote class="pull">
+      A essência de um sistema autogerenciável é um mecanismo de feedback que permite otimizar seu funcionamento com base em entradas do ambiente.
+      <cite>Aprendizado 1 · SMCAS</cite>
+    </blockquote>
+
+    <p>Ao alinhar a modelagem de negócios com a especificação de software, o SMCAS permite que a tecnologia deixe de ser uma ferramenta passiva para se tornar um agente proativo, capaz de “sobreviver” em ecossistemas complexos através da autorregulagem.</p>
+
+    <h2 id="s3"><span class="no">03</span>A eficácia é um alvo móvel (UDCAS)</h2>
+    <p>Enquanto o SMCAS olha para dentro, o <strong>User-Driven Context-Aware System (UDCAS)</strong> foca na maximização da satisfação do usuário. A premissa é que as necessidades humanas são fluidas e dependem de variáveis como localização, tempo, ambiente social e até propriedades fisiológicas — como no monitoramento remoto de pacientes, onde o sistema deve agir de forma distinta em casos de emergência versus condições normais.</p>
+    <p>Um dos maiores desafios de design aqui é o gerenciamento de recursos. Como é impossível prever todas as situações humanas, utiliza-se uma abordagem estatística e probabilística:</p>
+    <ul>
+      <li><b>Estados de alta probabilidade:</b> o sistema recebe algoritmos personalizados para situações frequentes (ex.: o usuário está no trabalho).</li>
+      <li><b>Estado de contexto “OTHER” (outros):</b> para situações raras e imprevisíveis, utiliza-se uma lógica genérica para economizar recursos computacionais.</li>
+    </ul>
+    <p>Essa decisão reflete um <em>trade-off</em> essencial no design de sistemas: nem todo contexto merece o custo de um algoritmo dedicado. A inteligência está em priorizar a qualidade de serviço onde ela é mais provável de ser necessária.</p>
+
+    <h2 id="s4"><span class="no">04</span>Ética não é acessório, é arquitetura (VSCAS)</h2>
+    <p>A terceira fronteira são os <strong>Value-Sensitive Context-Aware Systems (VSCAS)</strong>. Diferente de requisitos técnicos tradicionais, os “valores” (como privacidade, prestação de contas e integridade) são <span class="term">construções sociais e normativas</span>. Eles não pertencem apenas ao domínio de uma empresa, mas são desejos da sociedade como um todo.</p>
+    <p>Traduzir normas morais em funções de software é complexo porque valores são abstratos e variam entre culturas. No design VSCAS, a sensibilidade ao contexto significa entender que a prioridade de um valor pode mudar conforme a situação.</p>
+
+    <blockquote class="pull">
+      Diferentes estados de contexto podem assumir a consideração de diferentes valores, o que, por sua vez, significaria diferentes variantes de funcionalidade do sistema.
+      <cite>Aprendizado 3 · VSCAS</cite>
+    </blockquote>
+
+    <p>Portanto, a arquitetura deve ser capaz de distinguir valores de requisitos técnicos, tratando a ética como um pilar de orientação para as escolhas de design, e não como uma simples correção de bugs.</p>
+
+    <h2 id="s5"><span class="no">05</span>O dilema dos drones e a gestão de tensões</h2>
+    <p>O uso de drones em segurança de fronteiras ilustra perfeitamente como essas três categorias colidem, gerando tensões que exigem um raciocínio organizacional sofisticado.</p>
+    <ul>
+      <li><b>Interno (SMCAS):</b> otimizar o consumo de energia versus completar uma varredura detalhada.</li>
+      <li><b>Usuário (UDCAS):</b> ajustar o monitoramento para fornecer dados críticos em tempo real aos oficiais no solo.</li>
+      <li><b>Sociedade (VSCAS):</b> minimizar a poluição sonora em áreas residenciais e garantir a privacidade, borrando rostos de cidadãos inocentes capturados pelas câmeras.</li>
+    </ul>
+    <p>Para resolver esses conflitos, não bastam regras simples de “se-então”. O sistema utiliza o <span class="term">AORTA Engine</span> (um motor de raciocínio baseado em agentes). O AORTA atua como a inteligência central que:</p>
+    <ul>
+      <li>Recebe entradas do <b>Motor de Análise</b>.</li>
+      <li>Verifica <b>obrigações, proibições e permissões</b> (ex.: “é proibido voar baixo, a menos que haja um alerta de invasão”).</li>
+      <li>Fornece diretrizes para o <b>Planejador</b>, que decide a ação final.</li>
+    </ul>
+    <p>Essa estrutura permite que o drone decida, por exemplo, que o silêncio de uma vizinhança pode ser sacrificado em prol de uma missão crítica, mas deve ser preservado em patrulhas de rotina.</p>
+
+    <h2 id="s6"><span class="no">Conclusão</span>O futuro é uma questão de prioridade</h2>
+    <p>O caminho para sistemas verdadeiramente inteligentes exige a integração coesa de autogestão, foco no usuário e respeito aos valores sociais. Através de metodologias como SDBC e motores de raciocínio como o AORTA Engine, estamos transformando algoritmos frios em sistemas situacionalmente conscientes, capazes de navegar por obrigações e crenças organizacionais.</p>
+    <p>No entanto, à medida que delegamos essa complexidade às máquinas, a pergunta final permanece para nós, designers e cidadãos:</p>
+
+  </article>
+
+  <div class="closer">
+    <div class="callout">
+      <b>Quando a eficiência técnica do SMCAS colidir inevitavelmente com os valores públicos do VSCAS, quem deve ter a autoridade final para definir as prioridades da máquina?</b>
+    </div>
+  </div>
+
+  <div class="share">
+    <span>Compartilhar</span>
+    <a class="btn" id="shareLink" href="#">Copiar link</a>
+    <a class="btn" href="https://wa.me/?text=Além%20do%20Algoritmo%3A%20como%20o%20contexto%20está%20redefinindo%20a%20intelig%C3%AAncia%20das%20máquinas" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <section class="related">
+    <h3>Continue</h3>
+    <div class="related-grid">
+      <a class="rcard" href="artigo.html">
+        <b>Leitura guiada do artigo</b>
+        <small>SMCAS, UDCAS, VSCAS, SDBC, AORTA e o caso dos drones — com áudio e mapa mental.</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+      <a class="rcard" href="Além do Algoritmo_ Como o Contexto Está Redefinindo a Inteligência das Máquinas.pdf">
+        <b>Ensaio em PDF</b>
+        <small>A versão original deste texto, para leitura offline ou impressão.</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+      <a class="rcard" href="resources/ThreeCategoriesofCAS.pdf">
+        <b>Artigo original</b>
+        <small>Shishkov, Larsen, Warnier &amp; Janssen · BMSD 2018 · manuscrito aceito.</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Baseado em Shishkov, B., Larsen, J. B., Warnier, M., &amp; Janssen, M. (2018). <i>Three Categories of Context-Aware Systems</i>. BMSD 2018, LNBIP 319, pp. 185–202. Springer.<br><br>
+    <a href="index.html">Dinâmica</a> &#183; <a href="artigo.html">Leitura guiada do artigo</a> &#183; <a href="resources/index.html">Material de apoio</a> &#183; <a href="resources/cases/index.html">Simuladores</a> &#183; <a href="resources/ThreeCategoriesofCAS.pdf">Artigo original (PDF)</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+
+document.getElementById('shareLink').addEventListener('click', function (ev) {
+  ev.preventDefault();
+  var url = location.href;
+  var done = function (ok) {
+    this.textContent = ok ? 'Link copiado' : 'Copie manualmente';
+    var self = this;
+    setTimeout(function () { self.textContent = 'Copiar link'; }, 1800);
+  }.bind(this);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function () { done(true); }, function () { done(false); });
+  } else { done(false); }
+});
+</script>
+</body>
+</html>
