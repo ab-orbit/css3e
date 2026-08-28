@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Três Categorias de Sistemas Sensíveis ao Contexto</title>
+<meta name="description" content="Leitura guiada do artigo de Shishkov, Larsen, Warnier e Janssen (BMSD 2018): SMCAS, UDCAS e VSCAS, a abordagem SDBC, o meta-modelo AORTA e o caso dos drones de fronteira. Com áudio, mapa mental interativo e apresentação.">
+<link rel="stylesheet" href="resources/cases/style.css">
+<style>
+/* ---------------------------------------------------------------
+   Complementos específicos desta página. A base visual (paleta,
+   tipografia, cartões) vem de resources/cases/style.css.
+   --------------------------------------------------------------- */
+
+/* Barra de progresso de leitura: o texto é longo e o leitor precisa
+   saber onde está sem contar seções. */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+.doi{font-family:var(--mono);font-size:12px;word-break:break-all}
+.doi a{color:var(--signal)}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{max-width:76ch;color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+/* Os três cartões de categoria: mesma estrutura, cor de acento distinta. */
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat.smcas{border-top-color:#2E7D5B}
+.cat.udcas{border-top-color:#B47500}
+.cat.vscas{border-top-color:var(--signal)}
+.cat .tag{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+.cat.smcas .tag{color:#2E7D5B}.cat.udcas .tag{color:#8A5A00}.cat.vscas .tag{color:var(--signal)}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+/* ---------------- mapa mental interativo ---------------- */
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:
+  radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);
+  touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+/* ---------------- tabelas ---------------- */
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+/* ---------------- apresentação ---------------- */
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- player flutuante ---------------- */
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));
+  background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Três categorias de CAS</div>
+    <nav class="nav">
+      <a class="btn" href="index.html">Dinâmica</a>
+      <a class="btn" href="resources/index.html">Material de apoio</a>
+      <a class="btn" href="resources/cases/index.html">Simuladores</a>
+      <a class="btn primary" href="resources/ThreeCategoriesofCAS.pdf">PDF do artigo</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="article-hero">
+    <div>
+      <div class="eyebrow">BMSD 2018 · Springer LNBIP 319 · pp. 185–202</div>
+      <h1>Três categorias de sistemas sensíveis ao contexto</h1>
+      <p class="lede">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — <b>SMCAS</b>, <b>UDCAS</b> e <b>VSCAS</b> — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>
+      <div class="toc">
+        <a href="#audio">Áudio</a>
+        <a href="#categorias">As três categorias</a>
+        <a href="#mapa">Mapa mental</a>
+        <a href="#ensaio">Ensaio</a>
+        <a href="#sdbc">SDBC &amp; meta-modelo</a>
+        <a href="#aorta">AORTA</a>
+        <a href="#drones">Caso: fronteira</a>
+        <a href="#slides">Apresentação</a>
+        <a href="#downloads">Downloads</a>
+      </div>
+    </div>
+    <aside class="paper meta-card">
+      <h3>Referência</h3>
+      <p class="authors">Boris Shishkov · John Bruntse Larsen · Martijn Warnier · Marijn Janssen</p>
+      <p class="affil">
+        Instituto de Matemática e Informática, Academia Búlgara de Ciências (Sofia) · Departamento de Matemática Aplicada e Ciência da Computação, DTU (Lyngby) · Faculdade de Tecnologia, Política e Gestão, TU Delft · Instituto IICREST (Sofia)
+      </p>
+      <div class="kv"><span class="key">Publicado em</span><span class="val">Business Modeling and Software Design — 8th Int. Symposium, Viena, 2–4 jul. 2018</span></div>
+      <div class="kv"><span class="key">Palavras-chave</span><span class="val">Modeling · System design · Context-awareness · SDBC · AORTA</span></div>
+      <div class="kv"><span class="key">DOI</span><span class="val doi"><a href="https://doi.org/10.1007/978-3-319-94214-8_12" target="_blank" rel="noopener">10.1007/978-3-319-94214-8_12</a></span></div>
+      <div class="callout" style="margin-bottom:0">
+        <b>O problema declarado:</b> as três perspectivas cobrem boa parte das aplicações relevantes hoje, mas não existem conceitos e termos aceitos para distingui-las. Sem esse vocabulário, esses sistemas não são bem compreendidos, integrados nem avaliados.
+      </div>
+    </aside>
+  </section>
+
+  <section class="section" id="audio">
+    <h2><span class="num">FAIXA 01</span>Como máquinas decidem entre missão e ética</h2>
+    <p>Conversa em áudio sobre o artigo: as três categorias, as tensões entre elas e quem decide a prioridade quando elas colidem. O player fica flutuando ao pé da página — velocidade, volume e posição sob seu controle enquanto você lê.</p>
+    <div class="case-grid" style="margin-top:18px">
+      <div class="panel">
+        <h3>O que ouvir</h3>
+        <p>A eficiência interna (SMCAS), a satisfação do usuário (UDCAS) e o valor público (VSCAS) raramente apontam para a mesma ação. O drone com pouca bateria que precisa se aproximar de uma área de interesse é o exemplo curto do problema longo.</p>
+      </div>
+      <div class="panel">
+        <h3>Controles</h3>
+        <div class="kv"><span class="key">Velocidade</span><span class="val">0,75× a 2×</span></div>
+        <div class="kv"><span class="key">Navegação</span><span class="val">±15 s e slider de posição</span></div>
+        <div class="kv"><span class="key">Teclado</span><span class="val">espaço = play/pause · ← → = ±15 s</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="categorias">
+    <h2><span class="num">SEÇÃO 2</span>As três categorias</h2>
+    <p>Todo sistema sensível ao contexto ajusta “alguma coisa” ao estado de contexto. A contribuição da seção 2 do artigo é separar <i>o que</i> é ajustado.</p>
+    <div class="cats">
+      <article class="cat smcas">
+        <span class="tag">Categoria I · interna</span>
+        <h3>SMCAS</h3>
+        <p class="sub">Self-Managing Context-Aware System</p>
+        <dl>
+          <dt>Direção</dt><dd>Otimização de processos internos do próprio sistema.</dd>
+          <dt>Mecanismo</dt><dd>Laço de feedback. Na Computação Autonômica ele se estende no <b>Ciclo MAPE</b>: monitorar, analisar, planejar, efetuar.</dd>
+          <dt>Composição</dt><dd>Um sistema autonômico gerenciando um <i>managed system</i> forma o sistema autogerenciável.</dd>
+          <dt>Alcance da regra</dt><dd>De <code>se-então</code> simples (temperatura abaixo de zero → pré-aquecer o carro) a aprendizado de máquina e motores de inferência.</dd>
+          <dt>Exemplo</dt><dd>Regular o consumo de eletrodomésticos para manter o prédio dentro de um limite.</dd>
+        </dl>
+      </article>
+      <article class="cat udcas">
+        <span class="tag">Categoria II · usuário</span>
+        <h3>UDCAS</h3>
+        <p class="sub">User-Driven Context-Aware System</p>
+        <dl>
+          <dt>Direção</dt><dd>Maximizar a eficácia percebida pelo usuário.</dd>
+          <dt>Mecanismo</dt><dd>Identificar a situação do usuário e entregar a <b>variante de comportamento</b> correspondente àquele estado de contexto.</dd>
+          <dt>Exigência</dt><dd>Capturar o contexto <b>sem esforço e sem atos conscientes</b> do usuário.</dd>
+          <dt>Trade-off</dt><dd>Preparar uma variante por estado é inviável quando há dezenas ou centenas. Estados de alta probabilidade recebem algoritmo dedicado; o resto cai no estado coletor <code>OTHER</code>, com lógica genérica ajustada em tempo real.</dd>
+          <dt>Exemplo</dt><dd>Paciente monitorado à distância: um comportamento em condição normal, outro em emergência.</dd>
+        </dl>
+      </article>
+      <article class="cat vscas">
+        <span class="tag">Categoria III · sociedade</span>
+        <h3>VSCAS</h3>
+        <p class="sub">Value-Sensitive Context-Aware System</p>
+        <dl>
+          <dt>Direção</dt><dd>Sensibilidade a valores públicos: privacidade, proteção de dados, segurança, prestação de contas, integridade, proveniência.</dd>
+          <dt>Distinção central</dt><dd>Valores são <b>desejos e metas</b>, não requisitos. São abstratos, construídos por e para a sociedade — não pelo domínio empresarial onde o sistema roda.</dd>
+          <dt>Consequência</dt><dd>O impacto de um valor não cabe dentro de requisitos não-funcionais; a engenharia de requisitos, sozinha, é limitada aqui.</dd>
+          <dt>Desafios</dt><dd>Valores são normativos e variam entre stakeholders; a mesma palavra recebe operacionalizações diferentes entre culturas; e valores conflitam entre si — procurar criminosos pode violar a privacidade de inocentes.</dd>
+          <dt>Efeito no design</dt><dd>Estados de contexto diferentes assumem valores diferentes, logo variantes de funcionalidade diferentes.</dd>
+        </dl>
+      </article>
+    </div>
+    <blockquote>
+      Diferentes estados de contexto podem assumir a consideração de valores diferentes, o que por sua vez significaria variantes diferentes de funcionalidade do sistema.
+      <cite>Shishkov, Larsen, Warnier &amp; Janssen · seção 2.3</cite>
+    </blockquote>
+    <div class="callout goodbox">
+      <b>Nota de escopo dos autores:</b> a “sensibilidade” não é necessariamente ao ambiente. Coisas que acontecem <i>dentro</i> do sistema podem disparar tanto otimizações internas quanto mudanças no serviço entregue ou uma reconsideração dos valores cobertos. O artigo não restringe o termo.
+    </div>
+  </section>
+
+  <section class="section" id="mapa">
+    <h2><span class="num">MAPA</span>A estrutura do artigo, navegável</h2>
+    <p>Clique em um nó para abrir ou fechar o ramo. Arraste para mover, use a roda do mouse ou os botões para o zoom. Setas do teclado navegam entre nós quando um deles está focado.</p>
+    <div class="map-shell">
+      <div class="map-bar">
+        <span class="hint" id="maphint">4 ramos · 12 tópicos · 30 folhas</span>
+        <div class="map-tools">
+          <button class="tool" data-map="expand">Expandir tudo</button>
+          <button class="tool" data-map="collapse">Recolher</button>
+          <button class="tool" data-map="fit">Ajustar</button>
+          <button class="tool" data-map="zoomout" aria-label="Diminuir zoom">−</button>
+          <button class="tool" data-map="zoomin" aria-label="Aumentar zoom">+</button>
+        </div>
+      </div>
+      <svg id="mapview" role="img" aria-label="Mapa mental do artigo Três Categorias de Sistemas Sensíveis ao Contexto"></svg>
+      <div class="map-legend">
+        <span><i style="background:#3d3a58"></i>raiz</span>
+        <span><i style="background:#2E7D5B"></i>três categorias</span>
+        <span><i style="background:#8A5A00"></i>metodologia</span>
+        <span><i style="background:#2B5F86"></i>meta-modelo</span>
+        <span><i style="background:#E8172D"></i>estudo de caso</span>
+      </div>
+    </div>
+    <p class="map-note">Mapa reconstruído a partir do artigo: layout calculado no navegador, sem imagem estática.</p>
+  </section>
+
+  <section class="section" id="ensaio">
+    <h2><span class="num">ENSAIO</span>Além do algoritmo: como o contexto está redefinindo a inteligência das máquinas</h2>
+
+    <div class="prose">
+      <h3>1. O despertar da consciência situacional</h3>
+      <p>Imagine a frustração de usar um GPS que, em meio a uma emergência médica, continua sugerindo a rota “ecologicamente correta” apenas porque essa é a configuração padrão. Esse é o problema das tecnologias <b>surdas</b> ao ambiente: seguem algoritmos cegos, ignorando a urgência ou as nuances da realidade.</p>
+      <p>A verdadeira inteligência das máquinas está na adaptabilidade — ajustar o comportamento conforme a situação específica, o <span class="term">estado de contexto</span>. Essa evolução exige uma ponte sólida entre o ambiente de negócios e a especificação de software. É aí que entra a abordagem <span class="term">SDBC</span> (Software Derived from Business Components): sistemas sensíveis ao contexto não nascem do vácuo, mas da derivação metodológica de especificações técnicas a partir de modelos empresariais profundos.</p>
+
+      <h3>2. A autonomia começa dentro de casa (SMCAS)</h3>
+      <p>Enraizados na <b>Computação Autonômica</b>, os sistemas autogerenciáveis focam a otimização de processos internos para reduzir custo de manutenção e dependência de supervisão humana constante. O sistema nervoso dessa autonomia é o <span class="term">Ciclo MAPE</span>: o sistema monitora o ambiente, analisa os dados, planeja mudanças e as implementa por meio de efetores, alterando o próprio comportamento ou o ambiente ao redor.</p>
+      <blockquote>A essência de um sistema autogerenciável é um mecanismo de feedback que permite otimizar seu funcionamento com base em entradas do ambiente.<cite>Ensaio · aprendizado 1</cite></blockquote>
+      <p>Ao alinhar modelagem de negócio e especificação de software, o SMCAS permite que a tecnologia deixe de ser ferramenta passiva e vire agente proativo, capaz de “sobreviver” em ecossistemas complexos por autorregulação.</p>
+
+      <h3>3. A eficácia é um alvo móvel (UDCAS)</h3>
+      <p>Enquanto o SMCAS olha para dentro, o sistema direcionado ao usuário foca a maximização da satisfação. A premissa é que necessidades humanas são fluidas e dependem de localização, tempo, atividade, ambiente social e até propriedades fisiológicas — como no monitoramento remoto de pacientes, onde o sistema deve agir de forma distinta em emergência e em condição normal.</p>
+      <p>O maior desafio de design aqui é o gerenciamento de recursos. Como é impossível prever todas as situações humanas, usa-se uma abordagem estatística e probabilística:</p>
+      <ul>
+        <li><b>Estados de alta probabilidade:</b> algoritmos personalizados para situações frequentes (o usuário está no trabalho, em casa, em trânsito).</li>
+        <li><b>Estado <code>OTHER</code>:</b> para situações raras e imprevisíveis, lógica genérica, economizando recurso computacional ao custo de qualidade de serviço menor — justificável exatamente porque é raro.</li>
+      </ul>
+      <p>A decisão reflete um <span class="term">trade-off</span> essencial: nem todo contexto merece o custo de um algoritmo dedicado. A inteligência está em priorizar qualidade de serviço onde ela tem mais probabilidade de ser necessária.</p>
+
+      <h3>4. Ética não é acessório, é arquitetura (VSCAS)</h3>
+      <p>Diferente de requisitos técnicos tradicionais, valores como privacidade, prestação de contas e integridade são <span class="term">construções sociais e normativas</span>. Não pertencem apenas ao domínio de uma empresa: são desejos da sociedade como um todo.</p>
+      <p>Traduzir normas morais em funções de software é complexo porque valores são abstratos e variam entre culturas. No design VSCAS, sensibilidade ao contexto significa entender que a prioridade de um valor muda conforme a situação. A arquitetura precisa distinguir valores de requisitos técnicos, tratando ética como pilar de orientação para escolhas de design — não como correção de bug.</p>
+
+      <h3>5. O dilema dos drones e a gestão de tensões</h3>
+      <p>O uso de drones em segurança de fronteiras mostra as três categorias colidindo e exigindo raciocínio organizacional sofisticado:</p>
+      <ul>
+        <li><b>Interno (SMCAS):</b> otimizar consumo de energia <i>versus</i> completar uma varredura detalhada.</li>
+        <li><b>Usuário (UDCAS):</b> ajustar o monitoramento para fornecer dados críticos em tempo real aos oficiais em solo.</li>
+        <li><b>Sociedade (VSCAS):</b> minimizar poluição sonora em áreas residenciais e garantir privacidade, borrando rostos de cidadãos inocentes captados pelas câmeras.</li>
+      </ul>
+      <p>Regras “se-então” simples não resolvem. O sistema usa o <span class="term">AORTA Engine</span>, motor de raciocínio baseado em agentes, que recebe entradas do Motor de Análise, verifica obrigações, proibições e permissões (“é proibido voar baixo, a menos que haja alerta de invasão”) e fornece diretrizes ao <b>Planejador</b>, que decide a ação final. Assim o drone pode concluir que o silêncio de uma vizinhança é sacrificável numa missão crítica, mas deve ser preservado em patrulha de rotina.</p>
+
+      <h3>Conclusão: o futuro é uma questão de prioridade</h3>
+      <p>Sistemas verdadeiramente inteligentes exigem a integração coesa de autogestão, foco no usuário e respeito a valores sociais. Com metodologias como SDBC e motores de raciocínio como o AORTA Engine, algoritmos frios viram sistemas situacionalmente conscientes, capazes de navegar por obrigações e crenças organizacionais.</p>
+    </div>
+
+    <div class="callout">
+      <b>A pergunta que fica:</b> quando a eficiência técnica do SMCAS colidir inevitavelmente com os valores públicos do VSCAS, quem deve ter a autoridade final para definir as prioridades da máquina?
+    </div>
+  </section>
+
+  <section class="section" id="sdbc">
+    <h2><span class="num">SEÇÃO 3</span>SDBC e o meta-modelo proposto</h2>
+    <p>Estados de contexto pertencem ao ambiente empresarial do sistema; a entrega de serviços sensíveis ao contexto é funcionalidade de software. É preciso enxergar os dois lados — e é isso que o SDBC faz.</p>
+
+    <div class="case-grid" style="margin-top:20px">
+      <div class="panel">
+        <h3>Três ideias-chave do SDBC</h3>
+        <div class="kv"><span class="key">Contexto empresarial</span><span class="val">O software-a-ser é considerado no seu contexto empresarial: os modelos de especificação derivam de modelos empresariais.</span></div>
+        <div class="kv"><span class="key">Duas disciplinas</span><span class="val">Teorias sociais para a engenharia de negócio, paradigmas computacionais para a engenharia de software, e diretrizes que integram as duas.</span></div>
+        <div class="kv"><span class="key">Reúso</span><span class="val">Identificação de blocos empresariais genéricos reutilizáveis, refletidos em modelos de especificação de software.</span></div>
+      </div>
+      <div class="panel">
+        <h3>Os dois marcos</h3>
+        <div class="kv"><span class="key">1 · Modelagem empresarial</span><span class="val">Entra: case briefing + requisitos impostos pelo domínio. Sai: modelo empresarial em composição, estrutura e dinâmica (transações), possivelmente refletido em business coMponents.</span></div>
+        <div class="kv"><span class="key">2 · Especificação de software</span><span class="val">Entra: modelo empresarial + requisitos dos usuários. Sai: modelo de casos de uso elaborado (RUP/UML) e, por decomposição, os software coMponents.</span></div>
+        <div class="callout warnbox" style="margin-bottom:0"><b>Cuidado com granularidade:</b> um business coMponent equivale a uma <i>aplicação de TIC</i>, não a um componente de software. O componente é uma parte autocontida, customizável e implantável dessa aplicação.</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:30px">Conceitos-base do meta-modelo</h3>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Conceito</th><th>Definição no artigo</th><th>Enriquecimento por agentes (AORTA)</th></tr></thead>
+        <tbody>
+          <tr><td><b>Sistema</b></td><td>Coleção de elementos que interagem com o propósito de entregar um serviço a outra entidade ou grupo.</td><td>Representado por um agente que encena o papel designado de sistema; <code>obj</code> decompõe o objetivo em sub-objetivos.</td></tr>
+          <tr><td><b>Subsistema</b></td><td>Parte identificada por decomposição funcional — um sistema se otimiza otimizando subsistemas.</td><td>Agentes encenando papéis; a dependência com o sistema é explícita por <code>dep</code>.</td></tr>
+          <tr><td><b>Ambiente</b></td><td>Tudo que não pertence ao sistema; parte dele interage com o sistema.</td><td>Agentes ambientais podem encenar um papel, mas não é obrigatório.</td></tr>
+          <tr><td><b>Entidades</b></td><td>Humanas × artificiais; passivas × autônomas; de sensoriamento × atuadoras.</td><td>Humano e artificial são indistinguíveis no modelo. Comportamento proativo = autônomo; reativo = passivo. Sensor e atuador viram papéis.</td></tr>
+          <tr><td><b>Papel / ator-papel</b></td><td>Estado de executar certos objetivos; a combinação entidade-papel é o “ator-papel”.</td><td><code>role</code> para papéis e objetivos, <code>rea</code> para a encenação.</td></tr>
+          <tr><td><b>Usuário</b></td><td>Ator ao qual o sistema serve.</td><td>Agente que encena o papel de usuário; o sistema depende dele para entregar serviço e obter feedback.</td></tr>
+          <tr><td><b>Ação / interação</b></td><td>Algo feito por uma entidade; sequência entre duas entidades colaborando é “inter-ação”.</td><td>Ações são geradas na fase OPG e deliberadas na AE; interação é expressa por <code>dep</code>.</td></tr>
+          <tr><td><b>Regulações</b></td><td>Reflexo das normas que impactam a entrega do serviço: o que é permitido, proibido, obrigatório.</td><td>Statements <code>cond</code>; o agente atualiza <code>obl</code> e <code>viol</code> na fase OC.</td></tr>
+          <tr><td><b>Valores</b></td><td>Percepção pública sobre o que importa no serviço entregue, compartilhada entre entidades humanas do ambiente.</td><td>Refletidos nas regulações expressas por predicados <code>cond</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout goodbox">
+      <b>O meta-modelo em uma frase:</b> sistema e ambiente são compostos de entidades, que podem ser <b>componentes</b> (não proativos) ou <b>agentes</b> (proativos e inteligentes); uma entidade encena muitos papéis — limitados aqui a quatro: <b>usuário, sensor, atuador e processador</b> — restritos por regras e sujeitos a regulações, que afetam tanto os papéis quanto o sistema como um todo.
+    </div>
+  </section>
+
+  <section class="section" id="aorta">
+    <h2><span class="num">AORTA</span>Raciocínio organizacional</h2>
+    <p>AORTA é considerado meta-modelo para que agentes façam raciocínio organizacional sobre o modelo OperA: identificar os objetivos que se espera que resolvam, de quais agentes dependem e se uma ação é permitida, obrigada ou proibida. Isso torna as expectativas sociais explícitas.</p>
+
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Predicado</th><th>Significado</th></tr></thead>
+        <tbody>
+          <tr><td><code>role(Role, Objs)</code></td><td><b>Role</b> é o nome de um papel e <b>Objs</b> o conjunto de objetivos principais desse papel.</td></tr>
+          <tr><td><code>obj(Obj, SubObjs)</code></td><td><b>Obj</b> é um objetivo que tem <b>SubObjs</b> como conjunto de sub-objetivos.</td></tr>
+          <tr><td><code>dep(Role_1, Role_2, Obj)</code></td><td><b>Role_1</b> depende de <b>Role_2</b> para completar <b>Obj</b>.</td></tr>
+          <tr><td><code>rea(Ag, Role)</code></td><td>O agente <b>Ag</b> encena <b>Role</b>.</td></tr>
+          <tr><td><code>cond(Role, Obj, Deadline, Cond)</code></td><td>Quando a condição <b>Cond</b> vale, <b>Role</b> é obrigado a completar <b>Obj</b> antes do prazo <b>Deadline</b>.</td></tr>
+          <tr><td><code>obl(Ag, Role, Obj, Deadline)</code></td><td>O agente <b>Ag</b> é obrigado a encenar <b>Role</b> para completar <b>Obj</b> antes de <b>Deadline</b>.</td></tr>
+          <tr><td><code>viol(Ag, Role, Obj)</code></td><td>O agente <b>Ag</b> encenando <b>Role</b> violou a obrigação de completar <b>Obj</b>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:28px">As três fases do componente organizacional</h3>
+    <div class="phase-flow">
+      <div class="step"><div class="case-no">OC</div><b>Obligation check</b><br><small>O agente usa suas crenças para checar se obrigações foram ativadas, satisfeitas ou violadas, e atualiza as crenças.</small></div>
+      <div class="step"><div class="case-no">OPG</div><b>Option generation</b><br><small>Gera as opções organizacionais possíveis a partir do estado atualizado.</small></div>
+      <div class="step"><div class="case-no">AE</div><b>Action execution</b><br><small>Delibera e executa a ação, considerando as opções geradas.</small></div>
+    </div>
+
+    <div class="case-grid" style="margin-top:20px">
+      <div class="panel">
+        <h3>O que define um agente</h3>
+        <p>Entidade capaz de operar autonomamente, interagir com outros agentes, perceber e reagir a mudanças no ambiente e agir na direção de um objetivo. Formalmente, a tupla <code>(α, MS, AR, F, C, µ)</code>: nome, estado mental, regras de raciocínio, funções de transição, capacidades e caixa de mensagens.</p>
+        <div class="context-strip" style="margin-top:14px">
+          <span class="context-chip">autonomia</span>
+          <span class="context-chip">habilidade social</span>
+          <span class="context-chip">reatividade</span>
+          <span class="context-chip">pró-atividade</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Capacidades e encenação de papel</h3>
+        <p>AORTA trata capacidade de forma discreta: são os <b>estados que o agente consegue alcançar</b>. Ao considerar encenar um papel, o agente checa se suas capacidades cobrem os objetivos daquele papel — se não cobrem, a encenação é impossível.</p>
+        <div class="callout" style="margin-bottom:0">Um papel pode ser dividido em dois: o que se espera de quem encena o papel <b>parcial</b> e o que se espera de quem encena o papel <b>completo</b>.</div>
+      </div>
+    </div>
+
+    <div class="callout warnbox">
+      <b>Visão de design da seção 3.4:</b> o usuário está situado no ambiente; o sistema usa <b>sensores</b> para receber informação do ambiente (inclusive do usuário) e <b>atuadores</b> para gerenciar subsistemas, realizando otimizações internas. O <b>AORTA Engine</b> confere a entrada do <b>Motor de Análise</b> para identificar ações obrigadas, proibidas ou permitidas — e qual influência organizacional elas têm — e entrega a saída ao <b>Planejador</b>, que decide a ação. Um único motor fazendo as três coisas simultaneamente.
+    </div>
+  </section>
+
+  <section class="section" id="drones">
+    <h2><span class="num">SEÇÃO 4</span>O caso da segurança de fronteira</h2>
+    <p><b>Sistema D</b> é um drone sobrevoando a fronteira em apoio aos policiais. O <b>Usuário PO</b> são os oficiais que patrulham. A <b>Meta DT</b> é detectar atividades ilegais — invasores, em particular. Daí saem seis linhas de comportamento, duas por perspectiva.</p>
+
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Perspectiva</th><th>Linha de comportamento</th><th>Racional</th></tr></thead>
+        <tbody>
+          <tr><td><b style="color:#2E7D5B">SMCAS</b></td><td>Otimização do consumo de energia</td><td>O voo é controlado na estação de solo, que gera instruções a partir dos dados de sensor. É preciso garantir energia para completar a missão <i>e</i> voltar.</td></tr>
+          <tr><td><b style="color:#2E7D5B">SMCAS</b></td><td>Ajuste das câmeras</td><td>O drone conta com as câmeras para ajustar o próprio voo; elas precisam ser reajustadas quando as condições de tempo mudam.</td></tr>
+          <tr><td><b style="color:#8A5A00">UDCAS</b></td><td>Ajuste do monitoramento</td><td>A missão é apoiar os oficiais: o monitoramento deve cobrir principalmente as áreas que <i>não</i> estão perto de onde os policiais já estão.</td></tr>
+          <tr><td><b style="color:#8A5A00">UDCAS</b></td><td>Processamento de dados</td><td>Dados brutos de sensor são processados no drone e/ou na estação, derivando informação de contexto de nível mais alto para os oficiais.</td></tr>
+          <tr><td><b style="color:var(--signal)">VSCAS</b></td><td>Observação de distância facial</td><td>Sem instrução explícita, o drone não deve capturar informação facial — e se capturar, o material deve ser borrado.</td></tr>
+          <tr><td><b style="color:var(--signal)">VSCAS</b></td><td>Minimização de ruído</td><td>Se não for crítico para a missão, o drone deve evitar se aproximar de áreas residenciais.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <b>A tensão, sem saída universal:</b> se pela perspectiva SMCAS o drone deveria voltar imediatamente (indícios de energia insuficiente) mas pela perspectiva UDCAS deveria seguir e se aproximar de uma área de interesse — qual é a solução? Os autores argumentam que “regras universais” não funcionam aqui. É questão de <b>esquema de priorização sofisticado</b>: numa vigilância de rotina, a poluição sonora provavelmente deve ser evitada; numa missão contra invasores, o silêncio da vizinhança pode ser sacrificado.
+    </div>
+
+    <h3 style="margin-top:26px">Tabela 1 — o comportamento geral em AORTA</h3>
+    <pre>role(drone, {reportTrespassing(Trespasser, Location, Time), optimizeVision(Camera), optimizePower})
+role(officer, {apprehend(Trespasser)})
+obj(reportTrespassing(Trespasser, Location, Time),
+    {patrol(Location, Time), record(Trespasser, Location, Time)})
+dep(drone, officer, reportToOfficer)
+dep(drone, camera, optimizeVision)
+cond(camera, lightSensing,    optimizeVision, clearWeather /\ daytime)
+cond(camera, darknessSensing, optimizeVision, cloudyWeather)
+cond(drone,  keepDistance,    record,         recordingFace)
+cond(drone,  reduceNoise,     patrol,         ¬alarm)</pre>
+    <p class="map-note">As três perspectivas ficam sobrepostas no mesmo modelo — é assim que as tensões aparecem de forma direta.</p>
+  </section>
+
+  <section class="section" id="slides">
+    <h2><span class="num">DECK</span>Apresentação do artigo</h2>
+    <p>Prévia da apresentação hospedada no Google Slides. Use os controles do próprio player para avançar, ou abra em tela cheia.</p>
+    <div class="deck">
+      <div class="deck-frame">
+        <iframe
+          src="https://docs.google.com/presentation/d/13bZAoIgdtQU8-FdlIyL4_MEZsJJUnCZO/preview"
+          title="Apresentação: Três Categorias de Sistemas Sensíveis ao Contexto"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="deck-bar">
+        <span>Google Slides · prévia incorporada</span>
+        <a class="btn primary" href="https://docs.google.com/presentation/d/13bZAoIgdtQU8-FdlIyL4_MEZsJJUnCZO/edit?usp=sharing&amp;ouid=117316668509881775122&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Abrir no Google Slides ↗</a>
+      </div>
+    </div>
+    <div class="callout warnbox">Se a prévia aparecer em branco, o arquivo pode exigir login ou não estar compartilhado publicamente. Nesse caso, use a versão local em PDF nos downloads abaixo.</div>
+  </section>
+
+  <section class="section" id="downloads">
+    <h2><span class="num">FONTES</span>Material</h2>
+    <div class="dl-grid">
+      <a class="dl" href="resources/ThreeCategoriesofCAS.pdf">
+        <b>Artigo original</b>
+        <small>Shishkov, Larsen, Warnier &amp; Janssen · BMSD 2018 · manuscrito aceito (DTU Orbit / TU Delft)</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+      <a class="dl" href="Além do Algoritmo_ Como o Contexto Está Redefinindo a Inteligência das Máquinas.pdf">
+        <b>Ensaio em PDF</b>
+        <small>Além do algoritmo: como o contexto está redefinindo a inteligência das máquinas</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+      <a class="dl" href="apresentacao_artigo.pdf">
+        <b>Apresentação (local)</b>
+        <small>Versão em PDF do deck, para quando a prévia do Slides não carregar</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+      <a class="dl" href="resources/Como_máquinas_decidem_entre_missão_e_ética.m4a">
+        <b>Áudio</b>
+        <small>Como máquinas decidem entre missão e ética · m4a</small>
+        <span class="arrow">ÁUDIO ↓</span>
+      </a>
+      <a class="dl" href="resources/sistemsa_cientes_contexto_by_notebooklm.pdf">
+        <b>Resumo NotebookLM</b>
+        <small>Sistemas cientes de contexto — sumarização auxiliar</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+      <a class="dl" href="resources/cases/index.html">
+        <b>Simuladores</b>
+        <small>Cinco casos interativos de adaptação ao contexto sem prompt de permissão</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Shishkov, B., Larsen, J. B., Warnier, M., &amp; Janssen, M. (2018). <i>Three Categories of Context-Aware Systems</i>. In Business Modeling and Software Design — 8th International Symposium, BMSD 2018, Viena, Áustria (LNBIP 319, pp. 185–202). Springer. doi:10.1007/978-3-319-94214-8_12<br><br>
+    <a href="index.html">Dinâmica</a> &#183; <a href="resources/index.html">Material de apoio</a> &#183; <a href="resources/cases/index.html">Simuladores</a>
+  </div>
+</footer>
+
+<!-- ------------------------------------------------------------------
+     Player flutuante. Controles explícitos em vez do <audio controls>
+     nativo porque a velocidade de reprodução não é exposta pelo player
+     padrão em todos os navegadores.
+     ------------------------------------------------------------------ -->
+<div class="player" id="player" role="region" aria-label="Player de áudio">
+  <div class="head">
+    <div class="who">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="titleline">
+        <b>Como máquinas decidem entre missão e ética</b>
+        <span>Faixa 01 · comentário do artigo</span>
+      </span>
+    </div>
+    <button class="pbtn" id="minToggle" aria-expanded="true" title="Minimizar player">–</button>
+  </div>
+
+  <div class="row">
+    <button class="pbtn" id="back15" title="Voltar 15 segundos" aria-label="Voltar 15 segundos">−15</button>
+    <button class="pbtn play" id="playBtn" aria-label="Reproduzir">
+      <svg id="playIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <button class="pbtn" id="fwd15" title="Avançar 15 segundos" aria-label="Avançar 15 segundos">+15</button>
+
+    <span class="seekwrap">
+      <span class="time" id="cur">0:00</span>
+      <input class="rng seek" id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Posição da faixa">
+      <span class="time" id="dur">--:--</span>
+    </span>
+
+    <span class="volwrap">
+      <button class="pbtn" id="muteBtn" title="Silenciar" aria-label="Silenciar">VOL</button>
+      <input class="rng" id="vol" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+    </span>
+
+    <select class="rate" id="rate" aria-label="Velocidade de reprodução">
+      <option value="0.75">0,75×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.25">1,25×</option>
+      <option value="1.5">1,5×</option>
+      <option value="1.75">1,75×</option>
+      <option value="2">2×</option>
+    </select>
+  </div>
+  <div class="sub" id="psub">espaço = play/pause · ← → = 15 s · arquivo local, sem streaming externo</div>
+  <audio id="au" preload="metadata" src="resources/Como_m%C3%A1quinas_decidem_entre_miss%C3%A3o_e_%C3%A9tica.m4a"></audio>
+</div>
+
+<script>
+/* =====================================================================
+   1. Barra de progresso de leitura
+   ===================================================================== */
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+
+/* =====================================================================
+   2. Player de áudio
+   ===================================================================== */
+(function () {
+  var au = document.getElementById('au'),
+      player = document.getElementById('player'),
+      playBtn = document.getElementById('playBtn'),
+      playIcon = document.getElementById('playIcon'),
+      seek = document.getElementById('seek'),
+      cur = document.getElementById('cur'),
+      dur = document.getElementById('dur'),
+      vol = document.getElementById('vol'),
+      muteBtn = document.getElementById('muteBtn'),
+      rate = document.getElementById('rate'),
+      minToggle = document.getElementById('minToggle');
+
+  var ICON_PLAY = 'M8 5v14l11-7z',
+      ICON_PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
+
+  // Enquanto o usuário arrasta o slider, o timeupdate não deve
+  // sobrescrever a posição escolhida.
+  var scrubbing = false;
+
+  function fmt(s) {
+    if (!isFinite(s)) return '--:--';
+    s = Math.max(0, Math.floor(s));
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    var mm = h ? String(m).padStart(2, '0') : String(m);
+    return (h ? h + ':' : '') + mm + ':' + String(x).padStart(2, '0');
+  }
+
+  function paintSeek() {
+    var pct = au.duration ? (au.currentTime / au.duration) * 100 : 0;
+    seek.style.backgroundSize = pct + '% 100%';
+  }
+
+  au.addEventListener('loadedmetadata', function () {
+    dur.textContent = fmt(au.duration);
+  });
+
+  au.addEventListener('timeupdate', function () {
+    cur.textContent = fmt(au.currentTime);
+    if (!scrubbing && au.duration) {
+      seek.value = String((au.currentTime / au.duration) * 1000);
+      paintSeek();
+    }
+  });
+
+  au.addEventListener('play', function () {
+    player.classList.add('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PAUSE);
+    playBtn.setAttribute('aria-label', 'Pausar');
+  });
+  au.addEventListener('pause', function () {
+    player.classList.remove('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PLAY);
+    playBtn.setAttribute('aria-label', 'Reproduzir');
+  });
+  au.addEventListener('error', function () {
+    document.getElementById('psub').textContent =
+      'Não foi possível carregar o áudio — confira se o arquivo .m4a está na pasta resources/.';
+  });
+
+  playBtn.addEventListener('click', function () {
+    if (au.paused) { au.play().catch(function () {}); } else { au.pause(); }
+  });
+  document.getElementById('back15').addEventListener('click', function () { au.currentTime = Math.max(0, au.currentTime - 15); });
+  document.getElementById('fwd15').addEventListener('click', function () {
+    au.currentTime = Math.min(au.duration || Infinity, au.currentTime + 15);
+  });
+
+  ['pointerdown', 'touchstart'].forEach(function (e) {
+    seek.addEventListener(e, function () { scrubbing = true; });
+  });
+  ['pointerup', 'touchend', 'change'].forEach(function (e) {
+    seek.addEventListener(e, function () { scrubbing = false; });
+  });
+  seek.addEventListener('input', function () {
+    if (au.duration) {
+      au.currentTime = (seek.value / 1000) * au.duration;
+      cur.textContent = fmt(au.currentTime);
+      seek.style.backgroundSize = (seek.value / 10) + '% 100%';
+    }
+  });
+
+  vol.addEventListener('input', function () {
+    au.volume = +vol.value;
+    au.muted = +vol.value === 0;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+  });
+  muteBtn.addEventListener('click', function () {
+    au.muted = !au.muted;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+    // Voltar do mudo com o volume zerado não produz som: restaura um valor audível.
+    if (!au.muted && au.volume === 0) { au.volume = 0.8; vol.value = '0.8'; }
+  });
+
+  rate.addEventListener('change', function () { au.playbackRate = +rate.value; });
+
+  minToggle.addEventListener('click', function () {
+    var min = player.classList.toggle('min');
+    minToggle.textContent = min ? '+' : '–';
+    minToggle.setAttribute('aria-expanded', String(!min));
+    minToggle.title = min ? 'Expandir player' : 'Minimizar player';
+    document.body.style.paddingBottom = min ? '110px' : '';
+  });
+
+  // Atalhos globais, desde que o foco não esteja num campo de entrada.
+  addEventListener('keydown', function (ev) {
+    var t = ev.target, tag = t && t.tagName;
+    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || (t && t.isContentEditable)) return;
+    if (ev.code === 'Space') { ev.preventDefault(); playBtn.click(); }
+    else if (ev.code === 'ArrowLeft' && ev.altKey) { au.currentTime = Math.max(0, au.currentTime - 15); }
+    else if (ev.code === 'ArrowRight' && ev.altKey) { au.currentTime = au.currentTime + 15; }
+  });
+
+  paintSeek();
+})();
+
+/* =====================================================================
+   3. Mapa mental interativo
+   O layout é calculado no navegador: as larguras vêm da medição real do
+   texto, as colunas do maior nó de cada profundidade e as linhas do
+   empilhamento das folhas visíveis.
+   ===================================================================== */
+(function () {
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('mapview');
+
+  var PALETTE = {
+    root:  { fill: '#3d3a58', text: '#fff' },
+    cat:   { fill: '#2E7D5B', text: '#fff' },
+    met:   { fill: '#8A5A00', text: '#fff' },
+    meta:  { fill: '#2B5F86', text: '#fff' },
+    caso:  { fill: '#E8172D', text: '#fff' }
+  };
+
+  var DATA = {
+    t: 'Design e modelagem de sistemas sensíveis ao contexto', k: 'root', children: [
+      { t: 'Três categorias de sistemas', k: 'cat', children: [
+        { t: 'SMCAS · autogerenciáveis', children: [
+          { t: 'Otimização de processos internos' },
+          { t: 'Ciclo MAPE (monitorar, analisar, planejar, executar)' },
+          { t: 'Mecanismos de feedback autonômico' },
+          { t: 'Sistema autonômico + managed system' }
+        ]},
+        { t: 'UDCAS · direcionados ao usuário', children: [
+          { t: 'Maximização da satisfação do usuário' },
+          { t: 'Adaptação do serviço por situação' },
+          { t: 'Variantes de comportamento do sistema' },
+          { t: 'Estados de alta probabilidade vs. OTHER' },
+          { t: 'Trade-off qualidade de serviço × recursos' }
+        ]},
+        { t: 'VSCAS · sensíveis a valores', children: [
+          { t: 'Sensibilidade a valores públicos' },
+          { t: 'Privacidade e proteção de dados' },
+          { t: 'Valores são metas, não requisitos' },
+          { t: 'Operacionalização varia entre culturas' },
+          { t: 'Valores podem conflitar entre si' }
+        ]}
+      ]},
+      { t: 'Metodologia de design', k: 'met', children: [
+        { t: 'Abordagem SDBC', children: [
+          { t: 'Software derivado de componentes de negócio' },
+          { t: 'Alinha engenharia de negócio e de software' },
+          { t: 'Modelos empresariais reutilizáveis' },
+          { t: 'Marco 1: modelagem empresarial' },
+          { t: 'Marco 2: especificação de software (RUP/UML)' }
+        ]},
+        { t: 'Framework AORTA (agentes)', children: [
+          { t: 'Raciocínio organizacional (base OperA)' },
+          { t: 'Autonomia, reatividade, pró-atividade' },
+          { t: 'Predicados: role, obj, dep, rea, cond, obl, viol' },
+          { t: 'Fases OC · OPG · AE' }
+        ]}
+      ]},
+      { t: 'Meta-modelo proposto', k: 'meta', children: [
+        { t: 'Entidades e elementos', children: [
+          { t: 'Sistema e ambiente' },
+          { t: 'Agentes (proativos) × componentes (passivos)' },
+          { t: 'Papéis: usuário, sensor, atuador, processador' },
+          { t: 'Regras e regulações' }
+        ]},
+        { t: 'Componentes de processamento', children: [
+          { t: 'AORTA Engine (regras e regulações)' },
+          { t: 'Motor de análise (contexto)' },
+          { t: 'Planejador (ações e decisões)' },
+          { t: 'Subsistemas gerenciados' }
+        ]}
+      ]},
+      { t: 'Estudo de caso: segurança de fronteira', k: 'caso', children: [
+        { t: 'Sistema de drones (Sistema D)', children: [
+          { t: 'SMCAS: energia e ajuste de câmera' },
+          { t: 'UDCAS: apoio a policiais e dados contextuais' },
+          { t: 'VSCAS: distância facial e ruído mínimo' }
+        ]},
+        { t: 'Gestão de conflitos', children: [
+          { t: 'Tensões entre perspectivas' },
+          { t: 'Esquemas de priorização sofisticados' },
+          { t: 'Regras universais não bastam' }
+        ]}
+      ]}
+    ]
+  };
+
+  var ROW = 34, COLGAP = 54, PAD = 26, RADIUS = 9;
+  var view = { x: 0, y: 0, k: 1 };
+  var gRoot, nodes = [];
+
+  // ---- preparação da árvore -------------------------------------------------
+  var uid = 0;
+  (function prep(n, depth, kind) {
+    n.id = ++uid;
+    n.depth = depth;
+    n.kind = n.k || kind || 'root';
+    // Desktop abre até a profundidade 2; em telas estreitas só os ramos
+    // principais, senão nada cabe na largura disponível.
+    n.open = depth < (window.innerWidth <= 700 ? 1 : 2);
+    (n.children || []).forEach(function (c) { c.parent = n; prep(c, depth + 1, n.kind); });
+  })(DATA, 0, 'root');
+
+  function flatten(n, out) {
+    out.push(n);
+    if (n.open && n.children) n.children.forEach(function (c) { flatten(c, out); });
+    return out;
+  }
+
+  // ---- medição de texto -----------------------------------------------------
+  var measurer = document.createElementNS(SVGNS, 'text');
+  measurer.setAttribute('visibility', 'hidden');
+  svg.appendChild(measurer);
+  function widthOf(node) {
+    measurer.setAttribute('font-size', node.depth === 0 ? '14.5' : '13');
+    measurer.setAttribute('font-weight', node.depth <= 1 ? '780' : '400');
+    measurer.setAttribute('font-family',
+      '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif');
+    measurer.textContent = node.t;
+    var w = measurer.getComputedTextLength();
+    // Espaço extra para o marcador de expansão nos nós com filhos.
+    return Math.ceil(w) + 26 + ((node.children && node.children.length) ? 16 : 0);
+  }
+
+  // ---- layout ---------------------------------------------------------------
+  function layout() {
+    var visible = flatten(DATA, []);
+    visible.forEach(function (n) { n.w = widthOf(n); });
+
+    // Colunas: x de cada profundidade = fim da coluna anterior + gap.
+    var colW = [];
+    visible.forEach(function (n) { colW[n.depth] = Math.max(colW[n.depth] || 0, n.w); });
+    var colX = [], acc = PAD;
+    for (var d = 0; d < colW.length; d++) { colX[d] = acc; acc += (colW[d] || 0) + COLGAP; }
+
+    // Linhas: folhas visíveis empilham; pais centralizam nos filhos.
+    var row = 0;
+    (function place(n) {
+      if (n.open && n.children && n.children.length) {
+        n.children.forEach(place);
+        var f = n.children[0], l = n.children[n.children.length - 1];
+        n.y = (f.y + l.y) / 2;
+      } else {
+        n.y = PAD + row * ROW + ROW / 2;
+        row++;
+      }
+      n.x = colX[n.depth];
+    })(DATA);
+
+    return {
+      nodes: visible,
+      width: acc - COLGAP + PAD,
+      height: PAD * 2 + Math.max(row, 1) * ROW
+    };
+  }
+
+  // ---- render ---------------------------------------------------------------
+  function render(keepView) {
+    var L = layout();
+    nodes = L.nodes;
+
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.appendChild(measurer);
+
+    gRoot = document.createElementNS(SVGNS, 'g');
+    svg.appendChild(gRoot);
+
+    var gLinks = document.createElementNS(SVGNS, 'g');
+    var gNodes = document.createElementNS(SVGNS, 'g');
+    gRoot.appendChild(gLinks);
+    gRoot.appendChild(gNodes);
+
+    nodes.forEach(function (n) {
+      if (!n.parent || nodes.indexOf(n.parent) === -1) return;
+      var p = n.parent,
+          x1 = p.x + p.w, y1 = p.y, x2 = n.x, y2 = n.y,
+          mx = (x1 + x2) / 2;
+      var path = document.createElementNS(SVGNS, 'path');
+      path.setAttribute('class', 'link');
+      path.setAttribute('d', 'M' + x1 + ',' + y1 + 'C' + mx + ',' + y1 + ' ' + mx + ',' + y2 + ' ' + x2 + ',' + y2);
+      path.setAttribute('stroke', (PALETTE[n.kind] || PALETTE.root).fill);
+      gLinks.appendChild(path);
+    });
+
+    nodes.forEach(function (n) {
+      var pal = PALETTE[n.kind] || PALETTE.root;
+      var g = document.createElementNS(SVGNS, 'g');
+      g.setAttribute('class', 'node d' + Math.min(n.depth, 2));
+      g.setAttribute('transform', 'translate(' + n.x + ',' + (n.y - 14) + ')');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      var hasKids = !!(n.children && n.children.length);
+      g.setAttribute('aria-expanded', hasKids ? String(n.open) : 'false');
+      g.setAttribute('aria-label', n.t + (hasKids ? (n.open ? ' — ramo aberto' : ' — ramo fechado, ' + n.children.length + ' itens') : ''));
+
+      var r = document.createElementNS(SVGNS, 'rect');
+      r.setAttribute('width', n.w);
+      r.setAttribute('height', 28);
+      r.setAttribute('rx', RADIUS);
+      // Nós rasos são sólidos; folhas ficam claras com borda na cor do ramo.
+      if (n.depth <= 1) {
+        r.setAttribute('fill', pal.fill);
+        r.setAttribute('stroke', 'none');
+      } else {
+        r.setAttribute('fill', n.depth === 2 ? hexA(pal.fill, .13) : '#ffffff');
+        r.setAttribute('stroke', hexA(pal.fill, n.depth === 2 ? .55 : .32));
+        r.setAttribute('stroke-width', '1');
+      }
+      g.appendChild(r);
+
+      var t = document.createElementNS(SVGNS, 'text');
+      t.setAttribute('x', 13);
+      t.setAttribute('y', 15);
+      if (n.depth > 1) t.setAttribute('fill', '#231F20');
+      t.textContent = n.t;
+      g.appendChild(t);
+
+      if (hasKids) {
+        var mark = document.createElementNS(SVGNS, 'text');
+        mark.setAttribute('class', 'toggle');
+        mark.setAttribute('x', n.w - 13);
+        mark.setAttribute('y', 15);
+        mark.setAttribute('text-anchor', 'end');
+        mark.setAttribute('fill', n.depth <= 1 ? 'rgba(255,255,255,.85)' : pal.fill);
+        mark.textContent = n.open ? '−' : '+' + n.children.length;
+        g.appendChild(mark);
+      }
+
+      function toggle() {
+        if (!hasKids) return;
+        n.open = !n.open;
+        render(true);
+      }
+      g.addEventListener('click', toggle);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.code === 'Space') { ev.preventDefault(); toggle(); }
+        else if (ev.key === 'ArrowRight' && hasKids && !n.open) { n.open = true; render(true); }
+        else if (ev.key === 'ArrowLeft' && hasKids && n.open) { n.open = false; render(true); }
+      });
+
+      gNodes.appendChild(g);
+    });
+
+    svg.dataset.w = L.width;
+    svg.dataset.h = L.height;
+
+    document.getElementById('maphint').textContent =
+      nodes.length + ' nós visíveis · clique para abrir ou fechar';
+
+    if (keepView) applyView(); else fit();
+  }
+
+  // Converte hex em rgba — as folhas usam a cor do ramo com transparência.
+  function hexA(hex, a) {
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+
+  function applyView() {
+    gRoot.setAttribute('transform', 'translate(' + view.x + ',' + view.y + ') scale(' + view.k + ')');
+  }
+
+  function fit() {
+    var box = svg.getBoundingClientRect(),
+        w = +svg.dataset.w, h = +svg.dataset.h;
+    // Piso de 0,7: abaixo disso o rótulo fica ilegível. Quando o mapa
+    // inteiro não cabe nesse zoom, ancoramos no topo à esquerda e o
+    // leitor completa com o arraste.
+    // No celular o player flutuante cobre a faixa inferior do quadro:
+    // esse espaço é descontado da área útil antes de centralizar.
+    var reserve = window.innerWidth <= 700 ? 150 : 0;
+    var avail = Math.max(160, box.height - reserve);
+    var k = Math.max(reserve ? 0.55 : 0.7, Math.min(box.width / w, avail / h, 1.15));
+    view.k = k;
+    view.x = (w * k < box.width) ? (box.width - w * k) / 2 : 14;
+    // Em telas pequenas o quadro é mais alto que a fatia visível da
+    // janela: centralizar jogaria o mapa para trás do player. Ancorar no
+    // topo garante que o conteúdo apareça logo abaixo da barra.
+    view.y = (reserve || h * k >= avail) ? 14 : (avail - h * k) / 2 + 8;
+    applyView();
+  }
+
+  // ---- pan e zoom -----------------------------------------------------------
+  var drag = null;
+  svg.addEventListener('pointerdown', function (ev) {
+    if (ev.target.closest('.node')) return;
+    drag = { x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y };
+    svg.classList.add('dragging');
+    svg.setPointerCapture(ev.pointerId);
+  });
+  svg.addEventListener('pointermove', function (ev) {
+    if (!drag) return;
+    view.x = drag.vx + (ev.clientX - drag.x);
+    view.y = drag.vy + (ev.clientY - drag.y);
+    applyView();
+  });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (e) {
+    svg.addEventListener(e, function () { drag = null; svg.classList.remove('dragging'); });
+  });
+  svg.addEventListener('wheel', function (ev) {
+    ev.preventDefault();
+    var box = svg.getBoundingClientRect(),
+        mx = ev.clientX - box.left, my = ev.clientY - box.top,
+        f = ev.deltaY < 0 ? 1.12 : 1 / 1.12,
+        k = Math.min(2.4, Math.max(0.25, view.k * f));
+    // Mantém sob o cursor o mesmo ponto do mapa antes e depois do zoom.
+    view.x = mx - (mx - view.x) * (k / view.k);
+    view.y = my - (my - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }, { passive: false });
+
+  function zoomBy(f) {
+    var box = svg.getBoundingClientRect(), cx = box.width / 2, cy = box.height / 2;
+    var k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = cx - (cx - view.x) * (k / view.k);
+    view.y = cy - (cy - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }
+
+  function setAll(open) {
+    (function walk(n, d) {
+      if (n.children && n.children.length) n.open = d === 0 ? true : open;
+      (n.children || []).forEach(function (c) { walk(c, d + 1); });
+    })(DATA, 0);
+    render(false);
+  }
+
+  document.querySelectorAll('[data-map]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var a = b.dataset.map;
+      if (a === 'expand') setAll(true);
+      else if (a === 'collapse') setAll(false);
+      else if (a === 'fit') fit();
+      else if (a === 'zoomin') zoomBy(1.18);
+      else if (a === 'zoomout') zoomBy(1 / 1.18);
+    });
+  });
+
+  var rt;
+  addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fit, 140); });
+
+  render(false);
+})();
+</script>
+</body>
+</html>
