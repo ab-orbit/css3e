@@ -1,4 +1,4 @@
-"""Theme gallery generation."""
+"""Theme tg generation."""
 
 from __future__ import annotations
 
@@ -76,7 +76,7 @@ class TestLinks:
         # Anchor inside the cards section: the console's JS carries a card
         # template string that would otherwise match first.
         cards = html.split('data-view="cards"', 1)[1].split('data-view="list"', 1)[0]
-        card = cards.split('class="gcard-hit" href="', 1)[1]
+        card = cards.split('class="tg-card-hit" href="', 1)[1]
 
         assert card.startswith("../tema-a/completo/index.html")
 
@@ -135,8 +135,8 @@ class TestRendering:
         """
         cards = html.split('data-view="cards"', 1)[1].split('data-view="list"', 1)[0]
 
-        assert cards.count('class="badge badge-audio"') == 1
-        assert cards.count('class="badge badge-deck"') == 1
+        assert cards.count('class="tg-badge tg-badge-audio"') == 1
+        assert cards.count('class="tg-badge tg-badge-deck"') == 1
 
     def test_both_views_are_present_with_cards_as_default(self, html):
         assert 'data-view="cards"' in html

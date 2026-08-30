@@ -16,6 +16,11 @@
     article: articles/sistemas-multiagente-contexto/context-aware-mas/index.html
     blog: articles/sistemas-multiagente-contexto/context-aware-mas/blog.html
     workshop: articles/sistemas-multiagente-contexto/context-aware-mas/workshop.html
+  briefing: Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de
+    Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason,
+    Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas
+    multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework
+    para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.
   has_audio: true
   has_slides: true
   slides_pptx_path: slides/deck.pptx
@@ -43,6 +48,9 @@
     article: articles/sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html
     blog: articles/sistemas-sensiveis-ao-contexto/three-categories-of-cas/blog.html
     workshop: articles/sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html
+  briefing: O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário,
+    ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS
+    — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.
   has_audio: false
   has_slides: false
   slides_pptx_path: null
@@ -68,6 +76,9 @@
   date_published: '2026-08-29'
   pages:
     workshop: articles/sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html
+  briefing: O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário,
+    ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS
+    — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.
   has_audio: false
   has_slides: false
   slides_pptx_path: null

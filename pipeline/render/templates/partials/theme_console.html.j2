@@ -91,13 +91,13 @@
 
   function addCard(article) {
     var card = document.createElement('article');
-    card.className = 'gcard gcard-fresh';
+    card.className = 'tg-card tg-card-fresh';
     card.innerHTML =
-      '<a class="gcard-hit" href="' + article.href + '">' +
-      '<p class="gcard-meta">' + (article.date || '') + '</p>' +
-      '<h2 class="gcard-title">' + (article.title || 'Sem título') + '</h2>' +
-      '<p class="gcard-brief">' + (article.briefing || '') + '</p></a>';
-    var grid = document.querySelector('.gallery-grid');
+      '<a class="tg-card-hit" href="' + article.href + '">' +
+      '<p class="tg-card-meta">' + (article.date || '') + '</p>' +
+      '<h2 class="tg-card-title">' + (article.title || 'Sem título') + '</h2>' +
+      '<p class="tg-card-brief">' + (article.briefing || '') + '</p></a>';
+    var grid = document.querySelector('.tg-grid');
     if (grid) grid.prepend(card);
   }
 

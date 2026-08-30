@@ -82,3 +82,62 @@ def test_blog_cover_statement_is_justified():
     assert "hyphens:auto" in rule.group(1), (
         "justification without hyphenation opens rivers of whitespace"
     )
+
+
+def _theme_page() -> str:
+    from pipeline.manifest.theme_pages import build_theme_page
+    from pipeline.schemas.package import ManifestEntry, Theme
+
+    theme = Theme(slug="t", name="Tema", description="d", temas=["tema-a"])
+    entry = ManifestEntry(
+        slug="a", tema="tema-a", title="T", pdf_source="x.pdf", authors=["A"],
+        date_published="2026-01-01", pages={"article": "articles/tema-a/a/index.html"},
+        briefing="B", status="published",
+    )
+    return build_theme_page(theme, [entry], settings=Settings())
+
+
+def _class_selectors(css: str) -> set[str]:
+    """Class names a stylesheet defines a `display` for.
+
+    Only display matters here: that is the property whose collision silently
+    restructures a layout.
+    """
+    found = set()
+    for match in re.finditer(r"\.([\w-]+)\s*(?:,[^{]*)?\{([^}]*)\}", _strip_css_comments(css)):
+        if "display:" in match.group(2):
+            found.add(match.group(1))
+    return found
+
+
+def test_gallery_classes_do_not_collide_with_the_shared_stylesheet():
+    """`.gallery` was already defined in resources/cases/style.css as a
+    five-column grid. Reusing the name turned the theme page's container into
+    that grid, laying the toolbar, the cards and the list side by side in
+    189px columns. Nothing failed — it just rendered wrong.
+    """
+    gallery_css = (
+        REPO_ROOT
+        / "pipeline/render/templates/partials/theme_gallery.css.j2"
+    ).read_text(encoding="utf-8")
+
+    mine = _class_selectors(gallery_css)
+    shared = _class_selectors(SHARED_CSS.read_text(encoding="utf-8"))
+
+    collisions = sorted(mine & shared)
+    assert not collisions, (
+        f"these classes set `display` in both the gallery CSS and the shared "
+        f"stylesheet: {collisions}. The shared rule wins or loses depending on "
+        f"order, and the layout breaks silently."
+    )
+
+
+def test_hidden_views_are_actually_hidden():
+    """`[hidden]` is a user-agent rule with lower specificity than a class, so
+    `.tg-list{display:flex}` rendered both views on top of each other.
+    """
+    html = _theme_page()
+
+    assert ".tg-grid[hidden]" in html
+    assert ".tg-list[hidden]" in html
+    assert "display:none" in html.split(".tg-list[hidden]", 1)[1][:40]

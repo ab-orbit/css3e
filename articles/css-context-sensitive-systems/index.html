@@ -215,32 +215,35 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 .theme-head h1{font-size:clamp(34px,5.4vw,60px);line-height:1.02;letter-spacing:-.035em;margin:0 0 18px}
 .theme-dek{font-size:18px;line-height:1.6;color:rgba(255,255,255,.68);max-width:70ch;margin:0 0 14px}
 .theme-count{font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin:0}
-.gallery-bar{display:flex;justify-content:flex-end;padding:10px 0 20px;border-bottom:1px solid var(--line);margin-bottom:26px}
-.gallery-views{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
-.gallery-view-btn{padding:7px 16px;background:transparent;border:0;color:rgba(255,255,255,.55);font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
-.gallery-view-btn[aria-pressed=true]{background:var(--signal);color:#fff}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-.gcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#211b1c);overflow:hidden}
-.gcard-hit{display:block;padding:24px 22px 18px;text-decoration:none;color:inherit;flex:1}
-.gcard-hit:hover .gcard-title{color:var(--signal)}
-.gcard-meta{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.42);margin:0 0 12px}
-.gcard-title{font-size:20px;line-height:1.25;letter-spacing:-.02em;margin:0 0 12px}
-.gcard-brief{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.66);margin:0}
-.gcard-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:14px 22px;border-top:1px solid var(--line)}
-.gcard-link{font:10.5px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
-.gcard-link:hover{color:var(--signal)}
-.badge{font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:rgba(255,255,255,.7)}
-.badge-audio{border-color:rgba(46,125,91,.6)}
-.badge-deck{border-color:rgba(232,23,45,.5)}
-.gallery-list{display:flex;flex-direction:column}
-.grow{display:flex;gap:20px;justify-content:space-between;align-items:flex-start;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.grow-title{font-size:19px;line-height:1.3;letter-spacing:-.02em;color:#fff;text-decoration:none;display:block;margin-bottom:8px}
-.grow-title:hover{color:var(--signal)}
-.grow-brief{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.62);margin:0 0 8px;max-width:76ch}
-.grow-meta{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin:0}
-.grow-side{display:flex;gap:8px;flex-shrink:0}
-.gallery-empty{color:rgba(255,255,255,.5);padding:30px 0}
-@media (max-width:640px){.grow{flex-direction:column;gap:10px}}
+.tg-bar{display:flex;justify-content:flex-end;padding:10px 0 20px;border-bottom:1px solid var(--line);margin-bottom:26px}
+.tg-views{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.tg-view-btn{padding:7px 16px;background:transparent;border:0;color:rgba(255,255,255,.55);font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
+.tg-view-btn[aria-pressed=true]{background:var(--signal);color:#fff}
+/* [hidden] do user-agent tem especificidade menor que uma classe, entao
+   `.tg-list{display:flex}` fazia as duas views renderizarem sobrepostas. */
+.tg-grid[hidden],.tg-list[hidden]{display:none}
+.tg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.tg-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#211b1c);overflow:hidden}
+.tg-card-hit{display:block;padding:24px 22px 18px;text-decoration:none;color:inherit;flex:1}
+.tg-card-hit:hover .tg-card-title{color:var(--signal)}
+.tg-card-meta{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.42);margin:0 0 12px}
+.tg-card-title{font-size:20px;line-height:1.25;letter-spacing:-.02em;margin:0 0 12px}
+.tg-card-brief{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.66);margin:0}
+.tg-card-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:14px 22px;border-top:1px solid var(--line)}
+.tg-card-link{font:10.5px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
+.tg-card-link:hover{color:var(--signal)}
+.tg-badge{font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:rgba(255,255,255,.7)}
+.tg-badge-audio{border-color:rgba(46,125,91,.6)}
+.tg-badge-deck{border-color:rgba(232,23,45,.5)}
+.tg-list{display:flex;flex-direction:column}
+.tg-row{display:flex;gap:20px;justify-content:space-between;align-items:flex-start;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.tg-row-title{font-size:19px;line-height:1.3;letter-spacing:-.02em;color:#fff;text-decoration:none;display:block;margin-bottom:8px}
+.tg-row-title:hover{color:var(--signal)}
+.tg-row-brief{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.62);margin:0 0 8px;max-width:76ch}
+.tg-row-meta{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin:0}
+.tg-row-side{display:flex;gap:8px;flex-shrink:0}
+.tg-empty{color:rgba(255,255,255,.5);padding:30px 0}
+@media (max-width:640px){.tg-row{flex-direction:column;gap:10px}}
 
 /* --- Console de autoria (só visível em localhost) --- */
 .console{border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:30px;background:rgba(255,255,255,.02)}
@@ -271,7 +274,7 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 .console-log{max-height:220px;overflow:auto;background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:10px;padding:14px;font:11.5px var(--mono);color:rgba(255,255,255,.7);white-space:pre-wrap;margin:0}
 .console-done{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
 .console-chip{font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em;padding:4px 9px;border-radius:999px;border:1px solid rgba(46,125,91,.5);color:rgba(255,255,255,.65)}
-.gcard-fresh{outline:1px solid var(--signal);outline-offset:2px}</style>
+.tg-card-fresh{outline:1px solid var(--signal);outline-offset:2px}</style>
 </head>
 <body>
 <main class="wrap">
@@ -366,13 +369,13 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 
   function addCard(article) {
     var card = document.createElement('article');
-    card.className = 'gcard gcard-fresh';
+    card.className = 'tg-card tg-card-fresh';
     card.innerHTML =
-      '<a class="gcard-hit" href="' + article.href + '">' +
-      '<p class="gcard-meta">' + (article.date || '') + '</p>' +
-      '<h2 class="gcard-title">' + (article.title || 'Sem título') + '</h2>' +
-      '<p class="gcard-brief">' + (article.briefing || '') + '</p></a>';
-    var grid = document.querySelector('.gallery-grid');
+      '<a class="tg-card-hit" href="' + article.href + '">' +
+      '<p class="tg-card-meta">' + (article.date || '') + '</p>' +
+      '<h2 class="tg-card-title">' + (article.title || 'Sem título') + '</h2>' +
+      '<p class="tg-card-brief">' + (article.briefing || '') + '</p></a>';
+    var grid = document.querySelector('.tg-grid');
     if (grid) grid.prepend(card);
   }
 
@@ -432,64 +435,64 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
   });
 })();
 </script>
-  <div class="gallery" data-active-view="cards">
-    <div class="gallery-bar">
-      <div class="gallery-views" role="group" aria-label="Modo de visualização">
-        <button type="button" class="gallery-view-btn" data-set-view="cards" aria-pressed="true">Cards</button>
-        <button type="button" class="gallery-view-btn" data-set-view="list" aria-pressed="false">Lista</button>
+  <div class="tg" data-active-view="cards">
+    <div class="tg-bar">
+      <div class="tg-views" role="group" aria-label="Modo de visualização">
+        <button type="button" class="tg-view-btn" data-set-view="cards" aria-pressed="true">Cards</button>
+        <button type="button" class="tg-view-btn" data-set-view="list" aria-pressed="false">Lista</button>
       </div>
     </div>
 
-    <section class="gallery-grid" data-view="cards">
-      <article class="gcard">
-        <a class="gcard-hit" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">
-          <p class="gcard-meta">2026-08-29 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier,...</p>
-          <h2 class="gcard-title">Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS</h2>
-        </a>
-        <div class="gcard-foot">
-<a class="gcard-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Workshop</a>        </div>
+    <section class="tg-grid" data-view="cards">
+      <article class="tg-card">
+        <a class="tg-card-hit" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">
+          <p class="tg-card-meta">2026-08-29 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier,...</p>
+          <h2 class="tg-card-title">Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS</h2>
+<p class="tg-card-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>        </a>
+        <div class="tg-card-foot">
+<a class="tg-card-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Workshop</a>        </div>
       </article>
-      <article class="gcard">
-        <a class="gcard-hit" href="../sistemas-multiagente-contexto/context-aware-mas/index.html">
-          <p class="gcard-meta">2025-01-29 · Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
-          <h2 class="gcard-title">A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</h2>
-        </a>
-        <div class="gcard-foot">
-<span class="badge badge-audio">Áudio</span><span class="badge badge-deck">Deck</span><a class="gcard-link" href="../sistemas-multiagente-contexto/context-aware-mas/blog.html">Post</a><a class="gcard-link" href="../sistemas-multiagente-contexto/context-aware-mas/workshop.html">Workshop</a>        </div>
+      <article class="tg-card">
+        <a class="tg-card-hit" href="../sistemas-multiagente-contexto/context-aware-mas/index.html">
+          <p class="tg-card-meta">2025-01-29 · Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
+          <h2 class="tg-card-title">A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</h2>
+<p class="tg-card-brief">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.</p>        </a>
+        <div class="tg-card-foot">
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-deck">Deck</span><a class="tg-card-link" href="../sistemas-multiagente-contexto/context-aware-mas/blog.html">Post</a><a class="tg-card-link" href="../sistemas-multiagente-contexto/context-aware-mas/workshop.html">Workshop</a>        </div>
       </article>
-      <article class="gcard">
-        <a class="gcard-hit" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html">
-          <p class="gcard-meta">2018 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier,...</p>
-          <h2 class="gcard-title">Três Categorias de Sistemas Sensíveis ao Contexto</h2>
-        </a>
-        <div class="gcard-foot">
-<a class="gcard-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/blog.html">Post</a><a class="gcard-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Workshop</a>        </div>
+      <article class="tg-card">
+        <a class="tg-card-hit" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html">
+          <p class="tg-card-meta">2018 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier,...</p>
+          <h2 class="tg-card-title">Três Categorias de Sistemas Sensíveis ao Contexto</h2>
+<p class="tg-card-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>        </a>
+        <div class="tg-card-foot">
+<a class="tg-card-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/blog.html">Post</a><a class="tg-card-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Workshop</a>        </div>
       </article>
     </section>
 
-    <section class="gallery-list" data-view="list" hidden>
-      <article class="grow">
-        <div class="grow-main">
-          <a class="grow-title" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS</a>
-          <p class="grow-meta">2026-08-29 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier, Marijn Janssen</p>
+    <section class="tg-list" data-view="list" hidden>
+      <article class="tg-row">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS</a>
+<p class="tg-row-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>          <p class="tg-row-meta">2026-08-29 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier, Marijn Janssen</p>
         </div>
-        <div class="grow-side">
+        <div class="tg-row-side">
         </div>
       </article>
-      <article class="grow">
-        <div class="grow-main">
-          <a class="grow-title" href="../sistemas-multiagente-contexto/context-aware-mas/index.html">A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</a>
-          <p class="grow-meta">2025-01-29 · Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
+      <article class="tg-row">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="../sistemas-multiagente-contexto/context-aware-mas/index.html">A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</a>
+<p class="tg-row-brief">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.</p>          <p class="tg-row-meta">2025-01-29 · Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
         </div>
-        <div class="grow-side">
-<span class="badge badge-audio">Áudio</span><span class="badge badge-deck">Deck</span>        </div>
+        <div class="tg-row-side">
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-deck">Deck</span>        </div>
       </article>
-      <article class="grow">
-        <div class="grow-main">
-          <a class="grow-title" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html">Três Categorias de Sistemas Sensíveis ao Contexto</a>
-          <p class="grow-meta">2018 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier, Marijn Janssen</p>
+      <article class="tg-row">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html">Três Categorias de Sistemas Sensíveis ao Contexto</a>
+<p class="tg-row-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>          <p class="tg-row-meta">2018 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier, Marijn Janssen</p>
         </div>
-        <div class="grow-side">
+        <div class="tg-row-side">
         </div>
       </article>
     </section>
@@ -498,16 +501,16 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 
 <script>
 (function () {
-  var gallery = document.querySelector('.gallery');
-  if (!gallery) return;
+  var tg = document.querySelector('.tg');
+  if (!tg) return;
   var KEY = 'css3e:gallery-view';
 
   function set(view) {
-    gallery.dataset.activeView = view;
-    gallery.querySelectorAll('[data-view]').forEach(function (section) {
+    tg.dataset.activeView = view;
+    tg.querySelectorAll('[data-view]').forEach(function (section) {
       section.hidden = section.dataset.view !== view;
     });
-    gallery.querySelectorAll('[data-set-view]').forEach(function (btn) {
+    tg.querySelectorAll('[data-set-view]').forEach(function (btn) {
       btn.setAttribute('aria-pressed', String(btn.dataset.setView === view));
     });
     // Per-viewer convenience only; a missing or unreadable value just means
@@ -515,7 +518,7 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     try { localStorage.setItem(KEY, view); } catch (e) {}
   }
 
-  gallery.querySelectorAll('[data-set-view]').forEach(function (btn) {
+  tg.querySelectorAll('[data-set-view]').forEach(function (btn) {
     btn.addEventListener('click', function () { set(btn.dataset.setView); });
   });
 

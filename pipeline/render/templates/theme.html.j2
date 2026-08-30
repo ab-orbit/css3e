@@ -29,51 +29,51 @@
      publicada não tem backend para chamar, então o bloco fica inerte. #}
   {% include "partials/theme_console.html.j2" %}
 
-  <div class="gallery" data-active-view="cards">
-    <div class="gallery-bar">
-      <div class="gallery-views" role="group" aria-label="Modo de visualização">
-        <button type="button" class="gallery-view-btn" data-set-view="cards" aria-pressed="true">Cards</button>
-        <button type="button" class="gallery-view-btn" data-set-view="list" aria-pressed="false">Lista</button>
+  <div class="tg" data-active-view="cards">
+    <div class="tg-bar">
+      <div class="tg-views" role="group" aria-label="Modo de visualização">
+        <button type="button" class="tg-view-btn" data-set-view="cards" aria-pressed="true">Cards</button>
+        <button type="button" class="tg-view-btn" data-set-view="list" aria-pressed="false">Lista</button>
       </div>
     </div>
 
-    <section class="gallery-grid" data-view="cards">
+    <section class="tg-grid" data-view="cards">
       {% for e in entries %}
       {% set href = article_href(e) %}
-      <article class="gcard">
-        <a class="gcard-hit" href="{{ href }}">
-          <p class="gcard-meta">{{ e.date_published }} · {{ e.authors | join(', ') | truncate(58) }}</p>
-          <h2 class="gcard-title">{{ e.title_pt or e.title }}</h2>
-          {% if e.briefing %}<p class="gcard-brief">{{ e.briefing }}</p>{% endif %}
+      <article class="tg-card">
+        <a class="tg-card-hit" href="{{ href }}">
+          <p class="tg-card-meta">{{ e.date_published }} · {{ e.authors | join(', ') | truncate(58) }}</p>
+          <h2 class="tg-card-title">{{ e.title_pt or e.title }}</h2>
+          {% if e.briefing %}<p class="tg-card-brief">{{ e.briefing }}</p>{% endif %}
         </a>
-        <div class="gcard-foot">
-          {% if e.has_audio %}<span class="badge badge-audio">Áudio</span>{% endif %}
-          {% if e.has_slides %}<span class="badge badge-deck">Deck</span>{% endif %}
-          {% if e.pages.blog %}<a class="gcard-link" href="{{ article_href(e, 'blog') }}">Post</a>{% endif %}
-          {% if e.pages.workshop %}<a class="gcard-link" href="{{ article_href(e, 'workshop') }}">Workshop</a>{% endif %}
+        <div class="tg-card-foot">
+          {% if e.has_audio %}<span class="tg-badge tg-badge-audio">Áudio</span>{% endif %}
+          {% if e.has_slides %}<span class="tg-badge tg-badge-deck">Deck</span>{% endif %}
+          {% if e.pages.blog %}<a class="tg-card-link" href="{{ article_href(e, 'blog') }}">Post</a>{% endif %}
+          {% if e.pages.workshop %}<a class="tg-card-link" href="{{ article_href(e, 'workshop') }}">Workshop</a>{% endif %}
         </div>
       </article>
       {% else %}
-      <p class="gallery-empty">Nenhum artigo publicado neste tema ainda.</p>
+      <p class="tg-empty">Nenhum artigo publicado neste tema ainda.</p>
       {% endfor %}
     </section>
 
-    <section class="gallery-list" data-view="list" hidden>
+    <section class="tg-list" data-view="list" hidden>
       {% for e in entries %}
       {% set href = article_href(e) %}
-      <article class="grow">
-        <div class="grow-main">
-          <a class="grow-title" href="{{ href }}">{{ e.title_pt or e.title }}</a>
-          {% if e.briefing %}<p class="grow-brief">{{ e.briefing }}</p>{% endif %}
-          <p class="grow-meta">{{ e.date_published }} · {{ e.authors | join(', ') | truncate(70) }}</p>
+      <article class="tg-row">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="{{ href }}">{{ e.title_pt or e.title }}</a>
+          {% if e.briefing %}<p class="tg-row-brief">{{ e.briefing }}</p>{% endif %}
+          <p class="tg-row-meta">{{ e.date_published }} · {{ e.authors | join(', ') | truncate(70) }}</p>
         </div>
-        <div class="grow-side">
-          {% if e.has_audio %}<span class="badge badge-audio">Áudio</span>{% endif %}
-          {% if e.has_slides %}<span class="badge badge-deck">Deck</span>{% endif %}
+        <div class="tg-row-side">
+          {% if e.has_audio %}<span class="tg-badge tg-badge-audio">Áudio</span>{% endif %}
+          {% if e.has_slides %}<span class="tg-badge tg-badge-deck">Deck</span>{% endif %}
         </div>
       </article>
       {% else %}
-      <p class="gallery-empty">Nenhum artigo publicado neste tema ainda.</p>
+      <p class="tg-empty">Nenhum artigo publicado neste tema ainda.</p>
       {% endfor %}
     </section>
   </div>
@@ -81,16 +81,16 @@
 
 <script>
 (function () {
-  var gallery = document.querySelector('.gallery');
-  if (!gallery) return;
+  var tg = document.querySelector('.tg');
+  if (!tg) return;
   var KEY = 'css3e:gallery-view';
 
   function set(view) {
-    gallery.dataset.activeView = view;
-    gallery.querySelectorAll('[data-view]').forEach(function (section) {
+    tg.dataset.activeView = view;
+    tg.querySelectorAll('[data-view]').forEach(function (section) {
       section.hidden = section.dataset.view !== view;
     });
-    gallery.querySelectorAll('[data-set-view]').forEach(function (btn) {
+    tg.querySelectorAll('[data-set-view]').forEach(function (btn) {
       btn.setAttribute('aria-pressed', String(btn.dataset.setView === view));
     });
     // Per-viewer convenience only; a missing or unreadable value just means
@@ -98,7 +98,7 @@
     try { localStorage.setItem(KEY, view); } catch (e) {}
   }
 
-  gallery.querySelectorAll('[data-set-view]').forEach(function (btn) {
+  tg.querySelectorAll('[data-set-view]').forEach(function (btn) {
     btn.addEventListener('click', function () { set(btn.dataset.setView); });
   });
 
