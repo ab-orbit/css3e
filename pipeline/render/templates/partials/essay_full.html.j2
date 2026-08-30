@@ -1,0 +1,19 @@
+{# Requires: essay (EssayVariant), pkg (ArticlePackage) #}
+<article class="post">
+  <p class="drop">{{ essay.drop_cap_paragraph }}</p>
+  {% for s in essay.sections %}
+  <h2 id="s{{ loop.index }}"><span class="no">{{ s.no }}</span>{{ s.heading }}</h2>
+  {% for p in s.paragraphs %}<p>{{ p | safe }}</p>{% endfor %}
+  {% if s.bullets %}
+  <ul>{% for b in s.bullets %}<li>{{ b | safe }}</li>{% endfor %}</ul>
+  {% endif %}
+  {% if s.pullquote %}
+  <blockquote class="pull">{{ s.pullquote.text }}<cite>{{ s.pullquote.cite }}</cite></blockquote>
+  {% endif %}
+  {% endfor %}
+  <p>{{ essay.closing_paragraph }}</p>
+</article>
+
+<div class="closer">
+  <div class="callout"><b>{{ pkg.paper.closing_question }}</b></div>
+</div>

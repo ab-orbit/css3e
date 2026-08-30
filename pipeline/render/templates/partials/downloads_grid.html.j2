@@ -1,0 +1,13 @@
+{# Requires: downloads (list[DownloadItem]) #}
+<section class="section" id="downloads">
+  <h2><span class="num">FONTES</span>Material</h2>
+  <div class="dl-grid">
+    {% for d in downloads %}
+    <a class="dl" href="{{ d.href }}">
+      <b>{{ d.title }}</b>
+      <small>{{ d.description }}</small>
+      <span class="arrow">{{ d.arrow_label }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>

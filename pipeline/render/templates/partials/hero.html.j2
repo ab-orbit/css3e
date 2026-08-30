@@ -1,0 +1,24 @@
+{# Requires: hero (HeroMeta), pkg (ArticlePackage) #}
+<section class="article-hero">
+  <div>
+    <div class="eyebrow">{{ hero.eyebrow }}</div>
+    <h1>{{ hero.h1 }}</h1>
+    <p class="lede">{{ hero.lede }}</p>
+    <div class="toc">
+      {% for anchor_id, label in hero.toc_anchors %}
+      <a href="#{{ anchor_id }}">{{ label }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <aside class="paper meta-card">
+    <h3>Referência</h3>
+    <p class="authors">{{ hero.authors_line }}</p>
+    <p class="affil">{{ hero.affiliations }}</p>
+    {% for label, value in hero.kv_rows %}
+    <div class="kv"><span class="key">{{ label }}</span><span class="val">{{ value | safe }}</span></div>
+    {% endfor %}
+    <div class="callout" style="margin-bottom:0">
+      <b>O problema declarado:</b> {{ hero.problem_statement }}
+    </div>
+  </aside>
+</section>

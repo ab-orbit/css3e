@@ -1,0 +1,20 @@
+{# Requires: categories (list[CategoryCard]) #}
+{% if categories %}
+<section class="section" id="categorias">
+  <h2><span class="num">TAXONOMIA</span>As categorias do artigo</h2>
+  <div class="cats">
+    {% for c in categories %}
+    <article class="cat" style="border-top-color:var(--accent-{{ c.accent_index }})">
+      <span class="tag" style="color:var(--accent-{{ c.accent_index }})">{{ c.tag }}</span>
+      <h3>{{ c.name }}</h3>
+      <p class="sub">{{ c.subtitle }}</p>
+      <dl>
+        {% for dt, dd in c.dl_items %}
+        <dt>{{ dt }}</dt><dd>{{ dd }}</dd>
+        {% endfor %}
+      </dl>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

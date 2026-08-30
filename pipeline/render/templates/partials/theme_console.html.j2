@@ -1,0 +1,159 @@
+{#
+  Console de autoria. Sempre renderizado, escondido por padrão e revelado só
+  quando servido de localhost por `pipeline serve`.
+
+  O teste de hostname é alternância de UI, não fronteira de segurança — e não
+  precisa ser: a página publicada no GitHub Pages não tem backend nenhum para
+  chamar, então o bloco fica inerte lá.
+#}
+<section class="console" id="console" hidden>
+  <div class="console-head">
+    <h2>Console de autoria</h2>
+    <button type="button" class="console-add" id="console-add">+ Novo artigo</button>
+  </div>
+
+  <form class="console-form" id="console-form" hidden>
+    <label class="console-file">
+      <span>PDF do artigo</span>
+      <input type="file" name="pdf" accept="application/pdf" required>
+    </label>
+    <label class="console-field">
+      <span>Slug (opcional)</span>
+      <input type="text" name="slug" placeholder="derivado do nome do arquivo">
+    </label>
+    <label class="console-field">
+      <span>Tema (opcional)</span>
+      <input type="text" name="tema" placeholder="inferido por LLM">
+    </label>
+    <button type="submit" class="console-run">Processar</button>
+  </form>
+
+  <div class="console-run-panel" id="console-panel" hidden>
+    <div class="console-progress">
+      <div class="console-progress-total">
+        <span class="console-pct" id="console-pct">0%</span>
+        <div class="console-bar"><i id="console-bar-fill" style="width:0%"></i></div>
+      </div>
+      <ul class="console-phases" id="console-phases"></ul>
+    </div>
+
+    <div class="console-working" id="console-working">
+      <h3 id="console-working-title"><span class="spinner" id="console-spinner" aria-hidden="true"></span>Em processamento</h3>
+      <pre class="console-log" id="console-log" aria-live="polite"></pre>
+    </div>
+
+    <div class="console-done" id="console-done"></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var isLocal = ['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) !== -1;
+  if (!isLocal) return;
+
+  var section = document.getElementById('console');
+  section.hidden = false;
+
+  var form = document.getElementById('console-form');
+  var panel = document.getElementById('console-panel');
+  var log = document.getElementById('console-log');
+  var phasesEl = document.getElementById('console-phases');
+  var doneEl = document.getElementById('console-done');
+  var barFill = document.getElementById('console-bar-fill');
+  var pctEl = document.getElementById('console-pct');
+
+  document.getElementById('console-add').addEventListener('click', function () {
+    form.hidden = !form.hidden;
+  });
+
+  function finish(label) {
+    var spinner = document.getElementById('console-spinner');
+    if (spinner) spinner.remove();
+    document.getElementById('console-working-title').textContent = label;
+  }
+
+  function line(text) {
+    log.textContent += text + '\n';
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function renderPhases(phases) {
+    phasesEl.innerHTML = '';
+    phases.forEach(function (p) {
+      var li = document.createElement('li');
+      li.className = 'console-phase' + (p.done ? ' is-done' : (p.active ? ' is-active' : ''));
+      li.innerHTML = '<span class="console-phase-name">' + p.name + '</span>' +
+        '<div class="console-bar console-bar-sm"><i style="width:' + p.pct + '%"></i></div>' +
+        '<span class="console-phase-pct">' + p.pct + '%</span>';
+      phasesEl.appendChild(li);
+    });
+  }
+
+  function addCard(article) {
+    var card = document.createElement('article');
+    card.className = 'gcard gcard-fresh';
+    card.innerHTML =
+      '<a class="gcard-hit" href="' + article.href + '">' +
+      '<p class="gcard-meta">' + (article.date || '') + '</p>' +
+      '<h2 class="gcard-title">' + (article.title || 'Sem título') + '</h2>' +
+      '<p class="gcard-brief">' + (article.briefing || '') + '</p></a>';
+    var grid = document.querySelector('.gallery-grid');
+    if (grid) grid.prepend(card);
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    panel.hidden = false;
+    log.textContent = '';
+    doneEl.innerHTML = '';
+
+    fetch('/api/runs', { method: 'POST', body: new FormData(form) })
+      .then(function (r) { return r.json(); })
+      .then(function (run) {
+        line('run ' + run.run_id + ' iniciado');
+        var source = new EventSource('/api/runs/' + run.run_id + '/events');
+
+        source.addEventListener('progress', function (e) {
+          var data = JSON.parse(e.data);
+          barFill.style.width = data.total_pct + '%';
+          pctEl.textContent = data.total_pct + '%';
+          renderPhases(data.phases);
+        });
+
+        source.addEventListener('log', function (e) { line(JSON.parse(e.data).message); });
+
+        source.addEventListener('node', function (e) {
+          var data = JSON.parse(e.data);
+          line('[ok] ' + data.node + ' — ' + data.summary);
+          var chip = document.createElement('span');
+          chip.className = 'console-chip';
+          chip.textContent = data.node;
+          doneEl.appendChild(chip);
+        });
+
+        source.addEventListener('article', function (e) { addCard(JSON.parse(e.data)); });
+
+        source.addEventListener('done', function (e) {
+          line('concluído em ' + JSON.parse(e.data).elapsed + 's');
+          // Só o spinner sai. O log é o registro do que foi executado e é
+          // justamente o que se quer reler depois que termina.
+          finish('Concluído');
+          source.close();
+        });
+
+        source.addEventListener('failed', function (e) {
+          line('FALHOU: ' + JSON.parse(e.data).error);
+          finish('Falhou');
+          source.close();
+        });
+
+        source.onerror = function () {
+          line('conexão com o servidor perdida');
+          finish('Interrompido');
+          source.close();
+        };
+      })
+      .catch(function (err) { line('não foi possível iniciar: ' + err); });
+  });
+})();
+</script>

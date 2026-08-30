@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ seo.title }}</title>
+{% include "partials/seo_head.html.j2" %}
+<link rel="stylesheet" href="{{ asset_prefix }}resources/cases/style.css">
+<style>
+{% include "partials/article_extra.css.j2" %}
+</style>
+</head>
+<body>
+
+{% include "partials/progress_bar.html.j2" %}
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Blog · {{ brand_label }}</div>
+    <nav class="nav">
+      <a class="btn" href="workshop.html">Dinâmica</a>
+      <a class="btn" href="index.html">Leitura do artigo</a>
+      <a class="btn" href="{{ theme_href }}">&#8592; {{ theme_name }}</a>
+      <a class="btn primary" href="{{ pdf_relative_href }}">PDF do ensaio</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="post-hero">
+    <p class="post-kicker">Ensaio · {{ pkg.tema | replace('-', ' ') }}</p>
+    <h1>{{ pkg.essay_full.sections[0].heading if pkg.essay_full.sections else pkg.paper.title }}</h1>
+    <p class="post-dek">{{ pkg.hero.lede }}</p>
+    <div class="byline">
+      <span><b>Baseado em</b> {{ pkg.paper.authors | map(attribute='name') | join(', ') }} ({{ pkg.paper.venue }}{% if pkg.paper.date_published %}, {{ pkg.paper.date_published }}{% endif %})</span>
+    </div>
+  </section>
+
+  <div class="post-cover">
+    <div class="band">
+      <span>O argumento em uma frase</span>
+      <b style="font-size:22px;line-height:1.45">{{ pkg.paper.problem_statement }}</b>
+    </div>
+  </div>
+
+  <nav class="toc-rail" aria-label="Seções do ensaio">
+    {% for s in pkg.essay_full.sections %}
+    <a href="#s{{ loop.index }}">{{ loop.index }} · {{ s.heading }}</a>
+    {% endfor %}
+  </nav>
+
+  {% set essay = pkg.essay_full %}
+  {% include "partials/essay_full.html.j2" %}
+
+  <div class="share">
+    <span>Compartilhar</span>
+    <a class="btn" id="shareLink" href="#">Copiar link</a>
+  </div>
+
+  <section class="related">
+    <h3>Continue</h3>
+    <div class="related-grid">
+      <a class="rcard" href="index.html">
+        <b>Leitura guiada do artigo</b>
+        <small>Categorias, mapa mental, tabelas e áudio.</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+      <a class="rcard" href="workshop.html">
+        <b>Dinâmica remota</b>
+        <small>Workshop para consolidação em grupo ou individual.</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+      <a class="rcard" href="{{ pdf_relative_href }}">
+        <b>Artigo original</b>
+        <small>{{ pkg.paper.venue }}.</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Baseado em {{ pkg.paper.authors | map(attribute='name') | join(', ') }}. <i>{{ pkg.paper.title }}</i>. {{ pkg.paper.venue }}.<br><br>
+    <a href="index.html">Leitura guiada</a> &#183; <a href="workshop.html">Dinâmica</a> &#183; <a href="{{ theme_href }}">&#8592; {{ theme_name }}</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('shareLink').addEventListener('click', function (ev) {
+  ev.preventDefault();
+  var btn = this;
+  var done = function (ok) {
+    btn.textContent = ok ? 'Link copiado' : 'Copie manualmente';
+    setTimeout(function () { btn.textContent = 'Copiar link'; }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); });
+  } else { done(false); }
+});
+</script>
+</body>
+</html>

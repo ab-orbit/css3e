@@ -1,0 +1,9 @@
+- slug: css-context-sensitive-systems
+  name: CSS - Context Sensitive Systems
+  description: Sistemas que percebem o contexto em que operam e adaptam seu comportamento a ele. Reúne
+    trabalhos sobre sensibilidade ao contexto, sistemas multiagentes e as arquiteturas que integram os
+    dois — do modelo de categorias de CAS às capacidades Sense-Learn-Reason-Predict-Act de agentes autônomos.
+  temas:
+  - sistemas-sensiveis-ao-contexto
+  - sistemas-multi-agentes-contexto
+  - sistemas-multiagente-contexto

@@ -1,0 +1,21 @@
+{# Requires: essay (EssayVariant) #}
+<section class="section" id="ensaio">
+  <h2><span class="num">ENSAIO</span>{{ pkg.paper.title }}</h2>
+  <div class="prose">
+    <p class="drop">{{ essay.drop_cap_paragraph }}</p>
+    {% for s in essay.sections %}
+    <h3>{{ s.no }}. {{ s.heading }}</h3>
+    {% for p in s.paragraphs %}<p>{{ p | safe }}</p>{% endfor %}
+    {% if s.bullets %}
+    <ul>{% for b in s.bullets %}<li>{{ b | safe }}</li>{% endfor %}</ul>
+    {% endif %}
+    {% if s.pullquote %}
+    <blockquote>{{ s.pullquote.text }}<cite>{{ s.pullquote.cite }}</cite></blockquote>
+    {% endif %}
+    {% endfor %}
+    <p>{{ essay.closing_paragraph }}</p>
+  </div>
+  <div class="callout">
+    <b>A pergunta que fica:</b> {{ pkg.paper.closing_question }}
+  </div>
+</section>

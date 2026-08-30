@@ -1,0 +1,87 @@
+{# Requires: workshop (WorkshopSpec) #}
+<section class="section" id="visao-geral">
+  <h2><span class="num">DINÂMICA</span>{{ workshop.title }}</h2>
+  <div class="case-grid">
+    <div class="panel">
+      <h3>Enquadramento</h3>
+      <p>{{ workshop.framing }}</p>
+    </div>
+    <div class="panel">
+      <h3>Duração</h3>
+      <p>{{ workshop.duration_minutes }} minutos, remoto (videoconferência + material assíncrono).</p>
+    </div>
+  </div>
+</section>
+
+<section class="section track-toggle" id="trilhas">
+  <div class="track-tabs" role="tablist" aria-label="Visão da dinâmica">
+    <button class="track-tab active" data-track="participante" role="tab" aria-selected="true">Visão do participante</button>
+    <button class="track-tab" data-track="facilitador" role="tab" aria-selected="false">Visão do facilitador</button>
+  </div>
+
+  <div class="track-panel" data-track-panel="participante">
+    <h3>Passo a passo</h3>
+    {% for step in workshop.participant_track.steps %}
+    <div class="step-card">
+      <div class="case-no">{{ step.phase }}</div>
+      <p>{{ step.instruction }}</p>
+      <p class="self-check"><b>Autoavaliação:</b> {{ step.self_check_prompt }}</p>
+    </div>
+    {% endfor %}
+
+    <div class="case-grid" style="margin-top:20px">
+      <div class="panel">
+        <h3>Materiais necessários</h3>
+        <ul>{% for m in workshop.participant_track.materials_needed %}<li>{{ m }}</li>{% endfor %}</ul>
+      </div>
+      <div class="panel">
+        <h3>Perguntas de reflexão (consolidação individual)</h3>
+        <ul>{% for q in workshop.participant_track.reflection_questions %}<li>{{ q }}</li>{% endfor %}</ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-panel" data-track-panel="facilitador" hidden>
+    <h3>Roteiro</h3>
+    {% for step in workshop.facilitator_track.script %}
+    <div class="step-card">
+      <div class="case-no">{{ step.time_marker }}</div>
+      <p><b>{{ step.activity }}</b></p>
+      <p>{{ step.facilitator_notes }}</p>
+      {% if step.discussion_prompts %}
+      <ul>{% for p in step.discussion_prompts %}<li>{{ p }}</li>{% endfor %}</ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    <h3 style="margin-top:28px">Tabela de tempo</h3>
+    {% set table = workshop.facilitator_track.timing_table %}
+    {% include "partials/table.html.j2" %}
+
+    <div class="case-grid" style="margin-top:20px">
+      <div class="panel">
+        <h3>Estrutura do debrief</h3>
+        <ul>{% for d in workshop.facilitator_track.debrief_structure %}<li>{{ d }}</li>{% endfor %}</ul>
+      </div>
+      <div class="panel">
+        <h3>Objetivo de consolidação</h3>
+        <p>{{ workshop.facilitator_track.consolidation_goal }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.track-tab');
+  var panels = document.querySelectorAll('[data-track-panel]');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      panels.forEach(function (p) { p.hidden = p.dataset.trackPanel !== tab.dataset.track; });
+    });
+  });
+})();
+</script>

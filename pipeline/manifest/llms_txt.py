@@ -1,0 +1,79 @@
+"""Regenerates llms.txt IN FULL from pipeline/articles.yaml on every publish.
+
+The header/core-pages/reference-material/optional sections that predate the
+pipeline are kept as a fixed constant (HEADER) and re-emitted verbatim; a
+"## Generated articles" section is inserted, listing every ManifestEntry,
+right before "## Optional" — never patched by text surgery.
+"""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+from pipeline.config import REPO_ROOT
+from pipeline.schemas.package import ManifestEntry
+
+LLMS_TXT_PATH = REPO_ROOT / "llms.txt"
+
+HEADER = """# CSS3E — Context-Sensitive Systems: Simulator & Study Guide
+
+> Bilingual (pt-BR content, English-readable index): an interactive classroom
+> activity, article study guide, essay, and five live simulators built around
+> "Three Categories of Context-Aware Systems" (Shishkov, Larsen, Warnier &
+> Janssen, BMSD 2018, doi:10.1007/978-3-319-94214-8_12). The paper defines
+> three ways software adapts to context — SMCAS (self-managing / internal
+> optimization), UDCAS (user-driven / service adaptation), VSCAS
+> (value-sensitive / public values like privacy) — plus the SDBC methodology
+> and the AORTA agent-reasoning framework, illustrated with a border-security
+> drone case. All content is in Portuguese (pt-BR); this index is in English
+> so it can be located and summarized regardless of the query language.
+
+Em português: este site reúne uma dinâmica de sala de aula, uma leitura
+guiada do artigo original, um ensaio e cinco simuladores interativos sobre
+sistemas sensíveis ao contexto — SMCAS (autogerenciáveis), UDCAS
+(direcionados ao usuário) e VSCAS (sensíveis a valores) — a metodologia SDBC
+e o framework de raciocínio por agentes AORTA, com o caso de drones em
+segurança de fronteira.
+
+## Core pages
+
+- [Opening screen / Tela de abertura](https://ab-orbit.github.io/css3e/index_extended.html): evidence panel of 70 context signals a browser can read without a permission prompt, entry point into the classroom activity.
+- [Interactive activity / Dinâmica](https://ab-orbit.github.io/css3e/index.html): the live classroom exercise — participants place themselves on a context-sensitivity map (SMCAS/UDCAS/VSCAS) and compare answers in real time.
+- [Article study guide / Leitura guiada do artigo](https://ab-orbit.github.io/css3e/artigo.html): full walkthrough of "Three Categories of Context-Aware Systems" — SMCAS, UDCAS, VSCAS, the SDBC approach, the AORTA meta-model and predicates, and the border-security drone case — with an interactive mind map, audio commentary, and embedded slide deck.
+- [Blog essay / Ensaio](https://ab-orbit.github.io/css3e/blog.html): "Além do Algoritmo" ("Beyond the Algorithm") — the same argument in essay form, from a GPS that ignores a medical emergency to the drone that must choose between mission and ethics.
+
+## Reference material
+
+- [Context surface map / Mapa de superfície contextual](https://ab-orbit.github.io/css3e/resources/index.html): technical inventory of twelve families of browser/device signals — what can be observed, what can be inferred, and what should not be done — with a live reading of the visitor's own context.
+- [Five simulators / Simuladores](https://ab-orbit.github.io/css3e/resources/cases/index.html): interactive cases (viewport & interaction, resource budget, presentation preferences, regional & temporal context, composite context) letting a visitor change signals and watch the resulting policy and UI change live.
+- [Original paper (PDF)](https://ab-orbit.github.io/css3e/resources/ThreeCategoriesofCAS.pdf): Shishkov, B., Larsen, J. B., Warnier, M., & Janssen, M. (2018). Three Categories of Context-Aware Systems. In Business Modeling and Software Design, BMSD 2018 (LNBIP 319, pp. 185–202). Springer. doi:10.1007/978-3-319-94214-8_12.
+- [Technical report (PDF) / Relatório técnico](https://ab-orbit.github.io/css3e/resources/relatorio_contexto_sem_consentimento.pdf): "Contexto sem consentimento" — the long-form document behind the context-surface map."""
+
+FOOTER = """## Optional
+
+- [Slide deck (PDF) / Apresentação](https://ab-orbit.github.io/css3e/apresentacao_artigo.pdf): local copy of the presentation embedded in the article study guide.
+- [Course](https://ab-orbit.github.io/css3e/): IN1133 — Contexto Computacional, Centro de Informática, UFPE. Authors: Bruna Juliana Melo da Costa, Jefferson Wellington da Cunha."""
+
+
+def _article_bullet(m: ManifestEntry, base_url: str) -> str:
+    article_url = f"{base_url}{m.pages.get('article', '')}"
+    title = m.title_pt or m.title
+    return f"- [{title}]({article_url}): {m.title} — {m.authors[0] if m.authors else ''} et al."
+
+
+def render_llms_txt(manifest: list[ManifestEntry], base_url: str) -> str:
+    pipeline_entries = [m for m in manifest if m.include_in_llms_txt]
+    parts = [HEADER]
+    if pipeline_entries:
+        parts.append(
+            "## Generated articles\n\n"
+            + "\n".join(_article_bullet(m, base_url) for m in pipeline_entries)
+        )
+    parts.append(FOOTER)
+    return "\n\n".join(parts) + "\n"
+
+
+def regenerate_llms_txt(
+    manifest: list[ManifestEntry], base_url: str, path: Path = LLMS_TXT_PATH
+) -> None:
+    path.write_text(render_llms_txt(manifest, base_url), encoding="utf-8")

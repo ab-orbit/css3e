@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ seo.title }}</title>
+{% include "partials/seo_head.html.j2" %}
+<link rel="stylesheet" href="{{ asset_prefix }}resources/cases/style.css">
+<style>
+{% include "partials/article_extra.css.j2" %}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Dinâmica · {{ brand_label }}</div>
+    <nav class="nav">
+      <a class="btn" href="index.html">Leitura do artigo</a>
+      <a class="btn" href="blog.html">Blog</a>
+      <a class="btn" href="{{ theme_href }}">&#8592; {{ theme_name }}</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="article-hero" style="grid-template-columns:1fr">
+    <div>
+      <div class="eyebrow">DINÂMICA REMOTA · CONSOLIDAÇÃO DE CONTEÚDO</div>
+      <h1>{{ pkg.workshop.title }}</h1>
+      <p class="lede">Workshop remoto construído a partir de "{{ pkg.paper.title }}" ({{ pkg.paper.authors | map(attribute='name') | join(', ') }}, {{ pkg.paper.venue }}) para consolidar o conteúdo em grupo ou individualmente.</p>
+    </div>
+  </section>
+
+  {% include "partials/workshop_tracks.html.j2" %}
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Dinâmica derivada de {{ pkg.paper.authors | map(attribute='name') | join(', ') }}. <i>{{ pkg.paper.title }}</i>. {{ pkg.paper.venue }}.<br><br>
+    <a href="index.html">Leitura guiada</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="{{ theme_href }}">&#8592; {{ theme_name }}</a>
+  </div>
+</footer>
+
+</body>
+</html>

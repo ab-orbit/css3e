@@ -1,0 +1,2133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</title>
+<meta name="description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes dinâmicos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.">
+<meta name="keywords" content="context-aware systems, sistemas multi-agente, multi-agent systems, CA-MAS, consciência de contexto, Sense-Learn-Reason-Predict-Act, BDI, Belief-Desire-Intention, deep reinforcement learning, MARL, multi-agent reinforcement learning, ontology-based models, modelos baseados em ontologia, Graph Neural Networks, GNN, organizational structures, estruturas organizacionais, consensus protocols, protocolos de consenso, context modeling, Actor-Critic, DQN, PPO, navegação autônoma, IoT, ambient intelligence, inteligência artificial, sistemas complexos">
+<meta name="author" content="Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html">
+<meta name="theme-color" content="#171415">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html">
+<meta property="og:title" content="A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions">
+<meta property="og:description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes dinâmicos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2025-01-29">
+<meta property="article:author" content="Hung Du">
+<meta property="article:author" content="Srikanth Thudumu">
+<meta property="article:author" content="Hy Nguyen">
+<meta property="article:author" content="Rajesh Vasa">
+<meta property="article:author" content="Kon Mouzakis">
+<meta property="article:tag" content="sistemas multi-agente">
+<meta property="article:tag" content="context-aware systems">
+<meta property="article:tag" content="inteligência artificial">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions">
+<meta name="twitter:description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes dinâmicos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html" },
+  "headline": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
+  "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes din\u00e2micos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), t\u00e9cnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplica\u00e7\u00f5es em oito dom\u00ednios: navega\u00e7\u00e3o aut\u00f4noma, ambient intelligence, IoT, supply chain, disaster relief, energia sustent\u00e1vel, assist\u00eancia digital e educa\u00e7\u00e3o.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2025-01-29",
+  "dateModified": "2025-01-29",
+  "author": [
+    { "@type": "Person", "name": "Hung Du" },
+    { "@type": "Person", "name": "Srikanth Thudumu" },
+    { "@type": "Person", "name": "Hy Nguyen" },
+    { "@type": "Person", "name": "Rajesh Vasa" },
+    { "@type": "Person", "name": "Kon Mouzakis" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Centro de Inform\u00e1tica, UFPE", "url": "https://ab-orbit.github.io/css3e/" },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
+    "author": ["Hung Du","Srikanth Thudumu","Hy Nguyen","Rajesh Vasa","Kon Mouzakis"],
+    "datePublished": "2025-01-29",
+    "url": "/Users/jwcunha/Downloads/Context_AwareMAS.pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Context-Aware Multi-Agent Systems (CA-MAS)" },
+    { "@type": "Thing", "name": "Multi-Agent Systems (MAS)" },
+    { "@type": "Thing", "name": "Context-Aware Systems (CAS)" },
+    { "@type": "Thing", "name": "Sense-Learn-Reason-Predict-Act" },
+    { "@type": "Thing", "name": "Belief-Desire-Intention (BDI)" },
+    { "@type": "Thing", "name": "Deep Reinforcement Learning (DRL)" },
+    { "@type": "Thing", "name": "Multi-Agent Reinforcement Learning (MARL)" },
+    { "@type": "Thing", "name": "Organizational structures" },
+    { "@type": "Thing", "name": "Consensus protocols" },
+    { "@type": "Thing", "name": "Context modeling" },
+    { "@type": "Thing", "name": "Ontology-based models" },
+    { "@type": "Thing", "name": "Graph Neural Networks (GNN)" },
+    { "@type": "Thing", "name": "Actor-Critic methods" },
+    { "@type": "Thing", "name": "Deep Q Network (DQN)" },
+    { "@type": "Thing", "name": "Proximal Policy Optimization (PPO)" }
+  ],
+  "url": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html"
+}
+</script>
+
+&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@graph&#34;: [
+    {
+      &#34;@type&#34;: &#34;ScholarlyArticle&#34;,
+      &#34;@id&#34;: &#34;https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html&#34;,
+      &#34;url&#34;: &#34;https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html&#34;,
+      &#34;name&#34;: &#34;A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions&#34;,
+      &#34;headline&#34;: &#34;Sistemas Multi-Agente Conscientes de Contexto: Arquitetura Unificada e Taxonomia&#34;,
+      &#34;inLanguage&#34;: &#34;pt-BR&#34;,
+      &#34;author&#34;: [
+        {
+          &#34;@type&#34;: &#34;Person&#34;,
+          &#34;name&#34;: &#34;Hung Du&#34;
+        },
+        {
+          &#34;@type&#34;: &#34;Person&#34;,
+          &#34;name&#34;: &#34;Srikanth Thudumu&#34;
+        },
+        {
+          &#34;@type&#34;: &#34;Person&#34;,
+          &#34;name&#34;: &#34;Hy Nguyen&#34;
+        },
+        {
+          &#34;@type&#34;: &#34;Person&#34;,
+          &#34;name&#34;: &#34;Rajesh Vasa&#34;
+        },
+        {
+          &#34;@type&#34;: &#34;Person&#34;,
+          &#34;name&#34;: &#34;Kon Mouzakis&#34;
+        }
+      ],
+      &#34;abstract&#34;: &#34;Research interest in agents is rising, particularly in Artificial Intelligence (AI) techniques such as deep multi-modal representation learning, deep graph learning, and deep reinforcement learning, which suggest potential for human-like task performance within a multi-agent framework. However, challenges exist in enabling these agents to coordinate, learn, reason, predict, and navigate uncertainties in dynamic environments. Context awareness is crucial for enhancing multi-agent systems in such situations. Current research often addresses context-awareness or multi-agent system issues separately, leaving a gap in comprehensive surveys that explore both fields, especially regarding the five essential agent capabilities (Sense-Learn-Reason-Predict-Act). This survey fills that gap by presenting a unified architecture and taxonomy for developing Context-Aware Multi-Agent Systems (CA-MAS), which are vital for improving agent robustness and adaptability in real-world environments. We provide a comprehensive overview of state-of-the-art context-awareness and multi-agent systems, followed by a framework for CA-MAS development. We detail the properties of context-awareness and multi-agent systems, and a general process for context-aware systems, highlighting approaches from various domains such as ambient intelligence, autonomous navigation, digital assistance, disaster relief management, education, energy efficiency &amp; sustainability, IoT, and supply chain management. Finally, we discuss existing CA-MAS challenges and propose future research directions.&#34;,
+      &#34;description&#34;: &#34;Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.&#34;,
+      &#34;datePublished&#34;: &#34;2025-01-29&#34;,
+      &#34;publication&#34;: &#34;arXiv preprint arXiv:2402.01968v2 [cs.MA]&#34;,
+      &#34;keywords&#34;: [
+        &#34;Artificial Intelligence&#34;,
+        &#34;Reinforcement Learning&#34;,
+        &#34;Multi-Agent Systems&#34;,
+        &#34;Context-Aware Systems&#34;
+      ],
+      &#34;about&#34;: [
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;IEEE&#34;,
+          &#34;termCode&#34;: &#34;ieee&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Organization&#34;,
+          &#34;css3e:mentionCount&#34;: 50,
+          &#34;css3e:confidence&#34;: 0.941
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;multi-agent systems&#34;,
+          &#34;termCode&#34;: &#34;multi agent systems&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;System&#34;,
+          &#34;css3e:mentionCount&#34;: 37,
+          &#34;css3e:confidence&#34;: 0.753
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;CA-MAS&#34;,
+          &#34;termCode&#34;: &#34;ca mas&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;System&#34;,
+          &#34;css3e:mentionCount&#34;: 38,
+          &#34;css3e:confidence&#34;: 0.71
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;context&#34;,
+          &#34;termCode&#34;: &#34;context&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 33,
+          &#34;css3e:confidence&#34;: 0.785
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;MAS&#34;,
+          &#34;termCode&#34;: &#34;mas&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;System&#34;,
+          &#34;css3e:mentionCount&#34;: 29,
+          &#34;css3e:confidence&#34;: 0.725
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;agent&#34;,
+          &#34;termCode&#34;: &#34;agent&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Software&#34;,
+          &#34;css3e:mentionCount&#34;: 25,
+          &#34;css3e:confidence&#34;: 0.787
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Springer&#34;,
+          &#34;termCode&#34;: &#34;springer&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Organization&#34;,
+          &#34;css3e:mentionCount&#34;: 19,
+          &#34;css3e:confidence&#34;: 0.89
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;contextual information&#34;,
+          &#34;termCode&#34;: &#34;contextual information&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 21,
+          &#34;css3e:confidence&#34;: 0.698
+        }
+      ],
+      &#34;mentions&#34;: [
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;goals&#34;,
+          &#34;termCode&#34;: &#34;goals&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 19,
+          &#34;css3e:confidence&#34;: 0.667
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;agents&#34;,
+          &#34;termCode&#34;: &#34;agents&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Organization&#34;,
+          &#34;css3e:mentionCount&#34;: 15,
+          &#34;css3e:confidence&#34;: 0.714
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;p&#34;,
+          &#34;termCode&#34;: &#34;p&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Metric&#34;,
+          &#34;css3e:mentionCount&#34;: 12,
+          &#34;css3e:confidence&#34;: 0.803
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;consensus&#34;,
+          &#34;termCode&#34;: &#34;consensus&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 14,
+          &#34;css3e:confidence&#34;: 0.677
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;organization&#34;,
+          &#34;termCode&#34;: &#34;organization&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Organization&#34;,
+          &#34;css3e:mentionCount&#34;: 12,
+          &#34;css3e:confidence&#34;: 0.713
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;context-awareness&#34;,
+          &#34;termCode&#34;: &#34;context awareness&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 9,
+          &#34;css3e:confidence&#34;: 0.718
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Context Modeling&#34;,
+          &#34;termCode&#34;: &#34;context modeling&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Method&#34;,
+          &#34;css3e:mentionCount&#34;: 9,
+          &#34;css3e:confidence&#34;: 0.694
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;arXiv&#34;,
+          &#34;termCode&#34;: &#34;arxiv&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Organization&#34;,
+          &#34;css3e:mentionCount&#34;: 9,
+          &#34;css3e:confidence&#34;: 0.691
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;deep reinforcement learning&#34;,
+          &#34;termCode&#34;: &#34;deep reinforcement learning&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Method&#34;,
+          &#34;css3e:mentionCount&#34;: 9,
+          &#34;css3e:confidence&#34;: 0.663
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Context-Aware Systems&#34;,
+          &#34;termCode&#34;: &#34;context aware systems&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;System&#34;,
+          &#34;css3e:mentionCount&#34;: 8,
+          &#34;css3e:confidence&#34;: 0.741
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;group/cluster consensus&#34;,
+          &#34;termCode&#34;: &#34;groupcluster consensus&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Method&#34;,
+          &#34;css3e:mentionCount&#34;: 9,
+          &#34;css3e:confidence&#34;: 0.634
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Organizational Structure&#34;,
+          &#34;termCode&#34;: &#34;organizational structure&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 9,
+          &#34;css3e:confidence&#34;: 0.626
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;CAS&#34;,
+          &#34;termCode&#34;: &#34;cas&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;System&#34;,
+          &#34;css3e:mentionCount&#34;: 9,
+          &#34;css3e:confidence&#34;: 0.622
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;sampled-data consensus&#34;,
+          &#34;termCode&#34;: &#34;sampled data consensus&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Method&#34;,
+          &#34;css3e:mentionCount&#34;: 8,
+          &#34;css3e:confidence&#34;: 0.672
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Relationships&#34;,
+          &#34;termCode&#34;: &#34;relationships&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 8,
+          &#34;css3e:confidence&#34;: 0.61
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;t&#34;,
+          &#34;termCode&#34;: &#34;t&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Metric&#34;,
+          &#34;css3e:mentionCount&#34;: 7,
+          &#34;css3e:confidence&#34;: 0.691
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;d&#34;,
+          &#34;termCode&#34;: &#34;d&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Metric&#34;,
+          &#34;css3e:mentionCount&#34;: 8,
+          &#34;css3e:confidence&#34;: 0.569
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;ACM&#34;,
+          &#34;termCode&#34;: &#34;acm&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Organization&#34;,
+          &#34;css3e:mentionCount&#34;: 5,
+          &#34;css3e:confidence&#34;: 0.874
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Consensus Protocol&#34;,
+          &#34;termCode&#34;: &#34;consensus protocol&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Software&#34;,
+          &#34;css3e:mentionCount&#34;: 7,
+          &#34;css3e:confidence&#34;: 0.611
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;information&#34;,
+          &#34;termCode&#34;: &#34;information&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 7,
+          &#34;css3e:confidence&#34;: 0.592
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;leader-follower consensus&#34;,
+          &#34;termCode&#34;: &#34;leader follower consensus&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Method&#34;,
+          &#34;css3e:mentionCount&#34;: 5,
+          &#34;css3e:confidence&#34;: 0.762
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Context-Aware Multi-Agent Systems&#34;,
+          &#34;termCode&#34;: &#34;context aware multi agent systems&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;System&#34;,
+          &#34;css3e:mentionCount&#34;: 6,
+          &#34;css3e:confidence&#34;: 0.624
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Information Flow&#34;,
+          &#34;termCode&#34;: &#34;information flow&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 5,
+          &#34;css3e:confidence&#34;: 0.748
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;system&#34;,
+          &#34;termCode&#34;: &#34;system&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;System&#34;,
+          &#34;css3e:mentionCount&#34;: 6,
+          &#34;css3e:confidence&#34;: 0.609
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;expert systems&#34;,
+          &#34;termCode&#34;: &#34;expert systems&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;System&#34;,
+          &#34;css3e:mentionCount&#34;: 4,
+          &#34;css3e:confidence&#34;: 0.865
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Key-value models&#34;,
+          &#34;termCode&#34;: &#34;key value models&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 5,
+          &#34;css3e:confidence&#34;: 0.678
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;knowledge&#34;,
+          &#34;termCode&#34;: &#34;knowledge&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 5,
+          &#34;css3e:confidence&#34;: 0.677
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;object-oriented programming&#34;,
+          &#34;termCode&#34;: &#34;object oriented programming&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Software&#34;,
+          &#34;css3e:mentionCount&#34;: 4,
+          &#34;css3e:confidence&#34;: 0.815
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;Reinforcement learning&#34;,
+          &#34;termCode&#34;: &#34;reinforcement learning&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Method&#34;,
+          &#34;css3e:mentionCount&#34;: 5,
+          &#34;css3e:confidence&#34;: 0.639
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;context ontology&#34;,
+          &#34;termCode&#34;: &#34;context ontology&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 4,
+          &#34;css3e:confidence&#34;: 0.787
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;flexibility&#34;,
+          &#34;termCode&#34;: &#34;flexibility&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Concept&#34;,
+          &#34;css3e:mentionCount&#34;: 5,
+          &#34;css3e:confidence&#34;: 0.612
+        },
+        {
+          &#34;@type&#34;: &#34;DefinedTerm&#34;,
+          &#34;name&#34;: &#34;task&#34;,
+          &#34;termCode&#34;: &#34;task&#34;,
+          &#34;inDefinedTermSet&#34;: &#34;Task&#34;,
+          &#34;css3e:mentionCount&#34;: 4,
+          &#34;css3e:confidence&#34;: 0.752
+        }
+      ]
+    }
+  ],
+  &#34;css3e:relations&#34;: [
+    {
+      &#34;source&#34;: &#34;agent&#34;,
+      &#34;sourceCode&#34;: &#34;agent&#34;,
+      &#34;label&#34;: &#34;percebe&#34;,
+      &#34;target&#34;: &#34;contextual information&#34;,
+      &#34;targetCode&#34;: &#34;contextual information&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;An agent can preceive contextual information:&#34;,
+      &#34;quoteOffset&#34;: 2568
+    },
+    {
+      &#34;source&#34;: &#34;agent&#34;,
+      &#34;sourceCode&#34;: &#34;agent&#34;,
+      &#34;label&#34;: &#34;utiliza&#34;,
+      &#34;target&#34;: &#34;deep reinforcement learning&#34;,
+      &#34;targetCode&#34;: &#34;deep reinforcement learning&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals&#34;,
+      &#34;quoteOffset&#34;: 3929
+    },
+    {
+      &#34;source&#34;: &#34;agent&#34;,
+      &#34;sourceCode&#34;: &#34;agent&#34;,
+      &#34;label&#34;: &#34;raciocina com&#34;,
+      &#34;target&#34;: &#34;goals&#34;,
+      &#34;targetCode&#34;: &#34;goals&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals&#34;,
+      &#34;quoteOffset&#34;: 3929
+    },
+    {
+      &#34;source&#34;: &#34;agent&#34;,
+      &#34;sourceCode&#34;: &#34;agent&#34;,
+      &#34;label&#34;: &#34;deve estar ciente de&#34;,
+      &#34;target&#34;: &#34;context&#34;,
+      &#34;targetCode&#34;: &#34;context&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location&#34;,
+      &#34;quoteOffset&#34;: 8168
+    },
+    {
+      &#34;source&#34;: &#34;context&#34;,
+      &#34;sourceCode&#34;: &#34;context&#34;,
+      &#34;label&#34;: &#34;inclui&#34;,
+      &#34;target&#34;: &#34;Organizational Structure&#34;,
+      &#34;targetCode&#34;: &#34;organizational structure&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location&#34;,
+      &#34;quoteOffset&#34;: 8168
+    },
+    {
+      &#34;source&#34;: &#34;CAS&#34;,
+      &#34;sourceCode&#34;: &#34;cas&#34;,
+      &#34;label&#34;: &#34;utiliza&#34;,
+      &#34;target&#34;: &#34;context&#34;,
+      &#34;targetCode&#34;: &#34;context&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.&#34;,
+      &#34;quoteOffset&#34;: 8515
+    },
+    {
+      &#34;source&#34;: &#34;contextual information&#34;,
+      &#34;sourceCode&#34;: &#34;contextual information&#34;,
+      &#34;label&#34;: &#34;inclui&#34;,
+      &#34;target&#34;: &#34;Organizational Structure&#34;,
+      &#34;targetCode&#34;: &#34;organizational structure&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;In the context of autonomous agents, contextual information encompasses task objectives, organizational structure, agent roles, and temporal aspects.&#34;,
+      &#34;quoteOffset&#34;: 9210
+    },
+    {
+      &#34;source&#34;: &#34;MAS&#34;,
+      &#34;sourceCode&#34;: &#34;mas&#34;,
+      &#34;label&#34;: &#34;possui&#34;,
+      &#34;target&#34;: &#34;Organizational Structure&#34;,
+      &#34;targetCode&#34;: &#34;organizational structure&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.&#34;,
+      &#34;quoteOffset&#34;: 17904
+    },
+    {
+      &#34;source&#34;: &#34;MAS&#34;,
+      &#34;sourceCode&#34;: &#34;mas&#34;,
+      &#34;label&#34;: &#34;possui&#34;,
+      &#34;target&#34;: &#34;consensus&#34;,
+      &#34;targetCode&#34;: &#34;consensus&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.&#34;,
+      &#34;quoteOffset&#34;: 17904
+    },
+    {
+      &#34;source&#34;: &#34;MAS&#34;,
+      &#34;sourceCode&#34;: &#34;mas&#34;,
+      &#34;label&#34;: &#34;distingue-se de&#34;,
+      &#34;target&#34;: &#34;expert systems&#34;,
+      &#34;targetCode&#34;: &#34;expert systems&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming&#34;,
+      &#34;quoteOffset&#34;: 18045
+    },
+    {
+      &#34;source&#34;: &#34;MAS&#34;,
+      &#34;sourceCode&#34;: &#34;mas&#34;,
+      &#34;label&#34;: &#34;distingue-se de&#34;,
+      &#34;target&#34;: &#34;object-oriented programming&#34;,
+      &#34;targetCode&#34;: &#34;object oriented programming&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming&#34;,
+      &#34;quoteOffset&#34;: 18045
+    },
+    {
+      &#34;source&#34;: &#34;Relationships&#34;,
+      &#34;sourceCode&#34;: &#34;relationships&#34;,
+      &#34;label&#34;: &#34;formam-se entre&#34;,
+      &#34;target&#34;: &#34;agents&#34;,
+      &#34;targetCode&#34;: &#34;agents&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;Depending on both organizational goals and agent-specific goals, relationships among agentsare formed into one of the following categories: cooperation or competition.&#34;,
+      &#34;quoteOffset&#34;: 18537
+    },
+    {
+      &#34;source&#34;: &#34;consensus&#34;,
+      &#34;sourceCode&#34;: &#34;consensus&#34;,
+      &#34;label&#34;: &#34;é alcançado entre&#34;,
+      &#34;target&#34;: &#34;agents&#34;,
+      &#34;targetCode&#34;: &#34;agents&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.&#34;,
+      &#34;quoteOffset&#34;: 31331
+    },
+    {
+      &#34;source&#34;: &#34;consensus&#34;,
+      &#34;sourceCode&#34;: &#34;consensus&#34;,
+      &#34;label&#34;: &#34;possibilita troca de&#34;,
+      &#34;target&#34;: &#34;information&#34;,
+      &#34;targetCode&#34;: &#34;information&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.&#34;,
+      &#34;quoteOffset&#34;: 31331
+    },
+    {
+      &#34;source&#34;: &#34;leader-follower consensus&#34;,
+      &#34;sourceCode&#34;: &#34;leader follower consensus&#34;,
+      &#34;label&#34;: &#34;é tipo de&#34;,
+      &#34;target&#34;: &#34;Consensus Protocol&#34;,
+      &#34;targetCode&#34;: &#34;consensus protocol&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,&#34;,
+      &#34;quoteOffset&#34;: 32493
+    },
+    {
+      &#34;source&#34;: &#34;group/cluster consensus&#34;,
+      &#34;sourceCode&#34;: &#34;groupcluster consensus&#34;,
+      &#34;label&#34;: &#34;é tipo de&#34;,
+      &#34;target&#34;: &#34;Consensus Protocol&#34;,
+      &#34;targetCode&#34;: &#34;consensus protocol&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,&#34;,
+      &#34;quoteOffset&#34;: 32493
+    },
+    {
+      &#34;source&#34;: &#34;Context Modeling&#34;,
+      &#34;sourceCode&#34;: &#34;context modeling&#34;,
+      &#34;label&#34;: &#34;inclui&#34;,
+      &#34;target&#34;: &#34;Key-value models&#34;,
+      &#34;targetCode&#34;: &#34;key value models&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models&#34;,
+      &#34;quoteOffset&#34;: 35140
+    },
+    {
+      &#34;source&#34;: &#34;Context Modeling&#34;,
+      &#34;sourceCode&#34;: &#34;context modeling&#34;,
+      &#34;label&#34;: &#34;inclui&#34;,
+      &#34;target&#34;: &#34;context ontology&#34;,
+      &#34;targetCode&#34;: &#34;context ontology&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models&#34;,
+      &#34;quoteOffset&#34;: 35140
+    },
+    {
+      &#34;source&#34;: &#34;context ontology&#34;,
+      &#34;sourceCode&#34;: &#34;context ontology&#34;,
+      &#34;label&#34;: &#34;representa&#34;,
+      &#34;target&#34;: &#34;Relationships&#34;,
+      &#34;targetCode&#34;: &#34;relationships&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;ontology-based context models are widely utilized due to their capability for semantic reasoning and representation of context relationships through knowledge graphs&#34;,
+      &#34;quoteOffset&#34;: 35851
+    },
+    {
+      &#34;source&#34;: &#34;multi-agent systems&#34;,
+      &#34;sourceCode&#34;: &#34;multi agent systems&#34;,
+      &#34;label&#34;: &#34;é composto por&#34;,
+      &#34;target&#34;: &#34;agent&#34;,
+      &#34;targetCode&#34;: &#34;agent&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.&#34;,
+      &#34;quoteOffset&#34;: 6702
+    },
+    {
+      &#34;source&#34;: &#34;agent&#34;,
+      &#34;sourceCode&#34;: &#34;agent&#34;,
+      &#34;label&#34;: &#34;resolve&#34;,
+      &#34;target&#34;: &#34;task&#34;,
+      &#34;targetCode&#34;: &#34;task&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.&#34;,
+      &#34;quoteOffset&#34;: 6888
+    },
+    {
+      &#34;source&#34;: &#34;Context-Aware Multi-Agent Systems&#34;,
+      &#34;sourceCode&#34;: &#34;context aware multi agent systems&#34;,
+      &#34;label&#34;: &#34;utiliza&#34;,
+      &#34;target&#34;: &#34;contextual information&#34;,
+      &#34;targetCode&#34;: &#34;contextual information&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.&#34;,
+      &#34;quoteOffset&#34;: 6192
+    },
+    {
+      &#34;source&#34;: &#34;Context-Aware Systems&#34;,
+      &#34;sourceCode&#34;: &#34;context aware systems&#34;,
+      &#34;label&#34;: &#34;utiliza&#34;,
+      &#34;target&#34;: &#34;context&#34;,
+      &#34;targetCode&#34;: &#34;context&#34;,
+      &#34;confidence&#34;: 1.0,
+      &#34;quote&#34;: &#34;Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.&#34;,
+      &#34;quoteOffset&#34;: 8515
+    }
+  ],
+  &#34;css3e:extractedBy&#34;: &#34;gliner=urchade/gliner_multi-v2.1, relations=llm&#34;
+}
+&lt;/script&gt;<link rel="stylesheet" href="../../../resources/cases/style.css">
+<style>
+:root{
+  --accent-0: #2E7D5B;
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+</script>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>A Comprehensive Survey on Context-Aware </div>
+    <nav class="nav">
+      <a class="btn" href="workshop.html">Dinâmica</a>
+      <a class="btn" href="blog.html">Blog</a>
+      <a class="btn" href="../../css-context-sensitive-systems/index.html">&#8592; CSS - Context Sensitive Systems</a>
+      <a class="btn primary" href="context-aware-mas.pdf">PDF do artigo</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="article-hero">
+  <div>
+    <div class="eyebrow">arXiv preprint arXiv:2402.01968v2 [cs.MA] · 2025</div>
+    <h1>Sistemas Multi-Agente Conscientes de Contexto: Arquitetura Unificada e Taxonomia</h1>
+    <p class="lede">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.</p>
+    <div class="toc">
+      <a href="#introducao">Introdução</a>
+      <a href="#multi-agent-systems">Sistemas Multi-Agente</a>
+      <a href="#context-aware-systems">Sistemas Conscientes de Contexto</a>
+      <a href="#ca-mas-framework">Framework CA-MAS</a>
+      <a href="#desafios-direcoes">Desafios e Direções Futuras</a>
+      <a href="#mapa-mental">Mapa Mental</a>
+      <a href="#downloads">Downloads e Recursos</a>
+    </div>
+  </div>
+  <aside class="paper meta-card">
+    <h3>Referência</h3>
+    <p class="authors">Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
+    <p class="affil">Todos os autores são afiliados ao Applied Artificial Intelligence Institute (A²I²) da Deakin University, Geelong, Victoria, Austrália.</p>
+    <div class="kv"><span class="key">Publicado em</span><span class="val">29 de janeiro de 2025</span></div>
+    <div class="kv"><span class="key">Palavras-chave</span><span class="val">Artificial Intelligence, Reinforcement Learning, Multi-Agent Systems, Context-Aware Systems</span></div>
+    <div class="kv"><span class="key">DOI</span><span class="val">arXiv:2402.01968v2</span></div>
+    <div class="kv"><span class="key">Domínios de aplicação</span><span class="val">Navegação autônoma, Ambient intelligence, IoT, Supply chain, Disaster relief, Energy efficiency, Digital assistance, Education</span></div>
+    <div class="callout" style="margin-bottom:0">
+      <b>O problema declarado:</b> **O Desafio da Fragmentação em Sistemas Multi-Agente**
+
+Pesquisas atuais frequentemente abordam questões de consciência de contexto ou sistemas multi-agente separadamente, deixando uma lacuna em levantamentos abrangentes que explorem ambos os campos de forma integrada. Embora avanços em IA — como deep reinforcement learning, graph learning e representação multi-modal — sugiram potencial para desempenho semelhante ao humano em frameworks multi-agente, desafios persistem em permitir que esses agentes coordenem, aprendam, raciocinem, prevejam e naveguem incertezas em ambientes dinâmicos. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura unificada e taxonomia para o desenvolvimento de Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) que integre as cinco capacidades essenciais: **Sense** (Sentir), **Learn** (Aprender), **Reason** (Raciocinar), **Predict** (Prever) e **Act** (Agir).
+    </div>
+  </aside>
+</section>
+  <section class="section" id="audio">
+    <h2><span class="num">FAIXA 01</span>Comentário em áudio: context-aware-mas</h2>
+    <p>Faixa 01 · gerada via NotebookLM Audio Overview O player fica flutuando ao pé da página — velocidade, volume e posição sob seu controle enquanto você lê.</p>
+  </section>
+
+
+<section class="section" id="mapa">
+  <h2><span class="num">MAPA</span>A estrutura do artigo, navegável</h2>
+  <p>Clique em um nó para abrir ou fechar o ramo. Arraste para mover, use a roda do mouse ou os botões para o zoom. Setas do teclado navegam entre nós quando um deles está focado.</p>
+  <div class="map-shell">
+    <div class="map-bar">
+      <span class="hint" id="maphint">carregando…</span>
+      <div class="map-tools">
+        <button class="tool" data-map="expand">Expandir tudo</button>
+        <button class="tool" data-map="collapse">Recolher</button>
+        <button class="tool" data-map="fit">Ajustar</button>
+        <button class="tool" data-map="zoomout" aria-label="Diminuir zoom">−</button>
+        <button class="tool" data-map="zoomin" aria-label="Aumentar zoom">+</button>
+      </div>
+    </div>
+    <svg id="mapview" role="img" aria-label="Mapa mental do artigo"></svg>
+    <div class="map-legend">
+      <span><i style="background:#c0392b"></i>Título do survey</span>
+      <span><i style="background:#27ae60"></i>Fundamentos MAS</span>
+      <span><i style="background:#2980b9"></i>Fundamentos CAS</span>
+      <span><i style="background:#f39c12"></i>Framework CA-MAS</span>
+      <span><i style="background:#8e44ad"></i>Aplicações</span>
+      <span><i style="background:#e74c3c"></i>Desafios</span>
+    </div>
+  </div>
+  <p class="map-note">Mapa gerado a partir da análise estruturada do artigo: layout calculado no navegador, sem imagem estática.</p>
+</section>
+
+<script>
+(function () {
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('mapview');
+
+  var PALETTE = {"root": {"fill": "#c0392b", "text": "#fff"}, "foundations": {"fill": "#27ae60", "text": "#fff"}, "context": {"fill": "#2980b9", "text": "#fff"}, "framework": {"fill": "#f39c12", "text": "#fff"}, "applications": {"fill": "#8e44ad", "text": "#fff"}, "challenges": {"fill": "#e74c3c", "text": "#fff"}};
+  var DATA = {"t": "CA-MAS: Survey de Sistemas Multi-Agente", "k": "root", "children": [{"t": "Fundamentos de Multi-Agent Systems (MAS)", "k": "foundations", "children": [{"t": "Propriedades de Agentes Inteligentes", "children": [{"t": "Percepção (sensores)", "children": []}, {"t": "Memória e modelo de mundo", "children": []}, {"t": "Ator e custo", "children": []}, {"t": "Configurador (context-awareness)", "children": []}]}, {"t": "Estruturas Organizacionais", "children": [{"t": "Flat, hierarchies, holarchies", "children": []}, {"t": "Coalitions, teams, congregations", "children": []}, {"t": "Societies, federations, markets, matrix", "children": []}]}, {"t": "Coordenação e Consenso", "children": [{"t": "Estratégias de coordenação", "children": []}, {"t": "Protocolos de consenso", "children": []}, {"t": "Leader-follower, sampled-data", "children": []}]}]}, {"t": "Fundamentos de Context-Aware Systems (CAS)", "k": "context", "children": [{"t": "Propriedades de Contexto", "children": [{"t": "Tipo, valor, tempo", "children": []}, {"t": "Fonte e confiança", "children": []}, {"t": "Intrínseco vs. extrínseco", "children": []}]}, {"t": "Técnicas de Modelagem", "children": [{"t": "Key-value, markup schema", "children": []}, {"t": "Graphical, object-oriented", "children": []}, {"t": "Logical-based, ontology-based", "children": []}]}, {"t": "Processo Geral de CAS", "children": [{"t": "Aquisição de contexto", "children": []}, {"t": "Abstração e compreensão", "children": []}, {"t": "Utilização de contexto", "children": []}]}, {"t": "Arquiteturas CAS", "children": [{"t": "Stand-alone", "children": []}, {"t": "Centralizada", "children": []}, {"t": "Descentralizada", "children": []}]}]}, {"t": "Framework CA-MAS: Sense-Learn-Reason-Predict-Act", "k": "framework", "children": [{"t": "Sense: Modelagem de Contexto", "children": [{"t": "Context graphs G=(V,E)", "children": []}, {"t": "Ontology-based models", "children": []}, {"t": "Network abstractions", "children": []}]}, {"t": "Learn: Representação de Contexto", "children": [{"t": "Weighting mechanisms", "children": []}, {"t": "Learning-based: GNN, embeddings", "children": []}, {"t": "Time-variant/invariant functions", "children": []}]}, {"t": "Reason: Raciocínio sobre Contexto", "children": [{"t": "Rule-based reasoning", "children": []}, {"t": "Case-based reasoning (CBR)", "children": []}, {"t": "Graph-based, goal-oriented (BDI)", "children": []}]}, {"t": "Predict: Modelos Preditivos", "children": [{"t": "Weighting schemes", "children": []}, {"t": "Probabilistic models (Bayesian)", "children": []}, {"t": "Reward-based (RL, MARL)", "children": []}]}, {"t": "Act: Planejamento e Ação", "children": [{"t": "Goal-oriented algorithms", "children": []}, {"t": "DRL: DQN, PPO, Actor-Critic", "children": []}, {"t": "n-step Q-learning, SARSA", "children": []}]}]}, {"t": "Domínios de Aplicação", "k": "applications", "children": [{"t": "Navegação Autônoma", "children": [{"t": "Flat structures", "children": []}, {"t": "Sampled-data consensus", "children": []}, {"t": "Goal-oriented algorithms", "children": []}]}, {"t": "Ambient Intelligence", "children": [{"t": "Teams/coalitions", "children": []}, {"t": "Ontology-based models", "children": []}, {"t": "Graph/rule-based reasoning", "children": []}]}, {"t": "Supply Chain & IoT", "children": [{"t": "Markets/holarchies", "children": []}, {"t": "Case-based techniques", "children": []}, {"t": "Goal/rule-based reasoning", "children": []}]}, {"t": "Disaster Relief & Energy", "children": [{"t": "Hybrid structures", "children": []}, {"t": "Leader-follower consensus", "children": []}, {"t": "Goal-oriented algorithms", "children": []}]}, {"t": "Digital Assistance & Education", "children": [{"t": "Flat/teams/hierarchies", "children": []}, {"t": "Ontology-based models", "children": []}, {"t": "Fuzzy rule/case-based", "children": []}]}]}, {"t": "Desafios e Direções Futuras", "k": "challenges", "children": [{"t": "Estruturas Organizacionais Relaxadas", "children": [{"t": "Compartilhamento ineficaz de contexto", "children": []}, {"t": "Segurança e privacidade", "children": []}, {"t": "Coordenação distribuída", "children": []}]}, {"t": "Suposições de Consenso Relaxadas", "children": [{"t": "Incerteza e ambiguidade", "children": []}, {"t": "Conflitos entre agentes", "children": []}, {"t": "Robustez em ambientes dinâmicos", "children": []}]}, {"t": "Integração Ontologia-DRL", "children": [{"t": "Complexidade de representação", "children": []}, {"t": "Compatibilidade de aprendizado", "children": []}, {"t": "Eficiência computacional vs. semântica", "children": []}]}]}]};
+
+  var ROW = 34, COLGAP = 54, PAD = 26, RADIUS = 9;
+  var view = { x: 0, y: 0, k: 1 };
+  var gRoot, nodes = [];
+
+  var uid = 0;
+  (function prep(n, depth, kind) {
+    n.id = ++uid;
+    n.depth = depth;
+    n.kind = n.k || kind || Object.keys(PALETTE)[0];
+    n.open = depth < (window.innerWidth <= 700 ? 1 : 2);
+    (n.children || []).forEach(function (c) { c.parent = n; prep(c, depth + 1, n.kind); });
+  })(DATA, 0, null);
+
+  function flatten(n, out) {
+    out.push(n);
+    if (n.open && n.children) n.children.forEach(function (c) { flatten(c, out); });
+    return out;
+  }
+
+  var measurer = document.createElementNS(SVGNS, 'text');
+  measurer.setAttribute('visibility', 'hidden');
+  svg.appendChild(measurer);
+  function widthOf(node) {
+    measurer.setAttribute('font-size', node.depth === 0 ? '14.5' : '13');
+    measurer.setAttribute('font-weight', node.depth <= 1 ? '780' : '400');
+    measurer.setAttribute('font-family',
+      '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif');
+    measurer.textContent = node.t;
+    var w = measurer.getComputedTextLength();
+    return Math.ceil(w) + 26 + ((node.children && node.children.length) ? 16 : 0);
+  }
+
+  function layout() {
+    var visible = flatten(DATA, []);
+    visible.forEach(function (n) { n.w = widthOf(n); });
+
+    var colW = [];
+    visible.forEach(function (n) { colW[n.depth] = Math.max(colW[n.depth] || 0, n.w); });
+    var colX = [], acc = PAD;
+    for (var d = 0; d < colW.length; d++) { colX[d] = acc; acc += (colW[d] || 0) + COLGAP; }
+
+    var row = 0;
+    (function place(n) {
+      if (n.open && n.children && n.children.length) {
+        n.children.forEach(place);
+        var f = n.children[0], l = n.children[n.children.length - 1];
+        n.y = (f.y + l.y) / 2;
+      } else {
+        n.y = PAD + row * ROW + ROW / 2;
+        row++;
+      }
+      n.x = colX[n.depth];
+    })(DATA);
+
+    return { nodes: visible, width: acc - COLGAP + PAD, height: PAD * 2 + Math.max(row, 1) * ROW };
+  }
+
+  function render(keepView) {
+    var L = layout();
+    nodes = L.nodes;
+
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.appendChild(measurer);
+
+    gRoot = document.createElementNS(SVGNS, 'g');
+    svg.appendChild(gRoot);
+
+    var gLinks = document.createElementNS(SVGNS, 'g');
+    var gNodes = document.createElementNS(SVGNS, 'g');
+    gRoot.appendChild(gLinks);
+    gRoot.appendChild(gNodes);
+
+    nodes.forEach(function (n) {
+      if (!n.parent || nodes.indexOf(n.parent) === -1) return;
+      var p = n.parent,
+          x1 = p.x + p.w, y1 = p.y, x2 = n.x, y2 = n.y,
+          mx = (x1 + x2) / 2;
+      var path = document.createElementNS(SVGNS, 'path');
+      path.setAttribute('class', 'link');
+      path.setAttribute('d', 'M' + x1 + ',' + y1 + 'C' + mx + ',' + y1 + ' ' + mx + ',' + y2 + ' ' + x2 + ',' + y2);
+      path.setAttribute('stroke', (PALETTE[n.kind] || Object.values(PALETTE)[0]).fill);
+      gLinks.appendChild(path);
+    });
+
+    nodes.forEach(function (n) {
+      var pal = PALETTE[n.kind] || Object.values(PALETTE)[0];
+      var g = document.createElementNS(SVGNS, 'g');
+      g.setAttribute('class', 'node d' + Math.min(n.depth, 2));
+      g.setAttribute('transform', 'translate(' + n.x + ',' + (n.y - 14) + ')');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      var hasKids = !!(n.children && n.children.length);
+      g.setAttribute('aria-expanded', hasKids ? String(n.open) : 'false');
+      g.setAttribute('aria-label', n.t + (hasKids ? (n.open ? ' — ramo aberto' : ' — ramo fechado, ' + n.children.length + ' itens') : ''));
+
+      var r = document.createElementNS(SVGNS, 'rect');
+      r.setAttribute('width', n.w);
+      r.setAttribute('height', 28);
+      r.setAttribute('rx', RADIUS);
+      if (n.depth <= 1) {
+        r.setAttribute('fill', pal.fill);
+        r.setAttribute('stroke', 'none');
+      } else {
+        r.setAttribute('fill', n.depth === 2 ? hexA(pal.fill, .13) : '#ffffff');
+        r.setAttribute('stroke', hexA(pal.fill, n.depth === 2 ? .55 : .32));
+        r.setAttribute('stroke-width', '1');
+      }
+      g.appendChild(r);
+
+      var t = document.createElementNS(SVGNS, 'text');
+      t.setAttribute('x', 13);
+      t.setAttribute('y', 15);
+      if (n.depth > 1) t.setAttribute('fill', '#231F20');
+      t.textContent = n.t;
+      g.appendChild(t);
+
+      if (hasKids) {
+        var mark = document.createElementNS(SVGNS, 'text');
+        mark.setAttribute('class', 'toggle');
+        mark.setAttribute('x', n.w - 13);
+        mark.setAttribute('y', 15);
+        mark.setAttribute('text-anchor', 'end');
+        mark.setAttribute('fill', n.depth <= 1 ? 'rgba(255,255,255,.85)' : pal.fill);
+        mark.textContent = n.open ? '−' : '+' + n.children.length;
+        g.appendChild(mark);
+      }
+
+      function toggle() {
+        if (!hasKids) return;
+        n.open = !n.open;
+        render(true);
+      }
+      g.addEventListener('click', toggle);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.code === 'Space') { ev.preventDefault(); toggle(); }
+        else if (ev.key === 'ArrowRight' && hasKids && !n.open) { n.open = true; render(true); }
+        else if (ev.key === 'ArrowLeft' && hasKids && n.open) { n.open = false; render(true); }
+      });
+
+      gNodes.appendChild(g);
+    });
+
+    svg.dataset.w = L.width;
+    svg.dataset.h = L.height;
+
+    document.getElementById('maphint').textContent =
+      nodes.length + ' nós visíveis · clique para abrir ou fechar';
+
+    if (keepView) applyView(); else fit();
+  }
+
+  function hexA(hex, a) {
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+
+  function applyView() {
+    gRoot.setAttribute('transform', 'translate(' + view.x + ',' + view.y + ') scale(' + view.k + ')');
+  }
+
+  function fit() {
+    var box = svg.getBoundingClientRect(),
+        w = +svg.dataset.w, h = +svg.dataset.h;
+    var reserve = window.innerWidth <= 700 ? 150 : 0;
+    var avail = Math.max(160, box.height - reserve);
+    var k = Math.max(reserve ? 0.55 : 0.7, Math.min(box.width / w, avail / h, 1.15));
+    view.k = k;
+    view.x = (w * k < box.width) ? (box.width - w * k) / 2 : 14;
+    view.y = (reserve || h * k >= avail) ? 14 : (avail - h * k) / 2 + 8;
+    applyView();
+  }
+
+  var drag = null;
+  svg.addEventListener('pointerdown', function (ev) {
+    if (ev.target.closest('.node')) return;
+    drag = { x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y };
+    svg.classList.add('dragging');
+    svg.setPointerCapture(ev.pointerId);
+  });
+  svg.addEventListener('pointermove', function (ev) {
+    if (!drag) return;
+    view.x = drag.vx + (ev.clientX - drag.x);
+    view.y = drag.vy + (ev.clientY - drag.y);
+    applyView();
+  });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (e) {
+    svg.addEventListener(e, function () { drag = null; svg.classList.remove('dragging'); });
+  });
+  svg.addEventListener('wheel', function (ev) {
+    ev.preventDefault();
+    var box = svg.getBoundingClientRect(),
+        mx = ev.clientX - box.left, my = ev.clientY - box.top,
+        f = ev.deltaY < 0 ? 1.12 : 1 / 1.12,
+        k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = mx - (mx - view.x) * (k / view.k);
+    view.y = my - (my - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }, { passive: false });
+
+  function zoomBy(f) {
+    var box = svg.getBoundingClientRect(), cx = box.width / 2, cy = box.height / 2;
+    var k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = cx - (cx - view.x) * (k / view.k);
+    view.y = cy - (cy - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }
+
+  function setAll(open) {
+    (function walk(n, d) {
+      if (n.children && n.children.length) n.open = d === 0 ? true : open;
+      (n.children || []).forEach(function (c) { walk(c, d + 1); });
+    })(DATA, 0);
+    render(false);
+  }
+
+  document.querySelectorAll('[data-map]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var a = b.dataset.map;
+      if (a === 'expand') setAll(true);
+      else if (a === 'collapse') setAll(false);
+      else if (a === 'fit') fit();
+      else if (a === 'zoomin') zoomBy(1.18);
+      else if (a === 'zoomout') zoomBy(1 / 1.18);
+    });
+  });
+
+  var rt;
+  addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fit, 140); });
+
+  render(false);
+})();
+</script>
+<section class="section" id="ensaio">
+  <h2><span class="num">ENSAIO</span>A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</h2>
+  <div class="prose">
+    <p class="drop">Imagine uma frota de drones de resgate sobrevoando uma área devastada por um desastre natural. Cada drone precisa não apenas enxergar o terreno à sua frente, mas compreender o que os outros estão fazendo, antecipar onde as vítimas podem estar, adaptar-se a mudanças repentinas no clima e coordenar suas ações sem depender de um comando central que pode falhar a qualquer momento. Esse cenário ilustra o desafio central dos sistemas multi-agente modernos: como fazer com que agentes autônomos não apenas reajam ao ambiente, mas compreendam o contexto em que operam e colaborem de forma inteligente. É nesse cruzamento entre consciência de contexto e coordenação multi-agente que surge uma nova fronteira da inteligência artificial.</p>
+    <h3>01. Das cinco capacidades essenciais dos agentes inteligentes</h3>
+<p>A evolução da IA trouxe uma mudança de paradigma: de sistemas passivos que processam entradas para agentes autônomos que percebem, aprendem e agem. Mas o que torna um agente verdadeiramente inteligente? A resposta está em cinco capacidades fundamentais que formam o ciclo Sense-Learn-Reason-Predict-Act — sentir o ambiente, aprender com dados sensoriais, raciocinar sobre situações, prever consequências e agir de forma coordenada.</p><p>Um agente autônomo possui seis propriedades inteligentes: percepção (sensores que captam o ambiente), memória (histórico de experiências), modelo de mundo (representação interna do ambiente), ator (mecanismo de decisão e ação), custo (função que avalia desempenho) e configurador — este último sendo precisamente a consciência de contexto. É essa última propriedade que permite ao agente adaptar seu comportamento não apenas ao que percebe, mas ao significado do que percebe.</p>    <h3>02. Contexto como informação estruturada e temporal</h3>
+<p>Mas o que exatamente é contexto? Mais do que simples dados brutos, contexto é informação estruturada com cinco propriedades-chave: tipo (categórico, numérico, temporal), valor (a informação em si), tempo (quando foi capturado), fonte (de onde veio) e confiança (quão confiável é). Distinguimos ainda contexto intrínseco — características inerentes ao agente, como sua localização ou estado interno — de contexto extrínseco, que vem do ambiente ou de outros agentes.</p><p>A modelagem de contexto evoluiu de simples pares chave-valor para abordagens sofisticadas baseadas em ontologias, que capturam relações semânticas complexas entre diferentes tipos de informação contextual. Técnicas como redes neurais em grafos (GNN) permitem que agentes aprendam representações de contexto que capturam tanto a estrutura quanto a dinâmica temporal do ambiente. O processo geral de sistemas conscientes de contexto envolve três estágios: aquisição (coleta de dados sensoriais), abstração e compreensão (transformação em representações significativas), e utilização (aplicação para decisões e ações).</p>    <blockquote>Contexto é informação estruturada com cinco propriedades-chave: tipo, valor, tempo, fonte e confiança.<cite>Seção 02 · Modelagem de Contexto</cite></blockquote>
+    <h3>03. Coordenação e estruturas organizacionais</h3>
+<p>Quando múltiplos agentes precisam colaborar, a estrutura organizacional torna-se crucial. Sistemas multi-agente podem adotar desde estruturas planas (flat), onde todos os agentes têm igual autoridade, até hierarquias complexas, holarchias (hierarquias recursivas onde cada nível é simultaneamente um todo e uma parte), coalizões temporárias, times especializados, ou até mercados onde agentes negociam recursos.</p><p>A coordenação efetiva requer mecanismos de consenso — protocolos que garantem que agentes cheguem a acordos sobre o estado do mundo ou sobre ações a tomar. Abordagens variam desde consenso líder-seguidor (onde um agente coordena os demais) até protocolos de dados amostrados que permitem sincronização mesmo com comunicação intermitente. Em aplicações como navegação autônoma, estruturas planas com algoritmos orientados a objetivos (goal-oriented) predominam, enquanto gerenciamento de desastres frequentemente combina times com holarchias e consenso líder-seguidor.</p>    <h3>04. Desafios na integração de ontologias e aprendizado profundo</h3>
+<p>Três desafios principais emergem na construção de sistemas multi-agente conscientes de contexto. Primeiro, estruturas organizacionais relaxadas podem causar compartilhamento ineficaz de contexto e vulnerabilidades de segurança e privacidade — quando agentes não têm hierarquia clara, como garantir que informações sensíveis sejam protegidas? Segundo, suposições de consenso relaxadas levam a incerteza, ambiguidade e conflitos — em ambientes dinâmicos, agentes podem ter visões contraditórias do contexto.</p><p>O terceiro desafio é talvez o mais profundo: a complexidade na integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos como Deep Reinforcement Learning (DRL). Ontologias oferecem riqueza semântica e interpretabilidade, capturando relações complexas entre conceitos. Já técnicas de aprendizado por reforço multi-agente (MARL) como Proximal Policy Optimization (PPO) e métodos Actor-Critic oferecem adaptabilidade e robustez em ambientes incertos. Combinar a representação simbólica das ontologias com a natureza subsimbólica das redes neurais profundas permanece um problema em aberto, exigindo arquiteturas híbridas que preservem o melhor de ambos os mundos.</p>    <blockquote>Combinar a representação simbólica das ontologias com a natureza subsimbólica das redes neurais profundas permanece um problema em aberto.<cite>Seção 04 · Desafios de Integração</cite></blockquote>
+    <p>A convergência entre consciência de contexto e sistemas multi-agente não é apenas uma questão técnica — é uma necessidade para que agentes artificiais operem em ambientes reais, onde a incerteza é a norma e a colaboração é essencial. Das aplicações em IoT e eficiência energética até assistência digital e educação, os domínios que se beneficiam de CA-MAS compartilham uma característica: a complexidade não pode ser resolvida por um único agente, e o contexto não pode ser ignorado. O caminho à frente exige não apenas avanços algorítmicos, mas uma compreensão mais profunda de como estruturar a colaboração, representar conhecimento e equilibrar autonomia com coordenação.</p>
+  </div>
+  <div class="callout">
+    <b>A pergunta que fica:</b> Se a integração entre ontologias de agentes e frameworks de raciocínio orientado a objetivos (como Deep Reinforcement Learning) permanece um desafio aberto devido à complexidade de representação e compatibilidade de aprendizado, como podemos projetar arquiteturas CA-MAS que equilibrem a riqueza semântica das ontologias com a adaptabilidade e robustez necessárias para ambientes dinâmicos e incertos — sem sacrificar a eficiência computacional ou a capacidade de generalização dos agentes?
+  </div>
+</section>
+  <section class="section" id="tabelas">
+    <h2><span class="num">REFERÊNCIA</span>Conceitos e notação</h2>
+    <h3 style="margin-top:26px">Capacidades Essenciais de Agentes em CA-MAS (Sense-Learn-Reason-Predict-Act)</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Capacidade</th><th>Descrição</th><th>Técnicas Principais</th></tr></thead>
+    <tbody>
+      <tr><td>Sense (Sentir)</td><td>Aquisição e modelagem de informações contextuais do ambiente</td><td>Key-value models, Markup schema, Graphical models, Object-oriented, Logical-based, Ontology-based</td></tr>
+      <tr><td>Learn (Aprender)</td><td>Aprendizado de representações contextuais a partir de dados sensoriais</td><td>Weighting mechanisms (attention, gating), Learning-based approaches (GNN, deep multi-modal learning, embeddings)</td></tr>
+      <tr><td>Reason (Raciocinar)</td><td>Inferência e raciocínio sobre contexto para tomada de decisão</td><td>Rule-based (fuzzy logic), Case-based (CBR), Graph-based (network abstractions, Bayesian), Goal-oriented (BDI)</td></tr>
+      <tr><td>Predict (Prever)</td><td>Modelagem preditiva de estados futuros e comportamentos</td><td>Weighting schemes, Probabilistic models (Bayesian, Markov), Reward-based models (Q-learning, SARSA, Actor-Critic)</td></tr>
+      <tr><td>Act (Agir)</td><td>Execução coordenada de ações baseadas em previsões e objetivos</td><td>Deep RL (DQN, PPO, A3C), MARL, Consensus protocols, Coordination strategies</td></tr>
+    </tbody>
+  </table>
+</div>    <h3 style="margin-top:26px">Estruturas Organizacionais em Sistemas Multi-Agente</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Estrutura</th><th>Características</th><th>Aplicações Típicas</th></tr></thead>
+    <tbody>
+      <tr><td>Flat</td><td>Sem hierarquia, agentes com papéis equivalentes</td><td>Navegação autônoma, IoT, Digital assistance</td></tr>
+      <tr><td>Hierarchies</td><td>Estrutura de comando top-down com níveis de autoridade</td><td>Education, Energy efficiency</td></tr>
+      <tr><td>Holarchies</td><td>Agentes podem ser atômicos ou compostos (holons)</td><td>Supply chain management, Disaster relief, Energy systems</td></tr>
+      <tr><td>Coalitions</td><td>Grupos temporários formados para objetivos específicos</td><td>Ambient intelligence, IoT</td></tr>
+      <tr><td>Teams</td><td>Grupos permanentes com objetivos compartilhados</td><td>Ambient intelligence, IoT, Disaster relief, Energy efficiency, Digital assistance</td></tr>
+      <tr><td>Congregations</td><td>Agentes compartilham recursos e espaço comum</td><td>Sistemas de recursos compartilhados</td></tr>
+      <tr><td>Societies</td><td>Estrutura social com normas e regras compartilhadas</td><td>Sistemas sociais complexos</td></tr>
+      <tr><td>Federations</td><td>Agentes autônomos com representação centralizada</td><td>Sistemas distribuídos</td></tr>
+      <tr><td>Markets</td><td>Interações baseadas em mecanismos de mercado</td><td>Supply chain management</td></tr>
+      <tr><td>Matrix</td><td>Estrutura híbrida combinando múltiplas dimensões organizacionais</td><td>Sistemas complexos multi-dimensionais</td></tr>
+    </tbody>
+  </table>
+</div>    <h3 style="margin-top:26px">Notação Formal em CA-MAS</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Conceito</th><th>Notação</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td>Context Graph</td><td>G = (V, E)</td><td>Grafo onde V é conjunto de contextos e E ⊆ V × V são relações</td></tr>
+      <tr><td>Context Pattern</td><td>H = (V′, E′)</td><td>Subgrafo de contexto onde V′ ⊆ V e E′ ⊆ E</td></tr>
+      <tr><td>Distância Ponderada</td><td>d(c_r, c_k) = min(d(c_r, c_{k-1}) + w(c_{k-1}, c_k))</td><td>Caminho mínimo ponderado entre contextos em network abstractions</td></tr>
+      <tr><td>Probabilidade Conjunta (BBN)</td><td>p(c₁, c₂, ..., c_n) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ))</td><td>Distribuição conjunta em Bayesian Belief Network onde B(cᵢ) são pais de cᵢ</td></tr>
+      <tr><td>Embedding Invariante</td><td>e = φ(c, W_c)</td><td>Função de embedding time-invariant com parâmetros W_c</td></tr>
+      <tr><td>Agregação de Embeddings</td><td>eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l)</td><td>Agregação de embeddings de vizinhos com parâmetros W_l</td></tr>
+      <tr><td>Embedding Temporal</td><td>e_t^i = φ(⋃ⱼ₌₀ᴺ e_{t-1}^j, W_k)</td><td>Embedding time-variant considerando histórico temporal</td></tr>
+      <tr><td>n-step Q-learning</td><td>Q(s,a) = (1 - α_n)Q_{n-1}(s,a) + α_n[r(s,a) + γ max_{a'} Q_{n-1}(s',a')]</td><td>Atualização Q-learning onde α_n = 1/(1 + N_{s,a}) é taxa de aprendizado adaptativa</td></tr>
+      <tr><td>Goal Utility</td><td>u(g_{i,k} | b_{-i}; h, θ) = θ_{ik,ik} + ∑_{j≠i} ∑_l θ_{ik,jl}p(g_{jl} | h)</td><td>Utilidade de objetivo em raciocínio goal-oriented considerando crenças de outros agentes</td></tr>
+      <tr><td>SARSA Update</td><td>θ_{t+1} = θ_t + αδ∇Q(h_t, g_t; θ_t)</td><td>Atualização de parâmetros em SARSA com gradiente da função Q</td></tr>
+      <tr><td>Case Retrieval</td><td>f(c) = {v ∈ V | g(c,v) ≥ α}</td><td>Recuperação de casos em CBR onde g é função de similaridade e α é threshold</td></tr>
+      <tr><td>MSE Loss</td><td>L = (1/nk) ∑_d ∑_j (y_{d,j}^i - ŷ_d^i)ᵀ(y_{d,j}^i - ŷ_d^i)</td><td>Erro quadrático médio para previsão multi-agente</td></tr>
+      <tr><td>GMM Distance Loss</td><td>L = ∑_{i,j} α_{i,j}D_{KL}(p_j(o) || q_i(o)) + D_{KL}(α || β)</td><td>Divergência KL entre Gaussian Mixture Models para aprendizado de comportamento</td></tr>
+    </tbody>
+  </table>
+</div>  </section>
+
+<section class="section" id="entidades">
+  <h2><span class="num">GRAFO</span>Entidades e relações extraídas</h2>
+  <p>Conceitos identificados automaticamente no texto do artigo. O tamanho do círculo reflete quantas vezes o conceito aparece; a cor indica o tipo.</p>
+
+  <div class="egraph">
+    <div class="egraph-legend">
+      <button type="button" class="egraph-chip" data-type="Concept" aria-pressed="true">
+        <i style="background:#2E7D5B"></i>Concept
+      </button>
+      <button type="button" class="egraph-chip" data-type="Method" aria-pressed="true">
+        <i style="background:#8A5A00"></i>Method
+      </button>
+      <button type="button" class="egraph-chip" data-type="Metric" aria-pressed="true">
+        <i style="background:#B4233D"></i>Metric
+      </button>
+      <button type="button" class="egraph-chip" data-type="Organization" aria-pressed="true">
+        <i style="background:#7A4B2A"></i>Organization
+      </button>
+      <button type="button" class="egraph-chip" data-type="Software" aria-pressed="true">
+        <i style="background:#0F6C6C"></i>Software
+      </button>
+      <button type="button" class="egraph-chip" data-type="System" aria-pressed="true">
+        <i style="background:#E8172D"></i>System
+      </button>
+      <button type="button" class="egraph-chip" data-type="Task" aria-pressed="true">
+        <i style="background:#2B5F86"></i>Task
+      </button>
+    </div>
+
+    <div class="egraph-canvas">
+      <svg viewBox="0 0 900 520" role="img"
+           aria-label="Grafo de 40 entidades e 23 relações extraídas do artigo">
+        <defs>
+          <marker id="eg-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                  markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.45)"></path>
+          </marker>
+        </defs>
+
+        <g class="egraph-edges">
+          <g class="egraph-edge" data-source="Software" data-target="Concept">
+            <line x1="458.1" y1="185.9"
+                  x2="515.7" y2="359.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>agent — percebe → contextual information</title>
+          </g>
+          <g class="egraph-edge" data-source="Software" data-target="Method">
+            <line x1="458.1" y1="185.9"
+                  x2="638.9" y2="225.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>agent — utiliza → deep reinforcement learning</title>
+          </g>
+          <g class="egraph-edge" data-source="Software" data-target="Concept">
+            <line x1="458.1" y1="185.9"
+                  x2="403.8" y2="374.4"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>agent — raciocina com → goals</title>
+          </g>
+          <g class="egraph-edge" data-source="Software" data-target="Concept">
+            <line x1="458.1" y1="185.9"
+                  x2="358.3" y2="286.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>agent — deve estar ciente de → context</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="358.3" y1="286.2"
+                  x2="366.2" y2="411.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>context — inclui → Organizational Structure</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Concept">
+            <line x1="272.7" y1="387.1"
+                  x2="358.3" y2="286.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>CAS — utiliza → context</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="515.7" y1="359.2"
+                  x2="366.2" y2="411.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>contextual information — inclui → Organizational Structure</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Concept">
+            <line x1="369.3" y1="225.2"
+                  x2="366.2" y2="411.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>MAS — possui → Organizational Structure</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Concept">
+            <line x1="369.3" y1="225.2"
+                  x2="253.6" y2="240.3"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>MAS — possui → consensus</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="System">
+            <line x1="369.3" y1="225.2"
+                  x2="748.2" y2="277.1"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>MAS — distingue-se de → expert systems</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Software">
+            <line x1="369.3" y1="225.2"
+                  x2="570.9" y2="404.1"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>MAS — distingue-se de → object-oriented programming</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Organization">
+            <line x1="158.6" y1="297.5"
+                  x2="319.3" y2="339.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>Relationships — formam-se entre → agents</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Organization">
+            <line x1="253.6" y1="240.3"
+                  x2="319.3" y2="339.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>consensus — é alcançado entre → agents</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="253.6" y1="240.3"
+                  x2="430.3" y2="102.8"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>consensus — possibilita troca de → information</title>
+          </g>
+          <g class="egraph-edge" data-source="Method" data-target="Software">
+            <line x1="533.8" y1="108.8"
+                  x2="329.1" y2="115.9"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>leader-follower consensus — é tipo de → Consensus Protocol</title>
+          </g>
+          <g class="egraph-edge" data-source="Method" data-target="Software">
+            <line x1="601.4" y1="328.6"
+                  x2="329.1" y2="115.9"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>group/cluster consensus — é tipo de → Consensus Protocol</title>
+          </g>
+          <g class="egraph-edge" data-source="Method" data-target="Concept">
+            <line x1="493.7" y1="149.2"
+                  x2="719.1" y2="329.6"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>Context Modeling — inclui → Key-value models</title>
+          </g>
+          <g class="egraph-edge" data-source="Method" data-target="Concept">
+            <line x1="493.7" y1="149.2"
+                  x2="136.4" y2="390.3"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>Context Modeling — inclui → context ontology</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="136.4" y1="390.3"
+                  x2="158.6" y2="297.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>context ontology — representa → Relationships</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Software">
+            <line x1="530.8" y1="294.2"
+                  x2="458.1" y2="185.9"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>multi-agent systems — é composto por → agent</title>
+          </g>
+          <g class="egraph-edge" data-source="Software" data-target="Task">
+            <line x1="458.1" y1="185.9"
+                  x2="54.3" y2="290.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>agent — resolve → task</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Concept">
+            <line x1="627.3" y1="132.9"
+                  x2="515.7" y2="359.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>Context-Aware Multi-Agent Systems — utiliza → contextual information</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Concept">
+            <line x1="646.4" y1="279.7"
+                  x2="358.3" y2="286.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>Context-Aware Systems — utiliza → context</title>
+          </g>
+        </g>
+
+        <g class="egraph-nodes">
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="449.6" cy="257.5"
+                    r="40.0" fill="#7A4B2A"></circle>
+            <text x="449.6" y="310.5"
+                  text-anchor="middle">IEEE</text>
+            <title>IEEE · Organization · 50 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="530.8" cy="294.2"
+                    r="30.2" fill="#E8172D"></circle>
+            <text x="530.8" y="337.5"
+                  text-anchor="middle">multi-agent systems</text>
+            <title>multi-agent systems · System · 37 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="444.8" cy="333.1"
+                    r="29.8" fill="#E8172D"></circle>
+            <text x="444.8" y="375.9"
+                  text-anchor="middle">CA-MAS</text>
+            <title>CA-MAS · System · 38 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="358.3" cy="286.2"
+                    r="29.2" fill="#2E7D5B"></circle>
+            <text x="358.3" y="328.4"
+                  text-anchor="middle">context</text>
+            <title>context · Concept · 33 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="369.3" cy="225.2"
+                    r="26.7" fill="#E8172D"></circle>
+            <text x="369.3" y="265.0"
+                  text-anchor="middle">MAS</text>
+            <title>MAS · System · 29 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Software" tabindex="0">
+            <circle cx="458.1" cy="185.9"
+                    r="26.0" fill="#0F6C6C"></circle>
+            <text x="458.1" y="225.0"
+                  text-anchor="middle">agent</text>
+            <title>agent · Software · 25 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="541.6" cy="234.3"
+                    r="24.6" fill="#7A4B2A"></circle>
+            <text x="541.6" y="272.0"
+                  text-anchor="middle">Springer</text>
+            <title>Springer · Organization · 19 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="515.7" cy="359.2"
+                    r="23.5" fill="#2E7D5B"></circle>
+            <text x="515.7" y="395.7"
+                  text-anchor="middle">contextual information</text>
+            <title>contextual information · Concept · 21 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="403.8" cy="374.4"
+                    r="22.5" fill="#2E7D5B"></circle>
+            <text x="403.8" y="409.8"
+                  text-anchor="middle">goals</text>
+            <title>goals · Concept · 19 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="319.3" cy="339.5"
+                    r="21.5" fill="#7A4B2A"></circle>
+            <text x="319.3" y="373.9"
+                  text-anchor="middle">agents</text>
+            <title>agents · Organization · 15 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Metric" tabindex="0">
+            <circle cx="261.1" cy="294.5"
+                    r="20.9" fill="#B4233D"></circle>
+            <text x="261.1" y="328.4"
+                  text-anchor="middle">p</text>
+            <title>p · Metric · 12 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="253.6" cy="240.3"
+                    r="20.8" fill="#2E7D5B"></circle>
+            <text x="253.6" y="274.1"
+                  text-anchor="middle">consensus</text>
+            <title>consensus · Concept · 14 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="298.6" cy="191.4"
+                    r="20.4" fill="#7A4B2A"></circle>
+            <text x="298.6" y="224.7"
+                  text-anchor="middle">organization</text>
+            <title>organization · Organization · 12 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="384.3" cy="160.8"
+                    r="19.3" fill="#2E7D5B"></circle>
+            <text x="384.3" y="193.1"
+                  text-anchor="middle">context-awareness</text>
+            <title>context-awareness · Concept · 9 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Method" tabindex="0">
+            <circle cx="493.7" cy="149.2"
+                    r="19.2" fill="#8A5A00"></circle>
+            <text x="493.7" y="181.3"
+                  text-anchor="middle">Context Modeling</text>
+            <title>Context Modeling · Method · 9 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="580.7" cy="180.5"
+                    r="19.2" fill="#7A4B2A"></circle>
+            <text x="580.7" y="212.7"
+                  text-anchor="middle">arXiv</text>
+            <title>arXiv · Organization · 9 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Method" tabindex="0">
+            <circle cx="638.9" cy="225.5"
+                    r="19.0" fill="#8A5A00"></circle>
+            <text x="638.9" y="257.5"
+                  text-anchor="middle">deep reinforcement learnin</text>
+            <title>deep reinforcement learning · Method · 9 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="646.4" cy="279.7"
+                    r="19.0" fill="#E8172D"></circle>
+            <text x="646.4" y="311.7"
+                  text-anchor="middle">Context-Aware Systems</text>
+            <title>Context-Aware Systems · System · 8 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Method" tabindex="0">
+            <circle cx="601.4" cy="328.6"
+                    r="18.9" fill="#8A5A00"></circle>
+            <text x="601.4" y="360.5"
+                  text-anchor="middle">group/cluster consensus</text>
+            <title>group/cluster consensus · Method · 9 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="366.2" cy="411.2"
+                    r="18.9" fill="#2E7D5B"></circle>
+            <text x="366.2" y="443.1"
+                  text-anchor="middle">Organizational Structure</text>
+            <title>Organizational Structure · Concept · 9 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="272.7" cy="387.1"
+                    r="18.9" fill="#E8172D"></circle>
+            <text x="272.7" y="418.9"
+                  text-anchor="middle">CAS</text>
+            <title>CAS · System · 9 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Method" tabindex="0">
+            <circle cx="200.6" cy="347.6"
+                    r="18.7" fill="#8A5A00"></circle>
+            <text x="200.6" y="379.3"
+                  text-anchor="middle">sampled-data consensus</text>
+            <title>sampled-data consensus · Method · 8 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="158.6" cy="297.5"
+                    r="18.5" fill="#2E7D5B"></circle>
+            <text x="158.6" y="329.0"
+                  text-anchor="middle">Relationships</text>
+            <title>Relationships · Concept · 8 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Metric" tabindex="0">
+            <circle cx="151.8" cy="242.9"
+                    r="18.5" fill="#B4233D"></circle>
+            <text x="151.8" y="274.4"
+                  text-anchor="middle">t</text>
+            <title>t · Metric · 7 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Metric" tabindex="0">
+            <circle cx="180.9" cy="190.4"
+                    r="18.3" fill="#B4233D"></circle>
+            <text x="180.9" y="221.7"
+                  text-anchor="middle">d</text>
+            <title>d · Metric · 8 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="242.5" cy="146.3"
+                    r="18.2" fill="#7A4B2A"></circle>
+            <text x="242.5" y="177.5"
+                  text-anchor="middle">ACM</text>
+            <title>ACM · Organization · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Software" tabindex="0">
+            <circle cx="329.1" cy="115.9"
+                    r="18.2" fill="#0F6C6C"></circle>
+            <text x="329.1" y="147.0"
+                  text-anchor="middle">Consensus Protocol</text>
+            <title>Consensus Protocol · Software · 7 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="430.3" cy="102.8"
+                    r="18.1" fill="#2E7D5B"></circle>
+            <text x="430.3" y="134.0"
+                  text-anchor="middle">information</text>
+            <title>information · Concept · 7 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Method" tabindex="0">
+            <circle cx="533.8" cy="108.8"
+                    r="17.9" fill="#8A5A00"></circle>
+            <text x="533.8" y="139.7"
+                  text-anchor="middle">leader-follower consensus</text>
+            <title>leader-follower consensus · Method · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="627.3" cy="132.9"
+                    r="17.9" fill="#E8172D"></circle>
+            <text x="627.3" y="163.9"
+                  text-anchor="middle">Context-Aware Multi-Agent </text>
+            <title>Context-Aware Multi-Agent Systems · System · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="699.4" cy="172.4"
+                    r="17.9" fill="#2E7D5B"></circle>
+            <text x="699.4" y="203.4"
+                  text-anchor="middle">Information Flow</text>
+            <title>Information Flow · Concept · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="741.4" cy="222.5"
+                    r="17.9" fill="#E8172D"></circle>
+            <text x="741.4" y="253.4"
+                  text-anchor="middle">system</text>
+            <title>system · System · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="748.2" cy="277.1"
+                    r="17.8" fill="#E8172D"></circle>
+            <text x="748.2" y="307.8"
+                  text-anchor="middle">expert systems</text>
+            <title>expert systems · System · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="719.1" cy="329.6"
+                    r="17.7" fill="#2E7D5B"></circle>
+            <text x="719.1" y="360.3"
+                  text-anchor="middle">Key-value models</text>
+            <title>Key-value models · Concept · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="657.5" cy="373.7"
+                    r="17.7" fill="#2E7D5B"></circle>
+            <text x="657.5" y="404.5"
+                  text-anchor="middle">knowledge</text>
+            <title>knowledge · Concept · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Software" tabindex="0">
+            <circle cx="570.9" cy="404.1"
+                    r="17.7" fill="#0F6C6C"></circle>
+            <text x="570.9" y="434.8"
+                  text-anchor="middle">object-oriented programmin</text>
+            <title>object-oriented programming · Software · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Method" tabindex="0">
+            <circle cx="469.7" cy="417.2"
+                    r="17.6" fill="#8A5A00"></circle>
+            <text x="469.7" y="447.8"
+                  text-anchor="middle">Reinforcement learning</text>
+            <title>Reinforcement learning · Method · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="136.4" cy="390.3"
+                    r="17.6" fill="#2E7D5B"></circle>
+            <text x="136.4" y="420.9"
+                  text-anchor="middle">context ontology</text>
+            <title>context ontology · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="82.8" cy="343.3"
+                    r="17.6" fill="#2E7D5B"></circle>
+            <text x="82.8" y="373.8"
+                  text-anchor="middle">flexibility</text>
+            <title>flexibility · Concept · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Task" tabindex="0">
+            <circle cx="54.3" cy="290.5"
+                    r="17.5" fill="#2B5F86"></circle>
+            <text x="54.3" y="321.1"
+                  text-anchor="middle">task</text>
+            <title>task · Task · 4 menções</title>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <table class="egraph-triples">
+      <caption>Relações afirmadas pelo artigo, com a passagem que as sustenta</caption>
+      <thead>
+        <tr><th scope="col">Origem</th><th scope="col">Relação</th><th scope="col">Destino</th><th scope="col">Passagem de apoio</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>agent</b></td>
+          <td><span class="egraph-rel">percebe</span></td>
+          <td><b>contextual information</b></td>
+          <td><q>An agent can preceive contextual information:</q></td>
+        </tr>
+        <tr>
+          <td><b>agent</b></td>
+          <td><span class="egraph-rel">utiliza</span></td>
+          <td><b>deep reinforcement learning</b></td>
+          <td><q>advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals</q></td>
+        </tr>
+        <tr>
+          <td><b>agent</b></td>
+          <td><span class="egraph-rel">raciocina com</span></td>
+          <td><b>goals</b></td>
+          <td><q>advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals</q></td>
+        </tr>
+        <tr>
+          <td><b>agent</b></td>
+          <td><span class="egraph-rel">deve estar ciente de</span></td>
+          <td><b>context</b></td>
+          <td><q>attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location</q></td>
+        </tr>
+        <tr>
+          <td><b>context</b></td>
+          <td><span class="egraph-rel">inclui</span></td>
+          <td><b>Organizational Structure</b></td>
+          <td><q>attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location</q></td>
+        </tr>
+        <tr>
+          <td><b>CAS</b></td>
+          <td><span class="egraph-rel">utiliza</span></td>
+          <td><b>context</b></td>
+          <td><q>Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.</q></td>
+        </tr>
+        <tr>
+          <td><b>contextual information</b></td>
+          <td><span class="egraph-rel">inclui</span></td>
+          <td><b>Organizational Structure</b></td>
+          <td><q>In the context of autonomous agents, contextual information encompasses task objectives, organizational structure, agent roles, and temporal aspects.</q></td>
+        </tr>
+        <tr>
+          <td><b>MAS</b></td>
+          <td><span class="egraph-rel">possui</span></td>
+          <td><b>Organizational Structure</b></td>
+          <td><q>three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.</q></td>
+        </tr>
+        <tr>
+          <td><b>MAS</b></td>
+          <td><span class="egraph-rel">possui</span></td>
+          <td><b>consensus</b></td>
+          <td><q>three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.</q></td>
+        </tr>
+        <tr>
+          <td><b>MAS</b></td>
+          <td><span class="egraph-rel">distingue-se de</span></td>
+          <td><b>expert systems</b></td>
+          <td><q>three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming</q></td>
+        </tr>
+        <tr>
+          <td><b>MAS</b></td>
+          <td><span class="egraph-rel">distingue-se de</span></td>
+          <td><b>object-oriented programming</b></td>
+          <td><q>three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming</q></td>
+        </tr>
+        <tr>
+          <td><b>Relationships</b></td>
+          <td><span class="egraph-rel">formam-se entre</span></td>
+          <td><b>agents</b></td>
+          <td><q>Depending on both organizational goals and agent-specific goals, relationships among agentsare formed into one of the following categories: cooperation or competition.</q></td>
+        </tr>
+        <tr>
+          <td><b>consensus</b></td>
+          <td><span class="egraph-rel">é alcançado entre</span></td>
+          <td><b>agents</b></td>
+          <td><q>achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.</q></td>
+        </tr>
+        <tr>
+          <td><b>consensus</b></td>
+          <td><span class="egraph-rel">possibilita troca de</span></td>
+          <td><b>information</b></td>
+          <td><q>achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.</q></td>
+        </tr>
+        <tr>
+          <td><b>leader-follower consensus</b></td>
+          <td><span class="egraph-rel">é tipo de</span></td>
+          <td><b>Consensus Protocol</b></td>
+          <td><q>the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,</q></td>
+        </tr>
+        <tr>
+          <td><b>group/cluster consensus</b></td>
+          <td><span class="egraph-rel">é tipo de</span></td>
+          <td><b>Consensus Protocol</b></td>
+          <td><q>the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,</q></td>
+        </tr>
+        <tr>
+          <td><b>Context Modeling</b></td>
+          <td><span class="egraph-rel">inclui</span></td>
+          <td><b>Key-value models</b></td>
+          <td><q>Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models</q></td>
+        </tr>
+        <tr>
+          <td><b>Context Modeling</b></td>
+          <td><span class="egraph-rel">inclui</span></td>
+          <td><b>context ontology</b></td>
+          <td><q>Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models</q></td>
+        </tr>
+        <tr>
+          <td><b>context ontology</b></td>
+          <td><span class="egraph-rel">representa</span></td>
+          <td><b>Relationships</b></td>
+          <td><q>ontology-based context models are widely utilized due to their capability for semantic reasoning and representation of context relationships through knowledge graphs</q></td>
+        </tr>
+        <tr>
+          <td><b>multi-agent systems</b></td>
+          <td><span class="egraph-rel">é composto por</span></td>
+          <td><b>agent</b></td>
+          <td><q>Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.</q></td>
+        </tr>
+        <tr>
+          <td><b>agent</b></td>
+          <td><span class="egraph-rel">resolve</span></td>
+          <td><b>task</b></td>
+          <td><q>An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.</q></td>
+        </tr>
+        <tr>
+          <td><b>Context-Aware Multi-Agent Systems</b></td>
+          <td><span class="egraph-rel">utiliza</span></td>
+          <td><b>contextual information</b></td>
+          <td><q>the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.</q></td>
+        </tr>
+        <tr>
+          <td><b>Context-Aware Systems</b></td>
+          <td><span class="egraph-rel">utiliza</span></td>
+          <td><b>context</b></td>
+          <td><q>Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.</q></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="egraph-note">Extraído com <code>gliner=urchade/gliner_multi-v2.1, relations=llm</code>. Cada entidade aponta para o trecho do texto onde foi encontrada; cada relação exibe a sentença verificada literalmente contra o artigo.</p>
+  </div>
+
+  <script>
+  (function () {
+    var root = document.currentScript.closest('.egraph') || document.querySelector('.egraph');
+    if (!root) return;
+    var chips = root.querySelectorAll('.egraph-chip');
+    var hidden = new Set();
+
+    function apply() {
+      root.querySelectorAll('.egraph-node').forEach(function (n) {
+        n.classList.toggle('is-dim', hidden.has(n.dataset.type));
+      });
+      root.querySelectorAll('.egraph-edge').forEach(function (e) {
+        e.classList.toggle('is-dim', hidden.has(e.dataset.source) || hidden.has(e.dataset.target));
+      });
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var type = chip.dataset.type;
+        if (hidden.has(type)) { hidden.delete(type); } else { hidden.add(type); }
+        chip.setAttribute('aria-pressed', String(!hidden.has(type)));
+        apply();
+      });
+    });
+  })();
+  </script>
+</section>
+
+<section class="section" id="slides">
+  <h2><span class="num">DECK</span>Apresentação do artigo</h2>
+  <p>Prévia da apresentação gerada a partir do artigo.</p>
+  <div class="deck">
+    <div class="deck-frame">
+      <iframe
+        src="slides/deck.pdf#view=FitH"
+        title="Apresentação: Sistemas Multi-Agente Conscientes de Contexto: Arquitetura Unificada e Taxonomia"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="deck-bar">
+      <span>Deck em PDF · hospedado neste site</span>
+      <span class="deck-actions">
+        <a class="btn" href="slides/deck.pdf" target="_blank" rel="noopener">Abrir o PDF ↗</a>
+        <a class="btn primary" href="slides/deck.pptx" download>Baixar .pptx</a>
+      </span>
+    </div>
+  </div>
+</section>
+<section class="section" id="downloads">
+  <h2><span class="num">FONTES</span>Material</h2>
+  <div class="dl-grid">
+    <a class="dl" href="context-aware-mas.pdf">
+      <b>Artigo Original (PDF)</b>
+      <small>Baixe o artigo completo sobre sistemas multi-agente conscientes de contexto.</small>
+      <span class="arrow">PDF ↓</span>
+    </a>
+    <a class="dl" href="blog.html">
+      <b>Post no Blog</b>
+      <small>Leia a versão comentada e expandida deste artigo no formato de blog.</small>
+      <span class="arrow">LER →</span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis. A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions. arXiv preprint arXiv:2402.01968v2 [cs.MA].<br><br>
+    <a href="workshop.html">Dinâmica</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="../../css-context-sensitive-systems/index.html">&#8592; CSS - Context Sensitive Systems</a>
+  </div>
+</footer>
+
+<div class="player" id="player" role="region" aria-label="Player de áudio">
+  <div class="head">
+    <div class="who">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="titleline">
+        <b>Comentário em áudio: context-aware-mas</b>
+        <span>Faixa 01 · gerada via NotebookLM Audio Overview</span>
+      </span>
+    </div>
+    <button class="pbtn" id="minToggle" aria-expanded="true" title="Minimizar player">–</button>
+  </div>
+
+  <div class="row">
+    <button class="pbtn" id="back15" title="Voltar 15 segundos" aria-label="Voltar 15 segundos">−15</button>
+    <button class="pbtn play" id="playBtn" aria-label="Reproduzir">
+      <svg id="playIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <button class="pbtn" id="fwd15" title="Avançar 15 segundos" aria-label="Avançar 15 segundos">+15</button>
+
+    <span class="seekwrap">
+      <span class="time" id="cur">0:00</span>
+      <input class="rng seek" id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Posição da faixa">
+      <span class="time" id="dur">--:--</span>
+    </span>
+
+    <span class="volwrap">
+      <button class="pbtn" id="muteBtn" title="Silenciar" aria-label="Silenciar">VOL</button>
+      <input class="rng" id="vol" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+    </span>
+
+    <select class="rate" id="rate" aria-label="Velocidade de reprodução">
+      <option value="0.75">0,75×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.25">1,25×</option>
+      <option value="1.5">1,5×</option>
+      <option value="1.75">1,75×</option>
+      <option value="2">2×</option>
+    </select>
+  </div>
+  <div class="sub" id="psub">espaço = play/pause · ← → = 15 s · arquivo local, sem streaming externo</div>
+  <audio id="au" preload="metadata" src="audio/context-aware-mas.m4a"></audio>
+</div>
+
+<script>
+(function () {
+  var au = document.getElementById('au'),
+      player = document.getElementById('player'),
+      playBtn = document.getElementById('playBtn'),
+      playIcon = document.getElementById('playIcon'),
+      seek = document.getElementById('seek'),
+      cur = document.getElementById('cur'),
+      dur = document.getElementById('dur'),
+      vol = document.getElementById('vol'),
+      muteBtn = document.getElementById('muteBtn'),
+      rate = document.getElementById('rate'),
+      minToggle = document.getElementById('minToggle');
+
+  var ICON_PLAY = 'M8 5v14l11-7z',
+      ICON_PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
+
+  var scrubbing = false;
+
+  function fmt(s) {
+    if (!isFinite(s)) return '--:--';
+    s = Math.max(0, Math.floor(s));
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    var mm = h ? String(m).padStart(2, '0') : String(m);
+    return (h ? h + ':' : '') + mm + ':' + String(x).padStart(2, '0');
+  }
+
+  function paintSeek() {
+    var pct = au.duration ? (au.currentTime / au.duration) * 100 : 0;
+    seek.style.backgroundSize = pct + '% 100%';
+  }
+
+  au.addEventListener('loadedmetadata', function () { dur.textContent = fmt(au.duration); });
+
+  au.addEventListener('timeupdate', function () {
+    cur.textContent = fmt(au.currentTime);
+    if (!scrubbing && au.duration) {
+      seek.value = String((au.currentTime / au.duration) * 1000);
+      paintSeek();
+    }
+  });
+
+  au.addEventListener('play', function () {
+    player.classList.add('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PAUSE);
+    playBtn.setAttribute('aria-label', 'Pausar');
+  });
+  au.addEventListener('pause', function () {
+    player.classList.remove('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PLAY);
+    playBtn.setAttribute('aria-label', 'Reproduzir');
+  });
+  au.addEventListener('error', function () {
+    document.getElementById('psub').textContent =
+      'Não foi possível carregar o áudio — confira o caminho do arquivo.';
+  });
+
+  playBtn.addEventListener('click', function () {
+    if (au.paused) { au.play().catch(function () {}); } else { au.pause(); }
+  });
+  document.getElementById('back15').addEventListener('click', function () { au.currentTime = Math.max(0, au.currentTime - 15); });
+  document.getElementById('fwd15').addEventListener('click', function () {
+    au.currentTime = Math.min(au.duration || Infinity, au.currentTime + 15);
+  });
+
+  ['pointerdown', 'touchstart'].forEach(function (e) { seek.addEventListener(e, function () { scrubbing = true; }); });
+  ['pointerup', 'touchend', 'change'].forEach(function (e) { seek.addEventListener(e, function () { scrubbing = false; }); });
+  seek.addEventListener('input', function () {
+    if (au.duration) {
+      au.currentTime = (seek.value / 1000) * au.duration;
+      cur.textContent = fmt(au.currentTime);
+      seek.style.backgroundSize = (seek.value / 10) + '% 100%';
+    }
+  });
+
+  vol.addEventListener('input', function () {
+    au.volume = +vol.value;
+    au.muted = +vol.value === 0;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+  });
+  muteBtn.addEventListener('click', function () {
+    au.muted = !au.muted;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+    if (!au.muted && au.volume === 0) { au.volume = 0.8; vol.value = '0.8'; }
+  });
+
+  rate.addEventListener('change', function () { au.playbackRate = +rate.value; });
+
+  minToggle.addEventListener('click', function () {
+    var min = player.classList.toggle('min');
+    minToggle.textContent = min ? '+' : '–';
+    minToggle.setAttribute('aria-expanded', String(!min));
+    minToggle.title = min ? 'Expandir player' : 'Minimizar player';
+    document.body.style.paddingBottom = min ? '110px' : '';
+  });
+
+  addEventListener('keydown', function (ev) {
+    var t = ev.target, tag = t && t.tagName;
+    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || (t && t.isContentEditable)) return;
+    if (ev.code === 'Space') { ev.preventDefault(); playBtn.click(); }
+    else if (ev.code === 'ArrowLeft' && ev.altKey) { au.currentTime = Math.max(0, au.currentTime - 15); }
+    else if (ev.code === 'ArrowRight' && ev.altKey) { au.currentTime = au.currentTime + 15; }
+  });
+
+  paintSeek();
+})();
+</script>
+</body>
+</html>

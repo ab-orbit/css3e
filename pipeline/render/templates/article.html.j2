@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ seo.title }}</title>
+{% include "partials/seo_head.html.j2" %}
+<link rel="stylesheet" href="{{ asset_prefix }}resources/cases/style.css">
+<style>
+{% include "partials/article_extra.css.j2" %}
+</style>
+</head>
+<body>
+
+{% include "partials/progress_bar.html.j2" %}
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>{{ brand_label }}</div>
+    <nav class="nav">
+      <a class="btn" href="workshop.html">Dinâmica</a>
+      <a class="btn" href="blog.html">Blog</a>
+      <a class="btn" href="{{ theme_href }}">&#8592; {{ theme_name }}</a>
+      <a class="btn primary" href="{{ pdf_relative_href }}">PDF do artigo</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  {% include "partials/hero.html.j2" %}
+
+  {% if pkg.audio_path %}
+  <section class="section" id="audio">
+    <h2><span class="num">FAIXA 01</span>{{ pkg.audio_title }}</h2>
+    <p>{{ pkg.audio_subtitle }} O player fica flutuando ao pé da página — velocidade, volume e posição sob seu controle enquanto você lê.</p>
+  </section>
+  {% endif %}
+
+  {% include "partials/categories.html.j2" %}
+
+  {% include "partials/mindmap.html.j2" %}
+
+  {% include "partials/essay_condensed.html.j2" %}
+
+  {% if pkg.tables %}
+  <section class="section" id="tabelas">
+    <h2><span class="num">REFERÊNCIA</span>Conceitos e notação</h2>
+    {% for t in pkg.tables %}
+    <h3 style="margin-top:26px">{{ t.caption }}</h3>
+    {% set table = t %}
+    {% include "partials/table.html.j2" %}
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% include "partials/entities_graph.html.j2" %}
+
+  {% include "partials/deck_embed.html.j2" %}
+
+  {% include "partials/downloads_grid.html.j2" %}
+
+</main>
+
+<footer>
+  <div class="wrap">
+    {{ pkg.paper.authors | map(attribute='name') | join(', ') }}. {{ pkg.paper.title }}. {{ pkg.paper.venue }}{% if pkg.paper.pages %}, pp. {{ pkg.paper.pages }}{% endif %}.{% if pkg.paper.doi %} doi:{{ pkg.paper.doi }}{% endif %}<br><br>
+    <a href="workshop.html">Dinâmica</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="{{ theme_href }}">&#8592; {{ theme_name }}</a>
+  </div>
+</footer>
+
+{% if pkg.audio_path %}
+{% set audio_src = pkg.audio_path %}
+{% set audio_title = pkg.audio_title %}
+{% set audio_subtitle = pkg.audio_subtitle %}
+{% include "partials/player.html.j2" %}
+{% endif %}
+
+</body>
+</html>
