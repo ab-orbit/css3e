@@ -7,3 +7,8 @@
   - sistemas-sensiveis-ao-contexto
   - sistemas-multi-agentes-contexto
   - sistemas-multiagente-contexto
+- slug: teste
+  name: Teste
+  description: ''
+  temas:
+  - teste

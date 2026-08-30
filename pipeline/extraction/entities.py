@@ -69,6 +69,22 @@ DEFAULT_RELATION_LABELS = [
 ]
 
 
+# Publishers and venues that dominate a reference list without appearing in
+# the argument. GLiNER labels them Organization and they outrank real concepts
+# on frequency alone: IEEE led one real run with 50 mentions.
+BIBLIOGRAPHY_NOISE = {
+    "ieee", "acm", "arxiv", "springer", "elsevier", "wiley", "mit press",
+    "pmlr", "curran associates", "aaai", "ijcai", "neurips", "icml", "iclr",
+}
+
+# A one- or two-character span is an extraction artifact, never a concept.
+MIN_ENTITY_CHARS = 3
+
+
+def _is_noise(key: str) -> bool:
+    return len(key) < MIN_ENTITY_CHARS or key in BIBLIOGRAPHY_NOISE
+
+
 def _normalize_key(surface: str) -> str:
     """Fold a surface form into a deduplication key.
 
@@ -217,7 +233,7 @@ def _scan_entities(
 
         for item in found:
             key = _normalize_key(item["text"])
-            if not key:
+            if not key or _is_noise(key):
                 continue
             mention = Mention(
                 start=remap_offset(chunk, item["start"]),

@@ -208,3 +208,24 @@ class TestResolveDevice:
 
         monkeypatch.setattr(builtins, "__import__", _no_torch)
         assert resolve_device("auto") == "cpu"
+
+
+class TestNoiseFiltering:
+    def test_single_character_entities_are_dropped(self, monkeypatch, settings):
+        """A one-letter span is an extraction artifact, never a concept."""
+        _install(monkeypatch, [("d", "Concept", 0.9), ("Alfa", "Concept", 0.9)])
+        graph = extract_entities("d d d Alfa Alfa", settings=settings)
+
+        assert [e.key for e in graph.entities] == ["alfa"]
+
+    def test_publisher_names_are_dropped(self, monkeypatch, settings):
+        """IEEE, ACM, arXiv and Springer come from the reference list, not from
+        the argument the article makes.
+        """
+        _install(
+            monkeypatch,
+            [("IEEE", "Organization", 0.95), ("Multi-Agent Systems", "System", 0.9)],
+        )
+        graph = extract_entities("IEEE " * 20 + "Multi-Agent Systems", settings=settings)
+
+        assert [e.key for e in graph.entities] == ["multi agent systems"]

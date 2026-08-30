@@ -187,3 +187,40 @@ class TestScriptRendering:
             build_jsonld(make_sample_package(), graph, site_base_url=SITE, page_path="p.html")
         )
         assert "Ação e Coordenação" in rendered
+
+
+class TestInPage:
+    """The block has to reach the page as markup, not as escaped text."""
+
+    def _page(self):
+        from pipeline.config import Settings as S
+        from pipeline.render.build import RenderContext, render_article_package
+
+        pkg = make_sample_package()
+        ctx = RenderContext(
+            asset_prefix="../../../", pdf_relative_href="p.pdf",
+            og_image_url="https://example.test/og.png", site_base_url=SITE,
+            publisher_name="Pub", brand_label="B",
+        )
+        seo = {s.page_kind: s for s in pkg.seo_pages}
+        return render_article_package(pkg, seo, ctx, S())["index.html"]
+
+    def test_script_tag_is_real_markup(self):
+        """Jinja2 autoescaping turned the whole block into &lt;script&gt;...,
+        publishing the graph as visible text that no consumer can read.
+        """
+        html = self._page()
+
+        assert "&lt;script type=&#34;application/ld+json&#34;&gt;" not in html
+        assert '<script type="application/ld+json">' in html
+
+    def test_the_page_graph_parses_and_carries_the_article(self):
+        import re
+
+        html = self._page()
+        blocks = re.findall(
+            r'<script type="application/ld\+json">(.*?)</script>', html, re.S
+        )
+        graphs = [json.loads(b.replace("<\\/", "</")) for b in blocks]
+
+        assert any("@graph" in g for g in graphs), "no @graph block reached the page"

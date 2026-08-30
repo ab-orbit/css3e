@@ -45,7 +45,7 @@
             <circle cx="{{ node.x | round(1) }}" cy="{{ node.y | round(1) }}"
                     r="{{ node.radius | round(1) }}" fill="{{ node.color }}"></circle>
             <text x="{{ node.x | round(1) }}" y="{{ (node.y + node.radius + 13) | round(1) }}"
-                  text-anchor="middle">{{ node.name[:26] }}</text>
+                  text-anchor="middle">{{ node.display_name }}</text>
             <title>{{ node.name }} · {{ node.label }} · {{ node.frequency }} menções</title>
           </g>
           {% endfor %}

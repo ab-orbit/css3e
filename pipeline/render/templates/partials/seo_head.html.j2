@@ -72,4 +72,8 @@
 {# schema.org graph for this article: entities as about/mentions, relations in a
    namespaced key. Built in pipeline/render/jsonld.py and injected pre-serialized,
    so the escaping of untrusted PDF-derived names happens in one tested place. #}
-{% if jsonld_script %}{{ jsonld_script }}{% endif %}
+{# `|safe` porque este bloco JÁ é markup pronto: o build monta o <script> e faz
+   o escape de `</` em jsonld.py, num único lugar testado. Sem isto o autoescape
+   do Jinja2 publica o JSON-LD como texto visível (&lt;script&gt;...), e nenhum
+   buscador ou LLM o enxerga como dado estruturado. #}
+{% if jsonld_script %}{{ jsonld_script | safe }}{% endif %}

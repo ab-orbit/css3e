@@ -33,13 +33,22 @@ FALLBACK_COLOR = "#5A5A5A"
 
 MIN_RADIUS = 16.0
 MAX_RADIUS = 40.0
-REPULSION_PASSES = 60
+REPULSION_PASSES = 120
+# Vertical distance below which two labels share a text line.
+LABEL_LINE_HEIGHT = 18.0
 
 
 @dataclass(frozen=True)
 class Point:
     x: float
     y: float
+
+
+# Measured in Chromium via getBBox() on the rendered labels: 6.62px per
+# character at 11px monospace. Rounded up, because an underestimate clips the
+# leftmost label against the viewBox edge — which is exactly what 6.2 did.
+LABEL_CHAR_WIDTH = 7.0
+MAX_LABEL_CHARS = 26
 
 
 @dataclass
@@ -52,6 +61,17 @@ class Node:
     radius: float
     color: str
     frequency: int
+
+    @property
+    def display_name(self) -> str:
+        """Name as drawn: long names are cut so one node cannot span the canvas."""
+        if len(self.name) <= MAX_LABEL_CHARS:
+            return self.name
+        return self.name[: MAX_LABEL_CHARS - 1] + "…"
+
+    @property
+    def label_width(self) -> float:
+        return len(self.display_name) * LABEL_CHAR_WIDTH
 
 
 @dataclass
@@ -173,6 +193,10 @@ def _max_ring(count: int) -> int:
 def _relax(nodes: list[Node], width: int, height: int) -> None:
     """Push overlapping nodes apart, then clamp inside the canvas.
 
+    Separation accounts for the LABEL, not just the circle: a name is several
+    times wider than the dot it sits under, so radius-only repulsion left the
+    text overlapping while the circles were technically clear.
+
     A fixed pass count with no randomness keeps the result reproducible.
     """
     for _ in range(REPULSION_PASSES):
@@ -181,7 +205,16 @@ def _relax(nodes: list[Node], width: int, height: int) -> None:
             for b in nodes[i + 1 :]:
                 dx, dy = b.x - a.x, b.y - a.y
                 distance = math.hypot(dx, dy)
-                minimum = a.radius + b.radius + 6
+
+                # Labels only collide when the nodes share a text line.
+                on_same_line = abs(dy) < LABEL_LINE_HEIGHT
+                if on_same_line:
+                    minimum = max(
+                        a.radius + b.radius + 6,
+                        (a.label_width + b.label_width) / 2 + 10,
+                    )
+                else:
+                    minimum = a.radius + b.radius + 6
 
                 if distance >= minimum:
                     continue
@@ -198,8 +231,14 @@ def _relax(nodes: list[Node], width: int, height: int) -> None:
                 b.y += uy * push
 
         for node in nodes:
-            node.x = min(max(node.x, node.radius), width - node.radius)
-            node.y = min(max(node.y, node.radius), height - node.radius)
+            # Clamp on the label's half-width so a name near the edge is not
+            # clipped by the viewBox.
+            margin_x = max(node.radius, node.label_width / 2)
+            node.x = min(max(node.x, margin_x), width - margin_x)
+            # Label sits below the circle, so leave room for it at the bottom.
+            node.y = min(
+                max(node.y, node.radius), height - node.radius - LABEL_LINE_HEIGHT
+            )
 
         if not moved:
             break

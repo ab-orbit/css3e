@@ -66,6 +66,42 @@ class TestGeometry:
         ]
 
 
+class TestLabels:
+    def test_labels_do_not_overlap(self):
+        """Circles were separated by radius, but a label is far wider than its
+        circle — so the text collided even when the nodes did not.
+        """
+        graph = EntityGraph(
+            entities=[
+                _entity("consensus-protocol", freq=9),
+                _entity("leader-follower-consensus", freq=8),
+                _entity("context-aware-multi-agent-systems", freq=7),
+                _entity("deep-reinforcement-learning", freq=6),
+            ]
+        )
+        placed = layout_graph(graph, width=WIDTH, height=HEIGHT)
+
+        for i, a in enumerate(placed.nodes):
+            for b in placed.nodes[i + 1 :]:
+                if abs(a.y - b.y) < 14:  # same text line
+                    gap = abs(a.x - b.x)
+                    assert gap >= (a.label_width + b.label_width) / 2 * 0.75, (
+                        f"{a.name!r} and {b.name!r} labels overlap"
+                    )
+
+    def test_labels_stay_inside_the_canvas(self):
+        placed = layout_graph(_graph(10), width=WIDTH, height=HEIGHT)
+        for node in placed.nodes:
+            assert node.x - node.label_width / 2 >= -1
+            assert node.x + node.label_width / 2 <= WIDTH + 1
+
+    def test_long_names_are_truncated_for_display(self):
+        graph = EntityGraph(entities=[_entity("a" * 60)])
+        node = layout_graph(graph, width=WIDTH, height=HEIGHT).nodes[0]
+        assert len(node.display_name) <= 28
+        assert node.name == ("a" * 60).title()
+
+
 class TestEdges:
     def test_edges_reference_placed_nodes(self):
         placed = layout_graph(
@@ -118,3 +154,12 @@ class TestTypeColours:
 
 def test_point_is_hashable_for_use_in_sets():
     assert len({Point(1.0, 2.0), Point(1.0, 2.0)}) == 1
+
+
+def test_label_width_is_not_underestimated():
+    """Measured at 6.62px/char in Chromium. Estimating below that clips the
+    leftmost label against the viewBox edge.
+    """
+    from pipeline.render.graph_layout import LABEL_CHAR_WIDTH
+
+    assert LABEL_CHAR_WIDTH >= 6.62
