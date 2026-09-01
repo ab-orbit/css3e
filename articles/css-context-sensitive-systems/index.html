@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CSS - Context Sensitive Systems</title>
+<meta name="description" content="Sistemas que percebem o contexto em que operam e adaptam seu comportamento a ele. Reúne trabalhos sobre sensibilidade ao contexto, sistemas multiagentes e as ar">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/css-context-sensitive-systems/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CSS - Context Sensitive Systems">
+<meta property="og:description" content="Sistemas que percebem o contexto em que operam e adaptam seu comportamento a ele. Reúne trabalhos sobre sensibilidade ao contexto, sistemas multiagentes e as arquiteturas que integram os dois — do mod">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/css-context-sensitive-systems/index.html">
+<link rel="stylesheet" href="../../resources/cases/style.css">
+<style>
+:root{
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+.theme-head{padding:60px 0 28px}
+.theme-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 16px}
+.theme-head h1{font-size:clamp(34px,5.4vw,60px);line-height:1.02;letter-spacing:-.035em;margin:0 0 18px}
+.theme-dek{font-size:18px;line-height:1.6;color:rgba(255,255,255,.68);max-width:70ch;margin:0 0 14px}
+.theme-count{font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin:0}
+.tg-bar{display:flex;justify-content:flex-end;padding:10px 0 20px;border-bottom:1px solid var(--line);margin-bottom:26px}
+.tg-views{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.tg-view-btn{padding:7px 16px;background:transparent;border:0;color:rgba(255,255,255,.55);font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
+.tg-view-btn[aria-pressed=true]{background:var(--signal);color:#fff}
+/* [hidden] do user-agent tem especificidade menor que uma classe, entao
+   `.tg-list{display:flex}` fazia as duas views renderizarem sobrepostas. */
+.tg-grid[hidden],.tg-list[hidden]{display:none}
+.tg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.tg-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#211b1c);overflow:hidden}
+.tg-card-hit{display:block;padding:24px 22px 18px;text-decoration:none;color:inherit;flex:1}
+.tg-card-hit:hover .tg-card-title{color:var(--signal)}
+.tg-card-meta{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.42);margin:0 0 12px}
+.tg-card-title{font-size:20px;line-height:1.25;letter-spacing:-.02em;margin:0 0 12px}
+.tg-card-brief{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.66);margin:0}
+.tg-card-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:14px 22px;border-top:1px solid var(--line)}
+.tg-card-link{font:10.5px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
+.tg-card-link:hover{color:var(--signal)}
+.tg-badge{font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:rgba(255,255,255,.7)}
+.tg-badge-audio{border-color:rgba(46,125,91,.6)}
+.tg-badge-deck{border-color:rgba(232,23,45,.5)}
+.tg-list{display:flex;flex-direction:column}
+.tg-row{display:flex;gap:20px;justify-content:space-between;align-items:flex-start;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.tg-row-title{font-size:19px;line-height:1.3;letter-spacing:-.02em;color:#fff;text-decoration:none;display:block;margin-bottom:8px}
+.tg-row-title:hover{color:var(--signal)}
+.tg-row-brief{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.62);margin:0 0 8px;max-width:76ch}
+.tg-row-meta{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin:0}
+.tg-row-side{display:flex;gap:8px;flex-shrink:0}
+.tg-empty{color:rgba(255,255,255,.5);padding:30px 0}
+@media (max-width:640px){.tg-row{flex-direction:column;gap:10px}}
+
+/* --- Console de autoria (só visível em localhost) --- */
+.console{border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:30px;background:rgba(255,255,255,.02)}
+.console-head{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.console-head h2{font-size:16px;margin:0;letter-spacing:-.01em}
+.console-add{padding:8px 15px;border-radius:999px;border:1px solid var(--signal);background:transparent;color:var(--signal);font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
+.console-add:hover{background:var(--signal);color:#fff}
+.console-form{display:grid;gap:14px;margin-top:20px;max-width:520px}
+.console-form span{display:block;font:10.5px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:6px}
+.console-form input[type=text]{width:100%;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:#fff;font-size:14px}
+.console-run{justify-self:start;padding:10px 20px;border-radius:8px;border:0;background:var(--signal);color:#fff;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
+.console-run-panel{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
+.console-progress-total{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.console-pct{font:13px var(--mono);color:var(--signal);min-width:44px}
+.console-bar{flex:1;height:7px;border-radius:999px;background:rgba(255,255,255,.09);overflow:hidden}
+.console-bar i{display:block;height:100%;background:var(--signal);transition:width .35s ease}
+.console-bar-sm{height:5px;max-width:180px}
+.console-phases{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
+.console-phase{display:flex;align-items:center;gap:12px;font:10.5px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45)}
+.console-phase-name{min-width:120px}
+.console-phase-pct{min-width:40px;text-align:right}
+.console-phase.is-active{color:#fff}
+.console-phase.is-done{color:rgba(46,125,91,.9)}
+.console-working h3{display:flex;align-items:center;gap:10px;font-size:13px;margin:0 0 12px;color:rgba(255,255,255,.8)}
+.spinner{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.2);border-top-color:var(--signal);display:inline-block;animation:console-spin .8s linear infinite}
+@keyframes console-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spinner{animation-duration:2.4s}}
+.console-log{max-height:220px;overflow:auto;background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:10px;padding:14px;font:11.5px var(--mono);color:rgba(255,255,255,.7);white-space:pre-wrap;margin:0}
+.console-done{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.console-chip{font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em;padding:4px 9px;border-radius:999px;border:1px solid rgba(46,125,91,.5);color:rgba(255,255,255,.65)}
+.tg-card-fresh{outline:1px solid var(--signal);outline-offset:2px}</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="theme-head">
+    <p class="theme-kicker">Tema</p>
+    <h1>CSS - Context Sensitive Systems</h1>
+<p class="theme-dek">Sistemas que percebem o contexto em que operam e adaptam seu comportamento a ele. Reúne trabalhos sobre sensibilidade ao contexto, sistemas multiagentes e as arquiteturas que integram os dois — do modelo de categorias de CAS às capacidades Sense-Learn-Reason-Predict-Act de agentes autônomos.</p>    <p class="theme-count">3 artigos publicados</p>
+  </header>
+
+<section class="console" id="console" hidden>
+  <div class="console-head">
+    <h2>Console de autoria</h2>
+    <button type="button" class="console-add" id="console-add">+ Novo artigo</button>
+  </div>
+
+  <form class="console-form" id="console-form" hidden>
+    <label class="console-file">
+      <span>PDF do artigo</span>
+      <input type="file" name="pdf" accept="application/pdf" required>
+    </label>
+    <label class="console-field">
+      <span>Slug (opcional)</span>
+      <input type="text" name="slug" placeholder="derivado do nome do arquivo">
+    </label>
+    <label class="console-field">
+      <span>Tema (opcional)</span>
+      <input type="text" name="tema" placeholder="inferido por LLM">
+    </label>
+    <button type="submit" class="console-run">Processar</button>
+  </form>
+
+  <div class="console-run-panel" id="console-panel" hidden>
+    <div class="console-progress">
+      <div class="console-progress-total">
+        <span class="console-pct" id="console-pct">0%</span>
+        <div class="console-bar"><i id="console-bar-fill" style="width:0%"></i></div>
+      </div>
+      <ul class="console-phases" id="console-phases"></ul>
+    </div>
+
+    <div class="console-working" id="console-working">
+      <h3 id="console-working-title"><span class="spinner" id="console-spinner" aria-hidden="true"></span>Em processamento</h3>
+      <pre class="console-log" id="console-log" aria-live="polite"></pre>
+    </div>
+
+    <div class="console-done" id="console-done"></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var isLocal = ['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) !== -1;
+  if (!isLocal) return;
+
+  var section = document.getElementById('console');
+  section.hidden = false;
+
+  var form = document.getElementById('console-form');
+  var panel = document.getElementById('console-panel');
+  var log = document.getElementById('console-log');
+  var phasesEl = document.getElementById('console-phases');
+  var doneEl = document.getElementById('console-done');
+  var barFill = document.getElementById('console-bar-fill');
+  var pctEl = document.getElementById('console-pct');
+
+  document.getElementById('console-add').addEventListener('click', function () {
+    form.hidden = !form.hidden;
+  });
+
+  function finish(label) {
+    var spinner = document.getElementById('console-spinner');
+    if (spinner) spinner.remove();
+    document.getElementById('console-working-title').textContent = label;
+  }
+
+  function line(text) {
+    log.textContent += text + '\n';
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function renderPhases(phases) {
+    phasesEl.innerHTML = '';
+    phases.forEach(function (p) {
+      var li = document.createElement('li');
+      li.className = 'console-phase' + (p.done ? ' is-done' : (p.active ? ' is-active' : ''));
+      li.innerHTML = '<span class="console-phase-name">' + p.name + '</span>' +
+        '<div class="console-bar console-bar-sm"><i style="width:' + p.pct + '%"></i></div>' +
+        '<span class="console-phase-pct">' + p.pct + '%</span>';
+      phasesEl.appendChild(li);
+    });
+  }
+
+  function addCard(article) {
+    var card = document.createElement('article');
+    card.className = 'tg-card tg-card-fresh';
+    card.innerHTML =
+      '<a class="tg-card-hit" href="' + article.href + '">' +
+      '<p class="tg-card-meta">' + (article.date || '') + '</p>' +
+      '<h2 class="tg-card-title">' + (article.title || 'Sem título') + '</h2>' +
+      '<p class="tg-card-brief">' + (article.briefing || '') + '</p></a>';
+    var grid = document.querySelector('.tg-grid');
+    if (grid) grid.prepend(card);
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    panel.hidden = false;
+    log.textContent = '';
+    doneEl.innerHTML = '';
+
+    fetch('/api/runs', { method: 'POST', body: new FormData(form) })
+      .then(function (r) { return r.json(); })
+      .then(function (run) {
+        line('run ' + run.run_id + ' iniciado');
+        var source = new EventSource('/api/runs/' + run.run_id + '/events');
+
+        source.addEventListener('progress', function (e) {
+          var data = JSON.parse(e.data);
+          barFill.style.width = data.total_pct + '%';
+          pctEl.textContent = data.total_pct + '%';
+          renderPhases(data.phases);
+        });
+
+        source.addEventListener('log', function (e) { line(JSON.parse(e.data).message); });
+
+        source.addEventListener('node', function (e) {
+          var data = JSON.parse(e.data);
+          line('[ok] ' + data.node + ' — ' + data.summary);
+          var chip = document.createElement('span');
+          chip.className = 'console-chip';
+          chip.textContent = data.node;
+          doneEl.appendChild(chip);
+        });
+
+        source.addEventListener('article', function (e) { addCard(JSON.parse(e.data)); });
+
+        source.addEventListener('done', function (e) {
+          line('concluído em ' + JSON.parse(e.data).elapsed + 's');
+          // Só o spinner sai. O log é o registro do que foi executado e é
+          // justamente o que se quer reler depois que termina.
+          finish('Concluído');
+          source.close();
+        });
+
+        source.addEventListener('failed', function (e) {
+          line('FALHOU: ' + JSON.parse(e.data).error);
+          finish('Falhou');
+          source.close();
+        });
+
+        source.onerror = function () {
+          line('conexão com o servidor perdida');
+          finish('Interrompido');
+          source.close();
+        };
+      })
+      .catch(function (err) { line('não foi possível iniciar: ' + err); });
+  });
+})();
+</script>
+  <div class="tg" data-active-view="cards">
+    <div class="tg-bar">
+      <div class="tg-views" role="group" aria-label="Modo de visualização">
+        <button type="button" class="tg-view-btn" data-set-view="cards" aria-pressed="true">Cards</button>
+        <button type="button" class="tg-view-btn" data-set-view="list" aria-pressed="false">Lista</button>
+      </div>
+    </div>
+
+    <section class="tg-grid" data-view="cards">
+      <article class="tg-card">
+        <a class="tg-card-hit" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">
+          <p class="tg-card-meta">2026-08-29 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier,...</p>
+          <h2 class="tg-card-title">Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS</h2>
+<p class="tg-card-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>        </a>
+        <div class="tg-card-foot">
+<a class="tg-card-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Workshop</a>        </div>
+      </article>
+      <article class="tg-card">
+        <a class="tg-card-hit" href="../sistemas-multiagente-contexto/context-aware-mas/index.html">
+          <p class="tg-card-meta">2025-01-29 · Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
+          <h2 class="tg-card-title">A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</h2>
+<p class="tg-card-brief">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.</p>        </a>
+        <div class="tg-card-foot">
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-deck">Deck</span><a class="tg-card-link" href="../sistemas-multiagente-contexto/context-aware-mas/blog.html">Post</a><a class="tg-card-link" href="../sistemas-multiagente-contexto/context-aware-mas/workshop.html">Workshop</a>        </div>
+      </article>
+      <article class="tg-card">
+        <a class="tg-card-hit" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html">
+          <p class="tg-card-meta">2018 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier,...</p>
+          <h2 class="tg-card-title">Três Categorias de Sistemas Sensíveis ao Contexto</h2>
+<p class="tg-card-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>        </a>
+        <div class="tg-card-foot">
+<a class="tg-card-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/blog.html">Post</a><a class="tg-card-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Workshop</a>        </div>
+      </article>
+    </section>
+
+    <section class="tg-list" data-view="list" hidden>
+      <article class="tg-row">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS</a>
+<p class="tg-row-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>          <p class="tg-row-meta">2026-08-29 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier, Marijn Janssen</p>
+        </div>
+        <div class="tg-row-side">
+        </div>
+      </article>
+      <article class="tg-row">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="../sistemas-multiagente-contexto/context-aware-mas/index.html">A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</a>
+<p class="tg-row-brief">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.</p>          <p class="tg-row-meta">2025-01-29 · Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
+        </div>
+        <div class="tg-row-side">
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-deck">Deck</span>        </div>
+      </article>
+      <article class="tg-row">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html">Três Categorias de Sistemas Sensíveis ao Contexto</a>
+<p class="tg-row-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>          <p class="tg-row-meta">2018 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier, Marijn Janssen</p>
+        </div>
+        <div class="tg-row-side">
+        </div>
+      </article>
+    </section>
+  </div>
+</main>
+
+<script>
+(function () {
+  var tg = document.querySelector('.tg');
+  if (!tg) return;
+  var KEY = 'css3e:gallery-view';
+
+  function set(view) {
+    tg.dataset.activeView = view;
+    tg.querySelectorAll('[data-view]').forEach(function (section) {
+      section.hidden = section.dataset.view !== view;
+    });
+    tg.querySelectorAll('[data-set-view]').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', String(btn.dataset.setView === view));
+    });
+    // Per-viewer convenience only; a missing or unreadable value just means
+    // the default (cards).
+    try { localStorage.setItem(KEY, view); } catch (e) {}
+  }
+
+  tg.querySelectorAll('[data-set-view]').forEach(function (btn) {
+    btn.addEventListener('click', function () { set(btn.dataset.setView); });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  set(saved === 'list' ? 'list' : 'cards');
+})();
+</script>
+</body>
+</html>

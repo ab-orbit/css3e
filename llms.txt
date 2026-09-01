@@ -32,6 +32,11 @@ segurança de fronteira.
 - [Original paper (PDF)](https://ab-orbit.github.io/css3e/resources/ThreeCategoriesofCAS.pdf): Shishkov, B., Larsen, J. B., Warnier, M., & Janssen, M. (2018). Three Categories of Context-Aware Systems. In Business Modeling and Software Design, BMSD 2018 (LNBIP 319, pp. 185–202). Springer. doi:10.1007/978-3-319-94214-8_12.
 - [Technical report (PDF) / Relatório técnico](https://ab-orbit.github.io/css3e/resources/relatorio_contexto_sem_consentimento.pdf): "Contexto sem consentimento" — the long-form document behind the context-surface map.
 
+## Generated articles
+
+- [Contexts and Context-awareness Revisited from an Intelligent Environments Perspective](https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html): Contexts and Context-awareness Revisited from an Intelligent Environments Perspective — Juan Carlos Augusto et al.
+- [A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions](https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html): A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions — Hung Du et al.
+
 ## Optional
 
 - [Slide deck (PDF) / Apresentação](https://ab-orbit.github.io/css3e/apresentacao_artigo.pdf): local copy of the presentation embedded in the article study guide.

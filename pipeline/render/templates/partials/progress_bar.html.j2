@@ -1,0 +1,13 @@
+<div class="progress" id="progress" role="presentation"></div>
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+</script>

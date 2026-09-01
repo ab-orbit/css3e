@@ -1,0 +1,3362 @@
+{
+  "slug": "contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective",
+  "tema": "contexto-e-contexto-sensivel",
+  "paper": {
+    "title": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+    "subtitle": "",
+    "authors": [
+      {
+        "name": "Juan Carlos Augusto",
+        "affiliation": "Research Group on Development of Intelligent Environments, Department of Computer Science, Middlesex University London, London, UK"
+      }
+    ],
+    "venue": "Applied Artificial Intelligence",
+    "pages": "e2008644 (725 pages)",
+    "date_published": "2022",
+    "doi": "10.1080/08839514.2021.2008644",
+    "source_pdf_url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-anqiv5h9/Contexts and Context-awareness Revisited from an Intelligent Environments Perspective (2).pdf",
+    "abstract": "Context is a useful concept somehow unconsciously used by humans in daily life problem-solving. Recently, several subareas of computer science have been increasingly trying to rely on this concept to design systems with practical use in certain predefined circumstances. The perception is that imbuing in the system certain context-awareness qualities can support intelligent decision-making in specific practical situations. Despite a significant number of implemented systems that aim at providing context-awareness, there is a lack of commonly accepted and used methodologies and tools. At the root of this, is the lack of agreement on a set of good principles or standards, which can act as a guide to the scientific community and the developers interested in this class of systems. There have been some extensive surveys on the use of context, still there is no theoretical corpus emerging that we can use to discuss the essential concepts making up the fabric of contexts and its use by system developers. Here we attempted such enterprise at a level, which is more formal than popular surveys, in a way that is not implementation dependent and in a way that highlights key concepts of relevance to developers. We reassessed first the basic concepts identifying the need to more prominently consider system beneficiaries' satisfaction. We then transfer explicitly these values to a more formal outline of the basic components and the operations which emerge as relevant. We identify and highlight the tasks of context activation, comparison, influence, construction, and interaction. We hint at how these may work in practice and explained these through examples. We show how the theory is flexible enough by generalizing it to multiusers so that optimization of global preferences and expectations is used to drive system development and system behavior.",
+    "keywords": [
+      "context",
+      "context-awareness",
+      "intelligent environments",
+      "ambient intelligence",
+      "ubiquitous computing",
+      "pervasive computing",
+      "Internet of Things",
+      "beneficiaries",
+      "services",
+      "context satisfaction",
+      "context operations"
+    ],
+    "problem_statement": "Apesar do número significativo de sistemas implementados que visam fornecer consciência de contexto (context-awareness), há uma falta de metodologias e ferramentas comumente aceitas e utilizadas. Na raiz disso está a ausência de acordo sobre um conjunto de bons princípios ou padrões que possam servir como guia para a comunidade científica e os desenvolvedores interessados nessa classe de sistemas. Embora existam extensas revisões sobre o uso de contexto, ainda não há um corpus teórico emergente que possa ser usado para discutir os conceitos essenciais que compõem a estrutura dos contextos e seu uso pelos desenvolvedores de sistemas. O artigo identifica que as teorias anteriores focaram excessivamente no sistema artificial e nos dados, negligenciando os humanos que são os beneficiários finais dos sistemas de Ambientes Inteligentes (Intelligent Environments).",
+    "key_concepts": [
+      "Context",
+      "Context-awareness",
+      "Beneficiaries",
+      "Services",
+      "Observable World (OW)",
+      "Intelligent Software",
+      "Context Templates",
+      "Context Satisfaction",
+      "Context Activation",
+      "Context Comparison",
+      "Context Influence",
+      "Context Construction",
+      "Context Interaction",
+      "Beneficiary Context Perception (BCP)",
+      "Beneficiary Context Expectations (BCE)",
+      "Service Achievement Satisfaction (SAS)",
+      "CIEn (Contexts for Intelligent Environments theory)",
+      "Ripple Effect",
+      "Direct Influence",
+      "Context Templates: [Name, Beneficiary, Activation, Effect]"
+    ],
+    "categories": [],
+    "section_outline": [
+      {
+        "heading": "Introduction",
+        "summary": "Apresenta a evolução da Ciência da Computação e o surgimento de áreas como Computação Ubíqua, Internet das Coisas, Inteligência Ambiente e Ambientes Inteligentes, todas intimamente relacionadas pela consciência de contexto. Destaca a falta de boas práticas, padrões e metodologias emergentes apesar do sucesso quantitativo de protótipos e produtos comerciais. Argumenta pela necessidade de repensar contexto e consciência de contexto com foco nos humanos, não apenas nos dados e sistemas."
+      },
+      {
+        "heading": "State of the Art",
+        "summary": "Revisa o interesse histórico no conceito de 'contexto' dentro da IA (especialmente em Representação de Conhecimento e Raciocínio - KRR) e sua adoção mais prática na Computação Ubíqua. Discute trabalhos influentes como a metáfora da 'caixa mágica' de Benerecetti et al., sistemas multicontexto (mMCS) de Brewka et al., e o Cálculo de Ambientes Conscientes de Contexto (CCA) de Siewe et al. Identifica duas lacunas principais: (1) falta de adequação das teorias às aplicações práticas centradas no humano que os Ambientes Inteligentes demandam hoje; (2) ausência de uma teoria que vá além de definições genéricas e explore conceitos realmente úteis para desenvolvedores criando sistemas reais."
+      },
+      {
+        "heading": "Delimiting Our Analysis",
+        "summary": "Define o escopo técnico da análise, adotando notações formais para aumentar a precisão da discussão. Assume que o sistema pode ser representado através de um sistema formal F (por exemplo, uma teoria de Lógica de Primeira Ordem), com linguagem L, fórmulas bem-formadas, axiomas e mecanismo de inferência. Foca em sistemas que compartilham os mesmos fundamentos, em vez de assumir que cada contexto pode ter uma teoria independente."
+      },
+      {
+        "heading": "Contexts Revisited",
+        "summary": "Redefine contexto e consciência de contexto com ênfase explícita nos humanos: Contexto é 'a informação diretamente relevante para caracterizar uma situação de interesse para os stakeholders de um sistema'; Context-awareness é 'a capacidade de um sistema usar informação contextual para adaptar seus serviços de modo que sejam mais úteis aos stakeholders porque se relacionam diretamente com suas preferências e necessidades'. Introduz conceitos fundamentais: Beneficiários (B), Serviços (S), Contextos (C), Mundo Observável (OW) e Software Inteligente (algoritmos A). Propõe Templates de Contexto com estrutura [Name, Beneficiary, Activation, Effect]."
+      },
+      {
+        "heading": "A Theory of Contexts for Intelligent Environments (CIEn)",
+        "summary": "Apresenta a teoria CIEn como uma estrutura focada em um conjunto de contextos e operadores que auxiliam no raciocínio sobre esses contextos. Define CIEn = <B, S, C, Ops, A, OW> onde B é beneficiários, S é serviços, C é contextos, Ops é operações de contexto, A é algoritmos, e OW é instâncias do mundo observável. Identifica três estágios principais no ciclo de vida dos contextos: (1) Definição de Contexto, (2) Uso de Contexto, (3) Desenvolvimento de Contexto. Propõe uma 'regra de Occam para design de contexto': um contexto deve ser implementado se e somente se é necessário, não está atualmente no sistema, e pode ser implementado dentro dos recursos do sistema."
+      },
+      {
+        "heading": "Context Use Operations",
+        "summary": "Explora operações em Ops que podem ser usadas por desenvolvedores para raciocinar sobre os contextos que precisam criar. Define Context Satisfaction (satisfação de contexto) através de uma função φ(Ci, OWj) que decide se o mundo observável do sistema satisfaz o contexto. Discute Contexts in Relation to Other Contexts usando funções Ψ para caracterizar e diferenciar contextos. Introduz Context Comparison (comparação de contexto) com operações como 'é igual a', 'sobrepõe-se com', 'subsume'. Define Context Influencing Other Contexts, incluindo Direct Influence (C₁ ⇝ C₂) e Ripple Effect (C₁ ⇝ C₂), onde eventos em um contexto afetam outro contexto de forma menos óbvia."
+      },
+      {
+        "heading": "Contexts Organization",
+        "summary": "Discute como os contextos podem ser organizados e como se inter-relacionam. Apresenta duas abordagens complementares: (1) Programming-constructor Style: usa blocos de construção algorítmicos familiares como processos sequenciados (FOLLOWEDBY), processos condicionados (IF-THEN), e processos cíclicos (LOOP); (2) Interaction Modalities: caracteriza a natureza das interações entre contextos como Neutral (C₁ ⊛ C₂), Cooperative (C₁ ⊕ C₂), Competitive (C₁ ⊖ C₂), e Incompatible (C₁ ⊗ C₂). Define Ops = {Activation, Comparison, Influence, Construction, Interaction}."
+      },
+      {
+        "heading": "CIEn Holistic View",
+        "summary": "Apresenta uma visão holística da teoria, destacando conceitos adicionais relacionados aos beneficiários: Beneficiary Context Perception (BCP) - o contexto como percebido pelo beneficiário; Beneficiary Context Expectations (BCE) - os serviços que o beneficiário espera em um dado contexto. Define uma função de Service Achievement Satisfaction (SAS) que mede a diferença entre BCE e BCP para avaliar quão bem um sistema IE está servindo o beneficiário. Generaliza para múltiplos usuários através de uma função SASm que otimiza a experiência do grupo usando uma ordem parcial de Preferências Globais (GP)."
+      },
+      {
+        "heading": "Conclusions",
+        "summary": "Conclui que o artigo abordou desafios há muito pendentes associados à compreensão de contextos dentro de subáreas da ciência da computação preocupadas com o desenvolvimento de sistemas conscientes de contexto. Destaca que, embora tenha havido uma profusão de sistemas produzidos, pouco emergiu em termos de métodos, ferramentas ou padrões reutilizáveis. Afirma que uma abordagem mais sistemática é necessária para que a área progrida de maneira mais disciplinada e científica. Enfatiza que a teoria apresentada é um primeiro passo de vários passos necessários dentro da comunidade científica para convergir a um conjunto de bons princípios a seguir."
+      }
+    ],
+    "formal_notation_present": true,
+    "formal_notation_block": "Context Satisfaction:\nφ(Ci, OWj) = \"true\" iff forall w^c_i ∈ ACi there exists w^o_j ∈ OWj such that f(w^c_i, Fc, w^o_j, Fo)\nand false otherwise\n\nService Achievement Satisfaction (single user):\nSAS(IE, b, t) = Σ_{i=1::p, j=1::s, k=1::c} |BCE(pi, sj, ck, b, t) − BCP(pi, sj, ck, b, t)|\n\nService Achievement Satisfaction (multi-user):\nSASm(IE, B, t) = Σ_{i=1::p, j=1::s, k=1::c, l=1::b} |BCE(pi, sj, ck, bl, t) − BCP(pi, sj, ck, bl, t)| × GP(pi)\n\nCIEn Theory Structure:\nCIEn = <B, S, C, Ops, A, OW>\nwhere:\n- B: finite set of beneficiaries\n- S: finite set of services\n- C: finite set of contexts C = [Name, Beneficiary, Activation, Effect]\n- Ops = {Op1, Op2, ...}: finite set of context operations\n- A: finite set of algorithms\n- OW: finite set of instances OWi\n- Conditions: OWi ⊆ ℘(L), OWi ≠ ∅, ACi ⊆ ℘(L), ACi ≠ ∅\n\nContext Template:\n[Name, Beneficiary, Activation, Effect]\n\nContext Influence:\n- Direct Influence: C₁ ⇝ C₂ if C₁(Effect) ⊢ S where S ⊆ AC₂\n- Ripple Effect: C₁ ⇝ C₂ if:\n  1. begin(time_span(C₁)) ≤ end(time_span(C₂))\n  2. φ(C₁, OWt) ⊢ C₁(Effect) ⊢ ... ⊢ C₂\n\nContext Interaction Modalities:\n- Neutral: C₁ ⊛ C₂\n- Cooperative: C₁ ⊕ C₂\n- Competitive: C₁ ⊖ C₂\n- Incompatible: C₁ ⊗ C₂\n\nOps = {Activation, Comparison, Influence, Construction, Interaction}",
+    "case_study_present": true,
+    "case_summary": "O artigo utiliza um cenário ilustrativo de uma casa inteligente (smart home) ao longo de todo o texto. O cenário envolve um beneficiário B que vive em uma casa inteligente e tem duas rotinas semanais principais (segunda a sexta e fins de semana). Durante a semana, B acorda às 7h para estar pronto para o trabalho às 8h. O sistema automatiza serviços como acender luzes em sequência (quarto → corredor → banheiro → cozinha), ligar o rádio na cozinha, e fornecer informações sobre clima e qualidade do ar. Um dos pais idosos de B, PB, também vive na mesma casa e tem sintomas crescentes de demência senil, com riscos de segurança aumentados. O sistema deve diferenciar entre diferentes beneficiários indo ao banheiro e tentando sair de casa, e em que horários esses eventos são esperados. Por exemplo, levantar no meio da noite para ir ao banheiro não deve acionar ações na cozinha. A saída de B de casa durante horas escuras é normal, mas pode ser perigosa para PB dada a confusão espacial e temporal experimentada por essa pessoa. O cenário é usado para ilustrar conceitos como templates de contexto (Tabela 1 com cinco conceitos de contexto: uso da porta da frente, ir ao banheiro, rotina matinal, pular refeição, estar na cozinha), cada um com duas instanciações para B e PB.",
+    "closing_question": "Se permitirmos que sistemas de Ambientes Inteligentes façam sugestões criativas que diferem dos requisitos iniciais dos beneficiários — na crença de que isso maximizará suas preferências — como podemos garantir que essas 'surpresas agradáveis' realmente alinhem-se com as expectativas humanas em vez de impor uma 'inteligência' artificial que desrespeita a autonomia e as preferências genuínas dos usuários?"
+  },
+  "hero": {
+    "eyebrow": "Applied Artificial Intelligence · 2022 · e2008644 (725 pp.)",
+    "h1": "Repensando Contexto e Context-Awareness para Ambientes Inteligentes Centrados no Humano",
+    "lede": "Apesar da proliferação de sistemas context-aware, faltam metodologias, padrões e uma base teórica comum. Este artigo propõe a teoria CIEn, que redefine contexto e consciência de contexto com foco explícito nos beneficiários humanos e suas expectativas, não apenas em dados e sistemas artificiais.",
+    "toc_anchors": [
+      [
+        "introducao",
+        "Introdução"
+      ],
+      [
+        "state-of-art",
+        "Estado da Arte"
+      ],
+      [
+        "contexts-revisited",
+        "Contextos Revisitados"
+      ],
+      [
+        "cien-theory",
+        "Teoria CIEn"
+      ],
+      [
+        "context-operations",
+        "Operações de Contexto"
+      ],
+      [
+        "context-organization",
+        "Organização de Contextos"
+      ],
+      [
+        "holistic-view",
+        "Visão Holística"
+      ],
+      [
+        "conclusions",
+        "Conclusões"
+      ],
+      [
+        "mindmap",
+        "Mapa Mental"
+      ],
+      [
+        "downloads",
+        "Downloads"
+      ]
+    ],
+    "authors_line": "Juan Carlos Augusto",
+    "affiliations": "Research Group on Development of Intelligent Environments, Department of Computer Science, Middlesex University London, Londres, Reino Unido.",
+    "kv_rows": [
+      [
+        "Publicado em",
+        "Applied Artificial Intelligence, 2022"
+      ],
+      [
+        "Palavras-chave",
+        "context, context-awareness, intelligent environments, ambient intelligence, ubiquitous computing, pervasive computing, Internet of Things, beneficiaries, services, context satisfaction, context operations"
+      ],
+      [
+        "DOI",
+        "10.1080/08839514.2021.2008644"
+      ]
+    ],
+    "problem_statement": "Apesar do número significativo de sistemas implementados que visam fornecer consciência de contexto (context-awareness), há uma falta de metodologias e ferramentas comumente aceitas e utilizadas. Na raiz disso está a ausência de acordo sobre um conjunto de bons princípios ou padrões que possam servir como guia para a comunidade científica e os desenvolvedores interessados nessa classe de sistemas. Embora existam extensas revisões sobre o uso de contexto, ainda não há um corpus teórico emergente que possa ser usado para discutir os conceitos essenciais que compõem a estrutura dos contextos e seu uso pelos desenvolvedores de sistemas. As teorias anteriores focaram excessivamente no sistema artificial e nos dados, negligenciando os humanos que são os beneficiários finais dos sistemas de Ambientes Inteligentes."
+  },
+  "categories": [],
+  "mindmap": {
+    "root": {
+      "t": "Contexts & Context-awareness Revisited (IE)",
+      "k": "root",
+      "children": [
+        {
+          "t": "Problema & Motivação",
+          "k": "problem",
+          "children": [
+            {
+              "t": "Falta de metodologias e padrões aceitos",
+              "k": null,
+              "children": []
+            },
+            {
+              "t": "Ausência de corpus teórico emergente",
+              "k": null,
+              "children": []
+            },
+            {
+              "t": "Foco excessivo em dados/sistemas, não humanos",
+              "k": null,
+              "children": []
+            },
+            {
+              "t": "Lacuna: teorias inadequadas para IE centrado no humano",
+              "k": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "t": "Teoria CIEn",
+          "k": "theory",
+          "children": [
+            {
+              "t": "Estrutura: CIEn = <B, S, C, Ops, A, OW>",
+              "k": null,
+              "children": [
+                {
+                  "t": "B: beneficiários (humanos)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "S: serviços fornecidos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "C: contextos [Name, Beneficiary, Activation, Effect]",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ops: operações de contexto",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "A: algoritmos inteligentes",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "OW: mundo observável (instâncias)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Ciclo de vida dos contextos",
+              "k": null,
+              "children": [
+                {
+                  "t": "1. Definição de Contexto",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "2. Uso de Contexto",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "3. Desenvolvimento de Contexto",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Regra de Occam para design de contexto",
+              "k": null,
+              "children": [
+                {
+                  "t": "Implementar sse necessário, novo e viável",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Operações de Contexto (Ops)",
+          "k": "operations",
+          "children": [
+            {
+              "t": "Context Activation",
+              "k": null,
+              "children": [
+                {
+                  "t": "φ(Ci, OWj): satisfação de contexto",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Context Comparison",
+              "k": null,
+              "children": [
+                {
+                  "t": "Ψ: igual, sobrepõe, subsume",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Context Influence",
+              "k": null,
+              "children": [
+                {
+                  "t": "Direct Influence: C₁ ⇝ C₂",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ripple Effect: C₁ ⇝ C₂",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Context Construction",
+              "k": null,
+              "children": [
+                {
+                  "t": "FOLLOWEDBY (sequencial)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "IF-THEN (condicional)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "LOOP (cíclico)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Context Interaction",
+              "k": null,
+              "children": [
+                {
+                  "t": "Neutral: C₁ ⊛ C₂",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Cooperative: C₁ ⊕ C₂",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Competitive: C₁ ⊖ C₂",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Incompatible: C₁ ⊗ C₂",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Visão Holística & Satisfação",
+          "k": "satisfaction",
+          "children": [
+            {
+              "t": "BCP: Beneficiary Context Perception",
+              "k": null,
+              "children": [
+                {
+                  "t": "Contexto como percebido pelo beneficiário",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "BCE: Beneficiary Context Expectations",
+              "k": null,
+              "children": [
+                {
+                  "t": "Serviços esperados pelo beneficiário",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "SAS: Service Achievement Satisfaction",
+              "k": null,
+              "children": [
+                {
+                  "t": "SAS(IE,b,t) = Σ|BCE - BCP| (usuário único)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "SASm: otimização multiusuário com GP",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Caso de Estudo: Smart Home",
+          "k": "case",
+          "children": [
+            {
+              "t": "Beneficiários: B (trabalhador) e PB (pai idoso)",
+              "k": null,
+              "children": []
+            },
+            {
+              "t": "Rotinas diferenciadas (semana vs fim de semana)",
+              "k": null,
+              "children": []
+            },
+            {
+              "t": "Contextos ilustrados (Tabela 1)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Porta da frente, banheiro, rotina matinal",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Pular refeição, estar na cozinha",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Automação: luzes sequenciais, rádio, clima",
+              "k": null,
+              "children": []
+            },
+            {
+              "t": "Segurança: diferenciar B e PB (demência)",
+              "k": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "t": "Estado da Arte & Contexto Histórico",
+          "k": "background",
+          "children": [
+            {
+              "t": "Interesse em IA/KRR (Representação de Conhecimento)",
+              "k": null,
+              "children": []
+            },
+            {
+              "t": "Computação Ubíqua, IoT, AmI",
+              "k": null,
+              "children": []
+            },
+            {
+              "t": "Trabalhos influentes",
+              "k": null,
+              "children": [
+                {
+                  "t": "Benerecetti: metáfora 'caixa mágica'",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Brewka: sistemas multicontexto (mMCS)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Siewe: Cálculo de Ambientes (CCA)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Lacunas: inadequação prática, falta de teoria útil",
+              "k": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "palette": [
+      {
+        "kind": "root",
+        "fill": "#c0392b",
+        "text": "#fff",
+        "label": "Título do artigo"
+      },
+      {
+        "kind": "problem",
+        "fill": "#e67e22",
+        "text": "#fff",
+        "label": "Problema & Motivação"
+      },
+      {
+        "kind": "theory",
+        "fill": "#27ae60",
+        "text": "#fff",
+        "label": "Teoria CIEn (framework proposto)"
+      },
+      {
+        "kind": "operations",
+        "fill": "#2980b9",
+        "text": "#fff",
+        "label": "Operações de Contexto"
+      },
+      {
+        "kind": "satisfaction",
+        "fill": "#8e44ad",
+        "text": "#fff",
+        "label": "Satisfação do Beneficiário"
+      },
+      {
+        "kind": "case",
+        "fill": "#f39c12",
+        "text": "#fff",
+        "label": "Caso de Estudo"
+      },
+      {
+        "kind": "background",
+        "fill": "#34495e",
+        "text": "#fff",
+        "label": "Estado da Arte"
+      }
+    ]
+  },
+  "tables": [
+    {
+      "caption": "Conceitos Fundamentais da Teoria CIEn",
+      "columns": [
+        "Conceito",
+        "Definição",
+        "Papel no Sistema"
+      ],
+      "rows": [
+        [
+          "Context (Contexto)",
+          "Informação diretamente relevante para caracterizar uma situação de interesse para os stakeholders de um sistema",
+          "Estrutura que guia a adaptação do sistema às situações"
+        ],
+        [
+          "Context-awareness (Consciência de Contexto)",
+          "Capacidade de um sistema usar informação contextual para adaptar seus serviços de modo que sejam mais úteis aos stakeholders",
+          "Propriedade que permite ao sistema responder inteligentemente"
+        ],
+        [
+          "Beneficiaries (B)",
+          "Conjunto finito de humanos que são os usuários finais e stakeholders do sistema",
+          "Foco central do sistema; suas preferências dirigem o comportamento"
+        ],
+        [
+          "Services (S)",
+          "Conjunto finito de serviços que o sistema pode fornecer aos beneficiários",
+          "Ações concretas executadas pelo sistema em resposta a contextos"
+        ],
+        [
+          "Observable World (OW)",
+          "Conjunto finito de instâncias do mundo observável pelo sistema através de sensores",
+          "Fonte de dados que alimenta a detecção de contextos"
+        ],
+        [
+          "Intelligent Software (A)",
+          "Conjunto finito de algoritmos que processam informação e tomam decisões",
+          "Motor de raciocínio que conecta contextos a serviços"
+        ],
+        [
+          "Context Template",
+          "Estrutura [Name, Beneficiary, Activation, Effect] que define um contexto",
+          "Formato padronizado para especificar contextos"
+        ],
+        [
+          "BCP (Beneficiary Context Perception)",
+          "Contexto como percebido pelo beneficiário em um dado momento",
+          "Medida da experiência real do usuário"
+        ],
+        [
+          "BCE (Beneficiary Context Expectations)",
+          "Serviços que o beneficiário espera em um dado contexto",
+          "Medida das expectativas do usuário"
+        ],
+        [
+          "SAS (Service Achievement Satisfaction)",
+          "Função que mede a diferença entre BCE e BCP",
+          "Métrica de qualidade do sistema IE"
+        ]
+      ]
+    },
+    {
+      "caption": "Notação Formal da Teoria CIEn",
+      "columns": [
+        "Símbolo/Expressão",
+        "Significado"
+      ],
+      "rows": [
+        [
+          "CIEn = <B, S, C, Ops, A, OW>",
+          "Estrutura completa da teoria: Beneficiários, Serviços, Contextos, Operações, Algoritmos, Mundo Observável"
+        ],
+        [
+          "φ(Ci, OWj)",
+          "Função de satisfação de contexto: retorna true se OWj satisfaz o contexto Ci"
+        ],
+        [
+          "C₁ ⇝ C₂",
+          "Influência direta: contexto C₁ influencia diretamente C₂ quando C₁(Effect) implica parte da ativação de C₂"
+        ],
+        [
+          "C₁ ⇝ C₂",
+          "Efeito cascata (Ripple Effect): C₁ influencia C₂ de forma indireta através de uma cadeia de inferências"
+        ],
+        [
+          "SAS(IE, b, t)",
+          "Satisfação de serviço para um único beneficiário b no tempo t"
+        ],
+        [
+          "SASm(IE, B, t)",
+          "Satisfação de serviço para múltiplos beneficiários B no tempo t, ponderada por Preferências Globais"
+        ],
+        [
+          "C₁ ⊛ C₂",
+          "Interação neutra: contextos coexistem sem afetar um ao outro"
+        ],
+        [
+          "C₁ ⊕ C₂",
+          "Interação cooperativa: contextos trabalham juntos para benefício mútuo"
+        ],
+        [
+          "C₁ ⊖ C₂",
+          "Interação competitiva: contextos competem por recursos ou prioridade"
+        ],
+        [
+          "C₁ ⊗ C₂",
+          "Interação incompatível: contextos não podem coexistir simultaneamente"
+        ],
+        [
+          "ACi ⊆ ℘(L)",
+          "Condições de ativação do contexto Ci são subconjunto do conjunto potência da linguagem L"
+        ],
+        [
+          "GP(pi)",
+          "Preferências Globais: ordem parcial que pondera a importância de diferentes propriedades na otimização multiusuário"
+        ]
+      ]
+    },
+    {
+      "caption": "Operações de Contexto (Ops) na Teoria CIEn",
+      "columns": [
+        "Operação",
+        "Descrição",
+        "Exemplo de Uso"
+      ],
+      "rows": [
+        [
+          "Activation (Ativação)",
+          "Determina quando um contexto se torna ativo baseado em condições do mundo observável",
+          "Detectar que beneficiário B está na cozinha às 7h da manhã"
+        ],
+        [
+          "Comparison (Comparação)",
+          "Compara contextos usando relações como igualdade, sobreposição, subsunção",
+          "Verificar se contexto 'rotina matinal de B' sobrepõe-se com 'uso do banheiro por B'"
+        ],
+        [
+          "Influence (Influência)",
+          "Identifica como um contexto afeta outro, direta ou indiretamente (ripple effect)",
+          "Contexto 'acordar' influencia diretamente contexto 'acender luzes no quarto'"
+        ],
+        [
+          "Construction (Construção)",
+          "Organiza contextos usando estruturas algorítmicas: sequencial (FOLLOWEDBY), condicional (IF-THEN), cíclica (LOOP)",
+          "Sequenciar contextos: acender luzes quarto FOLLOWEDBY corredor FOLLOWEDBY banheiro"
+        ],
+        [
+          "Interaction (Interação)",
+          "Caracteriza a natureza das relações entre contextos: neutral, cooperative, competitive, incompatible",
+          "Contexto 'PB saindo à noite' é incompatível (⊗) com contexto 'segurança garantida'"
+        ]
+      ]
+    }
+  ],
+  "essay_condensed": {
+    "variant": "condensed",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "O problema invisível da consciência de contexto",
+        "paragraphs": [
+          "Apesar de milhares de protótipos e produtos comerciais prometendo casas, cidades e dispositivos \"inteligentes\", a área de sistemas conscientes de contexto enfrenta um problema fundamental: não há acordo sobre o que realmente significa trabalhar com contexto. Cada equipe de desenvolvimento reinventa a roda, cada sistema adota suas próprias definições, e o resultado é uma torre de Babel tecnológica onde boas práticas, metodologias e padrões simplesmente não emergem.",
+          "Na raiz dessa fragmentação está uma questão conceitual negligenciada. As teorias anteriores focaram excessivamente nos dados e nos sistemas artificiais, esquecendo que os verdadeiros beneficiários são humanos com preferências, necessidades e expectativas. Um sistema pode coletar terabytes de dados sensoriais sobre temperatura, localização e horários, mas se não compreende que você prefere acordar no escuro enquanto seu pai precisa de luz para não se desorientar, toda essa informação é inútil.",
+          "O artigo de Juan Carlos Augusto propõe uma mudança de perspectiva: repensar contexto e consciência de contexto colocando explicitamente os humanos no centro. Contexto passa a ser definido como \"a informação diretamente relevante para caracterizar uma situação de interesse para os stakeholders de um sistema\". E context-awareness torna-se \"a capacidade de um sistema usar informação contextual para adaptar seus serviços de modo que sejam mais úteis aos stakeholders porque se relacionam diretamente com suas preferências e necessidades\"."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "consciência de contexto",
+          "beneficiários",
+          "stakeholders",
+          "preferências"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "Anatomia de um contexto: templates e operações",
+        "paragraphs": [
+          "Para tornar o conceito de contexto operacional, Augusto propõe uma estrutura simples mas poderosa: o template de contexto. Cada contexto é descrito por quatro elementos fundamentais: um Nome que o identifica, o Beneficiário a quem serve, as condições de Ativação que determinam quando ele se aplica, e o Efeito que produz quando ativado.",
+          "Considere o contexto \"rotina matinal de B\" versus \"rotina matinal de PB\" (o pai com demência). Ambos compartilham o nome genérico, mas diferem radicalmente em beneficiário, ativação e efeito. Para B, a ativação pode ser \"segunda a sexta, entre 7h e 8h, presença detectada saindo do quarto\", com efeito \"acender luzes em sequência quarto-corredor-banheiro-cozinha, ligar rádio\". Para PB, a mesma sequência de luzes no meio da noite seria inadequada — o sistema precisa reconhecer que \"presença no corredor às 3h\" ativa um contexto diferente: \"ida noturna ao banheiro\", com efeito \"acender apenas luz do corredor e banheiro, em intensidade reduzida\".",
+          "Mas contextos não existem isolados. A teoria CIEn (Contexts for Intelligent Environments) identifica cinco operações fundamentais que desenvolvedores precisam dominar: Ativação (decidir quando um contexto se aplica), Comparação (identificar sobreposições e diferenças entre contextos), Influência (reconhecer quando um contexto afeta outro), Construção (combinar contextos em sequências, condições e ciclos) e Interação (caracterizar se contextos são neutros, cooperativos, competitivos ou incompatíveis entre si)."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Um contexto deve ser implementado se e somente se é necessário, não está atualmente no sistema, e pode ser implementado dentro dos recursos disponíveis.",
+          "cite": "Teoria CIEn · Regra de Occam para design de contexto"
+        },
+        "terms": [
+          "template de contexto",
+          "Ativação",
+          "Efeito",
+          "operações de contexto",
+          "CIEn"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Satisfação do beneficiário como métrica de sucesso",
+        "paragraphs": [
+          "A contribuição mais radical da teoria CIEn é introduzir uma métrica formal para avaliar se um sistema inteligente está realmente servindo bem seus usuários. A função SAS (Service Achievement Satisfaction) mede a diferença entre o que o beneficiário espera em um dado contexto (BCE - Beneficiary Context Expectations) e o que ele percebe estar recebendo (BCP - Beneficiary Context Perception).",
+          "Imagine que PB tenta sair de casa às 4h da manhã, desorientado. Suas expectativas conscientes podem ser simplesmente \"abrir a porta e sair\", mas o sistema — conhecendo seu histórico médico e padrões de comportamento — reconhece que essa ação representa risco. O contexto \"saída noturna de PB\" é ativado, com efeito \"acender luzes externas, notificar cuidador, travar porta temporariamente\". A satisfação não é medida apenas pelo que PB quer naquele instante, mas pelo alinhamento entre suas necessidades reais (segurança) e o serviço prestado.",
+          "Para ambientes com múltiplos usuários, a teoria se generaliza através de SASm, que otimiza a experiência do grupo usando uma ordem parcial de Preferências Globais. Quando B precisa sair cedo para o trabalho e PB ainda está dormindo, o sistema deve balancear: acender luzes na rota de B sem iluminar o quarto de PB, ajustar o volume do rádio, talvez adiar o café até que ambos estejam acordados. Não há solução perfeita, mas há soluções melhores — e a teoria fornece o arcabouço formal para encontrá-las."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "Service Achievement Satisfaction",
+          "BCE",
+          "BCP",
+          "Preferências Globais",
+          "múltiplos usuários"
+        ]
+      },
+      {
+        "no": "04",
+        "heading": "Da teoria à prática: influência e efeito cascata",
+        "paragraphs": [
+          "Um dos conceitos mais sutis da teoria é a distinção entre influência direta e efeito cascata (ripple effect) entre contextos. Influência direta ocorre quando a ativação de um contexto C₁ produz efeitos que satisfazem as condições de ativação de outro contexto C₂. Por exemplo, \"B sai do quarto\" (C₁) ativa \"acender luz do corredor\" (efeito), que por sua vez satisfaz a condição de ativação de \"B indo ao banheiro\" (C₂).",
+          "O efeito cascata é mais sutil: C₁ desencadeia uma cadeia de eventos que eventualmente afeta C₂, mas de forma menos óbvia e potencialmente atravessando múltiplos contextos intermediários. Se PB \"pula uma refeição\" (C₁), isso pode não ter efeito imediato, mas ao longo de dias pode contribuir para \"declínio nutricional\" (C₃), que por sua vez aumenta a probabilidade de \"confusão espacial\" (C₂). O sistema precisa rastrear essas dependências temporais e causais para antecipar problemas.",
+          "Essa capacidade de raciocinar sobre influências e cascatas é o que separa um sistema verdadeiramente inteligente de um simples conjunto de regras if-then. A teoria CIEn fornece a linguagem formal para expressar essas relações — usando notações como C₁ ⇝ C₂ para influência direta e C₁ ⇝ C₂ para efeito cascata — permitindo que desenvolvedores projetem sistemas que antecipam, em vez de apenas reagir."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "influência direta",
+          "efeito cascata",
+          "ripple effect",
+          "dependências temporais"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "São sete da manhã. As luzes do quarto se acendem suavemente, seguidas pelas do corredor, depois do banheiro. Na cozinha, o rádio liga sozinho enquanto a cafeteira começa a trabalhar. Para você, essa sequência é perfeita — mas e se fosse seu pai idoso, com sintomas de demência, levantando-se confuso no meio da noite? O sistema saberia diferenciar? A promessa dos ambientes inteligentes é justamente essa: adaptar-se ao contexto de cada pessoa, em cada momento. Mas o que exatamente significa \"contexto\" quando falamos de sistemas computacionais que precisam tomar decisões por nós?",
+    "closing_paragraph": "A teoria CIEn representa um primeiro passo essencial para transformar o desenvolvimento de ambientes inteligentes de artesanato em engenharia. Ao colocar os beneficiários no centro, formalizar as operações sobre contextos e introduzir métricas de satisfação, ela oferece um vocabulário comum e um conjunto de princípios que a comunidade científica pode refinar e expandir. Mas essa formalização também nos confronta com uma questão ética profunda, que a tecnologia sozinha não pode responder."
+  },
+  "essay_full": {
+    "variant": "full",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "O Desafio Invisível dos Ambientes Inteligentes",
+        "paragraphs": [
+          "Nas últimas décadas, a Ciência da Computação evoluiu de sistemas isolados e estáticos para ecossistemas dinâmicos e interconectados. Surgiram áreas como Computação Ubíqua, Internet das Coisas, Inteligência Ambiente e Ambientes Inteligentes — todas compartilhando um denominador comum: a promessa de sistemas que se adaptam ao nosso redor, respondendo não apenas a comandos explícitos, mas às circunstâncias do momento. Essa capacidade de perceber e reagir às situações é o que chamamos de consciência de contexto (context-awareness).",
+          "Apesar do sucesso quantitativo — milhares de protótipos acadêmicos e produtos comerciais já foram desenvolvidos — a área enfrenta um problema fundamental: faltam boas práticas, padrões e metodologias comumente aceitas. Cada equipe de desenvolvimento reinventa a roda, criando suas próprias definições de contexto e suas próprias formas de lidar com ele. Na raiz dessa fragmentação está a ausência de um corpus teórico sólido, um conjunto de princípios que possam guiar tanto pesquisadores quanto desenvolvedores.",
+          "Mais grave ainda: as teorias existentes focaram excessivamente nos dados e nos sistemas artificiais, negligenciando os humanos que são, afinal, os beneficiários finais dessas tecnologias. Um sistema de casa inteligente pode coletar milhares de pontos de dados sobre temperatura, luminosidade, movimento e horários, mas se não compreender as necessidades, preferências e expectativas das pessoas que vivem ali, toda essa informação é inútil — ou pior, pode gerar comportamentos inadequados e frustrantes."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "consciência de contexto",
+          "Ambientes Inteligentes",
+          "beneficiários"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "Contexto: Uma Ideia Antiga, Um Problema Novo",
+        "paragraphs": [
+          "O conceito de contexto não é novo na Inteligência Artificial. Desde os anos 1960, pesquisadores em Representação de Conhecimento e Raciocínio (KRR) exploravam como sistemas poderiam raciocinar sobre diferentes situações. A metáfora da 'caixa mágica' proposta por Benerecetti e colaboradores, os sistemas multicontexto (mMCS) de Brewka, e o Cálculo de Ambientes Conscientes de Contexto (CCA) de Siewe são exemplos de tentativas formais de capturar essa ideia.",
+          "Porém, essas abordagens teóricas, embora elegantes, revelaram-se inadequadas para as aplicações práticas centradas no humano que os Ambientes Inteligentes demandam hoje. Elas tendiam a tratar contextos como entidades abstratas em sistemas lógicos, sem conexão clara com as necessidades reais de pessoas reais em situações reais. Além disso, permaneciam em um nível de generalidade que oferecia pouca orientação concreta para desenvolvedores criando sistemas funcionais.",
+          "A Computação Ubíqua trouxe uma perspectiva mais pragmática, focando em como dispositivos móveis e sensores poderiam capturar informações contextuais. Mas mesmo aqui, a ênfase recaía sobre a infraestrutura tecnológica — quais sensores usar, como processar os dados — em vez de sobre a experiência humana que deveria ser o objetivo final de toda essa engenharia."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "As teorias existentes focaram excessivamente nos dados e sistemas artificiais, negligenciando os humanos que são os beneficiários finais.",
+          "cite": "Problema Central · CIEn"
+        },
+        "terms": [
+          "Representação de Conhecimento",
+          "sistemas multicontexto",
+          "Computação Ubíqua"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Redefinindo Contexto com o Humano no Centro",
+        "paragraphs": [
+          "Para avançar, precisamos redefinir contexto de forma que coloque explicitamente os humanos no centro. Contexto não é simplesmente 'qualquer informação que possa ser usada para caracterizar uma situação' — definição vaga que encontramos em muitos trabalhos. Contexto é, mais precisamente, a informação diretamente relevante para caracterizar uma situação de interesse para os stakeholders de um sistema. A diferença é sutil, mas crucial: nem toda informação disponível é contextual; apenas aquela que importa para as pessoas envolvidas.",
+          "Da mesma forma, consciência de contexto não é apenas a capacidade de coletar e processar dados contextuais. É a capacidade de um sistema usar informação contextual para adaptar seus serviços de modo que sejam mais úteis aos stakeholders porque se relacionam diretamente com suas preferências e necessidades. Novamente, o foco está na utilidade percebida pelos humanos, não na sofisticação técnica do sistema.",
+          "Essa reformulação exige que identifiquemos claramente os componentes fundamentais de qualquer sistema consciente de contexto. Primeiro, os Beneficiários (B) — as pessoas para quem o sistema existe. Segundo, os Serviços (S) — as ações que o sistema pode executar para ajudar os beneficiários. Terceiro, os Contextos (C) — as situações que o sistema precisa reconhecer para decidir quais serviços oferecer. Quarto, o Mundo Observável (OW) — o estado atual do ambiente, capturado por sensores e outras fontes de dados. E quinto, o Software Inteligente — os algoritmos (A) que conectam tudo isso, decidindo quando ativar cada contexto e quais serviços disparar.",
+          "Para tornar esses conceitos operacionais, podemos usar Templates de Contexto, estruturas simples que descrevem cada contexto através de quatro elementos: [Nome, Beneficiário, Ativação, Efeito]. O Nome identifica o contexto (por exemplo, 'rotina matinal'). O Beneficiário especifica para quem esse contexto é relevante (você ou seu pai). A Ativação define as condições que devem ser satisfeitas para que o contexto seja reconhecido (dia da semana, horário, localização da pessoa). E o Efeito descreve quais serviços devem ser acionados quando o contexto está ativo (acender luzes, ligar rádio, fornecer informações)."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "Beneficiários",
+          "Serviços",
+          "Mundo Observável",
+          "Templates de Contexto"
+        ]
+      },
+      {
+        "no": "04",
+        "heading": "CIEn: Uma Teoria para Ambientes Inteligentes",
+        "paragraphs": [
+          "Com esses fundamentos, podemos construir uma teoria mais formal e útil: CIEn (Contexts for Intelligent Environments). A teoria CIEn pode ser representada como uma estrutura CIEn = <B, S, C, Ops, A, OW>, onde cada elemento tem um papel específico. B é o conjunto finito de beneficiários. S é o conjunto finito de serviços disponíveis. C é o conjunto finito de contextos, cada um descrito por um template. Ops é o conjunto de operações que podemos realizar sobre contextos. A é o conjunto de algoritmos que implementam a inteligência do sistema. E OW é o conjunto de instâncias do mundo observável — snapshots do estado do ambiente em diferentes momentos.",
+          "O ciclo de vida dos contextos em um sistema CIEn passa por três estágios principais. Primeiro, a Definição de Contexto: identificar quais contextos são necessários, descrevê-los através de templates, e implementá-los no sistema. Segundo, o Uso de Contexto: durante a operação do sistema, monitorar continuamente o mundo observável, detectar quando as condições de ativação são satisfeitas, e disparar os efeitos apropriados. Terceiro, o Desenvolvimento de Contexto: ao longo do tempo, adicionar novos contextos, modificar contextos existentes, ou remover contextos que não são mais necessários.",
+          "Um princípio importante emerge aqui, que podemos chamar de 'regra de Occam para design de contexto': um contexto deve ser implementado se e somente se é necessário para atender às necessidades dos beneficiários, não está atualmente no sistema, e pode ser implementado dentro dos recursos disponíveis (sensores, processamento, memória). Essa regra evita a tentação de criar contextos desnecessariamente complexos ou redundantes, mantendo o sistema gerenciável e compreensível."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Um contexto deve ser implementado se e somente se é necessário, não está atualmente no sistema, e pode ser implementado dentro dos recursos disponíveis.",
+          "cite": "Princípio de Design · CIEn"
+        },
+        "terms": [
+          "CIEn",
+          "ciclo de vida",
+          "regra de Occam"
+        ]
+      },
+      {
+        "no": "05",
+        "heading": "Operações sobre Contextos: O Vocabulário do Desenvolvedor",
+        "paragraphs": [
+          "Para trabalhar efetivamente com contextos, desenvolvedores precisam de um vocabulário de operações — formas de raciocinar sobre contextos e suas relações. A primeira operação fundamental é a Ativação de Contexto (Context Activation): determinar se um dado contexto está ativo no momento presente. Isso requer uma função de satisfação de contexto, φ(Ci, OWj), que retorna verdadeiro se o mundo observável atual satisfaz as condições de ativação do contexto Ci, e falso caso contrário.",
+          "A segunda operação é a Comparação de Contexto (Context Comparison): entender como dois contextos se relacionam. Um contexto pode ser igual a outro, sobrepor-se parcialmente com outro, subsumir outro (ser mais geral), ou ser completamente distinto. Por exemplo, o contexto 'estar na cozinha' subsume o contexto 'preparar café na cozinha', pois o segundo é um caso especial do primeiro. Essas relações ajudam a organizar e simplificar o conjunto de contextos.",
+          "A terceira operação é a Influência de Contexto (Context Influence): reconhecer que a ativação de um contexto pode afetar outros contextos. Existem dois tipos de influência. A Influência Direta (C₁ ⇝ C₂) ocorre quando o efeito de um contexto C₁ satisfaz diretamente as condições de ativação de outro contexto C₂. Por exemplo, o contexto 'acordar' pode ter como efeito 'pessoa está no quarto', que é parte das condições de ativação do contexto 'rotina matinal'. O Efeito Cascata (Ripple Effect, C₁ ⇝ C₂) é mais sutil: ocorre quando a ativação de C₁ desencadeia uma cadeia de eventos que eventualmente leva à ativação de C₂, mesmo que não haja conexão direta óbvia.",
+          "Voltando ao exemplo da casa inteligente: quando você acorda (contexto C₁), isso ativa sua rotina matinal (contexto C₂ por influência direta). A rotina matinal inclui acender luzes em sequência, o que pode influenciar o contexto 'seu pai também está acordando' (contexto C₃ por efeito cascata), já que a luz e o som podem despertá-lo. O sistema precisa raciocinar sobre essas influências para evitar efeitos colaterais indesejados."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "Ativação de Contexto",
+          "Comparação de Contexto",
+          "Influência Direta",
+          "Efeito Cascata"
+        ]
+      },
+      {
+        "no": "06",
+        "heading": "Construção e Interação: Organizando Contextos Complexos",
+        "paragraphs": [
+          "Além das operações básicas, precisamos de formas de construir contextos complexos a partir de contextos simples e de caracterizar como contextos interagem entre si. A Construção de Contexto (Context Construction) usa blocos de construção algorítmicos familiares. Processos Sequenciados (FOLLOWEDBY) descrevem contextos que ocorrem em ordem: 'acordar' seguido por 'ir ao banheiro' seguido por 'tomar café'. Processos Condicionados (IF-THEN) descrevem contextos que dependem de condições: 'se é dia de semana, então rotina de trabalho; se é fim de semana, então rotina de lazer'. Processos Cíclicos (LOOP) descrevem contextos que se repetem: 'verificar se a pessoa idosa está segura a cada 30 minutos'.",
+          "A Interação de Contexto (Context Interaction) caracteriza a natureza das relações entre contextos que podem estar ativos simultaneamente. Contextos Neutros (C₁ ⊛ C₂) coexistem sem se afetar: 'estar na sala' e 'estar chovendo lá fora' são independentes. Contextos Cooperativos (C₁ ⊕ C₂) se reforçam mutuamente: 'preparar café' e 'tostar pão' fazem parte da mesma rotina matinal e seus efeitos se complementam. Contextos Competitivos (C₁ ⊖ C₂) disputam recursos ou atenção: 'assistir TV na sala' e 'ouvir música na sala' competem pelo ambiente sonoro. Contextos Incompatíveis (C₁ ⊗ C₂) não podem coexistir logicamente: 'pessoa está em casa' e 'pessoa está no trabalho' são mutuamente exclusivos.",
+          "Essas modalidades de interação são cruciais para evitar conflitos e comportamentos incoerentes. Se o sistema detecta que seu pai está tentando sair de casa no meio da noite (contexto 'saída noturna de pessoa com demência') e simultaneamente você está chegando do trabalho (contexto 'chegada do trabalho'), ele precisa reconhecer que esses são contextos cooperativos — ambos exigem que a porta seja destrancada — mas com prioridades e ações diferentes. O sistema pode destrancar a porta para você entrar, mas também alertá-lo sobre a tentativa de saída do seu pai."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Contextos podem ser neutros, cooperativos, competitivos ou incompatíveis — reconhecer essas modalidades é crucial para evitar conflitos e comportamentos incoerentes.",
+          "cite": "Operações de Contexto · CIEn"
+        },
+        "terms": [
+          "Construção de Contexto",
+          "Interação de Contexto",
+          "Contextos Cooperativos",
+          "Contextos Incompatíveis"
+        ]
+      },
+      {
+        "no": "07",
+        "heading": "Medindo o Sucesso: Satisfação dos Beneficiários",
+        "paragraphs": [
+          "Uma teoria centrada no humano precisa de uma forma de medir o sucesso do sistema do ponto de vista dos beneficiários, não apenas da perspectiva técnica. Aqui entram três conceitos adicionais. A Percepção de Contexto pelo Beneficiário (BCP, Beneficiary Context Perception) representa o contexto como o beneficiário o percebe — o que ele acredita estar acontecendo. As Expectativas de Contexto do Beneficiário (BCE, Beneficiary Context Expectations) representam os serviços que o beneficiário espera receber em um dado contexto — o que ele acredita que o sistema deveria fazer.",
+          "A diferença entre expectativas e percepção é o que determina a satisfação. Se você espera que as luzes se acendam quando você acorda (BCE) e elas de fato se acendem (BCP), você está satisfeito. Se você espera que o rádio toque sua estação favorita, mas o sistema toca uma estação diferente, há uma lacuna entre expectativa e realidade. A função de Satisfação de Realização de Serviço (SAS, Service Achievement Satisfaction) quantifica essa diferença, somando as discrepâncias entre BCE e BCP ao longo de todas as propriedades, serviços e contextos relevantes para um beneficiário em um dado momento.",
+          "Matematicamente, SAS(IE, b, t) = Σ |BCE(pi, sj, ck, b, t) − BCP(pi, sj, ck, b, t)|, onde IE é o sistema de Ambiente Inteligente, b é o beneficiário, t é o tempo, pi são propriedades, sj são serviços, e ck são contextos. Quanto menor o valor de SAS, melhor o sistema está atendendo às expectativas do beneficiário. Um SAS de zero significa satisfação perfeita — o sistema está fazendo exatamente o que o beneficiário espera, nem mais, nem menos.",
+          "Quando há múltiplos beneficiários — como você e seu pai na mesma casa inteligente — a situação se complica. Suas expectativas podem conflitar: você quer que o rádio toque alto de manhã, mas seu pai prefere silêncio. A teoria CIEn generaliza o conceito de satisfação para múltiplos usuários através de uma função SASm que incorpora Preferências Globais (GP, Global Preferences). Essas preferências estabelecem uma ordem parcial de prioridades: em certas situações, as necessidades de segurança do seu pai (evitar que ele saia desorientado à noite) têm prioridade sobre seu conforto (não ser acordado por alarmes). Em outras situações, suas necessidades de trabalho (acordar a tempo) têm prioridade. O sistema busca minimizar SASm, otimizando a experiência do grupo como um todo, não apenas de um indivíduo."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "Percepção de Contexto pelo Beneficiário",
+          "Expectativas de Contexto",
+          "Satisfação de Realização de Serviço",
+          "Preferências Globais"
+        ]
+      },
+      {
+        "no": "08",
+        "heading": "Da Teoria à Prática: Implementando CIEn",
+        "paragraphs": [
+          "Como essa teoria se traduz em sistemas reais? Considere novamente a casa inteligente. O desenvolvedor começa identificando os beneficiários (você e seu pai) e seus perfis: suas rotinas, preferências, necessidades especiais. Em seguida, define os serviços disponíveis: controle de iluminação, controle de áudio, fornecimento de informações, monitoramento de segurança, alertas. Depois, identifica os contextos necessários usando templates.",
+          "Por exemplo, o contexto 'rotina matinal de dia de semana' para você poderia ser: [Nome: 'RotinaManha_Voce', Beneficiário: 'Voce', Ativação: 'dia_semana AND hora >= 07:00 AND hora < 08:00 AND localizacao = quarto', Efeito: 'acender_luzes_sequencia(quarto, corredor, banheiro, cozinha) AND ligar_radio(cozinha, estacao_favorita) AND fornecer_info(clima, qualidade_ar)']. O contexto correspondente para seu pai seria diferente: [Nome: 'RotinaManha_Pai', Beneficiário: 'Pai', Ativação: 'dia_semana AND hora >= 08:00 AND hora < 09:00 AND localizacao = quarto', Efeito: 'acender_luzes_suave(quarto, corredor, banheiro, cozinha) AND tocar_musica_calma(cozinha) AND lembrete_medicacao'].",
+          "O desenvolvedor então implementa os algoritmos que monitoram o mundo observável (sensores de presença, relógios, calendários, GPS) e avaliam continuamente as funções de satisfação de contexto φ(Ci, OWj) para cada contexto. Quando um contexto é ativado, o sistema executa os efeitos correspondentes. Mas antes de executar, o sistema verifica as interações: há contextos incompatíveis ativos? Há contextos cooperativos que deveriam ser coordenados? Há influências diretas ou efeitos cascata que precisam ser considerados?",
+          "Periodicamente, o sistema calcula SAS para cada beneficiário, identificando lacunas entre expectativas e percepção. Se você frequentemente desliga o rádio logo após ele ser ligado, o sistema infere que suas expectativas mudaram e ajusta o contexto. Se seu pai frequentemente ignora os lembretes de medicação, o sistema pode intensificar os alertas ou notificar você. Essa adaptação contínua, guiada pela satisfação dos beneficiários, é o que diferencia um sistema verdadeiramente inteligente de um autômato rígido."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A adaptação contínua, guiada pela satisfação dos beneficiários, é o que diferencia um sistema verdadeiramente inteligente de um autômato rígido.",
+          "cite": "Implementação · CIEn"
+        },
+        "terms": [
+          "templates",
+          "satisfação de contexto",
+          "adaptação contínua",
+          "mundo observável"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine acordar às sete da manhã e, antes mesmo de você tocar no interruptor, as luzes do quarto se acendem suavemente. Enquanto você caminha pelo corredor, a iluminação acompanha seus passos — corredor, banheiro, cozinha — como se a casa antecipasse cada movimento. O rádio liga sozinho na cozinha, sintonizado na sua estação favorita, e uma voz sintética informa a previsão do tempo e a qualidade do ar lá fora. Parece mágica, mas é tecnologia: sua casa \"sabe\" que é segunda-feira, que você tem trabalho às oito, e que essa é sua rotina matinal. Agora imagine que seu pai idoso, que mora com você e apresenta sintomas de demência, também vive nessa mesma casa inteligente. Quando ele se levanta no meio da noite para ir ao banheiro, o sistema não deve acender as luzes da cozinha nem ligar o rádio — seria confuso e perigoso. E se ele tentar sair de casa às três da madrugada, desorientado, o sistema precisa intervir de forma diferente do que faria com você saindo para o trabalho. Como a casa \"sabe\" a diferença? Como ela decide o que fazer em cada situação? A resposta está em um conceito que usamos inconscientemente todos os dias, mas que a ciência da computação ainda luta para formalizar: o contexto.",
+    "closing_paragraph": "A teoria CIEn representa um primeiro passo — importante, mas não definitivo — em direção a uma abordagem mais sistemática e científica para o desenvolvimento de Ambientes Inteligentes conscientes de contexto. Ela oferece um vocabulário comum, um conjunto de operações bem definidas, e uma estrutura que coloca os humanos no centro, onde sempre deveriam estar. Mas também levanta questões profundas sobre autonomia, controle e confiança. Sistemas inteligentes não são apenas ferramentas passivas que executam comandos; eles observam, inferem, aprendem e, cada vez mais, sugerem e decidem. À medida que delegamos mais decisões a esses sistemas — desde acender luzes até monitorar a saúde de pessoas vulneráveis — precisamos garantir que suas ações reflitam genuinamente nossas preferências e valores, não uma interpretação algorítmica que pode estar desalinhada com nossas expectativas. A teoria fornece os mecanismos para medir e otimizar a satisfação dos beneficiários, mas a responsabilidade final permanece com os desenvolvedores e com a sociedade: definir claramente o que significa um sistema \"inteligente\" servir bem aos humanos, e estabelecer os limites éticos dentro dos quais essa inteligência deve operar."
+  },
+  "workshop": {
+    "title": "Projetando Contextos Inteligentes: Da Teoria CIEn à Prática",
+    "framing": "Ciclo de Kolb adaptado para sistemas context-aware: experiência concreta (aplicação de templates) → observação reflexiva (análise de satisfação) → conceituação abstrata (operações de contexto) → experimentação ativa (redesign colaborativo)",
+    "duration_minutes": 75,
+    "participant_track": {
+      "steps": [
+        {
+          "phase": "Ancoragem: Mapeamento de Contextos",
+          "instruction": "Acesse o documento compartilhado 'Cenário Smart Home' e leia a descrição do ambiente inteligente proposto (casa com dois beneficiários: B e PB). Identifique e liste no chat pelo menos 3 situações onde o sistema precisa diferenciar contextos entre os dois beneficiários.",
+          "self_check_prompt": "Você consegue explicar por que a mesma ação física (ex: abrir a porta da frente) pode significar contextos diferentes dependendo de quem a realiza e quando?"
+        },
+        {
+          "phase": "Aplicação: Templates de Contexto",
+          "instruction": "Em sua sala de breakout (3-4 pessoas), escolha UMA das situações identificadas. Usando a estrutura [Name, Beneficiary, Activation, Effect], preencha um template de contexto completo no quadro colaborativo Miro/Jamboard. Seja específico sobre as condições de ativação e os efeitos esperados.",
+          "self_check_prompt": "Seu template deixa claro QUEM se beneficia, QUANDO o contexto é ativado e O QUE o sistema deve fazer? Outro desenvolvedor conseguiria implementá-lo?"
+        },
+        {
+          "phase": "Reflexão: Satisfação de Contexto",
+          "instruction": "Ainda em grupo, discuta: se o sistema implementasse seu contexto exatamente como projetado, qual seria a diferença entre BCE (o que o beneficiário espera) e BCP (o que ele percebe)? Registre essa análise em 2-3 frases no documento compartilhado.",
+          "self_check_prompt": "Você está pensando do ponto de vista do BENEFICIÁRIO (humano) ou do SISTEMA (técnico)? A teoria CIEn prioriza qual perspectiva?"
+        },
+        {
+          "phase": "Conceituação: Operações de Contexto",
+          "instruction": "Retorne à sessão plenária. Enquanto os grupos apresentam, anote em seu caderno pessoal: identifique pelo menos um exemplo de cada operação de contexto (Activation, Comparison, Influence, Construction, Interaction) nas apresentações dos colegas. Use os símbolos do artigo (⇝, ⊕, ⊖, ⊗, ⊛).",
+          "self_check_prompt": "Você consegue distinguir entre 'Direct Influence' (C₁ ⇝ C₂) e 'Ripple Effect' (C₁ ⇝ C₂)? Consegue dar um exemplo de cada?"
+        },
+        {
+          "phase": "Experimentação: Redesign Colaborativo",
+          "instruction": "Participe da votação no Mentimeter sobre qual contexto apresentado tem maior risco de conflito (Competitive ⊖ ou Incompatible ⊗). Para o contexto mais votado, proponha no chat UMA modificação que transforme a relação em Cooperative (⊕) ou Neutral (⊛).",
+          "self_check_prompt": "Sua proposta resolve o conflito mantendo a satisfação (SAS) de AMBOS os beneficiários, ou privilegia um sobre o outro?"
+        },
+        {
+          "phase": "Consolidação: Princípios de Design",
+          "instruction": "Individualmente, responda no formulário Google Forms: 'Qual princípio da teoria CIEn você considera mais desafiador de aplicar em sistemas reais e por quê?' Escolha entre: (a) Foco no beneficiário vs. dados, (b) Regra de Occam para contextos, (c) Otimização multiusuário (SASm), (d) Gestão de contextos incompatíveis.",
+          "self_check_prompt": "Você consegue articular não apenas O QUE é desafiador, mas POR QUE é desafiador do ponto de vista técnico E ético?"
+        }
+      ],
+      "materials_needed": [
+        "Acesso à videoconferência (Zoom/Teams/Meet) com capacidade de breakout rooms",
+        "Documento colaborativo 'Cenário Smart Home' (Google Docs ou equivalente) - link fornecido pelo facilitador",
+        "Quadro colaborativo visual (Miro, Jamboard, ou Mural) com template pré-estruturado [Name, Beneficiary, Activation, Effect]",
+        "Caderno pessoal ou documento para anotações individuais",
+        "Acesso ao Mentimeter para votação (código fornecido durante a sessão)",
+        "Formulário Google Forms para reflexão final (link no chat)",
+        "Cópia do artigo ou resumo dos conceitos-chave (fornecido previamente como leitura assíncrona)"
+      ],
+      "reflection_questions": [
+        "Como a teoria CIEn muda sua compreensão sobre o que significa 'inteligência' em sistemas context-aware? O foco em beneficiários (B) em vez de apenas dados altera fundamentalmente o design?",
+        "Ao aplicar os templates de contexto [Name, Beneficiary, Activation, Effect] no cenário da casa inteligente, quais informações foram mais difíceis de especificar? O que isso revela sobre os desafios de formalizar contextos humanos?",
+        "Considerando a função SAS (Service Achievement Satisfaction), como você mediria na prática a diferença entre BCE (expectativas) e BCP (percepção)? Que métodos de avaliação com usuários reais seriam necessários?",
+        "Quando contextos de diferentes beneficiários entram em conflito (⊖ ou ⊗), que critérios éticos devem guiar a otimização? A função SASm com Preferências Globais (GP) é suficiente, ou precisamos de princípios adicionais?",
+        "Reflita sobre a 'regra de Occam para design de contexto': um contexto deve ser implementado apenas se necessário, não redundante e viável. Como isso se aplica à tendência atual de sistemas 'hiper-personalizados' que coletam dados excessivos?",
+        "A distinção entre Direct Influence (⇝) e Ripple Effect (⇝) sugere que sistemas context-aware podem ter consequências não-intencionais. Como desenvolvedores podem antecipar e mitigar efeitos em cascata indesejados?"
+      ]
+    },
+    "facilitator_track": {
+      "script": [
+        {
+          "time_marker": "0–5 min",
+          "activity": "Abertura e enquadramento pedagógico. Apresente brevemente o objetivo da sessão: consolidar a teoria CIEn através de aplicação prática no cenário smart home. Explique o ciclo Kolb adaptado que estrutura a dinâmica. Compartilhe o link do documento 'Cenário Smart Home' e verifique que todos têm acesso.",
+          "facilitator_notes": "Enfatize que não é uma aula expositiva, mas aplicação ativa. Verifique rapidamente no chat quem leu o artigo previamente (esperado: 70%+). Se menos de 50% leu, ajuste expectativas e forneça resumo de 2 min dos conceitos [Name, Beneficiary, Activation, Effect] e SAS. Prepare-se para compartilhar tela com o documento do cenário.",
+          "discussion_prompts": [
+            "Quem já trabalhou com sistemas context-aware antes? Que desafios encontraram na definição de 'contexto'?",
+            "Por que vocês acham que o artigo insiste tanto em colocar 'beneficiários' (humanos) no centro, em vez de 'dados' ou 'sensores'?"
+          ]
+        },
+        {
+          "time_marker": "5–15 min",
+          "activity": "Fase 1 - Ancoragem: Mapeamento de Contextos. Participantes leem o cenário individualmente e identificam situações onde contextos diferem entre B e PB. Peça que compartilhem no chat (não verbalmente, para dar tempo de todos pensarem). Após 5 min, faça uma rápida síntese visual (use anotação na tela ou Jamboard) agrupando as situações mencionadas.",
+          "facilitator_notes": "Erro comum: participantes listam 'eventos' (porta abre) em vez de 'contextos' (saída matinal de B vs. saída noturna confusa de PB). Redirecione gentilmente: 'Ótimo, e qual é a DIFERENÇA de contexto entre essas duas situações? Quem é o beneficiário? O que o sistema deve fazer diferente?' Observe se alguém já menciona espontaneamente elementos do template [Name, Beneficiary, Activation, Effect] - valorize isso. Tenha 3-4 exemplos prontos caso o chat fique silencioso: (1) Ir ao banheiro à noite, (2) Sair de casa em horários diferentes, (3) Pular refeição, (4) Acordar de manhã.",
+          "discussion_prompts": [
+            "Alguém identificou uma situação onde o MESMO evento físico (ex: sensor de movimento no corredor) precisa acionar respostas DIFERENTES dependendo do contexto?",
+            "O que torna um contexto 'diferente' de outro? É só o horário? Ou também quem está envolvido e o histórico?"
+          ]
+        },
+        {
+          "time_marker": "15–30 min",
+          "activity": "Fase 2 - Aplicação: Templates de Contexto. Divida em breakout rooms de 3-4 pessoas. Cada grupo escolhe UMA situação e preenche um template completo no quadro colaborativo. Circule pelas salas (entre em 2-3 salas aleatoriamente) para observar o progresso e dar feedback pontual. Avise 2 min antes do retorno.",
+          "facilitator_notes": "Desafio principal: grupos tendem a ser vagos em 'Activation' ('quando o usuário precisa') ou 'Effect' ('melhorar a experiência'). Provoque especificidade: 'Que SENSORES ou DADOS ativam isso? Que AÇÃO CONCRETA o sistema executa?' Observe se grupos estão colaborando ou se uma pessoa domina - intervenha sutilmente ('Fulano, o que você acha da proposta do Ciclano?'). Tenha um template de exemplo pronto para mostrar se algum grupo travar completamente: [Name: 'Saída Matinal Segura de B', Beneficiary: B, Activation: 'Sensor porta frente ativado entre 7h-8h30 em dia útil E B identificado por reconhecimento facial', Effect: 'Desativar alarme, acender luz externa, enviar notificação para smartphone de B com previsão do tempo']. Tempo é apertado propositalmente - grupos não precisam de perfeição, mas de um rascunho funcional.",
+          "discussion_prompts": []
+        },
+        {
+          "time_marker": "30–40 min",
+          "activity": "Fase 3 - Reflexão: Satisfação de Contexto. Ainda em breakout rooms, grupos discutem BCE vs. BCP para o contexto que projetaram. Pedem que registrem a análise (2-3 frases) no documento compartilhado. Retornem à plenária.",
+          "facilitator_notes": "Conceito-chave: SAS = Σ|BCE - BCP|. Quanto menor a diferença, melhor a satisfação. Grupos devem pensar: 'O que o beneficiário ESPERA que aconteça nessa situação?' vs. 'O que ele vai PERCEBER que o sistema fez?' Erro comum: confundir com requisitos técnicos ('o sistema deve detectar X') em vez de experiência do usuário ('B espera que a casa esteja iluminada e segura ao sair'). Se grupos estiverem travados, sugira: 'Imaginem que vocês SÃO o beneficiário. O sistema fez o que vocês queriam? Fez algo a mais ou a menos?' Prepare-se para explicar rapidamente a fórmula SAS na plenária se necessário (slide ou anotação na tela).",
+          "discussion_prompts": [
+            "Se o sistema fizer EXATAMENTE o que vocês projetaram, o beneficiário ficaria satisfeito? Ou vocês assumiram algo que ele pode não querer?",
+            "Como vocês saberiam, na prática, o que está em BCE (expectativas do beneficiário)? Entrevistas? Observação? Tentativa e erro?"
+          ]
+        },
+        {
+          "time_marker": "40–55 min",
+          "activity": "Fase 4 - Conceituação: Operações de Contexto. Cada grupo apresenta brevemente (2 min) seu template e análise SAS. Facilitador anota na tela (ou pede que um co-facilitador anote) exemplos de operações de contexto que emergem: Activation (quando o contexto 'liga'), Comparison (contextos similares/diferentes), Influence (um contexto afeta outro), Interaction (cooperação ⊕, competição ⊖, incompatibilidade ⊗). Após cada apresentação, pergunte à audiência: 'Esse contexto INFLUENCIA algum outro? Há CONFLITO com contextos de outro beneficiário?'",
+          "facilitator_notes": "Ritmo é crítico: 5-6 grupos × 2 min = 10-12 min de apresentações + 3-5 min de discussão = ~15 min total. Use timer visível. Seu papel é fazer a ponte entre os exemplos concretos dos grupos e os conceitos abstratos do artigo. Tenha os símbolos prontos para mostrar: ⇝ (direct influence), ⇝ (ripple effect), ⊕ (cooperative), ⊖ (competitive), ⊗ (incompatible), ⊛ (neutral). Exemplo de ponte: 'O grupo 2 mencionou que acender luzes no corredor para PB à noite pode acordar B - isso é um exemplo de Ripple Effect (⇝), onde um contexto tem consequências não-intencionais em outro!' Erros comuns: participantes focam em detalhes técnicos de implementação em vez de relações entre contextos. Redirecione: 'Interessante, mas pensando nas OPERAÇÕES de contexto do artigo, isso é Influence, Comparison ou Interaction?'",
+          "discussion_prompts": [
+            "Alguém vê um exemplo de Direct Influence (⇝) aqui? Um contexto que DIRETAMENTE ativa outro?",
+            "Há contextos INCOMPATÍVEIS (⊗) entre B e PB? Situações onde satisfazer um beneficiário necessariamente frustra o outro?",
+            "Como a teoria CIEn sugere resolver conflitos? Lembram da função SASm com Preferências Globais (GP)?"
+          ]
+        },
+        {
+          "time_marker": "55–65 min",
+          "activity": "Fase 5 - Experimentação: Redesign Colaborativo. Lance votação no Mentimeter: 'Qual contexto apresentado tem maior risco de conflito?' (liste os 5-6 contextos dos grupos). Após votação (1 min), revele resultado. Para o contexto vencedor, peça propostas no chat de como redesenhar para reduzir conflito (transformar ⊖/⊗ em ⊕/⊛). Discuta 2-3 propostas mais interessantes.",
+          "facilitator_notes": "Objetivo: experimentação ativa de redesign. Participantes devem aplicar o aprendizado para resolver um problema real de conflito de contextos. Prepare o Mentimeter com antecedência (ou use poll nativo do Zoom/Teams se Mentimeter não disponível). Se nenhum contexto apresentado tiver conflito óbvio, tenha um cenário de backup pronto: 'PB quer temperatura ambiente a 24°C (sente frio), B quer 19°C (sente calor). Ambos estão na sala. Como resolver?' Valorize criatividade: soluções podem ser técnicas (sensores localizados, zonas de temperatura), procedurais (negociação, turnos) ou de design de interação (notificações, controle manual). Conecte propostas à teoria: 'Essa solução usa Preferências Globais (GP) para otimizar SASm? Ou privilegia um beneficiário?' Cuidado com o tempo - essa fase pode se estender. Seja firme em manter 10 min máximo.",
+          "discussion_prompts": [
+            "Essa proposta realmente resolve o conflito, ou apenas 'empurra o problema' para outro contexto?",
+            "Se implementássemos isso, estaríamos respeitando a autonomia de AMBOS os beneficiários? Ou impondo uma 'solução inteligente' que nenhum deles pediu?",
+            "A 'regra de Occam para contextos' do artigo diz: só implemente se necessário, não-redundante e viável. Essa solução passa no teste?"
+          ]
+        },
+        {
+          "time_marker": "65–75 min",
+          "activity": "Fase 6 - Consolidação e Debrief. Participantes respondem individualmente ao formulário Google Forms (3 min). Enquanto respondem, facilitador prepara síntese final. Após formulário, conduza debrief estruturado (ver debrief_structure). Encerre com a pergunta provocativa do artigo sobre 'surpresas agradáveis' vs. autonomia. Agradeça participação e compartilhe recursos adicionais (artigo completo, slides, gravação se aplicável).",
+          "facilitator_notes": "Fechamento é crucial para consolidação. Não apresse. Use o debrief_structure como roteiro. Ao sintetizar, conecte explicitamente as fases da dinâmica aos conceitos do artigo: Ancoragem → identificação de contextos; Aplicação → templates e Activation; Reflexão → SAS; Conceituação → Ops (5 operações); Experimentação → Interaction e otimização. Valide o esforço cognitivo: 'Vocês aplicaram conceitos abstratos a um cenário concreto, identificaram conflitos reais e propuseram soluções - isso É o trabalho de design de sistemas context-aware!' Deixe a pergunta final sobre autonomia vs. 'surpresas' em aberto - não force consenso. É uma tensão genuína na área. Compartilhe no chat: link para o artigo completo, resumo dos conceitos-chave (pode ser um PDF de 1 página que você preparou), e convite para continuar discussão em fórum assíncrono se houver.",
+          "discussion_prompts": [
+            "O que foi mais surpreendente ou desafiador nessa dinâmica?",
+            "Como a teoria CIEn muda (ou não muda) a forma como vocês pensariam em projetar um sistema context-aware real?",
+            "Voltando à pergunta do artigo: se um sistema IE faz 'surpresas agradáveis' que diferem dos requisitos iniciais, isso é inteligência admirável ou paternalismo tecnológico?"
+          ]
+        }
+      ],
+      "timing_table": {
+        "caption": "Estrutura temporal do workshop 'Projetando Contextos Inteligentes'",
+        "columns": [
+          "Tempo",
+          "Atividade",
+          "Objetivo Pedagógico"
+        ],
+        "rows": [
+          [
+            "0–5 min",
+            "Abertura e enquadramento",
+            "Alinhar expectativas, ativar conhecimento prévio"
+          ],
+          [
+            "5–15 min",
+            "Ancoragem: Mapeamento de Contextos",
+            "Experiência concreta - identificar contextos no cenário"
+          ],
+          [
+            "15–30 min",
+            "Aplicação: Templates de Contexto (breakout)",
+            "Aplicar estrutura [Name, Beneficiary, Activation, Effect]"
+          ],
+          [
+            "30–40 min",
+            "Reflexão: Satisfação de Contexto (breakout)",
+            "Observação reflexiva - analisar BCE vs. BCP, introduzir SAS"
+          ],
+          [
+            "40–55 min",
+            "Conceituação: Operações de Contexto (plenária)",
+            "Conceituação abstrata - conectar exemplos a Ops (5 operações)"
+          ],
+          [
+            "55–65 min",
+            "Experimentação: Redesign Colaborativo",
+            "Experimentação ativa - resolver conflitos usando teoria"
+          ],
+          [
+            "65–75 min",
+            "Consolidação e Debrief",
+            "Integração, metacognição, transferência para contextos futuros"
+          ]
+        ]
+      },
+      "debrief_structure": [
+        "1. Colheita de insights: Peça que 3-4 voluntários compartilhem verbalmente uma descoberta ou 'aha moment' da sessão (1 min cada).",
+        "2. Conexão teoria-prática: Facilitador sintetiza como as 6 fases da dinâmica mapeiam para os conceitos do artigo CIEn (use anotação visual ou slide preparado): Ancoragem→Contextos, Aplicação→Templates, Reflexão→SAS, Conceituação→Ops, Experimentação→Interaction, Consolidação→Princípios de design.",
+        "3. Validação de aprendizagem: Pergunte no chat (resposta rápida, uma palavra): 'Qual das 5 operações de contexto (Activation, Comparison, Influence, Construction, Interaction) você se sente mais confiante para aplicar agora?' Mostre nuvem de palavras ou conte rapidamente.",
+        "4. Transferência: Provoque aplicação futura: 'Pensem em um sistema que vocês usam diariamente (app de transporte, assistente virtual, rede social). Onde vocês veem contextos mal projetados? Como CIEn ajudaria a melhorar?' (2-3 respostas no chat ou verbais).",
+        "5. Tensão ética: Lance a pergunta final sobre autonomia vs. 'surpresas agradáveis' (da closing_question do artigo). Não force resolução - valide que é uma tensão real e convide para reflexão contínua.",
+        "6. Encerramento logístico: Agradeça, compartilhe recursos, explique próximos passos (se houver trabalho assíncrono, leitura adicional, etc.)."
+      ],
+      "consolidation_goal": "Consolidação bem-sucedida significa que participantes conseguem: (1) aplicar a estrutura de templates [Name, Beneficiary, Activation, Effect] para especificar contextos em cenários concretos; (2) distinguir entre as 5 operações de contexto (Activation, Comparison, Influence, Construction, Interaction) e identificá-las em exemplos práticos; (3) analisar satisfação de beneficiários usando o conceito SAS (diferença entre expectativas BCE e percepção BCP); (4) reconhecer e propor soluções para conflitos entre contextos de múltiplos beneficiários, aplicando princípios de otimização multiusuário (SASm); (5) articular a mudança de paradigma da teoria CIEn - do foco em dados/sistemas para foco em beneficiários humanos - e suas implicações éticas e práticas no design de sistemas context-aware."
+    }
+  },
+  "seo_pages": [
+    {
+      "page_kind": "article",
+      "title": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+      "description": "Revisão teórica dos conceitos de contexto e consciência de contexto (context-awareness) na perspectiva de Ambientes Inteligentes. Apresenta a teoria CIEn focada em beneficiários humanos, serviços e operações de contexto (ativação, comparação, influência, construção e interação), propondo templates de contexto e métricas de satisfação para sistemas context-aware em domínios como smart homes, ambient intelligence e IoT.",
+      "keywords": [
+        "contexto",
+        "context",
+        "context-awareness",
+        "consciência de contexto",
+        "intelligent environments",
+        "ambientes inteligentes",
+        "ambient intelligence",
+        "inteligência ambiente",
+        "ubiquitous computing",
+        "computação ubíqua",
+        "pervasive computing",
+        "Internet of Things",
+        "IoT",
+        "beneficiários",
+        "beneficiaries",
+        "context satisfaction",
+        "satisfação de contexto",
+        "context operations",
+        "operações de contexto",
+        "context templates",
+        "CIEn",
+        "smart home",
+        "casa inteligente",
+        "context activation",
+        "context comparison",
+        "context influence",
+        "ripple effect",
+        "service achievement satisfaction"
+      ],
+      "og_type": "article",
+      "jsonld_type": "Article",
+      "authors": [
+        "Juan Carlos Augusto"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html",
+      "published_date": "2022",
+      "modified_date": "2022",
+      "about": [
+        "Context",
+        "Context-awareness",
+        "Beneficiaries",
+        "Context Templates",
+        "Context Operations",
+        "Service Achievement Satisfaction"
+      ],
+      "article_tags": [
+        "contexto-e-contexto-sensivel"
+      ]
+    },
+    {
+      "page_kind": "blog",
+      "title": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+      "description": "Revisão teórica sobre contexto e context-awareness em Ambientes Inteligentes, propondo a teoria CIEn centrada em beneficiários. Explora operações de contexto (ativação, comparação, influência, construção, interação), templates de contexto e Service Achievement Satisfaction para sistemas de Ambient Intelligence e IoT.",
+      "keywords": [
+        "context",
+        "context-awareness",
+        "contexto",
+        "consciência de contexto",
+        "intelligent environments",
+        "ambientes inteligentes",
+        "ambient intelligence",
+        "inteligência ambiente",
+        "ubiquitous computing",
+        "computação ubíqua",
+        "pervasive computing",
+        "Internet of Things",
+        "IoT",
+        "beneficiaries",
+        "beneficiários",
+        "services",
+        "serviços",
+        "context satisfaction",
+        "context operations",
+        "operações de contexto",
+        "CIEn",
+        "context templates",
+        "smart home",
+        "casa inteligente"
+      ],
+      "og_type": "article",
+      "jsonld_type": "BlogPosting",
+      "authors": [
+        "Juan Carlos Augusto"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/blog.html",
+      "published_date": "2022",
+      "modified_date": "2022",
+      "about": [
+        "Context",
+        "Context-awareness",
+        "Beneficiaries",
+        "Services",
+        "Context Templates",
+        "Context Satisfaction"
+      ],
+      "article_tags": []
+    },
+    {
+      "page_kind": "workshop",
+      "title": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective - Workshop",
+      "description": "Workshop sobre a teoria CIEn (Contexts for Intelligent Environments) que redefine contexto e context-awareness com foco nos beneficiários humanos. Explora operações de contexto (activation, comparison, influence, construction, interaction), templates de contexto, e métricas de satisfação (SAS). Apresenta fundamentos formais para sistemas context-aware em ambientes inteligentes, IoT e computação ubíqua.",
+      "keywords": [
+        "context",
+        "context-awareness",
+        "sistemas sensíveis ao contexto",
+        "intelligent environments",
+        "ambientes inteligentes",
+        "ambient intelligence",
+        "ubiquitous computing",
+        "computação ubíqua",
+        "pervasive computing",
+        "Internet of Things",
+        "IoT",
+        "beneficiaries",
+        "services",
+        "context satisfaction",
+        "context operations",
+        "CIEn",
+        "context templates",
+        "smart home",
+        "casa inteligente",
+        "Service Achievement Satisfaction",
+        "SAS"
+      ],
+      "og_type": "article",
+      "jsonld_type": "LearningResource",
+      "authors": [
+        "Juan Carlos Augusto"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/workshop.html",
+      "published_date": "2022",
+      "modified_date": "2022",
+      "about": [
+        "Context",
+        "Context-awareness",
+        "Beneficiaries",
+        "Context Templates",
+        "Context Operations",
+        "Service Achievement Satisfaction (SAS)"
+      ],
+      "article_tags": []
+    }
+  ],
+  "downloads": [
+    {
+      "title": "Artigo original em PDF",
+      "description": "Texto completo do artigo que apresenta a teoria CIEn para formalizar contextos e consciência de contexto em Ambientes Inteligentes com foco nos beneficiários humanos.",
+      "href": "contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective.pdf",
+      "arrow_label": "PDF ↓"
+    },
+    {
+      "title": "Post de blog",
+      "description": "Versão comentada do artigo explorando como a teoria CIEn redefine contextos priorizando a satisfação dos beneficiários e operações formais para desenvolvedores de sistemas.",
+      "href": "blog.html",
+      "arrow_label": "LER →"
+    }
+  ],
+  "entity_graph": {
+    "entities": [
+      {
+        "key": "system",
+        "name": "system",
+        "label": "System",
+        "score": 0.8314686067325553,
+        "mentions": [
+          {
+            "start": 1884,
+            "end": 1890,
+            "text": "system"
+          },
+          {
+            "start": 2882,
+            "end": 2888,
+            "text": "system"
+          },
+          {
+            "start": 12290,
+            "end": 12296,
+            "text": "system"
+          },
+          {
+            "start": 12582,
+            "end": 12588,
+            "text": "system"
+          },
+          {
+            "start": 12801,
+            "end": 12807,
+            "text": "system"
+          },
+          {
+            "start": 13323,
+            "end": 13329,
+            "text": "system"
+          },
+          {
+            "start": 17031,
+            "end": 17037,
+            "text": "system"
+          },
+          {
+            "start": 17189,
+            "end": 17195,
+            "text": "system"
+          },
+          {
+            "start": 17258,
+            "end": 17264,
+            "text": "system"
+          },
+          {
+            "start": 17549,
+            "end": 17555,
+            "text": "system"
+          },
+          {
+            "start": 17600,
+            "end": 17606,
+            "text": "system"
+          },
+          {
+            "start": 22815,
+            "end": 22821,
+            "text": "system"
+          },
+          {
+            "start": 22942,
+            "end": 22948,
+            "text": "system"
+          },
+          {
+            "start": 22988,
+            "end": 22994,
+            "text": "system"
+          },
+          {
+            "start": 23186,
+            "end": 23192,
+            "text": "system"
+          },
+          {
+            "start": 23334,
+            "end": 23340,
+            "text": "system"
+          },
+          {
+            "start": 23412,
+            "end": 23418,
+            "text": "system"
+          },
+          {
+            "start": 23496,
+            "end": 23502,
+            "text": "system"
+          },
+          {
+            "start": 23936,
+            "end": 23942,
+            "text": "system"
+          },
+          {
+            "start": 24116,
+            "end": 24122,
+            "text": "system"
+          },
+          {
+            "start": 24532,
+            "end": 24538,
+            "text": "system"
+          },
+          {
+            "start": 24604,
+            "end": 24610,
+            "text": "system"
+          },
+          {
+            "start": 24788,
+            "end": 24794,
+            "text": "system"
+          },
+          {
+            "start": 25032,
+            "end": 25038,
+            "text": "system"
+          },
+          {
+            "start": 25130,
+            "end": 25136,
+            "text": "system"
+          },
+          {
+            "start": 26732,
+            "end": 26738,
+            "text": "system"
+          },
+          {
+            "start": 26896,
+            "end": 26902,
+            "text": "system"
+          },
+          {
+            "start": 27064,
+            "end": 27070,
+            "text": "system"
+          },
+          {
+            "start": 27291,
+            "end": 27297,
+            "text": "system"
+          },
+          {
+            "start": 27553,
+            "end": 27559,
+            "text": "system"
+          },
+          {
+            "start": 27824,
+            "end": 27830,
+            "text": "system"
+          },
+          {
+            "start": 31696,
+            "end": 31702,
+            "text": "system"
+          },
+          {
+            "start": 31872,
+            "end": 31878,
+            "text": "system"
+          },
+          {
+            "start": 31888,
+            "end": 31894,
+            "text": "system"
+          },
+          {
+            "start": 32018,
+            "end": 32024,
+            "text": "system"
+          },
+          {
+            "start": 34824,
+            "end": 34830,
+            "text": "system"
+          },
+          {
+            "start": 37607,
+            "end": 37613,
+            "text": "system"
+          },
+          {
+            "start": 37860,
+            "end": 37866,
+            "text": "system"
+          },
+          {
+            "start": 38698,
+            "end": 38704,
+            "text": "system"
+          },
+          {
+            "start": 43189,
+            "end": 43195,
+            "text": "system"
+          },
+          {
+            "start": 43274,
+            "end": 43280,
+            "text": "system"
+          },
+          {
+            "start": 43328,
+            "end": 43334,
+            "text": "system"
+          },
+          {
+            "start": 43825,
+            "end": 43831,
+            "text": "system"
+          },
+          {
+            "start": 44132,
+            "end": 44138,
+            "text": "system"
+          },
+          {
+            "start": 44917,
+            "end": 44923,
+            "text": "system"
+          },
+          {
+            "start": 45205,
+            "end": 45211,
+            "text": "system"
+          },
+          {
+            "start": 45311,
+            "end": 45317,
+            "text": "system"
+          },
+          {
+            "start": 45494,
+            "end": 45500,
+            "text": "system"
+          },
+          {
+            "start": 45718,
+            "end": 45724,
+            "text": "system"
+          },
+          {
+            "start": 46602,
+            "end": 46608,
+            "text": "system"
+          },
+          {
+            "start": 46645,
+            "end": 46651,
+            "text": "system"
+          },
+          {
+            "start": 46732,
+            "end": 46738,
+            "text": "system"
+          },
+          {
+            "start": 47144,
+            "end": 47150,
+            "text": "system"
+          },
+          {
+            "start": 47918,
+            "end": 47924,
+            "text": "system"
+          },
+          {
+            "start": 51284,
+            "end": 51290,
+            "text": "system"
+          },
+          {
+            "start": 51342,
+            "end": 51348,
+            "text": "system"
+          },
+          {
+            "start": 51961,
+            "end": 51967,
+            "text": "system"
+          },
+          {
+            "start": 54612,
+            "end": 54618,
+            "text": "system"
+          },
+          {
+            "start": 54876,
+            "end": 54882,
+            "text": "system"
+          },
+          {
+            "start": 54938,
+            "end": 54944,
+            "text": "system"
+          },
+          {
+            "start": 56068,
+            "end": 56074,
+            "text": "system"
+          },
+          {
+            "start": 56131,
+            "end": 56137,
+            "text": "system"
+          },
+          {
+            "start": 57138,
+            "end": 57144,
+            "text": "system"
+          },
+          {
+            "start": 58620,
+            "end": 58626,
+            "text": "system"
+          },
+          {
+            "start": 59654,
+            "end": 59660,
+            "text": "system"
+          },
+          {
+            "start": 67097,
+            "end": 67103,
+            "text": "system"
+          },
+          {
+            "start": 67192,
+            "end": 67198,
+            "text": "system"
+          },
+          {
+            "start": 67235,
+            "end": 67241,
+            "text": "system"
+          },
+          {
+            "start": 68499,
+            "end": 68505,
+            "text": "system"
+          },
+          {
+            "start": 68646,
+            "end": 68652,
+            "text": "system"
+          },
+          {
+            "start": 69732,
+            "end": 69738,
+            "text": "system"
+          },
+          {
+            "start": 70197,
+            "end": 70203,
+            "text": "system"
+          },
+          {
+            "start": 70577,
+            "end": 70583,
+            "text": "system"
+          },
+          {
+            "start": 70813,
+            "end": 70819,
+            "text": "system"
+          },
+          {
+            "start": 71659,
+            "end": 71665,
+            "text": "system"
+          },
+          {
+            "start": 71842,
+            "end": 71848,
+            "text": "system"
+          },
+          {
+            "start": 72057,
+            "end": 72063,
+            "text": "system"
+          },
+          {
+            "start": 72441,
+            "end": 72447,
+            "text": "system"
+          },
+          {
+            "start": 72756,
+            "end": 72762,
+            "text": "system"
+          },
+          {
+            "start": 72895,
+            "end": 72901,
+            "text": "system"
+          },
+          {
+            "start": 73281,
+            "end": 73287,
+            "text": "system"
+          },
+          {
+            "start": 73714,
+            "end": 73720,
+            "text": "system"
+          },
+          {
+            "start": 76732,
+            "end": 76738,
+            "text": "system"
+          },
+          {
+            "start": 76801,
+            "end": 76807,
+            "text": "system"
+          }
+        ]
+      },
+      {
+        "key": "context",
+        "name": "context",
+        "label": "Concept",
+        "score": 0.796095819615606,
+        "mentions": [
+          {
+            "start": 1503,
+            "end": 1510,
+            "text": "Context"
+          },
+          {
+            "start": 6239,
+            "end": 6246,
+            "text": "context"
+          },
+          {
+            "start": 6317,
+            "end": 6324,
+            "text": "context"
+          },
+          {
+            "start": 7008,
+            "end": 7015,
+            "text": "Context"
+          },
+          {
+            "start": 7362,
+            "end": 7369,
+            "text": "context"
+          },
+          {
+            "start": 7391,
+            "end": 7398,
+            "text": "context"
+          },
+          {
+            "start": 7834,
+            "end": 7841,
+            "text": "context"
+          },
+          {
+            "start": 8752,
+            "end": 8759,
+            "text": "context"
+          },
+          {
+            "start": 9623,
+            "end": 9630,
+            "text": "context"
+          },
+          {
+            "start": 9744,
+            "end": 9751,
+            "text": "context"
+          },
+          {
+            "start": 9939,
+            "end": 9946,
+            "text": "context"
+          },
+          {
+            "start": 11335,
+            "end": 11342,
+            "text": "context"
+          },
+          {
+            "start": 11491,
+            "end": 11498,
+            "text": "context"
+          },
+          {
+            "start": 11622,
+            "end": 11629,
+            "text": "context"
+          },
+          {
+            "start": 11753,
+            "end": 11760,
+            "text": "context"
+          },
+          {
+            "start": 12120,
+            "end": 12127,
+            "text": "context"
+          },
+          {
+            "start": 12833,
+            "end": 12840,
+            "text": "context"
+          },
+          {
+            "start": 13171,
+            "end": 13178,
+            "text": "context"
+          },
+          {
+            "start": 13594,
+            "end": 13601,
+            "text": "context"
+          },
+          {
+            "start": 14410,
+            "end": 14417,
+            "text": "context"
+          },
+          {
+            "start": 14718,
+            "end": 14725,
+            "text": "context"
+          },
+          {
+            "start": 14797,
+            "end": 14804,
+            "text": "context"
+          },
+          {
+            "start": 14844,
+            "end": 14851,
+            "text": "context"
+          },
+          {
+            "start": 20863,
+            "end": 20870,
+            "text": "context"
+          },
+          {
+            "start": 21301,
+            "end": 21308,
+            "text": "context"
+          },
+          {
+            "start": 21528,
+            "end": 21535,
+            "text": "context"
+          },
+          {
+            "start": 21980,
+            "end": 21987,
+            "text": "context"
+          },
+          {
+            "start": 22824,
+            "end": 22831,
+            "text": "Context"
+          },
+          {
+            "start": 31138,
+            "end": 31145,
+            "text": "Context"
+          },
+          {
+            "start": 31343,
+            "end": 31350,
+            "text": "context"
+          },
+          {
+            "start": 31722,
+            "end": 31729,
+            "text": "context"
+          },
+          {
+            "start": 34805,
+            "end": 34812,
+            "text": "context"
+          },
+          {
+            "start": 43384,
+            "end": 43391,
+            "text": "context"
+          },
+          {
+            "start": 43793,
+            "end": 43800,
+            "text": "context"
+          },
+          {
+            "start": 43918,
+            "end": 43925,
+            "text": "context"
+          },
+          {
+            "start": 43983,
+            "end": 43990,
+            "text": "context"
+          },
+          {
+            "start": 44117,
+            "end": 44124,
+            "text": "context"
+          },
+          {
+            "start": 44420,
+            "end": 44427,
+            "text": "context"
+          },
+          {
+            "start": 44855,
+            "end": 44862,
+            "text": "context"
+          },
+          {
+            "start": 44880,
+            "end": 44887,
+            "text": "context"
+          },
+          {
+            "start": 45149,
+            "end": 45156,
+            "text": "context"
+          },
+          {
+            "start": 45470,
+            "end": 45477,
+            "text": "context"
+          },
+          {
+            "start": 46869,
+            "end": 46876,
+            "text": "context"
+          },
+          {
+            "start": 47163,
+            "end": 47170,
+            "text": "context"
+          },
+          {
+            "start": 47464,
+            "end": 47471,
+            "text": "context"
+          },
+          {
+            "start": 47939,
+            "end": 47946,
+            "text": "context"
+          },
+          {
+            "start": 48038,
+            "end": 48045,
+            "text": "context"
+          },
+          {
+            "start": 48126,
+            "end": 48133,
+            "text": "context"
+          },
+          {
+            "start": 50001,
+            "end": 50008,
+            "text": "context"
+          },
+          {
+            "start": 50093,
+            "end": 50100,
+            "text": "context"
+          },
+          {
+            "start": 50175,
+            "end": 50182,
+            "text": "context"
+          },
+          {
+            "start": 74004,
+            "end": 74011,
+            "text": "Context"
+          },
+          {
+            "start": 74192,
+            "end": 74199,
+            "text": "context"
+          },
+          {
+            "start": 74791,
+            "end": 74798,
+            "text": "context"
+          },
+          {
+            "start": 76142,
+            "end": 76149,
+            "text": "context"
+          },
+          {
+            "start": 76849,
+            "end": 76856,
+            "text": "context"
+          },
+          {
+            "start": 83162,
+            "end": 83169,
+            "text": "context"
+          }
+        ]
+      },
+      {
+        "key": "contexts",
+        "name": "contexts",
+        "label": "Concept",
+        "score": 0.7011153316125274,
+        "mentions": [
+          {
+            "start": 1235,
+            "end": 1243,
+            "text": "Contexts"
+          },
+          {
+            "start": 11070,
+            "end": 11078,
+            "text": "contexts"
+          },
+          {
+            "start": 11260,
+            "end": 11268,
+            "text": "contexts"
+          },
+          {
+            "start": 11390,
+            "end": 11398,
+            "text": "contexts"
+          },
+          {
+            "start": 11424,
+            "end": 11432,
+            "text": "contexts"
+          },
+          {
+            "start": 12090,
+            "end": 12098,
+            "text": "contexts"
+          },
+          {
+            "start": 12746,
+            "end": 12754,
+            "text": "contexts"
+          },
+          {
+            "start": 12865,
+            "end": 12873,
+            "text": "contexts"
+          },
+          {
+            "start": 13002,
+            "end": 13010,
+            "text": "contexts"
+          },
+          {
+            "start": 13047,
+            "end": 13055,
+            "text": "contexts"
+          },
+          {
+            "start": 13243,
+            "end": 13251,
+            "text": "contexts"
+          },
+          {
+            "start": 15809,
+            "end": 15817,
+            "text": "contexts"
+          },
+          {
+            "start": 15994,
+            "end": 16002,
+            "text": "Contexts"
+          },
+          {
+            "start": 16136,
+            "end": 16144,
+            "text": "contexts"
+          },
+          {
+            "start": 16377,
+            "end": 16385,
+            "text": "contexts"
+          },
+          {
+            "start": 18628,
+            "end": 18636,
+            "text": "contexts"
+          },
+          {
+            "start": 18699,
+            "end": 18707,
+            "text": "contexts"
+          },
+          {
+            "start": 18831,
+            "end": 18839,
+            "text": "contexts"
+          },
+          {
+            "start": 18952,
+            "end": 18960,
+            "text": "contexts"
+          },
+          {
+            "start": 19056,
+            "end": 19064,
+            "text": "contexts"
+          },
+          {
+            "start": 19186,
+            "end": 19194,
+            "text": "contexts"
+          },
+          {
+            "start": 19379,
+            "end": 19387,
+            "text": "contexts"
+          },
+          {
+            "start": 19595,
+            "end": 19603,
+            "text": "contexts"
+          },
+          {
+            "start": 19764,
+            "end": 19772,
+            "text": "contexts"
+          },
+          {
+            "start": 20967,
+            "end": 20975,
+            "text": "contexts"
+          },
+          {
+            "start": 31109,
+            "end": 31117,
+            "text": "contexts"
+          },
+          {
+            "start": 31128,
+            "end": 31136,
+            "text": "Contexts"
+          },
+          {
+            "start": 35314,
+            "end": 35322,
+            "text": "Contexts"
+          },
+          {
+            "start": 43028,
+            "end": 43036,
+            "text": "contexts"
+          },
+          {
+            "start": 43158,
+            "end": 43166,
+            "text": "contexts"
+          },
+          {
+            "start": 43473,
+            "end": 43481,
+            "text": "Contexts"
+          },
+          {
+            "start": 44970,
+            "end": 44978,
+            "text": "contexts"
+          },
+          {
+            "start": 45349,
+            "end": 45357,
+            "text": "contexts"
+          },
+          {
+            "start": 45536,
+            "end": 45544,
+            "text": "contexts"
+          },
+          {
+            "start": 45984,
+            "end": 45992,
+            "text": "contexts"
+          },
+          {
+            "start": 46013,
+            "end": 46021,
+            "text": "contexts"
+          },
+          {
+            "start": 46500,
+            "end": 46508,
+            "text": "contexts"
+          },
+          {
+            "start": 46556,
+            "end": 46564,
+            "text": "Contexts"
+          },
+          {
+            "start": 49365,
+            "end": 49373,
+            "text": "contexts"
+          },
+          {
+            "start": 51291,
+            "end": 51299,
+            "text": "contexts"
+          },
+          {
+            "start": 51353,
+            "end": 51361,
+            "text": "contexts"
+          },
+          {
+            "start": 51479,
+            "end": 51487,
+            "text": "contexts"
+          },
+          {
+            "start": 51656,
+            "end": 51664,
+            "text": "contexts"
+          },
+          {
+            "start": 51923,
+            "end": 51931,
+            "text": "contexts"
+          },
+          {
+            "start": 52233,
+            "end": 52241,
+            "text": "contexts"
+          },
+          {
+            "start": 52423,
+            "end": 52431,
+            "text": "contexts"
+          },
+          {
+            "start": 53616,
+            "end": 53624,
+            "text": "contexts"
+          },
+          {
+            "start": 57942,
+            "end": 57950,
+            "text": "contexts"
+          },
+          {
+            "start": 59512,
+            "end": 59520,
+            "text": "Contexts"
+          },
+          {
+            "start": 59539,
+            "end": 59547,
+            "text": "contexts"
+          },
+          {
+            "start": 59570,
+            "end": 59578,
+            "text": "contexts"
+          },
+          {
+            "start": 61224,
+            "end": 61232,
+            "text": "contexts"
+          },
+          {
+            "start": 61403,
+            "end": 61411,
+            "text": "contexts"
+          },
+          {
+            "start": 61482,
+            "end": 61490,
+            "text": "contexts"
+          },
+          {
+            "start": 63302,
+            "end": 63310,
+            "text": "contexts"
+          },
+          {
+            "start": 73902,
+            "end": 73910,
+            "text": "contexts"
+          }
+        ]
+      },
+      {
+        "key": "context awareness",
+        "name": "context-awareness",
+        "label": "Concept",
+        "score": 0.8127780199050904,
+        "mentions": [
+          {
+            "start": 1248,
+            "end": 1265,
+            "text": "Context-awareness"
+          },
+          {
+            "start": 1899,
+            "end": 1916,
+            "text": "context-awareness"
+          },
+          {
+            "start": 2075,
+            "end": 2092,
+            "text": "context-awareness"
+          },
+          {
+            "start": 4961,
+            "end": 4978,
+            "text": "context-awareness"
+          },
+          {
+            "start": 6269,
+            "end": 6286,
+            "text": "context-awareness"
+          },
+          {
+            "start": 7038,
+            "end": 7055,
+            "text": "Context-awareness"
+          },
+          {
+            "start": 7846,
+            "end": 7863,
+            "text": "context-awareness"
+          },
+          {
+            "start": 8764,
+            "end": 8781,
+            "text": "context-awareness"
+          },
+          {
+            "start": 9125,
+            "end": 9142,
+            "text": "context-awareness"
+          },
+          {
+            "start": 14446,
+            "end": 14463,
+            "text": "Context-awareness"
+          },
+          {
+            "start": 14809,
+            "end": 14827,
+            "text": "context- awareness"
+          },
+          {
+            "start": 22951,
+            "end": 22968,
+            "text": "Context-awareness"
+          },
+          {
+            "start": 29773,
+            "end": 29790,
+            "text": "context-awareness"
+          },
+          {
+            "start": 32610,
+            "end": 32627,
+            "text": "Context-Awareness"
+          },
+          {
+            "start": 78246,
+            "end": 78263,
+            "text": "context-awareness"
+          }
+        ]
+      },
+      {
+        "key": "developers",
+        "name": "developers",
+        "label": "Software",
+        "score": 0.6370257884263992,
+        "mentions": [
+          {
+            "start": 17772,
+            "end": 17782,
+            "text": "developers"
+          },
+          {
+            "start": 18413,
+            "end": 18423,
+            "text": "developers"
+          },
+          {
+            "start": 25061,
+            "end": 25071,
+            "text": "Developers"
+          },
+          {
+            "start": 39691,
+            "end": 39701,
+            "text": "developers"
+          },
+          {
+            "start": 51222,
+            "end": 51232,
+            "text": "developers"
+          },
+          {
+            "start": 52030,
+            "end": 52040,
+            "text": "developers"
+          },
+          {
+            "start": 54487,
+            "end": 54497,
+            "text": "Developers"
+          },
+          {
+            "start": 54836,
+            "end": 54846,
+            "text": "developers"
+          },
+          {
+            "start": 59632,
+            "end": 59642,
+            "text": "developers"
+          },
+          {
+            "start": 61198,
+            "end": 61208,
+            "text": "developers"
+          },
+          {
+            "start": 62634,
+            "end": 62644,
+            "text": "developers"
+          },
+          {
+            "start": 62897,
+            "end": 62907,
+            "text": "developers"
+          }
+        ]
+      },
+      {
+        "key": "systems",
+        "name": "systems",
+        "label": "System",
+        "score": 0.6778344362974167,
+        "mentions": [
+          {
+            "start": 20771,
+            "end": 20778,
+            "text": "systems"
+          },
+          {
+            "start": 21656,
+            "end": 21663,
+            "text": "systems"
+          },
+          {
+            "start": 41185,
+            "end": 41192,
+            "text": "Systems"
+          },
+          {
+            "start": 41457,
+            "end": 41464,
+            "text": "systems"
+          },
+          {
+            "start": 41684,
+            "end": 41691,
+            "text": "systems"
+          },
+          {
+            "start": 74477,
+            "end": 74484,
+            "text": "systems"
+          },
+          {
+            "start": 74532,
+            "end": 74539,
+            "text": "systems"
+          },
+          {
+            "start": 75481,
+            "end": 75488,
+            "text": "systems"
+          },
+          {
+            "start": 75745,
+            "end": 75752,
+            "text": "systems"
+          },
+          {
+            "start": 75887,
+            "end": 75894,
+            "text": "systems"
+          },
+          {
+            "start": 77014,
+            "end": 77021,
+            "text": "systems"
+          }
+        ]
+      },
+      {
+        "key": "context concept",
+        "name": "Context concept",
+        "label": "Concept",
+        "score": 0.7669259086251259,
+        "mentions": [
+          {
+            "start": 35719,
+            "end": 35734,
+            "text": "context concept"
+          },
+          {
+            "start": 36365,
+            "end": 36380,
+            "text": "Context concept"
+          },
+          {
+            "start": 36619,
+            "end": 36634,
+            "text": "Context concept"
+          },
+          {
+            "start": 36946,
+            "end": 36961,
+            "text": "Context concept"
+          },
+          {
+            "start": 37179,
+            "end": 37194,
+            "text": "Context concept"
+          },
+          {
+            "start": 37338,
+            "end": 37353,
+            "text": "Context concept"
+          },
+          {
+            "start": 52631,
+            "end": 52646,
+            "text": "context concept"
+          }
+        ]
+      },
+      {
+        "key": "aci",
+        "name": "ACi",
+        "label": "System",
+        "score": 0.7232500116030375,
+        "mentions": [
+          {
+            "start": 33046,
+            "end": 33049,
+            "text": "ACi"
+          },
+          {
+            "start": 33110,
+            "end": 33113,
+            "text": "ACi"
+          },
+          {
+            "start": 33178,
+            "end": 33181,
+            "text": "ACi"
+          },
+          {
+            "start": 46897,
+            "end": 46900,
+            "text": "ACi"
+          },
+          {
+            "start": 47230,
+            "end": 47233,
+            "text": "ACi"
+          },
+          {
+            "start": 47319,
+            "end": 47322,
+            "text": "ACi"
+          }
+        ]
+      },
+      {
+        "key": "lecture notes in computer science",
+        "name": "Lecture Notes in Computer Science",
+        "label": "Organization",
+        "score": 0.7193166216214498,
+        "mentions": [
+          {
+            "start": 79807,
+            "end": 79840,
+            "text": "Lecture Notes in Computer Science"
+          },
+          {
+            "start": 81140,
+            "end": 81173,
+            "text": "Lecture Notes in Computer Science"
+          },
+          {
+            "start": 82373,
+            "end": 82406,
+            "text": "Lecture Notes in Computer Science"
+          },
+          {
+            "start": 83558,
+            "end": 83591,
+            "text": "Lecture Notes in Computer Science"
+          },
+          {
+            "start": 84073,
+            "end": 84106,
+            "text": "Lecture Notes in Computer Science"
+          }
+        ]
+      },
+      {
+        "key": "table 1",
+        "name": "Table 1",
+        "label": "Dataset",
+        "score": 0.7027052144209543,
+        "mentions": [
+          {
+            "start": 35305,
+            "end": 35312,
+            "text": "Table 1"
+          },
+          {
+            "start": 36285,
+            "end": 36292,
+            "text": "Table 1"
+          },
+          {
+            "start": 55063,
+            "end": 55070,
+            "text": "Table 1"
+          },
+          {
+            "start": 69921,
+            "end": 69928,
+            "text": "Table 1"
+          },
+          {
+            "start": 70267,
+            "end": 70274,
+            "text": "Table 1"
+          }
+        ]
+      },
+      {
+        "key": "preferences",
+        "name": "preferences",
+        "label": "Concept",
+        "score": 0.6763729254404703,
+        "mentions": [
+          {
+            "start": 17478,
+            "end": 17489,
+            "text": "preferences"
+          },
+          {
+            "start": 72468,
+            "end": 72479,
+            "text": "preferences"
+          },
+          {
+            "start": 72556,
+            "end": 72567,
+            "text": "preferences"
+          },
+          {
+            "start": 72678,
+            "end": 72689,
+            "text": "preferences"
+          },
+          {
+            "start": 72690,
+            "end": 72701,
+            "text": "preferences"
+          }
+        ]
+      },
+      {
+        "key": "perception",
+        "name": "Perception",
+        "label": "Concept",
+        "score": 0.8326826244592667,
+        "mentions": [
+          {
+            "start": 67988,
+            "end": 67998,
+            "text": "Perception"
+          },
+          {
+            "start": 68060,
+            "end": 68070,
+            "text": "Perception"
+          },
+          {
+            "start": 68517,
+            "end": 68527,
+            "text": "perception"
+          },
+          {
+            "start": 68556,
+            "end": 68566,
+            "text": "perception"
+          }
+        ]
+      },
+      {
+        "key": "comparison",
+        "name": "comparison",
+        "label": "Concept",
+        "score": 0.5993279695510865,
+        "mentions": [
+          {
+            "start": 52132,
+            "end": 52142,
+            "text": "comparison"
+          },
+          {
+            "start": 54093,
+            "end": 54103,
+            "text": "comparison"
+          },
+          {
+            "start": 54379,
+            "end": 54389,
+            "text": "comparison"
+          },
+          {
+            "start": 67378,
+            "end": 67388,
+            "text": "Comparison"
+          },
+          {
+            "start": 76162,
+            "end": 76172,
+            "text": "comparison"
+          }
+        ]
+      },
+      {
+        "key": "cfront door use",
+        "name": "CFront door use",
+        "label": "Concept",
+        "score": 0.7228351334730784,
+        "mentions": [
+          {
+            "start": 55734,
+            "end": 55749,
+            "text": "CFront door use"
+          },
+          {
+            "start": 55754,
+            "end": 55769,
+            "text": "CFront door use"
+          },
+          {
+            "start": 55923,
+            "end": 55938,
+            "text": "CFront door use"
+          },
+          {
+            "start": 55943,
+            "end": 55958,
+            "text": "CFront door use"
+          }
+        ]
+      },
+      {
+        "key": "ontologies",
+        "name": "ontologies",
+        "label": "Dataset",
+        "score": 0.6265674084424973,
+        "mentions": [
+          {
+            "start": 30883,
+            "end": 30893,
+            "text": "ontologies"
+          },
+          {
+            "start": 42105,
+            "end": 42115,
+            "text": "ontologies"
+          },
+          {
+            "start": 61051,
+            "end": 61061,
+            "text": "ontologies"
+          },
+          {
+            "start": 72316,
+            "end": 72326,
+            "text": "ontologies"
+          }
+        ]
+      },
+      {
+        "key": "real systems",
+        "name": "real systems",
+        "label": "System",
+        "score": 0.8271395762761434,
+        "mentions": [
+          {
+            "start": 17792,
+            "end": 17804,
+            "text": "real systems"
+          },
+          {
+            "start": 18259,
+            "end": 18271,
+            "text": "real systems"
+          },
+          {
+            "start": 18455,
+            "end": 18467,
+            "text": "real systems"
+          }
+        ]
+      },
+      {
+        "key": "information",
+        "name": "information",
+        "label": "Concept",
+        "score": 0.6076809167861938,
+        "mentions": [
+          {
+            "start": 7547,
+            "end": 7558,
+            "text": "information"
+          },
+          {
+            "start": 40582,
+            "end": 40593,
+            "text": "information"
+          },
+          {
+            "start": 40822,
+            "end": 40833,
+            "text": "information"
+          },
+          {
+            "start": 40849,
+            "end": 40860,
+            "text": "information"
+          }
+        ]
+      },
+      {
+        "key": "bcp",
+        "name": "BCP",
+        "label": "System",
+        "score": 0.6014002859592438,
+        "mentions": [
+          {
+            "start": 69549,
+            "end": 69552,
+            "text": "BCP"
+          },
+          {
+            "start": 69815,
+            "end": 69818,
+            "text": "BCP"
+          },
+          {
+            "start": 70720,
+            "end": 70723,
+            "text": "BCP"
+          },
+          {
+            "start": 70978,
+            "end": 70981,
+            "text": "BCP"
+          }
+        ]
+      },
+      {
+        "key": "effects",
+        "name": "effects",
+        "label": "Concept",
+        "score": 0.7364267557859421,
+        "mentions": [
+          {
+            "start": 51809,
+            "end": 51816,
+            "text": "effects"
+          },
+          {
+            "start": 52104,
+            "end": 52111,
+            "text": "effects"
+          },
+          {
+            "start": 52444,
+            "end": 52451,
+            "text": "effects"
+          }
+        ]
+      },
+      {
+        "key": "experience",
+        "name": "experience",
+        "label": "Concept",
+        "score": 0.666634738445282,
+        "mentions": [
+          {
+            "start": 70432,
+            "end": 70442,
+            "text": "experience"
+          },
+          {
+            "start": 70602,
+            "end": 70612,
+            "text": "experience"
+          },
+          {
+            "start": 71019,
+            "end": 71029,
+            "text": "experience"
+          }
+        ]
+      },
+      {
+        "key": "interaction",
+        "name": "interaction",
+        "label": "Task",
+        "score": 0.645663857460022,
+        "mentions": [
+          {
+            "start": 3156,
+            "end": 3167,
+            "text": "interaction"
+          },
+          {
+            "start": 67415,
+            "end": 67426,
+            "text": "Interaction"
+          },
+          {
+            "start": 76203,
+            "end": 76214,
+            "text": "interaction"
+          }
+        ]
+      },
+      {
+        "key": "aspect",
+        "name": "aspect",
+        "label": "Concept",
+        "score": 0.6449116269747416,
+        "mentions": [
+          {
+            "start": 53470,
+            "end": 53476,
+            "text": "aspect"
+          },
+          {
+            "start": 53528,
+            "end": 53534,
+            "text": "aspect"
+          },
+          {
+            "start": 54369,
+            "end": 54375,
+            "text": "aspect"
+          }
+        ]
+      },
+      {
+        "key": "taylor  francis group llc",
+        "name": "Taylor & Francis Group, LLC",
+        "label": "Organization",
+        "score": 0.9228266477584839,
+        "mentions": [
+          {
+            "start": 656,
+            "end": 683,
+            "text": "Taylor & Francis Group, LLC"
+          },
+          {
+            "start": 3999,
+            "end": 4026,
+            "text": "Taylor & Francis Group, LLC"
+          }
+        ]
+      },
+      {
+        "key": "intelligent software",
+        "name": "intelligent software",
+        "label": "Software",
+        "score": 0.9225223958492279,
+        "mentions": [
+          {
+            "start": 29728,
+            "end": 29748,
+            "text": "intelligent software"
+          },
+          {
+            "start": 40115,
+            "end": 40135,
+            "text": "Intelligent Software"
+          }
+        ]
+      },
+      {
+        "key": "algorithms",
+        "name": "algorithms",
+        "label": "Concept",
+        "score": 0.6084678967793783,
+        "mentions": [
+          {
+            "start": 41627,
+            "end": 41637,
+            "text": "algorithms"
+          },
+          {
+            "start": 41738,
+            "end": 41748,
+            "text": "algorithms"
+          },
+          {
+            "start": 41933,
+            "end": 41943,
+            "text": "algorithms"
+          }
+        ]
+      },
+      {
+        "key": "theory",
+        "name": "theory",
+        "label": "Concept",
+        "score": 0.6007166504859924,
+        "mentions": [
+          {
+            "start": 5963,
+            "end": 5969,
+            "text": "Theory"
+          },
+          {
+            "start": 42872,
+            "end": 42878,
+            "text": "theory"
+          },
+          {
+            "start": 42993,
+            "end": 42999,
+            "text": "theory"
+          }
+        ]
+      },
+      {
+        "key": "krr",
+        "name": "KRR",
+        "label": "System",
+        "score": 0.5956663489341736,
+        "mentions": [
+          {
+            "start": 15833,
+            "end": 15836,
+            "text": "KRR"
+          },
+          {
+            "start": 16310,
+            "end": 16313,
+            "text": "KRR"
+          },
+          {
+            "start": 16657,
+            "end": 16660,
+            "text": "KRR"
+          }
+        ]
+      },
+      {
+        "key": "front door use",
+        "name": "front door use",
+        "label": "Concept",
+        "score": 0.8670543730258942,
+        "mentions": [
+          {
+            "start": 36382,
+            "end": 36396,
+            "text": "front door use"
+          },
+          {
+            "start": 55646,
+            "end": 55660,
+            "text": "Front Door Use"
+          }
+        ]
+      },
+      {
+        "key": "expectations",
+        "name": "expectations",
+        "label": "Concept",
+        "score": 0.5778204947710037,
+        "mentions": [
+          {
+            "start": 23357,
+            "end": 23369,
+            "text": "expectations"
+          },
+          {
+            "start": 23602,
+            "end": 23614,
+            "text": "expectations"
+          },
+          {
+            "start": 24293,
+            "end": 24305,
+            "text": "expectations"
+          }
+        ]
+      },
+      {
+        "key": "operations",
+        "name": "operations",
+        "label": "Concept",
+        "score": 0.5689236124356588,
+        "mentions": [
+          {
+            "start": 67159,
+            "end": 67169,
+            "text": "operations"
+          },
+          {
+            "start": 67242,
+            "end": 67252,
+            "text": "operations"
+          },
+          {
+            "start": 67573,
+            "end": 67583,
+            "text": "operations"
+          }
+        ]
+      },
+      {
+        "key": "department of computer science",
+        "name": "Department of Computer Science",
+        "label": "Organization",
+        "score": 0.8347226977348328,
+        "mentions": [
+          {
+            "start": 1402,
+            "end": 1432,
+            "text": "Department of Computer Science"
+          },
+          {
+            "start": 3879,
+            "end": 3909,
+            "text": "Department of Computer Science"
+          }
+        ]
+      },
+      {
+        "key": "middlesex university",
+        "name": "Middlesex University",
+        "label": "Organization",
+        "score": 0.8303567171096802,
+        "mentions": [
+          {
+            "start": 1434,
+            "end": 1454,
+            "text": "Middlesex University"
+          },
+          {
+            "start": 3911,
+            "end": 3931,
+            "text": "Middlesex University"
+          }
+        ]
+      },
+      {
+        "key": "ie system",
+        "name": "IE system",
+        "label": "System",
+        "score": 0.8287896911303202,
+        "mentions": [
+          {
+            "start": 39029,
+            "end": 39038,
+            "text": "IE system"
+          },
+          {
+            "start": 71425,
+            "end": 71434,
+            "text": "IE system"
+          }
+        ]
+      },
+      {
+        "key": "individual preferences",
+        "name": "individual preferences",
+        "label": "Concept",
+        "score": 0.8186855316162109,
+        "mentions": [
+          {
+            "start": 72205,
+            "end": 72227,
+            "text": "individual preferences"
+          },
+          {
+            "start": 72545,
+            "end": 72567,
+            "text": "individual preferences"
+          }
+        ]
+      },
+      {
+        "key": "context use",
+        "name": "Context Use",
+        "label": "Concept",
+        "score": 0.802154153585434,
+        "mentions": [
+          {
+            "start": 46216,
+            "end": 46227,
+            "text": "Context Use"
+          },
+          {
+            "start": 46263,
+            "end": 46274,
+            "text": "Context Use"
+          }
+        ]
+      },
+      {
+        "key": "condition",
+        "name": "Condition",
+        "label": "Concept",
+        "score": 0.7970117926597595,
+        "mentions": [
+          {
+            "start": 59117,
+            "end": 59126,
+            "text": "Condition"
+          },
+          {
+            "start": 59409,
+            "end": 59418,
+            "text": "Condition"
+          }
+        ]
+      },
+      {
+        "key": "ie systems",
+        "name": "IE systems",
+        "label": "System",
+        "score": 0.7498148083686829,
+        "mentions": [
+          {
+            "start": 29273,
+            "end": 29283,
+            "text": "IE systems"
+          },
+          {
+            "start": 45421,
+            "end": 45431,
+            "text": "IE systems"
+          }
+        ]
+      },
+      {
+        "key": "beneficiary context",
+        "name": "Beneficiary Context",
+        "label": "Concept",
+        "score": 0.7298644781112671,
+        "mentions": [
+          {
+            "start": 67966,
+            "end": 67985,
+            "text": "Beneficiary Context"
+          },
+          {
+            "start": 68138,
+            "end": 68157,
+            "text": "Beneficiary Context"
+          }
+        ]
+      },
+      {
+        "key": "data",
+        "name": "data",
+        "label": "Concept",
+        "score": 0.6987801492214203,
+        "mentions": [
+          {
+            "start": 6927,
+            "end": 6931,
+            "text": "data"
+          },
+          {
+            "start": 7537,
+            "end": 7541,
+            "text": "data"
+          }
+        ]
+      },
+      {
+        "key": "compose and conquer",
+        "name": "compose-and-conquer",
+        "label": "Method",
+        "score": 0.6813512146472931,
+        "mentions": [
+          {
+            "start": 11721,
+            "end": 11740,
+            "text": "compose-and-conquer"
+          },
+          {
+            "start": 15775,
+            "end": 15795,
+            "text": "compose-and- conquer"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "source_key": "system",
+        "target_key": "context awareness",
+        "label": "possui",
+        "score": 1.0,
+        "quote": "The perception is that imbuing in the system certain context-awareness qualities can support intelligent decision-making in specific practical situations.",
+        "quote_start": 1846
+      },
+      {
+        "source_key": "context",
+        "target_key": "context awareness",
+        "label": "gera",
+        "score": 1.0,
+        "quote": "One such concept which needs a closer examination is context and its by-product of context-awareness.",
+        "quote_start": 6186
+      },
+      {
+        "source_key": "developers",
+        "target_key": "expectations",
+        "label": "recebem",
+        "score": 1.0,
+        "quote": "For the system to be of practical utility users should be able (and encouraged) to pass their contextual behavior expectations to the developers and these should find ways to give these contexts contextual relevance and internal mechanisms for the awareness of those contexts.",
+        "quote_start": 23488
+      },
+      {
+        "source_key": "developers",
+        "target_key": "contexts",
+        "label": "dão relevância a",
+        "score": 1.0,
+        "quote": "For the system to be of practical utility users should be able (and encouraged) to pass their contextual behavior expectations to the developers and these should find ways to give these contexts contextual relevance and internal mechanisms for the awareness of those contexts.",
+        "quote_start": 23488
+      },
+      {
+        "source_key": "table 1",
+        "target_key": "contexts",
+        "label": "descreve",
+        "score": 1.0,
+        "quote": "Some examples of contexts templates representing con texts from the scenario described before are listed in Table 1.",
+        "quote_start": 35197
+      }
+    ],
+    "engine": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+  },
+  "audio_path": "audio/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective.m4a",
+  "audio_title": "Comentário em áudio: contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective",
+  "audio_subtitle": "Faixa 01 · gerada via NotebookLM Audio Overview",
+  "slides_pptx_path": "slides/deck.pptx",
+  "slides_pdf_path": "slides/deck.pdf",
+  "slides_preview_url": null,
+  "slides_edit_url": null,
+  "is_copy_of_existing": false,
+  "copy_canonical_override": null
+}

@@ -1,0 +1,107 @@
+{# Requires: entity_graph (PlacedGraph), entity_engine (str) #}
+{#
+  Static SVG with coordinates computed in Python. No graph library, no external
+  request. The triple table below the diagram is where provenance lives: each
+  relation shows the sentence from the paper that supports it.
+#}
+{% if entity_graph.nodes %}
+<section class="section" id="entidades">
+  <h2><span class="num">GRAFO</span>Entidades e relações extraídas</h2>
+  <p>Conceitos identificados automaticamente no texto do artigo. O tamanho do círculo reflete quantas vezes o conceito aparece; a cor indica o tipo.</p>
+
+  <div class="egraph">
+    <div class="egraph-legend">
+      {% for item in entity_graph.legend %}
+      <button type="button" class="egraph-chip" data-type="{{ item.label }}" aria-pressed="true">
+        <i style="background:{{ item.color }}"></i>{{ item.label }}
+      </button>
+      {% endfor %}
+    </div>
+
+    <div class="egraph-canvas">
+      <svg viewBox="0 0 {{ entity_graph.width }} {{ entity_graph.height }}" role="img"
+           aria-label="Grafo de {{ entity_graph.nodes | length }} entidades e {{ entity_graph.edges | length }} relações extraídas do artigo">
+        <defs>
+          <marker id="eg-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                  markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.45)"></path>
+          </marker>
+        </defs>
+
+        <g class="egraph-edges">
+          {% for edge in entity_graph.edges %}
+          <g class="egraph-edge" data-source="{{ edge.source.label }}" data-target="{{ edge.target.label }}">
+            <line x1="{{ edge.source.x | round(1) }}" y1="{{ edge.source.y | round(1) }}"
+                  x2="{{ edge.target.x | round(1) }}" y2="{{ edge.target.y | round(1) }}"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>{{ edge.source.name }} — {{ edge.label }} → {{ edge.target.name }}</title>
+          </g>
+          {% endfor %}
+        </g>
+
+        <g class="egraph-nodes">
+          {% for node in entity_graph.nodes %}
+          <g class="egraph-node" data-type="{{ node.label }}" tabindex="0">
+            <circle cx="{{ node.x | round(1) }}" cy="{{ node.y | round(1) }}"
+                    r="{{ node.radius | round(1) }}" fill="{{ node.color }}"></circle>
+            <text x="{{ node.x | round(1) }}" y="{{ (node.y + node.radius + 13) | round(1) }}"
+                  text-anchor="middle">{{ node.display_name }}</text>
+            <title>{{ node.name }} · {{ node.label }} · {{ node.frequency }} menções</title>
+          </g>
+          {% endfor %}
+        </g>
+      </svg>
+    </div>
+
+    {% if entity_graph.edges %}
+    <table class="egraph-triples">
+      <caption>Relações afirmadas pelo artigo, com a passagem que as sustenta</caption>
+      <thead>
+        <tr><th scope="col">Origem</th><th scope="col">Relação</th><th scope="col">Destino</th><th scope="col">Passagem de apoio</th></tr>
+      </thead>
+      <tbody>
+        {% for edge in entity_graph.edges %}
+        <tr>
+          <td><b>{{ edge.source.name }}</b></td>
+          <td><span class="egraph-rel">{{ edge.label }}</span></td>
+          <td><b>{{ edge.target.name }}</b></td>
+          <td><q>{{ edge.quote }}</q></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    {% if entity_engine %}
+    <p class="egraph-note">Extraído com <code>{{ entity_engine }}</code>. Cada entidade aponta para o trecho do texto onde foi encontrada; cada relação exibe a sentença verificada literalmente contra o artigo.</p>
+    {% endif %}
+  </div>
+
+  <script>
+  (function () {
+    var root = document.currentScript.closest('.egraph') || document.querySelector('.egraph');
+    if (!root) return;
+    var chips = root.querySelectorAll('.egraph-chip');
+    var hidden = new Set();
+
+    function apply() {
+      root.querySelectorAll('.egraph-node').forEach(function (n) {
+        n.classList.toggle('is-dim', hidden.has(n.dataset.type));
+      });
+      root.querySelectorAll('.egraph-edge').forEach(function (e) {
+        e.classList.toggle('is-dim', hidden.has(e.dataset.source) || hidden.has(e.dataset.target));
+      });
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var type = chip.dataset.type;
+        if (hidden.has(type)) { hidden.delete(type); } else { hidden.add(type); }
+        chip.setAttribute('aria-pressed', String(!hidden.has(type)));
+        apply();
+      });
+    });
+  })();
+  </script>
+</section>
+{% endif %}

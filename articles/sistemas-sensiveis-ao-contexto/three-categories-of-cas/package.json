@@ -1,0 +1,1111 @@
+{
+  "slug": "three-categories-of-cas",
+  "tema": "sistemas-sensiveis-ao-contexto",
+  "paper": {
+    "title": "Three Categories of Context-Aware Systems",
+    "subtitle": "",
+    "authors": [
+      {
+        "name": "Boris Shishkov",
+        "affiliation": "Bulgarian Academy of Sciences / IICREST"
+      },
+      {
+        "name": "John Bruntse Larsen",
+        "affiliation": "Technical University of Denmark"
+      },
+      {
+        "name": "Martijn Warnier",
+        "affiliation": "Delft University of Technology"
+      },
+      {
+        "name": "Marijn Janssen",
+        "affiliation": "Delft University of Technology"
+      }
+    ],
+    "venue": "Business Modeling and Software Design — 8th International Symposium, BMSD 2018 (LNBIP 319). Springer.",
+    "pages": "185–202",
+    "date_published": "2018",
+    "doi": "10.1007/978-3-319-94214-8_12",
+    "source_pdf_url": "../../../resources/ThreeCategoriesofCAS.pdf",
+    "abstract": "Some context-aware systems optimize system-internal processes; others maximize the user-perceived effectiveness of delivered services; still others offer value-sensitivity when society demands so. The paper considers a component-based methodological derivation of technical specifications based on underlying enterprise models (SDBC), delivers a base context-awareness conceptualization, aligns it to agent technology via AORTA, and illustrates it with a land border security drone case.",
+    "keywords": [
+      "Modeling",
+      "System design",
+      "Context-awareness",
+      "SDBC",
+      "AORTA"
+    ],
+    "problem_statement": "As três perspectivas — otimização interna, eficácia percebida pelo usuário e sensibilidade a valores — cobrem boa parte das aplicações relevantes hoje, mas não existem conceitos e termos aceitos para distingui-las. Sem esse vocabulário, esses sistemas não são bem compreendidos, integrados nem avaliados.",
+    "key_concepts": [
+      "SMCAS",
+      "UDCAS",
+      "VSCAS",
+      "SDBC",
+      "AORTA",
+      "Ciclo MAPE"
+    ],
+    "categories": [
+      {
+        "tag": "Categoria I · interna",
+        "name": "SMCAS",
+        "subtitle": "Self-Managing Context-Aware System",
+        "description": "Otimização de processos internos do próprio sistema.",
+        "attributes": [
+          [
+            "Direção",
+            "Otimização de processos internos do próprio sistema."
+          ],
+          [
+            "Mecanismo",
+            "Laço de feedback. Na Computação Autonômica ele se estende no Ciclo MAPE: monitorar, analisar, planejar, efetuar."
+          ],
+          [
+            "Composição",
+            "Um sistema autonômico gerenciando um managed system forma o sistema autogerenciável."
+          ],
+          [
+            "Alcance da regra",
+            "De se-então simples (temperatura abaixo de zero → pré-aquecer o carro) a aprendizado de máquina e motores de inferência."
+          ],
+          [
+            "Exemplo",
+            "Regular o consumo de eletrodomésticos para manter o prédio dentro de um limite."
+          ]
+        ]
+      },
+      {
+        "tag": "Categoria II · usuário",
+        "name": "UDCAS",
+        "subtitle": "User-Driven Context-Aware System",
+        "description": "Maximizar a eficácia percebida pelo usuário.",
+        "attributes": [
+          [
+            "Direção",
+            "Maximizar a eficácia percebida pelo usuário."
+          ],
+          [
+            "Mecanismo",
+            "Identificar a situação do usuário e entregar a variante de comportamento correspondente àquele estado de contexto."
+          ],
+          [
+            "Exigência",
+            "Capturar o contexto sem esforço e sem atos conscientes do usuário."
+          ],
+          [
+            "Trade-off",
+            "Preparar uma variante por estado é inviável quando há dezenas ou centenas. Estados de alta probabilidade recebem algoritmo dedicado; o resto cai no estado coletor OTHER, com lógica genérica ajustada em tempo real."
+          ],
+          [
+            "Exemplo",
+            "Paciente monitorado à distância: um comportamento em condição normal, outro em emergência."
+          ]
+        ]
+      },
+      {
+        "tag": "Categoria III · sociedade",
+        "name": "VSCAS",
+        "subtitle": "Value-Sensitive Context-Aware System",
+        "description": "Sensibilidade a valores públicos.",
+        "attributes": [
+          [
+            "Direção",
+            "Sensibilidade a valores públicos: privacidade, proteção de dados, segurança, prestação de contas, integridade, proveniência."
+          ],
+          [
+            "Distinção central",
+            "Valores são desejos e metas, não requisitos. São abstratos, construídos por e para a sociedade — não pelo domínio empresarial onde o sistema roda."
+          ],
+          [
+            "Consequência",
+            "O impacto de um valor não cabe dentro de requisitos não-funcionais; a engenharia de requisitos, sozinha, é limitada aqui."
+          ],
+          [
+            "Desafios",
+            "Valores são normativos e variam entre stakeholders; a mesma palavra recebe operacionalizações diferentes entre culturas; e valores conflitam entre si — procurar criminosos pode violar a privacidade de inocentes."
+          ],
+          [
+            "Efeito no design",
+            "Estados de contexto diferentes assumem valores diferentes, logo variantes de funcionalidade diferentes."
+          ]
+        ]
+      }
+    ],
+    "section_outline": [
+      {
+        "heading": "System Behavior Perspectives",
+        "summary": "SMCAS, UDCAS, VSCAS definidas e contrastadas."
+      },
+      {
+        "heading": "Proposed Modeling and Design",
+        "summary": "SDBC, conceitualização, enriquecimento por AORTA, meta-modelo."
+      },
+      {
+        "heading": "The Border Security Case",
+        "summary": "Sistema de drones combinando as três perspectivas, gestão de tensões."
+      }
+    ],
+    "formal_notation_present": true,
+    "formal_notation_block": "role(drone, {reportTrespassing(Trespasser, Location, Time), optimizeVision(Camera), optimizePower})\nrole(officer,{apprehend(Trespasser)})\nobj(reportTrespassing(Trespasser, Location, Time), {patrol(Location,Time), record(Trespasser, Location, Time)})\ndep(drone, officer, reportToOfficer)\ndep(drone, camera, optimizeVision)\ncond(camera, lightSensing,    optimizeVision, clearWeather /\\ daytime)\ncond(camera, darknessSensing, optimizeVision, cloudyWeather)\ncond(drone,  keepDistance,    record,         recordingFace)\ncond(drone,  reduceNoise,     patrol,         ¬alarm)",
+    "case_study_present": true,
+    "case_summary": "Sistema D, um drone sobrevoando a fronteira em apoio aos policiais (Usuário PO), com a meta DT de detectar atividades ilegais. Seis linhas de comportamento, duas por perspectiva: energia e ajuste de câmera (SMCAS); ajuste de monitoramento e processamento de dados (UDCAS); distância facial e minimização de ruído (VSCAS).",
+    "closing_question": "Quando a eficiência técnica do SMCAS colidir inevitavelmente com os valores públicos do VSCAS, quem deve ter a autoridade final para definir as prioridades da máquina?"
+  },
+  "hero": {
+    "eyebrow": "BMSD 2018 · Springer LNBIP 319 · pp. 185–202",
+    "h1": "Três categorias de sistemas sensíveis ao contexto",
+    "lede": "O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.",
+    "toc_anchors": [
+      [
+        "categorias",
+        "As três categorias"
+      ],
+      [
+        "mapa",
+        "Mapa mental"
+      ],
+      [
+        "ensaio",
+        "Ensaio"
+      ],
+      [
+        "tabelas",
+        "Referência"
+      ],
+      [
+        "slides",
+        "Apresentação"
+      ],
+      [
+        "downloads",
+        "Downloads"
+      ]
+    ],
+    "authors_line": "Boris Shishkov · John Bruntse Larsen · Martijn Warnier · Marijn Janssen",
+    "affiliations": "Instituto de Matemática e Informática, Academia Búlgara de Ciências (Sofia) · Departamento de Matemática Aplicada e Ciência da Computação, DTU (Lyngby) · Faculdade de Tecnologia, Política e Gestão, TU Delft · Instituto IICREST (Sofia)",
+    "kv_rows": [
+      [
+        "Publicado em",
+        "Business Modeling and Software Design — 8th Int. Symposium, Viena, 2–4 jul. 2018"
+      ],
+      [
+        "Palavras-chave",
+        "Modeling · System design · Context-awareness · SDBC · AORTA"
+      ],
+      [
+        "DOI",
+        "<a href=\"https://doi.org/10.1007/978-3-319-94214-8_12\" target=\"_blank\" rel=\"noopener\">10.1007/978-3-319-94214-8_12</a>"
+      ]
+    ],
+    "problem_statement": "as três perspectivas cobrem boa parte das aplicações relevantes hoje, mas não existem conceitos e termos aceitos para distingui-las. Sem esse vocabulário, esses sistemas não são bem compreendidos, integrados nem avaliados."
+  },
+  "categories": [
+    {
+      "tag": "Categoria I · interna",
+      "accent_index": 0,
+      "name": "SMCAS",
+      "subtitle": "Self-Managing Context-Aware System",
+      "dl_items": [
+        [
+          "DIREÇÃO",
+          "Otimização de processos internos do próprio sistema."
+        ],
+        [
+          "MECANISMO",
+          "Laço de feedback. Na Computação Autonômica ele se estende no <b>Ciclo MAPE</b>: monitorar, analisar, planejar, efetuar."
+        ],
+        [
+          "COMPOSIÇÃO",
+          "Um sistema autonômico gerenciando um <i>managed system</i> forma o sistema autogerenciável."
+        ],
+        [
+          "ALCANCE DA REGRA",
+          "De <code>se-então</code> simples (temperatura abaixo de zero → pré-aquecer o carro) a aprendizado de máquina e motores de inferência."
+        ],
+        [
+          "EXEMPLO",
+          "Regular o consumo de eletrodomésticos para manter o prédio dentro de um limite."
+        ]
+      ]
+    },
+    {
+      "tag": "Categoria II · usuário",
+      "accent_index": 1,
+      "name": "UDCAS",
+      "subtitle": "User-Driven Context-Aware System",
+      "dl_items": [
+        [
+          "DIREÇÃO",
+          "Maximizar a eficácia percebida pelo usuário."
+        ],
+        [
+          "MECANISMO",
+          "Identificar a situação do usuário e entregar a <b>variante de comportamento</b> correspondente àquele estado de contexto."
+        ],
+        [
+          "EXIGÊNCIA",
+          "Capturar o contexto <b>sem esforço e sem atos conscientes</b> do usuário."
+        ],
+        [
+          "TRADE-OFF",
+          "Preparar uma variante por estado é inviável quando há dezenas ou centenas. Estados de alta probabilidade recebem algoritmo dedicado; o resto cai no estado coletor <code>OTHER</code>, com lógica genérica ajustada em tempo real."
+        ],
+        [
+          "EXEMPLO",
+          "Paciente monitorado à distância: um comportamento em condição normal, outro em emergência."
+        ]
+      ]
+    },
+    {
+      "tag": "Categoria III · sociedade",
+      "accent_index": 2,
+      "name": "VSCAS",
+      "subtitle": "Value-Sensitive Context-Aware System",
+      "dl_items": [
+        [
+          "DIREÇÃO",
+          "Sensibilidade a valores públicos: privacidade, proteção de dados, segurança, prestação de contas, integridade, proveniência."
+        ],
+        [
+          "DISTINÇÃO CENTRAL",
+          "Valores são <b>desejos e metas</b>, não requisitos. São abstratos, construídos por e para a sociedade — não pelo domínio empresarial onde o sistema roda."
+        ],
+        [
+          "CONSEQUÊNCIA",
+          "O impacto de um valor não cabe dentro de requisitos não-funcionais; a engenharia de requisitos, sozinha, é limitada aqui."
+        ],
+        [
+          "DESAFIOS",
+          "Valores são normativos e variam entre stakeholders; a mesma palavra recebe operacionalizações diferentes entre culturas; e valores conflitam entre si — procurar criminosos pode violar a privacidade de inocentes."
+        ],
+        [
+          "EFEITO NO DESIGN",
+          "Estados de contexto diferentes assumem valores diferentes, logo variantes de funcionalidade diferentes."
+        ]
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "t": "Design e modelagem de sistemas sensíveis ao contexto",
+      "k": "root",
+      "children": [
+        {
+          "t": "Três categorias de sistemas",
+          "k": "cat",
+          "children": [
+            {
+              "t": "SMCAS · autogerenciáveis",
+              "k": null,
+              "children": [
+                {
+                  "t": "Otimização de processos internos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ciclo MAPE (monitorar, analisar, planejar, executar)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Mecanismos de feedback autonômico",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Sistema autonômico + managed system",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "UDCAS · direcionados ao usuário",
+              "k": null,
+              "children": [
+                {
+                  "t": "Maximização da satisfação do usuário",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Adaptação do serviço por situação",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Variantes de comportamento do sistema",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Estados de alta probabilidade vs. OTHER",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Trade-off qualidade de serviço × recursos",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "VSCAS · sensíveis a valores",
+              "k": null,
+              "children": [
+                {
+                  "t": "Sensibilidade a valores públicos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Privacidade e proteção de dados",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Valores são metas, não requisitos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Operacionalização varia entre culturas",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Valores podem conflitar entre si",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Metodologia de design",
+          "k": "met",
+          "children": [
+            {
+              "t": "Abordagem SDBC",
+              "k": null,
+              "children": [
+                {
+                  "t": "Software derivado de componentes de negócio",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Alinha engenharia de negócio e de software",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Modelos empresariais reutilizáveis",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Marco 1: modelagem empresarial",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Marco 2: especificação de software (RUP/UML)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Framework AORTA (agentes)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Raciocínio organizacional (base OperA)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Autonomia, reatividade, pró-atividade",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Predicados: role, obj, dep, rea, cond, obl, viol",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Fases OC · OPG · AE",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Meta-modelo proposto",
+          "k": "meta",
+          "children": [
+            {
+              "t": "Entidades e elementos",
+              "k": null,
+              "children": [
+                {
+                  "t": "Sistema e ambiente",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Agentes (proativos) × componentes (passivos)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Papéis: usuário, sensor, atuador, processador",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Regras e regulações",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Componentes de processamento",
+              "k": null,
+              "children": [
+                {
+                  "t": "AORTA Engine (regras e regulações)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Motor de análise (contexto)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Planejador (ações e decisões)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Subsistemas gerenciados",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Estudo de caso: segurança de fronteira",
+          "k": "caso",
+          "children": [
+            {
+              "t": "Sistema de drones (Sistema D)",
+              "k": null,
+              "children": [
+                {
+                  "t": "SMCAS: energia e ajuste de câmera",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "UDCAS: apoio a policiais e dados contextuais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "VSCAS: distância facial e ruído mínimo",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Gestão de conflitos",
+              "k": null,
+              "children": [
+                {
+                  "t": "Tensões entre perspectivas",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Esquemas de priorização sofisticados",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Regras universais não bastam",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "palette": [
+      {
+        "kind": "root",
+        "fill": "#3d3a58",
+        "text": "#fff",
+        "label": "raiz"
+      },
+      {
+        "kind": "cat",
+        "fill": "#2E7D5B",
+        "text": "#fff",
+        "label": "três categorias"
+      },
+      {
+        "kind": "met",
+        "fill": "#8A5A00",
+        "text": "#fff",
+        "label": "metodologia"
+      },
+      {
+        "kind": "meta",
+        "fill": "#2B5F86",
+        "text": "#fff",
+        "label": "meta-modelo"
+      },
+      {
+        "kind": "caso",
+        "fill": "#E8172D",
+        "text": "#fff",
+        "label": "estudo de caso"
+      }
+    ]
+  },
+  "tables": [
+    {
+      "caption": "Conceitos-base do meta-modelo",
+      "columns": [
+        "Conceito",
+        "Definição no artigo",
+        "Enriquecimento por agentes (AORTA)"
+      ],
+      "rows": [
+        [
+          "<b>Sistema</b>",
+          "Coleção de elementos que interagem com o propósito de entregar um serviço a outra entidade ou grupo.",
+          "Representado por um agente que encena o papel designado de sistema; <code>obj</code> decompõe o objetivo em sub-objetivos."
+        ],
+        [
+          "<b>Subsistema</b>",
+          "Parte identificada por decomposição funcional — um sistema se otimiza otimizando subsistemas.",
+          "Agentes encenando papéis; a dependência com o sistema é explícita por <code>dep</code>."
+        ],
+        [
+          "<b>Ambiente</b>",
+          "Tudo que não pertence ao sistema; parte dele interage com o sistema.",
+          "Agentes ambientais podem encenar um papel, mas não é obrigatório."
+        ],
+        [
+          "<b>Entidades</b>",
+          "Humanas × artificiais; passivas × autônomas; de sensoriamento × atuadoras.",
+          "Humano e artificial são indistinguíveis no modelo. Comportamento proativo = autônomo; reativo = passivo."
+        ],
+        [
+          "<b>Papel / ator-papel</b>",
+          "Estado de executar certos objetivos; a combinação entidade-papel é o ator-papel.",
+          "<code>role</code> para papéis e objetivos, <code>rea</code> para a encenação."
+        ],
+        [
+          "<b>Usuário</b>",
+          "Ator ao qual o sistema serve.",
+          "Agente que encena o papel de usuário; o sistema depende dele para entregar serviço e obter feedback."
+        ],
+        [
+          "<b>Regulações</b>",
+          "Reflexo das normas que impactam a entrega do serviço.",
+          "Statements <code>cond</code>; o agente atualiza <code>obl</code> e <code>viol</code> na fase OC."
+        ],
+        [
+          "<b>Valores</b>",
+          "Percepção pública sobre o que importa no serviço entregue.",
+          "Refletidos nas regulações expressas por predicados <code>cond</code>."
+        ]
+      ]
+    },
+    {
+      "caption": "Predicados AORTA",
+      "columns": [
+        "Predicado",
+        "Significado"
+      ],
+      "rows": [
+        [
+          "<code>role(Role, Objs)</code>",
+          "<b>Role</b> é o nome de um papel e <b>Objs</b> o conjunto de objetivos principais desse papel."
+        ],
+        [
+          "<code>obj(Obj, SubObjs)</code>",
+          "<b>Obj</b> é um objetivo que tem <b>SubObjs</b> como conjunto de sub-objetivos."
+        ],
+        [
+          "<code>dep(Role_1, Role_2, Obj)</code>",
+          "<b>Role_1</b> depende de <b>Role_2</b> para completar <b>Obj</b>."
+        ],
+        [
+          "<code>rea(Ag, Role)</code>",
+          "O agente <b>Ag</b> encena <b>Role</b>."
+        ],
+        [
+          "<code>cond(Role, Obj, Deadline, Cond)</code>",
+          "Quando a condição <b>Cond</b> vale, <b>Role</b> é obrigado a completar <b>Obj</b> antes do prazo <b>Deadline</b>."
+        ],
+        [
+          "<code>obl(Ag, Role, Obj, Deadline)</code>",
+          "O agente <b>Ag</b> é obrigado a encenar <b>Role</b> para completar <b>Obj</b> antes de <b>Deadline</b>."
+        ],
+        [
+          "<code>viol(Ag, Role, Obj)</code>",
+          "O agente <b>Ag</b> encenando <b>Role</b> violou a obrigação de completar <b>Obj</b>."
+        ]
+      ]
+    },
+    {
+      "caption": "Tabela 1 do artigo — o comportamento geral em AORTA",
+      "columns": [
+        "Perspectiva",
+        "Linha de comportamento",
+        "Racional"
+      ],
+      "rows": [
+        [
+          "<b style='color:#2E7D5B'>SMCAS</b>",
+          "Otimização do consumo de energia",
+          "O voo é controlado na estação de solo; é preciso garantir energia para completar a missão e voltar."
+        ],
+        [
+          "<b style='color:#2E7D5B'>SMCAS</b>",
+          "Ajuste das câmeras",
+          "As câmeras precisam ser reajustadas quando as condições de tempo mudam."
+        ],
+        [
+          "<b style='color:#8A5A00'>UDCAS</b>",
+          "Ajuste do monitoramento",
+          "O monitoramento deve cobrir principalmente as áreas que não estão perto de onde os policiais já estão."
+        ],
+        [
+          "<b style='color:#8A5A00'>UDCAS</b>",
+          "Processamento de dados",
+          "Dados brutos são processados, derivando informação de contexto de nível mais alto para os oficiais."
+        ],
+        [
+          "<b style='color:#E8172D'>VSCAS</b>",
+          "Observação de distância facial",
+          "Sem instrução explícita, o drone não deve capturar informação facial; se capturar, o material deve ser borrado."
+        ],
+        [
+          "<b style='color:#E8172D'>VSCAS</b>",
+          "Minimização de ruído",
+          "Se não for crítico para a missão, o drone deve evitar se aproximar de áreas residenciais."
+        ]
+      ]
+    }
+  ],
+  "essay_condensed": {
+    "variant": "condensed",
+    "sections": [
+      {
+        "no": "1",
+        "heading": "O despertar da consciência situacional",
+        "paragraphs": [
+          "A verdadeira inteligência das máquinas está na adaptabilidade — ajustar o comportamento conforme a situação específica, o <b>estado de contexto</b>. Essa evolução exige uma ponte sólida entre o ambiente de negócios e a especificação de software. É aí que entra a abordagem <b>SDBC</b> (Software Derived from Business Components): sistemas sensíveis ao contexto não nascem do vácuo, mas da derivação metodológica de especificações técnicas a partir de modelos empresariais profundos."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "SDBC",
+          "estado de contexto"
+        ]
+      },
+      {
+        "no": "2",
+        "heading": "A autonomia começa dentro de casa (SMCAS)",
+        "paragraphs": [
+          "Enraizados na <b>Computação Autonômica</b>, os sistemas autogerenciáveis focam a otimização de processos internos para reduzir custo de manutenção e dependência de supervisão humana constante. O sistema nervoso dessa autonomia é o <b>Ciclo MAPE</b>: o sistema monitora o ambiente, analisa os dados, planeja mudanças e as implementa por meio de efetores, alterando o próprio comportamento ou o ambiente ao redor."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A essência de um sistema autogerenciável é um mecanismo de feedback que permite otimizar seu funcionamento com base em entradas do ambiente.",
+          "cite": "Ensaio · aprendizado 1"
+        },
+        "terms": [
+          "Ciclo MAPE"
+        ]
+      },
+      {
+        "no": "3",
+        "heading": "A eficácia é um alvo móvel (UDCAS)",
+        "paragraphs": [
+          "Enquanto o SMCAS olha para dentro, o sistema direcionado ao usuário foca a maximização da satisfação. A premissa é que necessidades humanas são fluidas e dependem de localização, tempo, atividade, ambiente social e até propriedades fisiológicas."
+        ],
+        "bullets": [
+          "<b>Estados de alta probabilidade:</b> algoritmos personalizados para situações frequentes.",
+          "<b>Estado <code>OTHER</code>:</b> para situações raras, lógica genérica, economizando recurso computacional."
+        ],
+        "pullquote": null,
+        "terms": [
+          "trade-off"
+        ]
+      },
+      {
+        "no": "4",
+        "heading": "Ética não é acessório, é arquitetura (VSCAS)",
+        "paragraphs": [
+          "Diferente de requisitos técnicos tradicionais, valores como privacidade, prestação de contas e integridade são <b>construções sociais e normativas</b>. Não pertencem apenas ao domínio de uma empresa: são desejos da sociedade como um todo."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "construções sociais e normativas"
+        ]
+      },
+      {
+        "no": "5",
+        "heading": "O dilema dos drones e a gestão de tensões",
+        "paragraphs": [
+          "O uso de drones em segurança de fronteiras mostra as três categorias colidindo. Regras se-então simples não resolvem. O sistema usa o <b>AORTA Engine</b>, motor de raciocínio baseado em agentes, que recebe entradas do Motor de Análise, verifica obrigações, proibições e permissões, e fornece diretrizes ao Planejador, que decide a ação final."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "AORTA Engine"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine a frustração de usar um GPS que, em meio a uma emergência médica, continua sugerindo a rota “ecologicamente correta” apenas porque essa é a configuração padrão. Esse é o problema das tecnologias surdas ao ambiente: seguem algoritmos cegos, ignorando a urgência ou as nuances da realidade.",
+    "closing_paragraph": "Sistemas verdadeiramente inteligentes exigem a integração coesa de autogestão, foco no usuário e respeito a valores sociais. Com metodologias como SDBC e motores de raciocínio como o AORTA Engine, algoritmos frios viram sistemas situacionalmente conscientes."
+  },
+  "essay_full": {
+    "variant": "full",
+    "sections": [
+      {
+        "no": "1",
+        "heading": "O despertar da consciência situacional",
+        "paragraphs": [
+          "Imagine a frustração de usar um GPS que, em meio a uma emergência médica, continua sugerindo a rota “ecologicamente correta” apenas porque essa é a configuração padrão. Esse é o problema das tecnologias <b>surdas</b> ao ambiente: seguem algoritmos cegos, ignorando a urgência ou as nuances da realidade.",
+          "A verdadeira inteligência das máquinas está na adaptabilidade — ajustar o comportamento conforme a situação específica, o <span class=\"term\">estado de contexto</span>. Essa evolução exige uma ponte sólida entre o ambiente de negócios e a especificação de software. É aí que entra a abordagem <span class=\"term\">SDBC</span> (Software Derived from Business Components): sistemas sensíveis ao contexto não nascem do vácuo, mas da derivação metodológica de especificações técnicas a partir de modelos empresariais profundos."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "SDBC",
+          "estado de contexto"
+        ]
+      },
+      {
+        "no": "2",
+        "heading": "A autonomia começa dentro de casa (SMCAS)",
+        "paragraphs": [
+          "Enraizados na <b>Computação Autonômica</b>, os sistemas autogerenciáveis focam a otimização de processos internos para reduzir custo de manutenção e dependência de supervisão humana constante. O sistema nervoso dessa autonomia é o <span class=\"term\">Ciclo MAPE</span>: o sistema monitora o ambiente, analisa os dados, planeja mudanças e as implementa por meio de efetores, alterando o próprio comportamento ou o ambiente ao redor.",
+          "Ao alinhar modelagem de negócio e especificação de software, o SMCAS permite que a tecnologia deixe de ser ferramenta passiva e vire agente proativo, capaz de “sobreviver” em ecossistemas complexos por autorregulação."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A essência de um sistema autogerenciável é um mecanismo de feedback que permite otimizar seu funcionamento com base em entradas do ambiente.",
+          "cite": "Ensaio · aprendizado 1"
+        },
+        "terms": [
+          "Ciclo MAPE"
+        ]
+      },
+      {
+        "no": "3",
+        "heading": "A eficácia é um alvo móvel (UDCAS)",
+        "paragraphs": [
+          "Enquanto o SMCAS olha para dentro, o sistema direcionado ao usuário foca a maximização da satisfação. A premissa é que necessidades humanas são fluidas e dependem de localização, tempo, atividade, ambiente social e até propriedades fisiológicas — como no monitoramento remoto de pacientes, onde o sistema deve agir de forma distinta em emergência e em condição normal.",
+          "O maior desafio de design aqui é o gerenciamento de recursos. Como é impossível prever todas as situações humanas, usa-se uma abordagem estatística e probabilística."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "trade-off"
+        ]
+      },
+      {
+        "no": "4",
+        "heading": "Ética não é acessório, é arquitetura (VSCAS)",
+        "paragraphs": [
+          "Diferente de requisitos técnicos tradicionais, valores como privacidade, prestação de contas e integridade são <span class=\"term\">construções sociais e normativas</span>. Não pertencem apenas ao domínio de uma empresa: são desejos da sociedade como um todo.",
+          "Traduzir normas morais em funções de software é complexo porque valores são abstratos e variam entre culturas. No design VSCAS, sensibilidade ao contexto significa entender que a prioridade de um valor muda conforme a situação. A arquitetura precisa distinguir valores de requisitos técnicos, tratando ética como pilar de orientação para escolhas de design — não como correção de bug."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "construções sociais e normativas"
+        ]
+      },
+      {
+        "no": "5",
+        "heading": "O dilema dos drones e a gestão de tensões",
+        "paragraphs": [
+          "O uso de drones em segurança de fronteiras mostra as três categorias colidindo e exigindo raciocínio organizacional sofisticado.",
+          "Regras “se-então” simples não resolvem. O sistema usa o <span class=\"term\">AORTA Engine</span>, motor de raciocínio baseado em agentes, que recebe entradas do Motor de Análise, verifica obrigações, proibições e permissões (“é proibido voar baixo, a menos que haja alerta de invasão”) e fornece diretrizes ao <b>Planejador</b>, que decide a ação final. Assim o drone pode concluir que o silêncio de uma vizinhança é sacrificável numa missão crítica, mas deve ser preservado em patrulha de rotina."
+        ],
+        "bullets": [
+          "<b>Interno (SMCAS):</b> otimizar consumo de energia <i>versus</i> completar uma varredura detalhada.",
+          "<b>Usuário (UDCAS):</b> ajustar o monitoramento para fornecer dados críticos em tempo real aos oficiais em solo.",
+          "<b>Sociedade (VSCAS):</b> minimizar poluição sonora em áreas residenciais e garantir privacidade, borrando rostos de cidadãos inocentes captados pelas câmeras."
+        ],
+        "pullquote": null,
+        "terms": [
+          "AORTA Engine"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "",
+    "closing_paragraph": "Sistemas verdadeiramente inteligentes exigem a integração coesa de autogestão, foco no usuário e respeito a valores sociais. Com metodologias como SDBC e motores de raciocínio como o AORTA Engine, algoritmos frios viram sistemas situacionalmente conscientes, capazes de navegar por obrigações e crenças organizacionais."
+  },
+  "workshop": {
+    "title": "Prioridade em conflito: uma dinâmica sobre SMCAS, UDCAS e VSCAS",
+    "framing": "Ciclo de Kolb adaptado: experiência concreta (o dilema do drone) → reflexão (onde cada perspectiva puxa a decisão) → conceituação (nomear SMCAS/UDCAS/VSCAS e a tensão entre elas) → experimentação (aplicar a três novos cenários)",
+    "duration_minutes": 75,
+    "participant_track": {
+      "steps": [
+        {
+          "phase": "Abertura (experiência concreta)",
+          "instruction": "Leia o cenário do drone de fronteira com bateria baixa perto de uma área de interesse. Decida sozinho, em 2 minutos, o que o drone deveria fazer — sem consultar ninguém.",
+          "self_check_prompt": "Sua decisão priorizou a missão, o usuário (oficiais) ou a sociedade (privacidade/ruído)? Você percebeu isso na hora ou só ao nomear depois?"
+        },
+        {
+          "phase": "Reflexão em trio",
+          "instruction": "Compare sua decisão com a de outras duas pessoas no seu grupo. Identifique onde vocês discordaram e por quê.",
+          "self_check_prompt": "A discordância veio de valores diferentes ou de leituras diferentes do mesmo cenário?"
+        },
+        {
+          "phase": "Conceituação",
+          "instruction": "O facilitador nomeia SMCAS, UDCAS e VSCAS. Reclassifique sua decisão original usando os três rótulos.",
+          "self_check_prompt": "Sua decisão original cobria as três perspectivas, ou ignorava alguma por completo?"
+        },
+        {
+          "phase": "Experimentação",
+          "instruction": "Aplique a taxonomia a um novo cenário (fornecido pelo facilitador) fora do domínio de drones — proponha uma prioridade e justifique com o vocabulário do artigo.",
+          "self_check_prompt": "Você conseguiria explicar sua prioridade para alguém que nunca leu o artigo, sem citar as siglas?"
+        }
+      ],
+      "materials_needed": [
+        "Acesso à leitura guiada do artigo (categorias e caso dos drones)",
+        "Papel ou app de notas para a decisão individual cronometrada",
+        "Câmera ligada para a etapa de trios (ou breakout room)"
+      ],
+      "reflection_questions": [
+        "Em qual das três perspectivas você tende a pensar primeiro, por hábito profissional?",
+        "Que tipo de sistema no seu trabalho/estudo já mistura as três — e quem decide a prioridade hoje?",
+        "O que mudaria se a prioridade fosse decidida por um comitê em vez de uma regra fixa?"
+      ]
+    },
+    "facilitator_track": {
+      "script": [
+        {
+          "time_marker": "0–10 min",
+          "activity": "Abertura + decisão individual cronometrada",
+          "facilitator_notes": "Não explique SMCAS/UDCAS/VSCAS ainda. O objetivo é capturar a intuição crua antes do vocabulário. Cronometrar 2 min é importante — decisão sob pressão de tempo replica o dilema real do artigo.",
+          "discussion_prompts": [
+            "O que vocês decidiram, em uma frase?"
+          ]
+        },
+        {
+          "time_marker": "10–25 min",
+          "activity": "Trios em breakout room",
+          "facilitator_notes": "Circule pelas salas sem intervir. Anote divergências para trazer de volta no plenário — são o material da próxima etapa.",
+          "discussion_prompts": [
+            "Onde vocês discordaram? Isso era sobre fatos do cenário ou sobre prioridade de valor?"
+          ]
+        },
+        {
+          "time_marker": "25–40 min",
+          "activity": "Apresentação da taxonomia (SMCAS/UDCAS/VSCAS) e do AORTA",
+          "facilitator_notes": "Use as divergências coletadas nos trios como exemplo ao vivo de cada categoria — não apresente a taxonomia no abstrato primeiro.",
+          "discussion_prompts": [
+            "Alguém mudaria a própria decisão agora que tem os três rótulos?"
+          ]
+        },
+        {
+          "time_marker": "40–60 min",
+          "activity": "Experimentação em novo cenário",
+          "facilitator_notes": "Escolha um cenário familiar ao grupo (ex: sistema acadêmico, app de saúde, assistente de atendimento) para tornar a aplicação concreta e não apenas repetição do caso dos drones.",
+          "discussion_prompts": [
+            "Quem deveria ter autoridade final para decidir a prioridade nesse cenário — e por quê?"
+          ]
+        },
+        {
+          "time_marker": "60–75 min",
+          "activity": "Debrief e fechamento",
+          "facilitator_notes": "Feche devolvendo a pergunta do artigo: quando SMCAS e VSCAS colidem, quem decide? Não force consenso — o objetivo é que o grupo saia com o vocabulário para nomear a tensão, não com uma resposta única.",
+          "discussion_prompts": [
+            "O que vocês levam desta sessão para aplicar esta semana?"
+          ]
+        }
+      ],
+      "timing_table": {
+        "caption": "Roteiro resumido",
+        "columns": [
+          "Tempo",
+          "Atividade",
+          "Objetivo"
+        ],
+        "rows": [
+          [
+            "0–10 min",
+            "Decisão individual cronometrada",
+            "Capturar intuição sem vocabulário"
+          ],
+          [
+            "10–25 min",
+            "Trios em breakout",
+            "Expor divergência de prioridade"
+          ],
+          [
+            "25–40 min",
+            "Apresentação da taxonomia",
+            "Nomear SMCAS/UDCAS/VSCAS a partir do que já surgiu"
+          ],
+          [
+            "40–60 min",
+            "Experimentação em novo cenário",
+            "Transferir a taxonomia para fora do exemplo do artigo"
+          ],
+          [
+            "60–75 min",
+            "Debrief",
+            "Consolidar e devolver a pergunta de autoridade final"
+          ]
+        ]
+      },
+      "debrief_structure": [
+        "Recapitular as três categorias em uma frase cada, ditas pelo grupo (não pelo facilitador)",
+        "Perguntar: qual categoria vocês mais subestimaram antes de hoje?",
+        "Devolver a pergunta de fechamento do artigo sem respondê-la",
+        "Registrar por escrito (chat/documento) o que cada pessoa leva para aplicar"
+      ],
+      "consolidation_goal": "Cada participante consegue, sem consultar o artigo, classificar uma decisão de sistema real usando SMCAS/UDCAS/VSCAS e articular explicitamente qual perspectiva está sendo priorizada e por quê."
+    }
+  },
+  "seo_pages": [
+    {
+      "page_kind": "article",
+      "title": "Três Categorias de Sistemas Sensíveis ao Contexto (cópia do pipeline)",
+      "description": "Cópia gerada pelo pipeline da leitura guiada de Three Categories of Context-Aware Systems — o original permanece em artigo.html.",
+      "keywords": [
+        "context-aware systems",
+        "SMCAS",
+        "UDCAS",
+        "VSCAS",
+        "SDBC",
+        "AORTA"
+      ],
+      "og_type": "article",
+      "jsonld_type": "Article",
+      "authors": [
+        "Bruna Juliana Melo da Costa",
+        "Jefferson Wellington da Cunha"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/artigo.html",
+      "published_date": "2018",
+      "modified_date": "2026-08-29",
+      "about": [
+        "SMCAS",
+        "UDCAS",
+        "VSCAS",
+        "SDBC",
+        "AORTA",
+        "Context-aware computing"
+      ],
+      "article_tags": [
+        "SMCAS",
+        "UDCAS",
+        "VSCAS"
+      ]
+    },
+    {
+      "page_kind": "blog",
+      "title": "Além do Algoritmo (cópia do pipeline)",
+      "description": "Cópia gerada pelo pipeline do ensaio — o original permanece em blog.html.",
+      "keywords": [
+        "context-aware systems",
+        "SMCAS",
+        "UDCAS",
+        "VSCAS"
+      ],
+      "og_type": "article",
+      "jsonld_type": "BlogPosting",
+      "authors": [
+        "Bruna Juliana Melo da Costa",
+        "Jefferson Wellington da Cunha"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/blog.html",
+      "published_date": "2026-08-28",
+      "modified_date": "2026-08-29",
+      "about": [
+        "SMCAS",
+        "UDCAS",
+        "VSCAS",
+        "SDBC",
+        "AORTA",
+        "Context-aware computing"
+      ],
+      "article_tags": []
+    },
+    {
+      "page_kind": "workshop",
+      "title": "Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS",
+      "description": "Workshop remoto para consolidar o conteúdo de Three Categories of Context-Aware Systems em grupo ou individualmente, com visão de participante e de facilitador.",
+      "keywords": [
+        "workshop remoto",
+        "dinâmica",
+        "SMCAS",
+        "UDCAS",
+        "VSCAS",
+        "consolidação de conteúdo",
+        "ciclo de Kolb"
+      ],
+      "og_type": "article",
+      "jsonld_type": "LearningResource",
+      "authors": [
+        "Bruna Juliana Melo da Costa",
+        "Jefferson Wellington da Cunha"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html",
+      "published_date": "2026-08-29",
+      "modified_date": "2026-08-29",
+      "about": [
+        "SMCAS",
+        "UDCAS",
+        "VSCAS",
+        "SDBC",
+        "AORTA",
+        "Context-aware computing"
+      ],
+      "article_tags": []
+    }
+  ],
+  "downloads": [],
+  "entity_graph": {
+    "entities": [],
+    "relations": [],
+    "engine": ""
+  },
+  "audio_path": null,
+  "audio_title": null,
+  "audio_subtitle": null,
+  "slides_pptx_path": null,
+  "slides_pdf_path": null,
+  "slides_preview_url": null,
+  "slides_edit_url": null,
+  "is_copy_of_existing": true,
+  "copy_canonical_override": "https://ab-orbit.github.io/css3e/artigo.html"
+}

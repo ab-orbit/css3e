@@ -1,0 +1,119 @@
+- slug: contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective
+  tema: contexto-e-contexto-sensivel
+  title: Contexts and Context-awareness Revisited from an Intelligent Environments Perspective
+  title_pt: ''
+  pdf_source: articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective.pdf
+  doi: 10.1080/08839514.2021.2008644
+  authors:
+  - Juan Carlos Augusto
+  date_published: '2022'
+  pages:
+    article: articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html
+    blog: articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/blog.html
+    workshop: articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/workshop.html
+  briefing: Apesar da proliferação de sistemas context-aware, faltam metodologias, padrões e uma base
+    teórica comum. Este artigo propõe a teoria CIEn, que redefine contexto e consciência de contexto com
+    foco explícito nos beneficiários humanos e suas expectativas, não apenas em dados e sistemas artificiais.
+  has_audio: true
+  has_slides: true
+  slides_pptx_path: slides/deck.pptx
+  slides_pdf_path: slides/deck.pdf
+  slides_preview_url: null
+  slides_edit_url: null
+  status: published
+  include_in_sitemap: true
+  include_in_llms_txt: true
+  sitemap_priority_override: null
+  canonical_override: null
+- slug: context-aware-mas
+  tema: sistemas-multiagente-contexto
+  title: 'A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges
+    and Future Directions'
+  title_pt: ''
+  pdf_source: articles/sistemas-multiagente-contexto/context-aware-mas/context-aware-mas.pdf
+  doi: ''
+  authors:
+  - Hung Du
+  - Srikanth Thudumu
+  - Hy Nguyen
+  - Rajesh Vasa
+  - Kon Mouzakis
+  date_published: '2025-01-29'
+  pages:
+    article: articles/sistemas-multiagente-contexto/context-aware-mas/index.html
+    blog: articles/sistemas-multiagente-contexto/context-aware-mas/blog.html
+    workshop: articles/sistemas-multiagente-contexto/context-aware-mas/workshop.html
+  briefing: Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de
+    Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason,
+    Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas
+    multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework
+    para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.
+  has_audio: true
+  has_slides: true
+  slides_pptx_path: slides/deck.pptx
+  slides_pdf_path: slides/deck.pdf
+  slides_preview_url: null
+  slides_edit_url: null
+  status: published
+  include_in_sitemap: true
+  include_in_llms_txt: true
+  sitemap_priority_override: null
+  canonical_override: null
+- slug: three-categories-of-cas
+  tema: sistemas-sensiveis-ao-contexto
+  title: Three Categories of Context-Aware Systems
+  title_pt: Três Categorias de Sistemas Sensíveis ao Contexto
+  pdf_source: resources/ThreeCategoriesofCAS.pdf
+  doi: 10.1007/978-3-319-94214-8_12
+  authors:
+  - Boris Shishkov
+  - John Bruntse Larsen
+  - Martijn Warnier
+  - Marijn Janssen
+  date_published: '2018'
+  pages:
+    article: articles/sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html
+    blog: articles/sistemas-sensiveis-ao-contexto/three-categories-of-cas/blog.html
+    workshop: articles/sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html
+  briefing: O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário,
+    ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS
+    — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.
+  has_audio: false
+  has_slides: false
+  slides_pptx_path: null
+  slides_pdf_path: null
+  slides_preview_url: null
+  slides_edit_url: null
+  status: copy-of-root
+  include_in_sitemap: false
+  include_in_llms_txt: false
+  sitemap_priority_override: null
+  canonical_override: https://ab-orbit.github.io/css3e/artigo.html
+- slug: three-categories-of-cas-workshop
+  tema: sistemas-sensiveis-ao-contexto
+  title: 'Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS'
+  title_pt: 'Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS'
+  pdf_source: resources/ThreeCategoriesofCAS.pdf
+  doi: 10.1007/978-3-319-94214-8_12
+  authors:
+  - Boris Shishkov
+  - John Bruntse Larsen
+  - Martijn Warnier
+  - Marijn Janssen
+  date_published: '2026-08-29'
+  pages:
+    workshop: articles/sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html
+  briefing: O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário,
+    ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS
+    — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.
+  has_audio: false
+  has_slides: false
+  slides_pptx_path: null
+  slides_pdf_path: null
+  slides_preview_url: null
+  slides_edit_url: null
+  status: published
+  include_in_sitemap: false
+  include_in_llms_txt: false
+  sitemap_priority_override: null
+  canonical_override: null

@@ -1,1 +1,11 @@
 .DS_Store
+
+# pipeline
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+pipeline/**/__pycache__/
+
+*.egg-info/

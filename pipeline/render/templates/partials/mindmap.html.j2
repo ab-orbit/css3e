@@ -1,0 +1,270 @@
+{# Requires: mindmap (MindMapSpec), mindmap_data_json (str, JSON of root tree),
+   mindmap_palette_json (str, JSON of {kind: {fill,text}}) #}
+<section class="section" id="mapa">
+  <h2><span class="num">MAPA</span>A estrutura do artigo, navegável</h2>
+  <p>Clique em um nó para abrir ou fechar o ramo. Arraste para mover, use a roda do mouse ou os botões para o zoom. Setas do teclado navegam entre nós quando um deles está focado.</p>
+  <div class="map-shell">
+    <div class="map-bar">
+      <span class="hint" id="maphint">carregando…</span>
+      <div class="map-tools">
+        <button class="tool" data-map="expand">Expandir tudo</button>
+        <button class="tool" data-map="collapse">Recolher</button>
+        <button class="tool" data-map="fit">Ajustar</button>
+        <button class="tool" data-map="zoomout" aria-label="Diminuir zoom">−</button>
+        <button class="tool" data-map="zoomin" aria-label="Aumentar zoom">+</button>
+      </div>
+    </div>
+    <svg id="mapview" role="img" aria-label="Mapa mental do artigo"></svg>
+    <div class="map-legend">
+      {% for entry in mindmap.palette %}
+      <span><i style="background:{{ entry.fill }}"></i>{{ entry.label }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  <p class="map-note">Mapa gerado a partir da análise estruturada do artigo: layout calculado no navegador, sem imagem estática.</p>
+</section>
+
+<script>
+{# The DOM/layout/pan-zoom engine below is 100% generic — only DATA and
+   PALETTE are article-specific, both produced from MindMapSpec. #}
+(function () {
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('mapview');
+
+  var PALETTE = {{ mindmap_palette_json | safe }};
+  var DATA = {{ mindmap_data_json | safe }};
+
+  var ROW = 34, COLGAP = 54, PAD = 26, RADIUS = 9;
+  var view = { x: 0, y: 0, k: 1 };
+  var gRoot, nodes = [];
+
+  var uid = 0;
+  (function prep(n, depth, kind) {
+    n.id = ++uid;
+    n.depth = depth;
+    n.kind = n.k || kind || Object.keys(PALETTE)[0];
+    n.open = depth < (window.innerWidth <= 700 ? 1 : 2);
+    (n.children || []).forEach(function (c) { c.parent = n; prep(c, depth + 1, n.kind); });
+  })(DATA, 0, null);
+
+  function flatten(n, out) {
+    out.push(n);
+    if (n.open && n.children) n.children.forEach(function (c) { flatten(c, out); });
+    return out;
+  }
+
+  var measurer = document.createElementNS(SVGNS, 'text');
+  measurer.setAttribute('visibility', 'hidden');
+  svg.appendChild(measurer);
+  function widthOf(node) {
+    measurer.setAttribute('font-size', node.depth === 0 ? '14.5' : '13');
+    measurer.setAttribute('font-weight', node.depth <= 1 ? '780' : '400');
+    measurer.setAttribute('font-family',
+      '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif');
+    measurer.textContent = node.t;
+    var w = measurer.getComputedTextLength();
+    return Math.ceil(w) + 26 + ((node.children && node.children.length) ? 16 : 0);
+  }
+
+  function layout() {
+    var visible = flatten(DATA, []);
+    visible.forEach(function (n) { n.w = widthOf(n); });
+
+    var colW = [];
+    visible.forEach(function (n) { colW[n.depth] = Math.max(colW[n.depth] || 0, n.w); });
+    var colX = [], acc = PAD;
+    for (var d = 0; d < colW.length; d++) { colX[d] = acc; acc += (colW[d] || 0) + COLGAP; }
+
+    var row = 0;
+    (function place(n) {
+      if (n.open && n.children && n.children.length) {
+        n.children.forEach(place);
+        var f = n.children[0], l = n.children[n.children.length - 1];
+        n.y = (f.y + l.y) / 2;
+      } else {
+        n.y = PAD + row * ROW + ROW / 2;
+        row++;
+      }
+      n.x = colX[n.depth];
+    })(DATA);
+
+    return { nodes: visible, width: acc - COLGAP + PAD, height: PAD * 2 + Math.max(row, 1) * ROW };
+  }
+
+  function render(keepView) {
+    var L = layout();
+    nodes = L.nodes;
+
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.appendChild(measurer);
+
+    gRoot = document.createElementNS(SVGNS, 'g');
+    svg.appendChild(gRoot);
+
+    var gLinks = document.createElementNS(SVGNS, 'g');
+    var gNodes = document.createElementNS(SVGNS, 'g');
+    gRoot.appendChild(gLinks);
+    gRoot.appendChild(gNodes);
+
+    nodes.forEach(function (n) {
+      if (!n.parent || nodes.indexOf(n.parent) === -1) return;
+      var p = n.parent,
+          x1 = p.x + p.w, y1 = p.y, x2 = n.x, y2 = n.y,
+          mx = (x1 + x2) / 2;
+      var path = document.createElementNS(SVGNS, 'path');
+      path.setAttribute('class', 'link');
+      path.setAttribute('d', 'M' + x1 + ',' + y1 + 'C' + mx + ',' + y1 + ' ' + mx + ',' + y2 + ' ' + x2 + ',' + y2);
+      path.setAttribute('stroke', (PALETTE[n.kind] || Object.values(PALETTE)[0]).fill);
+      gLinks.appendChild(path);
+    });
+
+    nodes.forEach(function (n) {
+      var pal = PALETTE[n.kind] || Object.values(PALETTE)[0];
+      var g = document.createElementNS(SVGNS, 'g');
+      g.setAttribute('class', 'node d' + Math.min(n.depth, 2));
+      g.setAttribute('transform', 'translate(' + n.x + ',' + (n.y - 14) + ')');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      var hasKids = !!(n.children && n.children.length);
+      g.setAttribute('aria-expanded', hasKids ? String(n.open) : 'false');
+      g.setAttribute('aria-label', n.t + (hasKids ? (n.open ? ' — ramo aberto' : ' — ramo fechado, ' + n.children.length + ' itens') : ''));
+
+      var r = document.createElementNS(SVGNS, 'rect');
+      r.setAttribute('width', n.w);
+      r.setAttribute('height', 28);
+      r.setAttribute('rx', RADIUS);
+      if (n.depth <= 1) {
+        r.setAttribute('fill', pal.fill);
+        r.setAttribute('stroke', 'none');
+      } else {
+        r.setAttribute('fill', n.depth === 2 ? hexA(pal.fill, .13) : '#ffffff');
+        r.setAttribute('stroke', hexA(pal.fill, n.depth === 2 ? .55 : .32));
+        r.setAttribute('stroke-width', '1');
+      }
+      g.appendChild(r);
+
+      var t = document.createElementNS(SVGNS, 'text');
+      t.setAttribute('x', 13);
+      t.setAttribute('y', 15);
+      if (n.depth > 1) t.setAttribute('fill', '#231F20');
+      t.textContent = n.t;
+      g.appendChild(t);
+
+      if (hasKids) {
+        var mark = document.createElementNS(SVGNS, 'text');
+        mark.setAttribute('class', 'toggle');
+        mark.setAttribute('x', n.w - 13);
+        mark.setAttribute('y', 15);
+        mark.setAttribute('text-anchor', 'end');
+        mark.setAttribute('fill', n.depth <= 1 ? 'rgba(255,255,255,.85)' : pal.fill);
+        mark.textContent = n.open ? '−' : '+' + n.children.length;
+        g.appendChild(mark);
+      }
+
+      function toggle() {
+        if (!hasKids) return;
+        n.open = !n.open;
+        render(true);
+      }
+      g.addEventListener('click', toggle);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.code === 'Space') { ev.preventDefault(); toggle(); }
+        else if (ev.key === 'ArrowRight' && hasKids && !n.open) { n.open = true; render(true); }
+        else if (ev.key === 'ArrowLeft' && hasKids && n.open) { n.open = false; render(true); }
+      });
+
+      gNodes.appendChild(g);
+    });
+
+    svg.dataset.w = L.width;
+    svg.dataset.h = L.height;
+
+    document.getElementById('maphint').textContent =
+      nodes.length + ' nós visíveis · clique para abrir ou fechar';
+
+    if (keepView) applyView(); else fit();
+  }
+
+  function hexA(hex, a) {
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+
+  function applyView() {
+    gRoot.setAttribute('transform', 'translate(' + view.x + ',' + view.y + ') scale(' + view.k + ')');
+  }
+
+  function fit() {
+    var box = svg.getBoundingClientRect(),
+        w = +svg.dataset.w, h = +svg.dataset.h;
+    var reserve = window.innerWidth <= 700 ? 150 : 0;
+    var avail = Math.max(160, box.height - reserve);
+    var k = Math.max(reserve ? 0.55 : 0.7, Math.min(box.width / w, avail / h, 1.15));
+    view.k = k;
+    view.x = (w * k < box.width) ? (box.width - w * k) / 2 : 14;
+    view.y = (reserve || h * k >= avail) ? 14 : (avail - h * k) / 2 + 8;
+    applyView();
+  }
+
+  var drag = null;
+  svg.addEventListener('pointerdown', function (ev) {
+    if (ev.target.closest('.node')) return;
+    drag = { x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y };
+    svg.classList.add('dragging');
+    svg.setPointerCapture(ev.pointerId);
+  });
+  svg.addEventListener('pointermove', function (ev) {
+    if (!drag) return;
+    view.x = drag.vx + (ev.clientX - drag.x);
+    view.y = drag.vy + (ev.clientY - drag.y);
+    applyView();
+  });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (e) {
+    svg.addEventListener(e, function () { drag = null; svg.classList.remove('dragging'); });
+  });
+  svg.addEventListener('wheel', function (ev) {
+    ev.preventDefault();
+    var box = svg.getBoundingClientRect(),
+        mx = ev.clientX - box.left, my = ev.clientY - box.top,
+        f = ev.deltaY < 0 ? 1.12 : 1 / 1.12,
+        k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = mx - (mx - view.x) * (k / view.k);
+    view.y = my - (my - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }, { passive: false });
+
+  function zoomBy(f) {
+    var box = svg.getBoundingClientRect(), cx = box.width / 2, cy = box.height / 2;
+    var k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = cx - (cx - view.x) * (k / view.k);
+    view.y = cy - (cy - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }
+
+  function setAll(open) {
+    (function walk(n, d) {
+      if (n.children && n.children.length) n.open = d === 0 ? true : open;
+      (n.children || []).forEach(function (c) { walk(c, d + 1); });
+    })(DATA, 0);
+    render(false);
+  }
+
+  document.querySelectorAll('[data-map]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var a = b.dataset.map;
+      if (a === 'expand') setAll(true);
+      else if (a === 'collapse') setAll(false);
+      else if (a === 'fit') fit();
+      else if (a === 'zoomin') zoomBy(1.18);
+      else if (a === 'zoomout') zoomBy(1 / 1.18);
+    });
+  });
+
+  var rt;
+  addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fit, 140); });
+
+  render(false);
+})();
+</script>

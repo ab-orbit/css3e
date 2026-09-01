@@ -1,0 +1,602 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html",
+      "url": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html",
+      "name": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
+      "headline": "Sistemas Multi-Agente Conscientes de Contexto: Arquitetura Unificada e Taxonomia",
+      "inLanguage": "pt-BR",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Hung Du"
+        },
+        {
+          "@type": "Person",
+          "name": "Srikanth Thudumu"
+        },
+        {
+          "@type": "Person",
+          "name": "Hy Nguyen"
+        },
+        {
+          "@type": "Person",
+          "name": "Rajesh Vasa"
+        },
+        {
+          "@type": "Person",
+          "name": "Kon Mouzakis"
+        }
+      ],
+      "abstract": "Research interest in agents is rising, particularly in Artificial Intelligence (AI) techniques such as deep multi-modal representation learning, deep graph learning, and deep reinforcement learning, which suggest potential for human-like task performance within a multi-agent framework. However, challenges exist in enabling these agents to coordinate, learn, reason, predict, and navigate uncertainties in dynamic environments. Context awareness is crucial for enhancing multi-agent systems in such situations. Current research often addresses context-awareness or multi-agent system issues separately, leaving a gap in comprehensive surveys that explore both fields, especially regarding the five essential agent capabilities (Sense-Learn-Reason-Predict-Act). This survey fills that gap by presenting a unified architecture and taxonomy for developing Context-Aware Multi-Agent Systems (CA-MAS), which are vital for improving agent robustness and adaptability in real-world environments. We provide a comprehensive overview of state-of-the-art context-awareness and multi-agent systems, followed by a framework for CA-MAS development. We detail the properties of context-awareness and multi-agent systems, and a general process for context-aware systems, highlighting approaches from various domains such as ambient intelligence, autonomous navigation, digital assistance, disaster relief management, education, energy efficiency & sustainability, IoT, and supply chain management. Finally, we discuss existing CA-MAS challenges and propose future research directions.",
+      "description": "Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.",
+      "datePublished": "2025-01-29",
+      "publication": "arXiv preprint arXiv:2402.01968v2 [cs.MA]",
+      "keywords": [
+        "Artificial Intelligence",
+        "Reinforcement Learning",
+        "Multi-Agent Systems",
+        "Context-Aware Systems"
+      ],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "IEEE",
+          "termCode": "ieee",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 50,
+          "css3e:confidence": 0.941
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "multi-agent systems",
+          "termCode": "multi agent systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 37,
+          "css3e:confidence": 0.753
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "CA-MAS",
+          "termCode": "ca mas",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 38,
+          "css3e:confidence": 0.71
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "context",
+          "termCode": "context",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 33,
+          "css3e:confidence": 0.785
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "MAS",
+          "termCode": "mas",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 29,
+          "css3e:confidence": 0.725
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "agent",
+          "termCode": "agent",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 25,
+          "css3e:confidence": 0.787
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Springer",
+          "termCode": "springer",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 19,
+          "css3e:confidence": 0.89
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "contextual information",
+          "termCode": "contextual information",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 21,
+          "css3e:confidence": 0.698
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "DefinedTerm",
+          "name": "goals",
+          "termCode": "goals",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 19,
+          "css3e:confidence": 0.667
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "agents",
+          "termCode": "agents",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 15,
+          "css3e:confidence": 0.714
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "p",
+          "termCode": "p",
+          "inDefinedTermSet": "Metric",
+          "css3e:mentionCount": 12,
+          "css3e:confidence": 0.803
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "consensus",
+          "termCode": "consensus",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 14,
+          "css3e:confidence": 0.677
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "organization",
+          "termCode": "organization",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 12,
+          "css3e:confidence": 0.713
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "context-awareness",
+          "termCode": "context awareness",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.718
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Context Modeling",
+          "termCode": "context modeling",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.694
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "arXiv",
+          "termCode": "arxiv",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.691
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "deep reinforcement learning",
+          "termCode": "deep reinforcement learning",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.663
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Context-Aware Systems",
+          "termCode": "context aware systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.741
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "group/cluster consensus",
+          "termCode": "groupcluster consensus",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.634
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Organizational Structure",
+          "termCode": "organizational structure",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.626
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "CAS",
+          "termCode": "cas",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.622
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "sampled-data consensus",
+          "termCode": "sampled data consensus",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.672
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Relationships",
+          "termCode": "relationships",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.61
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "t",
+          "termCode": "t",
+          "inDefinedTermSet": "Metric",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.691
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "d",
+          "termCode": "d",
+          "inDefinedTermSet": "Metric",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.569
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ACM",
+          "termCode": "acm",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.874
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Consensus Protocol",
+          "termCode": "consensus protocol",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.611
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "information",
+          "termCode": "information",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.592
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "leader-follower consensus",
+          "termCode": "leader follower consensus",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.762
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Context-Aware Multi-Agent Systems",
+          "termCode": "context aware multi agent systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.624
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Information Flow",
+          "termCode": "information flow",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.748
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "system",
+          "termCode": "system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.609
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "expert systems",
+          "termCode": "expert systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.865
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Key-value models",
+          "termCode": "key value models",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.678
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "knowledge",
+          "termCode": "knowledge",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.677
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "object-oriented programming",
+          "termCode": "object oriented programming",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.815
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Reinforcement learning",
+          "termCode": "reinforcement learning",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.639
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "context ontology",
+          "termCode": "context ontology",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.787
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "flexibility",
+          "termCode": "flexibility",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.612
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "task",
+          "termCode": "task",
+          "inDefinedTermSet": "Task",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.752
+        }
+      ]
+    }
+  ],
+  "css3e:relations": [
+    {
+      "source": "agent",
+      "sourceCode": "agent",
+      "label": "percebe",
+      "target": "contextual information",
+      "targetCode": "contextual information",
+      "confidence": 1.0,
+      "quote": "An agent can preceive contextual information:",
+      "quoteOffset": 2568
+    },
+    {
+      "source": "agent",
+      "sourceCode": "agent",
+      "label": "utiliza",
+      "target": "deep reinforcement learning",
+      "targetCode": "deep reinforcement learning",
+      "confidence": 1.0,
+      "quote": "advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
+      "quoteOffset": 3929
+    },
+    {
+      "source": "agent",
+      "sourceCode": "agent",
+      "label": "raciocina com",
+      "target": "goals",
+      "targetCode": "goals",
+      "confidence": 1.0,
+      "quote": "advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
+      "quoteOffset": 3929
+    },
+    {
+      "source": "agent",
+      "sourceCode": "agent",
+      "label": "deve estar ciente de",
+      "target": "context",
+      "targetCode": "context",
+      "confidence": 1.0,
+      "quote": "attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
+      "quoteOffset": 8168
+    },
+    {
+      "source": "context",
+      "sourceCode": "context",
+      "label": "inclui",
+      "target": "Organizational Structure",
+      "targetCode": "organizational structure",
+      "confidence": 1.0,
+      "quote": "attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
+      "quoteOffset": 8168
+    },
+    {
+      "source": "CAS",
+      "sourceCode": "cas",
+      "label": "utiliza",
+      "target": "context",
+      "targetCode": "context",
+      "confidence": 1.0,
+      "quote": "Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.",
+      "quoteOffset": 8515
+    },
+    {
+      "source": "contextual information",
+      "sourceCode": "contextual information",
+      "label": "inclui",
+      "target": "Organizational Structure",
+      "targetCode": "organizational structure",
+      "confidence": 1.0,
+      "quote": "In the context of autonomous agents, contextual information encompasses task objectives, organizational structure, agent roles, and temporal aspects.",
+      "quoteOffset": 9210
+    },
+    {
+      "source": "MAS",
+      "sourceCode": "mas",
+      "label": "possui",
+      "target": "Organizational Structure",
+      "targetCode": "organizational structure",
+      "confidence": 1.0,
+      "quote": "three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.",
+      "quoteOffset": 17904
+    },
+    {
+      "source": "MAS",
+      "sourceCode": "mas",
+      "label": "possui",
+      "target": "consensus",
+      "targetCode": "consensus",
+      "confidence": 1.0,
+      "quote": "three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.",
+      "quoteOffset": 17904
+    },
+    {
+      "source": "MAS",
+      "sourceCode": "mas",
+      "label": "distingue-se de",
+      "target": "expert systems",
+      "targetCode": "expert systems",
+      "confidence": 1.0,
+      "quote": "three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
+      "quoteOffset": 18045
+    },
+    {
+      "source": "MAS",
+      "sourceCode": "mas",
+      "label": "distingue-se de",
+      "target": "object-oriented programming",
+      "targetCode": "object oriented programming",
+      "confidence": 1.0,
+      "quote": "three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
+      "quoteOffset": 18045
+    },
+    {
+      "source": "Relationships",
+      "sourceCode": "relationships",
+      "label": "formam-se entre",
+      "target": "agents",
+      "targetCode": "agents",
+      "confidence": 1.0,
+      "quote": "Depending on both organizational goals and agent-specific goals, relationships among agentsare formed into one of the following categories: cooperation or competition.",
+      "quoteOffset": 18537
+    },
+    {
+      "source": "consensus",
+      "sourceCode": "consensus",
+      "label": "é alcançado entre",
+      "target": "agents",
+      "targetCode": "agents",
+      "confidence": 1.0,
+      "quote": "achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
+      "quoteOffset": 31331
+    },
+    {
+      "source": "consensus",
+      "sourceCode": "consensus",
+      "label": "possibilita troca de",
+      "target": "information",
+      "targetCode": "information",
+      "confidence": 1.0,
+      "quote": "achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
+      "quoteOffset": 31331
+    },
+    {
+      "source": "leader-follower consensus",
+      "sourceCode": "leader follower consensus",
+      "label": "é tipo de",
+      "target": "Consensus Protocol",
+      "targetCode": "consensus protocol",
+      "confidence": 1.0,
+      "quote": "the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,",
+      "quoteOffset": 32493
+    },
+    {
+      "source": "group/cluster consensus",
+      "sourceCode": "groupcluster consensus",
+      "label": "é tipo de",
+      "target": "Consensus Protocol",
+      "targetCode": "consensus protocol",
+      "confidence": 1.0,
+      "quote": "the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,",
+      "quoteOffset": 32493
+    },
+    {
+      "source": "Context Modeling",
+      "sourceCode": "context modeling",
+      "label": "inclui",
+      "target": "Key-value models",
+      "targetCode": "key value models",
+      "confidence": 1.0,
+      "quote": "Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models",
+      "quoteOffset": 35140
+    },
+    {
+      "source": "Context Modeling",
+      "sourceCode": "context modeling",
+      "label": "inclui",
+      "target": "context ontology",
+      "targetCode": "context ontology",
+      "confidence": 1.0,
+      "quote": "Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models",
+      "quoteOffset": 35140
+    },
+    {
+      "source": "context ontology",
+      "sourceCode": "context ontology",
+      "label": "representa",
+      "target": "Relationships",
+      "targetCode": "relationships",
+      "confidence": 1.0,
+      "quote": "ontology-based context models are widely utilized due to their capability for semantic reasoning and representation of context relationships through knowledge graphs",
+      "quoteOffset": 35851
+    },
+    {
+      "source": "multi-agent systems",
+      "sourceCode": "multi agent systems",
+      "label": "é composto por",
+      "target": "agent",
+      "targetCode": "agent",
+      "confidence": 1.0,
+      "quote": "Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.",
+      "quoteOffset": 6702
+    },
+    {
+      "source": "agent",
+      "sourceCode": "agent",
+      "label": "resolve",
+      "target": "task",
+      "targetCode": "task",
+      "confidence": 1.0,
+      "quote": "An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.",
+      "quoteOffset": 6888
+    },
+    {
+      "source": "Context-Aware Multi-Agent Systems",
+      "sourceCode": "context aware multi agent systems",
+      "label": "utiliza",
+      "target": "contextual information",
+      "targetCode": "contextual information",
+      "confidence": 1.0,
+      "quote": "the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.",
+      "quoteOffset": 6192
+    },
+    {
+      "source": "Context-Aware Systems",
+      "sourceCode": "context aware systems",
+      "label": "utiliza",
+      "target": "context",
+      "targetCode": "context",
+      "confidence": 1.0,
+      "quote": "Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.",
+      "quoteOffset": 8515
+    }
+  ],
+  "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+}

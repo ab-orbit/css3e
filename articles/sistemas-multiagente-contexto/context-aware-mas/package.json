@@ -1,0 +1,3811 @@
+{
+  "slug": "context-aware-mas",
+  "tema": "sistemas-multiagente-contexto",
+  "paper": {
+    "title": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
+    "subtitle": "",
+    "authors": [
+      {
+        "name": "Hung Du",
+        "affiliation": "Applied Artificial Intelligence Institute (A²I²), Deakin University, Geelong, VIC, Australia, 3216"
+      },
+      {
+        "name": "Srikanth Thudumu",
+        "affiliation": "Applied Artificial Intelligence Institute (A²I²), Deakin University, Geelong, VIC, Australia, 3216"
+      },
+      {
+        "name": "Hy Nguyen",
+        "affiliation": "Applied Artificial Intelligence Institute (A²I²), Deakin University, Geelong, VIC, Australia, 3216"
+      },
+      {
+        "name": "Rajesh Vasa",
+        "affiliation": "Applied Artificial Intelligence Institute (A²I²), Deakin University, Geelong, VIC, Australia, 3216"
+      },
+      {
+        "name": "Kon Mouzakis",
+        "affiliation": "Applied Artificial Intelligence Institute (A²I²), Deakin University, Geelong, VIC, Australia, 3216"
+      }
+    ],
+    "venue": "arXiv preprint arXiv:2402.01968v2 [cs.MA]",
+    "pages": "",
+    "date_published": "2025-01-29",
+    "doi": "",
+    "source_pdf_url": "/Users/jwcunha/Downloads/Context_AwareMAS.pdf",
+    "abstract": "Research interest in agents is rising, particularly in Artificial Intelligence (AI) techniques such as deep multi-modal representation learning, deep graph learning, and deep reinforcement learning, which suggest potential for human-like task performance within a multi-agent framework. However, challenges exist in enabling these agents to coordinate, learn, reason, predict, and navigate uncertainties in dynamic environments. Context awareness is crucial for enhancing multi-agent systems in such situations. Current research often addresses context-awareness or multi-agent system issues separately, leaving a gap in comprehensive surveys that explore both fields, especially regarding the five essential agent capabilities (Sense-Learn-Reason-Predict-Act). This survey fills that gap by presenting a unified architecture and taxonomy for developing Context-Aware Multi-Agent Systems (CA-MAS), which are vital for improving agent robustness and adaptability in real-world environments. We provide a comprehensive overview of state-of-the-art context-awareness and multi-agent systems, followed by a framework for CA-MAS development. We detail the properties of context-awareness and multi-agent systems, and a general process for context-aware systems, highlighting approaches from various domains such as ambient intelligence, autonomous navigation, digital assistance, disaster relief management, education, energy efficiency & sustainability, IoT, and supply chain management. Finally, we discuss existing CA-MAS challenges and propose future research directions.",
+    "keywords": [
+      "Artificial Intelligence",
+      "Reinforcement Learning",
+      "Multi-Agent Systems",
+      "Context-Aware Systems"
+    ],
+    "problem_statement": "Pesquisas atuais frequentemente abordam questões de consciência de contexto ou sistemas multi-agente separadamente, deixando uma lacuna em levantamentos abrangentes que explorem ambos os campos, especialmente no que diz respeito às cinco capacidades essenciais dos agentes: Sense (Sentir), Learn (Aprender), Reason (Raciocinar), Predict (Prever) e Act (Agir). Embora avanços em IA sugiram potencial para desempenho semelhante ao humano em frameworks multi-agente, desafios persistem em permitir que esses agentes coordenem, aprendam, raciocinem, prevejam e naveguem incertezas em ambientes dinâmicos. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura unificada e taxonomia para o desenvolvimento de Sistemas Multi-Agente Conscientes de Contexto (CA-MAS).",
+    "key_concepts": [
+      "Context-Aware Multi-Agent Systems (CA-MAS)",
+      "Multi-Agent Systems (MAS)",
+      "Context-Aware Systems (CAS)",
+      "Sense-Learn-Reason-Predict-Act",
+      "Belief-Desire-Intention (BDI)",
+      "Deep Reinforcement Learning (DRL)",
+      "Multi-Agent Reinforcement Learning (MARL)",
+      "Organizational structures",
+      "Consensus protocols",
+      "Context modeling",
+      "Ontology-based models",
+      "Graph Neural Networks (GNN)",
+      "Actor-Critic methods",
+      "Deep Q Network (DQN)",
+      "Proximal Policy Optimization (PPO)"
+    ],
+    "categories": [],
+    "section_outline": [
+      {
+        "heading": "1 Introduction",
+        "summary": "Apresenta a mudança de paradigma na IA de sistemas passivos para agentes autônomos dinâmicos. Destaca cinco avanços que permitem agentes com desempenho semelhante ao humano: percepção de contexto, aprendizado de dados sensoriais, raciocínio, previsão/ação e coordenação multi-agente. Introduz a necessidade de CA-MAS para superar limitações de agentes únicos em tarefas complexas distribuídas."
+      },
+      {
+        "heading": "2 Multi-Agent Systems",
+        "summary": "Define agentes autônomos e suas propriedades inteligentes: percepção, memória, modelo de mundo, ator, custo e configurador (consciência de contexto). Descreve o ambiente MAS, vantagens sobre sistemas de agente único, estruturas organizacionais (flat, hierarchies, holarchies, coalitions, teams, congregations, societies, federations, markets, matrix), estratégias de coordenação e mecanismos de consenso."
+      },
+      {
+        "heading": "3 Context-Aware Systems",
+        "summary": "Define contexto e suas cinco propriedades-chave (tipo, valor, tempo, fonte, confiança). Distingue contexto intrínseco e extrínseco. Apresenta seis técnicas de modelagem de contexto (key-value, markup schema, graphical, object-oriented, logical-based, ontology-based). Descreve o processo geral de CAS em três estágios: aquisição de contexto, abstração e compreensão, e utilização de contexto. Apresenta três arquiteturas de CAS: stand-alone, centralizada e descentralizada."
+      },
+      {
+        "heading": "4 Context-aware Multi-agent Systems",
+        "summary": "Define consciência em MAS e apresenta o processo geral de CA-MAS em cinco fases: Sense, Learn, Reason, Predict e Act. Detalha técnicas e abordagens para cada fase, incluindo modelagem de contexto, aprendizado de representação (weighting mechanisms e learning-based approaches), raciocínio (rule-based, case-based, graph-based, goal-oriented), e modelos preditivos (weighting schemes, probabilistic models, reward-based models). Apresenta tabela com abordagens CA-MAS existentes em oito domínios de aplicação."
+      },
+      {
+        "heading": "5 Challenges and Future Directions",
+        "summary": "Identifica três desafios principais: (1) estruturas organizacionais relaxadas causando compartilhamento ineficaz de contexto e preocupações de segurança/privacidade; (2) suposições de consenso relaxadas levando a incerteza, ambiguidade e conflitos; (3) complexidade na integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos. Propõe direções futuras para cada desafio."
+      },
+      {
+        "heading": "6 Conclusion",
+        "summary": "Conclui fornecendo uma visão abrangente de CA-MAS, delineando conhecimento fundamental, propondo um processo geral baseado em pesquisas em diversos domínios, e destacando desafios e direções futuras de pesquisa."
+      }
+    ],
+    "formal_notation_present": true,
+    "formal_notation_block": "**Context Graph and Pattern:**\n- Context graph: G = (V, E) onde V é conjunto de contextos e E ⊆ V × V\n- Context pattern: H = (V′, E′) onde V′ ⊆ V e E′ ⊆ E\n- Número de conexões: N_E = [N_V × (N_V - 1)] / 2\n\n**Network Abstractions Model:**\n- Distância ponderada: d(c_r, c_k) = min(d(c_r, c_{k-1}) + w(c_{k-1}, c_k))\n- Função de custo: u = (D_max, H_max, V, h)\n\n**Bayesian Belief Network:**\n- Probabilidade conjunta: p(c₁, c₂, ..., c_n) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ))\n\n**Embedding Functions:**\n- Time-invariant: e = φ(c, W_c)\n- Aggregation: eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l)\n- Time-variant: e_t^i = φ(⋃ⱼ₌₀ᴺ e_{t-1}^j, W_k)\n\n**Reinforcement Learning:**\n- n-step Q-learning: Q(s,a) = (1 - α_n)Q_{n-1}(s,a) + α_n[r(s,a) + γ max_{a'} Q_{n-1}(s',a')]\n  onde α_n = 1/(1 + N_{s,a})\n- Goal utility: u(g_{i,k} | b_{-i}; h, θ) = θ_{ik,ik} + ∑_{j≠i} ∑_l θ_{ik,jl}p(g_{jl} | h)\n- SARSA update: θ_{t+1} = θ_t + αδ∇Q(h_t, g_t; θ_t)\n\n**Case-Based Reasoning:**\n- Retrieval: f(c) = {v ∈ V | g(c,v) ≥ α}\n\n**Loss Functions:**\n- MSE: L = (1/nk) ∑_d ∑_j (y_{d,j}^i - ŷ_d^i)ᵀ(y_{d,j}^i - ŷ_d^i)\n- Regularized: L(θ) = (1/2) ∑_{(i,j,k)∈R} (y_{ijk} - ŷ_{ijk})² + Ω(θ)\n- GMM distance: L = ∑_{i,j} α_{i,j}D_{KL}(p_j(o) || q_i(o)) + D_{KL}(α || β)",
+    "case_study_present": true,
+    "case_summary": "O artigo apresenta múltiplos estudos de caso ilustrativos em oito domínios de aplicação (Tabela 4): (1) **Navegação autônoma** usando flat structures com sampled-data consensus e goal-oriented algorithms; (2) **Ambient intelligence** com teams/coalitions usando ontology-based models e graph/rule-based reasoning; (3) **Supply chain management** com markets/holarchies e case-based techniques; (4) **IoT** com teams/flat/coalitions e goal-oriented/rule-based algorithms; (5) **Disaster relief management** com hybrid structures (teams+holarchies) e leader-follower consensus; (6) **Energy efficiency & sustainability** com holarchies/teams/hierarchies e goal-oriented algorithms; (7) **Digital assistance** com flat/teams usando ontology-based models e graph/fuzzy rule-based algorithms; (8) **Education** com hierarchies usando ontology-based models e case-based techniques. Cada domínio demonstra diferentes combinações de estruturas organizacionais, protocolos de consenso, modelagem de contexto e abordagens de raciocínio/planejamento.",
+    "closing_question": "Se a integração entre ontologias de agentes e frameworks de raciocínio orientado a objetivos (como Deep Reinforcement Learning) permanece um desafio aberto devido à complexidade de representação e compatibilidade de aprendizado, como podemos projetar arquiteturas CA-MAS que equilibrem a riqueza semântica das ontologias com a adaptabilidade e robustez necessárias para ambientes dinâmicos e incertos — sem sacrificar a eficiência computacional ou a capacidade de generalização dos agentes?"
+  },
+  "hero": {
+    "eyebrow": "arXiv preprint arXiv:2402.01968v2 [cs.MA] · 2025",
+    "h1": "Sistemas Multi-Agente Conscientes de Contexto: Arquitetura Unificada e Taxonomia",
+    "lede": "Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.",
+    "toc_anchors": [
+      [
+        "introducao",
+        "Introdução"
+      ],
+      [
+        "multi-agent-systems",
+        "Sistemas Multi-Agente"
+      ],
+      [
+        "context-aware-systems",
+        "Sistemas Conscientes de Contexto"
+      ],
+      [
+        "ca-mas-framework",
+        "Framework CA-MAS"
+      ],
+      [
+        "desafios-direcoes",
+        "Desafios e Direções Futuras"
+      ],
+      [
+        "mapa-mental",
+        "Mapa Mental"
+      ],
+      [
+        "downloads",
+        "Downloads e Recursos"
+      ]
+    ],
+    "authors_line": "Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis",
+    "affiliations": "Todos os autores são afiliados ao Applied Artificial Intelligence Institute (A²I²) da Deakin University, Geelong, Victoria, Austrália.",
+    "kv_rows": [
+      [
+        "Publicado em",
+        "29 de janeiro de 2025"
+      ],
+      [
+        "Palavras-chave",
+        "Artificial Intelligence, Reinforcement Learning, Multi-Agent Systems, Context-Aware Systems"
+      ],
+      [
+        "DOI",
+        "arXiv:2402.01968v2"
+      ],
+      [
+        "Domínios de aplicação",
+        "Navegação autônoma, Ambient intelligence, IoT, Supply chain, Disaster relief, Energy efficiency, Digital assistance, Education"
+      ]
+    ],
+    "problem_statement": "**O Desafio da Fragmentação em Sistemas Multi-Agente**\n\nPesquisas atuais frequentemente abordam questões de consciência de contexto ou sistemas multi-agente separadamente, deixando uma lacuna em levantamentos abrangentes que explorem ambos os campos de forma integrada. Embora avanços em IA — como deep reinforcement learning, graph learning e representação multi-modal — sugiram potencial para desempenho semelhante ao humano em frameworks multi-agente, desafios persistem em permitir que esses agentes coordenem, aprendam, raciocinem, prevejam e naveguem incertezas em ambientes dinâmicos. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura unificada e taxonomia para o desenvolvimento de Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) que integre as cinco capacidades essenciais: **Sense** (Sentir), **Learn** (Aprender), **Reason** (Raciocinar), **Predict** (Prever) e **Act** (Agir)."
+  },
+  "categories": [],
+  "mindmap": {
+    "root": {
+      "t": "CA-MAS: Survey de Sistemas Multi-Agente",
+      "k": "root",
+      "children": [
+        {
+          "t": "Fundamentos de Multi-Agent Systems (MAS)",
+          "k": "foundations",
+          "children": [
+            {
+              "t": "Propriedades de Agentes Inteligentes",
+              "k": null,
+              "children": [
+                {
+                  "t": "Percepção (sensores)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Memória e modelo de mundo",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ator e custo",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Configurador (context-awareness)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Estruturas Organizacionais",
+              "k": null,
+              "children": [
+                {
+                  "t": "Flat, hierarchies, holarchies",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Coalitions, teams, congregations",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Societies, federations, markets, matrix",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Coordenação e Consenso",
+              "k": null,
+              "children": [
+                {
+                  "t": "Estratégias de coordenação",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Protocolos de consenso",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Leader-follower, sampled-data",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Fundamentos de Context-Aware Systems (CAS)",
+          "k": "context",
+          "children": [
+            {
+              "t": "Propriedades de Contexto",
+              "k": null,
+              "children": [
+                {
+                  "t": "Tipo, valor, tempo",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Fonte e confiança",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Intrínseco vs. extrínseco",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Técnicas de Modelagem",
+              "k": null,
+              "children": [
+                {
+                  "t": "Key-value, markup schema",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Graphical, object-oriented",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Logical-based, ontology-based",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Processo Geral de CAS",
+              "k": null,
+              "children": [
+                {
+                  "t": "Aquisição de contexto",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Abstração e compreensão",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Utilização de contexto",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Arquiteturas CAS",
+              "k": null,
+              "children": [
+                {
+                  "t": "Stand-alone",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Centralizada",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Descentralizada",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Framework CA-MAS: Sense-Learn-Reason-Predict-Act",
+          "k": "framework",
+          "children": [
+            {
+              "t": "Sense: Modelagem de Contexto",
+              "k": null,
+              "children": [
+                {
+                  "t": "Context graphs G=(V,E)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ontology-based models",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Network abstractions",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Learn: Representação de Contexto",
+              "k": null,
+              "children": [
+                {
+                  "t": "Weighting mechanisms",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Learning-based: GNN, embeddings",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Time-variant/invariant functions",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Reason: Raciocínio sobre Contexto",
+              "k": null,
+              "children": [
+                {
+                  "t": "Rule-based reasoning",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Case-based reasoning (CBR)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Graph-based, goal-oriented (BDI)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Predict: Modelos Preditivos",
+              "k": null,
+              "children": [
+                {
+                  "t": "Weighting schemes",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Probabilistic models (Bayesian)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Reward-based (RL, MARL)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Act: Planejamento e Ação",
+              "k": null,
+              "children": [
+                {
+                  "t": "Goal-oriented algorithms",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "DRL: DQN, PPO, Actor-Critic",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "n-step Q-learning, SARSA",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Domínios de Aplicação",
+          "k": "applications",
+          "children": [
+            {
+              "t": "Navegação Autônoma",
+              "k": null,
+              "children": [
+                {
+                  "t": "Flat structures",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Sampled-data consensus",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Goal-oriented algorithms",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Ambient Intelligence",
+              "k": null,
+              "children": [
+                {
+                  "t": "Teams/coalitions",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ontology-based models",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Graph/rule-based reasoning",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Supply Chain & IoT",
+              "k": null,
+              "children": [
+                {
+                  "t": "Markets/holarchies",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Case-based techniques",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Goal/rule-based reasoning",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Disaster Relief & Energy",
+              "k": null,
+              "children": [
+                {
+                  "t": "Hybrid structures",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Leader-follower consensus",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Goal-oriented algorithms",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Digital Assistance & Education",
+              "k": null,
+              "children": [
+                {
+                  "t": "Flat/teams/hierarchies",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ontology-based models",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Fuzzy rule/case-based",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Desafios e Direções Futuras",
+          "k": "challenges",
+          "children": [
+            {
+              "t": "Estruturas Organizacionais Relaxadas",
+              "k": null,
+              "children": [
+                {
+                  "t": "Compartilhamento ineficaz de contexto",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Segurança e privacidade",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Coordenação distribuída",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Suposições de Consenso Relaxadas",
+              "k": null,
+              "children": [
+                {
+                  "t": "Incerteza e ambiguidade",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Conflitos entre agentes",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Robustez em ambientes dinâmicos",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Integração Ontologia-DRL",
+              "k": null,
+              "children": [
+                {
+                  "t": "Complexidade de representação",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Compatibilidade de aprendizado",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Eficiência computacional vs. semântica",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "palette": [
+      {
+        "kind": "root",
+        "fill": "#c0392b",
+        "text": "#fff",
+        "label": "Título do survey"
+      },
+      {
+        "kind": "foundations",
+        "fill": "#27ae60",
+        "text": "#fff",
+        "label": "Fundamentos MAS"
+      },
+      {
+        "kind": "context",
+        "fill": "#2980b9",
+        "text": "#fff",
+        "label": "Fundamentos CAS"
+      },
+      {
+        "kind": "framework",
+        "fill": "#f39c12",
+        "text": "#fff",
+        "label": "Framework CA-MAS"
+      },
+      {
+        "kind": "applications",
+        "fill": "#8e44ad",
+        "text": "#fff",
+        "label": "Aplicações"
+      },
+      {
+        "kind": "challenges",
+        "fill": "#e74c3c",
+        "text": "#fff",
+        "label": "Desafios"
+      }
+    ]
+  },
+  "tables": [
+    {
+      "caption": "Capacidades Essenciais de Agentes em CA-MAS (Sense-Learn-Reason-Predict-Act)",
+      "columns": [
+        "Capacidade",
+        "Descrição",
+        "Técnicas Principais"
+      ],
+      "rows": [
+        [
+          "Sense (Sentir)",
+          "Aquisição e modelagem de informações contextuais do ambiente",
+          "Key-value models, Markup schema, Graphical models, Object-oriented, Logical-based, Ontology-based"
+        ],
+        [
+          "Learn (Aprender)",
+          "Aprendizado de representações contextuais a partir de dados sensoriais",
+          "Weighting mechanisms (attention, gating), Learning-based approaches (GNN, deep multi-modal learning, embeddings)"
+        ],
+        [
+          "Reason (Raciocinar)",
+          "Inferência e raciocínio sobre contexto para tomada de decisão",
+          "Rule-based (fuzzy logic), Case-based (CBR), Graph-based (network abstractions, Bayesian), Goal-oriented (BDI)"
+        ],
+        [
+          "Predict (Prever)",
+          "Modelagem preditiva de estados futuros e comportamentos",
+          "Weighting schemes, Probabilistic models (Bayesian, Markov), Reward-based models (Q-learning, SARSA, Actor-Critic)"
+        ],
+        [
+          "Act (Agir)",
+          "Execução coordenada de ações baseadas em previsões e objetivos",
+          "Deep RL (DQN, PPO, A3C), MARL, Consensus protocols, Coordination strategies"
+        ]
+      ]
+    },
+    {
+      "caption": "Estruturas Organizacionais em Sistemas Multi-Agente",
+      "columns": [
+        "Estrutura",
+        "Características",
+        "Aplicações Típicas"
+      ],
+      "rows": [
+        [
+          "Flat",
+          "Sem hierarquia, agentes com papéis equivalentes",
+          "Navegação autônoma, IoT, Digital assistance"
+        ],
+        [
+          "Hierarchies",
+          "Estrutura de comando top-down com níveis de autoridade",
+          "Education, Energy efficiency"
+        ],
+        [
+          "Holarchies",
+          "Agentes podem ser atômicos ou compostos (holons)",
+          "Supply chain management, Disaster relief, Energy systems"
+        ],
+        [
+          "Coalitions",
+          "Grupos temporários formados para objetivos específicos",
+          "Ambient intelligence, IoT"
+        ],
+        [
+          "Teams",
+          "Grupos permanentes com objetivos compartilhados",
+          "Ambient intelligence, IoT, Disaster relief, Energy efficiency, Digital assistance"
+        ],
+        [
+          "Congregations",
+          "Agentes compartilham recursos e espaço comum",
+          "Sistemas de recursos compartilhados"
+        ],
+        [
+          "Societies",
+          "Estrutura social com normas e regras compartilhadas",
+          "Sistemas sociais complexos"
+        ],
+        [
+          "Federations",
+          "Agentes autônomos com representação centralizada",
+          "Sistemas distribuídos"
+        ],
+        [
+          "Markets",
+          "Interações baseadas em mecanismos de mercado",
+          "Supply chain management"
+        ],
+        [
+          "Matrix",
+          "Estrutura híbrida combinando múltiplas dimensões organizacionais",
+          "Sistemas complexos multi-dimensionais"
+        ]
+      ]
+    },
+    {
+      "caption": "Notação Formal em CA-MAS",
+      "columns": [
+        "Conceito",
+        "Notação",
+        "Significado"
+      ],
+      "rows": [
+        [
+          "Context Graph",
+          "G = (V, E)",
+          "Grafo onde V é conjunto de contextos e E ⊆ V × V são relações"
+        ],
+        [
+          "Context Pattern",
+          "H = (V′, E′)",
+          "Subgrafo de contexto onde V′ ⊆ V e E′ ⊆ E"
+        ],
+        [
+          "Distância Ponderada",
+          "d(c_r, c_k) = min(d(c_r, c_{k-1}) + w(c_{k-1}, c_k))",
+          "Caminho mínimo ponderado entre contextos em network abstractions"
+        ],
+        [
+          "Probabilidade Conjunta (BBN)",
+          "p(c₁, c₂, ..., c_n) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ))",
+          "Distribuição conjunta em Bayesian Belief Network onde B(cᵢ) são pais de cᵢ"
+        ],
+        [
+          "Embedding Invariante",
+          "e = φ(c, W_c)",
+          "Função de embedding time-invariant com parâmetros W_c"
+        ],
+        [
+          "Agregação de Embeddings",
+          "eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l)",
+          "Agregação de embeddings de vizinhos com parâmetros W_l"
+        ],
+        [
+          "Embedding Temporal",
+          "e_t^i = φ(⋃ⱼ₌₀ᴺ e_{t-1}^j, W_k)",
+          "Embedding time-variant considerando histórico temporal"
+        ],
+        [
+          "n-step Q-learning",
+          "Q(s,a) = (1 - α_n)Q_{n-1}(s,a) + α_n[r(s,a) + γ max_{a'} Q_{n-1}(s',a')]",
+          "Atualização Q-learning onde α_n = 1/(1 + N_{s,a}) é taxa de aprendizado adaptativa"
+        ],
+        [
+          "Goal Utility",
+          "u(g_{i,k} | b_{-i}; h, θ) = θ_{ik,ik} + ∑_{j≠i} ∑_l θ_{ik,jl}p(g_{jl} | h)",
+          "Utilidade de objetivo em raciocínio goal-oriented considerando crenças de outros agentes"
+        ],
+        [
+          "SARSA Update",
+          "θ_{t+1} = θ_t + αδ∇Q(h_t, g_t; θ_t)",
+          "Atualização de parâmetros em SARSA com gradiente da função Q"
+        ],
+        [
+          "Case Retrieval",
+          "f(c) = {v ∈ V | g(c,v) ≥ α}",
+          "Recuperação de casos em CBR onde g é função de similaridade e α é threshold"
+        ],
+        [
+          "MSE Loss",
+          "L = (1/nk) ∑_d ∑_j (y_{d,j}^i - ŷ_d^i)ᵀ(y_{d,j}^i - ŷ_d^i)",
+          "Erro quadrático médio para previsão multi-agente"
+        ],
+        [
+          "GMM Distance Loss",
+          "L = ∑_{i,j} α_{i,j}D_{KL}(p_j(o) || q_i(o)) + D_{KL}(α || β)",
+          "Divergência KL entre Gaussian Mixture Models para aprendizado de comportamento"
+        ]
+      ]
+    }
+  ],
+  "essay_condensed": {
+    "variant": "condensed",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "Das cinco capacidades essenciais dos agentes inteligentes",
+        "paragraphs": [
+          "A evolução da IA trouxe uma mudança de paradigma: de sistemas passivos que processam entradas para agentes autônomos que percebem, aprendem e agem. Mas o que torna um agente verdadeiramente inteligente? A resposta está em cinco capacidades fundamentais que formam o ciclo Sense-Learn-Reason-Predict-Act — sentir o ambiente, aprender com dados sensoriais, raciocinar sobre situações, prever consequências e agir de forma coordenada.",
+          "Um agente autônomo possui seis propriedades inteligentes: percepção (sensores que captam o ambiente), memória (histórico de experiências), modelo de mundo (representação interna do ambiente), ator (mecanismo de decisão e ação), custo (função que avalia desempenho) e configurador — este último sendo precisamente a consciência de contexto. É essa última propriedade que permite ao agente adaptar seu comportamento não apenas ao que percebe, mas ao significado do que percebe."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "Sense-Learn-Reason-Predict-Act",
+          "consciência de contexto",
+          "agente autônomo"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "Contexto como informação estruturada e temporal",
+        "paragraphs": [
+          "Mas o que exatamente é contexto? Mais do que simples dados brutos, contexto é informação estruturada com cinco propriedades-chave: tipo (categórico, numérico, temporal), valor (a informação em si), tempo (quando foi capturado), fonte (de onde veio) e confiança (quão confiável é). Distinguimos ainda contexto intrínseco — características inerentes ao agente, como sua localização ou estado interno — de contexto extrínseco, que vem do ambiente ou de outros agentes.",
+          "A modelagem de contexto evoluiu de simples pares chave-valor para abordagens sofisticadas baseadas em ontologias, que capturam relações semânticas complexas entre diferentes tipos de informação contextual. Técnicas como redes neurais em grafos (GNN) permitem que agentes aprendam representações de contexto que capturam tanto a estrutura quanto a dinâmica temporal do ambiente. O processo geral de sistemas conscientes de contexto envolve três estágios: aquisição (coleta de dados sensoriais), abstração e compreensão (transformação em representações significativas), e utilização (aplicação para decisões e ações)."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Contexto é informação estruturada com cinco propriedades-chave: tipo, valor, tempo, fonte e confiança.",
+          "cite": "Seção 02 · Modelagem de Contexto"
+        },
+        "terms": [
+          "contexto intrínseco",
+          "contexto extrínseco",
+          "ontologias",
+          "redes neurais em grafos"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Coordenação e estruturas organizacionais",
+        "paragraphs": [
+          "Quando múltiplos agentes precisam colaborar, a estrutura organizacional torna-se crucial. Sistemas multi-agente podem adotar desde estruturas planas (flat), onde todos os agentes têm igual autoridade, até hierarquias complexas, holarchias (hierarquias recursivas onde cada nível é simultaneamente um todo e uma parte), coalizões temporárias, times especializados, ou até mercados onde agentes negociam recursos.",
+          "A coordenação efetiva requer mecanismos de consenso — protocolos que garantem que agentes cheguem a acordos sobre o estado do mundo ou sobre ações a tomar. Abordagens variam desde consenso líder-seguidor (onde um agente coordena os demais) até protocolos de dados amostrados que permitem sincronização mesmo com comunicação intermitente. Em aplicações como navegação autônoma, estruturas planas com algoritmos orientados a objetivos (goal-oriented) predominam, enquanto gerenciamento de desastres frequentemente combina times com holarchias e consenso líder-seguidor."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "estruturas organizacionais",
+          "holarchias",
+          "mecanismos de consenso",
+          "goal-oriented"
+        ]
+      },
+      {
+        "no": "04",
+        "heading": "Desafios na integração de ontologias e aprendizado profundo",
+        "paragraphs": [
+          "Três desafios principais emergem na construção de sistemas multi-agente conscientes de contexto. Primeiro, estruturas organizacionais relaxadas podem causar compartilhamento ineficaz de contexto e vulnerabilidades de segurança e privacidade — quando agentes não têm hierarquia clara, como garantir que informações sensíveis sejam protegidas? Segundo, suposições de consenso relaxadas levam a incerteza, ambiguidade e conflitos — em ambientes dinâmicos, agentes podem ter visões contraditórias do contexto.",
+          "O terceiro desafio é talvez o mais profundo: a complexidade na integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos como Deep Reinforcement Learning (DRL). Ontologias oferecem riqueza semântica e interpretabilidade, capturando relações complexas entre conceitos. Já técnicas de aprendizado por reforço multi-agente (MARL) como Proximal Policy Optimization (PPO) e métodos Actor-Critic oferecem adaptabilidade e robustez em ambientes incertos. Combinar a representação simbólica das ontologias com a natureza subsimbólica das redes neurais profundas permanece um problema em aberto, exigindo arquiteturas híbridas que preservem o melhor de ambos os mundos."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Combinar a representação simbólica das ontologias com a natureza subsimbólica das redes neurais profundas permanece um problema em aberto.",
+          "cite": "Seção 04 · Desafios de Integração"
+        },
+        "terms": [
+          "Deep Reinforcement Learning",
+          "MARL",
+          "Actor-Critic",
+          "Proximal Policy Optimization"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine uma frota de drones de resgate sobrevoando uma área devastada por um desastre natural. Cada drone precisa não apenas enxergar o terreno à sua frente, mas compreender o que os outros estão fazendo, antecipar onde as vítimas podem estar, adaptar-se a mudanças repentinas no clima e coordenar suas ações sem depender de um comando central que pode falhar a qualquer momento. Esse cenário ilustra o desafio central dos sistemas multi-agente modernos: como fazer com que agentes autônomos não apenas reajam ao ambiente, mas compreendam o contexto em que operam e colaborem de forma inteligente. É nesse cruzamento entre consciência de contexto e coordenação multi-agente que surge uma nova fronteira da inteligência artificial.",
+    "closing_paragraph": "A convergência entre consciência de contexto e sistemas multi-agente não é apenas uma questão técnica — é uma necessidade para que agentes artificiais operem em ambientes reais, onde a incerteza é a norma e a colaboração é essencial. Das aplicações em IoT e eficiência energética até assistência digital e educação, os domínios que se beneficiam de CA-MAS compartilham uma característica: a complexidade não pode ser resolvida por um único agente, e o contexto não pode ser ignorado. O caminho à frente exige não apenas avanços algorítmicos, mas uma compreensão mais profunda de como estruturar a colaboração, representar conhecimento e equilibrar autonomia com coordenação."
+  },
+  "essay_full": {
+    "variant": "full",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "A Evolução dos Agentes: De Passivos a Conscientes",
+        "paragraphs": [
+          "A inteligência artificial está passando por uma mudança de paradigma fundamental: de sistemas passivos que respondem a comandos diretos para agentes autônomos capazes de perceber, aprender, raciocinar e agir de forma independente. Cinco avanços tecnológicos recentes tornaram possível essa transformação: a percepção de contexto através de sensores multimodais, o aprendizado profundo a partir de dados sensoriais complexos, o raciocínio simbólico e baseado em grafos, a capacidade de previsão e tomada de decisão em ambientes incertos, e finalmente, a coordenação entre múltiplos agentes trabalhando em conjunto.",
+          "Um agente autônomo moderno é muito mais do que um programa que executa tarefas. Ele possui seis propriedades inteligentes essenciais: um sistema de percepção que captura informações do ambiente, uma memória que armazena experiências passadas, um modelo de mundo que representa seu conhecimento sobre o ambiente, um componente ator que executa ações, uma função de custo que avalia o sucesso de suas decisões, e crucialmente, um configurador que implementa a consciência de contexto — a capacidade de compreender não apenas o que está acontecendo, mas o significado e as implicações dessa informação.",
+          "Contudo, tarefas complexas do mundo real raramente podem ser resolvidas por um único agente. Sistemas distribuídos, ambientes de larga escala e problemas que exigem especialização múltipla demandam a coordenação de vários agentes trabalhando em conjunto. É aqui que os sistemas multi-agente (MAS) se tornam essenciais, mas também onde surgem novos desafios: como garantir que agentes com percepções parciais e potencialmente conflitantes do ambiente possam coordenar suas ações de forma eficaz?"
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "agentes autônomos",
+          "consciência de contexto",
+          "sistemas multi-agente",
+          "percepção multimodal"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "Estruturas Organizacionais: A Arquitetura da Coordenação",
+        "paragraphs": [
+          "Assim como organizações humanas, sistemas multi-agente podem adotar diferentes estruturas organizacionais dependendo da natureza da tarefa e do ambiente. As estruturas flat (planas) são as mais simples, onde todos os agentes têm igual autoridade e se comunicam diretamente — ideais para ambientes onde a tomada de decisão descentralizada é crucial, como em navegação autônoma de veículos. No outro extremo, as hierarchies (hierarquias) estabelecem relações claras de autoridade, com agentes supervisores coordenando agentes subordinados, uma abordagem comum em sistemas educacionais e de gestão.",
+          "Estruturas mais sofisticadas incluem as holarchies, onde cada agente pode simultaneamente atuar como um todo autônomo e como parte de um sistema maior — uma propriedade particularmente útil em supply chain management, onde cada nó da cadeia opera independentemente mas também como parte de uma rede integrada. As coalitions (coalizões) e teams (equipes) representam agrupamentos temporários ou permanentes de agentes com objetivos compartilhados, frequentemente vistos em sistemas de IoT e ambient intelligence.",
+          "A escolha da estrutura organizacional tem implicações profundas para os mecanismos de coordenação. Protocolos de consenso garantem que agentes cheguem a acordos sobre estados compartilhados do ambiente — desde abordagens simples de leader-follower (líder-seguidor) até algoritmos sofisticados de sampled-data consensus que permitem sincronização mesmo com comunicação intermitente. Estratégias de coordenação determinam como agentes negociam, compartilham recursos e resolvem conflitos, utilizando desde leilões em estruturas de market (mercado) até planejamento hierárquico em federations (federações)."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A escolha da estrutura organizacional determina não apenas como agentes se comunicam, mas como compartilham e interpretam o contexto.",
+          "cite": "Seção 2 · Multi-Agent Systems"
+        },
+        "terms": [
+          "estruturas organizacionais",
+          "protocolos de consenso",
+          "holarchies",
+          "coalitions"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Modelando o Contexto: Além dos Dados Brutos",
+        "paragraphs": [
+          "Contexto não é simplesmente dados — é informação com significado. Um sensor de temperatura pode reportar 35°C, mas o contexto transforma esse número em conhecimento acionável: é uma temperatura ambiente confortável ou um sinal de superaquecimento de equipamento? Sistemas conscientes de contexto (CAS) distinguem entre cinco propriedades fundamentais de qualquer informação contextual: o tipo (temperatura, localização, identidade), o valor (35°C, coordenadas GPS), o tempo (quando foi medido), a fonte (qual sensor ou agente) e a confiança (quão confiável é essa informação).",
+          "A distinção entre contexto intrínseco e extrínseco é crucial. Contexto intrínseco refere-se a propriedades inerentes ao próprio agente — sua localização, estado interno, capacidades. Contexto extrínseco engloba informações sobre o ambiente e outros agentes — condições climáticas, posições de obstáculos, intenções de outros participantes. Ambos são essenciais para uma compreensão completa da situação.",
+          "Seis técnicas principais de modelagem de contexto oferecem diferentes trade-offs entre simplicidade e expressividade. Modelos key-value (chave-valor) são simples mas limitados. Markup schemas como XML oferecem estrutura hierárquica. Modelos graphical representam contexto como redes de relações. Abordagens object-oriented encapsulam contexto em objetos reutilizáveis. Técnicas logical-based permitem inferência formal. E finalmente, modelos ontology-based (baseados em ontologias) fornecem a representação mais rica e semântica, definindo conceitos, relações e regras de inferência que permitem raciocínio sofisticado sobre o contexto.",
+          "O processo geral de um sistema consciente de contexto ocorre em três estágios: aquisição de contexto (coleta de dados de sensores e fontes externas), abstração e compreensão (transformação de dados brutos em informação significativa através de fusão, filtragem e inferência), e utilização de contexto (aplicação do conhecimento contextual para adaptar comportamento, personalizar serviços ou tomar decisões)."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "contexto intrínseco",
+          "contexto extrínseco",
+          "ontology-based",
+          "abstração de contexto"
+        ]
+      },
+      {
+        "no": "04",
+        "heading": "O Ciclo Sense-Learn-Reason-Predict-Act: A Anatomia da Consciência",
+        "paragraphs": [
+          "A consciência em sistemas multi-agente não é um estado binário, mas um processo contínuo que pode ser decomposto em cinco capacidades essenciais interconectadas. O ciclo Sense-Learn-Reason-Predict-Act (Sentir-Aprender-Raciocinar-Prever-Agir) representa a arquitetura fundamental de um agente consciente de contexto operando em um ambiente multi-agente.",
+          "A fase Sense (Sentir) envolve não apenas a coleta de dados sensoriais, mas a modelagem estruturada do contexto. Aqui, as técnicas de modelagem discutidas anteriormente — desde simples key-value até sofisticadas ontologias — transformam streams de dados brutos em representações estruturadas. Um drone de resgate não apenas captura imagens; ele modela a cena como um grafo de contexto G = (V, E), onde vértices V representam entidades detectadas (vítimas, obstáculos, outros agentes) e arestas E representam relações espaciais e temporais entre elas.",
+          "A fase Learn (Aprender) utiliza técnicas de aprendizado de representação para extrair padrões significativos do contexto modelado. Weighting mechanisms (mecanismos de ponderação) atribuem importância relativa a diferentes elementos contextuais — a localização de uma vítima pode ter peso maior que a temperatura ambiente. Abordagens learning-based (baseadas em aprendizado) empregam Graph Neural Networks (GNN) para aprender embeddings que capturam tanto características locais quanto estrutura global do contexto. Funções de embedding como e = φ(c, W_c) transformam contexto bruto c em representações vetoriais densas e, enquanto mecanismos de agregação como eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l) integram informações de múltiplos agentes vizinhos.",
+          "A fase Reason (Raciocinar) aplica lógica e inferência sobre as representações aprendidas. Abordagens rule-based (baseadas em regras) utilizam lógica fuzzy e sistemas de produção para inferir novos fatos a partir do contexto conhecido. Técnicas case-based (baseadas em casos) recuperam situações similares do passado usando funções de retrieval f(c) = {v ∈ V | g(c,v) ≥ α}, onde g mede similaridade e α é um limiar. Métodos graph-based exploram a estrutura de grafos de contexto para inferir relações implícitas. E crucialmente, algoritmos goal-oriented (orientados a objetivos) como os baseados na arquitetura Belief-Desire-Intention (BDI) permitem que agentes raciocinem sobre seus objetivos, crenças e intenções em relação ao contexto atual.",
+          "A fase Predict (Prever) antecipa estados futuros e consequências de ações. Weighting schemes simples extrapolam tendências. Modelos probabilísticos como Bayesian Belief Networks calculam probabilidades conjuntas p(c₁, c₂, ..., cₙ) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ)) para prever configurações futuras de contexto. Reward-based models, especialmente técnicas de Deep Reinforcement Learning (DRL) e Multi-Agent Reinforcement Learning (MARL), aprendem políticas que maximizam recompensas esperadas. Algoritmos como n-step Q-learning atualizam estimativas de valor Q(s,a) iterativamente, enquanto métodos Actor-Critic e Proximal Policy Optimization (PPO) equilibram exploração e exploitação em ambientes multi-agente complexos.",
+          "Finalmente, a fase Act (Agir) executa ações selecionadas e coordena com outros agentes. Aqui, os protocolos de consenso e estratégias de coordenação discutidos anteriormente garantem que ações individuais contribuam para objetivos coletivos. Um agente pode usar SARSA para atualizar sua política θ_{t+1} = θ_t + αδ∇Q(h_t, g_t; θ_t) baseado em feedback do ambiente, enquanto simultaneamente negocia com outros agentes para evitar conflitos e maximizar eficiência global."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A consciência de contexto não é um estado, mas um ciclo contínuo de percepção, aprendizado, raciocínio, previsão e ação adaptativa.",
+          "cite": "Seção 4 · Context-Aware Multi-Agent Systems"
+        },
+        "terms": [
+          "Sense-Learn-Reason-Predict-Act",
+          "Graph Neural Networks",
+          "Belief-Desire-Intention",
+          "Multi-Agent Reinforcement Learning",
+          "Actor-Critic"
+        ]
+      },
+      {
+        "no": "05",
+        "heading": "Aplicações no Mundo Real: Da Teoria à Prática",
+        "paragraphs": [
+          "A versatilidade dos sistemas CA-MAS se manifesta em oito domínios de aplicação distintos, cada um demonstrando diferentes combinações de estruturas organizacionais, protocolos de consenso e técnicas de raciocínio. Em navegação autônoma, veículos autônomos utilizam estruturas flat com sampled-data consensus para coordenar manobras em tempo real, empregando algoritmos goal-oriented que equilibram segurança, eficiência e conforto dos passageiros.",
+          "Sistemas de ambient intelligence para casas e edifícios inteligentes frequentemente adotam teams e coalitions, utilizando ontology-based models para representar preferências de usuários, estados de dispositivos e políticas de energia. Graph-based e rule-based reasoning permitem que o sistema infira necessidades implícitas — ajustando iluminação e temperatura não apenas baseado em comandos explícitos, mas compreendendo contexto como hora do dia, presença de ocupantes e atividades em curso.",
+          "No supply chain management, estruturas de market e holarchies permitem que cada nó da cadeia opere autonomamente enquanto participa de otimização global. Case-based techniques recuperam estratégias bem-sucedidas de situações passadas similares, adaptando-as ao contexto atual de demanda, disponibilidade de recursos e restrições logísticas.",
+          "Aplicações de disaster relief management demonstram a necessidade de estruturas híbridas — combinando teams para coordenação local de equipes de resgate com holarchies para integração com centros de comando regionais e nacionais. Leader-follower consensus permite resposta rápida em situações críticas, onde decisões centralizadas são necessárias, enquanto mantém autonomia local para adaptação a condições imprevisíveis no terreno.",
+          "Sistemas de energy efficiency & sustainability utilizam holarchies, teams e hierarchies para gerenciar smart grids, coordenando geração distribuída, armazenamento e consumo. Goal-oriented algorithms otimizam não apenas custos, mas também sustentabilidade, integrando fontes renováveis intermitentes e respondendo dinamicamente a padrões de demanda.",
+          "Em digital assistance, assistentes virtuais empregam estruturas flat e teams, usando ontology-based models para manter perfis de usuários ricos e graph-based ou fuzzy rule-based algorithms para personalizar respostas. A consciência de contexto permite que o assistente compreenda não apenas o que o usuário pergunta, mas por que e em que situação, adaptando tom, detalhe e modalidade da resposta.",
+          "Aplicações educacionais utilizam hierarchies com ontology-based models para representar conhecimento do domínio, perfis de estudantes e trajetórias de aprendizado. Case-based techniques identificam estudantes com dificuldades similares e recomendam intervenções pedagógicas personalizadas, enquanto agentes tutores coordenam para fornecer experiências de aprendizado coerentes e progressivas.",
+          "Finalmente, sistemas de IoT integram dispositivos heterogêneos usando teams, flat structures ou coalitions, dependendo da aplicação. Goal-oriented e rule-based algorithms gerenciam a complexidade de redes massivas de sensores e atuadores, garantindo que dados sejam coletados, processados e atuados de forma eficiente e contextualmente apropriada."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "ambient intelligence",
+          "supply chain management",
+          "disaster relief management",
+          "smart grids"
+        ]
+      },
+      {
+        "no": "06",
+        "heading": "Desafios e Horizontes: O Que Ainda Precisa Ser Resolvido",
+        "paragraphs": [
+          "Apesar dos avanços significativos, três desafios fundamentais limitam a adoção ampla de sistemas CA-MAS em ambientes reais. O primeiro desafio envolve estruturas organizacionais relaxadas — quando agentes operam em configurações dinâmicas onde a estrutura organizacional muda frequentemente (agentes entram e saem, coalizões se formam e dissolvem), o compartilhamento de contexto se torna ineficaz. Agentes podem não saber com quem compartilhar informações críticas, levando a redundância, inconsistência e lacunas de conhecimento. Além disso, estruturas relaxadas exacerbam preocupações de segurança e privacidade: como garantir que contexto sensível seja compartilhado apenas com agentes autorizados quando a própria noção de autorização é fluida?",
+          "O segundo desafio diz respeito a suposições de consenso relaxadas. Muitos protocolos de consenso assumem comunicação confiável, sincronização de relógio e ausência de agentes maliciosos ou defeituosos. No mundo real, essas suposições raramente se mantêm. Comunicação intermitente, latência variável e agentes com objetivos conflitantes levam a incerteza, ambiguidade e conflitos na interpretação de contexto. Um agente pode acreditar que uma área está segura enquanto outro detecta perigo iminente — como resolver tais conflitos sem um árbitro central e sem sacrificar autonomia?",
+          "O terceiro e talvez mais profundo desafio é a complexidade na integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos, especialmente técnicas de Deep Reinforcement Learning. Ontologias fornecem representações ricas e semânticas de contexto, permitindo raciocínio simbólico sofisticado. DRL oferece adaptabilidade e robustez em ambientes incertos através de aprendizado por tentativa e erro. No entanto, integrar essas abordagens é não-trivial: ontologias operam em espaços simbólicos discretos, enquanto DRL trabalha com representações vetoriais contínuas. Como traduzir entre esses paradigmas sem perder a riqueza semântica das ontologias ou a capacidade de generalização do DRL?",
+          "Direções futuras de pesquisa incluem o desenvolvimento de protocolos de compartilhamento de contexto adaptativos que ajustam estratégias de comunicação baseado na estrutura organizacional atual, mecanismos de consenso robustos que toleram incerteza e conflito através de técnicas de Byzantine fault tolerance e probabilistic consensus, e arquiteturas híbridas que combinam raciocínio simbólico baseado em ontologias com aprendizado sub-simbólico através de neurosymbolic AI — sistemas que integram redes neurais com motores de inferência lógica, permitindo que agentes aprendam representações contextuais enquanto mantêm capacidades de raciocínio explicável."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Integrar a riqueza semântica das ontologias com a adaptabilidade do aprendizado profundo permanece um dos desafios centrais para a próxima geração de sistemas CA-MAS.",
+          "cite": "Seção 5 · Challenges and Future Directions"
+        },
+        "terms": [
+          "estruturas organizacionais relaxadas",
+          "Byzantine fault tolerance",
+          "neurosymbolic AI",
+          "raciocínio explicável"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine uma equipe de resgate em uma zona de desastre: bombeiros, paramédicos e drones autônomos precisam coordenar suas ações em tempo real, adaptando-se a escombros que desabam, vítimas que surgem em locais inesperados e condições climáticas que mudam a cada minuto. Cada membro da equipe percebe o ambiente de forma diferente — o drone vê de cima, o bombeiro sente o calor, o paramédico avalia sinais vitais — mas todos precisam compartilhar uma compreensão comum da situação para agir de forma eficaz. Esse desafio de coordenação inteligente em ambientes dinâmicos e incertos é exatamente o que os Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) buscam resolver: permitir que agentes autônomos não apenas percebam o mundo ao seu redor, mas compreendam o significado dessa percepção, coordenem suas ações e adaptem suas estratégias conforme o contexto evolui.",
+    "closing_paragraph": "Os Sistemas Multi-Agente Conscientes de Contexto representam uma fronteira promissora na inteligência artificial, oferecendo um caminho para agentes que não apenas executam tarefas, mas compreendem o mundo ao seu redor e coordenam suas ações de forma inteligente e adaptativa. Das equipes de resgate em zonas de desastre aos assistentes virtuais em nossos smartphones, dos veículos autônomos nas ruas às redes elétricas inteligentes que alimentam nossas cidades, a capacidade de perceber, aprender, raciocinar, prever e agir com consciência de contexto está se tornando essencial. No entanto, como vimos, desafios fundamentais permanecem — especialmente na integração de diferentes paradigmas de representação e raciocínio. A jornada da teoria à prática exigirá não apenas avanços técnicos, mas também novas formas de pensar sobre como agentes autônomos podem colaborar, compartilhar conhecimento e tomar decisões em um mundo cada vez mais complexo e interconectado."
+  },
+  "workshop": {
+    "title": "CA-MAS em Ação: Projetando Sistemas Multi-Agente Conscientes de Contexto",
+    "framing": "Ciclo de Kolb adaptado para aprendizagem técnica: experiência concreta (aplicação de taxonomia em cenário) → observação reflexiva (análise de decisões de design) → conceituação abstrata (consolidação do framework CA-MAS) → experimentação ativa (redesign e generalização)",
+    "duration_minutes": 75,
+    "participant_track": {
+      "steps": [
+        {
+          "phase": "Preparação (pré-sessão)",
+          "instruction": "Leia o artigo focando nas seções 2, 3 e 4. Identifique e anote as cinco fases do processo CA-MAS (Sense-Learn-Reason-Predict-Act) e pelo menos três estruturas organizacionais de MAS. Prepare-se para aplicar esses conceitos em um cenário prático.",
+          "self_check_prompt": "Consigo explicar com minhas próprias palavras a diferença entre contexto intrínseco e extrínseco? Sei listar as cinco fases do CA-MAS?"
+        },
+        {
+          "phase": "Experiência Concreta (15 min)",
+          "instruction": "Você receberá um cenário de aplicação (ex: gestão de desastres, navegação autônoma ou supply chain). Em breakout rooms de 3-4 pessoas, projete um CA-MAS para esse cenário: (1) Escolha uma estrutura organizacional adequada da Tabela 1 do artigo; (2) Defina quais contextos os agentes precisam 'sentir' (Sense); (3) Selecione uma técnica de modelagem de contexto (seção 3.2); (4) Escolha uma abordagem de raciocínio (rule-based, case-based, graph-based ou goal-oriented). Documente suas escolhas no template compartilhado (Miro/Jamboard).",
+          "self_check_prompt": "Minhas escolhas de estrutura organizacional e técnicas estão justificadas pelas características específicas do cenário (distribuição geográfica, dinamicidade, necessidade de consenso)?"
+        },
+        {
+          "phase": "Observação Reflexiva (20 min)",
+          "instruction": "Retorne à sessão plenária. Observe as apresentações de 2-3 grupos (5 min cada). Para cada apresentação, anote: (a) Qual foi o trade-off principal que o grupo enfrentou? (b) Que desafio da seção 5 do artigo apareceu implicitamente no design deles? (c) Como a escolha de estrutura organizacional impacta o compartilhamento de contexto? Use o chat ou documento colaborativo para registrar suas observações.",
+          "self_check_prompt": "Consigo identificar pelo menos um desafio de segurança/privacidade ou consenso que emergiria do design apresentado?"
+        },
+        {
+          "phase": "Conceituação Abstrata (20 min)",
+          "instruction": "Participe da discussão facilitada sobre padrões emergentes. Mapeie coletivamente: (1) Quais combinações de estrutura organizacional + técnica de modelagem apareceram mais? (2) Quais fases do Sense-Learn-Reason-Predict-Act foram mais desafiadoras de especificar? (3) Como os três desafios principais (estruturas relaxadas, consenso, integração ontologia-DRL) se manifestaram nos designs. Contribua com suas observações da fase anterior.",
+          "self_check_prompt": "Consigo agora articular por que certos domínios (ex: disaster relief) favorecem estruturas híbridas enquanto outros (ex: IoT) usam flat/coalitions?"
+        },
+        {
+          "phase": "Experimentação Ativa (15 min)",
+          "instruction": "Retorne ao seu grupo original. Redesenhe uma parte crítica do seu CA-MAS considerando: (1) Um dos desafios da seção 5 que você identificou; (2) Uma técnica alternativa da Tabela 4 usada em outro domínio. Prepare uma proposta de 'pivô' de 2 minutos explicando: o que mudaria, por que, e que novo trade-off isso cria. Compartilhe no canal assíncrono (Slack/Discord) após a sessão.",
+          "self_check_prompt": "Minha proposta de redesign demonstra compreensão de que não existe 'solução ótima universal', apenas escolhas contextualizadas com trade-offs explícitos?"
+        },
+        {
+          "phase": "Consolidação Individual (pós-sessão)",
+          "instruction": "Responda às perguntas de reflexão no formulário assíncrono. Revise os redesigns de outros grupos no canal compartilhado e comente em pelo menos dois, identificando conexões com conceitos do artigo.",
+          "self_check_prompt": "Consigo agora projetar um CA-MAS básico para um novo domínio, justificando cada escolha de design com base no framework do artigo?"
+        }
+      ],
+      "materials_needed": [
+        "Artigo completo (PDF ou acesso digital)",
+        "Acesso a ferramenta de videoconferência com breakout rooms (Zoom, Google Meet, etc.)",
+        "Template de design CA-MAS (Miro, Jamboard, ou Google Slides colaborativo) com seções: Cenário, Estrutura Organizacional, Contextos (Sense), Modelagem, Raciocínio, Desafios Antecipados",
+        "Documento colaborativo para anotações (Google Docs ou Notion)",
+        "Canal assíncrono para compartilhamento pós-sessão (Slack, Discord, ou fórum)",
+        "Tabelas 1, 3 e 4 do artigo como referência rápida (extraídas ou em documento separado)"
+      ],
+      "reflection_questions": [
+        "Qual foi o momento em que você percebeu a complexidade de integrar múltiplas dimensões (estrutura organizacional, modelagem de contexto, raciocínio) em um CA-MAS coerente?",
+        "Como a taxonomia do artigo (estruturas organizacionais, técnicas de modelagem, abordagens de raciocínio) ajudou ou limitou sua criatividade no design?",
+        "Dos três desafios principais apresentados na seção 5, qual você considera mais crítico para aplicações reais? Por quê?",
+        "Se você tivesse que explicar a diferença entre um MAS tradicional e um CA-MAS para alguém de outra área, que exemplo concreto você usaria?",
+        "Que pergunta de pesquisa sobre CA-MAS emergiu para você durante esta sessão que não estava explícita no artigo?"
+      ]
+    },
+    "facilitator_track": {
+      "script": [
+        {
+          "time_marker": "0–5 min",
+          "activity": "Abertura e ativação de conhecimento prévio. Poll rápido: 'Quantas das 5 fases do CA-MAS você consegue nomear de memória?' (Sense, Learn, Reason, Predict, Act). Compartilhe resultados e faça ponte com objetivo da sessão.",
+          "facilitator_notes": "Não corrija respostas ainda — use o poll para diagnosticar familiaridade. Se <50% lembram 3+ fases, faça recap visual rápido (2 min) com diagrama da Fig. 3 do artigo. Estabeleça tom de 'aplicação prática' desde o início.",
+          "discussion_prompts": [
+            "Quem já trabalhou com sistemas multi-agente antes? Que desafios de coordenação vocês enfrentaram?",
+            "O que 'consciência de contexto' significa para vocês intuitivamente, antes de entrarmos na definição técnica?"
+          ]
+        },
+        {
+          "time_marker": "5–10 min",
+          "activity": "Distribuição de cenários e formação de grupos. Atribua cada breakout room a um domínio diferente (navegação autônoma, disaster relief, supply chain, IoT, etc.). Compartilhe template de design e explique as 4 tarefas: escolher estrutura organizacional, definir contextos Sense, selecionar modelagem, escolher raciocínio.",
+          "facilitator_notes": "Prepare 4-5 cenários curtos (1 parágrafo cada) com requisitos implícitos (ex: 'disaster relief após terremoto: comunicação intermitente, prioridades dinâmicas, recursos escassos'). Grupos de 3-4 são ideais. Certifique-se de que todos têm acesso ao template antes de irem para breakout rooms. Circule pelas salas nos primeiros 2 min para verificar compreensão.",
+          "discussion_prompts": [
+            "Antes de irem para os grupos: que perguntas vocês fariam ao 'cliente' desse cenário para decidir a arquitetura CA-MAS?"
+          ]
+        },
+        {
+          "time_marker": "10–25 min",
+          "activity": "Trabalho em breakout rooms: design do CA-MAS. Grupos aplicam taxonomia do artigo ao cenário. Facilitador circula entre salas (2-3 min cada), observando dificuldades comuns.",
+          "facilitator_notes": "ERROS COMUNS A OBSERVAR: (1) Escolher estrutura organizacional por 'parecer legal' sem justificar; (2) Listar contextos genéricos ('localização, tempo') sem especificidade do domínio; (3) Confundir técnica de modelagem com técnica de raciocínio; (4) Não conectar escolhas entre si (ex: escolher ontology-based modeling mas rule-based reasoning sem explicar integração). Faça perguntas socráticas, não dê respostas: 'Como essa estrutura hierárquica lida com a necessidade de resposta rápida que vocês mencionaram?'",
+          "discussion_prompts": [
+            "Que trade-off vocês estão enfrentando agora?",
+            "Se vocês mudassem a estrutura organizacional de X para Y, o que mais precisaria mudar no design?",
+            "Olhando a Tabela 4 do artigo, que domínio similar ao de vocês pode oferecer insights?"
+          ]
+        },
+        {
+          "time_marker": "25–45 min",
+          "activity": "Apresentações plenárias (2-3 grupos, 5 min cada) + observação estruturada. Grupos apresentam design; audiência anota usando framework de observação (trade-offs, desafios implícitos, impacto de escolhas).",
+          "facilitator_notes": "Selecione grupos com designs contrastantes (ex: um com flat structure, outro com hierarchy). Após cada apresentação, dê 1 min para audiência anotar observações antes da próxima. Use timer visível. Se grupo não mencionar desafios, pergunte: 'Que problema da seção 5 do artigo poderia aparecer nesse design?' Capture designs em screenshots para referência na fase seguinte.",
+          "discussion_prompts": [
+            "Para a audiência: que escolha desse grupo vocês acham mais arriscada? Por quê?",
+            "Para o grupo apresentador: se vocês tivessem mais 10 agentes no sistema, essa estrutura ainda funcionaria?",
+            "Alguém vê conexão entre esse design e algum dos 8 domínios da Tabela 4?"
+          ]
+        },
+        {
+          "time_marker": "45–65 min",
+          "activity": "Discussão facilitada: mapeamento de padrões e conceituação. Use quadro colaborativo para mapear: (eixo X) estruturas organizacionais usadas, (eixo Y) domínios/cenários, (marcadores) técnicas de modelagem e raciocínio. Identifique clusters e outliers. Conecte com os 3 desafios da seção 5.",
+          "facilitator_notes": "Esta é a fase crítica de abstração. Use técnica de 'think-pair-share': pergunta → 1 min individual → 2 min em duplas → compartilhamento plenário. Prepare visualização prévia dos 3 desafios (estruturas relaxadas → segurança/privacidade; consenso relaxado → incerteza/conflito; integração ontologia-DRL → complexidade). Faça ponte explícita: 'Vejam como 4 dos 5 grupos escolheram ontology-based modeling — isso facilita ou dificulta a integração com DRL que o artigo menciona como desafio?'",
+          "discussion_prompts": [
+            "Que padrão vocês veem: domínios com alta dinamicidade tendem a usar que tipo de estrutura?",
+            "Por que nenhum grupo escolheu market-based structure? Que cenário exigiria isso?",
+            "Como o desafio de 'compartilhamento ineficaz de contexto' se manifestaria no design do Grupo X?",
+            "Se tivéssemos que adicionar aprendizado por reforço ao design do Grupo Y, onde seria o ponto de integração mais difícil?"
+          ]
+        },
+        {
+          "time_marker": "65–75 min",
+          "activity": "Experimentação ativa: redesign em breakout rooms + debrief final. Grupos retornam para propor 'pivô' de design. Últimos 5 min: cada grupo compartilha em 1 min seu pivô. Facilitador sintetiza aprendizados e orienta consolidação assíncrona.",
+          "facilitator_notes": "Dê instrução clara: 'Não redesenhem tudo — escolham UMA decisão de design para mudar, baseada em um desafio específico da seção 5'. Circule rapidamente pelas salas. No debrief, valorize explicitamente redesigns que demonstram compreensão de trade-offs (não 'soluções perfeitas'). Termine com 'cliffhanger': 'A pergunta de fechamento do artigo sobre integração ontologia-DRL — seus redesigns se aproximaram ou se afastaram de uma resposta?' Oriente sobre expectativas assíncronas: postar pivô + comentar 2 outros até [data].",
+          "discussion_prompts": [
+            "Que novo problema seu pivô cria?",
+            "Esse pivô seria viável com as restrições computacionais de um sistema real?",
+            "Se vocês fossem publicar esse redesign, que experimento vocês precisariam fazer para validá-lo?"
+          ]
+        }
+      ],
+      "timing_table": {
+        "caption": "Estrutura temporal do workshop CA-MAS (75 min)",
+        "columns": [
+          "Tempo",
+          "Atividade",
+          "Objetivo Pedagógico"
+        ],
+        "rows": [
+          [
+            "0–5 min",
+            "Abertura e poll diagnóstico",
+            "Ativar conhecimento prévio; estabelecer baseline"
+          ],
+          [
+            "5–10 min",
+            "Distribuição de cenários e formação de grupos",
+            "Contextualizar aplicação; preparar experiência concreta"
+          ],
+          [
+            "10–25 min",
+            "Design CA-MAS em breakout rooms",
+            "Aplicar taxonomia do artigo em contexto realista (experiência concreta)"
+          ],
+          [
+            "25–45 min",
+            "Apresentações + observação estruturada",
+            "Expor diversidade de soluções; praticar análise crítica (observação reflexiva)"
+          ],
+          [
+            "45–65 min",
+            "Mapeamento de padrões e discussão facilitada",
+            "Abstrair princípios de design; conectar com desafios teóricos (conceituação abstrata)"
+          ],
+          [
+            "65–75 min",
+            "Redesign (pivô) + debrief",
+            "Aplicar aprendizado em iteração; preparar transferência (experimentação ativa)"
+          ]
+        ]
+      },
+      "debrief_structure": [
+        "Síntese visual: Projete mapa conceitual co-criado na fase de conceituação, destacando conexões entre estruturas organizacionais, técnicas e domínios.",
+        "Validação de aprendizado: Pergunte 'Quem mudou de ideia sobre alguma escolha de design durante a sessão? O que provocou a mudança?' (metacognição explícita).",
+        "Ponte com desafios de pesquisa: Retome os 3 desafios da seção 5 e pergunte 'Qual desses vocês sentiram mais visceralmente durante o design?'",
+        "Orientação assíncrona: Explique expectativa de postar pivô (template: Mudança proposta / Justificativa baseada no artigo / Novo trade-off criado) e comentar 2 outros até [data].",
+        "Pergunta de saída: 'Complete a frase: Um CA-MAS bem projetado é aquele que... [compartilhe no chat]'. Leia 3-4 respostas em voz alta.",
+        "Fechamento com a pergunta do artigo: Releia a closing question sobre integração ontologia-DRL e convide para discussão assíncrona contínua."
+      ],
+      "consolidation_goal": "Consolidação bem-sucedida significa que participantes conseguem: (1) aplicar a taxonomia CA-MAS (estruturas organizacionais, modelagem de contexto, técnicas de raciocínio) para projetar um sistema multi-agente para um domínio específico; (2) justificar escolhas de design explicitando trade-offs entre requisitos conflitantes; (3) identificar como os três desafios principais do artigo (estruturas relaxadas, consenso, integração ontologia-DRL) emergem em designs concretos; e (4) iterar sobre um design inicial incorporando críticas fundamentadas no framework teórico do artigo."
+    }
+  },
+  "seo_pages": [
+    {
+      "page_kind": "article",
+      "title": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
+      "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes dinâmicos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.",
+      "keywords": [
+        "context-aware systems",
+        "sistemas multi-agente",
+        "multi-agent systems",
+        "CA-MAS",
+        "consciência de contexto",
+        "Sense-Learn-Reason-Predict-Act",
+        "BDI",
+        "Belief-Desire-Intention",
+        "deep reinforcement learning",
+        "MARL",
+        "multi-agent reinforcement learning",
+        "ontology-based models",
+        "modelos baseados em ontologia",
+        "Graph Neural Networks",
+        "GNN",
+        "organizational structures",
+        "estruturas organizacionais",
+        "consensus protocols",
+        "protocolos de consenso",
+        "context modeling",
+        "Actor-Critic",
+        "DQN",
+        "PPO",
+        "navegação autônoma",
+        "IoT",
+        "ambient intelligence",
+        "inteligência artificial",
+        "sistemas complexos"
+      ],
+      "og_type": "article",
+      "jsonld_type": "Article",
+      "authors": [
+        "Hung Du",
+        "Srikanth Thudumu",
+        "Hy Nguyen",
+        "Rajesh Vasa",
+        "Kon Mouzakis"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html",
+      "published_date": "2025-01-29",
+      "modified_date": "2025-01-29",
+      "about": [
+        "Context-Aware Multi-Agent Systems (CA-MAS)",
+        "Sense-Learn-Reason-Predict-Act",
+        "Multi-Agent Reinforcement Learning (MARL)",
+        "Ontology-based models",
+        "Organizational structures",
+        "Consensus protocols"
+      ],
+      "article_tags": [
+        "sistemas multi-agente",
+        "context-aware systems",
+        "inteligência artificial"
+      ]
+    },
+    {
+      "page_kind": "blog",
+      "title": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
+      "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam e navegam incertezas em ambientes dinâmicos. Apresenta processo geral baseado em cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.",
+      "keywords": [
+        "sistemas multi-agente",
+        "multi-agent systems",
+        "context-aware systems",
+        "sistemas conscientes de contexto",
+        "CA-MAS",
+        "MAS",
+        "inteligência artificial",
+        "artificial intelligence",
+        "deep reinforcement learning",
+        "MARL",
+        "multi-agent reinforcement learning",
+        "Sense-Learn-Reason-Predict-Act",
+        "BDI",
+        "Belief-Desire-Intention",
+        "ontology-based models",
+        "graph neural networks",
+        "GNN",
+        "actor-critic",
+        "DQN",
+        "PPO",
+        "organizational structures",
+        "consensus protocols",
+        "context modeling",
+        "navegação autônoma",
+        "IoT",
+        "ambient intelligence"
+      ],
+      "og_type": "article",
+      "jsonld_type": "BlogPosting",
+      "authors": [
+        "Hung Du",
+        "Srikanth Thudumu",
+        "Hy Nguyen",
+        "Rajesh Vasa",
+        "Kon Mouzakis"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/blog.html",
+      "published_date": "2025-01-29",
+      "modified_date": "2025-01-29",
+      "about": [
+        "Context-Aware Multi-Agent Systems (CA-MAS)",
+        "Sense-Learn-Reason-Predict-Act",
+        "Multi-Agent Reinforcement Learning (MARL)",
+        "Context modeling",
+        "Organizational structures",
+        "Consensus protocols"
+      ],
+      "article_tags": [
+        "sistemas multi-agente",
+        "context-aware systems",
+        "inteligência artificial",
+        "deep reinforcement learning"
+      ]
+    },
+    {
+      "page_kind": "workshop",
+      "title": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
+      "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando técnicas, aplicações e desafios. Apresenta arquitetura unificada baseada nas cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Cobre modelagem de contexto, aprendizado de representação, raciocínio orientado a objetivos e aplicações em navegação autônoma, IoT, supply chain, educação e sustentabilidade energética.",
+      "keywords": [
+        "context-aware systems",
+        "multi-agent systems",
+        "sistemas multi-agente",
+        "consciência de contexto",
+        "MAS",
+        "CAS",
+        "CA-MAS",
+        "deep reinforcement learning",
+        "MARL",
+        "multi-agent reinforcement learning",
+        "BDI",
+        "belief-desire-intention",
+        "sense-learn-reason-predict-act",
+        "ontology-based models",
+        "graph neural networks",
+        "GNN",
+        "actor-critic",
+        "DQN",
+        "PPO",
+        "consensus protocols",
+        "organizational structures",
+        "ambient intelligence",
+        "navegação autônoma",
+        "IoT",
+        "supply chain management",
+        "inteligência artificial",
+        "aprendizado por reforço"
+      ],
+      "og_type": "article",
+      "jsonld_type": "LearningResource",
+      "authors": [
+        "Hung Du",
+        "Srikanth Thudumu",
+        "Hy Nguyen",
+        "Rajesh Vasa",
+        "Kon Mouzakis"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/workshop.html",
+      "published_date": "2025-01-29",
+      "modified_date": "2025-01-29",
+      "about": [
+        "Context-Aware Multi-Agent Systems (CA-MAS)",
+        "Multi-Agent Systems (MAS)",
+        "Context-Aware Systems (CAS)",
+        "Sense-Learn-Reason-Predict-Act",
+        "Deep Reinforcement Learning (DRL)",
+        "Multi-Agent Reinforcement Learning (MARL)"
+      ],
+      "article_tags": []
+    }
+  ],
+  "downloads": [
+    {
+      "title": "Artigo Original (PDF)",
+      "description": "Baixe o artigo completo sobre sistemas multi-agente conscientes de contexto.",
+      "href": "context-aware-mas.pdf",
+      "arrow_label": "PDF ↓"
+    },
+    {
+      "title": "Post no Blog",
+      "description": "Leia a versão comentada e expandida deste artigo no formato de blog.",
+      "href": "blog.html",
+      "arrow_label": "LER →"
+    }
+  ],
+  "entity_graph": {
+    "entities": [
+      {
+        "key": "multi agent systems",
+        "name": "multi-agent systems",
+        "label": "System",
+        "score": 0.7534917495971503,
+        "mentions": [
+          {
+            "start": 43,
+            "end": 62,
+            "text": "MULTI-AGENT SYSTEMS"
+          },
+          {
+            "start": 867,
+            "end": 886,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 1465,
+            "end": 1484,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 1584,
+            "end": 1603,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 2039,
+            "end": 2058,
+            "text": "Multi-Agent Systems"
+          },
+          {
+            "start": 4816,
+            "end": 4835,
+            "text": "Multi-Agent Systems"
+          },
+          {
+            "start": 6219,
+            "end": 6238,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 6702,
+            "end": 6721,
+            "text": "Multi-Agent Systems"
+          },
+          {
+            "start": 8427,
+            "end": 8446,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 8474,
+            "end": 8493,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 11732,
+            "end": 11751,
+            "text": "Multi-Agent Systems"
+          },
+          {
+            "start": 17600,
+            "end": 17619,
+            "text": "Multi-Agent Systems"
+          },
+          {
+            "start": 20086,
+            "end": 20105,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 20319,
+            "end": 20338,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 20937,
+            "end": 20956,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 21011,
+            "end": 21030,
+            "text": "Multi-agent systems"
+          },
+          {
+            "start": 23296,
+            "end": 23315,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 45342,
+            "end": 45361,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 86876,
+            "end": 86895,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 87034,
+            "end": 87053,
+            "text": "Multi-agent systems"
+          },
+          {
+            "start": 87322,
+            "end": 87341,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 87514,
+            "end": 87533,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 87634,
+            "end": 87653,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 87827,
+            "end": 87846,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 96506,
+            "end": 96525,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 96977,
+            "end": 96996,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 97204,
+            "end": 97223,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 97953,
+            "end": 97972,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 98074,
+            "end": 98093,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 98396,
+            "end": 98415,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 101067,
+            "end": 101086,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 101574,
+            "end": 101593,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 102144,
+            "end": 102163,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 102584,
+            "end": 102603,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 102752,
+            "end": 102771,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 117320,
+            "end": 117339,
+            "text": "multi-agent systems"
+          },
+          {
+            "start": 117468,
+            "end": 117487,
+            "text": "multi-agent systems"
+          }
+        ]
+      },
+      {
+        "key": "ca mas",
+        "name": "CA-MAS",
+        "label": "System",
+        "score": 0.7099480105609428,
+        "mentions": [
+          {
+            "start": 1286,
+            "end": 1292,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 1514,
+            "end": 1520,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 1910,
+            "end": 1916,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 11000,
+            "end": 11006,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 11145,
+            "end": 11151,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 11207,
+            "end": 11213,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 11575,
+            "end": 11581,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 11628,
+            "end": 11634,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 41270,
+            "end": 41276,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 41299,
+            "end": 41305,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 41579,
+            "end": 41585,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 46448,
+            "end": 46454,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 46812,
+            "end": 46818,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 47561,
+            "end": 47567,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 51048,
+            "end": 51054,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 52507,
+            "end": 52513,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 53193,
+            "end": 53199,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 55213,
+            "end": 55219,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 60352,
+            "end": 60358,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 61221,
+            "end": 61227,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 61641,
+            "end": 61647,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 63389,
+            "end": 63395,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 64135,
+            "end": 64141,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 68854,
+            "end": 68860,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 70876,
+            "end": 70882,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 72440,
+            "end": 72446,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 76914,
+            "end": 76920,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 77004,
+            "end": 77010,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 77413,
+            "end": 77419,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 77549,
+            "end": 77555,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 77589,
+            "end": 77595,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 78059,
+            "end": 78065,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 78383,
+            "end": 78389,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 78574,
+            "end": 78580,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 78693,
+            "end": 78699,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 78903,
+            "end": 78909,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 79772,
+            "end": 79778,
+            "text": "CA-MAS"
+          },
+          {
+            "start": 79925,
+            "end": 79931,
+            "text": "CA-MAS"
+          }
+        ]
+      },
+      {
+        "key": "context",
+        "name": "context",
+        "label": "Concept",
+        "score": 0.7852490667034598,
+        "mentions": [
+          {
+            "start": 8282,
+            "end": 8289,
+            "text": "context"
+          },
+          {
+            "start": 8618,
+            "end": 8625,
+            "text": "context"
+          },
+          {
+            "start": 8683,
+            "end": 8690,
+            "text": "Context"
+          },
+          {
+            "start": 8944,
+            "end": 8951,
+            "text": "context"
+          },
+          {
+            "start": 8965,
+            "end": 8972,
+            "text": "context"
+          },
+          {
+            "start": 9008,
+            "end": 9015,
+            "text": "context"
+          },
+          {
+            "start": 33975,
+            "end": 33982,
+            "text": "context"
+          },
+          {
+            "start": 34357,
+            "end": 34364,
+            "text": "Context"
+          },
+          {
+            "start": 34673,
+            "end": 34680,
+            "text": "context"
+          },
+          {
+            "start": 34813,
+            "end": 34820,
+            "text": "context"
+          },
+          {
+            "start": 34867,
+            "end": 34874,
+            "text": "context"
+          },
+          {
+            "start": 34889,
+            "end": 34896,
+            "text": "context"
+          },
+          {
+            "start": 34905,
+            "end": 34912,
+            "text": "context"
+          },
+          {
+            "start": 35149,
+            "end": 35156,
+            "text": "context"
+          },
+          {
+            "start": 35401,
+            "end": 35408,
+            "text": "context"
+          },
+          {
+            "start": 35728,
+            "end": 35735,
+            "text": "context"
+          },
+          {
+            "start": 36658,
+            "end": 36665,
+            "text": "context"
+          },
+          {
+            "start": 36727,
+            "end": 36734,
+            "text": "context"
+          },
+          {
+            "start": 36814,
+            "end": 36821,
+            "text": "context"
+          },
+          {
+            "start": 36852,
+            "end": 36859,
+            "text": "context"
+          },
+          {
+            "start": 36934,
+            "end": 36941,
+            "text": "context"
+          },
+          {
+            "start": 37150,
+            "end": 37157,
+            "text": "context"
+          },
+          {
+            "start": 39015,
+            "end": 39022,
+            "text": "context"
+          },
+          {
+            "start": 39242,
+            "end": 39249,
+            "text": "context"
+          },
+          {
+            "start": 45174,
+            "end": 45181,
+            "text": "context"
+          },
+          {
+            "start": 45451,
+            "end": 45458,
+            "text": "context"
+          },
+          {
+            "start": 45532,
+            "end": 45539,
+            "text": "context"
+          },
+          {
+            "start": 47778,
+            "end": 47785,
+            "text": "context"
+          },
+          {
+            "start": 47828,
+            "end": 47835,
+            "text": "context"
+          },
+          {
+            "start": 47856,
+            "end": 47863,
+            "text": "Context"
+          },
+          {
+            "start": 48005,
+            "end": 48012,
+            "text": "context"
+          },
+          {
+            "start": 48139,
+            "end": 48146,
+            "text": "context"
+          },
+          {
+            "start": 48924,
+            "end": 48931,
+            "text": "context"
+          }
+        ]
+      },
+      {
+        "key": "mas",
+        "name": "MAS",
+        "label": "System",
+        "score": 0.7247182130813599,
+        "mentions": [
+          {
+            "start": 4837,
+            "end": 4840,
+            "text": "MAS"
+          },
+          {
+            "start": 6723,
+            "end": 6726,
+            "text": "MAS"
+          },
+          {
+            "start": 6911,
+            "end": 6914,
+            "text": "MAS"
+          },
+          {
+            "start": 7478,
+            "end": 7481,
+            "text": "MAS"
+          },
+          {
+            "start": 7843,
+            "end": 7846,
+            "text": "MAS"
+          },
+          {
+            "start": 9513,
+            "end": 9516,
+            "text": "MAS"
+          },
+          {
+            "start": 9598,
+            "end": 9601,
+            "text": "MAS"
+          },
+          {
+            "start": 9745,
+            "end": 9748,
+            "text": "MAS"
+          },
+          {
+            "start": 9893,
+            "end": 9896,
+            "text": "MAS"
+          },
+          {
+            "start": 10058,
+            "end": 10061,
+            "text": "MAS"
+          },
+          {
+            "start": 17079,
+            "end": 17082,
+            "text": "MAS"
+          },
+          {
+            "start": 17621,
+            "end": 17624,
+            "text": "MAS"
+          },
+          {
+            "start": 17762,
+            "end": 17765,
+            "text": "MAS"
+          },
+          {
+            "start": 17928,
+            "end": 17931,
+            "text": "MAS"
+          },
+          {
+            "start": 18027,
+            "end": 18030,
+            "text": "MAS"
+          },
+          {
+            "start": 18157,
+            "end": 18160,
+            "text": "MAS"
+          },
+          {
+            "start": 18261,
+            "end": 18264,
+            "text": "MAS"
+          },
+          {
+            "start": 18717,
+            "end": 18720,
+            "text": "MAS"
+          },
+          {
+            "start": 22807,
+            "end": 22810,
+            "text": "MAS"
+          },
+          {
+            "start": 22888,
+            "end": 22891,
+            "text": "MAS"
+          },
+          {
+            "start": 41199,
+            "end": 41202,
+            "text": "MAS"
+          },
+          {
+            "start": 45367,
+            "end": 45370,
+            "text": "MAS"
+          },
+          {
+            "start": 56469,
+            "end": 56472,
+            "text": "MAS"
+          },
+          {
+            "start": 75981,
+            "end": 75984,
+            "text": "MAS"
+          },
+          {
+            "start": 76332,
+            "end": 76335,
+            "text": "MAS"
+          },
+          {
+            "start": 76469,
+            "end": 76472,
+            "text": "MAS"
+          },
+          {
+            "start": 76637,
+            "end": 76640,
+            "text": "MAS"
+          },
+          {
+            "start": 76753,
+            "end": 76756,
+            "text": "MAS"
+          },
+          {
+            "start": 76824,
+            "end": 76827,
+            "text": "MAS"
+          }
+        ]
+      },
+      {
+        "key": "agent",
+        "name": "agent",
+        "label": "Software",
+        "score": 0.7869158478883597,
+        "mentions": [
+          {
+            "start": 4001,
+            "end": 4006,
+            "text": "agent"
+          },
+          {
+            "start": 4232,
+            "end": 4237,
+            "text": "agent"
+          },
+          {
+            "start": 4273,
+            "end": 4278,
+            "text": "agent"
+          },
+          {
+            "start": 4314,
+            "end": 4319,
+            "text": "agent"
+          },
+          {
+            "start": 4599,
+            "end": 4604,
+            "text": "agent"
+          },
+          {
+            "start": 12994,
+            "end": 12999,
+            "text": "agent"
+          },
+          {
+            "start": 13515,
+            "end": 13520,
+            "text": "agent"
+          },
+          {
+            "start": 13719,
+            "end": 13724,
+            "text": "agent"
+          },
+          {
+            "start": 13879,
+            "end": 13884,
+            "text": "agent"
+          },
+          {
+            "start": 14092,
+            "end": 14097,
+            "text": "agent"
+          },
+          {
+            "start": 14244,
+            "end": 14249,
+            "text": "agent"
+          },
+          {
+            "start": 14685,
+            "end": 14690,
+            "text": "agent"
+          },
+          {
+            "start": 14846,
+            "end": 14851,
+            "text": "agent"
+          },
+          {
+            "start": 15288,
+            "end": 15293,
+            "text": "agent"
+          },
+          {
+            "start": 16183,
+            "end": 16188,
+            "text": "agent"
+          },
+          {
+            "start": 16427,
+            "end": 16432,
+            "text": "agent"
+          },
+          {
+            "start": 16609,
+            "end": 16614,
+            "text": "agent"
+          },
+          {
+            "start": 16816,
+            "end": 16821,
+            "text": "agent"
+          },
+          {
+            "start": 38874,
+            "end": 38879,
+            "text": "agent"
+          },
+          {
+            "start": 38981,
+            "end": 38986,
+            "text": "agent"
+          },
+          {
+            "start": 39198,
+            "end": 39203,
+            "text": "agent"
+          },
+          {
+            "start": 49124,
+            "end": 49129,
+            "text": "agent"
+          },
+          {
+            "start": 50436,
+            "end": 50441,
+            "text": "agent"
+          },
+          {
+            "start": 50572,
+            "end": 50577,
+            "text": "agent"
+          },
+          {
+            "start": 50661,
+            "end": 50666,
+            "text": "agent"
+          }
+        ]
+      },
+      {
+        "key": "contextual information",
+        "name": "contextual information",
+        "label": "Concept",
+        "score": 0.6980906476577123,
+        "mentions": [
+          {
+            "start": 2590,
+            "end": 2612,
+            "text": "contextual information"
+          },
+          {
+            "start": 2716,
+            "end": 2738,
+            "text": "contextual information"
+          },
+          {
+            "start": 9247,
+            "end": 9269,
+            "text": "contextual information"
+          },
+          {
+            "start": 39328,
+            "end": 39350,
+            "text": "Contextual information"
+          },
+          {
+            "start": 39728,
+            "end": 39750,
+            "text": "contextual information"
+          },
+          {
+            "start": 40552,
+            "end": 40574,
+            "text": "contextual information"
+          },
+          {
+            "start": 47729,
+            "end": 47751,
+            "text": "contextual information"
+          },
+          {
+            "start": 51247,
+            "end": 51269,
+            "text": "contextual information"
+          },
+          {
+            "start": 51833,
+            "end": 51855,
+            "text": "contextual information"
+          },
+          {
+            "start": 52871,
+            "end": 52893,
+            "text": "contextual information"
+          },
+          {
+            "start": 53044,
+            "end": 53066,
+            "text": "contextual information"
+          },
+          {
+            "start": 54243,
+            "end": 54265,
+            "text": "contextual information"
+          },
+          {
+            "start": 56230,
+            "end": 56252,
+            "text": "contextual information"
+          },
+          {
+            "start": 56443,
+            "end": 56465,
+            "text": "contextual information"
+          },
+          {
+            "start": 61751,
+            "end": 61773,
+            "text": "contextual information"
+          },
+          {
+            "start": 62690,
+            "end": 62712,
+            "text": "contextual information"
+          },
+          {
+            "start": 62967,
+            "end": 62989,
+            "text": "contextual information"
+          },
+          {
+            "start": 63478,
+            "end": 63500,
+            "text": "contextual information"
+          },
+          {
+            "start": 63915,
+            "end": 63937,
+            "text": "contextual information"
+          },
+          {
+            "start": 64365,
+            "end": 64387,
+            "text": "contextual information"
+          },
+          {
+            "start": 64619,
+            "end": 64641,
+            "text": "contextual information"
+          }
+        ]
+      },
+      {
+        "key": "goals",
+        "name": "goals",
+        "label": "Concept",
+        "score": 0.6671054306484404,
+        "mentions": [
+          {
+            "start": 5258,
+            "end": 5263,
+            "text": "goals"
+          },
+          {
+            "start": 17147,
+            "end": 17152,
+            "text": "goals"
+          },
+          {
+            "start": 17723,
+            "end": 17728,
+            "text": "goals"
+          },
+          {
+            "start": 18814,
+            "end": 18819,
+            "text": "goals"
+          },
+          {
+            "start": 21900,
+            "end": 21905,
+            "text": "goals"
+          },
+          {
+            "start": 23973,
+            "end": 23978,
+            "text": "Goals"
+          },
+          {
+            "start": 25267,
+            "end": 25272,
+            "text": "goals"
+          },
+          {
+            "start": 25458,
+            "end": 25463,
+            "text": "goals"
+          },
+          {
+            "start": 25781,
+            "end": 25786,
+            "text": "goals"
+          },
+          {
+            "start": 25923,
+            "end": 25928,
+            "text": "Goals"
+          },
+          {
+            "start": 25951,
+            "end": 25956,
+            "text": "goals"
+          },
+          {
+            "start": 26066,
+            "end": 26071,
+            "text": "goals"
+          },
+          {
+            "start": 26521,
+            "end": 26526,
+            "text": "goals"
+          },
+          {
+            "start": 26630,
+            "end": 26635,
+            "text": "goals"
+          },
+          {
+            "start": 26686,
+            "end": 26691,
+            "text": "Goals"
+          },
+          {
+            "start": 26766,
+            "end": 26771,
+            "text": "goals"
+          },
+          {
+            "start": 45583,
+            "end": 45588,
+            "text": "goals"
+          },
+          {
+            "start": 65087,
+            "end": 65092,
+            "text": "goals"
+          },
+          {
+            "start": 65284,
+            "end": 65289,
+            "text": "goals"
+          }
+        ]
+      },
+      {
+        "key": "agents",
+        "name": "agents",
+        "label": "Organization",
+        "score": 0.7141344808042049,
+        "mentions": [
+          {
+            "start": 38928,
+            "end": 38934,
+            "text": "agents"
+          },
+          {
+            "start": 39402,
+            "end": 39408,
+            "text": "Agents"
+          },
+          {
+            "start": 39765,
+            "end": 39771,
+            "text": "agents"
+          },
+          {
+            "start": 74003,
+            "end": 74009,
+            "text": "agents"
+          },
+          {
+            "start": 74201,
+            "end": 74207,
+            "text": "agents"
+          },
+          {
+            "start": 74458,
+            "end": 74464,
+            "text": "agents"
+          },
+          {
+            "start": 74779,
+            "end": 74785,
+            "text": "agents"
+          },
+          {
+            "start": 74834,
+            "end": 74840,
+            "text": "agents"
+          },
+          {
+            "start": 75075,
+            "end": 75081,
+            "text": "agents"
+          },
+          {
+            "start": 77095,
+            "end": 77101,
+            "text": "agents"
+          },
+          {
+            "start": 77122,
+            "end": 77128,
+            "text": "agents"
+          },
+          {
+            "start": 77208,
+            "end": 77214,
+            "text": "agents"
+          },
+          {
+            "start": 77507,
+            "end": 77513,
+            "text": "agents"
+          },
+          {
+            "start": 77745,
+            "end": 77751,
+            "text": "agents"
+          },
+          {
+            "start": 77826,
+            "end": 77832,
+            "text": "agents"
+          }
+        ]
+      },
+      {
+        "key": "consensus",
+        "name": "consensus",
+        "label": "Concept",
+        "score": 0.6774845123291016,
+        "mentions": [
+          {
+            "start": 7883,
+            "end": 7892,
+            "text": "consensus"
+          },
+          {
+            "start": 8178,
+            "end": 8187,
+            "text": "consensus"
+          },
+          {
+            "start": 9908,
+            "end": 9917,
+            "text": "consensus"
+          },
+          {
+            "start": 17966,
+            "end": 17975,
+            "text": "consensus"
+          },
+          {
+            "start": 31341,
+            "end": 31350,
+            "text": "consensus"
+          },
+          {
+            "start": 33092,
+            "end": 33101,
+            "text": "consensus"
+          },
+          {
+            "start": 33456,
+            "end": 33465,
+            "text": "consensus"
+          },
+          {
+            "start": 78086,
+            "end": 78095,
+            "text": "consensus"
+          },
+          {
+            "start": 78205,
+            "end": 78214,
+            "text": "consensus"
+          },
+          {
+            "start": 78281,
+            "end": 78290,
+            "text": "consensus"
+          },
+          {
+            "start": 78357,
+            "end": 78366,
+            "text": "consensus"
+          },
+          {
+            "start": 86863,
+            "end": 86872,
+            "text": "consensus"
+          },
+          {
+            "start": 87308,
+            "end": 87317,
+            "text": "consensus"
+          },
+          {
+            "start": 87621,
+            "end": 87630,
+            "text": "Consensus"
+          }
+        ]
+      },
+      {
+        "key": "organization",
+        "name": "organization",
+        "label": "Organization",
+        "score": 0.7131817638874054,
+        "mentions": [
+          {
+            "start": 22030,
+            "end": 22042,
+            "text": "organization"
+          },
+          {
+            "start": 22122,
+            "end": 22134,
+            "text": "organization"
+          },
+          {
+            "start": 22684,
+            "end": 22696,
+            "text": "organization"
+          },
+          {
+            "start": 22791,
+            "end": 22803,
+            "text": "organization"
+          },
+          {
+            "start": 23990,
+            "end": 24002,
+            "text": "organization"
+          },
+          {
+            "start": 24067,
+            "end": 24079,
+            "text": "organization"
+          },
+          {
+            "start": 26019,
+            "end": 26031,
+            "text": "organization"
+          },
+          {
+            "start": 26145,
+            "end": 26157,
+            "text": "organization"
+          },
+          {
+            "start": 26777,
+            "end": 26789,
+            "text": "organization"
+          },
+          {
+            "start": 26790,
+            "end": 26802,
+            "text": "organization"
+          },
+          {
+            "start": 30494,
+            "end": 30506,
+            "text": "organization"
+          },
+          {
+            "start": 31079,
+            "end": 31091,
+            "text": "organization"
+          }
+        ]
+      },
+      {
+        "key": "context awareness",
+        "name": "context-awareness",
+        "label": "Concept",
+        "score": 0.7177905241648356,
+        "mentions": [
+          {
+            "start": 824,
+            "end": 841,
+            "text": "Context awareness"
+          },
+          {
+            "start": 942,
+            "end": 959,
+            "text": "context-awareness"
+          },
+          {
+            "start": 1443,
+            "end": 1460,
+            "text": "context-awareness"
+          },
+          {
+            "start": 1562,
+            "end": 1579,
+            "text": "context-awareness"
+          },
+          {
+            "start": 38293,
+            "end": 38310,
+            "text": "context awareness"
+          },
+          {
+            "start": 38324,
+            "end": 38341,
+            "text": "context awareness"
+          },
+          {
+            "start": 38465,
+            "end": 38482,
+            "text": "context awareness"
+          },
+          {
+            "start": 45149,
+            "end": 45166,
+            "text": "context awareness"
+          },
+          {
+            "start": 117493,
+            "end": 117510,
+            "text": "context-awareness"
+          }
+        ]
+      },
+      {
+        "key": "context modeling",
+        "name": "Context Modeling",
+        "label": "Method",
+        "score": 0.6939859390258789,
+        "mentions": [
+          {
+            "start": 40084,
+            "end": 40100,
+            "text": "context modeling"
+          },
+          {
+            "start": 41640,
+            "end": 41656,
+            "text": "context modeling"
+          },
+          {
+            "start": 41960,
+            "end": 41976,
+            "text": "Context Modeling"
+          },
+          {
+            "start": 42279,
+            "end": 42295,
+            "text": "Context Modeling"
+          },
+          {
+            "start": 42600,
+            "end": 42616,
+            "text": "Context Modeling"
+          },
+          {
+            "start": 43027,
+            "end": 43043,
+            "text": "Context Modeling"
+          },
+          {
+            "start": 43971,
+            "end": 43987,
+            "text": "Context Modeling"
+          },
+          {
+            "start": 44292,
+            "end": 44308,
+            "text": "Context Modeling"
+          },
+          {
+            "start": 50791,
+            "end": 50807,
+            "text": "context modeling"
+          }
+        ]
+      },
+      {
+        "key": "deep reinforcement learning",
+        "name": "deep reinforcement learning",
+        "label": "Method",
+        "score": 0.6627235770225525,
+        "mentions": [
+          {
+            "start": 563,
+            "end": 590,
+            "text": "deep reinforcement learning"
+          },
+          {
+            "start": 3945,
+            "end": 3972,
+            "text": "Deep Reinforcement Learning"
+          },
+          {
+            "start": 10020,
+            "end": 10047,
+            "text": "deep reinforcement learning"
+          },
+          {
+            "start": 85607,
+            "end": 85634,
+            "text": "deep reinforcement learning"
+          },
+          {
+            "start": 85763,
+            "end": 85790,
+            "text": "Deep reinforcement learning"
+          },
+          {
+            "start": 90733,
+            "end": 90760,
+            "text": "Deep reinforcement learning"
+          },
+          {
+            "start": 91486,
+            "end": 91513,
+            "text": "deep reinforcement learning"
+          },
+          {
+            "start": 114346,
+            "end": 114373,
+            "text": "Deep reinforcement learning"
+          },
+          {
+            "start": 119527,
+            "end": 119554,
+            "text": "Deep reinforcement learning"
+          }
+        ]
+      },
+      {
+        "key": "context aware systems",
+        "name": "Context-Aware Systems",
+        "label": "System",
+        "score": 0.7411429087320963,
+        "mentions": [
+          {
+            "start": 2063,
+            "end": 2084,
+            "text": "Context-Aware Systems"
+          },
+          {
+            "start": 2635,
+            "end": 2656,
+            "text": "Context-Aware Systems"
+          },
+          {
+            "start": 8400,
+            "end": 8421,
+            "text": "context-aware systems"
+          },
+          {
+            "start": 8515,
+            "end": 8536,
+            "text": "Context-Aware Systems"
+          },
+          {
+            "start": 33881,
+            "end": 33902,
+            "text": "context-aware systems"
+          },
+          {
+            "start": 34334,
+            "end": 34355,
+            "text": "Context-Aware Systems"
+          },
+          {
+            "start": 38033,
+            "end": 38054,
+            "text": "Context-Aware Systems"
+          },
+          {
+            "start": 81414,
+            "end": 81435,
+            "text": "context-aware systems"
+          }
+        ]
+      },
+      {
+        "key": "groupcluster consensus",
+        "name": "group/cluster consensus",
+        "label": "Method",
+        "score": 0.6337653669443998,
+        "mentions": [
+          {
+            "start": 32596,
+            "end": 32619,
+            "text": "group/cluster consensus"
+          },
+          {
+            "start": 42241,
+            "end": 42264,
+            "text": "Group/cluster consensus"
+          },
+          {
+            "start": 42567,
+            "end": 42590,
+            "text": "group/cluster consensus"
+          },
+          {
+            "start": 42994,
+            "end": 43017,
+            "text": "group/cluster consensus"
+          },
+          {
+            "start": 43416,
+            "end": 43439,
+            "text": "group/cluster consensus"
+          },
+          {
+            "start": 43868,
+            "end": 43891,
+            "text": "group/cluster consensus"
+          },
+          {
+            "start": 44259,
+            "end": 44282,
+            "text": "group/cluster consensus"
+          },
+          {
+            "start": 44509,
+            "end": 44532,
+            "text": "Group/cluster consensus"
+          },
+          {
+            "start": 46585,
+            "end": 46608,
+            "text": "group/cluster consensus"
+          }
+        ]
+      },
+      {
+        "key": "organizational structure",
+        "name": "Organizational Structure",
+        "label": "Concept",
+        "score": 0.626431119441986,
+        "mentions": [
+          {
+            "start": 9299,
+            "end": 9323,
+            "text": "organizational structure"
+          },
+          {
+            "start": 17940,
+            "end": 17964,
+            "text": "organizational structure"
+          },
+          {
+            "start": 41594,
+            "end": 41618,
+            "text": "organizational structure"
+          },
+          {
+            "start": 41786,
+            "end": 41810,
+            "text": "Organizational Structure"
+          },
+          {
+            "start": 42164,
+            "end": 42188,
+            "text": "Organizational Structure"
+          },
+          {
+            "start": 42458,
+            "end": 42482,
+            "text": "Organizational Structure"
+          },
+          {
+            "start": 43739,
+            "end": 43763,
+            "text": "Organizational Structure"
+          },
+          {
+            "start": 44158,
+            "end": 44182,
+            "text": "Organizational Structure"
+          },
+          {
+            "start": 44444,
+            "end": 44468,
+            "text": "Organizational Structure"
+          }
+        ]
+      },
+      {
+        "key": "cas",
+        "name": "CAS",
+        "label": "System",
+        "score": 0.6220080918735928,
+        "mentions": [
+          {
+            "start": 8538,
+            "end": 8541,
+            "text": "CAS"
+          },
+          {
+            "start": 8901,
+            "end": 8904,
+            "text": "CAS"
+          },
+          {
+            "start": 10125,
+            "end": 10128,
+            "text": "CAS"
+          },
+          {
+            "start": 10279,
+            "end": 10282,
+            "text": "CAS"
+          },
+          {
+            "start": 10352,
+            "end": 10355,
+            "text": "CAS"
+          },
+          {
+            "start": 10418,
+            "end": 10421,
+            "text": "CAS"
+          },
+          {
+            "start": 10581,
+            "end": 10584,
+            "text": "CAS"
+          },
+          {
+            "start": 38056,
+            "end": 38059,
+            "text": "CAS"
+          },
+          {
+            "start": 38637,
+            "end": 38640,
+            "text": "CAS"
+          }
+        ]
+      },
+      {
+        "key": "sampled data consensus",
+        "name": "sampled-data consensus",
+        "label": "Method",
+        "score": 0.6721673905849457,
+        "mentions": [
+          {
+            "start": 32700,
+            "end": 32722,
+            "text": "sampled-data consensus"
+          },
+          {
+            "start": 41886,
+            "end": 41908,
+            "text": "Sampled-data consensus"
+          },
+          {
+            "start": 42537,
+            "end": 42559,
+            "text": "Sampled-data consensus"
+          },
+          {
+            "start": 42933,
+            "end": 42955,
+            "text": "sampled-data consensus"
+          },
+          {
+            "start": 42964,
+            "end": 42986,
+            "text": "sampled-data consensus"
+          },
+          {
+            "start": 43385,
+            "end": 43407,
+            "text": "sampled-data consensus"
+          },
+          {
+            "start": 44229,
+            "end": 44251,
+            "text": "Sampled-data consensus"
+          },
+          {
+            "start": 46561,
+            "end": 46583,
+            "text": "sampled-data consensus"
+          }
+        ]
+      },
+      {
+        "key": "relationships",
+        "name": "Relationships",
+        "label": "Concept",
+        "score": 0.6096276773346795,
+        "mentions": [
+          {
+            "start": 19369,
+            "end": 19382,
+            "text": "relationships"
+          },
+          {
+            "start": 23809,
+            "end": 23822,
+            "text": "Relationships"
+          },
+          {
+            "start": 24446,
+            "end": 24459,
+            "text": "relationships"
+          },
+          {
+            "start": 26126,
+            "end": 26139,
+            "text": "relationships"
+          },
+          {
+            "start": 26443,
+            "end": 26456,
+            "text": "Relationships"
+          },
+          {
+            "start": 27841,
+            "end": 27854,
+            "text": "Relationships"
+          },
+          {
+            "start": 28561,
+            "end": 28574,
+            "text": "Relationships"
+          },
+          {
+            "start": 30872,
+            "end": 30885,
+            "text": "Relationships"
+          }
+        ]
+      },
+      {
+        "key": "consensus protocol",
+        "name": "Consensus Protocol",
+        "label": "Software",
+        "score": 0.6105208907808576,
+        "mentions": [
+          {
+            "start": 41620,
+            "end": 41638,
+            "text": "consensus protocol"
+          },
+          {
+            "start": 42518,
+            "end": 42536,
+            "text": "Consensus Protocol"
+          },
+          {
+            "start": 42878,
+            "end": 42896,
+            "text": "Consensus Protocol"
+          },
+          {
+            "start": 43295,
+            "end": 43313,
+            "text": "Consensus Protocol"
+          },
+          {
+            "start": 43816,
+            "end": 43834,
+            "text": "Consensus Protocol"
+          },
+          {
+            "start": 44210,
+            "end": 44228,
+            "text": "Consensus Protocol"
+          },
+          {
+            "start": 44490,
+            "end": 44508,
+            "text": "Consensus Protocol"
+          }
+        ]
+      },
+      {
+        "key": "information",
+        "name": "information",
+        "label": "Concept",
+        "score": 0.5917703849928719,
+        "mentions": [
+          {
+            "start": 24319,
+            "end": 24330,
+            "text": "information"
+          },
+          {
+            "start": 34279,
+            "end": 34290,
+            "text": "information"
+          },
+          {
+            "start": 34394,
+            "end": 34405,
+            "text": "information"
+          },
+          {
+            "start": 38835,
+            "end": 38846,
+            "text": "information"
+          },
+          {
+            "start": 38890,
+            "end": 38901,
+            "text": "information"
+          },
+          {
+            "start": 39214,
+            "end": 39225,
+            "text": "information"
+          },
+          {
+            "start": 39426,
+            "end": 39437,
+            "text": "information"
+          }
+        ]
+      },
+      {
+        "key": "leader follower consensus",
+        "name": "leader-follower consensus",
+        "label": "Method",
+        "score": 0.7617343544960022,
+        "mentions": [
+          {
+            "start": 32565,
+            "end": 32590,
+            "text": "leader-follower consensus"
+          },
+          {
+            "start": 43314,
+            "end": 43339,
+            "text": "Leader-follower consensus"
+          },
+          {
+            "start": 43355,
+            "end": 43380,
+            "text": "leader-follower consensus"
+          },
+          {
+            "start": 43835,
+            "end": 43860,
+            "text": "Leader-follower consensus"
+          },
+          {
+            "start": 43907,
+            "end": 43932,
+            "text": "leader-follower consensus"
+          }
+        ]
+      },
+      {
+        "key": "context aware multi agent systems",
+        "name": "Context-Aware Multi-Agent Systems",
+        "label": "System",
+        "score": 0.6237139031291008,
+        "mentions": [
+          {
+            "start": 1251,
+            "end": 1284,
+            "text": "Context-Aware Multi-Agent Systems"
+          },
+          {
+            "start": 3715,
+            "end": 3748,
+            "text": "Context-Aware Multi-Agent Systems"
+          },
+          {
+            "start": 3835,
+            "end": 3868,
+            "text": "Context-Aware Multi-Agent Systems"
+          },
+          {
+            "start": 6205,
+            "end": 6238,
+            "text": "context-aware multi-agent systems"
+          },
+          {
+            "start": 10965,
+            "end": 10998,
+            "text": "Context-Aware Multi-Agent Systems"
+          },
+          {
+            "start": 40747,
+            "end": 40780,
+            "text": "Context-aware Multi-agent Systems"
+          }
+        ]
+      },
+      {
+        "key": "information flow",
+        "name": "Information Flow",
+        "label": "Concept",
+        "score": 0.7477385759353637,
+        "mentions": [
+          {
+            "start": 23399,
+            "end": 23415,
+            "text": "information flow"
+          },
+          {
+            "start": 23543,
+            "end": 23559,
+            "text": "Information Flow"
+          },
+          {
+            "start": 25109,
+            "end": 25125,
+            "text": "Information Flow"
+          },
+          {
+            "start": 27074,
+            "end": 27090,
+            "text": "Information Flow"
+          },
+          {
+            "start": 27735,
+            "end": 27751,
+            "text": "Information Flow"
+          }
+        ]
+      },
+      {
+        "key": "system",
+        "name": "system",
+        "label": "System",
+        "score": 0.6088031700679234,
+        "mentions": [
+          {
+            "start": 5832,
+            "end": 5838,
+            "text": "system"
+          },
+          {
+            "start": 21837,
+            "end": 21843,
+            "text": "system"
+          },
+          {
+            "start": 30697,
+            "end": 30703,
+            "text": "system"
+          },
+          {
+            "start": 46972,
+            "end": 46978,
+            "text": "system"
+          },
+          {
+            "start": 53672,
+            "end": 53678,
+            "text": "system"
+          },
+          {
+            "start": 77232,
+            "end": 77238,
+            "text": "system"
+          }
+        ]
+      },
+      {
+        "key": "expert systems",
+        "name": "expert systems",
+        "label": "System",
+        "score": 0.8651558011770248,
+        "mentions": [
+          {
+            "start": 9810,
+            "end": 9824,
+            "text": "expert systems"
+          },
+          {
+            "start": 18162,
+            "end": 18176,
+            "text": "expert systems"
+          },
+          {
+            "start": 20918,
+            "end": 20932,
+            "text": "expert systems"
+          },
+          {
+            "start": 20996,
+            "end": 21010,
+            "text": "Expert Systems"
+          }
+        ]
+      },
+      {
+        "key": "key value models",
+        "name": "Key-value models",
+        "label": "Concept",
+        "score": 0.6782204985618592,
+        "mentions": [
+          {
+            "start": 41977,
+            "end": 41993,
+            "text": "Key-value models"
+          },
+          {
+            "start": 42325,
+            "end": 42341,
+            "text": "key-value models"
+          },
+          {
+            "start": 42617,
+            "end": 42633,
+            "text": "Key-value models"
+          },
+          {
+            "start": 50926,
+            "end": 50942,
+            "text": "Key-value models"
+          },
+          {
+            "start": 52099,
+            "end": 52115,
+            "text": "key-value models"
+          }
+        ]
+      },
+      {
+        "key": "knowledge",
+        "name": "knowledge",
+        "label": "Concept",
+        "score": 0.677398407459259,
+        "mentions": [
+          {
+            "start": 22559,
+            "end": 22568,
+            "text": "knowledge"
+          },
+          {
+            "start": 23057,
+            "end": 23066,
+            "text": "knowledge"
+          },
+          {
+            "start": 35012,
+            "end": 35021,
+            "text": "knowledge"
+          },
+          {
+            "start": 45620,
+            "end": 45629,
+            "text": "knowledge"
+          },
+          {
+            "start": 45834,
+            "end": 45843,
+            "text": "knowledge"
+          }
+        ]
+      },
+      {
+        "key": "object oriented programming",
+        "name": "object-oriented programming",
+        "label": "Software",
+        "score": 0.814735010266304,
+        "mentions": [
+          {
+            "start": 9778,
+            "end": 9805,
+            "text": "object-oriented programming"
+          },
+          {
+            "start": 18182,
+            "end": 18209,
+            "text": "object-oriented programming"
+          },
+          {
+            "start": 18403,
+            "end": 18430,
+            "text": "object-oriented programming"
+          },
+          {
+            "start": 20889,
+            "end": 20916,
+            "text": "object-oriented programming"
+          }
+        ]
+      },
+      {
+        "key": "reinforcement learning",
+        "name": "Reinforcement learning",
+        "label": "Method",
+        "score": 0.638606995344162,
+        "mentions": [
+          {
+            "start": 2012,
+            "end": 2034,
+            "text": "Reinforcement Learning"
+          },
+          {
+            "start": 92515,
+            "end": 92537,
+            "text": "Reinforcement learning"
+          },
+          {
+            "start": 94511,
+            "end": 94533,
+            "text": "Reinforcement learning"
+          },
+          {
+            "start": 118989,
+            "end": 119011,
+            "text": "reinforcement learning"
+          },
+          {
+            "start": 119983,
+            "end": 120005,
+            "text": "Reinforcement learning"
+          }
+        ]
+      },
+      {
+        "key": "context ontology",
+        "name": "context ontology",
+        "label": "Concept",
+        "score": 0.7870631366968155,
+        "mentions": [
+          {
+            "start": 61976,
+            "end": 61992,
+            "text": "context ontology"
+          },
+          {
+            "start": 62300,
+            "end": 62316,
+            "text": "context ontology"
+          },
+          {
+            "start": 63813,
+            "end": 63829,
+            "text": "context ontology"
+          },
+          {
+            "start": 64273,
+            "end": 64289,
+            "text": "context ontology"
+          }
+        ]
+      },
+      {
+        "key": "flexibility",
+        "name": "flexibility",
+        "label": "Concept",
+        "score": 0.6119934618473053,
+        "mentions": [
+          {
+            "start": 24018,
+            "end": 24029,
+            "text": "flexibility"
+          },
+          {
+            "start": 26971,
+            "end": 26982,
+            "text": "flexibility"
+          },
+          {
+            "start": 27571,
+            "end": 27582,
+            "text": "flexibility"
+          },
+          {
+            "start": 30678,
+            "end": 30689,
+            "text": "flexibility"
+          },
+          {
+            "start": 46231,
+            "end": 46242,
+            "text": "flexibility"
+          }
+        ]
+      },
+      {
+        "key": "task",
+        "name": "task",
+        "label": "Task",
+        "score": 0.7522372305393219,
+        "mentions": [
+          {
+            "start": 7286,
+            "end": 7290,
+            "text": "task"
+          },
+          {
+            "start": 7768,
+            "end": 7772,
+            "text": "task"
+          },
+          {
+            "start": 34988,
+            "end": 34992,
+            "text": "task"
+          },
+          {
+            "start": 49208,
+            "end": 49212,
+            "text": "task"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "source_key": "agent",
+        "target_key": "contextual information",
+        "label": "percebe",
+        "score": 1.0,
+        "quote": "An agent can preceive contextual information:",
+        "quote_start": 2568
+      },
+      {
+        "source_key": "agent",
+        "target_key": "deep reinforcement learning",
+        "label": "utiliza",
+        "score": 1.0,
+        "quote": "advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
+        "quote_start": 3929
+      },
+      {
+        "source_key": "agent",
+        "target_key": "goals",
+        "label": "raciocina com",
+        "score": 1.0,
+        "quote": "advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
+        "quote_start": 3929
+      },
+      {
+        "source_key": "agent",
+        "target_key": "context",
+        "label": "deve estar ciente de",
+        "score": 1.0,
+        "quote": "attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
+        "quote_start": 8168
+      },
+      {
+        "source_key": "context",
+        "target_key": "organizational structure",
+        "label": "inclui",
+        "score": 1.0,
+        "quote": "attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
+        "quote_start": 8168
+      },
+      {
+        "source_key": "cas",
+        "target_key": "context",
+        "label": "utiliza",
+        "score": 1.0,
+        "quote": "Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.",
+        "quote_start": 8515
+      },
+      {
+        "source_key": "contextual information",
+        "target_key": "organizational structure",
+        "label": "inclui",
+        "score": 1.0,
+        "quote": "In the context of autonomous agents, contextual information encompasses task objectives, organizational structure, agent roles, and temporal aspects.",
+        "quote_start": 9210
+      },
+      {
+        "source_key": "mas",
+        "target_key": "organizational structure",
+        "label": "possui",
+        "score": 1.0,
+        "quote": "three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.",
+        "quote_start": 17904
+      },
+      {
+        "source_key": "mas",
+        "target_key": "consensus",
+        "label": "possui",
+        "score": 1.0,
+        "quote": "three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.",
+        "quote_start": 17904
+      },
+      {
+        "source_key": "mas",
+        "target_key": "expert systems",
+        "label": "distingue-se de",
+        "score": 1.0,
+        "quote": "three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
+        "quote_start": 18045
+      },
+      {
+        "source_key": "mas",
+        "target_key": "object oriented programming",
+        "label": "distingue-se de",
+        "score": 1.0,
+        "quote": "three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
+        "quote_start": 18045
+      },
+      {
+        "source_key": "relationships",
+        "target_key": "agents",
+        "label": "formam-se entre",
+        "score": 1.0,
+        "quote": "Depending on both organizational goals and agent-specific goals, relationships among agentsare formed into one of the following categories: cooperation or competition.",
+        "quote_start": 18537
+      },
+      {
+        "source_key": "consensus",
+        "target_key": "agents",
+        "label": "é alcançado entre",
+        "score": 1.0,
+        "quote": "achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
+        "quote_start": 31331
+      },
+      {
+        "source_key": "consensus",
+        "target_key": "information",
+        "label": "possibilita troca de",
+        "score": 1.0,
+        "quote": "achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
+        "quote_start": 31331
+      },
+      {
+        "source_key": "leader follower consensus",
+        "target_key": "consensus protocol",
+        "label": "é tipo de",
+        "score": 1.0,
+        "quote": "the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,",
+        "quote_start": 32493
+      },
+      {
+        "source_key": "groupcluster consensus",
+        "target_key": "consensus protocol",
+        "label": "é tipo de",
+        "score": 1.0,
+        "quote": "the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,",
+        "quote_start": 32493
+      },
+      {
+        "source_key": "context modeling",
+        "target_key": "key value models",
+        "label": "inclui",
+        "score": 1.0,
+        "quote": "Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models",
+        "quote_start": 35140
+      },
+      {
+        "source_key": "context modeling",
+        "target_key": "context ontology",
+        "label": "inclui",
+        "score": 1.0,
+        "quote": "Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models",
+        "quote_start": 35140
+      },
+      {
+        "source_key": "context ontology",
+        "target_key": "relationships",
+        "label": "representa",
+        "score": 1.0,
+        "quote": "ontology-based context models are widely utilized due to their capability for semantic reasoning and representation of context relationships through knowledge graphs",
+        "quote_start": 35851
+      },
+      {
+        "source_key": "multi agent systems",
+        "target_key": "agent",
+        "label": "é composto por",
+        "score": 1.0,
+        "quote": "Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.",
+        "quote_start": 6702
+      },
+      {
+        "source_key": "agent",
+        "target_key": "task",
+        "label": "resolve",
+        "score": 1.0,
+        "quote": "An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.",
+        "quote_start": 6888
+      },
+      {
+        "source_key": "context aware multi agent systems",
+        "target_key": "contextual information",
+        "label": "utiliza",
+        "score": 1.0,
+        "quote": "the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.",
+        "quote_start": 6192
+      },
+      {
+        "source_key": "context aware systems",
+        "target_key": "context",
+        "label": "utiliza",
+        "score": 1.0,
+        "quote": "Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.",
+        "quote_start": 8515
+      }
+    ],
+    "engine": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+  },
+  "audio_path": "audio/context-aware-mas.m4a",
+  "audio_title": "Comentário em áudio: context-aware-mas",
+  "audio_subtitle": "Faixa 01 · gerada via NotebookLM Audio Overview",
+  "slides_pptx_path": "slides/deck.pptx",
+  "slides_pdf_path": "slides/deck.pdf",
+  "slides_preview_url": null,
+  "slides_edit_url": null,
+  "is_copy_of_existing": false,
+  "copy_canonical_override": null
+}

@@ -1,0 +1,4 @@
+A partir da análise estruturada do artigo abaixo, produza o conteúdo do cartão "hero" de uma página de leitura guiada: eyebrow (venue + páginas, formato compacto tipo "BMSD 2018 · Springer LNBIP 319 · pp. 185–202"), h1 (título de efeito, pode reformular o título original para ficar mais direto em uma página web, mas sem distorcer o sentido), lede (1-2 frases que capturam o argumento central), âncoras de TOC (uma por seção principal que a página guiada terá: use as seções do artigo mais uma para o mapa mental e uma para downloads), linha de autores, afiliações (parágrafo curto), kv_rows (pares label/valor: "Publicado em", "Palavras-chave", "DOI" no mínimo), e o problem_statement (mesmo texto da análise, adaptado a um tom de "callout" de abertura de página).
+
+Análise do artigo:
+{paper_analysis_json}

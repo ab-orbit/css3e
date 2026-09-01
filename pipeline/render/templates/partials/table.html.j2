@@ -1,0 +1,11 @@
+{# Requires: table (TableSpec) #}
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr>{% for col in table.columns %}<th>{{ col }}</th>{% endfor %}</tr></thead>
+    <tbody>
+      {% for row in table.rows %}
+      <tr>{% for cell in row %}<td>{{ cell | safe }}</td>{% endfor %}</tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

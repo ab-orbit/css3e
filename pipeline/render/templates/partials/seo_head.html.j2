@@ -1,0 +1,79 @@
+{# Requires: seo (SeoMeta), asset_prefix (str, relative path back to repo root),
+   authors (list[str]), publisher_name, published_date, modified_date,
+   about (list[str]), theme_color (str, optional) #}
+<meta name="description" content="{{ seo.description }}">
+<meta name="keywords" content="{{ seo.keywords | join(', ') }}">
+<meta name="author" content="{{ authors | join(', ') }}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="{{ seo.canonical_url }}">
+<meta name="theme-color" content="{{ theme_color | default('#171415') }}">
+
+<meta property="og:type" content="{{ seo.og_type }}">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="{{ seo.canonical_url }}">
+<meta property="og:title" content="{{ seo.title }}">
+<meta property="og:description" content="{{ seo.description }}">
+<meta property="og:image" content="{{ og_image_url }}">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+{% if seo.page_kind in ("article", "blog") %}
+<meta property="article:published_time" content="{{ published_date }}">
+{% for a in authors %}
+<meta property="article:author" content="{{ a }}">
+{% endfor %}
+{% for tag in seo.article_tags %}
+<meta property="article:tag" content="{{ tag }}">
+{% endfor %}
+{% endif %}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo.title }}">
+<meta name="twitter:description" content="{{ seo.description }}">
+<meta name="twitter:image" content="{{ og_image_url }}">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ seo.jsonld_type }}",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ seo.canonical_url }}" },
+  "headline": {{ seo.title | tojson }},
+  "description": {{ seo.description | tojson }},
+  "inLanguage": "pt-BR",
+  "image": {{ og_image_url | tojson }},
+  "datePublished": {{ published_date | tojson }},
+  "dateModified": {{ modified_date | tojson }},
+  "author": [
+    {% for a in authors %}
+    { "@type": "Person", "name": {{ a | tojson }} }{{ "," if not loop.last }}
+    {% endfor %}
+  ],
+  "publisher": { "@type": "Organization", "name": {{ publisher_name | tojson }}, "url": {{ site_base_url | tojson }} },
+  {% if paper %}
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": {{ paper.title | tojson }},
+    "author": [{% for a in paper.authors %}{{ a.name | tojson }}{{ "," if not loop.last }}{% endfor %}],
+    "datePublished": {{ paper.date_published | tojson }},
+    {% if paper.doi %}"sameAs": {{ ("https://doi.org/" + paper.doi) | tojson }},{% endif %}
+    "url": {{ paper.source_pdf_url | tojson }}
+  },
+  {% endif %}
+  "about": [
+    {% for c in about %}
+    { "@type": "Thing", "name": {{ c | tojson }} }{{ "," if not loop.last }}
+    {% endfor %}
+  ],
+  "url": {{ seo.canonical_url | tojson }}
+}
+</script>
+
+{# schema.org graph for this article: entities as about/mentions, relations in a
+   namespaced key. Built in pipeline/render/jsonld.py and injected pre-serialized,
+   so the escaping of untrusted PDF-derived names happens in one tested place. #}
+{# `|safe` porque este bloco JÁ é markup pronto: o build monta o <script> e faz
+   o escape de `</` em jsonld.py, num único lugar testado. Sem isto o autoescape
+   do Jinja2 publica o JSON-LD como texto visível (&lt;script&gt;...), e nenhum
+   buscador ou LLM o enxerga como dado estruturado. #}
+{% if jsonld_script %}{{ jsonld_script | safe }}{% endif %}

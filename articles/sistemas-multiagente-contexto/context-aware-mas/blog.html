@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</title>
+<meta name="description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam e navegam incertezas em ambientes dinâmicos. Apresenta processo geral baseado em cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.">
+<meta name="keywords" content="sistemas multi-agente, multi-agent systems, context-aware systems, sistemas conscientes de contexto, CA-MAS, MAS, inteligência artificial, artificial intelligence, deep reinforcement learning, MARL, multi-agent reinforcement learning, Sense-Learn-Reason-Predict-Act, BDI, Belief-Desire-Intention, ontology-based models, graph neural networks, GNN, actor-critic, DQN, PPO, organizational structures, consensus protocols, context modeling, navegação autônoma, IoT, ambient intelligence">
+<meta name="author" content="Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/blog.html">
+<meta name="theme-color" content="#171415">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/blog.html">
+<meta property="og:title" content="A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions">
+<meta property="og:description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam e navegam incertezas em ambientes dinâmicos. Apresenta processo geral baseado em cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2025-01-29">
+<meta property="article:author" content="Hung Du">
+<meta property="article:author" content="Srikanth Thudumu">
+<meta property="article:author" content="Hy Nguyen">
+<meta property="article:author" content="Rajesh Vasa">
+<meta property="article:author" content="Kon Mouzakis">
+<meta property="article:tag" content="sistemas multi-agente">
+<meta property="article:tag" content="context-aware systems">
+<meta property="article:tag" content="inteligência artificial">
+<meta property="article:tag" content="deep reinforcement learning">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions">
+<meta name="twitter:description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam e navegam incertezas em ambientes dinâmicos. Apresenta processo geral baseado em cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/blog.html" },
+  "headline": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
+  "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam e navegam incertezas em ambientes din\u00e2micos. Apresenta processo geral baseado em cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), t\u00e9cnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplica\u00e7\u00f5es em oito dom\u00ednios: navega\u00e7\u00e3o aut\u00f4noma, ambient intelligence, IoT, supply chain, disaster relief, energia sustent\u00e1vel, assist\u00eancia digital e educa\u00e7\u00e3o.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2025-01-29",
+  "dateModified": "2025-01-29",
+  "author": [
+    { "@type": "Person", "name": "Hung Du" },
+    { "@type": "Person", "name": "Srikanth Thudumu" },
+    { "@type": "Person", "name": "Hy Nguyen" },
+    { "@type": "Person", "name": "Rajesh Vasa" },
+    { "@type": "Person", "name": "Kon Mouzakis" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Centro de Inform\u00e1tica, UFPE", "url": "https://ab-orbit.github.io/css3e/" },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
+    "author": ["Hung Du","Srikanth Thudumu","Hy Nguyen","Rajesh Vasa","Kon Mouzakis"],
+    "datePublished": "2025-01-29",
+    "url": "/Users/jwcunha/Downloads/Context_AwareMAS.pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Context-Aware Multi-Agent Systems (CA-MAS)" },
+    { "@type": "Thing", "name": "Multi-Agent Systems (MAS)" },
+    { "@type": "Thing", "name": "Context-Aware Systems (CAS)" },
+    { "@type": "Thing", "name": "Sense-Learn-Reason-Predict-Act" },
+    { "@type": "Thing", "name": "Belief-Desire-Intention (BDI)" },
+    { "@type": "Thing", "name": "Deep Reinforcement Learning (DRL)" },
+    { "@type": "Thing", "name": "Multi-Agent Reinforcement Learning (MARL)" },
+    { "@type": "Thing", "name": "Organizational structures" },
+    { "@type": "Thing", "name": "Consensus protocols" },
+    { "@type": "Thing", "name": "Context modeling" },
+    { "@type": "Thing", "name": "Ontology-based models" },
+    { "@type": "Thing", "name": "Graph Neural Networks (GNN)" },
+    { "@type": "Thing", "name": "Actor-Critic methods" },
+    { "@type": "Thing", "name": "Deep Q Network (DQN)" },
+    { "@type": "Thing", "name": "Proximal Policy Optimization (PPO)" }
+  ],
+  "url": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/blog.html"
+}
+</script>
+
+<link rel="stylesheet" href="../../../resources/cases/style.css">
+<style>
+:root{
+  --accent-0: #2E7D5B;
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+</script>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Blog · A Comprehensive Survey on Context-Aware </div>
+    <nav class="nav">
+      <a class="btn" href="workshop.html">Dinâmica</a>
+      <a class="btn" href="index.html">Leitura do artigo</a>
+      <a class="btn" href="../../css-context-sensitive-systems/index.html">&#8592; CSS - Context Sensitive Systems</a>
+      <a class="btn primary" href="context-aware-mas.pdf">PDF do ensaio</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="post-hero">
+    <p class="post-kicker">Ensaio · sistemas multiagente contexto</p>
+    <h1>A Evolução dos Agentes: De Passivos a Conscientes</h1>
+    <p class="post-dek">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.</p>
+    <div class="byline">
+      <span><b>Baseado em</b> Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis (arXiv preprint arXiv:2402.01968v2 [cs.MA], 2025-01-29)</span>
+    </div>
+  </section>
+
+  <div class="post-cover">
+    <div class="band">
+      <span>O argumento em uma frase</span>
+      <b style="font-size:22px;line-height:1.45">Pesquisas atuais frequentemente abordam questões de consciência de contexto ou sistemas multi-agente separadamente, deixando uma lacuna em levantamentos abrangentes que explorem ambos os campos, especialmente no que diz respeito às cinco capacidades essenciais dos agentes: Sense (Sentir), Learn (Aprender), Reason (Raciocinar), Predict (Prever) e Act (Agir). Embora avanços em IA sugiram potencial para desempenho semelhante ao humano em frameworks multi-agente, desafios persistem em permitir que esses agentes coordenem, aprendam, raciocinem, prevejam e naveguem incertezas em ambientes dinâmicos. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura unificada e taxonomia para o desenvolvimento de Sistemas Multi-Agente Conscientes de Contexto (CA-MAS).</b>
+    </div>
+  </div>
+
+  <nav class="toc-rail" aria-label="Seções do ensaio">
+    <a href="#s1">1 · A Evolução dos Agentes: De Passivos a Conscientes</a>
+    <a href="#s2">2 · Estruturas Organizacionais: A Arquitetura da Coordenação</a>
+    <a href="#s3">3 · Modelando o Contexto: Além dos Dados Brutos</a>
+    <a href="#s4">4 · O Ciclo Sense-Learn-Reason-Predict-Act: A Anatomia da Consciência</a>
+    <a href="#s5">5 · Aplicações no Mundo Real: Da Teoria à Prática</a>
+    <a href="#s6">6 · Desafios e Horizontes: O Que Ainda Precisa Ser Resolvido</a>
+  </nav>
+
+<article class="post">
+  <p class="drop">Imagine uma equipe de resgate em uma zona de desastre: bombeiros, paramédicos e drones autônomos precisam coordenar suas ações em tempo real, adaptando-se a escombros que desabam, vítimas que surgem em locais inesperados e condições climáticas que mudam a cada minuto. Cada membro da equipe percebe o ambiente de forma diferente — o drone vê de cima, o bombeiro sente o calor, o paramédico avalia sinais vitais — mas todos precisam compartilhar uma compreensão comum da situação para agir de forma eficaz. Esse desafio de coordenação inteligente em ambientes dinâmicos e incertos é exatamente o que os Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) buscam resolver: permitir que agentes autônomos não apenas percebam o mundo ao seu redor, mas compreendam o significado dessa percepção, coordenem suas ações e adaptem suas estratégias conforme o contexto evolui.</p>
+  <h2 id="s1"><span class="no">01</span>A Evolução dos Agentes: De Passivos a Conscientes</h2>
+<p>A inteligência artificial está passando por uma mudança de paradigma fundamental: de sistemas passivos que respondem a comandos diretos para agentes autônomos capazes de perceber, aprender, raciocinar e agir de forma independente. Cinco avanços tecnológicos recentes tornaram possível essa transformação: a percepção de contexto através de sensores multimodais, o aprendizado profundo a partir de dados sensoriais complexos, o raciocínio simbólico e baseado em grafos, a capacidade de previsão e tomada de decisão em ambientes incertos, e finalmente, a coordenação entre múltiplos agentes trabalhando em conjunto.</p><p>Um agente autônomo moderno é muito mais do que um programa que executa tarefas. Ele possui seis propriedades inteligentes essenciais: um sistema de percepção que captura informações do ambiente, uma memória que armazena experiências passadas, um modelo de mundo que representa seu conhecimento sobre o ambiente, um componente ator que executa ações, uma função de custo que avalia o sucesso de suas decisões, e crucialmente, um configurador que implementa a consciência de contexto — a capacidade de compreender não apenas o que está acontecendo, mas o significado e as implicações dessa informação.</p><p>Contudo, tarefas complexas do mundo real raramente podem ser resolvidas por um único agente. Sistemas distribuídos, ambientes de larga escala e problemas que exigem especialização múltipla demandam a coordenação de vários agentes trabalhando em conjunto. É aqui que os sistemas multi-agente (MAS) se tornam essenciais, mas também onde surgem novos desafios: como garantir que agentes com percepções parciais e potencialmente conflitantes do ambiente possam coordenar suas ações de forma eficaz?</p>  <h2 id="s2"><span class="no">02</span>Estruturas Organizacionais: A Arquitetura da Coordenação</h2>
+<p>Assim como organizações humanas, sistemas multi-agente podem adotar diferentes estruturas organizacionais dependendo da natureza da tarefa e do ambiente. As estruturas flat (planas) são as mais simples, onde todos os agentes têm igual autoridade e se comunicam diretamente — ideais para ambientes onde a tomada de decisão descentralizada é crucial, como em navegação autônoma de veículos. No outro extremo, as hierarchies (hierarquias) estabelecem relações claras de autoridade, com agentes supervisores coordenando agentes subordinados, uma abordagem comum em sistemas educacionais e de gestão.</p><p>Estruturas mais sofisticadas incluem as holarchies, onde cada agente pode simultaneamente atuar como um todo autônomo e como parte de um sistema maior — uma propriedade particularmente útil em supply chain management, onde cada nó da cadeia opera independentemente mas também como parte de uma rede integrada. As coalitions (coalizões) e teams (equipes) representam agrupamentos temporários ou permanentes de agentes com objetivos compartilhados, frequentemente vistos em sistemas de IoT e ambient intelligence.</p><p>A escolha da estrutura organizacional tem implicações profundas para os mecanismos de coordenação. Protocolos de consenso garantem que agentes cheguem a acordos sobre estados compartilhados do ambiente — desde abordagens simples de leader-follower (líder-seguidor) até algoritmos sofisticados de sampled-data consensus que permitem sincronização mesmo com comunicação intermitente. Estratégias de coordenação determinam como agentes negociam, compartilham recursos e resolvem conflitos, utilizando desde leilões em estruturas de market (mercado) até planejamento hierárquico em federations (federações).</p>  <blockquote class="pull">A escolha da estrutura organizacional determina não apenas como agentes se comunicam, mas como compartilham e interpretam o contexto.<cite>Seção 2 · Multi-Agent Systems</cite></blockquote>
+  <h2 id="s3"><span class="no">03</span>Modelando o Contexto: Além dos Dados Brutos</h2>
+<p>Contexto não é simplesmente dados — é informação com significado. Um sensor de temperatura pode reportar 35°C, mas o contexto transforma esse número em conhecimento acionável: é uma temperatura ambiente confortável ou um sinal de superaquecimento de equipamento? Sistemas conscientes de contexto (CAS) distinguem entre cinco propriedades fundamentais de qualquer informação contextual: o tipo (temperatura, localização, identidade), o valor (35°C, coordenadas GPS), o tempo (quando foi medido), a fonte (qual sensor ou agente) e a confiança (quão confiável é essa informação).</p><p>A distinção entre contexto intrínseco e extrínseco é crucial. Contexto intrínseco refere-se a propriedades inerentes ao próprio agente — sua localização, estado interno, capacidades. Contexto extrínseco engloba informações sobre o ambiente e outros agentes — condições climáticas, posições de obstáculos, intenções de outros participantes. Ambos são essenciais para uma compreensão completa da situação.</p><p>Seis técnicas principais de modelagem de contexto oferecem diferentes trade-offs entre simplicidade e expressividade. Modelos key-value (chave-valor) são simples mas limitados. Markup schemas como XML oferecem estrutura hierárquica. Modelos graphical representam contexto como redes de relações. Abordagens object-oriented encapsulam contexto em objetos reutilizáveis. Técnicas logical-based permitem inferência formal. E finalmente, modelos ontology-based (baseados em ontologias) fornecem a representação mais rica e semântica, definindo conceitos, relações e regras de inferência que permitem raciocínio sofisticado sobre o contexto.</p><p>O processo geral de um sistema consciente de contexto ocorre em três estágios: aquisição de contexto (coleta de dados de sensores e fontes externas), abstração e compreensão (transformação de dados brutos em informação significativa através de fusão, filtragem e inferência), e utilização de contexto (aplicação do conhecimento contextual para adaptar comportamento, personalizar serviços ou tomar decisões).</p>  <h2 id="s4"><span class="no">04</span>O Ciclo Sense-Learn-Reason-Predict-Act: A Anatomia da Consciência</h2>
+<p>A consciência em sistemas multi-agente não é um estado binário, mas um processo contínuo que pode ser decomposto em cinco capacidades essenciais interconectadas. O ciclo Sense-Learn-Reason-Predict-Act (Sentir-Aprender-Raciocinar-Prever-Agir) representa a arquitetura fundamental de um agente consciente de contexto operando em um ambiente multi-agente.</p><p>A fase Sense (Sentir) envolve não apenas a coleta de dados sensoriais, mas a modelagem estruturada do contexto. Aqui, as técnicas de modelagem discutidas anteriormente — desde simples key-value até sofisticadas ontologias — transformam streams de dados brutos em representações estruturadas. Um drone de resgate não apenas captura imagens; ele modela a cena como um grafo de contexto G = (V, E), onde vértices V representam entidades detectadas (vítimas, obstáculos, outros agentes) e arestas E representam relações espaciais e temporais entre elas.</p><p>A fase Learn (Aprender) utiliza técnicas de aprendizado de representação para extrair padrões significativos do contexto modelado. Weighting mechanisms (mecanismos de ponderação) atribuem importância relativa a diferentes elementos contextuais — a localização de uma vítima pode ter peso maior que a temperatura ambiente. Abordagens learning-based (baseadas em aprendizado) empregam Graph Neural Networks (GNN) para aprender embeddings que capturam tanto características locais quanto estrutura global do contexto. Funções de embedding como e = φ(c, W_c) transformam contexto bruto c em representações vetoriais densas e, enquanto mecanismos de agregação como eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l) integram informações de múltiplos agentes vizinhos.</p><p>A fase Reason (Raciocinar) aplica lógica e inferência sobre as representações aprendidas. Abordagens rule-based (baseadas em regras) utilizam lógica fuzzy e sistemas de produção para inferir novos fatos a partir do contexto conhecido. Técnicas case-based (baseadas em casos) recuperam situações similares do passado usando funções de retrieval f(c) = {v ∈ V | g(c,v) ≥ α}, onde g mede similaridade e α é um limiar. Métodos graph-based exploram a estrutura de grafos de contexto para inferir relações implícitas. E crucialmente, algoritmos goal-oriented (orientados a objetivos) como os baseados na arquitetura Belief-Desire-Intention (BDI) permitem que agentes raciocinem sobre seus objetivos, crenças e intenções em relação ao contexto atual.</p><p>A fase Predict (Prever) antecipa estados futuros e consequências de ações. Weighting schemes simples extrapolam tendências. Modelos probabilísticos como Bayesian Belief Networks calculam probabilidades conjuntas p(c₁, c₂, ..., cₙ) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ)) para prever configurações futuras de contexto. Reward-based models, especialmente técnicas de Deep Reinforcement Learning (DRL) e Multi-Agent Reinforcement Learning (MARL), aprendem políticas que maximizam recompensas esperadas. Algoritmos como n-step Q-learning atualizam estimativas de valor Q(s,a) iterativamente, enquanto métodos Actor-Critic e Proximal Policy Optimization (PPO) equilibram exploração e exploitação em ambientes multi-agente complexos.</p><p>Finalmente, a fase Act (Agir) executa ações selecionadas e coordena com outros agentes. Aqui, os protocolos de consenso e estratégias de coordenação discutidos anteriormente garantem que ações individuais contribuam para objetivos coletivos. Um agente pode usar SARSA para atualizar sua política θ_{t+1} = θ_t + αδ∇Q(h_t, g_t; θ_t) baseado em feedback do ambiente, enquanto simultaneamente negocia com outros agentes para evitar conflitos e maximizar eficiência global.</p>  <blockquote class="pull">A consciência de contexto não é um estado, mas um ciclo contínuo de percepção, aprendizado, raciocínio, previsão e ação adaptativa.<cite>Seção 4 · Context-Aware Multi-Agent Systems</cite></blockquote>
+  <h2 id="s5"><span class="no">05</span>Aplicações no Mundo Real: Da Teoria à Prática</h2>
+<p>A versatilidade dos sistemas CA-MAS se manifesta em oito domínios de aplicação distintos, cada um demonstrando diferentes combinações de estruturas organizacionais, protocolos de consenso e técnicas de raciocínio. Em navegação autônoma, veículos autônomos utilizam estruturas flat com sampled-data consensus para coordenar manobras em tempo real, empregando algoritmos goal-oriented que equilibram segurança, eficiência e conforto dos passageiros.</p><p>Sistemas de ambient intelligence para casas e edifícios inteligentes frequentemente adotam teams e coalitions, utilizando ontology-based models para representar preferências de usuários, estados de dispositivos e políticas de energia. Graph-based e rule-based reasoning permitem que o sistema infira necessidades implícitas — ajustando iluminação e temperatura não apenas baseado em comandos explícitos, mas compreendendo contexto como hora do dia, presença de ocupantes e atividades em curso.</p><p>No supply chain management, estruturas de market e holarchies permitem que cada nó da cadeia opere autonomamente enquanto participa de otimização global. Case-based techniques recuperam estratégias bem-sucedidas de situações passadas similares, adaptando-as ao contexto atual de demanda, disponibilidade de recursos e restrições logísticas.</p><p>Aplicações de disaster relief management demonstram a necessidade de estruturas híbridas — combinando teams para coordenação local de equipes de resgate com holarchies para integração com centros de comando regionais e nacionais. Leader-follower consensus permite resposta rápida em situações críticas, onde decisões centralizadas são necessárias, enquanto mantém autonomia local para adaptação a condições imprevisíveis no terreno.</p><p>Sistemas de energy efficiency & sustainability utilizam holarchies, teams e hierarchies para gerenciar smart grids, coordenando geração distribuída, armazenamento e consumo. Goal-oriented algorithms otimizam não apenas custos, mas também sustentabilidade, integrando fontes renováveis intermitentes e respondendo dinamicamente a padrões de demanda.</p><p>Em digital assistance, assistentes virtuais empregam estruturas flat e teams, usando ontology-based models para manter perfis de usuários ricos e graph-based ou fuzzy rule-based algorithms para personalizar respostas. A consciência de contexto permite que o assistente compreenda não apenas o que o usuário pergunta, mas por que e em que situação, adaptando tom, detalhe e modalidade da resposta.</p><p>Aplicações educacionais utilizam hierarchies com ontology-based models para representar conhecimento do domínio, perfis de estudantes e trajetórias de aprendizado. Case-based techniques identificam estudantes com dificuldades similares e recomendam intervenções pedagógicas personalizadas, enquanto agentes tutores coordenam para fornecer experiências de aprendizado coerentes e progressivas.</p><p>Finalmente, sistemas de IoT integram dispositivos heterogêneos usando teams, flat structures ou coalitions, dependendo da aplicação. Goal-oriented e rule-based algorithms gerenciam a complexidade de redes massivas de sensores e atuadores, garantindo que dados sejam coletados, processados e atuados de forma eficiente e contextualmente apropriada.</p>  <h2 id="s6"><span class="no">06</span>Desafios e Horizontes: O Que Ainda Precisa Ser Resolvido</h2>
+<p>Apesar dos avanços significativos, três desafios fundamentais limitam a adoção ampla de sistemas CA-MAS em ambientes reais. O primeiro desafio envolve estruturas organizacionais relaxadas — quando agentes operam em configurações dinâmicas onde a estrutura organizacional muda frequentemente (agentes entram e saem, coalizões se formam e dissolvem), o compartilhamento de contexto se torna ineficaz. Agentes podem não saber com quem compartilhar informações críticas, levando a redundância, inconsistência e lacunas de conhecimento. Além disso, estruturas relaxadas exacerbam preocupações de segurança e privacidade: como garantir que contexto sensível seja compartilhado apenas com agentes autorizados quando a própria noção de autorização é fluida?</p><p>O segundo desafio diz respeito a suposições de consenso relaxadas. Muitos protocolos de consenso assumem comunicação confiável, sincronização de relógio e ausência de agentes maliciosos ou defeituosos. No mundo real, essas suposições raramente se mantêm. Comunicação intermitente, latência variável e agentes com objetivos conflitantes levam a incerteza, ambiguidade e conflitos na interpretação de contexto. Um agente pode acreditar que uma área está segura enquanto outro detecta perigo iminente — como resolver tais conflitos sem um árbitro central e sem sacrificar autonomia?</p><p>O terceiro e talvez mais profundo desafio é a complexidade na integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos, especialmente técnicas de Deep Reinforcement Learning. Ontologias fornecem representações ricas e semânticas de contexto, permitindo raciocínio simbólico sofisticado. DRL oferece adaptabilidade e robustez em ambientes incertos através de aprendizado por tentativa e erro. No entanto, integrar essas abordagens é não-trivial: ontologias operam em espaços simbólicos discretos, enquanto DRL trabalha com representações vetoriais contínuas. Como traduzir entre esses paradigmas sem perder a riqueza semântica das ontologias ou a capacidade de generalização do DRL?</p><p>Direções futuras de pesquisa incluem o desenvolvimento de protocolos de compartilhamento de contexto adaptativos que ajustam estratégias de comunicação baseado na estrutura organizacional atual, mecanismos de consenso robustos que toleram incerteza e conflito através de técnicas de Byzantine fault tolerance e probabilistic consensus, e arquiteturas híbridas que combinam raciocínio simbólico baseado em ontologias com aprendizado sub-simbólico através de neurosymbolic AI — sistemas que integram redes neurais com motores de inferência lógica, permitindo que agentes aprendam representações contextuais enquanto mantêm capacidades de raciocínio explicável.</p>  <blockquote class="pull">Integrar a riqueza semântica das ontologias com a adaptabilidade do aprendizado profundo permanece um dos desafios centrais para a próxima geração de sistemas CA-MAS.<cite>Seção 5 · Challenges and Future Directions</cite></blockquote>
+  <p>Os Sistemas Multi-Agente Conscientes de Contexto representam uma fronteira promissora na inteligência artificial, oferecendo um caminho para agentes que não apenas executam tarefas, mas compreendem o mundo ao seu redor e coordenam suas ações de forma inteligente e adaptativa. Das equipes de resgate em zonas de desastre aos assistentes virtuais em nossos smartphones, dos veículos autônomos nas ruas às redes elétricas inteligentes que alimentam nossas cidades, a capacidade de perceber, aprender, raciocinar, prever e agir com consciência de contexto está se tornando essencial. No entanto, como vimos, desafios fundamentais permanecem — especialmente na integração de diferentes paradigmas de representação e raciocínio. A jornada da teoria à prática exigirá não apenas avanços técnicos, mas também novas formas de pensar sobre como agentes autônomos podem colaborar, compartilhar conhecimento e tomar decisões em um mundo cada vez mais complexo e interconectado.</p>
+</article>
+
+<div class="closer">
+  <div class="callout"><b>Se a integração entre ontologias de agentes e frameworks de raciocínio orientado a objetivos (como Deep Reinforcement Learning) permanece um desafio aberto devido à complexidade de representação e compatibilidade de aprendizado, como podemos projetar arquiteturas CA-MAS que equilibrem a riqueza semântica das ontologias com a adaptabilidade e robustez necessárias para ambientes dinâmicos e incertos — sem sacrificar a eficiência computacional ou a capacidade de generalização dos agentes?</b></div>
+</div>
+  <div class="share">
+    <span>Compartilhar</span>
+    <a class="btn" id="shareLink" href="#">Copiar link</a>
+  </div>
+
+  <section class="related">
+    <h3>Continue</h3>
+    <div class="related-grid">
+      <a class="rcard" href="index.html">
+        <b>Leitura guiada do artigo</b>
+        <small>Categorias, mapa mental, tabelas e áudio.</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+      <a class="rcard" href="workshop.html">
+        <b>Dinâmica remota</b>
+        <small>Workshop para consolidação em grupo ou individual.</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+      <a class="rcard" href="context-aware-mas.pdf">
+        <b>Artigo original</b>
+        <small>arXiv preprint arXiv:2402.01968v2 [cs.MA].</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Baseado em Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis. <i>A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</i>. arXiv preprint arXiv:2402.01968v2 [cs.MA].<br><br>
+    <a href="index.html">Leitura guiada</a> &#183; <a href="workshop.html">Dinâmica</a> &#183; <a href="../../css-context-sensitive-systems/index.html">&#8592; CSS - Context Sensitive Systems</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('shareLink').addEventListener('click', function (ev) {
+  ev.preventDefault();
+  var btn = this;
+  var done = function (ok) {
+    btn.textContent = ok ? 'Link copiado' : 'Copie manualmente';
+    setTimeout(function () { btn.textContent = 'Copiar link'; }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); });
+  } else { done(false); }
+});
+</script>
+</body>
+</html>

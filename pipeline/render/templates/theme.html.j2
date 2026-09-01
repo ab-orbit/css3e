@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ theme.name }}</title>
+<meta name="description" content="{{ theme.description[:160] }}">
+<link rel="canonical" href="{{ canonical_url }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ theme.name }}">
+<meta property="og:description" content="{{ theme.description[:200] }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<link rel="stylesheet" href="../../{{ stylesheet }}">
+<style>
+{% include "partials/article_extra.css.j2" %}
+{% include "partials/theme_gallery.css.j2" %}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="theme-head">
+    <p class="theme-kicker">Tema</p>
+    <h1>{{ theme.name }}</h1>
+    {% if theme.description %}<p class="theme-dek">{{ theme.description }}</p>{% endif %}
+    <p class="theme-count">{{ entries | length }} artigo{{ 's' if entries | length != 1 }} publicado{{ 's' if entries | length != 1 }}</p>
+  </header>
+
+  {# Console de autoria. Renderizado sempre, revelado só em localhost: a página
+     publicada não tem backend para chamar, então o bloco fica inerte. #}
+  {% include "partials/theme_console.html.j2" %}
+
+  <div class="tg" data-active-view="cards">
+    <div class="tg-bar">
+      <div class="tg-views" role="group" aria-label="Modo de visualização">
+        <button type="button" class="tg-view-btn" data-set-view="cards" aria-pressed="true">Cards</button>
+        <button type="button" class="tg-view-btn" data-set-view="list" aria-pressed="false">Lista</button>
+      </div>
+    </div>
+
+    <section class="tg-grid" data-view="cards">
+      {% for e in entries %}
+      {% set href = article_href(e) %}
+      <article class="tg-card">
+        <a class="tg-card-hit" href="{{ href }}">
+          <p class="tg-card-meta">{{ e.date_published }} · {{ e.authors | join(', ') | truncate(58) }}</p>
+          <h2 class="tg-card-title">{{ e.title_pt or e.title }}</h2>
+          {% if e.briefing %}<p class="tg-card-brief">{{ e.briefing }}</p>{% endif %}
+        </a>
+        <div class="tg-card-foot">
+          {% if e.has_audio %}<span class="tg-badge tg-badge-audio">Áudio</span>{% endif %}
+          {% if e.has_slides %}<span class="tg-badge tg-badge-deck">Deck</span>{% endif %}
+          {% if e.pages.blog %}<a class="tg-card-link" href="{{ article_href(e, 'blog') }}">Post</a>{% endif %}
+          {% if e.pages.workshop %}<a class="tg-card-link" href="{{ article_href(e, 'workshop') }}">Workshop</a>{% endif %}
+        </div>
+      </article>
+      {% else %}
+      <p class="tg-empty">Nenhum artigo publicado neste tema ainda.</p>
+      {% endfor %}
+    </section>
+
+    <section class="tg-list" data-view="list" hidden>
+      {% for e in entries %}
+      {% set href = article_href(e) %}
+      <article class="tg-row">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="{{ href }}">{{ e.title_pt or e.title }}</a>
+          {% if e.briefing %}<p class="tg-row-brief">{{ e.briefing }}</p>{% endif %}
+          <p class="tg-row-meta">{{ e.date_published }} · {{ e.authors | join(', ') | truncate(70) }}</p>
+        </div>
+        <div class="tg-row-side">
+          {% if e.has_audio %}<span class="tg-badge tg-badge-audio">Áudio</span>{% endif %}
+          {% if e.has_slides %}<span class="tg-badge tg-badge-deck">Deck</span>{% endif %}
+        </div>
+      </article>
+      {% else %}
+      <p class="tg-empty">Nenhum artigo publicado neste tema ainda.</p>
+      {% endfor %}
+    </section>
+  </div>
+</main>
+
+<script>
+(function () {
+  var tg = document.querySelector('.tg');
+  if (!tg) return;
+  var KEY = 'css3e:gallery-view';
+
+  function set(view) {
+    tg.dataset.activeView = view;
+    tg.querySelectorAll('[data-view]').forEach(function (section) {
+      section.hidden = section.dataset.view !== view;
+    });
+    tg.querySelectorAll('[data-set-view]').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', String(btn.dataset.setView === view));
+    });
+    // Per-viewer convenience only; a missing or unreadable value just means
+    // the default (cards).
+    try { localStorage.setItem(KEY, view); } catch (e) {}
+  }
+
+  tg.querySelectorAll('[data-set-view]').forEach(function (btn) {
+    btn.addEventListener('click', function () { set(btn.dataset.setView); });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  set(saved === 'list' ? 'list' : 'cards');
+})();
+</script>
+</body>
+</html>

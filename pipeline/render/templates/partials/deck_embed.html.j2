@@ -1,0 +1,45 @@
+{# Requires: pkg (ArticlePackage) #}
+{#
+  Preview precedence:
+  1. slides_pdf_path — the default. A PDF export of the deck NotebookLM
+     generated, served from this article's own folder. No credentials, no
+     third-party host, no external request.
+  2. slides_preview_url — optional override for a deck that genuinely lives in
+     Google Slides, set by hand via `pipeline set-slides`.
+  A .pptx is never embedded directly: browsers cannot render one inline, which
+  is why the PDF export exists at all.
+#}
+<section class="section" id="slides">
+  <h2><span class="num">DECK</span>Apresentação do artigo</h2>
+  {% if pkg.slides_pdf_path or pkg.slides_preview_url %}
+  {% set use_drive = pkg.slides_preview_url is not none %}
+  <p>Prévia da apresentação gerada a partir do artigo.</p>
+  <div class="deck">
+    <div class="deck-frame">
+      <iframe
+        src="{{ pkg.slides_preview_url if use_drive else pkg.slides_pdf_path ~ '#view=FitH' }}"
+        title="Apresentação: {{ pkg.hero.h1 }}"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="deck-bar">
+      <span>{{ 'Google Slides · prévia incorporada' if use_drive else 'Deck em PDF · hospedado neste site' }}</span>
+      <span class="deck-actions">
+        {% if use_drive and pkg.slides_edit_url %}
+        <a class="btn primary" href="{{ pkg.slides_edit_url }}" target="_blank" rel="noopener">Abrir no Google Slides ↗</a>
+        {% elif pkg.slides_pdf_path %}
+        <a class="btn" href="{{ pkg.slides_pdf_path }}" target="_blank" rel="noopener">Abrir o PDF ↗</a>
+        {% endif %}
+        {% if pkg.slides_pptx_path %}
+        <a class="btn{{ ' primary' if not use_drive else '' }}" href="{{ pkg.slides_pptx_path }}" download>Baixar .pptx</a>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+  {% else %}
+  <div class="callout warnbox">
+    <b>Slides pendentes:</b> o deck ainda não foi gerado para este artigo. Rode a etapa de mídia do pipeline (<code>pipeline build</code>) com a sessão do NotebookLM configurada em <code>NOTEBOOKLM_AUTH_JSON</code>.
+  </div>
+  {% endif %}
+</section>

@@ -1,0 +1,151 @@
+{# Requires: audio_src (str), audio_title (str), audio_subtitle (str) #}
+<div class="player" id="player" role="region" aria-label="Player de áudio">
+  <div class="head">
+    <div class="who">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="titleline">
+        <b>{{ audio_title }}</b>
+        <span>{{ audio_subtitle }}</span>
+      </span>
+    </div>
+    <button class="pbtn" id="minToggle" aria-expanded="true" title="Minimizar player">–</button>
+  </div>
+
+  <div class="row">
+    <button class="pbtn" id="back15" title="Voltar 15 segundos" aria-label="Voltar 15 segundos">−15</button>
+    <button class="pbtn play" id="playBtn" aria-label="Reproduzir">
+      <svg id="playIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <button class="pbtn" id="fwd15" title="Avançar 15 segundos" aria-label="Avançar 15 segundos">+15</button>
+
+    <span class="seekwrap">
+      <span class="time" id="cur">0:00</span>
+      <input class="rng seek" id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Posição da faixa">
+      <span class="time" id="dur">--:--</span>
+    </span>
+
+    <span class="volwrap">
+      <button class="pbtn" id="muteBtn" title="Silenciar" aria-label="Silenciar">VOL</button>
+      <input class="rng" id="vol" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+    </span>
+
+    <select class="rate" id="rate" aria-label="Velocidade de reprodução">
+      <option value="0.75">0,75×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.25">1,25×</option>
+      <option value="1.5">1,5×</option>
+      <option value="1.75">1,75×</option>
+      <option value="2">2×</option>
+    </select>
+  </div>
+  <div class="sub" id="psub">espaço = play/pause · ← → = 15 s · arquivo local, sem streaming externo</div>
+  <audio id="au" preload="metadata" src="{{ audio_src }}"></audio>
+</div>
+
+<script>
+(function () {
+  var au = document.getElementById('au'),
+      player = document.getElementById('player'),
+      playBtn = document.getElementById('playBtn'),
+      playIcon = document.getElementById('playIcon'),
+      seek = document.getElementById('seek'),
+      cur = document.getElementById('cur'),
+      dur = document.getElementById('dur'),
+      vol = document.getElementById('vol'),
+      muteBtn = document.getElementById('muteBtn'),
+      rate = document.getElementById('rate'),
+      minToggle = document.getElementById('minToggle');
+
+  var ICON_PLAY = 'M8 5v14l11-7z',
+      ICON_PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
+
+  var scrubbing = false;
+
+  function fmt(s) {
+    if (!isFinite(s)) return '--:--';
+    s = Math.max(0, Math.floor(s));
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    var mm = h ? String(m).padStart(2, '0') : String(m);
+    return (h ? h + ':' : '') + mm + ':' + String(x).padStart(2, '0');
+  }
+
+  function paintSeek() {
+    var pct = au.duration ? (au.currentTime / au.duration) * 100 : 0;
+    seek.style.backgroundSize = pct + '% 100%';
+  }
+
+  au.addEventListener('loadedmetadata', function () { dur.textContent = fmt(au.duration); });
+
+  au.addEventListener('timeupdate', function () {
+    cur.textContent = fmt(au.currentTime);
+    if (!scrubbing && au.duration) {
+      seek.value = String((au.currentTime / au.duration) * 1000);
+      paintSeek();
+    }
+  });
+
+  au.addEventListener('play', function () {
+    player.classList.add('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PAUSE);
+    playBtn.setAttribute('aria-label', 'Pausar');
+  });
+  au.addEventListener('pause', function () {
+    player.classList.remove('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PLAY);
+    playBtn.setAttribute('aria-label', 'Reproduzir');
+  });
+  au.addEventListener('error', function () {
+    document.getElementById('psub').textContent =
+      'Não foi possível carregar o áudio — confira o caminho do arquivo.';
+  });
+
+  playBtn.addEventListener('click', function () {
+    if (au.paused) { au.play().catch(function () {}); } else { au.pause(); }
+  });
+  document.getElementById('back15').addEventListener('click', function () { au.currentTime = Math.max(0, au.currentTime - 15); });
+  document.getElementById('fwd15').addEventListener('click', function () {
+    au.currentTime = Math.min(au.duration || Infinity, au.currentTime + 15);
+  });
+
+  ['pointerdown', 'touchstart'].forEach(function (e) { seek.addEventListener(e, function () { scrubbing = true; }); });
+  ['pointerup', 'touchend', 'change'].forEach(function (e) { seek.addEventListener(e, function () { scrubbing = false; }); });
+  seek.addEventListener('input', function () {
+    if (au.duration) {
+      au.currentTime = (seek.value / 1000) * au.duration;
+      cur.textContent = fmt(au.currentTime);
+      seek.style.backgroundSize = (seek.value / 10) + '% 100%';
+    }
+  });
+
+  vol.addEventListener('input', function () {
+    au.volume = +vol.value;
+    au.muted = +vol.value === 0;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+  });
+  muteBtn.addEventListener('click', function () {
+    au.muted = !au.muted;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+    if (!au.muted && au.volume === 0) { au.volume = 0.8; vol.value = '0.8'; }
+  });
+
+  rate.addEventListener('change', function () { au.playbackRate = +rate.value; });
+
+  minToggle.addEventListener('click', function () {
+    var min = player.classList.toggle('min');
+    minToggle.textContent = min ? '+' : '–';
+    minToggle.setAttribute('aria-expanded', String(!min));
+    minToggle.title = min ? 'Expandir player' : 'Minimizar player';
+    document.body.style.paddingBottom = min ? '110px' : '';
+  });
+
+  addEventListener('keydown', function (ev) {
+    var t = ev.target, tag = t && t.tagName;
+    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || (t && t.isContentEditable)) return;
+    if (ev.code === 'Space') { ev.preventDefault(); playBtn.click(); }
+    else if (ev.code === 'ArrowLeft' && ev.altKey) { au.currentTime = Math.max(0, au.currentTime - 15); }
+    else if (ev.code === 'ArrowRight' && ev.altKey) { au.currentTime = au.currentTime + 15; }
+  });
+
+  paintSeek();
+})();
+</script>
