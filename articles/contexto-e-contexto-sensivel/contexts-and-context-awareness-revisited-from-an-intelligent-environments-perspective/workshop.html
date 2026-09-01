@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contexts and Context-awareness Revisited from an Intelligent Environments Perspective - Workshop</title>
+<meta name="description" content="Workshop sobre a teoria CIEn (Contexts for Intelligent Environments) que redefine contexto e context-awareness com foco nos beneficiários humanos. Explora operações de contexto (activation, comparison, influence, construction, interaction), templates de contexto, e métricas de satisfação (SAS). Apresenta fundamentos formais para sistemas context-aware em ambientes inteligentes, IoT e computação ubíqua.">
+<meta name="keywords" content="context, context-awareness, sistemas sensíveis ao contexto, intelligent environments, ambientes inteligentes, ambient intelligence, ubiquitous computing, computação ubíqua, pervasive computing, Internet of Things, IoT, beneficiaries, services, context satisfaction, context operations, CIEn, context templates, smart home, casa inteligente, Service Achievement Satisfaction, SAS">
+<meta name="author" content="Juan Carlos Augusto">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/workshop.html">
+<meta name="theme-color" content="#171415">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/workshop.html">
+<meta property="og:title" content="Contexts and Context-awareness Revisited from an Intelligent Environments Perspective - Workshop">
+<meta property="og:description" content="Workshop sobre a teoria CIEn (Contexts for Intelligent Environments) que redefine contexto e context-awareness com foco nos beneficiários humanos. Explora operações de contexto (activation, comparison, influence, construction, interaction), templates de contexto, e métricas de satisfação (SAS). Apresenta fundamentos formais para sistemas context-aware em ambientes inteligentes, IoT e computação ubíqua.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contexts and Context-awareness Revisited from an Intelligent Environments Perspective - Workshop">
+<meta name="twitter:description" content="Workshop sobre a teoria CIEn (Contexts for Intelligent Environments) que redefine contexto e context-awareness com foco nos beneficiários humanos. Explora operações de contexto (activation, comparison, influence, construction, interaction), templates de contexto, e métricas de satisfação (SAS). Apresenta fundamentos formais para sistemas context-aware em ambientes inteligentes, IoT e computação ubíqua.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/workshop.html" },
+  "headline": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective - Workshop",
+  "description": "Workshop sobre a teoria CIEn (Contexts for Intelligent Environments) que redefine contexto e context-awareness com foco nos benefici\u00e1rios humanos. Explora opera\u00e7\u00f5es de contexto (activation, comparison, influence, construction, interaction), templates de contexto, e m\u00e9tricas de satisfa\u00e7\u00e3o (SAS). Apresenta fundamentos formais para sistemas context-aware em ambientes inteligentes, IoT e computa\u00e7\u00e3o ub\u00edqua.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2022",
+  "dateModified": "2022",
+  "author": [
+    { "@type": "Person", "name": "Juan Carlos Augusto" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Centro de Inform\u00e1tica, UFPE", "url": "https://ab-orbit.github.io/css3e/" },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+    "author": ["Juan Carlos Augusto"],
+    "datePublished": "2022",
+"sameAs": "https://doi.org/10.1080/08839514.2021.2008644",    "url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-anqiv5h9/Contexts and Context-awareness Revisited from an Intelligent Environments Perspective (2).pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Context" },
+    { "@type": "Thing", "name": "Context-awareness" },
+    { "@type": "Thing", "name": "Beneficiaries" },
+    { "@type": "Thing", "name": "Services" },
+    { "@type": "Thing", "name": "Observable World (OW)" },
+    { "@type": "Thing", "name": "Intelligent Software" },
+    { "@type": "Thing", "name": "Context Templates" },
+    { "@type": "Thing", "name": "Context Satisfaction" },
+    { "@type": "Thing", "name": "Context Activation" },
+    { "@type": "Thing", "name": "Context Comparison" },
+    { "@type": "Thing", "name": "Context Influence" },
+    { "@type": "Thing", "name": "Context Construction" },
+    { "@type": "Thing", "name": "Context Interaction" },
+    { "@type": "Thing", "name": "Beneficiary Context Perception (BCP)" },
+    { "@type": "Thing", "name": "Beneficiary Context Expectations (BCE)" },
+    { "@type": "Thing", "name": "Service Achievement Satisfaction (SAS)" },
+    { "@type": "Thing", "name": "CIEn (Contexts for Intelligent Environments theory)" },
+    { "@type": "Thing", "name": "Ripple Effect" },
+    { "@type": "Thing", "name": "Direct Influence" },
+    { "@type": "Thing", "name": "Context Templates: [Name, Beneficiary, Activation, Effect]" }
+  ],
+  "url": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/workshop.html"
+}
+</script>
+
+<link rel="stylesheet" href="../../../resources/cases/style.css">
+<style>
+:root{
+  --accent-0: #2E7D5B;
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Dinâmica · Contexts and Context-awareness Revisited</div>
+    <nav class="nav">
+      <a class="btn" href="index.html">Leitura do artigo</a>
+      <a class="btn" href="blog.html">Blog</a>
+      <a class="btn" href="../../contexto-e-contexto-sensivel/index.html">&#8592; Contexto e Contexto Sensível</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="article-hero" style="grid-template-columns:1fr">
+    <div>
+      <div class="eyebrow">DINÂMICA REMOTA · CONSOLIDAÇÃO DE CONTEÚDO</div>
+      <h1>Projetando Contextos Inteligentes: Da Teoria CIEn à Prática</h1>
+      <p class="lede">Workshop remoto construído a partir de "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective" (Juan Carlos Augusto, Applied Artificial Intelligence) para consolidar o conteúdo em grupo ou individualmente.</p>
+    </div>
+  </section>
+
+<section class="section" id="visao-geral">
+  <h2><span class="num">DINÂMICA</span>Projetando Contextos Inteligentes: Da Teoria CIEn à Prática</h2>
+  <div class="case-grid">
+    <div class="panel">
+      <h3>Enquadramento</h3>
+      <p>Ciclo de Kolb adaptado para sistemas context-aware: experiência concreta (aplicação de templates) → observação reflexiva (análise de satisfação) → conceituação abstrata (operações de contexto) → experimentação ativa (redesign colaborativo)</p>
+    </div>
+    <div class="panel">
+      <h3>Duração</h3>
+      <p>75 minutos, remoto (videoconferência + material assíncrono).</p>
+    </div>
+  </div>
+</section>
+
+<section class="section track-toggle" id="trilhas">
+  <div class="track-tabs" role="tablist" aria-label="Visão da dinâmica">
+    <button class="track-tab active" data-track="participante" role="tab" aria-selected="true">Visão do participante</button>
+    <button class="track-tab" data-track="facilitador" role="tab" aria-selected="false">Visão do facilitador</button>
+  </div>
+
+  <div class="track-panel" data-track-panel="participante">
+    <h3>Passo a passo</h3>
+    <div class="step-card">
+      <div class="case-no">Ancoragem: Mapeamento de Contextos</div>
+      <p>Acesse o documento compartilhado &#39;Cenário Smart Home&#39; e leia a descrição do ambiente inteligente proposto (casa com dois beneficiários: B e PB). Identifique e liste no chat pelo menos 3 situações onde o sistema precisa diferenciar contextos entre os dois beneficiários.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Você consegue explicar por que a mesma ação física (ex: abrir a porta da frente) pode significar contextos diferentes dependendo de quem a realiza e quando?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Aplicação: Templates de Contexto</div>
+      <p>Em sua sala de breakout (3-4 pessoas), escolha UMA das situações identificadas. Usando a estrutura [Name, Beneficiary, Activation, Effect], preencha um template de contexto completo no quadro colaborativo Miro/Jamboard. Seja específico sobre as condições de ativação e os efeitos esperados.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Seu template deixa claro QUEM se beneficia, QUANDO o contexto é ativado e O QUE o sistema deve fazer? Outro desenvolvedor conseguiria implementá-lo?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Reflexão: Satisfação de Contexto</div>
+      <p>Ainda em grupo, discuta: se o sistema implementasse seu contexto exatamente como projetado, qual seria a diferença entre BCE (o que o beneficiário espera) e BCP (o que ele percebe)? Registre essa análise em 2-3 frases no documento compartilhado.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Você está pensando do ponto de vista do BENEFICIÁRIO (humano) ou do SISTEMA (técnico)? A teoria CIEn prioriza qual perspectiva?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Conceituação: Operações de Contexto</div>
+      <p>Retorne à sessão plenária. Enquanto os grupos apresentam, anote em seu caderno pessoal: identifique pelo menos um exemplo de cada operação de contexto (Activation, Comparison, Influence, Construction, Interaction) nas apresentações dos colegas. Use os símbolos do artigo (⇝, ⊕, ⊖, ⊗, ⊛).</p>
+      <p class="self-check"><b>Autoavaliação:</b> Você consegue distinguir entre &#39;Direct Influence&#39; (C₁ ⇝ C₂) e &#39;Ripple Effect&#39; (C₁ ⇝ C₂)? Consegue dar um exemplo de cada?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Experimentação: Redesign Colaborativo</div>
+      <p>Participe da votação no Mentimeter sobre qual contexto apresentado tem maior risco de conflito (Competitive ⊖ ou Incompatible ⊗). Para o contexto mais votado, proponha no chat UMA modificação que transforme a relação em Cooperative (⊕) ou Neutral (⊛).</p>
+      <p class="self-check"><b>Autoavaliação:</b> Sua proposta resolve o conflito mantendo a satisfação (SAS) de AMBOS os beneficiários, ou privilegia um sobre o outro?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Consolidação: Princípios de Design</div>
+      <p>Individualmente, responda no formulário Google Forms: &#39;Qual princípio da teoria CIEn você considera mais desafiador de aplicar em sistemas reais e por quê?&#39; Escolha entre: (a) Foco no beneficiário vs. dados, (b) Regra de Occam para contextos, (c) Otimização multiusuário (SASm), (d) Gestão de contextos incompatíveis.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Você consegue articular não apenas O QUE é desafiador, mas POR QUE é desafiador do ponto de vista técnico E ético?</p>
+    </div>
+
+    <div class="case-grid" style="margin-top:20px">
+      <div class="panel">
+        <h3>Materiais necessários</h3>
+        <ul><li>Acesso à videoconferência (Zoom/Teams/Meet) com capacidade de breakout rooms</li><li>Documento colaborativo &#39;Cenário Smart Home&#39; (Google Docs ou equivalente) - link fornecido pelo facilitador</li><li>Quadro colaborativo visual (Miro, Jamboard, ou Mural) com template pré-estruturado [Name, Beneficiary, Activation, Effect]</li><li>Caderno pessoal ou documento para anotações individuais</li><li>Acesso ao Mentimeter para votação (código fornecido durante a sessão)</li><li>Formulário Google Forms para reflexão final (link no chat)</li><li>Cópia do artigo ou resumo dos conceitos-chave (fornecido previamente como leitura assíncrona)</li></ul>
+      </div>
+      <div class="panel">
+        <h3>Perguntas de reflexão (consolidação individual)</h3>
+        <ul><li>Como a teoria CIEn muda sua compreensão sobre o que significa &#39;inteligência&#39; em sistemas context-aware? O foco em beneficiários (B) em vez de apenas dados altera fundamentalmente o design?</li><li>Ao aplicar os templates de contexto [Name, Beneficiary, Activation, Effect] no cenário da casa inteligente, quais informações foram mais difíceis de especificar? O que isso revela sobre os desafios de formalizar contextos humanos?</li><li>Considerando a função SAS (Service Achievement Satisfaction), como você mediria na prática a diferença entre BCE (expectativas) e BCP (percepção)? Que métodos de avaliação com usuários reais seriam necessários?</li><li>Quando contextos de diferentes beneficiários entram em conflito (⊖ ou ⊗), que critérios éticos devem guiar a otimização? A função SASm com Preferências Globais (GP) é suficiente, ou precisamos de princípios adicionais?</li><li>Reflita sobre a &#39;regra de Occam para design de contexto&#39;: um contexto deve ser implementado apenas se necessário, não redundante e viável. Como isso se aplica à tendência atual de sistemas &#39;hiper-personalizados&#39; que coletam dados excessivos?</li><li>A distinção entre Direct Influence (⇝) e Ripple Effect (⇝) sugere que sistemas context-aware podem ter consequências não-intencionais. Como desenvolvedores podem antecipar e mitigar efeitos em cascata indesejados?</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-panel" data-track-panel="facilitador" hidden>
+    <h3>Roteiro</h3>
+    <div class="step-card">
+      <div class="case-no">0–5 min</div>
+      <p><b>Abertura e enquadramento pedagógico. Apresente brevemente o objetivo da sessão: consolidar a teoria CIEn através de aplicação prática no cenário smart home. Explique o ciclo Kolb adaptado que estrutura a dinâmica. Compartilhe o link do documento &#39;Cenário Smart Home&#39; e verifique que todos têm acesso.</b></p>
+      <p>Enfatize que não é uma aula expositiva, mas aplicação ativa. Verifique rapidamente no chat quem leu o artigo previamente (esperado: 70%+). Se menos de 50% leu, ajuste expectativas e forneça resumo de 2 min dos conceitos [Name, Beneficiary, Activation, Effect] e SAS. Prepare-se para compartilhar tela com o documento do cenário.</p>
+      <ul><li>Quem já trabalhou com sistemas context-aware antes? Que desafios encontraram na definição de &#39;contexto&#39;?</li><li>Por que vocês acham que o artigo insiste tanto em colocar &#39;beneficiários&#39; (humanos) no centro, em vez de &#39;dados&#39; ou &#39;sensores&#39;?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">5–15 min</div>
+      <p><b>Fase 1 - Ancoragem: Mapeamento de Contextos. Participantes leem o cenário individualmente e identificam situações onde contextos diferem entre B e PB. Peça que compartilhem no chat (não verbalmente, para dar tempo de todos pensarem). Após 5 min, faça uma rápida síntese visual (use anotação na tela ou Jamboard) agrupando as situações mencionadas.</b></p>
+      <p>Erro comum: participantes listam &#39;eventos&#39; (porta abre) em vez de &#39;contextos&#39; (saída matinal de B vs. saída noturna confusa de PB). Redirecione gentilmente: &#39;Ótimo, e qual é a DIFERENÇA de contexto entre essas duas situações? Quem é o beneficiário? O que o sistema deve fazer diferente?&#39; Observe se alguém já menciona espontaneamente elementos do template [Name, Beneficiary, Activation, Effect] - valorize isso. Tenha 3-4 exemplos prontos caso o chat fique silencioso: (1) Ir ao banheiro à noite, (2) Sair de casa em horários diferentes, (3) Pular refeição, (4) Acordar de manhã.</p>
+      <ul><li>Alguém identificou uma situação onde o MESMO evento físico (ex: sensor de movimento no corredor) precisa acionar respostas DIFERENTES dependendo do contexto?</li><li>O que torna um contexto &#39;diferente&#39; de outro? É só o horário? Ou também quem está envolvido e o histórico?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">15–30 min</div>
+      <p><b>Fase 2 - Aplicação: Templates de Contexto. Divida em breakout rooms de 3-4 pessoas. Cada grupo escolhe UMA situação e preenche um template completo no quadro colaborativo. Circule pelas salas (entre em 2-3 salas aleatoriamente) para observar o progresso e dar feedback pontual. Avise 2 min antes do retorno.</b></p>
+      <p>Desafio principal: grupos tendem a ser vagos em &#39;Activation&#39; (&#39;quando o usuário precisa&#39;) ou &#39;Effect&#39; (&#39;melhorar a experiência&#39;). Provoque especificidade: &#39;Que SENSORES ou DADOS ativam isso? Que AÇÃO CONCRETA o sistema executa?&#39; Observe se grupos estão colaborando ou se uma pessoa domina - intervenha sutilmente (&#39;Fulano, o que você acha da proposta do Ciclano?&#39;). Tenha um template de exemplo pronto para mostrar se algum grupo travar completamente: [Name: &#39;Saída Matinal Segura de B&#39;, Beneficiary: B, Activation: &#39;Sensor porta frente ativado entre 7h-8h30 em dia útil E B identificado por reconhecimento facial&#39;, Effect: &#39;Desativar alarme, acender luz externa, enviar notificação para smartphone de B com previsão do tempo&#39;]. Tempo é apertado propositalmente - grupos não precisam de perfeição, mas de um rascunho funcional.</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">30–40 min</div>
+      <p><b>Fase 3 - Reflexão: Satisfação de Contexto. Ainda em breakout rooms, grupos discutem BCE vs. BCP para o contexto que projetaram. Pedem que registrem a análise (2-3 frases) no documento compartilhado. Retornem à plenária.</b></p>
+      <p>Conceito-chave: SAS = Σ|BCE - BCP|. Quanto menor a diferença, melhor a satisfação. Grupos devem pensar: &#39;O que o beneficiário ESPERA que aconteça nessa situação?&#39; vs. &#39;O que ele vai PERCEBER que o sistema fez?&#39; Erro comum: confundir com requisitos técnicos (&#39;o sistema deve detectar X&#39;) em vez de experiência do usuário (&#39;B espera que a casa esteja iluminada e segura ao sair&#39;). Se grupos estiverem travados, sugira: &#39;Imaginem que vocês SÃO o beneficiário. O sistema fez o que vocês queriam? Fez algo a mais ou a menos?&#39; Prepare-se para explicar rapidamente a fórmula SAS na plenária se necessário (slide ou anotação na tela).</p>
+      <ul><li>Se o sistema fizer EXATAMENTE o que vocês projetaram, o beneficiário ficaria satisfeito? Ou vocês assumiram algo que ele pode não querer?</li><li>Como vocês saberiam, na prática, o que está em BCE (expectativas do beneficiário)? Entrevistas? Observação? Tentativa e erro?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">40–55 min</div>
+      <p><b>Fase 4 - Conceituação: Operações de Contexto. Cada grupo apresenta brevemente (2 min) seu template e análise SAS. Facilitador anota na tela (ou pede que um co-facilitador anote) exemplos de operações de contexto que emergem: Activation (quando o contexto &#39;liga&#39;), Comparison (contextos similares/diferentes), Influence (um contexto afeta outro), Interaction (cooperação ⊕, competição ⊖, incompatibilidade ⊗). Após cada apresentação, pergunte à audiência: &#39;Esse contexto INFLUENCIA algum outro? Há CONFLITO com contextos de outro beneficiário?&#39;</b></p>
+      <p>Ritmo é crítico: 5-6 grupos × 2 min = 10-12 min de apresentações + 3-5 min de discussão = ~15 min total. Use timer visível. Seu papel é fazer a ponte entre os exemplos concretos dos grupos e os conceitos abstratos do artigo. Tenha os símbolos prontos para mostrar: ⇝ (direct influence), ⇝ (ripple effect), ⊕ (cooperative), ⊖ (competitive), ⊗ (incompatible), ⊛ (neutral). Exemplo de ponte: &#39;O grupo 2 mencionou que acender luzes no corredor para PB à noite pode acordar B - isso é um exemplo de Ripple Effect (⇝), onde um contexto tem consequências não-intencionais em outro!&#39; Erros comuns: participantes focam em detalhes técnicos de implementação em vez de relações entre contextos. Redirecione: &#39;Interessante, mas pensando nas OPERAÇÕES de contexto do artigo, isso é Influence, Comparison ou Interaction?&#39;</p>
+      <ul><li>Alguém vê um exemplo de Direct Influence (⇝) aqui? Um contexto que DIRETAMENTE ativa outro?</li><li>Há contextos INCOMPATÍVEIS (⊗) entre B e PB? Situações onde satisfazer um beneficiário necessariamente frustra o outro?</li><li>Como a teoria CIEn sugere resolver conflitos? Lembram da função SASm com Preferências Globais (GP)?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">55–65 min</div>
+      <p><b>Fase 5 - Experimentação: Redesign Colaborativo. Lance votação no Mentimeter: &#39;Qual contexto apresentado tem maior risco de conflito?&#39; (liste os 5-6 contextos dos grupos). Após votação (1 min), revele resultado. Para o contexto vencedor, peça propostas no chat de como redesenhar para reduzir conflito (transformar ⊖/⊗ em ⊕/⊛). Discuta 2-3 propostas mais interessantes.</b></p>
+      <p>Objetivo: experimentação ativa de redesign. Participantes devem aplicar o aprendizado para resolver um problema real de conflito de contextos. Prepare o Mentimeter com antecedência (ou use poll nativo do Zoom/Teams se Mentimeter não disponível). Se nenhum contexto apresentado tiver conflito óbvio, tenha um cenário de backup pronto: &#39;PB quer temperatura ambiente a 24°C (sente frio), B quer 19°C (sente calor). Ambos estão na sala. Como resolver?&#39; Valorize criatividade: soluções podem ser técnicas (sensores localizados, zonas de temperatura), procedurais (negociação, turnos) ou de design de interação (notificações, controle manual). Conecte propostas à teoria: &#39;Essa solução usa Preferências Globais (GP) para otimizar SASm? Ou privilegia um beneficiário?&#39; Cuidado com o tempo - essa fase pode se estender. Seja firme em manter 10 min máximo.</p>
+      <ul><li>Essa proposta realmente resolve o conflito, ou apenas &#39;empurra o problema&#39; para outro contexto?</li><li>Se implementássemos isso, estaríamos respeitando a autonomia de AMBOS os beneficiários? Ou impondo uma &#39;solução inteligente&#39; que nenhum deles pediu?</li><li>A &#39;regra de Occam para contextos&#39; do artigo diz: só implemente se necessário, não-redundante e viável. Essa solução passa no teste?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">65–75 min</div>
+      <p><b>Fase 6 - Consolidação e Debrief. Participantes respondem individualmente ao formulário Google Forms (3 min). Enquanto respondem, facilitador prepara síntese final. Após formulário, conduza debrief estruturado (ver debrief_structure). Encerre com a pergunta provocativa do artigo sobre &#39;surpresas agradáveis&#39; vs. autonomia. Agradeça participação e compartilhe recursos adicionais (artigo completo, slides, gravação se aplicável).</b></p>
+      <p>Fechamento é crucial para consolidação. Não apresse. Use o debrief_structure como roteiro. Ao sintetizar, conecte explicitamente as fases da dinâmica aos conceitos do artigo: Ancoragem → identificação de contextos; Aplicação → templates e Activation; Reflexão → SAS; Conceituação → Ops (5 operações); Experimentação → Interaction e otimização. Valide o esforço cognitivo: &#39;Vocês aplicaram conceitos abstratos a um cenário concreto, identificaram conflitos reais e propuseram soluções - isso É o trabalho de design de sistemas context-aware!&#39; Deixe a pergunta final sobre autonomia vs. &#39;surpresas&#39; em aberto - não force consenso. É uma tensão genuína na área. Compartilhe no chat: link para o artigo completo, resumo dos conceitos-chave (pode ser um PDF de 1 página que você preparou), e convite para continuar discussão em fórum assíncrono se houver.</p>
+      <ul><li>O que foi mais surpreendente ou desafiador nessa dinâmica?</li><li>Como a teoria CIEn muda (ou não muda) a forma como vocês pensariam em projetar um sistema context-aware real?</li><li>Voltando à pergunta do artigo: se um sistema IE faz &#39;surpresas agradáveis&#39; que diferem dos requisitos iniciais, isso é inteligência admirável ou paternalismo tecnológico?</li></ul>
+    </div>
+
+    <h3 style="margin-top:28px">Tabela de tempo</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Tempo</th><th>Atividade</th><th>Objetivo Pedagógico</th></tr></thead>
+    <tbody>
+      <tr><td>0–5 min</td><td>Abertura e enquadramento</td><td>Alinhar expectativas, ativar conhecimento prévio</td></tr>
+      <tr><td>5–15 min</td><td>Ancoragem: Mapeamento de Contextos</td><td>Experiência concreta - identificar contextos no cenário</td></tr>
+      <tr><td>15–30 min</td><td>Aplicação: Templates de Contexto (breakout)</td><td>Aplicar estrutura [Name, Beneficiary, Activation, Effect]</td></tr>
+      <tr><td>30–40 min</td><td>Reflexão: Satisfação de Contexto (breakout)</td><td>Observação reflexiva - analisar BCE vs. BCP, introduzir SAS</td></tr>
+      <tr><td>40–55 min</td><td>Conceituação: Operações de Contexto (plenária)</td><td>Conceituação abstrata - conectar exemplos a Ops (5 operações)</td></tr>
+      <tr><td>55–65 min</td><td>Experimentação: Redesign Colaborativo</td><td>Experimentação ativa - resolver conflitos usando teoria</td></tr>
+      <tr><td>65–75 min</td><td>Consolidação e Debrief</td><td>Integração, metacognição, transferência para contextos futuros</td></tr>
+    </tbody>
+  </table>
+</div>
+    <div class="case-grid" style="margin-top:20px">
+      <div class="panel">
+        <h3>Estrutura do debrief</h3>
+        <ul><li>1. Colheita de insights: Peça que 3-4 voluntários compartilhem verbalmente uma descoberta ou &#39;aha moment&#39; da sessão (1 min cada).</li><li>2. Conexão teoria-prática: Facilitador sintetiza como as 6 fases da dinâmica mapeiam para os conceitos do artigo CIEn (use anotação visual ou slide preparado): Ancoragem→Contextos, Aplicação→Templates, Reflexão→SAS, Conceituação→Ops, Experimentação→Interaction, Consolidação→Princípios de design.</li><li>3. Validação de aprendizagem: Pergunte no chat (resposta rápida, uma palavra): &#39;Qual das 5 operações de contexto (Activation, Comparison, Influence, Construction, Interaction) você se sente mais confiante para aplicar agora?&#39; Mostre nuvem de palavras ou conte rapidamente.</li><li>4. Transferência: Provoque aplicação futura: &#39;Pensem em um sistema que vocês usam diariamente (app de transporte, assistente virtual, rede social). Onde vocês veem contextos mal projetados? Como CIEn ajudaria a melhorar?&#39; (2-3 respostas no chat ou verbais).</li><li>5. Tensão ética: Lance a pergunta final sobre autonomia vs. &#39;surpresas agradáveis&#39; (da closing_question do artigo). Não force resolução - valide que é uma tensão real e convide para reflexão contínua.</li><li>6. Encerramento logístico: Agradeça, compartilhe recursos, explique próximos passos (se houver trabalho assíncrono, leitura adicional, etc.).</li></ul>
+      </div>
+      <div class="panel">
+        <h3>Objetivo de consolidação</h3>
+        <p>Consolidação bem-sucedida significa que participantes conseguem: (1) aplicar a estrutura de templates [Name, Beneficiary, Activation, Effect] para especificar contextos em cenários concretos; (2) distinguir entre as 5 operações de contexto (Activation, Comparison, Influence, Construction, Interaction) e identificá-las em exemplos práticos; (3) analisar satisfação de beneficiários usando o conceito SAS (diferença entre expectativas BCE e percepção BCP); (4) reconhecer e propor soluções para conflitos entre contextos de múltiplos beneficiários, aplicando princípios de otimização multiusuário (SASm); (5) articular a mudança de paradigma da teoria CIEn - do foco em dados/sistemas para foco em beneficiários humanos - e suas implicações éticas e práticas no design de sistemas context-aware.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.track-tab');
+  var panels = document.querySelectorAll('[data-track-panel]');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      panels.forEach(function (p) { p.hidden = p.dataset.trackPanel !== tab.dataset.track; });
+    });
+  });
+})();
+</script>
+</main>
+
+<footer>
+  <div class="wrap">
+    Dinâmica derivada de Juan Carlos Augusto. <i>Contexts and Context-awareness Revisited from an Intelligent Environments Perspective</i>. Applied Artificial Intelligence.<br><br>
+    <a href="index.html">Leitura guiada</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="../../contexto-e-contexto-sensivel/index.html">&#8592; Contexto e Contexto Sensível</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contexts and Context-awareness Revisited from an Intelligent Environments Perspective</title>
+<meta name="description" content="Revisão teórica sobre contexto e context-awareness em Ambientes Inteligentes, propondo a teoria CIEn centrada em beneficiários. Explora operações de contexto (ativação, comparação, influência, construção, interação), templates de contexto e Service Achievement Satisfaction para sistemas de Ambient Intelligence e IoT.">
+<meta name="keywords" content="context, context-awareness, contexto, consciência de contexto, intelligent environments, ambientes inteligentes, ambient intelligence, inteligência ambiente, ubiquitous computing, computação ubíqua, pervasive computing, Internet of Things, IoT, beneficiaries, beneficiários, services, serviços, context satisfaction, context operations, operações de contexto, CIEn, context templates, smart home, casa inteligente">
+<meta name="author" content="Juan Carlos Augusto">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/blog.html">
+<meta name="theme-color" content="#171415">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/blog.html">
+<meta property="og:title" content="Contexts and Context-awareness Revisited from an Intelligent Environments Perspective">
+<meta property="og:description" content="Revisão teórica sobre contexto e context-awareness em Ambientes Inteligentes, propondo a teoria CIEn centrada em beneficiários. Explora operações de contexto (ativação, comparação, influência, construção, interação), templates de contexto e Service Achievement Satisfaction para sistemas de Ambient Intelligence e IoT.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2022">
+<meta property="article:author" content="Juan Carlos Augusto">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contexts and Context-awareness Revisited from an Intelligent Environments Perspective">
+<meta name="twitter:description" content="Revisão teórica sobre contexto e context-awareness em Ambientes Inteligentes, propondo a teoria CIEn centrada em beneficiários. Explora operações de contexto (ativação, comparação, influência, construção, interação), templates de contexto e Service Achievement Satisfaction para sistemas de Ambient Intelligence e IoT.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/blog.html" },
+  "headline": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+  "description": "Revis\u00e3o te\u00f3rica sobre contexto e context-awareness em Ambientes Inteligentes, propondo a teoria CIEn centrada em benefici\u00e1rios. Explora opera\u00e7\u00f5es de contexto (ativa\u00e7\u00e3o, compara\u00e7\u00e3o, influ\u00eancia, constru\u00e7\u00e3o, intera\u00e7\u00e3o), templates de contexto e Service Achievement Satisfaction para sistemas de Ambient Intelligence e IoT.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2022",
+  "dateModified": "2022",
+  "author": [
+    { "@type": "Person", "name": "Juan Carlos Augusto" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Centro de Inform\u00e1tica, UFPE", "url": "https://ab-orbit.github.io/css3e/" },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+    "author": ["Juan Carlos Augusto"],
+    "datePublished": "2022",
+"sameAs": "https://doi.org/10.1080/08839514.2021.2008644",    "url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-anqiv5h9/Contexts and Context-awareness Revisited from an Intelligent Environments Perspective (2).pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Context" },
+    { "@type": "Thing", "name": "Context-awareness" },
+    { "@type": "Thing", "name": "Beneficiaries" },
+    { "@type": "Thing", "name": "Services" },
+    { "@type": "Thing", "name": "Observable World (OW)" },
+    { "@type": "Thing", "name": "Intelligent Software" },
+    { "@type": "Thing", "name": "Context Templates" },
+    { "@type": "Thing", "name": "Context Satisfaction" },
+    { "@type": "Thing", "name": "Context Activation" },
+    { "@type": "Thing", "name": "Context Comparison" },
+    { "@type": "Thing", "name": "Context Influence" },
+    { "@type": "Thing", "name": "Context Construction" },
+    { "@type": "Thing", "name": "Context Interaction" },
+    { "@type": "Thing", "name": "Beneficiary Context Perception (BCP)" },
+    { "@type": "Thing", "name": "Beneficiary Context Expectations (BCE)" },
+    { "@type": "Thing", "name": "Service Achievement Satisfaction (SAS)" },
+    { "@type": "Thing", "name": "CIEn (Contexts for Intelligent Environments theory)" },
+    { "@type": "Thing", "name": "Ripple Effect" },
+    { "@type": "Thing", "name": "Direct Influence" },
+    { "@type": "Thing", "name": "Context Templates: [Name, Beneficiary, Activation, Effect]" }
+  ],
+  "url": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/blog.html"
+}
+</script>
+
+<link rel="stylesheet" href="../../../resources/cases/style.css">
+<style>
+:root{
+  --accent-0: #2E7D5B;
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+</script>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Blog · Contexts and Context-awareness Revisited</div>
+    <nav class="nav">
+      <a class="btn" href="workshop.html">Dinâmica</a>
+      <a class="btn" href="index.html">Leitura do artigo</a>
+      <a class="btn" href="../../contexto-e-contexto-sensivel/index.html">&#8592; Contexto e Contexto Sensível</a>
+      <a class="btn primary" href="contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective.pdf">PDF do ensaio</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="post-hero">
+    <p class="post-kicker">Ensaio · contexto e contexto sensivel</p>
+    <h1>O Desafio Invisível dos Ambientes Inteligentes</h1>
+    <p class="post-dek">Apesar da proliferação de sistemas context-aware, faltam metodologias, padrões e uma base teórica comum. Este artigo propõe a teoria CIEn, que redefine contexto e consciência de contexto com foco explícito nos beneficiários humanos e suas expectativas, não apenas em dados e sistemas artificiais.</p>
+    <div class="byline">
+      <span><b>Baseado em</b> Juan Carlos Augusto (Applied Artificial Intelligence, 2022)</span>
+    </div>
+  </section>
+
+  <div class="post-cover">
+    <div class="band">
+      <span>O argumento em uma frase</span>
+      <b style="font-size:22px;line-height:1.45">Apesar do número significativo de sistemas implementados que visam fornecer consciência de contexto (context-awareness), há uma falta de metodologias e ferramentas comumente aceitas e utilizadas. Na raiz disso está a ausência de acordo sobre um conjunto de bons princípios ou padrões que possam servir como guia para a comunidade científica e os desenvolvedores interessados nessa classe de sistemas. Embora existam extensas revisões sobre o uso de contexto, ainda não há um corpus teórico emergente que possa ser usado para discutir os conceitos essenciais que compõem a estrutura dos contextos e seu uso pelos desenvolvedores de sistemas. O artigo identifica que as teorias anteriores focaram excessivamente no sistema artificial e nos dados, negligenciando os humanos que são os beneficiários finais dos sistemas de Ambientes Inteligentes (Intelligent Environments).</b>
+    </div>
+  </div>
+
+  <nav class="toc-rail" aria-label="Seções do ensaio">
+    <a href="#s1">1 · O Desafio Invisível dos Ambientes Inteligentes</a>
+    <a href="#s2">2 · Contexto: Uma Ideia Antiga, Um Problema Novo</a>
+    <a href="#s3">3 · Redefinindo Contexto com o Humano no Centro</a>
+    <a href="#s4">4 · CIEn: Uma Teoria para Ambientes Inteligentes</a>
+    <a href="#s5">5 · Operações sobre Contextos: O Vocabulário do Desenvolvedor</a>
+    <a href="#s6">6 · Construção e Interação: Organizando Contextos Complexos</a>
+    <a href="#s7">7 · Medindo o Sucesso: Satisfação dos Beneficiários</a>
+    <a href="#s8">8 · Da Teoria à Prática: Implementando CIEn</a>
+  </nav>
+
+<article class="post">
+  <p class="drop">Imagine acordar às sete da manhã e, antes mesmo de você tocar no interruptor, as luzes do quarto se acendem suavemente. Enquanto você caminha pelo corredor, a iluminação acompanha seus passos — corredor, banheiro, cozinha — como se a casa antecipasse cada movimento. O rádio liga sozinho na cozinha, sintonizado na sua estação favorita, e uma voz sintética informa a previsão do tempo e a qualidade do ar lá fora. Parece mágica, mas é tecnologia: sua casa &#34;sabe&#34; que é segunda-feira, que você tem trabalho às oito, e que essa é sua rotina matinal. Agora imagine que seu pai idoso, que mora com você e apresenta sintomas de demência, também vive nessa mesma casa inteligente. Quando ele se levanta no meio da noite para ir ao banheiro, o sistema não deve acender as luzes da cozinha nem ligar o rádio — seria confuso e perigoso. E se ele tentar sair de casa às três da madrugada, desorientado, o sistema precisa intervir de forma diferente do que faria com você saindo para o trabalho. Como a casa &#34;sabe&#34; a diferença? Como ela decide o que fazer em cada situação? A resposta está em um conceito que usamos inconscientemente todos os dias, mas que a ciência da computação ainda luta para formalizar: o contexto.</p>
+  <h2 id="s1"><span class="no">01</span>O Desafio Invisível dos Ambientes Inteligentes</h2>
+<p>Nas últimas décadas, a Ciência da Computação evoluiu de sistemas isolados e estáticos para ecossistemas dinâmicos e interconectados. Surgiram áreas como Computação Ubíqua, Internet das Coisas, Inteligência Ambiente e Ambientes Inteligentes — todas compartilhando um denominador comum: a promessa de sistemas que se adaptam ao nosso redor, respondendo não apenas a comandos explícitos, mas às circunstâncias do momento. Essa capacidade de perceber e reagir às situações é o que chamamos de consciência de contexto (context-awareness).</p><p>Apesar do sucesso quantitativo — milhares de protótipos acadêmicos e produtos comerciais já foram desenvolvidos — a área enfrenta um problema fundamental: faltam boas práticas, padrões e metodologias comumente aceitas. Cada equipe de desenvolvimento reinventa a roda, criando suas próprias definições de contexto e suas próprias formas de lidar com ele. Na raiz dessa fragmentação está a ausência de um corpus teórico sólido, um conjunto de princípios que possam guiar tanto pesquisadores quanto desenvolvedores.</p><p>Mais grave ainda: as teorias existentes focaram excessivamente nos dados e nos sistemas artificiais, negligenciando os humanos que são, afinal, os beneficiários finais dessas tecnologias. Um sistema de casa inteligente pode coletar milhares de pontos de dados sobre temperatura, luminosidade, movimento e horários, mas se não compreender as necessidades, preferências e expectativas das pessoas que vivem ali, toda essa informação é inútil — ou pior, pode gerar comportamentos inadequados e frustrantes.</p>  <h2 id="s2"><span class="no">02</span>Contexto: Uma Ideia Antiga, Um Problema Novo</h2>
+<p>O conceito de contexto não é novo na Inteligência Artificial. Desde os anos 1960, pesquisadores em Representação de Conhecimento e Raciocínio (KRR) exploravam como sistemas poderiam raciocinar sobre diferentes situações. A metáfora da 'caixa mágica' proposta por Benerecetti e colaboradores, os sistemas multicontexto (mMCS) de Brewka, e o Cálculo de Ambientes Conscientes de Contexto (CCA) de Siewe são exemplos de tentativas formais de capturar essa ideia.</p><p>Porém, essas abordagens teóricas, embora elegantes, revelaram-se inadequadas para as aplicações práticas centradas no humano que os Ambientes Inteligentes demandam hoje. Elas tendiam a tratar contextos como entidades abstratas em sistemas lógicos, sem conexão clara com as necessidades reais de pessoas reais em situações reais. Além disso, permaneciam em um nível de generalidade que oferecia pouca orientação concreta para desenvolvedores criando sistemas funcionais.</p><p>A Computação Ubíqua trouxe uma perspectiva mais pragmática, focando em como dispositivos móveis e sensores poderiam capturar informações contextuais. Mas mesmo aqui, a ênfase recaía sobre a infraestrutura tecnológica — quais sensores usar, como processar os dados — em vez de sobre a experiência humana que deveria ser o objetivo final de toda essa engenharia.</p>  <blockquote class="pull">As teorias existentes focaram excessivamente nos dados e sistemas artificiais, negligenciando os humanos que são os beneficiários finais.<cite>Problema Central · CIEn</cite></blockquote>
+  <h2 id="s3"><span class="no">03</span>Redefinindo Contexto com o Humano no Centro</h2>
+<p>Para avançar, precisamos redefinir contexto de forma que coloque explicitamente os humanos no centro. Contexto não é simplesmente 'qualquer informação que possa ser usada para caracterizar uma situação' — definição vaga que encontramos em muitos trabalhos. Contexto é, mais precisamente, a informação diretamente relevante para caracterizar uma situação de interesse para os stakeholders de um sistema. A diferença é sutil, mas crucial: nem toda informação disponível é contextual; apenas aquela que importa para as pessoas envolvidas.</p><p>Da mesma forma, consciência de contexto não é apenas a capacidade de coletar e processar dados contextuais. É a capacidade de um sistema usar informação contextual para adaptar seus serviços de modo que sejam mais úteis aos stakeholders porque se relacionam diretamente com suas preferências e necessidades. Novamente, o foco está na utilidade percebida pelos humanos, não na sofisticação técnica do sistema.</p><p>Essa reformulação exige que identifiquemos claramente os componentes fundamentais de qualquer sistema consciente de contexto. Primeiro, os Beneficiários (B) — as pessoas para quem o sistema existe. Segundo, os Serviços (S) — as ações que o sistema pode executar para ajudar os beneficiários. Terceiro, os Contextos (C) — as situações que o sistema precisa reconhecer para decidir quais serviços oferecer. Quarto, o Mundo Observável (OW) — o estado atual do ambiente, capturado por sensores e outras fontes de dados. E quinto, o Software Inteligente — os algoritmos (A) que conectam tudo isso, decidindo quando ativar cada contexto e quais serviços disparar.</p><p>Para tornar esses conceitos operacionais, podemos usar Templates de Contexto, estruturas simples que descrevem cada contexto através de quatro elementos: [Nome, Beneficiário, Ativação, Efeito]. O Nome identifica o contexto (por exemplo, 'rotina matinal'). O Beneficiário especifica para quem esse contexto é relevante (você ou seu pai). A Ativação define as condições que devem ser satisfeitas para que o contexto seja reconhecido (dia da semana, horário, localização da pessoa). E o Efeito descreve quais serviços devem ser acionados quando o contexto está ativo (acender luzes, ligar rádio, fornecer informações).</p>  <h2 id="s4"><span class="no">04</span>CIEn: Uma Teoria para Ambientes Inteligentes</h2>
+<p>Com esses fundamentos, podemos construir uma teoria mais formal e útil: CIEn (Contexts for Intelligent Environments). A teoria CIEn pode ser representada como uma estrutura CIEn = <B, S, C, Ops, A, OW>, onde cada elemento tem um papel específico. B é o conjunto finito de beneficiários. S é o conjunto finito de serviços disponíveis. C é o conjunto finito de contextos, cada um descrito por um template. Ops é o conjunto de operações que podemos realizar sobre contextos. A é o conjunto de algoritmos que implementam a inteligência do sistema. E OW é o conjunto de instâncias do mundo observável — snapshots do estado do ambiente em diferentes momentos.</p><p>O ciclo de vida dos contextos em um sistema CIEn passa por três estágios principais. Primeiro, a Definição de Contexto: identificar quais contextos são necessários, descrevê-los através de templates, e implementá-los no sistema. Segundo, o Uso de Contexto: durante a operação do sistema, monitorar continuamente o mundo observável, detectar quando as condições de ativação são satisfeitas, e disparar os efeitos apropriados. Terceiro, o Desenvolvimento de Contexto: ao longo do tempo, adicionar novos contextos, modificar contextos existentes, ou remover contextos que não são mais necessários.</p><p>Um princípio importante emerge aqui, que podemos chamar de 'regra de Occam para design de contexto': um contexto deve ser implementado se e somente se é necessário para atender às necessidades dos beneficiários, não está atualmente no sistema, e pode ser implementado dentro dos recursos disponíveis (sensores, processamento, memória). Essa regra evita a tentação de criar contextos desnecessariamente complexos ou redundantes, mantendo o sistema gerenciável e compreensível.</p>  <blockquote class="pull">Um contexto deve ser implementado se e somente se é necessário, não está atualmente no sistema, e pode ser implementado dentro dos recursos disponíveis.<cite>Princípio de Design · CIEn</cite></blockquote>
+  <h2 id="s5"><span class="no">05</span>Operações sobre Contextos: O Vocabulário do Desenvolvedor</h2>
+<p>Para trabalhar efetivamente com contextos, desenvolvedores precisam de um vocabulário de operações — formas de raciocinar sobre contextos e suas relações. A primeira operação fundamental é a Ativação de Contexto (Context Activation): determinar se um dado contexto está ativo no momento presente. Isso requer uma função de satisfação de contexto, φ(Ci, OWj), que retorna verdadeiro se o mundo observável atual satisfaz as condições de ativação do contexto Ci, e falso caso contrário.</p><p>A segunda operação é a Comparação de Contexto (Context Comparison): entender como dois contextos se relacionam. Um contexto pode ser igual a outro, sobrepor-se parcialmente com outro, subsumir outro (ser mais geral), ou ser completamente distinto. Por exemplo, o contexto 'estar na cozinha' subsume o contexto 'preparar café na cozinha', pois o segundo é um caso especial do primeiro. Essas relações ajudam a organizar e simplificar o conjunto de contextos.</p><p>A terceira operação é a Influência de Contexto (Context Influence): reconhecer que a ativação de um contexto pode afetar outros contextos. Existem dois tipos de influência. A Influência Direta (C₁ ⇝ C₂) ocorre quando o efeito de um contexto C₁ satisfaz diretamente as condições de ativação de outro contexto C₂. Por exemplo, o contexto 'acordar' pode ter como efeito 'pessoa está no quarto', que é parte das condições de ativação do contexto 'rotina matinal'. O Efeito Cascata (Ripple Effect, C₁ ⇝ C₂) é mais sutil: ocorre quando a ativação de C₁ desencadeia uma cadeia de eventos que eventualmente leva à ativação de C₂, mesmo que não haja conexão direta óbvia.</p><p>Voltando ao exemplo da casa inteligente: quando você acorda (contexto C₁), isso ativa sua rotina matinal (contexto C₂ por influência direta). A rotina matinal inclui acender luzes em sequência, o que pode influenciar o contexto 'seu pai também está acordando' (contexto C₃ por efeito cascata), já que a luz e o som podem despertá-lo. O sistema precisa raciocinar sobre essas influências para evitar efeitos colaterais indesejados.</p>  <h2 id="s6"><span class="no">06</span>Construção e Interação: Organizando Contextos Complexos</h2>
+<p>Além das operações básicas, precisamos de formas de construir contextos complexos a partir de contextos simples e de caracterizar como contextos interagem entre si. A Construção de Contexto (Context Construction) usa blocos de construção algorítmicos familiares. Processos Sequenciados (FOLLOWEDBY) descrevem contextos que ocorrem em ordem: 'acordar' seguido por 'ir ao banheiro' seguido por 'tomar café'. Processos Condicionados (IF-THEN) descrevem contextos que dependem de condições: 'se é dia de semana, então rotina de trabalho; se é fim de semana, então rotina de lazer'. Processos Cíclicos (LOOP) descrevem contextos que se repetem: 'verificar se a pessoa idosa está segura a cada 30 minutos'.</p><p>A Interação de Contexto (Context Interaction) caracteriza a natureza das relações entre contextos que podem estar ativos simultaneamente. Contextos Neutros (C₁ ⊛ C₂) coexistem sem se afetar: 'estar na sala' e 'estar chovendo lá fora' são independentes. Contextos Cooperativos (C₁ ⊕ C₂) se reforçam mutuamente: 'preparar café' e 'tostar pão' fazem parte da mesma rotina matinal e seus efeitos se complementam. Contextos Competitivos (C₁ ⊖ C₂) disputam recursos ou atenção: 'assistir TV na sala' e 'ouvir música na sala' competem pelo ambiente sonoro. Contextos Incompatíveis (C₁ ⊗ C₂) não podem coexistir logicamente: 'pessoa está em casa' e 'pessoa está no trabalho' são mutuamente exclusivos.</p><p>Essas modalidades de interação são cruciais para evitar conflitos e comportamentos incoerentes. Se o sistema detecta que seu pai está tentando sair de casa no meio da noite (contexto 'saída noturna de pessoa com demência') e simultaneamente você está chegando do trabalho (contexto 'chegada do trabalho'), ele precisa reconhecer que esses são contextos cooperativos — ambos exigem que a porta seja destrancada — mas com prioridades e ações diferentes. O sistema pode destrancar a porta para você entrar, mas também alertá-lo sobre a tentativa de saída do seu pai.</p>  <blockquote class="pull">Contextos podem ser neutros, cooperativos, competitivos ou incompatíveis — reconhecer essas modalidades é crucial para evitar conflitos e comportamentos incoerentes.<cite>Operações de Contexto · CIEn</cite></blockquote>
+  <h2 id="s7"><span class="no">07</span>Medindo o Sucesso: Satisfação dos Beneficiários</h2>
+<p>Uma teoria centrada no humano precisa de uma forma de medir o sucesso do sistema do ponto de vista dos beneficiários, não apenas da perspectiva técnica. Aqui entram três conceitos adicionais. A Percepção de Contexto pelo Beneficiário (BCP, Beneficiary Context Perception) representa o contexto como o beneficiário o percebe — o que ele acredita estar acontecendo. As Expectativas de Contexto do Beneficiário (BCE, Beneficiary Context Expectations) representam os serviços que o beneficiário espera receber em um dado contexto — o que ele acredita que o sistema deveria fazer.</p><p>A diferença entre expectativas e percepção é o que determina a satisfação. Se você espera que as luzes se acendam quando você acorda (BCE) e elas de fato se acendem (BCP), você está satisfeito. Se você espera que o rádio toque sua estação favorita, mas o sistema toca uma estação diferente, há uma lacuna entre expectativa e realidade. A função de Satisfação de Realização de Serviço (SAS, Service Achievement Satisfaction) quantifica essa diferença, somando as discrepâncias entre BCE e BCP ao longo de todas as propriedades, serviços e contextos relevantes para um beneficiário em um dado momento.</p><p>Matematicamente, SAS(IE, b, t) = Σ |BCE(pi, sj, ck, b, t) − BCP(pi, sj, ck, b, t)|, onde IE é o sistema de Ambiente Inteligente, b é o beneficiário, t é o tempo, pi são propriedades, sj são serviços, e ck são contextos. Quanto menor o valor de SAS, melhor o sistema está atendendo às expectativas do beneficiário. Um SAS de zero significa satisfação perfeita — o sistema está fazendo exatamente o que o beneficiário espera, nem mais, nem menos.</p><p>Quando há múltiplos beneficiários — como você e seu pai na mesma casa inteligente — a situação se complica. Suas expectativas podem conflitar: você quer que o rádio toque alto de manhã, mas seu pai prefere silêncio. A teoria CIEn generaliza o conceito de satisfação para múltiplos usuários através de uma função SASm que incorpora Preferências Globais (GP, Global Preferences). Essas preferências estabelecem uma ordem parcial de prioridades: em certas situações, as necessidades de segurança do seu pai (evitar que ele saia desorientado à noite) têm prioridade sobre seu conforto (não ser acordado por alarmes). Em outras situações, suas necessidades de trabalho (acordar a tempo) têm prioridade. O sistema busca minimizar SASm, otimizando a experiência do grupo como um todo, não apenas de um indivíduo.</p>  <h2 id="s8"><span class="no">08</span>Da Teoria à Prática: Implementando CIEn</h2>
+<p>Como essa teoria se traduz em sistemas reais? Considere novamente a casa inteligente. O desenvolvedor começa identificando os beneficiários (você e seu pai) e seus perfis: suas rotinas, preferências, necessidades especiais. Em seguida, define os serviços disponíveis: controle de iluminação, controle de áudio, fornecimento de informações, monitoramento de segurança, alertas. Depois, identifica os contextos necessários usando templates.</p><p>Por exemplo, o contexto 'rotina matinal de dia de semana' para você poderia ser: [Nome: 'RotinaManha_Voce', Beneficiário: 'Voce', Ativação: 'dia_semana AND hora >= 07:00 AND hora < 08:00 AND localizacao = quarto', Efeito: 'acender_luzes_sequencia(quarto, corredor, banheiro, cozinha) AND ligar_radio(cozinha, estacao_favorita) AND fornecer_info(clima, qualidade_ar)']. O contexto correspondente para seu pai seria diferente: [Nome: 'RotinaManha_Pai', Beneficiário: 'Pai', Ativação: 'dia_semana AND hora >= 08:00 AND hora < 09:00 AND localizacao = quarto', Efeito: 'acender_luzes_suave(quarto, corredor, banheiro, cozinha) AND tocar_musica_calma(cozinha) AND lembrete_medicacao'].</p><p>O desenvolvedor então implementa os algoritmos que monitoram o mundo observável (sensores de presença, relógios, calendários, GPS) e avaliam continuamente as funções de satisfação de contexto φ(Ci, OWj) para cada contexto. Quando um contexto é ativado, o sistema executa os efeitos correspondentes. Mas antes de executar, o sistema verifica as interações: há contextos incompatíveis ativos? Há contextos cooperativos que deveriam ser coordenados? Há influências diretas ou efeitos cascata que precisam ser considerados?</p><p>Periodicamente, o sistema calcula SAS para cada beneficiário, identificando lacunas entre expectativas e percepção. Se você frequentemente desliga o rádio logo após ele ser ligado, o sistema infere que suas expectativas mudaram e ajusta o contexto. Se seu pai frequentemente ignora os lembretes de medicação, o sistema pode intensificar os alertas ou notificar você. Essa adaptação contínua, guiada pela satisfação dos beneficiários, é o que diferencia um sistema verdadeiramente inteligente de um autômato rígido.</p>  <blockquote class="pull">A adaptação contínua, guiada pela satisfação dos beneficiários, é o que diferencia um sistema verdadeiramente inteligente de um autômato rígido.<cite>Implementação · CIEn</cite></blockquote>
+  <p>A teoria CIEn representa um primeiro passo — importante, mas não definitivo — em direção a uma abordagem mais sistemática e científica para o desenvolvimento de Ambientes Inteligentes conscientes de contexto. Ela oferece um vocabulário comum, um conjunto de operações bem definidas, e uma estrutura que coloca os humanos no centro, onde sempre deveriam estar. Mas também levanta questões profundas sobre autonomia, controle e confiança. Sistemas inteligentes não são apenas ferramentas passivas que executam comandos; eles observam, inferem, aprendem e, cada vez mais, sugerem e decidem. À medida que delegamos mais decisões a esses sistemas — desde acender luzes até monitorar a saúde de pessoas vulneráveis — precisamos garantir que suas ações reflitam genuinamente nossas preferências e valores, não uma interpretação algorítmica que pode estar desalinhada com nossas expectativas. A teoria fornece os mecanismos para medir e otimizar a satisfação dos beneficiários, mas a responsabilidade final permanece com os desenvolvedores e com a sociedade: definir claramente o que significa um sistema &#34;inteligente&#34; servir bem aos humanos, e estabelecer os limites éticos dentro dos quais essa inteligência deve operar.</p>
+</article>
+
+<div class="closer">
+  <div class="callout"><b>Se permitirmos que sistemas de Ambientes Inteligentes façam sugestões criativas que diferem dos requisitos iniciais dos beneficiários — na crença de que isso maximizará suas preferências — como podemos garantir que essas &#39;surpresas agradáveis&#39; realmente alinhem-se com as expectativas humanas em vez de impor uma &#39;inteligência&#39; artificial que desrespeita a autonomia e as preferências genuínas dos usuários?</b></div>
+</div>
+  <div class="share">
+    <span>Compartilhar</span>
+    <a class="btn" id="shareLink" href="#">Copiar link</a>
+  </div>
+
+  <section class="related">
+    <h3>Continue</h3>
+    <div class="related-grid">
+      <a class="rcard" href="index.html">
+        <b>Leitura guiada do artigo</b>
+        <small>Categorias, mapa mental, tabelas e áudio.</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+      <a class="rcard" href="workshop.html">
+        <b>Dinâmica remota</b>
+        <small>Workshop para consolidação em grupo ou individual.</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+      <a class="rcard" href="contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective.pdf">
+        <b>Artigo original</b>
+        <small>Applied Artificial Intelligence.</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Baseado em Juan Carlos Augusto. <i>Contexts and Context-awareness Revisited from an Intelligent Environments Perspective</i>. Applied Artificial Intelligence.<br><br>
+    <a href="index.html">Leitura guiada</a> &#183; <a href="workshop.html">Dinâmica</a> &#183; <a href="../../contexto-e-contexto-sensivel/index.html">&#8592; Contexto e Contexto Sensível</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('shareLink').addEventListener('click', function (ev) {
+  ev.preventDefault();
+  var btn = this;
+  var done = function (ok) {
+    btn.textContent = ok ? 'Link copiado' : 'Copie manualmente';
+    setTimeout(function () { btn.textContent = 'Copiar link'; }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); });
+  } else { done(false); }
+});
+</script>
+</body>
+</html>

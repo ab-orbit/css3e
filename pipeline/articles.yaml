@@ -1,3 +1,30 @@
+- slug: contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective
+  tema: contexto-e-contexto-sensivel
+  title: Contexts and Context-awareness Revisited from an Intelligent Environments Perspective
+  title_pt: ''
+  pdf_source: articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective.pdf
+  doi: 10.1080/08839514.2021.2008644
+  authors:
+  - Juan Carlos Augusto
+  date_published: '2022'
+  pages:
+    article: articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html
+    blog: articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/blog.html
+    workshop: articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/workshop.html
+  briefing: Apesar da proliferação de sistemas context-aware, faltam metodologias, padrões e uma base
+    teórica comum. Este artigo propõe a teoria CIEn, que redefine contexto e consciência de contexto com
+    foco explícito nos beneficiários humanos e suas expectativas, não apenas em dados e sistemas artificiais.
+  has_audio: true
+  has_slides: true
+  slides_pptx_path: slides/deck.pptx
+  slides_pdf_path: slides/deck.pdf
+  slides_preview_url: null
+  slides_edit_url: null
+  status: published
+  include_in_sitemap: true
+  include_in_llms_txt: true
+  sitemap_priority_override: null
+  canonical_override: null
 - slug: context-aware-mas
   tema: sistemas-multiagente-contexto
   title: 'A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges

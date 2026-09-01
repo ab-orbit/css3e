@@ -24,6 +24,31 @@ logger = logging.getLogger(__name__)
 
 THEMES_PATH = REPO_ROOT / "pipeline" / "themes.yaml"
 
+# Portuguese articles, prepositions and conjunctions stay lowercase inside a
+# title. Slugs are lowercase and unaccented, so a provisional name can never
+# recover the accents ("sensivel", not "sensível") — the human folding the
+# theme in fixes those by hand.
+_LOWERCASE_WORDS = frozenset(
+    {
+        "a", "as", "ao", "aos", "com", "da", "das", "de", "do", "dos", "e",
+        "em", "na", "nas", "no", "nos", "o", "os", "ou", "para", "pela",
+        "pelas", "pelo", "pelos", "por", "sem", "sob", "sobre",
+    }
+)
+
+
+def humanize_slug(slug: str) -> str:
+    """Turn a slug into a display name, keeping Portuguese stopwords lowercase.
+
+    `str.title()` capitalizes every word, which reads wrong in Portuguese
+    ("Contexto E Contexto Sensivel"). The first word is always capitalized.
+    """
+    words = slug.replace("-", " ").split()
+    return " ".join(
+        word if index > 0 and word in _LOWERCASE_WORDS else word.capitalize()
+        for index, word in enumerate(words)
+    )
+
 
 def load_themes(path: Path = THEMES_PATH) -> list[Theme]:
     if not Path(path).exists():
@@ -82,7 +107,7 @@ def register_tema(
 
     provisional = Theme(
         slug=tema,
-        name=tema.replace("-", " ").title(),
+        name=humanize_slug(tema),
         description="",
         temas=[tema],
     )

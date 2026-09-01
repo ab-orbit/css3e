@@ -1,0 +1,1728 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contexts and Context-awareness Revisited from an Intelligent Environments Perspective</title>
+<meta name="description" content="Revisão teórica dos conceitos de contexto e consciência de contexto (context-awareness) na perspectiva de Ambientes Inteligentes. Apresenta a teoria CIEn focada em beneficiários humanos, serviços e operações de contexto (ativação, comparação, influência, construção e interação), propondo templates de contexto e métricas de satisfação para sistemas context-aware em domínios como smart homes, ambient intelligence e IoT.">
+<meta name="keywords" content="contexto, context, context-awareness, consciência de contexto, intelligent environments, ambientes inteligentes, ambient intelligence, inteligência ambiente, ubiquitous computing, computação ubíqua, pervasive computing, Internet of Things, IoT, beneficiários, beneficiaries, context satisfaction, satisfação de contexto, context operations, operações de contexto, context templates, CIEn, smart home, casa inteligente, context activation, context comparison, context influence, ripple effect, service achievement satisfaction">
+<meta name="author" content="Juan Carlos Augusto">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html">
+<meta name="theme-color" content="#171415">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html">
+<meta property="og:title" content="Contexts and Context-awareness Revisited from an Intelligent Environments Perspective">
+<meta property="og:description" content="Revisão teórica dos conceitos de contexto e consciência de contexto (context-awareness) na perspectiva de Ambientes Inteligentes. Apresenta a teoria CIEn focada em beneficiários humanos, serviços e operações de contexto (ativação, comparação, influência, construção e interação), propondo templates de contexto e métricas de satisfação para sistemas context-aware em domínios como smart homes, ambient intelligence e IoT.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2022">
+<meta property="article:author" content="Juan Carlos Augusto">
+<meta property="article:tag" content="contexto-e-contexto-sensivel">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contexts and Context-awareness Revisited from an Intelligent Environments Perspective">
+<meta name="twitter:description" content="Revisão teórica dos conceitos de contexto e consciência de contexto (context-awareness) na perspectiva de Ambientes Inteligentes. Apresenta a teoria CIEn focada em beneficiários humanos, serviços e operações de contexto (ativação, comparação, influência, construção e interação), propondo templates de contexto e métricas de satisfação para sistemas context-aware em domínios como smart homes, ambient intelligence e IoT.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html" },
+  "headline": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+  "description": "Revis\u00e3o te\u00f3rica dos conceitos de contexto e consci\u00eancia de contexto (context-awareness) na perspectiva de Ambientes Inteligentes. Apresenta a teoria CIEn focada em benefici\u00e1rios humanos, servi\u00e7os e opera\u00e7\u00f5es de contexto (ativa\u00e7\u00e3o, compara\u00e7\u00e3o, influ\u00eancia, constru\u00e7\u00e3o e intera\u00e7\u00e3o), propondo templates de contexto e m\u00e9tricas de satisfa\u00e7\u00e3o para sistemas context-aware em dom\u00ednios como smart homes, ambient intelligence e IoT.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2022",
+  "dateModified": "2022",
+  "author": [
+    { "@type": "Person", "name": "Juan Carlos Augusto" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Centro de Inform\u00e1tica, UFPE", "url": "https://ab-orbit.github.io/css3e/" },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+    "author": ["Juan Carlos Augusto"],
+    "datePublished": "2022",
+"sameAs": "https://doi.org/10.1080/08839514.2021.2008644",    "url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-anqiv5h9/Contexts and Context-awareness Revisited from an Intelligent Environments Perspective (2).pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Context" },
+    { "@type": "Thing", "name": "Context-awareness" },
+    { "@type": "Thing", "name": "Beneficiaries" },
+    { "@type": "Thing", "name": "Services" },
+    { "@type": "Thing", "name": "Observable World (OW)" },
+    { "@type": "Thing", "name": "Intelligent Software" },
+    { "@type": "Thing", "name": "Context Templates" },
+    { "@type": "Thing", "name": "Context Satisfaction" },
+    { "@type": "Thing", "name": "Context Activation" },
+    { "@type": "Thing", "name": "Context Comparison" },
+    { "@type": "Thing", "name": "Context Influence" },
+    { "@type": "Thing", "name": "Context Construction" },
+    { "@type": "Thing", "name": "Context Interaction" },
+    { "@type": "Thing", "name": "Beneficiary Context Perception (BCP)" },
+    { "@type": "Thing", "name": "Beneficiary Context Expectations (BCE)" },
+    { "@type": "Thing", "name": "Service Achievement Satisfaction (SAS)" },
+    { "@type": "Thing", "name": "CIEn (Contexts for Intelligent Environments theory)" },
+    { "@type": "Thing", "name": "Ripple Effect" },
+    { "@type": "Thing", "name": "Direct Influence" },
+    { "@type": "Thing", "name": "Context Templates: [Name, Beneficiary, Activation, Effect]" }
+  ],
+  "url": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html",
+      "url": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html",
+      "name": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+      "headline": "Repensando Contexto e Context-Awareness para Ambientes Inteligentes Centrados no Humano",
+      "inLanguage": "pt-BR",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Juan Carlos Augusto"
+        }
+      ],
+      "abstract": "Context is a useful concept somehow unconsciously used by humans in daily life problem-solving. Recently, several subareas of computer science have been increasingly trying to rely on this concept to design systems with practical use in certain predefined circumstances. The perception is that imbuing in the system certain context-awareness qualities can support intelligent decision-making in specific practical situations. Despite a significant number of implemented systems that aim at providing context-awareness, there is a lack of commonly accepted and used methodologies and tools. At the root of this, is the lack of agreement on a set of good principles or standards, which can act as a guide to the scientific community and the developers interested in this class of systems. There have been some extensive surveys on the use of context, still there is no theoretical corpus emerging that we can use to discuss the essential concepts making up the fabric of contexts and its use by system developers. Here we attempted such enterprise at a level, which is more formal than popular surveys, in a way that is not implementation dependent and in a way that highlights key concepts of relevance to developers. We reassessed first the basic concepts identifying the need to more prominently consider system beneficiaries' satisfaction. We then transfer explicitly these values to a more formal outline of the basic components and the operations which emerge as relevant. We identify and highlight the tasks of context activation, comparison, influence, construction, and interaction. We hint at how these may work in practice and explained these through examples. We show how the theory is flexible enough by generalizing it to multiusers so that optimization of global preferences and expectations is used to drive system development and system behavior.",
+      "description": "Apesar da proliferação de sistemas context-aware, faltam metodologias, padrões e uma base teórica comum. Este artigo propõe a teoria CIEn, que redefine contexto e consciência de contexto com foco explícito nos beneficiários humanos e suas expectativas, não apenas em dados e sistemas artificiais.",
+      "datePublished": "2022",
+      "publication": "Applied Artificial Intelligence",
+      "keywords": [
+        "context",
+        "context-awareness",
+        "intelligent environments",
+        "ambient intelligence",
+        "ubiquitous computing",
+        "pervasive computing",
+        "Internet of Things",
+        "beneficiaries",
+        "services",
+        "context satisfaction",
+        "context operations"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.1080/08839514.2021.2008644"
+      },
+      "sameAs": "https://doi.org/10.1080/08839514.2021.2008644",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "system",
+          "termCode": "system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 84,
+          "css3e:confidence": 0.831
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "context",
+          "termCode": "context",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 57,
+          "css3e:confidence": 0.796
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "contexts",
+          "termCode": "contexts",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 56,
+          "css3e:confidence": 0.701
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "context-awareness",
+          "termCode": "context awareness",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 15,
+          "css3e:confidence": 0.813
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "developers",
+          "termCode": "developers",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 12,
+          "css3e:confidence": 0.637
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "systems",
+          "termCode": "systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 11,
+          "css3e:confidence": 0.678
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Context concept",
+          "termCode": "context concept",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.767
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ACi",
+          "termCode": "aci",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.723
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Lecture Notes in Computer Science",
+          "termCode": "lecture notes in computer science",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.719
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Table 1",
+          "termCode": "table 1",
+          "inDefinedTermSet": "Dataset",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.703
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "preferences",
+          "termCode": "preferences",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.676
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Perception",
+          "termCode": "perception",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.833
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "comparison",
+          "termCode": "comparison",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.599
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "CFront door use",
+          "termCode": "cfront door use",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.723
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ontologies",
+          "termCode": "ontologies",
+          "inDefinedTermSet": "Dataset",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.627
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "real systems",
+          "termCode": "real systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.827
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "information",
+          "termCode": "information",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.608
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "BCP",
+          "termCode": "bcp",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.601
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "effects",
+          "termCode": "effects",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.736
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "experience",
+          "termCode": "experience",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.667
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "interaction",
+          "termCode": "interaction",
+          "inDefinedTermSet": "Task",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.646
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "aspect",
+          "termCode": "aspect",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.645
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Taylor & Francis Group, LLC",
+          "termCode": "taylor  francis group llc",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.923
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "intelligent software",
+          "termCode": "intelligent software",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.923
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "algorithms",
+          "termCode": "algorithms",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.608
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "theory",
+          "termCode": "theory",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.601
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "KRR",
+          "termCode": "krr",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.596
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "front door use",
+          "termCode": "front door use",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.867
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "expectations",
+          "termCode": "expectations",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.578
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "operations",
+          "termCode": "operations",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.569
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Department of Computer Science",
+          "termCode": "department of computer science",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.835
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Middlesex University",
+          "termCode": "middlesex university",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.83
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "IE system",
+          "termCode": "ie system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.829
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "individual preferences",
+          "termCode": "individual preferences",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.819
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Context Use",
+          "termCode": "context use",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.802
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Condition",
+          "termCode": "condition",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.797
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "IE systems",
+          "termCode": "ie systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.75
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Beneficiary Context",
+          "termCode": "beneficiary context",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.73
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "data",
+          "termCode": "data",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.699
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "compose-and-conquer",
+          "termCode": "compose and conquer",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.681
+        }
+      ]
+    }
+  ],
+  "css3e:relations": [
+    {
+      "source": "system",
+      "sourceCode": "system",
+      "label": "possui",
+      "target": "context-awareness",
+      "targetCode": "context awareness",
+      "confidence": 1.0,
+      "quote": "The perception is that imbuing in the system certain context-awareness qualities can support intelligent decision-making in specific practical situations.",
+      "quoteOffset": 1846
+    },
+    {
+      "source": "context",
+      "sourceCode": "context",
+      "label": "gera",
+      "target": "context-awareness",
+      "targetCode": "context awareness",
+      "confidence": 1.0,
+      "quote": "One such concept which needs a closer examination is context and its by-product of context-awareness.",
+      "quoteOffset": 6186
+    },
+    {
+      "source": "developers",
+      "sourceCode": "developers",
+      "label": "recebem",
+      "target": "expectations",
+      "targetCode": "expectations",
+      "confidence": 1.0,
+      "quote": "For the system to be of practical utility users should be able (and encouraged) to pass their contextual behavior expectations to the developers and these should find ways to give these contexts contextual relevance and internal mechanisms for the awareness of those contexts.",
+      "quoteOffset": 23488
+    },
+    {
+      "source": "developers",
+      "sourceCode": "developers",
+      "label": "dão relevância a",
+      "target": "contexts",
+      "targetCode": "contexts",
+      "confidence": 1.0,
+      "quote": "For the system to be of practical utility users should be able (and encouraged) to pass their contextual behavior expectations to the developers and these should find ways to give these contexts contextual relevance and internal mechanisms for the awareness of those contexts.",
+      "quoteOffset": 23488
+    },
+    {
+      "source": "Table 1",
+      "sourceCode": "table 1",
+      "label": "descreve",
+      "target": "contexts",
+      "targetCode": "contexts",
+      "confidence": 1.0,
+      "quote": "Some examples of contexts templates representing con texts from the scenario described before are listed in Table 1.",
+      "quoteOffset": 35197
+    }
+  ],
+  "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+}
+</script><link rel="stylesheet" href="../../../resources/cases/style.css">
+<style>
+:root{
+  --accent-0: #2E7D5B;
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+</script>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Contexts and Context-awareness Revisited</div>
+    <nav class="nav">
+      <a class="btn" href="workshop.html">Dinâmica</a>
+      <a class="btn" href="blog.html">Blog</a>
+      <a class="btn" href="../../contexto-e-contexto-sensivel/index.html">&#8592; Contexto e Contexto Sensível</a>
+      <a class="btn primary" href="contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective.pdf">PDF do artigo</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="article-hero">
+  <div>
+    <div class="eyebrow">Applied Artificial Intelligence · 2022 · e2008644 (725 pp.)</div>
+    <h1>Repensando Contexto e Context-Awareness para Ambientes Inteligentes Centrados no Humano</h1>
+    <p class="lede">Apesar da proliferação de sistemas context-aware, faltam metodologias, padrões e uma base teórica comum. Este artigo propõe a teoria CIEn, que redefine contexto e consciência de contexto com foco explícito nos beneficiários humanos e suas expectativas, não apenas em dados e sistemas artificiais.</p>
+    <div class="toc">
+      <a href="#introducao">Introdução</a>
+      <a href="#state-of-art">Estado da Arte</a>
+      <a href="#contexts-revisited">Contextos Revisitados</a>
+      <a href="#cien-theory">Teoria CIEn</a>
+      <a href="#context-operations">Operações de Contexto</a>
+      <a href="#context-organization">Organização de Contextos</a>
+      <a href="#holistic-view">Visão Holística</a>
+      <a href="#conclusions">Conclusões</a>
+      <a href="#mindmap">Mapa Mental</a>
+      <a href="#downloads">Downloads</a>
+    </div>
+  </div>
+  <aside class="paper meta-card">
+    <h3>Referência</h3>
+    <p class="authors">Juan Carlos Augusto</p>
+    <p class="affil">Research Group on Development of Intelligent Environments, Department of Computer Science, Middlesex University London, Londres, Reino Unido.</p>
+    <div class="kv"><span class="key">Publicado em</span><span class="val">Applied Artificial Intelligence, 2022</span></div>
+    <div class="kv"><span class="key">Palavras-chave</span><span class="val">context, context-awareness, intelligent environments, ambient intelligence, ubiquitous computing, pervasive computing, Internet of Things, beneficiaries, services, context satisfaction, context operations</span></div>
+    <div class="kv"><span class="key">DOI</span><span class="val">10.1080/08839514.2021.2008644</span></div>
+    <div class="callout" style="margin-bottom:0">
+      <b>O problema declarado:</b> Apesar do número significativo de sistemas implementados que visam fornecer consciência de contexto (context-awareness), há uma falta de metodologias e ferramentas comumente aceitas e utilizadas. Na raiz disso está a ausência de acordo sobre um conjunto de bons princípios ou padrões que possam servir como guia para a comunidade científica e os desenvolvedores interessados nessa classe de sistemas. Embora existam extensas revisões sobre o uso de contexto, ainda não há um corpus teórico emergente que possa ser usado para discutir os conceitos essenciais que compõem a estrutura dos contextos e seu uso pelos desenvolvedores de sistemas. As teorias anteriores focaram excessivamente no sistema artificial e nos dados, negligenciando os humanos que são os beneficiários finais dos sistemas de Ambientes Inteligentes.
+    </div>
+  </aside>
+</section>
+  <section class="section" id="audio">
+    <h2><span class="num">FAIXA 01</span>Comentário em áudio: contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective</h2>
+    <p>Faixa 01 · gerada via NotebookLM Audio Overview O player fica flutuando ao pé da página — velocidade, volume e posição sob seu controle enquanto você lê.</p>
+  </section>
+
+
+<section class="section" id="mapa">
+  <h2><span class="num">MAPA</span>A estrutura do artigo, navegável</h2>
+  <p>Clique em um nó para abrir ou fechar o ramo. Arraste para mover, use a roda do mouse ou os botões para o zoom. Setas do teclado navegam entre nós quando um deles está focado.</p>
+  <div class="map-shell">
+    <div class="map-bar">
+      <span class="hint" id="maphint">carregando…</span>
+      <div class="map-tools">
+        <button class="tool" data-map="expand">Expandir tudo</button>
+        <button class="tool" data-map="collapse">Recolher</button>
+        <button class="tool" data-map="fit">Ajustar</button>
+        <button class="tool" data-map="zoomout" aria-label="Diminuir zoom">−</button>
+        <button class="tool" data-map="zoomin" aria-label="Aumentar zoom">+</button>
+      </div>
+    </div>
+    <svg id="mapview" role="img" aria-label="Mapa mental do artigo"></svg>
+    <div class="map-legend">
+      <span><i style="background:#c0392b"></i>Título do artigo</span>
+      <span><i style="background:#e67e22"></i>Problema &amp; Motivação</span>
+      <span><i style="background:#27ae60"></i>Teoria CIEn (framework proposto)</span>
+      <span><i style="background:#2980b9"></i>Operações de Contexto</span>
+      <span><i style="background:#8e44ad"></i>Satisfação do Beneficiário</span>
+      <span><i style="background:#f39c12"></i>Caso de Estudo</span>
+      <span><i style="background:#34495e"></i>Estado da Arte</span>
+    </div>
+  </div>
+  <p class="map-note">Mapa gerado a partir da análise estruturada do artigo: layout calculado no navegador, sem imagem estática.</p>
+</section>
+
+<script>
+(function () {
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('mapview');
+
+  var PALETTE = {"root": {"fill": "#c0392b", "text": "#fff"}, "problem": {"fill": "#e67e22", "text": "#fff"}, "theory": {"fill": "#27ae60", "text": "#fff"}, "operations": {"fill": "#2980b9", "text": "#fff"}, "satisfaction": {"fill": "#8e44ad", "text": "#fff"}, "case": {"fill": "#f39c12", "text": "#fff"}, "background": {"fill": "#34495e", "text": "#fff"}};
+  var DATA = {"t": "Contexts & Context-awareness Revisited (IE)", "k": "root", "children": [{"t": "Problema & Motivação", "k": "problem", "children": [{"t": "Falta de metodologias e padrões aceitos", "children": []}, {"t": "Ausência de corpus teórico emergente", "children": []}, {"t": "Foco excessivo em dados/sistemas, não humanos", "children": []}, {"t": "Lacuna: teorias inadequadas para IE centrado no humano", "children": []}]}, {"t": "Teoria CIEn", "k": "theory", "children": [{"t": "Estrutura: CIEn = <B, S, C, Ops, A, OW>", "children": [{"t": "B: beneficiários (humanos)", "children": []}, {"t": "S: serviços fornecidos", "children": []}, {"t": "C: contextos [Name, Beneficiary, Activation, Effect]", "children": []}, {"t": "Ops: operações de contexto", "children": []}, {"t": "A: algoritmos inteligentes", "children": []}, {"t": "OW: mundo observável (instâncias)", "children": []}]}, {"t": "Ciclo de vida dos contextos", "children": [{"t": "1. Definição de Contexto", "children": []}, {"t": "2. Uso de Contexto", "children": []}, {"t": "3. Desenvolvimento de Contexto", "children": []}]}, {"t": "Regra de Occam para design de contexto", "children": [{"t": "Implementar sse necessário, novo e viável", "children": []}]}]}, {"t": "Operações de Contexto (Ops)", "k": "operations", "children": [{"t": "Context Activation", "children": [{"t": "φ(Ci, OWj): satisfação de contexto", "children": []}]}, {"t": "Context Comparison", "children": [{"t": "Ψ: igual, sobrepõe, subsume", "children": []}]}, {"t": "Context Influence", "children": [{"t": "Direct Influence: C₁ ⇝ C₂", "children": []}, {"t": "Ripple Effect: C₁ ⇝ C₂", "children": []}]}, {"t": "Context Construction", "children": [{"t": "FOLLOWEDBY (sequencial)", "children": []}, {"t": "IF-THEN (condicional)", "children": []}, {"t": "LOOP (cíclico)", "children": []}]}, {"t": "Context Interaction", "children": [{"t": "Neutral: C₁ ⊛ C₂", "children": []}, {"t": "Cooperative: C₁ ⊕ C₂", "children": []}, {"t": "Competitive: C₁ ⊖ C₂", "children": []}, {"t": "Incompatible: C₁ ⊗ C₂", "children": []}]}]}, {"t": "Visão Holística & Satisfação", "k": "satisfaction", "children": [{"t": "BCP: Beneficiary Context Perception", "children": [{"t": "Contexto como percebido pelo beneficiário", "children": []}]}, {"t": "BCE: Beneficiary Context Expectations", "children": [{"t": "Serviços esperados pelo beneficiário", "children": []}]}, {"t": "SAS: Service Achievement Satisfaction", "children": [{"t": "SAS(IE,b,t) = Σ|BCE - BCP| (usuário único)", "children": []}, {"t": "SASm: otimização multiusuário com GP", "children": []}]}]}, {"t": "Caso de Estudo: Smart Home", "k": "case", "children": [{"t": "Beneficiários: B (trabalhador) e PB (pai idoso)", "children": []}, {"t": "Rotinas diferenciadas (semana vs fim de semana)", "children": []}, {"t": "Contextos ilustrados (Tabela 1)", "children": [{"t": "Porta da frente, banheiro, rotina matinal", "children": []}, {"t": "Pular refeição, estar na cozinha", "children": []}]}, {"t": "Automação: luzes sequenciais, rádio, clima", "children": []}, {"t": "Segurança: diferenciar B e PB (demência)", "children": []}]}, {"t": "Estado da Arte & Contexto Histórico", "k": "background", "children": [{"t": "Interesse em IA/KRR (Representação de Conhecimento)", "children": []}, {"t": "Computação Ubíqua, IoT, AmI", "children": []}, {"t": "Trabalhos influentes", "children": [{"t": "Benerecetti: metáfora 'caixa mágica'", "children": []}, {"t": "Brewka: sistemas multicontexto (mMCS)", "children": []}, {"t": "Siewe: Cálculo de Ambientes (CCA)", "children": []}]}, {"t": "Lacunas: inadequação prática, falta de teoria útil", "children": []}]}]};
+
+  var ROW = 34, COLGAP = 54, PAD = 26, RADIUS = 9;
+  var view = { x: 0, y: 0, k: 1 };
+  var gRoot, nodes = [];
+
+  var uid = 0;
+  (function prep(n, depth, kind) {
+    n.id = ++uid;
+    n.depth = depth;
+    n.kind = n.k || kind || Object.keys(PALETTE)[0];
+    n.open = depth < (window.innerWidth <= 700 ? 1 : 2);
+    (n.children || []).forEach(function (c) { c.parent = n; prep(c, depth + 1, n.kind); });
+  })(DATA, 0, null);
+
+  function flatten(n, out) {
+    out.push(n);
+    if (n.open && n.children) n.children.forEach(function (c) { flatten(c, out); });
+    return out;
+  }
+
+  var measurer = document.createElementNS(SVGNS, 'text');
+  measurer.setAttribute('visibility', 'hidden');
+  svg.appendChild(measurer);
+  function widthOf(node) {
+    measurer.setAttribute('font-size', node.depth === 0 ? '14.5' : '13');
+    measurer.setAttribute('font-weight', node.depth <= 1 ? '780' : '400');
+    measurer.setAttribute('font-family',
+      '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif');
+    measurer.textContent = node.t;
+    var w = measurer.getComputedTextLength();
+    return Math.ceil(w) + 26 + ((node.children && node.children.length) ? 16 : 0);
+  }
+
+  function layout() {
+    var visible = flatten(DATA, []);
+    visible.forEach(function (n) { n.w = widthOf(n); });
+
+    var colW = [];
+    visible.forEach(function (n) { colW[n.depth] = Math.max(colW[n.depth] || 0, n.w); });
+    var colX = [], acc = PAD;
+    for (var d = 0; d < colW.length; d++) { colX[d] = acc; acc += (colW[d] || 0) + COLGAP; }
+
+    var row = 0;
+    (function place(n) {
+      if (n.open && n.children && n.children.length) {
+        n.children.forEach(place);
+        var f = n.children[0], l = n.children[n.children.length - 1];
+        n.y = (f.y + l.y) / 2;
+      } else {
+        n.y = PAD + row * ROW + ROW / 2;
+        row++;
+      }
+      n.x = colX[n.depth];
+    })(DATA);
+
+    return { nodes: visible, width: acc - COLGAP + PAD, height: PAD * 2 + Math.max(row, 1) * ROW };
+  }
+
+  function render(keepView) {
+    var L = layout();
+    nodes = L.nodes;
+
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.appendChild(measurer);
+
+    gRoot = document.createElementNS(SVGNS, 'g');
+    svg.appendChild(gRoot);
+
+    var gLinks = document.createElementNS(SVGNS, 'g');
+    var gNodes = document.createElementNS(SVGNS, 'g');
+    gRoot.appendChild(gLinks);
+    gRoot.appendChild(gNodes);
+
+    nodes.forEach(function (n) {
+      if (!n.parent || nodes.indexOf(n.parent) === -1) return;
+      var p = n.parent,
+          x1 = p.x + p.w, y1 = p.y, x2 = n.x, y2 = n.y,
+          mx = (x1 + x2) / 2;
+      var path = document.createElementNS(SVGNS, 'path');
+      path.setAttribute('class', 'link');
+      path.setAttribute('d', 'M' + x1 + ',' + y1 + 'C' + mx + ',' + y1 + ' ' + mx + ',' + y2 + ' ' + x2 + ',' + y2);
+      path.setAttribute('stroke', (PALETTE[n.kind] || Object.values(PALETTE)[0]).fill);
+      gLinks.appendChild(path);
+    });
+
+    nodes.forEach(function (n) {
+      var pal = PALETTE[n.kind] || Object.values(PALETTE)[0];
+      var g = document.createElementNS(SVGNS, 'g');
+      g.setAttribute('class', 'node d' + Math.min(n.depth, 2));
+      g.setAttribute('transform', 'translate(' + n.x + ',' + (n.y - 14) + ')');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      var hasKids = !!(n.children && n.children.length);
+      g.setAttribute('aria-expanded', hasKids ? String(n.open) : 'false');
+      g.setAttribute('aria-label', n.t + (hasKids ? (n.open ? ' — ramo aberto' : ' — ramo fechado, ' + n.children.length + ' itens') : ''));
+
+      var r = document.createElementNS(SVGNS, 'rect');
+      r.setAttribute('width', n.w);
+      r.setAttribute('height', 28);
+      r.setAttribute('rx', RADIUS);
+      if (n.depth <= 1) {
+        r.setAttribute('fill', pal.fill);
+        r.setAttribute('stroke', 'none');
+      } else {
+        r.setAttribute('fill', n.depth === 2 ? hexA(pal.fill, .13) : '#ffffff');
+        r.setAttribute('stroke', hexA(pal.fill, n.depth === 2 ? .55 : .32));
+        r.setAttribute('stroke-width', '1');
+      }
+      g.appendChild(r);
+
+      var t = document.createElementNS(SVGNS, 'text');
+      t.setAttribute('x', 13);
+      t.setAttribute('y', 15);
+      if (n.depth > 1) t.setAttribute('fill', '#231F20');
+      t.textContent = n.t;
+      g.appendChild(t);
+
+      if (hasKids) {
+        var mark = document.createElementNS(SVGNS, 'text');
+        mark.setAttribute('class', 'toggle');
+        mark.setAttribute('x', n.w - 13);
+        mark.setAttribute('y', 15);
+        mark.setAttribute('text-anchor', 'end');
+        mark.setAttribute('fill', n.depth <= 1 ? 'rgba(255,255,255,.85)' : pal.fill);
+        mark.textContent = n.open ? '−' : '+' + n.children.length;
+        g.appendChild(mark);
+      }
+
+      function toggle() {
+        if (!hasKids) return;
+        n.open = !n.open;
+        render(true);
+      }
+      g.addEventListener('click', toggle);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.code === 'Space') { ev.preventDefault(); toggle(); }
+        else if (ev.key === 'ArrowRight' && hasKids && !n.open) { n.open = true; render(true); }
+        else if (ev.key === 'ArrowLeft' && hasKids && n.open) { n.open = false; render(true); }
+      });
+
+      gNodes.appendChild(g);
+    });
+
+    svg.dataset.w = L.width;
+    svg.dataset.h = L.height;
+
+    document.getElementById('maphint').textContent =
+      nodes.length + ' nós visíveis · clique para abrir ou fechar';
+
+    if (keepView) applyView(); else fit();
+  }
+
+  function hexA(hex, a) {
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+
+  function applyView() {
+    gRoot.setAttribute('transform', 'translate(' + view.x + ',' + view.y + ') scale(' + view.k + ')');
+  }
+
+  function fit() {
+    var box = svg.getBoundingClientRect(),
+        w = +svg.dataset.w, h = +svg.dataset.h;
+    var reserve = window.innerWidth <= 700 ? 150 : 0;
+    var avail = Math.max(160, box.height - reserve);
+    var k = Math.max(reserve ? 0.55 : 0.7, Math.min(box.width / w, avail / h, 1.15));
+    view.k = k;
+    view.x = (w * k < box.width) ? (box.width - w * k) / 2 : 14;
+    view.y = (reserve || h * k >= avail) ? 14 : (avail - h * k) / 2 + 8;
+    applyView();
+  }
+
+  var drag = null;
+  svg.addEventListener('pointerdown', function (ev) {
+    if (ev.target.closest('.node')) return;
+    drag = { x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y };
+    svg.classList.add('dragging');
+    svg.setPointerCapture(ev.pointerId);
+  });
+  svg.addEventListener('pointermove', function (ev) {
+    if (!drag) return;
+    view.x = drag.vx + (ev.clientX - drag.x);
+    view.y = drag.vy + (ev.clientY - drag.y);
+    applyView();
+  });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (e) {
+    svg.addEventListener(e, function () { drag = null; svg.classList.remove('dragging'); });
+  });
+  svg.addEventListener('wheel', function (ev) {
+    ev.preventDefault();
+    var box = svg.getBoundingClientRect(),
+        mx = ev.clientX - box.left, my = ev.clientY - box.top,
+        f = ev.deltaY < 0 ? 1.12 : 1 / 1.12,
+        k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = mx - (mx - view.x) * (k / view.k);
+    view.y = my - (my - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }, { passive: false });
+
+  function zoomBy(f) {
+    var box = svg.getBoundingClientRect(), cx = box.width / 2, cy = box.height / 2;
+    var k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = cx - (cx - view.x) * (k / view.k);
+    view.y = cy - (cy - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }
+
+  function setAll(open) {
+    (function walk(n, d) {
+      if (n.children && n.children.length) n.open = d === 0 ? true : open;
+      (n.children || []).forEach(function (c) { walk(c, d + 1); });
+    })(DATA, 0);
+    render(false);
+  }
+
+  document.querySelectorAll('[data-map]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var a = b.dataset.map;
+      if (a === 'expand') setAll(true);
+      else if (a === 'collapse') setAll(false);
+      else if (a === 'fit') fit();
+      else if (a === 'zoomin') zoomBy(1.18);
+      else if (a === 'zoomout') zoomBy(1 / 1.18);
+    });
+  });
+
+  var rt;
+  addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fit, 140); });
+
+  render(false);
+})();
+</script>
+<section class="section" id="ensaio">
+  <h2><span class="num">ENSAIO</span>Contexts and Context-awareness Revisited from an Intelligent Environments Perspective</h2>
+  <div class="prose">
+    <p class="drop">São sete da manhã. As luzes do quarto se acendem suavemente, seguidas pelas do corredor, depois do banheiro. Na cozinha, o rádio liga sozinho enquanto a cafeteira começa a trabalhar. Para você, essa sequência é perfeita — mas e se fosse seu pai idoso, com sintomas de demência, levantando-se confuso no meio da noite? O sistema saberia diferenciar? A promessa dos ambientes inteligentes é justamente essa: adaptar-se ao contexto de cada pessoa, em cada momento. Mas o que exatamente significa &#34;contexto&#34; quando falamos de sistemas computacionais que precisam tomar decisões por nós?</p>
+    <h3>01. O problema invisível da consciência de contexto</h3>
+<p>Apesar de milhares de protótipos e produtos comerciais prometendo casas, cidades e dispositivos "inteligentes", a área de sistemas conscientes de contexto enfrenta um problema fundamental: não há acordo sobre o que realmente significa trabalhar com contexto. Cada equipe de desenvolvimento reinventa a roda, cada sistema adota suas próprias definições, e o resultado é uma torre de Babel tecnológica onde boas práticas, metodologias e padrões simplesmente não emergem.</p><p>Na raiz dessa fragmentação está uma questão conceitual negligenciada. As teorias anteriores focaram excessivamente nos dados e nos sistemas artificiais, esquecendo que os verdadeiros beneficiários são humanos com preferências, necessidades e expectativas. Um sistema pode coletar terabytes de dados sensoriais sobre temperatura, localização e horários, mas se não compreende que você prefere acordar no escuro enquanto seu pai precisa de luz para não se desorientar, toda essa informação é inútil.</p><p>O artigo de Juan Carlos Augusto propõe uma mudança de perspectiva: repensar contexto e consciência de contexto colocando explicitamente os humanos no centro. Contexto passa a ser definido como "a informação diretamente relevante para caracterizar uma situação de interesse para os stakeholders de um sistema". E context-awareness torna-se "a capacidade de um sistema usar informação contextual para adaptar seus serviços de modo que sejam mais úteis aos stakeholders porque se relacionam diretamente com suas preferências e necessidades".</p>    <h3>02. Anatomia de um contexto: templates e operações</h3>
+<p>Para tornar o conceito de contexto operacional, Augusto propõe uma estrutura simples mas poderosa: o template de contexto. Cada contexto é descrito por quatro elementos fundamentais: um Nome que o identifica, o Beneficiário a quem serve, as condições de Ativação que determinam quando ele se aplica, e o Efeito que produz quando ativado.</p><p>Considere o contexto "rotina matinal de B" versus "rotina matinal de PB" (o pai com demência). Ambos compartilham o nome genérico, mas diferem radicalmente em beneficiário, ativação e efeito. Para B, a ativação pode ser "segunda a sexta, entre 7h e 8h, presença detectada saindo do quarto", com efeito "acender luzes em sequência quarto-corredor-banheiro-cozinha, ligar rádio". Para PB, a mesma sequência de luzes no meio da noite seria inadequada — o sistema precisa reconhecer que "presença no corredor às 3h" ativa um contexto diferente: "ida noturna ao banheiro", com efeito "acender apenas luz do corredor e banheiro, em intensidade reduzida".</p><p>Mas contextos não existem isolados. A teoria CIEn (Contexts for Intelligent Environments) identifica cinco operações fundamentais que desenvolvedores precisam dominar: Ativação (decidir quando um contexto se aplica), Comparação (identificar sobreposições e diferenças entre contextos), Influência (reconhecer quando um contexto afeta outro), Construção (combinar contextos em sequências, condições e ciclos) e Interação (caracterizar se contextos são neutros, cooperativos, competitivos ou incompatíveis entre si).</p>    <blockquote>Um contexto deve ser implementado se e somente se é necessário, não está atualmente no sistema, e pode ser implementado dentro dos recursos disponíveis.<cite>Teoria CIEn · Regra de Occam para design de contexto</cite></blockquote>
+    <h3>03. Satisfação do beneficiário como métrica de sucesso</h3>
+<p>A contribuição mais radical da teoria CIEn é introduzir uma métrica formal para avaliar se um sistema inteligente está realmente servindo bem seus usuários. A função SAS (Service Achievement Satisfaction) mede a diferença entre o que o beneficiário espera em um dado contexto (BCE - Beneficiary Context Expectations) e o que ele percebe estar recebendo (BCP - Beneficiary Context Perception).</p><p>Imagine que PB tenta sair de casa às 4h da manhã, desorientado. Suas expectativas conscientes podem ser simplesmente "abrir a porta e sair", mas o sistema — conhecendo seu histórico médico e padrões de comportamento — reconhece que essa ação representa risco. O contexto "saída noturna de PB" é ativado, com efeito "acender luzes externas, notificar cuidador, travar porta temporariamente". A satisfação não é medida apenas pelo que PB quer naquele instante, mas pelo alinhamento entre suas necessidades reais (segurança) e o serviço prestado.</p><p>Para ambientes com múltiplos usuários, a teoria se generaliza através de SASm, que otimiza a experiência do grupo usando uma ordem parcial de Preferências Globais. Quando B precisa sair cedo para o trabalho e PB ainda está dormindo, o sistema deve balancear: acender luzes na rota de B sem iluminar o quarto de PB, ajustar o volume do rádio, talvez adiar o café até que ambos estejam acordados. Não há solução perfeita, mas há soluções melhores — e a teoria fornece o arcabouço formal para encontrá-las.</p>    <h3>04. Da teoria à prática: influência e efeito cascata</h3>
+<p>Um dos conceitos mais sutis da teoria é a distinção entre influência direta e efeito cascata (ripple effect) entre contextos. Influência direta ocorre quando a ativação de um contexto C₁ produz efeitos que satisfazem as condições de ativação de outro contexto C₂. Por exemplo, "B sai do quarto" (C₁) ativa "acender luz do corredor" (efeito), que por sua vez satisfaz a condição de ativação de "B indo ao banheiro" (C₂).</p><p>O efeito cascata é mais sutil: C₁ desencadeia uma cadeia de eventos que eventualmente afeta C₂, mas de forma menos óbvia e potencialmente atravessando múltiplos contextos intermediários. Se PB "pula uma refeição" (C₁), isso pode não ter efeito imediato, mas ao longo de dias pode contribuir para "declínio nutricional" (C₃), que por sua vez aumenta a probabilidade de "confusão espacial" (C₂). O sistema precisa rastrear essas dependências temporais e causais para antecipar problemas.</p><p>Essa capacidade de raciocinar sobre influências e cascatas é o que separa um sistema verdadeiramente inteligente de um simples conjunto de regras if-then. A teoria CIEn fornece a linguagem formal para expressar essas relações — usando notações como C₁ ⇝ C₂ para influência direta e C₁ ⇝ C₂ para efeito cascata — permitindo que desenvolvedores projetem sistemas que antecipam, em vez de apenas reagir.</p>    <p>A teoria CIEn representa um primeiro passo essencial para transformar o desenvolvimento de ambientes inteligentes de artesanato em engenharia. Ao colocar os beneficiários no centro, formalizar as operações sobre contextos e introduzir métricas de satisfação, ela oferece um vocabulário comum e um conjunto de princípios que a comunidade científica pode refinar e expandir. Mas essa formalização também nos confronta com uma questão ética profunda, que a tecnologia sozinha não pode responder.</p>
+  </div>
+  <div class="callout">
+    <b>A pergunta que fica:</b> Se permitirmos que sistemas de Ambientes Inteligentes façam sugestões criativas que diferem dos requisitos iniciais dos beneficiários — na crença de que isso maximizará suas preferências — como podemos garantir que essas &#39;surpresas agradáveis&#39; realmente alinhem-se com as expectativas humanas em vez de impor uma &#39;inteligência&#39; artificial que desrespeita a autonomia e as preferências genuínas dos usuários?
+  </div>
+</section>
+  <section class="section" id="tabelas">
+    <h2><span class="num">REFERÊNCIA</span>Conceitos e notação</h2>
+    <h3 style="margin-top:26px">Conceitos Fundamentais da Teoria CIEn</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Conceito</th><th>Definição</th><th>Papel no Sistema</th></tr></thead>
+    <tbody>
+      <tr><td>Context (Contexto)</td><td>Informação diretamente relevante para caracterizar uma situação de interesse para os stakeholders de um sistema</td><td>Estrutura que guia a adaptação do sistema às situações</td></tr>
+      <tr><td>Context-awareness (Consciência de Contexto)</td><td>Capacidade de um sistema usar informação contextual para adaptar seus serviços de modo que sejam mais úteis aos stakeholders</td><td>Propriedade que permite ao sistema responder inteligentemente</td></tr>
+      <tr><td>Beneficiaries (B)</td><td>Conjunto finito de humanos que são os usuários finais e stakeholders do sistema</td><td>Foco central do sistema; suas preferências dirigem o comportamento</td></tr>
+      <tr><td>Services (S)</td><td>Conjunto finito de serviços que o sistema pode fornecer aos beneficiários</td><td>Ações concretas executadas pelo sistema em resposta a contextos</td></tr>
+      <tr><td>Observable World (OW)</td><td>Conjunto finito de instâncias do mundo observável pelo sistema através de sensores</td><td>Fonte de dados que alimenta a detecção de contextos</td></tr>
+      <tr><td>Intelligent Software (A)</td><td>Conjunto finito de algoritmos que processam informação e tomam decisões</td><td>Motor de raciocínio que conecta contextos a serviços</td></tr>
+      <tr><td>Context Template</td><td>Estrutura [Name, Beneficiary, Activation, Effect] que define um contexto</td><td>Formato padronizado para especificar contextos</td></tr>
+      <tr><td>BCP (Beneficiary Context Perception)</td><td>Contexto como percebido pelo beneficiário em um dado momento</td><td>Medida da experiência real do usuário</td></tr>
+      <tr><td>BCE (Beneficiary Context Expectations)</td><td>Serviços que o beneficiário espera em um dado contexto</td><td>Medida das expectativas do usuário</td></tr>
+      <tr><td>SAS (Service Achievement Satisfaction)</td><td>Função que mede a diferença entre BCE e BCP</td><td>Métrica de qualidade do sistema IE</td></tr>
+    </tbody>
+  </table>
+</div>    <h3 style="margin-top:26px">Notação Formal da Teoria CIEn</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Símbolo/Expressão</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td>CIEn = <B, S, C, Ops, A, OW></td><td>Estrutura completa da teoria: Beneficiários, Serviços, Contextos, Operações, Algoritmos, Mundo Observável</td></tr>
+      <tr><td>φ(Ci, OWj)</td><td>Função de satisfação de contexto: retorna true se OWj satisfaz o contexto Ci</td></tr>
+      <tr><td>C₁ ⇝ C₂</td><td>Influência direta: contexto C₁ influencia diretamente C₂ quando C₁(Effect) implica parte da ativação de C₂</td></tr>
+      <tr><td>C₁ ⇝ C₂</td><td>Efeito cascata (Ripple Effect): C₁ influencia C₂ de forma indireta através de uma cadeia de inferências</td></tr>
+      <tr><td>SAS(IE, b, t)</td><td>Satisfação de serviço para um único beneficiário b no tempo t</td></tr>
+      <tr><td>SASm(IE, B, t)</td><td>Satisfação de serviço para múltiplos beneficiários B no tempo t, ponderada por Preferências Globais</td></tr>
+      <tr><td>C₁ ⊛ C₂</td><td>Interação neutra: contextos coexistem sem afetar um ao outro</td></tr>
+      <tr><td>C₁ ⊕ C₂</td><td>Interação cooperativa: contextos trabalham juntos para benefício mútuo</td></tr>
+      <tr><td>C₁ ⊖ C₂</td><td>Interação competitiva: contextos competem por recursos ou prioridade</td></tr>
+      <tr><td>C₁ ⊗ C₂</td><td>Interação incompatível: contextos não podem coexistir simultaneamente</td></tr>
+      <tr><td>ACi ⊆ ℘(L)</td><td>Condições de ativação do contexto Ci são subconjunto do conjunto potência da linguagem L</td></tr>
+      <tr><td>GP(pi)</td><td>Preferências Globais: ordem parcial que pondera a importância de diferentes propriedades na otimização multiusuário</td></tr>
+    </tbody>
+  </table>
+</div>    <h3 style="margin-top:26px">Operações de Contexto (Ops) na Teoria CIEn</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Operação</th><th>Descrição</th><th>Exemplo de Uso</th></tr></thead>
+    <tbody>
+      <tr><td>Activation (Ativação)</td><td>Determina quando um contexto se torna ativo baseado em condições do mundo observável</td><td>Detectar que beneficiário B está na cozinha às 7h da manhã</td></tr>
+      <tr><td>Comparison (Comparação)</td><td>Compara contextos usando relações como igualdade, sobreposição, subsunção</td><td>Verificar se contexto 'rotina matinal de B' sobrepõe-se com 'uso do banheiro por B'</td></tr>
+      <tr><td>Influence (Influência)</td><td>Identifica como um contexto afeta outro, direta ou indiretamente (ripple effect)</td><td>Contexto 'acordar' influencia diretamente contexto 'acender luzes no quarto'</td></tr>
+      <tr><td>Construction (Construção)</td><td>Organiza contextos usando estruturas algorítmicas: sequencial (FOLLOWEDBY), condicional (IF-THEN), cíclica (LOOP)</td><td>Sequenciar contextos: acender luzes quarto FOLLOWEDBY corredor FOLLOWEDBY banheiro</td></tr>
+      <tr><td>Interaction (Interação)</td><td>Caracteriza a natureza das relações entre contextos: neutral, cooperative, competitive, incompatible</td><td>Contexto 'PB saindo à noite' é incompatível (⊗) com contexto 'segurança garantida'</td></tr>
+    </tbody>
+  </table>
+</div>  </section>
+
+<section class="section" id="entidades">
+  <h2><span class="num">GRAFO</span>Entidades e relações extraídas</h2>
+  <p>Conceitos identificados automaticamente no texto do artigo. O tamanho do círculo reflete quantas vezes o conceito aparece; a cor indica o tipo.</p>
+
+  <div class="egraph">
+    <div class="egraph-legend">
+      <button type="button" class="egraph-chip" data-type="Concept" aria-pressed="true">
+        <i style="background:#2E7D5B"></i>Concept
+      </button>
+      <button type="button" class="egraph-chip" data-type="Dataset" aria-pressed="true">
+        <i style="background:#6B3FA0"></i>Dataset
+      </button>
+      <button type="button" class="egraph-chip" data-type="Method" aria-pressed="true">
+        <i style="background:#8A5A00"></i>Method
+      </button>
+      <button type="button" class="egraph-chip" data-type="Organization" aria-pressed="true">
+        <i style="background:#7A4B2A"></i>Organization
+      </button>
+      <button type="button" class="egraph-chip" data-type="Software" aria-pressed="true">
+        <i style="background:#0F6C6C"></i>Software
+      </button>
+      <button type="button" class="egraph-chip" data-type="System" aria-pressed="true">
+        <i style="background:#E8172D"></i>System
+      </button>
+      <button type="button" class="egraph-chip" data-type="Task" aria-pressed="true">
+        <i style="background:#2B5F86"></i>Task
+      </button>
+    </div>
+
+    <div class="egraph-canvas">
+      <svg viewBox="0 0 900 520" role="img"
+           aria-label="Grafo de 40 entidades e 5 relações extraídas do artigo">
+        <defs>
+          <marker id="eg-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                  markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.45)"></path>
+          </marker>
+        </defs>
+
+        <g class="egraph-edges">
+          <g class="egraph-edge" data-source="System" data-target="Concept">
+            <line x1="454.8" y1="253.6"
+                  x2="393.4" y2="278.4"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>system — possui → context-awareness</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="531.2" y1="292.4"
+                  x2="393.4" y2="278.4"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>context — gera → context-awareness</title>
+          </g>
+          <g class="egraph-edge" data-source="Software" data-target="Concept">
+            <line x1="368.5" y1="229.6"
+                  x2="533.8" y2="108.8"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>developers — recebem → expectations</title>
+          </g>
+          <g class="egraph-edge" data-source="Software" data-target="Concept">
+            <line x1="368.5" y1="229.6"
+                  x2="440.7" y2="329.1"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>developers — dão relevância a → contexts</title>
+          </g>
+          <g class="egraph-edge" data-source="Dataset" data-target="Concept">
+            <line x1="319.3" y1="339.5"
+                  x2="440.7" y2="329.1"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>Table 1 — descreve → contexts</title>
+          </g>
+        </g>
+
+        <g class="egraph-nodes">
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="454.8" cy="253.6"
+                    r="40.0" fill="#E8172D"></circle>
+            <text x="454.8" y="306.6"
+                  text-anchor="middle">system</text>
+            <title>system · System · 84 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="531.2" cy="292.4"
+                    r="31.6" fill="#2E7D5B"></circle>
+            <text x="531.2" y="337.0"
+                  text-anchor="middle">context</text>
+            <title>context · Concept · 57 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="440.7" cy="329.1"
+                    r="29.5" fill="#2E7D5B"></circle>
+            <text x="440.7" y="371.6"
+                  text-anchor="middle">contexts</text>
+            <title>contexts · Concept · 56 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="393.4" cy="278.4"
+                    r="20.2" fill="#2E7D5B"></circle>
+            <text x="393.4" y="311.6"
+                  text-anchor="middle">context-awareness</text>
+            <title>context-awareness · Concept · 15 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Software" tabindex="0">
+            <circle cx="368.5" cy="229.6"
+                    r="18.6" fill="#0F6C6C"></circle>
+            <text x="368.5" y="261.2"
+                  text-anchor="middle">developers</text>
+            <title>developers · Software · 12 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="462.5" cy="189.5"
+                    r="18.6" fill="#E8172D"></circle>
+            <text x="462.5" y="221.1"
+                  text-anchor="middle">systems</text>
+            <title>systems · System · 11 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="536.5" cy="236.1"
+                    r="17.8" fill="#2E7D5B"></circle>
+            <text x="536.5" y="267.0"
+                  text-anchor="middle">Context concept</text>
+            <title>Context concept · Concept · 7 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="519.0" cy="359.0"
+                    r="17.5" fill="#E8172D"></circle>
+            <text x="519.0" y="389.5"
+                  text-anchor="middle">ACi</text>
+            <title>ACi · System · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="405.3" cy="368.3"
+                    r="17.2" fill="#7A4B2A"></circle>
+            <text x="405.3" y="398.5"
+                  text-anchor="middle">Lecture Notes in Computer…</text>
+            <title>Lecture Notes in Computer Science · Organization · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Dataset" tabindex="0">
+            <circle cx="319.3" cy="339.5"
+                    r="17.2" fill="#6B3FA0"></circle>
+            <text x="319.3" y="369.7"
+                  text-anchor="middle">Table 1</text>
+            <title>Table 1 · Dataset · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="286.9" cy="296.3"
+                    r="17.2" fill="#2E7D5B"></circle>
+            <text x="286.9" y="326.5"
+                  text-anchor="middle">preferences</text>
+            <title>preferences · Concept · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="260.1" cy="240.1"
+                    r="17.1" fill="#2E7D5B"></circle>
+            <text x="260.1" y="270.3"
+                  text-anchor="middle">Perception</text>
+            <title>Perception · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="298.6" cy="191.4"
+                    r="17.0" fill="#2E7D5B"></circle>
+            <text x="298.6" y="221.4"
+                  text-anchor="middle">comparison</text>
+            <title>comparison · Concept · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="384.3" cy="160.8"
+                    r="17.0" fill="#2E7D5B"></circle>
+            <text x="384.3" y="190.8"
+                  text-anchor="middle">CFront door use</text>
+            <title>CFront door use · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Dataset" tabindex="0">
+            <circle cx="487.7" cy="156.7"
+                    r="16.9" fill="#6B3FA0"></circle>
+            <text x="487.7" y="186.5"
+                  text-anchor="middle">ontologies</text>
+            <title>ontologies · Dataset · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="568.7" cy="181.4"
+                    r="16.9" fill="#E8172D"></circle>
+            <text x="568.7" y="211.2"
+                  text-anchor="middle">real systems</text>
+            <title>real systems · System · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="636.8" cy="224.4"
+                    r="16.8" fill="#2E7D5B"></circle>
+            <text x="636.8" y="254.3"
+                  text-anchor="middle">information</text>
+            <title>information · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="646.4" cy="279.7"
+                    r="16.8" fill="#E8172D"></circle>
+            <text x="646.4" y="309.5"
+                  text-anchor="middle">BCP</text>
+            <title>BCP · System · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="601.4" cy="328.6"
+                    r="16.8" fill="#2E7D5B"></circle>
+            <text x="601.4" y="358.4"
+                  text-anchor="middle">effects</text>
+            <title>effects · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="366.2" cy="411.2"
+                    r="16.7" fill="#2E7D5B"></circle>
+            <text x="366.2" y="440.9"
+                  text-anchor="middle">experience</text>
+            <title>experience · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Task" tabindex="0">
+            <circle cx="272.7" cy="387.1"
+                    r="16.7" fill="#2B5F86"></circle>
+            <text x="272.7" y="416.7"
+                  text-anchor="middle">interaction</text>
+            <title>interaction · Task · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="200.6" cy="347.6"
+                    r="16.7" fill="#2E7D5B"></circle>
+            <text x="200.6" y="377.2"
+                  text-anchor="middle">aspect</text>
+            <title>aspect · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="167.4" cy="314.6"
+                    r="16.6" fill="#7A4B2A"></circle>
+            <text x="167.4" y="344.3"
+                  text-anchor="middle">Taylor &amp; Francis Group, L…</text>
+            <title>Taylor &amp; Francis Group, LLC · Organization · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Software" tabindex="0">
+            <circle cx="145.2" cy="243.1"
+                    r="16.6" fill="#0F6C6C"></circle>
+            <text x="145.2" y="272.7"
+                  text-anchor="middle">intelligent software</text>
+            <title>intelligent software · Software · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="180.9" cy="190.4"
+                    r="16.6" fill="#2E7D5B"></circle>
+            <text x="180.9" y="220.0"
+                  text-anchor="middle">algorithms</text>
+            <title>algorithms · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="242.5" cy="146.3"
+                    r="16.6" fill="#2E7D5B"></circle>
+            <text x="242.5" y="175.9"
+                  text-anchor="middle">theory</text>
+            <title>theory · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="329.1" cy="115.9"
+                    r="16.6" fill="#E8172D"></circle>
+            <text x="329.1" y="145.5"
+                  text-anchor="middle">KRR</text>
+            <title>KRR · System · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="430.3" cy="102.8"
+                    r="16.6" fill="#2E7D5B"></circle>
+            <text x="430.3" y="132.4"
+                  text-anchor="middle">front door use</text>
+            <title>front door use · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="533.8" cy="108.8"
+                    r="16.6" fill="#2E7D5B"></circle>
+            <text x="533.8" y="138.4"
+                  text-anchor="middle">expectations</text>
+            <title>expectations · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="627.3" cy="132.9"
+                    r="16.6" fill="#2E7D5B"></circle>
+            <text x="627.3" y="162.5"
+                  text-anchor="middle">operations</text>
+            <title>operations · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="711.4" cy="171.6"
+                    r="16.6" fill="#7A4B2A"></circle>
+            <text x="711.4" y="201.2"
+                  text-anchor="middle">Department of Computer Sc…</text>
+            <title>Department of Computer Science · Organization · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="755.3" cy="222.1"
+                    r="16.6" fill="#7A4B2A"></circle>
+            <text x="755.3" y="251.7"
+                  text-anchor="middle">Middlesex University</text>
+            <title>Middlesex University · Organization · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="748.2" cy="277.1"
+                    r="16.6" fill="#E8172D"></circle>
+            <text x="748.2" y="306.7"
+                  text-anchor="middle">IE system</text>
+            <title>IE system · System · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="719.1" cy="329.6"
+                    r="16.6" fill="#2E7D5B"></circle>
+            <text x="719.1" y="359.2"
+                  text-anchor="middle">individual preferences</text>
+            <title>individual preferences · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="657.5" cy="373.7"
+                    r="16.6" fill="#2E7D5B"></circle>
+            <text x="657.5" y="403.3"
+                  text-anchor="middle">Context Use</text>
+            <title>Context Use · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="570.9" cy="404.1"
+                    r="16.5" fill="#2E7D5B"></circle>
+            <text x="570.9" y="433.7"
+                  text-anchor="middle">Condition</text>
+            <title>Condition · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="469.7" cy="417.2"
+                    r="16.5" fill="#E8172D"></circle>
+            <text x="469.7" y="446.7"
+                  text-anchor="middle">IE systems</text>
+            <title>IE systems · System · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="136.4" cy="390.3"
+                    r="16.5" fill="#2E7D5B"></circle>
+            <text x="136.4" y="419.8"
+                  text-anchor="middle">Beneficiary Context</text>
+            <title>Beneficiary Context · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="82.8" cy="343.3"
+                    r="16.5" fill="#2E7D5B"></circle>
+            <text x="82.8" y="372.8"
+                  text-anchor="middle">data</text>
+            <title>data · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Method" tabindex="0">
+            <circle cx="66.5" cy="279.5"
+                    r="16.5" fill="#8A5A00"></circle>
+            <text x="66.5" y="309.0"
+                  text-anchor="middle">compose-and-conquer</text>
+            <title>compose-and-conquer · Method · 2 menções</title>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <table class="egraph-triples">
+      <caption>Relações afirmadas pelo artigo, com a passagem que as sustenta</caption>
+      <thead>
+        <tr><th scope="col">Origem</th><th scope="col">Relação</th><th scope="col">Destino</th><th scope="col">Passagem de apoio</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>system</b></td>
+          <td><span class="egraph-rel">possui</span></td>
+          <td><b>context-awareness</b></td>
+          <td><q>The perception is that imbuing in the system certain context-awareness qualities can support intelligent decision-making in specific practical situations.</q></td>
+        </tr>
+        <tr>
+          <td><b>context</b></td>
+          <td><span class="egraph-rel">gera</span></td>
+          <td><b>context-awareness</b></td>
+          <td><q>One such concept which needs a closer examination is context and its by-product of context-awareness.</q></td>
+        </tr>
+        <tr>
+          <td><b>developers</b></td>
+          <td><span class="egraph-rel">recebem</span></td>
+          <td><b>expectations</b></td>
+          <td><q>For the system to be of practical utility users should be able (and encouraged) to pass their contextual behavior expectations to the developers and these should find ways to give these contexts contextual relevance and internal mechanisms for the awareness of those contexts.</q></td>
+        </tr>
+        <tr>
+          <td><b>developers</b></td>
+          <td><span class="egraph-rel">dão relevância a</span></td>
+          <td><b>contexts</b></td>
+          <td><q>For the system to be of practical utility users should be able (and encouraged) to pass their contextual behavior expectations to the developers and these should find ways to give these contexts contextual relevance and internal mechanisms for the awareness of those contexts.</q></td>
+        </tr>
+        <tr>
+          <td><b>Table 1</b></td>
+          <td><span class="egraph-rel">descreve</span></td>
+          <td><b>contexts</b></td>
+          <td><q>Some examples of contexts templates representing con texts from the scenario described before are listed in Table 1.</q></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="egraph-note">Extraído com <code>gliner=urchade/gliner_multi-v2.1, relations=llm</code>. Cada entidade aponta para o trecho do texto onde foi encontrada; cada relação exibe a sentença verificada literalmente contra o artigo.</p>
+  </div>
+
+  <script>
+  (function () {
+    var root = document.currentScript.closest('.egraph') || document.querySelector('.egraph');
+    if (!root) return;
+    var chips = root.querySelectorAll('.egraph-chip');
+    var hidden = new Set();
+
+    function apply() {
+      root.querySelectorAll('.egraph-node').forEach(function (n) {
+        n.classList.toggle('is-dim', hidden.has(n.dataset.type));
+      });
+      root.querySelectorAll('.egraph-edge').forEach(function (e) {
+        e.classList.toggle('is-dim', hidden.has(e.dataset.source) || hidden.has(e.dataset.target));
+      });
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var type = chip.dataset.type;
+        if (hidden.has(type)) { hidden.delete(type); } else { hidden.add(type); }
+        chip.setAttribute('aria-pressed', String(!hidden.has(type)));
+        apply();
+      });
+    });
+  })();
+  </script>
+</section>
+
+<section class="section" id="slides">
+  <h2><span class="num">DECK</span>Apresentação do artigo</h2>
+  <p>Prévia da apresentação gerada a partir do artigo.</p>
+  <div class="deck">
+    <div class="deck-frame">
+      <iframe
+        src="slides/deck.pdf#view=FitH"
+        title="Apresentação: Repensando Contexto e Context-Awareness para Ambientes Inteligentes Centrados no Humano"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="deck-bar">
+      <span>Deck em PDF · hospedado neste site</span>
+      <span class="deck-actions">
+        <a class="btn" href="slides/deck.pdf" target="_blank" rel="noopener">Abrir o PDF ↗</a>
+        <a class="btn primary" href="slides/deck.pptx" download>Baixar .pptx</a>
+      </span>
+    </div>
+  </div>
+</section>
+<section class="section" id="downloads">
+  <h2><span class="num">FONTES</span>Material</h2>
+  <div class="dl-grid">
+    <a class="dl" href="contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective.pdf">
+      <b>Artigo original em PDF</b>
+      <small>Texto completo do artigo que apresenta a teoria CIEn para formalizar contextos e consciência de contexto em Ambientes Inteligentes com foco nos beneficiários humanos.</small>
+      <span class="arrow">PDF ↓</span>
+    </a>
+    <a class="dl" href="blog.html">
+      <b>Post de blog</b>
+      <small>Versão comentada do artigo explorando como a teoria CIEn redefine contextos priorizando a satisfação dos beneficiários e operações formais para desenvolvedores de sistemas.</small>
+      <span class="arrow">LER →</span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Juan Carlos Augusto. Contexts and Context-awareness Revisited from an Intelligent Environments Perspective. Applied Artificial Intelligence, pp. e2008644 (725 pages). doi:10.1080/08839514.2021.2008644<br><br>
+    <a href="workshop.html">Dinâmica</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="../../contexto-e-contexto-sensivel/index.html">&#8592; Contexto e Contexto Sensível</a>
+  </div>
+</footer>
+
+<div class="player" id="player" role="region" aria-label="Player de áudio">
+  <div class="head">
+    <div class="who">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="titleline">
+        <b>Comentário em áudio: contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective</b>
+        <span>Faixa 01 · gerada via NotebookLM Audio Overview</span>
+      </span>
+    </div>
+    <button class="pbtn" id="minToggle" aria-expanded="true" title="Minimizar player">–</button>
+  </div>
+
+  <div class="row">
+    <button class="pbtn" id="back15" title="Voltar 15 segundos" aria-label="Voltar 15 segundos">−15</button>
+    <button class="pbtn play" id="playBtn" aria-label="Reproduzir">
+      <svg id="playIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <button class="pbtn" id="fwd15" title="Avançar 15 segundos" aria-label="Avançar 15 segundos">+15</button>
+
+    <span class="seekwrap">
+      <span class="time" id="cur">0:00</span>
+      <input class="rng seek" id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Posição da faixa">
+      <span class="time" id="dur">--:--</span>
+    </span>
+
+    <span class="volwrap">
+      <button class="pbtn" id="muteBtn" title="Silenciar" aria-label="Silenciar">VOL</button>
+      <input class="rng" id="vol" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+    </span>
+
+    <select class="rate" id="rate" aria-label="Velocidade de reprodução">
+      <option value="0.75">0,75×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.25">1,25×</option>
+      <option value="1.5">1,5×</option>
+      <option value="1.75">1,75×</option>
+      <option value="2">2×</option>
+    </select>
+  </div>
+  <div class="sub" id="psub">espaço = play/pause · ← → = 15 s · arquivo local, sem streaming externo</div>
+  <audio id="au" preload="metadata" src="audio/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective.m4a"></audio>
+</div>
+
+<script>
+(function () {
+  var au = document.getElementById('au'),
+      player = document.getElementById('player'),
+      playBtn = document.getElementById('playBtn'),
+      playIcon = document.getElementById('playIcon'),
+      seek = document.getElementById('seek'),
+      cur = document.getElementById('cur'),
+      dur = document.getElementById('dur'),
+      vol = document.getElementById('vol'),
+      muteBtn = document.getElementById('muteBtn'),
+      rate = document.getElementById('rate'),
+      minToggle = document.getElementById('minToggle');
+
+  var ICON_PLAY = 'M8 5v14l11-7z',
+      ICON_PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
+
+  var scrubbing = false;
+
+  function fmt(s) {
+    if (!isFinite(s)) return '--:--';
+    s = Math.max(0, Math.floor(s));
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    var mm = h ? String(m).padStart(2, '0') : String(m);
+    return (h ? h + ':' : '') + mm + ':' + String(x).padStart(2, '0');
+  }
+
+  function paintSeek() {
+    var pct = au.duration ? (au.currentTime / au.duration) * 100 : 0;
+    seek.style.backgroundSize = pct + '% 100%';
+  }
+
+  au.addEventListener('loadedmetadata', function () { dur.textContent = fmt(au.duration); });
+
+  au.addEventListener('timeupdate', function () {
+    cur.textContent = fmt(au.currentTime);
+    if (!scrubbing && au.duration) {
+      seek.value = String((au.currentTime / au.duration) * 1000);
+      paintSeek();
+    }
+  });
+
+  au.addEventListener('play', function () {
+    player.classList.add('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PAUSE);
+    playBtn.setAttribute('aria-label', 'Pausar');
+  });
+  au.addEventListener('pause', function () {
+    player.classList.remove('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PLAY);
+    playBtn.setAttribute('aria-label', 'Reproduzir');
+  });
+  au.addEventListener('error', function () {
+    document.getElementById('psub').textContent =
+      'Não foi possível carregar o áudio — confira o caminho do arquivo.';
+  });
+
+  playBtn.addEventListener('click', function () {
+    if (au.paused) { au.play().catch(function () {}); } else { au.pause(); }
+  });
+  document.getElementById('back15').addEventListener('click', function () { au.currentTime = Math.max(0, au.currentTime - 15); });
+  document.getElementById('fwd15').addEventListener('click', function () {
+    au.currentTime = Math.min(au.duration || Infinity, au.currentTime + 15);
+  });
+
+  ['pointerdown', 'touchstart'].forEach(function (e) { seek.addEventListener(e, function () { scrubbing = true; }); });
+  ['pointerup', 'touchend', 'change'].forEach(function (e) { seek.addEventListener(e, function () { scrubbing = false; }); });
+  seek.addEventListener('input', function () {
+    if (au.duration) {
+      au.currentTime = (seek.value / 1000) * au.duration;
+      cur.textContent = fmt(au.currentTime);
+      seek.style.backgroundSize = (seek.value / 10) + '% 100%';
+    }
+  });
+
+  vol.addEventListener('input', function () {
+    au.volume = +vol.value;
+    au.muted = +vol.value === 0;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+  });
+  muteBtn.addEventListener('click', function () {
+    au.muted = !au.muted;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+    if (!au.muted && au.volume === 0) { au.volume = 0.8; vol.value = '0.8'; }
+  });
+
+  rate.addEventListener('change', function () { au.playbackRate = +rate.value; });
+
+  minToggle.addEventListener('click', function () {
+    var min = player.classList.toggle('min');
+    minToggle.textContent = min ? '+' : '–';
+    minToggle.setAttribute('aria-expanded', String(!min));
+    minToggle.title = min ? 'Expandir player' : 'Minimizar player';
+    document.body.style.paddingBottom = min ? '110px' : '';
+  });
+
+  addEventListener('keydown', function (ev) {
+    var t = ev.target, tag = t && t.tagName;
+    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || (t && t.isContentEditable)) return;
+    if (ev.code === 'Space') { ev.preventDefault(); playBtn.click(); }
+    else if (ev.code === 'ArrowLeft' && ev.altKey) { au.currentTime = Math.max(0, au.currentTime - 15); }
+    else if (ev.code === 'ArrowRight' && ev.altKey) { au.currentTime = au.currentTime + 15; }
+  });
+
+  paintSeek();
+})();
+</script>
+</body>
+</html>

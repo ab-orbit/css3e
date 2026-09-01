@@ -12,6 +12,7 @@ import pytest
 import yaml
 
 from pipeline.manifest.themes_yaml import (
+    humanize_slug,
     load_themes,
     register_tema,
     save_themes,
@@ -81,7 +82,7 @@ class TestRegisterTema:
 
         assert theme.slug == "aprendizado-por-reforco"
         assert "aprendizado-por-reforco" in theme.temas
-        assert theme.name == "Aprendizado Por Reforco"
+        assert theme.name == "Aprendizado por Reforco"
         assert len(load_themes(registry)) == 2
 
     def test_existing_tema_is_returned_unchanged(self, registry):
@@ -107,3 +108,21 @@ class TestFileShape:
         raw = yaml.safe_load(registry.read_text(encoding="utf-8"))
         assert isinstance(raw, list)
         assert set(raw[0]) >= {"slug", "name", "temas"}
+
+
+class TestHumanizeSlug:
+    """A provisional theme's display name is shown in the gallery, so it has to
+    read as Portuguese rather than as a title-cased slug."""
+
+    def test_stopwords_stay_lowercase(self):
+        assert (
+            humanize_slug("contexto-e-contexto-sensivel")
+            == "Contexto e Contexto Sensivel"
+        )
+
+    def test_leading_stopword_is_capitalized(self):
+        """"A" opening a title is a word, not a stopword to swallow."""
+        assert humanize_slug("a-teoria-do-contexto") == "A Teoria do Contexto"
+
+    def test_single_word(self):
+        assert humanize_slug("contexto") == "Contexto"

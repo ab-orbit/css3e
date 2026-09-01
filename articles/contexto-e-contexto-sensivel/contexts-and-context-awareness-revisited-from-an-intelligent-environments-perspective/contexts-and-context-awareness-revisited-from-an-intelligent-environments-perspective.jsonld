@@ -1,0 +1,419 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html",
+      "url": "https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html",
+      "name": "Contexts and Context-awareness Revisited from an Intelligent Environments Perspective",
+      "headline": "Repensando Contexto e Context-Awareness para Ambientes Inteligentes Centrados no Humano",
+      "inLanguage": "pt-BR",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Juan Carlos Augusto"
+        }
+      ],
+      "abstract": "Context is a useful concept somehow unconsciously used by humans in daily life problem-solving. Recently, several subareas of computer science have been increasingly trying to rely on this concept to design systems with practical use in certain predefined circumstances. The perception is that imbuing in the system certain context-awareness qualities can support intelligent decision-making in specific practical situations. Despite a significant number of implemented systems that aim at providing context-awareness, there is a lack of commonly accepted and used methodologies and tools. At the root of this, is the lack of agreement on a set of good principles or standards, which can act as a guide to the scientific community and the developers interested in this class of systems. There have been some extensive surveys on the use of context, still there is no theoretical corpus emerging that we can use to discuss the essential concepts making up the fabric of contexts and its use by system developers. Here we attempted such enterprise at a level, which is more formal than popular surveys, in a way that is not implementation dependent and in a way that highlights key concepts of relevance to developers. We reassessed first the basic concepts identifying the need to more prominently consider system beneficiaries' satisfaction. We then transfer explicitly these values to a more formal outline of the basic components and the operations which emerge as relevant. We identify and highlight the tasks of context activation, comparison, influence, construction, and interaction. We hint at how these may work in practice and explained these through examples. We show how the theory is flexible enough by generalizing it to multiusers so that optimization of global preferences and expectations is used to drive system development and system behavior.",
+      "description": "Apesar da proliferação de sistemas context-aware, faltam metodologias, padrões e uma base teórica comum. Este artigo propõe a teoria CIEn, que redefine contexto e consciência de contexto com foco explícito nos beneficiários humanos e suas expectativas, não apenas em dados e sistemas artificiais.",
+      "datePublished": "2022",
+      "publication": "Applied Artificial Intelligence",
+      "keywords": [
+        "context",
+        "context-awareness",
+        "intelligent environments",
+        "ambient intelligence",
+        "ubiquitous computing",
+        "pervasive computing",
+        "Internet of Things",
+        "beneficiaries",
+        "services",
+        "context satisfaction",
+        "context operations"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.1080/08839514.2021.2008644"
+      },
+      "sameAs": "https://doi.org/10.1080/08839514.2021.2008644",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "system",
+          "termCode": "system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 84,
+          "css3e:confidence": 0.831
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "context",
+          "termCode": "context",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 57,
+          "css3e:confidence": 0.796
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "contexts",
+          "termCode": "contexts",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 56,
+          "css3e:confidence": 0.701
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "context-awareness",
+          "termCode": "context awareness",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 15,
+          "css3e:confidence": 0.813
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "developers",
+          "termCode": "developers",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 12,
+          "css3e:confidence": 0.637
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "systems",
+          "termCode": "systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 11,
+          "css3e:confidence": 0.678
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Context concept",
+          "termCode": "context concept",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.767
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ACi",
+          "termCode": "aci",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.723
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Lecture Notes in Computer Science",
+          "termCode": "lecture notes in computer science",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.719
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Table 1",
+          "termCode": "table 1",
+          "inDefinedTermSet": "Dataset",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.703
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "preferences",
+          "termCode": "preferences",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.676
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Perception",
+          "termCode": "perception",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.833
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "comparison",
+          "termCode": "comparison",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.599
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "CFront door use",
+          "termCode": "cfront door use",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.723
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ontologies",
+          "termCode": "ontologies",
+          "inDefinedTermSet": "Dataset",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.627
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "real systems",
+          "termCode": "real systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.827
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "information",
+          "termCode": "information",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.608
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "BCP",
+          "termCode": "bcp",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.601
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "effects",
+          "termCode": "effects",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.736
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "experience",
+          "termCode": "experience",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.667
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "interaction",
+          "termCode": "interaction",
+          "inDefinedTermSet": "Task",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.646
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "aspect",
+          "termCode": "aspect",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.645
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Taylor & Francis Group, LLC",
+          "termCode": "taylor  francis group llc",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.923
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "intelligent software",
+          "termCode": "intelligent software",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.923
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "algorithms",
+          "termCode": "algorithms",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.608
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "theory",
+          "termCode": "theory",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.601
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "KRR",
+          "termCode": "krr",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.596
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "front door use",
+          "termCode": "front door use",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.867
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "expectations",
+          "termCode": "expectations",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.578
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "operations",
+          "termCode": "operations",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.569
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Department of Computer Science",
+          "termCode": "department of computer science",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.835
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Middlesex University",
+          "termCode": "middlesex university",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.83
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "IE system",
+          "termCode": "ie system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.829
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "individual preferences",
+          "termCode": "individual preferences",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.819
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Context Use",
+          "termCode": "context use",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.802
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Condition",
+          "termCode": "condition",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.797
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "IE systems",
+          "termCode": "ie systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.75
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Beneficiary Context",
+          "termCode": "beneficiary context",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.73
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "data",
+          "termCode": "data",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.699
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "compose-and-conquer",
+          "termCode": "compose and conquer",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.681
+        }
+      ]
+    }
+  ],
+  "css3e:relations": [
+    {
+      "source": "system",
+      "sourceCode": "system",
+      "label": "possui",
+      "target": "context-awareness",
+      "targetCode": "context awareness",
+      "confidence": 1.0,
+      "quote": "The perception is that imbuing in the system certain context-awareness qualities can support intelligent decision-making in specific practical situations.",
+      "quoteOffset": 1846
+    },
+    {
+      "source": "context",
+      "sourceCode": "context",
+      "label": "gera",
+      "target": "context-awareness",
+      "targetCode": "context awareness",
+      "confidence": 1.0,
+      "quote": "One such concept which needs a closer examination is context and its by-product of context-awareness.",
+      "quoteOffset": 6186
+    },
+    {
+      "source": "developers",
+      "sourceCode": "developers",
+      "label": "recebem",
+      "target": "expectations",
+      "targetCode": "expectations",
+      "confidence": 1.0,
+      "quote": "For the system to be of practical utility users should be able (and encouraged) to pass their contextual behavior expectations to the developers and these should find ways to give these contexts contextual relevance and internal mechanisms for the awareness of those contexts.",
+      "quoteOffset": 23488
+    },
+    {
+      "source": "developers",
+      "sourceCode": "developers",
+      "label": "dão relevância a",
+      "target": "contexts",
+      "targetCode": "contexts",
+      "confidence": 1.0,
+      "quote": "For the system to be of practical utility users should be able (and encouraged) to pass their contextual behavior expectations to the developers and these should find ways to give these contexts contextual relevance and internal mechanisms for the awareness of those contexts.",
+      "quoteOffset": 23488
+    },
+    {
+      "source": "Table 1",
+      "sourceCode": "table 1",
+      "label": "descreve",
+      "target": "contexts",
+      "targetCode": "contexts",
+      "confidence": 1.0,
+      "quote": "Some examples of contexts templates representing con texts from the scenario described before are listed in Table 1.",
+      "quoteOffset": 35197
+    }
+  ],
+  "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+}

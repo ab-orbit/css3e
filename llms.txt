@@ -34,6 +34,7 @@ segurança de fronteira.
 
 ## Generated articles
 
+- [Contexts and Context-awareness Revisited from an Intelligent Environments Perspective](https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html): Contexts and Context-awareness Revisited from an Intelligent Environments Perspective — Juan Carlos Augusto et al.
 - [A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions](https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html): A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions — Hung Du et al.
 
 ## Optional
