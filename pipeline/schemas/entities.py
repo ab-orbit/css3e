@@ -8,10 +8,12 @@ models (GLiNER/GLiREL) instead of asking an LLM for a list of concepts.
 
 from __future__ import annotations
 
-from pydantic import BaseModel, Field
+from pydantic import Field
+
+from pipeline.schemas.base import CoercingModel
 
 
-class Mention(BaseModel):
+class Mention(CoercingModel):
     """One occurrence of an entity in the source text."""
 
     start: int = Field(description="Character offset into the full extracted text")
@@ -23,7 +25,7 @@ class Mention(BaseModel):
         return self.end - self.start
 
 
-class Entity(BaseModel):
+class Entity(CoercingModel):
     """A deduplicated entity, with every place it was mentioned."""
 
     key: str = Field(description="Normalized form used for deduplication, e.g. 'ca-mas'")
@@ -44,7 +46,7 @@ class Entity(BaseModel):
         return self.frequency * self.score
 
 
-class Relation(BaseModel):
+class Relation(CoercingModel):
     """A directed relation between two entities, grounded in one passage."""
 
     source_key: str
@@ -58,7 +60,7 @@ class Relation(BaseModel):
     quote_start: int = Field(default=-1, description="Offset of `quote`, -1 if unknown")
 
 
-class EntityGraph(BaseModel):
+class EntityGraph(CoercingModel):
     """Fan-in shape: what gen_entities contributes to the ArticlePackage."""
 
     entities: list[Entity] = Field(default_factory=list)

@@ -7,10 +7,12 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import Field
+
+from pipeline.schemas.base import CoercingModel
 
 
-class HeroMeta(BaseModel):
+class HeroMeta(CoercingModel):
     eyebrow: str = Field(description="e.g. 'BMSD 2018 · Springer LNBIP 319 · pp. 185–202'")
     h1: str
     lede: str
@@ -25,7 +27,7 @@ class HeroMeta(BaseModel):
     problem_statement: str
 
 
-class CategoryCard(BaseModel):
+class CategoryCard(CoercingModel):
     tag: str
     accent_index: int = Field(
         ge=0, description="Maps to CSS var --accent-N; NOT a named class, so N categories scale"
@@ -35,14 +37,14 @@ class CategoryCard(BaseModel):
     dl_items: list[tuple[str, str]] = Field(description="[(dt, dd), ...]")
 
 
-class PaletteEntry(BaseModel):
+class PaletteEntry(CoercingModel):
     kind: str = Field(description="Key referenced by MindMapNode.k")
     fill: str = Field(description="Hex color")
     text: str = Field(default="#fff")
     label: str = Field(description="Legend label, e.g. 'três categorias'")
 
 
-class MindMapNode(BaseModel):
+class MindMapNode(CoercingModel):
     t: str = Field(description="Node title/text")
     k: str | None = Field(default=None, description="Palette kind key; inherited from parent if unset")
     children: list["MindMapNode"] = Field(default_factory=list)
@@ -51,25 +53,25 @@ class MindMapNode(BaseModel):
 MindMapNode.model_rebuild()
 
 
-class MindMapSpec(BaseModel):
+class MindMapSpec(CoercingModel):
     root: MindMapNode
     palette: list[PaletteEntry] = Field(
         description="Legend is generated FROM this list, never hand-written separately"
     )
 
 
-class TableSpec(BaseModel):
+class TableSpec(CoercingModel):
     caption: str
     columns: list[str]
     rows: list[list[str]]
 
 
-class PullQuote(BaseModel):
+class PullQuote(CoercingModel):
     text: str
     cite: str
 
 
-class EssaySection(BaseModel):
+class EssaySection(CoercingModel):
     no: str = Field(description="Section number label, e.g. '01' or '1'")
     heading: str
     paragraphs: list[str]
@@ -80,40 +82,40 @@ class EssaySection(BaseModel):
     )
 
 
-class EssayVariant(BaseModel):
+class EssayVariant(CoercingModel):
     variant: Literal["condensed", "full"]
     sections: list[EssaySection]
     drop_cap_paragraph: str = Field(description="Opening paragraph, styled with a drop cap")
     closing_paragraph: str
 
 
-class ParticipantStep(BaseModel):
+class ParticipantStep(CoercingModel):
     phase: str
     instruction: str
     self_check_prompt: str
 
 
-class ParticipantTrack(BaseModel):
+class ParticipantTrack(CoercingModel):
     steps: list[ParticipantStep]
     materials_needed: list[str]
     reflection_questions: list[str]
 
 
-class FacilitatorScriptStep(BaseModel):
+class FacilitatorScriptStep(CoercingModel):
     time_marker: str = Field(description="e.g. '0–5 min'")
     activity: str
     facilitator_notes: str
     discussion_prompts: list[str] = Field(default_factory=list)
 
 
-class FacilitatorTrack(BaseModel):
+class FacilitatorTrack(CoercingModel):
     script: list[FacilitatorScriptStep]
     timing_table: TableSpec
     debrief_structure: list[str]
     consolidation_goal: str
 
 
-class WorkshopSpec(BaseModel):
+class WorkshopSpec(CoercingModel):
     title: str
     framing: str = Field(description="Pedagogical framing named explicitly, e.g. 'Ciclo de Kolb adaptado'")
     duration_minutes: int
@@ -121,7 +123,7 @@ class WorkshopSpec(BaseModel):
     facilitator_track: FacilitatorTrack
 
 
-class SeoMeta(BaseModel):
+class SeoMeta(CoercingModel):
     page_kind: Literal["article", "blog", "workshop", "landing"]
     title: str
     description: str
@@ -136,7 +138,7 @@ class SeoMeta(BaseModel):
     article_tags: list[str] = Field(default_factory=list)
 
 
-class DownloadItem(BaseModel):
+class DownloadItem(CoercingModel):
     title: str
     description: str
     href: str

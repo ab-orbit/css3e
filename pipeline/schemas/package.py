@@ -6,7 +6,9 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import Field
+
+from pipeline.schemas.base import CoercingModel
 
 from pipeline.schemas.components import (
     CategoryCard,
@@ -22,7 +24,7 @@ from pipeline.schemas.entities import EntityGraph
 from pipeline.schemas.paper import PaperAnalysis
 
 
-class ArticlePackage(BaseModel):
+class ArticlePackage(CoercingModel):
     """Everything needed to render index.html / blog.html / workshop.html for
     one article. Serialized to articles/<tema>/<slug>/package.json so the
     HTML can be re-rendered from a template change without re-running the LLM.
@@ -65,7 +67,7 @@ class ArticlePackage(BaseModel):
     copy_canonical_override: str | None = None
 
 
-class Theme(BaseModel):
+class Theme(CoercingModel):
     """A display theme grouping one or more inferred `tema` slugs.
 
     The pipeline's infer_theme node invents a slug per run, so the same subject
@@ -83,14 +85,14 @@ class Theme(BaseModel):
     )
 
 
-class SitemapEntry(BaseModel):
+class SitemapEntry(CoercingModel):
     loc: str
     lastmod: str
     changefreq: str = "monthly"
     priority: float = 0.5
 
 
-class ManifestEntry(BaseModel):
+class ManifestEntry(CoercingModel):
     """One row in pipeline/articles.yaml — the single source of truth that
     sitemap.xml and llms.txt are regenerated from on every publish.
     """
