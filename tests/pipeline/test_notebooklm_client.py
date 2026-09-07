@@ -40,8 +40,18 @@ def pdf(tmp_path) -> Path:
 
 
 class FakeNotebooks:
-    def __init__(self, calls):
+    def __init__(self, calls, *, existing=None, source_ids=None):
         self._calls = calls
+        self._existing = existing or []
+        self._source_ids = source_ids or {}
+
+    async def list(self):
+        self._calls.append(("notebooks.list",))
+        return [SimpleNamespace(id=nb_id, title=title) for nb_id, title in self._existing]
+
+    async def get_source_ids(self, notebook_id: str):
+        self._calls.append(("notebooks.get_source_ids", notebook_id))
+        return self._source_ids.get(notebook_id, [])
 
     async def create(self, title: str):
         self._calls.append(("notebooks.create", title))
@@ -89,8 +99,8 @@ class FakeArtifacts:
 
 
 class FakeClient:
-    def __init__(self, calls, **artifact_kwargs):
-        self.notebooks = FakeNotebooks(calls)
+    def __init__(self, calls, *, existing=None, source_ids=None, **artifact_kwargs):
+        self.notebooks = FakeNotebooks(calls, existing=existing, source_ids=source_ids)
         self.sources = FakeSources(calls)
         self.artifacts = FakeArtifacts(calls, **artifact_kwargs)
 
@@ -122,6 +132,7 @@ def test_audio_happy_path(monkeypatch, settings, pdf, tmp_path):
 
     names = [c[0] for c in calls]
     assert names == [
+        "notebooks.list",
         "notebooks.create",
         "sources.add_file",
         "generate_audio",
@@ -269,3 +280,72 @@ def test_auth_tempfile_is_removed(monkeypatch, settings, pdf, tmp_path):
 
     assert written, "expected a temp storage-state file to be created"
     assert all(not p.exists() for p in written)
+
+
+def test_reuses_existing_notebook_with_the_same_title(monkeypatch, settings, pdf, tmp_path):
+    """One notebook per article: a re-run must adopt the previous one."""
+    calls: list = []
+    install_fake_client(
+        monkeypatch,
+        calls,
+        existing=[("nb-existing", "paper")],
+        source_ids={"nb-existing": ["src-old"]},
+    )
+
+    generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
+
+    names = [c[0] for c in calls]
+    assert "notebooks.create" not in names
+    assert "sources.add_file" not in names
+    assert next(c[2] for c in calls if c[0] == "generate_audio")["source_ids"] == ["src-old"]
+
+
+def test_reuses_notebook_but_reuploads_when_source_is_missing(
+    monkeypatch, settings, pdf, tmp_path
+):
+    """An empty notebook would produce an artifact citing nothing."""
+    calls: list = []
+    install_fake_client(monkeypatch, calls, existing=[("nb-existing", "paper")])
+
+    generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
+
+    upload = next(c for c in calls if c[0] == "sources.add_file")
+    assert upload[1] == "nb-existing"
+    assert "notebooks.create" not in [c[0] for c in calls]
+
+
+def test_slides_share_the_article_notebook(monkeypatch, settings, pdf, tmp_path):
+    """Slides used to get their own '<title> (slides)' notebook."""
+    calls: list = []
+    install_fake_client(
+        monkeypatch,
+        calls,
+        existing=[("nb-existing", "paper")],
+        source_ids={"nb-existing": ["src-old"]},
+    )
+
+    generate_slide_deck(
+        pdf,
+        title="paper",
+        pptx_dest=tmp_path / "deck.pptx",
+        pdf_dest=tmp_path / "deck.pdf",
+        settings=settings,
+    )
+
+    assert "notebooks.create" not in [c[0] for c in calls]
+    assert next(c[1] for c in calls if c[0] == "generate_slide_deck") == "nb-existing"
+
+
+def test_notebook_listing_failure_falls_back_to_creating(monkeypatch, settings, pdf, tmp_path):
+    """Listing is an optimisation; a failure must not abort the generation."""
+    calls: list = []
+    install_fake_client(monkeypatch, calls)
+
+    async def _boom(self):
+        raise RuntimeError("listing unavailable")
+
+    monkeypatch.setattr(FakeNotebooks, "list", _boom)
+
+    generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
+
+    assert "notebooks.create" in [c[0] for c in calls]

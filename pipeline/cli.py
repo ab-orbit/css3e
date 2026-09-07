@@ -104,9 +104,15 @@ def serve(port: int, host: str) -> None:
     is the same file that gets published; its console reveals itself only under
     localhost.
     """
+    import logging
+
     import uvicorn
 
     from pipeline.server.app import app
+
+    # Without a root handler the pipeline's own warnings — a skipped audio
+    # track, a dropped relation — vanish instead of reaching the terminal.
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
     click.echo(f"Console em http://{host}:{port}")
     uvicorn.run(app, host=host, port=port, log_level="warning")

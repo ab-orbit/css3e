@@ -126,21 +126,57 @@ def _run(coro_fn: Callable[[], Awaitable[T]]) -> T:
 
 
 async def _prepare_notebook(client: Any, title: str, pdf_path: Path) -> tuple[str, list[str]]:
-    """Create a notebook, upload the PDF, and wait for it to be processable.
+    """Return (notebook_id, source_ids) for `title`, reusing an existing notebook.
 
-    Returns (notebook_id, source_ids) — the source ids are passed explicitly to
-    the generators so an artifact can never be built from an empty notebook
-    that merely looks ready.
+    One notebook per article, not one per artifact. Audio and slides come from
+    the same PDF, so creating a notebook per generator burned a second upload
+    and left the account littered with near-duplicate notebooks ("slug" and
+    "slug (slides)"), one more pair on every re-run. Matching on the exact
+    title makes a re-run adopt what the previous run left behind.
+
+    A notebook is only reused when its source upload actually landed; an empty
+    one is refilled, since an artifact built from an empty notebook silently
+    cites nothing.
     """
-    notebook = await client.notebooks.create(title=title)
+    notebook_id = await _find_notebook_id(client, title)
+    if notebook_id is not None:
+        source_ids = await client.notebooks.get_source_ids(notebook_id)
+        if source_ids:
+            logger.info("Reusing NotebookLM notebook %r (%s)", title, notebook_id)
+            return notebook_id, list(source_ids)
+        logger.info("Notebook %r exists but has no source; re-uploading", title)
+    else:
+        notebook = await client.notebooks.create(title=title)
+        notebook_id = notebook.id
+
     source = await client.sources.add_file(
-        notebook.id,
+        notebook_id,
         pdf_path,
         mime_type="application/pdf",
         wait=True,
         wait_timeout=_SOURCE_TIMEOUT_SECONDS,
     )
-    return notebook.id, [source.id]
+    return notebook_id, [source.id]
+
+
+async def _find_notebook_id(client: Any, title: str) -> str | None:
+    """The id of the most recent notebook titled exactly `title`, if any.
+
+    Listing is best-effort: a failure here must not stop a generation that
+    would otherwise succeed with a fresh notebook.
+    """
+    try:
+        notebooks = await client.notebooks.list()
+    except Exception as exc:  # noqa: BLE001 - listing is an optimisation
+        logger.warning("Could not list NotebookLM notebooks (%s); creating a new one", exc)
+        return None
+    matches = [nb.id for nb in notebooks if nb.title == title]
+    return matches[0] if matches else None
+
+
+def notebook_url(notebook_id: str) -> str:
+    """Public NotebookLM URL for a notebook id."""
+    return f"https://notebooklm.google.com/notebook/{notebook_id}"
 
 
 async def _await_artifact(client: Any, notebook_id: str, status: Any, what: str) -> None:
@@ -180,6 +216,7 @@ def generate_audio_overview(
     async def _work() -> Path:
         async with _open_client(settings) as client:
             notebook_id, source_ids = await _prepare_notebook(client, title, pdf_path)
+            logger.info("Audio from notebook %s", notebook_url(notebook_id))
             status = await client.artifacts.generate_audio(
                 notebook_id,
                 source_ids=source_ids,
@@ -217,9 +254,8 @@ def generate_slide_deck(
 
     async def _work() -> tuple[Path, Path]:
         async with _open_client(settings) as client:
-            notebook_id, source_ids = await _prepare_notebook(
-                client, f"{title} (slides)", pdf_path
-            )
+            notebook_id, source_ids = await _prepare_notebook(client, title, pdf_path)
+            logger.info("Slide deck from notebook %s", notebook_url(notebook_id))
             status = await client.artifacts.generate_slide_deck(
                 notebook_id,
                 source_ids=source_ids,
