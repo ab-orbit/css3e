@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</title>
-<meta name="description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando técnicas, aplicações e desafios. Apresenta arquitetura unificada baseada nas cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Cobre modelagem de contexto, aprendizado de representação, raciocínio orientado a objetivos e aplicações em navegação autônoma, IoT, supply chain, educação e sustentabilidade energética.">
-<meta name="keywords" content="context-aware systems, multi-agent systems, sistemas multi-agente, consciência de contexto, MAS, CAS, CA-MAS, deep reinforcement learning, MARL, multi-agent reinforcement learning, BDI, belief-desire-intention, sense-learn-reason-predict-act, ontology-based models, graph neural networks, GNN, actor-critic, DQN, PPO, consensus protocols, organizational structures, ambient intelligence, navegação autônoma, IoT, supply chain management, inteligência artificial, aprendizado por reforço">
+<meta name="description" content="Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que integram as cinco capacidades essenciais: Sense-Learn-Reason-Predict-Act. Explora técnicas de modelagem de contexto, estruturas organizacionais de MAS, aprendizado de representação com GNN, raciocínio orientado a objetivos com DRL/MARL, e aplicações em domínios como IoT, navegação autônoma, assistência digital e gestão de desastres.">
+<meta name="keywords" content="context-aware systems, sistemas multi-agente, multi-agent systems, CA-MAS, consciência de contexto, Sense-Learn-Reason-Predict-Act, deep reinforcement learning, DRL, MARL, multi-agent reinforcement learning, BDI, Belief-Desire-Intention, graph neural networks, GNN, modelagem de contexto, context modeling, ontology-based models, organizational structures, consensus protocols, actor-critic methods, inteligência artificial, artificial intelligence, aprendizado por reforço, sistemas autônomos">
 <meta name="author" content="Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/workshop.html">
@@ -17,14 +17,14 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/workshop.html">
 <meta property="og:title" content="A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions">
-<meta property="og:description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando técnicas, aplicações e desafios. Apresenta arquitetura unificada baseada nas cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Cobre modelagem de contexto, aprendizado de representação, raciocínio orientado a objetivos e aplicações em navegação autônoma, IoT, supply chain, educação e sustentabilidade energética.">
+<meta property="og:description" content="Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que integram as cinco capacidades essenciais: Sense-Learn-Reason-Predict-Act. Explora técnicas de modelagem de contexto, estruturas organizacionais de MAS, aprendizado de representação com GNN, raciocínio orientado a objetivos com DRL/MARL, e aplicações em domínios como IoT, navegação autônoma, assistência digital e gestão de desastres.">
 <meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions">
-<meta name="twitter:description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando técnicas, aplicações e desafios. Apresenta arquitetura unificada baseada nas cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Cobre modelagem de contexto, aprendizado de representação, raciocínio orientado a objetivos e aplicações em navegação autônoma, IoT, supply chain, educação e sustentabilidade energética.">
+<meta name="twitter:description" content="Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que integram as cinco capacidades essenciais: Sense-Learn-Reason-Predict-Act. Explora técnicas de modelagem de contexto, estruturas organizacionais de MAS, aprendizado de representação com GNN, raciocínio orientado a objetivos com DRL/MARL, e aplicações em domínios como IoT, navegação autônoma, assistência digital e gestão de desastres.">
 <meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
 
 <script type="application/ld+json">
@@ -33,7 +33,7 @@
   "@type": "LearningResource",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/workshop.html" },
   "headline": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
-  "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando t\u00e9cnicas, aplica\u00e7\u00f5es e desafios. Apresenta arquitetura unificada baseada nas cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Cobre modelagem de contexto, aprendizado de representa\u00e7\u00e3o, racioc\u00ednio orientado a objetivos e aplica\u00e7\u00f5es em navega\u00e7\u00e3o aut\u00f4noma, IoT, supply chain, educa\u00e7\u00e3o e sustentabilidade energ\u00e9tica.",
+  "description": "Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que integram as cinco capacidades essenciais: Sense-Learn-Reason-Predict-Act. Explora t\u00e9cnicas de modelagem de contexto, estruturas organizacionais de MAS, aprendizado de representa\u00e7\u00e3o com GNN, racioc\u00ednio orientado a objetivos com DRL/MARL, e aplica\u00e7\u00f5es em dom\u00ednios como IoT, navega\u00e7\u00e3o aut\u00f4noma, assist\u00eancia digital e gest\u00e3o de desastres.",
   "inLanguage": "pt-BR",
   "image": "https://ab-orbit.github.io/css3e/three-categories.png",
   "datePublished": "2025-01-29",
@@ -51,13 +51,13 @@
     "name": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
     "author": ["Hung Du","Srikanth Thudumu","Hy Nguyen","Rajesh Vasa","Kon Mouzakis"],
     "datePublished": "2025-01-29",
-    "url": "/Users/jwcunha/Downloads/Context_AwareMAS.pdf"
+    "url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-uf1l7liz/2402.01968v2.pdf"
   },
   "about": [
     { "@type": "Thing", "name": "Context-Aware Multi-Agent Systems (CA-MAS)" },
+    { "@type": "Thing", "name": "Sense-Learn-Reason-Predict-Act" },
     { "@type": "Thing", "name": "Multi-Agent Systems (MAS)" },
     { "@type": "Thing", "name": "Context-Aware Systems (CAS)" },
-    { "@type": "Thing", "name": "Sense-Learn-Reason-Predict-Act" },
     { "@type": "Thing", "name": "Belief-Desire-Intention (BDI)" },
     { "@type": "Thing", "name": "Deep Reinforcement Learning (DRL)" },
     { "@type": "Thing", "name": "Multi-Agent Reinforcement Learning (MARL)" },
@@ -67,8 +67,10 @@
     { "@type": "Thing", "name": "Ontology-based models" },
     { "@type": "Thing", "name": "Graph Neural Networks (GNN)" },
     { "@type": "Thing", "name": "Actor-Critic methods" },
-    { "@type": "Thing", "name": "Deep Q Network (DQN)" },
-    { "@type": "Thing", "name": "Proximal Policy Optimization (PPO)" }
+    { "@type": "Thing", "name": "MAPE cycle (Monitor-Analyze-Plan-Execute)" },
+    { "@type": "Thing", "name": "Context graph" },
+    { "@type": "Thing", "name": "Active perception" },
+    { "@type": "Thing", "name": "Situation awareness" }
   ],
   "url": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/workshop.html"
 }
@@ -294,17 +296,17 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
   <section class="article-hero" style="grid-template-columns:1fr">
     <div>
       <div class="eyebrow">DINÂMICA REMOTA · CONSOLIDAÇÃO DE CONTEÚDO</div>
-      <h1>CA-MAS em Ação: Projetando Sistemas Multi-Agente Conscientes de Contexto</h1>
-      <p class="lede">Workshop remoto construído a partir de "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions" (Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis, arXiv preprint arXiv:2402.01968v2 [cs.MA]) para consolidar o conteúdo em grupo ou individualmente.</p>
+      <h1>Workshop Remoto: Projetando CA-MAS na Prática – Do Conceito à Aplicação</h1>
+      <p class="lede">Workshop remoto construído a partir de "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions" (Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis, arXiv preprint) para consolidar o conteúdo em grupo ou individualmente.</p>
     </div>
   </section>
 
 <section class="section" id="visao-geral">
-  <h2><span class="num">DINÂMICA</span>CA-MAS em Ação: Projetando Sistemas Multi-Agente Conscientes de Contexto</h2>
+  <h2><span class="num">DINÂMICA</span>Workshop Remoto: Projetando CA-MAS na Prática – Do Conceito à Aplicação</h2>
   <div class="case-grid">
     <div class="panel">
       <h3>Enquadramento</h3>
-      <p>Ciclo de Kolb adaptado para aprendizagem técnica: experiência concreta (aplicação de taxonomia em cenário) → observação reflexiva (análise de decisões de design) → conceituação abstrata (consolidação do framework CA-MAS) → experimentação ativa (redesign e generalização)</p>
+      <p>Ciclo de Kolb adaptado para sistemas complexos: Experiência Concreta (aplicação de taxonomia em cenário) → Observação Reflexiva (análise de decisões e trade-offs) → Conceituação Abstrata (consolidação do framework Sense-Learn-Reason-Predict-Act) → Experimentação Ativa (redesign e propostas de melhoria)</p>
     </div>
     <div class="panel">
       <h3>Duração</h3>
@@ -323,43 +325,43 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     <h3>Passo a passo</h3>
     <div class="step-card">
       <div class="case-no">Preparação (pré-sessão)</div>
-      <p>Leia o artigo focando nas seções 2, 3 e 4. Identifique e anote as cinco fases do processo CA-MAS (Sense-Learn-Reason-Predict-Act) e pelo menos três estruturas organizacionais de MAS. Prepare-se para aplicar esses conceitos em um cenário prático.</p>
-      <p class="self-check"><b>Autoavaliação:</b> Consigo explicar com minhas próprias palavras a diferença entre contexto intrínseco e extrínseco? Sei listar as cinco fases do CA-MAS?</p>
+      <p>Leia o artigo focando nas seções 2 (MAS), 3 (CAS) e 4 (CA-MAS). Identifique as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act) e anote pelo menos uma técnica associada a cada capacidade. Prepare-se para aplicar essas capacidades em um cenário real.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Consigo explicar com minhas próprias palavras o que cada uma das cinco capacidades (Sense-Learn-Reason-Predict-Act) faz em um CA-MAS? Consigo dar um exemplo de técnica para cada?</p>
     </div>
     <div class="step-card">
       <div class="case-no">Experiência Concreta (15 min)</div>
-      <p>Você receberá um cenário de aplicação (ex: gestão de desastres, navegação autônoma ou supply chain). Em breakout rooms de 3-4 pessoas, projete um CA-MAS para esse cenário: (1) Escolha uma estrutura organizacional adequada da Tabela 1 do artigo; (2) Defina quais contextos os agentes precisam &#39;sentir&#39; (Sense); (3) Selecione uma técnica de modelagem de contexto (seção 3.2); (4) Escolha uma abordagem de raciocínio (rule-based, case-based, graph-based ou goal-oriented). Documente suas escolhas no template compartilhado (Miro/Jamboard).</p>
-      <p class="self-check"><b>Autoavaliação:</b> Minhas escolhas de estrutura organizacional e técnicas estão justificadas pelas características específicas do cenário (distribuição geográfica, dinamicidade, necessidade de consenso)?</p>
+      <p>Você receberá um cenário de aplicação (ex: gestão de desastres, navegação autônoma ou smart grid). Em breakout rooms de 3-4 pessoas, mapeie o cenário usando a taxonomia do artigo: (1) Identifique os agentes e sua estrutura organizacional (flat, hierárquica, coalização, etc.); (2) Liste os tipos de contexto relevantes (intrínseco/extrínseco, propriedades: tipo, valor, tempo, fonte, confiança); (3) Escolha uma técnica de modelagem de contexto adequada (key-value, ontology-based, graphical, etc.). Use o template compartilhado no chat para documentar suas escolhas.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Minha equipe conseguiu justificar POR QUE escolhemos essa estrutura organizacional e essa técnica de modelagem? Identificamos pelo menos 3 tipos de contexto com suas propriedades?</p>
     </div>
     <div class="step-card">
-      <div class="case-no">Observação Reflexiva (20 min)</div>
-      <p>Retorne à sessão plenária. Observe as apresentações de 2-3 grupos (5 min cada). Para cada apresentação, anote: (a) Qual foi o trade-off principal que o grupo enfrentou? (b) Que desafio da seção 5 do artigo apareceu implicitamente no design deles? (c) Como a escolha de estrutura organizacional impacta o compartilhamento de contexto? Use o chat ou documento colaborativo para registrar suas observações.</p>
-      <p class="self-check"><b>Autoavaliação:</b> Consigo identificar pelo menos um desafio de segurança/privacidade ou consenso que emergiria do design apresentado?</p>
+      <div class="case-no">Observação Reflexiva (12 min)</div>
+      <p>Ainda em breakout rooms, analise as implicações de suas escolhas: (1) Quais desafios do artigo (seção 5) seu design enfrenta? (restrições organizacionais, consenso, dependência de ontologias); (2) Que trade-offs você identificou? (ex: centralização vs. privacidade, ontologias rígidas vs. adaptabilidade); (3) Prepare 2-3 pontos-chave para compartilhar na plenária. Documente no template.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Consigo articular pelo menos UM trade-off concreto entre as escolhas que fizemos? Entendo como nosso design se relaciona com os desafios mencionados no artigo?</p>
     </div>
     <div class="step-card">
       <div class="case-no">Conceituação Abstrata (20 min)</div>
-      <p>Participe da discussão facilitada sobre padrões emergentes. Mapeie coletivamente: (1) Quais combinações de estrutura organizacional + técnica de modelagem apareceram mais? (2) Quais fases do Sense-Learn-Reason-Predict-Act foram mais desafiadoras de especificar? (3) Como os três desafios principais (estruturas relaxadas, consenso, integração ontologia-DRL) se manifestaram nos designs. Contribua com suas observações da fase anterior.</p>
-      <p class="self-check"><b>Autoavaliação:</b> Consigo agora articular por que certos domínios (ex: disaster relief) favorecem estruturas híbridas enquanto outros (ex: IoT) usam flat/coalitions?</p>
+      <p>Na plenária, ouça as apresentações de 2-3 equipes (3 min cada). Compare as abordagens: observe como diferentes estruturas organizacionais e técnicas de modelagem afetam as cinco capacidades (Sense-Learn-Reason-Predict-Act). No chat ou em ferramenta colaborativa (Miro/Jamboard), posicione seu cenário em um eixo 2D: Eixo X = Complexidade de Coordenação (baixa → alta); Eixo Y = Dinamismo do Contexto (estático → altamente dinâmico). Anote padrões: quais técnicas aparecem em quais quadrantes?</p>
+      <p class="self-check"><b>Autoavaliação:</b> Consigo identificar pelo menos DUAS diferenças fundamentais entre a abordagem da minha equipe e a de outra equipe? Entendo por que essas diferenças existem (requisitos do domínio, trade-offs)?</p>
     </div>
     <div class="step-card">
-      <div class="case-no">Experimentação Ativa (15 min)</div>
-      <p>Retorne ao seu grupo original. Redesenhe uma parte crítica do seu CA-MAS considerando: (1) Um dos desafios da seção 5 que você identificou; (2) Uma técnica alternativa da Tabela 4 usada em outro domínio. Prepare uma proposta de &#39;pivô&#39; de 2 minutos explicando: o que mudaria, por que, e que novo trade-off isso cria. Compartilhe no canal assíncrono (Slack/Discord) após a sessão.</p>
-      <p class="self-check"><b>Autoavaliação:</b> Minha proposta de redesign demonstra compreensão de que não existe &#39;solução ótima universal&#39;, apenas escolhas contextualizadas com trade-offs explícitos?</p>
+      <div class="case-no">Experimentação Ativa (18 min)</div>
+      <p>Retorne aos breakout rooms. Agora, REDESENHE seu CA-MAS considerando: (1) Implemente explicitamente as cinco fases (Sense-Learn-Reason-Predict-Act) – escolha pelo menos uma técnica específica do artigo para cada fase (ex: GNN para Learn, DRL para Reason, LSTM para Predict); (2) Proponha uma solução para PELO MENOS UM dos três desafios da seção 5; (3) Justifique suas escolhas usando conceitos do artigo. Atualize o template com o design revisado.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Meu redesign está CONCRETAMENTE mais robusto que a versão inicial? Consigo explicar COMO a solução proposta endereça um desafio específico do artigo?</p>
     </div>
     <div class="step-card">
-      <div class="case-no">Consolidação Individual (pós-sessão)</div>
-      <p>Responda às perguntas de reflexão no formulário assíncrono. Revise os redesigns de outros grupos no canal compartilhado e comente em pelo menos dois, identificando conexões com conceitos do artigo.</p>
-      <p class="self-check"><b>Autoavaliação:</b> Consigo agora projetar um CA-MAS básico para um novo domínio, justificando cada escolha de design com base no framework do artigo?</p>
+      <div class="case-no">Consolidação (10 min)</div>
+      <p>Individualmente, responda às perguntas de reflexão no formulário compartilhado. Depois, no chat, compartilhe UMA insight-chave que você levará desta sessão sobre CA-MAS. Leia as contribuições dos colegas e reaja (emoji/comentário) a pelo menos duas que ressoem com você.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Consigo agora projetar um CA-MAS básico para um novo domínio, identificando estrutura organizacional, técnicas de modelagem de contexto e as cinco capacidades essenciais? Sei onde procurar no artigo quando tiver dúvidas específicas?</p>
     </div>
 
     <div class="case-grid" style="margin-top:20px">
       <div class="panel">
         <h3>Materiais necessários</h3>
-        <ul><li>Artigo completo (PDF ou acesso digital)</li><li>Acesso a ferramenta de videoconferência com breakout rooms (Zoom, Google Meet, etc.)</li><li>Template de design CA-MAS (Miro, Jamboard, ou Google Slides colaborativo) com seções: Cenário, Estrutura Organizacional, Contextos (Sense), Modelagem, Raciocínio, Desafios Antecipados</li><li>Documento colaborativo para anotações (Google Docs ou Notion)</li><li>Canal assíncrono para compartilhamento pós-sessão (Slack, Discord, ou fórum)</li><li>Tabelas 1, 3 e 4 do artigo como referência rápida (extraídas ou em documento separado)</li></ul>
+        <ul><li>Artigo completo aberto (PDF ou acesso digital)</li><li>Acesso a videoconferência com breakout rooms (Zoom, Google Meet, Teams)</li><li>Template colaborativo (Google Doc ou Miro) com seções: Cenário, Agentes, Estrutura Organizacional, Tipos de Contexto, Técnica de Modelagem, Sense-Learn-Reason-Predict-Act, Desafios Identificados, Redesign</li><li>Ferramenta de quadro branco colaborativo (Miro, Jamboard, Mural) para mapeamento 2D</li><li>Formulário de reflexão individual (Google Forms ou similar)</li><li>Papel e caneta para anotações pessoais</li></ul>
       </div>
       <div class="panel">
         <h3>Perguntas de reflexão (consolidação individual)</h3>
-        <ul><li>Qual foi o momento em que você percebeu a complexidade de integrar múltiplas dimensões (estrutura organizacional, modelagem de contexto, raciocínio) em um CA-MAS coerente?</li><li>Como a taxonomia do artigo (estruturas organizacionais, técnicas de modelagem, abordagens de raciocínio) ajudou ou limitou sua criatividade no design?</li><li>Dos três desafios principais apresentados na seção 5, qual você considera mais crítico para aplicações reais? Por quê?</li><li>Se você tivesse que explicar a diferença entre um MAS tradicional e um CA-MAS para alguém de outra área, que exemplo concreto você usaria?</li><li>Que pergunta de pesquisa sobre CA-MAS emergiu para você durante esta sessão que não estava explícita no artigo?</li></ul>
+        <ul><li>Qual das cinco capacidades (Sense-Learn-Reason-Predict-Act) você considera mais desafiadora de implementar em um CA-MAS real? Por quê?</li><li>Como a escolha da estrutura organizacional (flat, hierárquica, coalização, etc.) impacta a eficácia do compartilhamento de contexto entre agentes?</li><li>Dos três desafios principais apresentados no artigo (restrições organizacionais, consenso, dependência de ontologias), qual você considera mais crítico para aplicações no seu domínio de interesse? Que abordagem você exploraria?</li><li>Se você tivesse que explicar a diferença entre um sistema multi-agente tradicional e um CA-MAS para alguém não-técnico, que analogia ou exemplo você usaria?</li><li>Que questão ou aspecto do artigo permanece menos claro para você e merece estudo adicional?</li></ul>
       </div>
     </div>
   </div>
@@ -368,39 +370,36 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     <h3>Roteiro</h3>
     <div class="step-card">
       <div class="case-no">0–5 min</div>
-      <p><b>Abertura e ativação de conhecimento prévio. Poll rápido: &#39;Quantas das 5 fases do CA-MAS você consegue nomear de memória?&#39; (Sense, Learn, Reason, Predict, Act). Compartilhe resultados e faça ponte com objetivo da sessão.</b></p>
-      <p>Não corrija respostas ainda — use o poll para diagnosticar familiaridade. Se &lt;50% lembram 3+ fases, faça recap visual rápido (2 min) com diagrama da Fig. 3 do artigo. Estabeleça tom de &#39;aplicação prática&#39; desde o início.</p>
-      <ul><li>Quem já trabalhou com sistemas multi-agente antes? Que desafios de coordenação vocês enfrentaram?</li><li>O que &#39;consciência de contexto&#39; significa para vocês intuitivamente, antes de entrarmos na definição técnica?</li></ul>
+      <p><b>Abertura e alinhamento: Boas-vindas, verificação de presença, overview da estrutura da sessão. Apresentar o objetivo: aplicar a taxonomia e framework CA-MAS do artigo em cenários concretos, não apenas revisar teoria. Explicitar o ciclo de Kolb adaptado. Verificar se todos têm materiais (artigo, template, acesso a ferramentas).</b></p>
+      <p>Seja explícito sobre a abordagem hands-on. Muitos participantes esperam uma palestra; reforce que esta é uma sessão de APLICAÇÃO. Verifique rapidamente no chat: &#39;Quem leu pelo menos as seções 2, 3 e 4?&#39; para calibrar o nível de preparação. Se &lt;50% leram, ajuste expectativas e ofereça 2 min de recap rápido das cinco capacidades.</p>
+      <ul><li>Quem já trabalhou com sistemas multi-agente antes? E com sistemas conscientes de contexto?</li><li>O que vocês acham mais desafiador: coordenar múltiplos agentes OU modelar contexto dinâmico?</li></ul>
     </div>
     <div class="step-card">
-      <div class="case-no">5–10 min</div>
-      <p><b>Distribuição de cenários e formação de grupos. Atribua cada breakout room a um domínio diferente (navegação autônoma, disaster relief, supply chain, IoT, etc.). Compartilhe template de design e explique as 4 tarefas: escolher estrutura organizacional, definir contextos Sense, selecionar modelagem, escolher raciocínio.</b></p>
-      <p>Prepare 4-5 cenários curtos (1 parágrafo cada) com requisitos implícitos (ex: &#39;disaster relief após terremoto: comunicação intermitente, prioridades dinâmicas, recursos escassos&#39;). Grupos de 3-4 são ideais. Certifique-se de que todos têm acesso ao template antes de irem para breakout rooms. Circule pelas salas nos primeiros 2 min para verificar compreensão.</p>
-      <ul><li>Antes de irem para os grupos: que perguntas vocês fariam ao &#39;cliente&#39; desse cenário para decidir a arquitetura CA-MAS?</li></ul>
+      <div class="case-no">5–20 min</div>
+      <p><b>Experiência Concreta (breakout rooms): Distribuir cenários (preparar 3-4 cenários diferentes: gestão de desastres, smart grid, navegação autônoma de drones, assistência educacional adaptativa). Cada breakout room recebe um cenário. Tarefa: mapear agentes, estrutura organizacional, tipos de contexto e técnica de modelagem. Circular pelos breakout rooms para observar progresso.</b></p>
+      <p>ERRO COMUM: Equipes ficam abstratas demais (&#39;usaremos agentes inteligentes&#39;). Pressione por ESPECIFICIDADE: &#39;Quantos agentes? Quem coordena quem? Que contexto EXATAMENTE cada agente precisa?&#39; Tenha os cenários prontos com 2-3 perguntas-guia cada. Se uma equipe terminar cedo, adicione: &#39;Agora identifiquem um protocolo de consenso adequado (seção 2.4.3)&#39;. Tempo é apertado; avise aos 10 min que restam 5 min.</p>
     </div>
     <div class="step-card">
-      <div class="case-no">10–25 min</div>
-      <p><b>Trabalho em breakout rooms: design do CA-MAS. Grupos aplicam taxonomia do artigo ao cenário. Facilitador circula entre salas (2-3 min cada), observando dificuldades comuns.</b></p>
-      <p>ERROS COMUNS A OBSERVAR: (1) Escolher estrutura organizacional por &#39;parecer legal&#39; sem justificar; (2) Listar contextos genéricos (&#39;localização, tempo&#39;) sem especificidade do domínio; (3) Confundir técnica de modelagem com técnica de raciocínio; (4) Não conectar escolhas entre si (ex: escolher ontology-based modeling mas rule-based reasoning sem explicar integração). Faça perguntas socráticas, não dê respostas: &#39;Como essa estrutura hierárquica lida com a necessidade de resposta rápida que vocês mencionaram?&#39;</p>
-      <ul><li>Que trade-off vocês estão enfrentando agora?</li><li>Se vocês mudassem a estrutura organizacional de X para Y, o que mais precisaria mudar no design?</li><li>Olhando a Tabela 4 do artigo, que domínio similar ao de vocês pode oferecer insights?</li></ul>
+      <div class="case-no">20–32 min</div>
+      <p><b>Observação Reflexiva (breakout rooms continuam): Equipes analisam trade-offs e desafios de suas escolhas. Facilitador circula ativamente, fazendo perguntas provocativas: &#39;Se o contexto mudar a cada segundo, sua ontologia aguenta?&#39; &#39;Como seus agentes lidam com informação conflitante?&#39; &#39;Centralização resolve coordenação, mas e privacidade?&#39;</b></p>
+      <p>Este é o momento de APROFUNDAR. Não aceite respostas superficiais. Use os três desafios da seção 5 como lentes: &#39;Vocês têm restrições organizacionais claras ou estão assumindo compartilhamento livre de contexto?&#39; Anote equipes com insights interessantes para convidar na plenária. Se uma equipe está travada, ofereça um dilema concreto: &#39;E se um agente tiver contexto desatualizado – o que acontece?&#39;</p>
     </div>
     <div class="step-card">
-      <div class="case-no">25–45 min</div>
-      <p><b>Apresentações plenárias (2-3 grupos, 5 min cada) + observação estruturada. Grupos apresentam design; audiência anota usando framework de observação (trade-offs, desafios implícitos, impacto de escolhas).</b></p>
-      <p>Selecione grupos com designs contrastantes (ex: um com flat structure, outro com hierarchy). Após cada apresentação, dê 1 min para audiência anotar observações antes da próxima. Use timer visível. Se grupo não mencionar desafios, pergunte: &#39;Que problema da seção 5 do artigo poderia aparecer nesse design?&#39; Capture designs em screenshots para referência na fase seguinte.</p>
-      <ul><li>Para a audiência: que escolha desse grupo vocês acham mais arriscada? Por quê?</li><li>Para o grupo apresentador: se vocês tivessem mais 10 agentes no sistema, essa estrutura ainda funcionaria?</li><li>Alguém vê conexão entre esse design e algum dos 8 domínios da Tabela 4?</li></ul>
+      <div class="case-no">32–52 min</div>
+      <p><b>Conceituação Abstrata (plenária): Trazer todos de volta. Convidar 2-3 equipes (3 min cada) para apresentar: cenário, escolhas principais, um trade-off identificado. Após cada apresentação, abrir para 1-2 perguntas rápidas da plenária. Depois, facilitar mapeamento coletivo no quadro branco 2D (Complexidade de Coordenação × Dinamismo de Contexto). Pedir que cada equipe posicione seu cenário e anote técnicas usadas. Destacar padrões emergentes: &#39;Notem que cenários altamente dinâmicos tendem a usar GNN e DRL...&#39;</b></p>
+      <p>GESTÃO DE TEMPO CRÍTICA: Limite apresentações rigorosamente (use timer visível). Se &gt;3 equipes, peça que outras compartilhem sínteses no chat. No mapeamento 2D, facilite a discussão: &#39;Por que smart grid está aqui e drones ali?&#39; Conecte explicitamente ao artigo: &#39;Isso reflete a Tabela 2 do artigo, que mostra diferentes domínios usando diferentes técnicas&#39;. Se o grupo estiver silencioso, use técnica de cold-calling gentil: &#39;Equipe do cenário X, vocês concordam com esse posicionamento?&#39;</p>
+      <ul><li>Que padrões vocês observam entre estrutura organizacional e tipo de aplicação?</li><li>Alguém escolheu ontology-based modeling – por quê? Quais as vantagens e limitações?</li><li>Como as cinco capacidades (Sense-Learn-Reason-Predict-Act) se manifestam diferentemente em cenários estáticos vs. dinâmicos?</li></ul>
     </div>
     <div class="step-card">
-      <div class="case-no">45–65 min</div>
-      <p><b>Discussão facilitada: mapeamento de padrões e conceituação. Use quadro colaborativo para mapear: (eixo X) estruturas organizacionais usadas, (eixo Y) domínios/cenários, (marcadores) técnicas de modelagem e raciocínio. Identifique clusters e outliers. Conecte com os 3 desafios da seção 5.</b></p>
-      <p>Esta é a fase crítica de abstração. Use técnica de &#39;think-pair-share&#39;: pergunta → 1 min individual → 2 min em duplas → compartilhamento plenário. Prepare visualização prévia dos 3 desafios (estruturas relaxadas → segurança/privacidade; consenso relaxado → incerteza/conflito; integração ontologia-DRL → complexidade). Faça ponte explícita: &#39;Vejam como 4 dos 5 grupos escolheram ontology-based modeling — isso facilita ou dificulta a integração com DRL que o artigo menciona como desafio?&#39;</p>
-      <ul><li>Que padrão vocês veem: domínios com alta dinamicidade tendem a usar que tipo de estrutura?</li><li>Por que nenhum grupo escolheu market-based structure? Que cenário exigiria isso?</li><li>Como o desafio de &#39;compartilhamento ineficaz de contexto&#39; se manifestaria no design do Grupo X?</li><li>Se tivéssemos que adicionar aprendizado por reforço ao design do Grupo Y, onde seria o ponto de integração mais difícil?</li></ul>
+      <div class="case-no">52–70 min</div>
+      <p><b>Experimentação Ativa (breakout rooms): Equipes redesenham seus CA-MAS, agora implementando explicitamente as cinco fases com técnicas específicas do artigo e propondo solução para pelo menos um desafio da seção 5. Facilitador circula intensamente, validando escolhas técnicas: &#39;Vocês escolheram GNN para Learn – como isso se conecta com seu grafo de contexto?&#39; &#39;DRL para Reason – qual a função de recompensa?&#39; Aos 60 min, avisar que restam 10 min.</b></p>
+      <p>Este é o momento de SÍNTESE APLICADA. Participantes devem conectar conceitos do artigo a decisões de design. ERRO COMUM: Listar técnicas sem justificativa. Pergunte sempre: &#39;POR QUE essa técnica para esse problema?&#39; Tenha a Tabela 2 do artigo aberta para referência rápida. Se uma equipe propõe algo criativo (ex: híbrido de técnicas), valide e peça que compartilhem na plenária depois. Alguns grupos podem lutar com a notação formal – tranquilize que o foco é entendimento conceitual, não matemático.</p>
     </div>
     <div class="step-card">
-      <div class="case-no">65–75 min</div>
-      <p><b>Experimentação ativa: redesign em breakout rooms + debrief final. Grupos retornam para propor &#39;pivô&#39; de design. Últimos 5 min: cada grupo compartilha em 1 min seu pivô. Facilitador sintetiza aprendizados e orienta consolidação assíncrona.</b></p>
-      <p>Dê instrução clara: &#39;Não redesenhem tudo — escolham UMA decisão de design para mudar, baseada em um desafio específico da seção 5&#39;. Circule rapidamente pelas salas. No debrief, valorize explicitamente redesigns que demonstram compreensão de trade-offs (não &#39;soluções perfeitas&#39;). Termine com &#39;cliffhanger&#39;: &#39;A pergunta de fechamento do artigo sobre integração ontologia-DRL — seus redesigns se aproximaram ou se afastaram de uma resposta?&#39; Oriente sobre expectativas assíncronas: postar pivô + comentar 2 outros até [data].</p>
-      <ul><li>Que novo problema seu pivô cria?</li><li>Esse pivô seria viável com as restrições computacionais de um sistema real?</li><li>Se vocês fossem publicar esse redesign, que experimento vocês precisariam fazer para validá-lo?</li></ul>
+      <div class="case-no">70–75 min</div>
+      <p><b>Consolidação individual e fechamento: Trazer todos de volta. Pedir que respondam individualmente às perguntas de reflexão (3 min). Depois, cada participante compartilha UMA insight no chat (2 min). Facilitador faz síntese final: recapitular o ciclo (experiência → reflexão → conceituação → experimentação), destacar 2-3 insights do chat, conectar ao objetivo de consolidação. Compartilhar recursos adicionais (seções específicas do artigo para aprofundamento, papers relacionados). Agradecer e encerrar.</b></p>
+      <p>Fechamento deve ser ENERGIZANTE, não exaustivo. Celebre a aplicação prática: &#39;Vocês não apenas leram sobre CA-MAS – vocês PROJETARAM sistemas CA-MAS hoje&#39;. Capture insights do chat para compartilhar depois (documento de síntese). Se houver tempo extra, lance a pergunta de fechamento do artigo sobre ontologias+GNN+VAE como provocação para estudo futuro. Reforce que o artigo é uma REFERÊNCIA para consulta contínua, não para memorização.</p>
+      <ul><li>Que aspecto de CA-MAS vocês agora entendem melhor do que antes da sessão?</li><li>Se vocês fossem começar um projeto CA-MAS amanhã, qual seria o primeiro passo?</li></ul>
     </div>
 
     <h3 style="margin-top:28px">Tabela de tempo</h3>
@@ -408,23 +407,23 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
   <table class="data">
     <thead><tr><th>Tempo</th><th>Atividade</th><th>Objetivo Pedagógico</th></tr></thead>
     <tbody>
-      <tr><td>0–5 min</td><td>Abertura e poll diagnóstico</td><td>Ativar conhecimento prévio; estabelecer baseline</td></tr>
-      <tr><td>5–10 min</td><td>Distribuição de cenários e formação de grupos</td><td>Contextualizar aplicação; preparar experiência concreta</td></tr>
-      <tr><td>10–25 min</td><td>Design CA-MAS em breakout rooms</td><td>Aplicar taxonomia do artigo em contexto realista (experiência concreta)</td></tr>
-      <tr><td>25–45 min</td><td>Apresentações + observação estruturada</td><td>Expor diversidade de soluções; praticar análise crítica (observação reflexiva)</td></tr>
-      <tr><td>45–65 min</td><td>Mapeamento de padrões e discussão facilitada</td><td>Abstrair princípios de design; conectar com desafios teóricos (conceituação abstrata)</td></tr>
-      <tr><td>65–75 min</td><td>Redesign (pivô) + debrief</td><td>Aplicar aprendizado em iteração; preparar transferência (experimentação ativa)</td></tr>
+      <tr><td>0–5 min</td><td>Abertura e alinhamento</td><td>Estabelecer expectativas e verificar preparação</td></tr>
+      <tr><td>5–20 min</td><td>Experiência Concreta (breakout)</td><td>Aplicar taxonomia MAS/CAS em cenário real</td></tr>
+      <tr><td>20–32 min</td><td>Observação Reflexiva (breakout)</td><td>Identificar trade-offs e desafios de design</td></tr>
+      <tr><td>32–52 min</td><td>Conceituação Abstrata (plenária)</td><td>Comparar abordagens e extrair padrões gerais</td></tr>
+      <tr><td>52–70 min</td><td>Experimentação Ativa (breakout)</td><td>Redesenhar CA-MAS com framework completo Sense-Learn-Reason-Predict-Act</td></tr>
+      <tr><td>70–75 min</td><td>Consolidação e fechamento</td><td>Reflexão individual e síntese coletiva</td></tr>
     </tbody>
   </table>
 </div>
     <div class="case-grid" style="margin-top:20px">
       <div class="panel">
         <h3>Estrutura do debrief</h3>
-        <ul><li>Síntese visual: Projete mapa conceitual co-criado na fase de conceituação, destacando conexões entre estruturas organizacionais, técnicas e domínios.</li><li>Validação de aprendizado: Pergunte &#39;Quem mudou de ideia sobre alguma escolha de design durante a sessão? O que provocou a mudança?&#39; (metacognição explícita).</li><li>Ponte com desafios de pesquisa: Retome os 3 desafios da seção 5 e pergunte &#39;Qual desses vocês sentiram mais visceralmente durante o design?&#39;</li><li>Orientação assíncrona: Explique expectativa de postar pivô (template: Mudança proposta / Justificativa baseada no artigo / Novo trade-off criado) e comentar 2 outros até [data].</li><li>Pergunta de saída: &#39;Complete a frase: Um CA-MAS bem projetado é aquele que... [compartilhe no chat]&#39;. Leia 3-4 respostas em voz alta.</li><li>Fechamento com a pergunta do artigo: Releia a closing question sobre integração ontologia-DRL e convide para discussão assíncrona contínua.</li></ul>
+        <ul><li>Reflexão individual silenciosa (3 min): Participantes respondem às 5 perguntas de reflexão no formulário, focando em aprendizados pessoais e lacunas identificadas.</li><li>Compartilhamento de insights no chat (2 min): Cada participante escreve UMA frase sobre o principal aprendizado ou mudança de perspectiva sobre CA-MAS.</li><li>Síntese facilitada (3 min): Facilitador agrupa insights em 2-3 temas emergentes (ex: &#39;Muitos destacaram a tensão entre adaptabilidade e interpretabilidade&#39;, &#39;Vários perceberam que estrutura organizacional é decisão de design, não detalhe técnico&#39;).</li><li>Conexão com objetivos de aprendizagem (1 min): Facilitador recapitula o ciclo de Kolb e como cada fase contribuiu para consolidação do framework Sense-Learn-Reason-Predict-Act.</li><li>Próximos passos e recursos (1 min): Indicar seções específicas do artigo para aprofundamento por interesse (ex: &#39;Se você trabalha com IoT, veja seção 4.3 Tabela 2 linha IoT&#39;), compartilhar link para papers relacionados e comunidades de prática.</li></ul>
       </div>
       <div class="panel">
         <h3>Objetivo de consolidação</h3>
-        <p>Consolidação bem-sucedida significa que participantes conseguem: (1) aplicar a taxonomia CA-MAS (estruturas organizacionais, modelagem de contexto, técnicas de raciocínio) para projetar um sistema multi-agente para um domínio específico; (2) justificar escolhas de design explicitando trade-offs entre requisitos conflitantes; (3) identificar como os três desafios principais do artigo (estruturas relaxadas, consenso, integração ontologia-DRL) emergem em designs concretos; e (4) iterar sobre um design inicial incorporando críticas fundamentadas no framework teórico do artigo.</p>
+        <p>Participantes conseguem, ao final da sessão, projetar um CA-MAS básico para um domínio específico, identificando e justificando: (1) estrutura organizacional adequada; (2) técnicas de modelagem de contexto; (3) implementação concreta das cinco capacidades Sense-Learn-Reason-Predict-Act com técnicas do artigo; (4) pelo menos um desafio (restrições organizacionais, consenso ou dependência de ontologias) e uma estratégia de mitigação. Consolidação bem-sucedida significa que o participante pode usar o artigo como referência técnica aplicada, não apenas como conhecimento teórico.</p>
       </div>
     </div>
   </div>
@@ -448,7 +447,7 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 
 <footer>
   <div class="wrap">
-    Dinâmica derivada de Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis. <i>A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</i>. arXiv preprint arXiv:2402.01968v2 [cs.MA].<br><br>
+    Dinâmica derivada de Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis. <i>A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</i>. arXiv preprint.<br><br>
     <a href="index.html">Leitura guiada</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="../../css-context-sensitive-systems/index.html">&#8592; CSS - Context Sensitive Systems</a>
   </div>
 </footer>

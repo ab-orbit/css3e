@@ -5,15 +5,17 @@ keeps every generated artifact consistent with a single reading of the paper).
 
 from __future__ import annotations
 
-from pydantic import BaseModel, Field
+from pydantic import Field
+
+from pipeline.schemas.base import CoercingModel
 
 
-class Author(BaseModel):
+class Author(CoercingModel):
     name: str
     affiliation: str = ""
 
 
-class CategoryRaw(BaseModel):
+class CategoryRaw(CoercingModel):
     """One member of the paper's core taxonomy (e.g. SMCAS/UDCAS/VSCAS)."""
 
     tag: str = Field(description="Short label, e.g. 'Categoria I · interna'")
@@ -26,12 +28,12 @@ class CategoryRaw(BaseModel):
     )
 
 
-class SectionSummary(BaseModel):
+class SectionSummary(CoercingModel):
     heading: str
     summary: str
 
 
-class PaperAnalysis(BaseModel):
+class PaperAnalysis(CoercingModel):
     """Structured comprehension of the source PDF. Produced once by the
     analyze_paper node; every other node in the graph reads this, not the PDF.
     """

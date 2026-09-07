@@ -25,6 +25,41 @@
   include_in_llms_txt: true
   sitemap_priority_override: null
   canonical_override: null
+- slug: ai-ethics-empirical-study
+  tema: ethics-on-ai
+  title: 'AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers'
+  title_pt: ''
+  pdf_source: articles/ethics-on-ai/ai-ethics-empirical-study/ai-ethics-empirical-study.pdf
+  doi: 10.1109/TCSS.2023.3251729
+  authors:
+  - Arif Ali Khan
+  - Muhammad Azeem Akbar
+  - Mahdi Fahmideh
+  - Peng Liang
+  - Muhammad Waseem
+  - Aakash Ahmad
+  - Mahmood Niazi
+  - Pekka Abrahamsson
+  date_published: '2023'
+  pages:
+    article: articles/ethics-on-ai/ai-ethics-empirical-study/index.html
+    blog: articles/ethics-on-ai/ai-ethics-empirical-study/blog.html
+    workshop: articles/ethics-on-ai/ai-ethics-empirical-study/workshop.html
+  briefing: Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência,
+    accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento
+    ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios
+    para sistemas de IA confiáveis.
+  has_audio: false
+  has_slides: true
+  slides_pptx_path: slides/deck.pptx
+  slides_pdf_path: slides/deck.pdf
+  slides_preview_url: null
+  slides_edit_url: null
+  status: published
+  include_in_sitemap: true
+  include_in_llms_txt: true
+  sitemap_priority_override: null
+  canonical_override: null
 - slug: context-aware-mas
   tema: sistemas-multiagente-contexto
   title: 'A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges
@@ -45,9 +80,9 @@
     workshop: articles/sistemas-multiagente-contexto/context-aware-mas/workshop.html
   briefing: Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de
     Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason,
-    Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas
-    multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework
-    para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.
+    Predict e Act — em um framework coerente. A pesquisa preenche uma lacuna crítica ao conectar consciência
+    de contexto e sistemas multi-agente, oferecendo taxonomia organizada, processo geral de desenvolvimento
+    e análise de aplicações em oito domínios distintos.
   has_audio: true
   has_slides: true
   slides_pptx_path: slides/deck.pptx

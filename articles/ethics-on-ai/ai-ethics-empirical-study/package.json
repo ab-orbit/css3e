@@ -1,0 +1,3498 @@
+{
+  "slug": "ai-ethics-empirical-study",
+  "tema": "ethics-on-ai",
+  "paper": {
+    "title": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+    "subtitle": "",
+    "authors": [
+      {
+        "name": "Arif Ali Khan",
+        "affiliation": "M3S Empirical Software Engineering Research Unit, University of Oulu, 90014 Oulu, Finland"
+      },
+      {
+        "name": "Muhammad Azeem Akbar",
+        "affiliation": "Software Engineering Department, Lappeenranta-Lahti University of Technology, 15210 Lappeenranta, Finland"
+      },
+      {
+        "name": "Mahdi Fahmideh",
+        "affiliation": "School of Business, University of Southern Queensland, Toowoomba, QLD 4350, Australia"
+      },
+      {
+        "name": "Peng Liang",
+        "affiliation": "School of Computer Science, Wuhan University, Wuhan 430072, China"
+      },
+      {
+        "name": "Muhammad Waseem",
+        "affiliation": "Faculty of Information Technology, University of Jyväskylä, 40014 Jyväskylä, Finland"
+      },
+      {
+        "name": "Aakash Ahmad",
+        "affiliation": "School of Computing and Communications, Lancaster University Leipzig, 04109 Leipzig, Germany"
+      },
+      {
+        "name": "Mahmood Niazi",
+        "affiliation": "Department of Information and Computer Sciences, King Fahd University of Petroleum and Minerals, Dhahran 31261, Saudi Arabia"
+      },
+      {
+        "name": "Pekka Abrahamsson",
+        "affiliation": "Faculty of Information Technology and Communication Sciences, Tampere University, 33014 Tampere, Finland"
+      }
+    ],
+    "venue": "IEEE Transactions on Computational Social Systems",
+    "pages": "VOL. 10, NO. 6, DECEMBER 2023",
+    "date_published": "2023",
+    "doi": "10.1109/TCSS.2023.3251729",
+    "source_pdf_url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-kzxcc0z0/AI Ethics - An Empirical Study.pdf",
+    "abstract": "Artificial intelligence (AI) solutions and technologies are being increasingly adopted in smart systems contexts; however, such technologies are concerned with ethical uncertainties. Various guidelines, principles, and regulatory frameworks are designed to ensure that AI technologies adhere to ethical well-being. However, the implications of AI ethics principles and guidelines are still being debated. To further explore the significance of AI ethics principles and relevant challenges, we conducted a survey of 99 randomly selected representative AI practitioners and lawmakers (e.g., AI engineers and lawyers) from 20 countries across five continents. To the best of our knowledge, this is the first empirical study that unveils the perceptions of two different types of population (AI practitioners and lawmakers) and the study findings confirm that transparency, accountability, and privacy are the most critical AI ethics principles. On the other hand, lack of ethical knowledge, no legal frameworks, and lacking monitoring bodies are found to be the most common AI ethics challenges. The impact analysis of the challenges across principles reveals that conflict in practice is a highly severe challenge. Moreover, the perceptions of practitioners and lawmakers are statistically correlated with significant differences for particular principles (e.g. fairness and freedom) and challenges (e.g. lacking monitoring bodies and machine distortion). Our findings stimulate further research, particularly empowering existing capability maturity models to support ethics-aware AI systems' development and quality assessment.",
+    "keywords": [
+      "Accountable artificial intelligence",
+      "Artificial intelligence (AI)",
+      "AI ethics",
+      "AI ethics principles",
+      "challenges",
+      "machine ethics"
+    ],
+    "problem_statement": "Apesar dos benefícios prometidos pelas tecnologias de IA, há preocupações crescentes de que sistemas complexos e opacos possam trazer mais danos sociais do que benefícios. Cenários de falha ética em IA já foram testemunhados (como o sistema de recrutamento da Amazon, que discriminava candidatas mulheres). Embora várias diretrizes, princípios e frameworks regulatórios tenham sido desenvolvidos para garantir que as tecnologias de IA sigam o bem-estar ético, as implicações desses princípios e diretrizes ainda estão sendo debatidas. Há uma lacuna entre a pesquisa em ética de IA e a prática industrial, e o estado atual da ética de IA é amplamente desconhecido para o público, profissionais, políticas e legisladores. Falta investigação empírica que explore os princípios e desafios associados à ética de IA, especialmente capturando as percepções de diferentes tipos de população (profissionais e legisladores).",
+    "key_concepts": [
+      "AI ethics principles",
+      "transparency",
+      "accountability",
+      "privacy",
+      "fairness",
+      "autonomy",
+      "explainability",
+      "lack of ethical knowledge",
+      "no legal frameworks",
+      "lacking monitoring bodies",
+      "conflict in practice",
+      "trustworthy AI",
+      "AI HLEG guidelines",
+      "ethically aligned design (EAD)",
+      "ART framework (Accountability, Responsibility, Transparency)",
+      "severity impact",
+      "Spearman's rank-order correlation"
+    ],
+    "categories": [],
+    "section_outline": [
+      {
+        "heading": "I. INTRODUCTION",
+        "summary": "Apresenta o contexto da expansão da IA em diversos setores, os benefícios e riscos éticos associados, cenários de falha ética (ex.: sistema de recrutamento da Amazon), a necessidade de políticas e princípios éticos, e a lacuna de conhecimento empírico sobre ética de IA. Formula três questões de pesquisa (RQ1, RQ2, RQ3) para explorar percepções de profissionais e legisladores sobre princípios e desafios de ética de IA."
+      },
+      {
+        "heading": "II. BACKGROUND",
+        "summary": "Define ética de IA como parte da ética aplicada, discute seu papel em promover valores éticos e bem-estar coletivo. Revisa diretrizes e princípios de ética de IA desenvolvidos por organizações como Google, SAP, ACM, AI HLEG (Europa), IEEE (EAD), e ISO/IEC JTC 1/SC 42. Destaca a lacuna entre diretrizes disponíveis e sua adoção efetiva na indústria, motivando a necessidade de estudos empíricos."
+      },
+      {
+        "heading": "III. METHODOLOGY",
+        "summary": "Descreve a metodologia de pesquisa: survey com dois grupos-alvo (profissionais de IA e legisladores), coleta de dados via redes sociais e contatos profissionais, instrumento de survey em inglês e chinês (para capturar a indústria chinesa), pilotagem com especialistas, coleta de 99 respostas válidas de 20 países em cinco continentes. Detalha as quatro seções do questionário (demografia, princípios, desafios, impacto dos desafios) e a abordagem de análise de dados (análise de frequência, correlação de Spearman, teste t independente)."
+      },
+      {
+        "heading": "IV. RESULTS AND DISCUSSION",
+        "summary": "Apresenta os resultados: (A) Detalhes demográficos dos participantes (distribuição geográfica, tamanho de organização, papéis profissionais, tipos de produtos/sistemas, experiência). (B) Percepções sobre princípios de ética de IA (RQ1): transparência, accountability e privacidade são os mais críticos; desafios: falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento são os mais comuns. (C) Impactos de severidade dos desafios sobre os princípios (RQ2): conflito na prática é o desafio mais severo. (D) Diferenças estatísticas entre profissionais e legisladores (RQ3): correlação positiva e significativa, mas com diferenças para princípios específicos (ex.: fairness) e desafios (ex.: falta de órgãos de monitoramento)."
+      },
+      {
+        "heading": "V. KEY FINDINGS AND IMPLICATIONS",
+        "summary": "Resume as principais descobertas: confirmação empírica dos princípios e desafios identificados na revisão sistemática anterior; transparência, accountability e privacidade como princípios mais críticos; falta de conhecimento ético, ausência de frameworks legais e falta de monitoramento como desafios principais; conflito na prática como desafio mais severo; correlação estatística entre percepções de profissionais e legisladores. Discute implicações para pesquisa (necessidade de soluções práticas, exploração de causas e mitigação de desafios, contextualização de princípios) e para a prática (visão geral para profissionais, medição de impactos, suporte a políticas)."
+      },
+      {
+        "heading": "VI. THREATS TO VALIDITY",
+        "summary": "Discute ameaças à validade: interna (compreensão do instrumento, expertise dos participantes, viés interpessoal), de construto (confiabilidade das fontes de dados), externa (tamanho da amostra e generalização), e de conclusão (processo de coleta e análise de dados). Descreve estratégias de mitigação adotadas."
+      },
+      {
+        "heading": "VII. RELATED WORK",
+        "summary": "Revisa trabalhos relacionados em duas categorias: (A) Princípios e diretrizes de ética de IA (estudos de Lu et al., Vakkuri et al., Ibáñez e Olmeda) e (B) Frameworks de ética de IA (ECCOLA, AI4People, framework de Leikas et al.). Conclui que este estudo complementa a literatura ao investigar empiricamente princípios e desafios com dois tipos de população (profissionais e legisladores)."
+      },
+      {
+        "heading": "VIII. CONCLUSION AND FUTURE WORK",
+        "summary": "Conclui destacando cinco observações principais: papéis emergentes (importância de legisladores além de profissionais), achados confirmatórios (validação empírica de princípios e desafios), aderência a princípios e desafios (transparência, accountability, privacidade; falta de conhecimento, frameworks legais, monitoramento), consciência de risco (impactos de longo prazo dos desafios), e percepções correlacionadas de profissionais e legisladores. Propõe trabalho futuro: investigação empírica mais ampla, exploração de causas e soluções dos desafios, e desenvolvimento de modelo de maturidade de ética de IA."
+      }
+    ],
+    "formal_notation_present": false,
+    "formal_notation_block": "",
+    "case_study_present": false,
+    "case_summary": "",
+    "closing_question": "Se os princípios de ética de IA são amplamente reconhecidos mas raramente operacionalizados na prática — e se o desafio mais severo é justamente o \"conflito na prática\" entre princípios abstratos e contextos reais —, como podemos transformar diretrizes genéricas em padrões contextualizados, específicos de domínio e juridicamente vinculantes, que equilibrem as tensões éticas inerentes sem comprometer a inovação ou a autonomia humana?"
+  },
+  "hero": {
+    "eyebrow": "IEEE Trans. Comput. Soc. Syst. · Vol. 10, No. 6 · December 2023",
+    "h1": "Ética de IA: O Que Pensam Profissionais e Legisladores",
+    "lede": "Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios para sistemas de IA confiáveis.",
+    "toc_anchors": [
+      [
+        "introducao",
+        "Introdução"
+      ],
+      [
+        "background",
+        "Background"
+      ],
+      [
+        "metodologia",
+        "Metodologia"
+      ],
+      [
+        "resultados",
+        "Resultados e Discussão"
+      ],
+      [
+        "descobertas",
+        "Principais Descobertas"
+      ],
+      [
+        "validade",
+        "Ameaças à Validade"
+      ],
+      [
+        "trabalhos-relacionados",
+        "Trabalhos Relacionados"
+      ],
+      [
+        "conclusao",
+        "Conclusão"
+      ],
+      [
+        "mapa-mental",
+        "Mapa Mental"
+      ],
+      [
+        "downloads",
+        "Downloads"
+      ]
+    ],
+    "authors_line": "Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson",
+    "affiliations": "Os autores representam uma colaboração internacional de oito instituições de pesquisa: University of Oulu (Finlândia), Lappeenranta-Lahti University of Technology (Finlândia), University of Southern Queensland (Austrália), Wuhan University (China), University of Jyväskylä (Finlândia), Lancaster University Leipzig (Alemanha), King Fahd University of Petroleum and Minerals (Arábia Saudita) e Tampere University (Finlândia).",
+    "kv_rows": [
+      [
+        "Publicado em",
+        "IEEE Transactions on Computational Social Systems, Vol. 10, No. 6, Dezembro 2023"
+      ],
+      [
+        "Palavras-chave",
+        "Accountable artificial intelligence, AI ethics, AI ethics principles, challenges, machine ethics, transparency, accountability, privacy"
+      ],
+      [
+        "DOI",
+        "10.1109/TCSS.2023.3251729"
+      ]
+    ],
+    "problem_statement": "Apesar dos benefícios prometidos pelas tecnologias de IA, sistemas complexos e opacos podem trazer mais danos sociais do que benefícios — como demonstrado pelo sistema de recrutamento da Amazon, que discriminava candidatas mulheres. Embora diversas diretrizes, princípios e frameworks regulatórios tenham sido desenvolvidos para garantir o bem-estar ético das tecnologias de IA, suas implicações práticas ainda estão sendo debatidas. Existe uma lacuna crítica entre a pesquisa em ética de IA e a prática industrial: o estado atual da ética de IA permanece amplamente desconhecido para o público, profissionais, políticas e legisladores. Falta investigação empírica que explore os princípios e desafios associados à ética de IA, especialmente capturando as percepções de diferentes tipos de população — profissionais que desenvolvem sistemas de IA e legisladores que regulam seu uso."
+  },
+  "categories": [],
+  "mindmap": {
+    "root": {
+      "t": "Ética de IA: Estudo Empírico (Profissionais/Legisladores)",
+      "k": "root",
+      "children": [
+        {
+          "t": "Contexto e Problema",
+          "k": "context",
+          "children": [
+            {
+              "t": "Expansão da IA e riscos éticos",
+              "k": null,
+              "children": [
+                {
+                  "t": "Sistemas opacos podem causar danos sociais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Caso Amazon: discriminação de gênero no recrutamento",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Lacuna entre pesquisa e prática industrial",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Diretrizes e frameworks existentes",
+              "k": null,
+              "children": [
+                {
+                  "t": "AI HLEG (Europa), IEEE EAD, ISO/IEC JTC 1/SC 42",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Google, SAP, ACM, ART framework",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Implicações ainda debatidas, adoção limitada",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Questões de pesquisa (RQ1-3)",
+              "k": null,
+              "children": [
+                {
+                  "t": "RQ1: Percepções sobre princípios e desafios",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "RQ2: Impacto de severidade dos desafios",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "RQ3: Diferenças profissionais vs. legisladores",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Metodologia do Survey",
+          "k": "method",
+          "children": [
+            {
+              "t": "Público-alvo e coleta",
+              "k": null,
+              "children": [
+                {
+                  "t": "99 participantes de 20 países (5 continentes)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Profissionais de IA e legisladores (advogados)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Redes sociais, contatos profissionais, inglês/chinês",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Instrumento do questionário",
+              "k": null,
+              "children": [
+                {
+                  "t": "Seção 1: Dados demográficos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Seção 2: Princípios de ética de IA",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Seção 3: Desafios de ética de IA",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Seção 4: Impacto dos desafios sobre princípios",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Análise de dados",
+              "k": null,
+              "children": [
+                {
+                  "t": "Análise de frequência",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Correlação de Spearman",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Teste t independente",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Resultados Empíricos",
+          "k": "results",
+          "children": [
+            {
+              "t": "Demografia dos participantes",
+              "k": null,
+              "children": [
+                {
+                  "t": "Distribuição geográfica global",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Diversos tamanhos de organização",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Papéis: engenheiros, advogados, pesquisadores",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Princípios mais críticos (RQ1)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Transparência: princípio mais importante",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Accountability: responsabilização clara",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Privacidade: proteção de dados pessoais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Fairness e autonomia também relevantes",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Desafios mais comuns (RQ1)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Falta de conhecimento ético",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ausência de frameworks legais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Falta de órgãos de monitoramento",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Distorção de máquina",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Impacto de severidade (RQ2)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Conflito na prática: desafio mais severo",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Tensão entre princípios abstratos e contextos reais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Impactos de longo prazo dos desafios",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Diferenças estatísticas (RQ3)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Correlação positiva entre grupos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Diferenças em fairness e freedom",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Diferenças em falta de monitoramento",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Diferenças em distorção de máquina",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Implicações e Conclusões",
+          "k": "implications",
+          "children": [
+            {
+              "t": "Para a pesquisa",
+              "k": null,
+              "children": [
+                {
+                  "t": "Necessidade de soluções práticas contextualizadas",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Explorar causas e mitigação de desafios",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Desenvolver modelo de maturidade de ética de IA",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Para a prática",
+              "k": null,
+              "children": [
+                {
+                  "t": "Visão geral para profissionais da indústria",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Medição de impactos dos desafios",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Suporte a políticas e regulamentação",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Achados-chave confirmados",
+              "k": null,
+              "children": [
+                {
+                  "t": "Validação empírica de princípios e desafios",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Papéis emergentes: legisladores são críticos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Consciência de risco em ambos os grupos",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Trabalho futuro",
+              "k": null,
+              "children": [
+                {
+                  "t": "Investigação empírica mais ampla",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Exploração de causas raiz dos desafios",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Padrões específicos de domínio",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "palette": [
+      {
+        "kind": "root",
+        "fill": "#c0392b",
+        "text": "#fff",
+        "label": "Título do artigo"
+      },
+      {
+        "kind": "context",
+        "fill": "#16a085",
+        "text": "#fff",
+        "label": "Contexto e fundamentação"
+      },
+      {
+        "kind": "method",
+        "fill": "#2980b9",
+        "text": "#fff",
+        "label": "Metodologia"
+      },
+      {
+        "kind": "results",
+        "fill": "#f39c12",
+        "text": "#fff",
+        "label": "Resultados e achados"
+      },
+      {
+        "kind": "implications",
+        "fill": "#8e44ad",
+        "text": "#fff",
+        "label": "Implicações e conclusões"
+      }
+    ]
+  },
+  "tables": [
+    {
+      "caption": "Princípios de Ética de IA: Conceitos e Definições",
+      "columns": [
+        "Princípio",
+        "Definição/Significado",
+        "Criticidade (Estudo)"
+      ],
+      "rows": [
+        [
+          "Transparency (Transparência)",
+          "Capacidade de tornar visíveis e compreensíveis os processos, decisões e funcionamento dos sistemas de IA",
+          "Mais crítico"
+        ],
+        [
+          "Accountability (Responsabilização)",
+          "Atribuição clara de responsabilidade por decisões e ações de sistemas de IA, com mecanismos de prestação de contas",
+          "Mais crítico"
+        ],
+        [
+          "Privacy (Privacidade)",
+          "Proteção de dados pessoais e garantia de confidencialidade no processamento de informações por sistemas de IA",
+          "Mais crítico"
+        ],
+        [
+          "Fairness (Equidade)",
+          "Garantia de tratamento justo e não discriminatório, evitando vieses em decisões automatizadas",
+          "Crítico (diferença entre profissionais e legisladores)"
+        ],
+        [
+          "Autonomy (Autonomia)",
+          "Preservação da capacidade humana de tomada de decisão e controle sobre sistemas de IA",
+          "Crítico"
+        ],
+        [
+          "Explainability (Explicabilidade)",
+          "Capacidade de fornecer explicações compreensíveis sobre como e por que um sistema de IA chegou a determinada decisão",
+          "Crítico"
+        ],
+        [
+          "Trustworthy AI (IA Confiável)",
+          "Conjunto de características que tornam sistemas de IA dignos de confiança, integrando múltiplos princípios éticos",
+          "Meta-princípio"
+        ]
+      ]
+    },
+    {
+      "caption": "Desafios de Ética de IA: Tipos e Impactos",
+      "columns": [
+        "Desafio",
+        "Descrição",
+        "Severidade/Prevalência"
+      ],
+      "rows": [
+        [
+          "Lack of ethical knowledge (Falta de conhecimento ético)",
+          "Ausência de formação e compreensão adequada sobre princípios éticos de IA entre profissionais",
+          "Mais comum"
+        ],
+        [
+          "No legal frameworks (Ausência de frameworks legais)",
+          "Falta de regulamentação e legislação específica para governar o desenvolvimento e uso de IA",
+          "Mais comum"
+        ],
+        [
+          "Lacking monitoring bodies (Falta de órgãos de monitoramento)",
+          "Ausência de entidades responsáveis por fiscalizar e garantir conformidade ética em sistemas de IA",
+          "Mais comum (diferença entre profissionais e legisladores)"
+        ],
+        [
+          "Conflict in practice (Conflito na prática)",
+          "Tensão entre princípios éticos abstratos e sua aplicação em contextos reais de desenvolvimento e uso",
+          "Desafio mais severo"
+        ],
+        [
+          "Machine distortion (Distorção de máquina)",
+          "Vieses algorítmicos e erros sistemáticos que comprometem a qualidade e justiça das decisões de IA",
+          "Severo (diferença entre profissionais e legisladores)"
+        ]
+      ]
+    },
+    {
+      "caption": "Frameworks e Diretrizes de Ética de IA: Principais Iniciativas",
+      "columns": [
+        "Framework/Diretriz",
+        "Organização/Origem",
+        "Foco Principal"
+      ],
+      "rows": [
+        [
+          "AI HLEG Guidelines",
+          "High-Level Expert Group on AI (União Europeia)",
+          "Sete requisitos para IA confiável, incluindo supervisão humana e transparência"
+        ],
+        [
+          "EAD (Ethically Aligned Design)",
+          "IEEE (Institute of Electrical and Electronics Engineers)",
+          "Design de sistemas autônomos e inteligentes alinhados com valores humanos"
+        ],
+        [
+          "ART Framework",
+          "Diversos autores acadêmicos",
+          "Accountability, Responsibility e Transparency como pilares centrais"
+        ],
+        [
+          "ISO/IEC JTC 1/SC 42",
+          "International Organization for Standardization",
+          "Padronização internacional de IA, incluindo aspectos éticos"
+        ],
+        [
+          "Google AI Principles",
+          "Google",
+          "Princípios corporativos para desenvolvimento responsável de IA"
+        ],
+        [
+          "SAP Guiding Principles",
+          "SAP",
+          "Diretrizes empresariais para IA ética em contextos corporativos"
+        ],
+        [
+          "ECCOLA",
+          "Framework acadêmico",
+          "Ferramenta prática para incorporar considerações éticas no desenvolvimento de IA"
+        ],
+        [
+          "AI4People",
+          "Iniciativa europeia",
+          "Framework ético baseado em princípios bioéticos adaptados para IA"
+        ]
+      ]
+    }
+  ],
+  "essay_condensed": {
+    "variant": "condensed",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "O que profissionais e legisladores realmente pensam",
+        "paragraphs": [
+          "Diferentemente de revisões teóricas ou análises de documentos, este estudo foi a campo: 99 profissionais de IA e legisladores de 20 países, distribuídos por cinco continentes, responderam a um questionário estruturado sobre princípios e desafios da ética de IA. A amostra incluiu engenheiros de software, cientistas de dados, advogados e formuladores de políticas — dois grupos que raramente conversam, mas que precisam convergir se quisermos sistemas de IA confiáveis.",
+          "Os resultados confirmam empiricamente o que diretrizes como as da AI HLEG (High-Level Expert Group on AI, da União Europeia) e do IEEE já apontavam: transparência, accountability e privacidade emergem como os três princípios mais críticos. Mas a pesquisa vai além: ao capturar percepções de dois tipos de população, revela que há correlação estatística significativa entre as visões de profissionais e legisladores — embora com diferenças pontuais importantes, especialmente em torno de conceitos como fairness (justiça) e da necessidade de órgãos de monitoramento."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "transparência",
+          "accountability",
+          "privacidade",
+          "fairness",
+          "AI HLEG"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "Os desafios que travam a ética na prática",
+        "paragraphs": [
+          "Se os princípios são amplamente reconhecidos, por que tantos sistemas de IA ainda falham eticamente? O estudo identifica três obstáculos principais: falta de conhecimento ético entre equipes de desenvolvimento, ausência de frameworks legais claros e vinculantes, e carência de órgãos de monitoramento que fiscalizem a conformidade. Esses desafios não são apenas teóricos — eles têm impacto mensurável.",
+          "A análise de severidade revela que o desafio mais crítico é o conflito na prática: a tensão entre princípios abstratos (como \"seja transparente\") e as demandas concretas de contextos específicos (como proteger segredos comerciais ou lidar com modelos de aprendizado profundo inerentemente opacos). Esse conflito atravessa todos os princípios, mas afeta especialmente a explicabilidade e a autonomia — conceitos que exigem operacionalização contextualizada, não apenas adesão retórica."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "O desafio mais severo não é a falta de princípios, mas o conflito entre eles e a realidade da prática.",
+          "cite": "Análise de impacto · Seção IV"
+        },
+        "terms": [
+          "conflito na prática",
+          "explicabilidade",
+          "frameworks legais",
+          "órgãos de monitoramento"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Da diretriz genérica ao padrão contextualizado",
+        "paragraphs": [
+          "As implicações do estudo são claras: diretrizes éticas genéricas, por mais bem-intencionadas, não bastam. É preciso traduzi-las em padrões específicos de domínio — saúde, finanças, justiça criminal — que equilibrem tensões éticas inerentes sem sufocar a inovação. Os autores propõem, como trabalho futuro, o desenvolvimento de um modelo de maturidade de ética de IA, capaz de avaliar e orientar organizações na adoção progressiva de práticas éticas.",
+          "Mais importante: o estudo evidencia que a ética de IA não é apenas responsabilidade de engenheiros. Legisladores, formuladores de políticas e órgãos reguladores têm papel central — e suas percepções, embora correlacionadas com as dos profissionais, divergem em pontos críticos. Isso sugere que a construção de sistemas confiáveis exige diálogo contínuo entre quem desenvolve e quem regula, entre quem codifica e quem legisla."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "modelo de maturidade",
+          "padrões específicos de domínio",
+          "trustworthy AI"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine um sistema de recrutamento que, treinado com dados históricos de contratações, aprende silenciosamente a descartar currículos de candidatas mulheres. Foi exatamente o que aconteceu na Amazon: uma ferramenta de IA projetada para otimizar seleções acabou reproduzindo — e amplificando — vieses de gênero enterrados nos dados. O episódio não é isolado. À medida que sistemas de inteligência artificial se infiltram em decisões sobre crédito, saúde, justiça criminal e educação, cresce a urgência de uma pergunta incômoda: como garantir que essas tecnologias opacas e complexas sirvam ao bem-estar coletivo, em vez de perpetuar injustiças? É nesse cenário que a ética de IA deixa de ser um debate filosófico abstrato e se torna uma necessidade prática — e é sobre essa transição, do princípio ao chão de fábrica, que trata o estudo empírico de Khan e colegas, publicado no IEEE Transactions on Computational Social Systems.",
+    "closing_paragraph": "O estudo de Khan e colegas não oferece soluções prontas — e essa é, talvez, sua maior contribuição. Ao mapear empiricamente o terreno da ética de IA, ele expõe a distância entre o que sabemos ser necessário (transparência, accountability, privacidade) e o que conseguimos implementar (sistemas opacos, responsabilidades difusas, dados vazados). A lacuna não é de conhecimento, mas de operacionalização. E fechá-la exigirá mais do que boas intenções: exigirá frameworks juridicamente vinculantes, métricas de impacto, capacitação ética de equipes e, sobretudo, a coragem de reconhecer que alguns conflitos entre princípios não têm solução técnica — apenas negociação social."
+  },
+  "essay_full": {
+    "variant": "full",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "O Dilema Ético da Inteligência Artificial",
+        "paragraphs": [
+          "A inteligência artificial promete revolucionar praticamente todos os setores da economia e da vida social. Sistemas de IA já diagnosticam doenças, dirigem veículos, recomendam conteúdo, aprovam crédito e até influenciam decisões judiciais. Essa expansão acelerada traz benefícios inegáveis: maior eficiência, personalização de serviços, descobertas científicas antes inimagináveis. Porém, junto com as promessas, surgem preocupações crescentes de que sistemas complexos e opacos possam trazer mais danos sociais do que benefícios.",
+          "Cenários de falha ética já foram testemunhados em escala global. Além do caso da Amazon, algoritmos de reconhecimento facial demonstraram vieses raciais, sistemas de pontuação de crédito perpetuaram discriminação socioeconômica, e plataformas de redes sociais amplificaram desinformação com consequências políticas graves. Esses incidentes revelam uma verdade desconfortável: a IA não é neutra. Ela reflete — e muitas vezes amplifica — os vieses, valores e falhas dos dados e das pessoas que a criam.",
+          "Em resposta a essas preocupações, organizações internacionais, empresas de tecnologia e governos desenvolveram uma profusão de diretrizes, princípios e frameworks regulatórios para garantir que as tecnologias de IA sigam padrões éticos. O High-Level Expert Group on AI da União Europeia, a IEEE com seu Ethically Aligned Design, o Google, a SAP, a ACM — todos propuseram seus conjuntos de princípios. No entanto, as implicações práticas desses princípios ainda estão sendo debatidas, e existe uma lacuna persistente entre a pesquisa acadêmica em ética de IA e a prática industrial."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "inteligência artificial",
+          "vieses",
+          "frameworks regulatórios",
+          "ética de IA"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "Mapeando o Território: Princípios e Desafios",
+        "paragraphs": [
+          "Para compreender melhor o estado atual da ética de IA, um grupo internacional de pesquisadores conduziu um estudo empírico abrangente, coletando as percepções de 99 profissionais de IA e legisladores de 20 países distribuídos por cinco continentes. O estudo é notável por capturar, pela primeira vez, as visões de dois tipos distintos de população: aqueles que constroem sistemas de IA (engenheiros, cientistas de dados, arquitetos de software) e aqueles que regulam seu uso (advogados, formuladores de políticas, especialistas em compliance).",
+          "A metodologia envolveu um questionário estruturado em quatro seções: dados demográficos, percepções sobre princípios de ética de IA, desafios enfrentados na implementação desses princípios, e análise de impacto dos desafios sobre cada princípio. O instrumento foi disponibilizado em inglês e chinês, reconhecendo a importância da indústria chinesa no cenário global de IA. Os participantes representavam organizações de diversos tamanhos — desde startups até corporações multinacionais — e trabalhavam em domínios variados, incluindo saúde, finanças, educação, transporte e governo.",
+          "Os resultados revelaram um consenso notável sobre quais princípios são mais críticos. Transparência, accountability e privacidade emergiram como as três prioridades máximas, reconhecidas tanto por profissionais quanto por legisladores. A transparência refere-se à capacidade de compreender como um sistema de IA toma decisões; a accountability diz respeito à atribuição clara de responsabilidade quando algo dá errado; e a privacidade envolve a proteção de dados pessoais sensíveis. Outros princípios importantes incluíram fairness (justiça), explicabilidade, autonomia humana e segurança."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Transparência, accountability e privacidade emergiram como as três prioridades máximas, reconhecidas tanto por profissionais quanto por legisladores.",
+          "cite": "Resultados do estudo · RQ1"
+        },
+        "terms": [
+          "transparência",
+          "accountability",
+          "privacidade",
+          "fairness"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Os Obstáculos na Prática",
+        "paragraphs": [
+          "Identificar princípios éticos é apenas o primeiro passo. O estudo também investigou os desafios concretos que impedem a implementação efetiva desses princípios no desenvolvimento e implantação de sistemas de IA. Três desafios se destacaram como os mais comuns: falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento.",
+          "A falta de conhecimento ético reflete uma realidade preocupante: muitos profissionais de tecnologia não receberam formação adequada em ética durante sua educação formal. Engenheiros de software e cientistas de dados são treinados para otimizar algoritmos e maximizar métricas de desempenho, mas raramente são expostos a discussões sistemáticas sobre implicações sociais, vieses algorítmicos ou dilemas morais. Essa lacuna educacional se traduz em sistemas que, embora tecnicamente sofisticados, podem ser eticamente problemáticos.",
+          "A ausência de frameworks legais é outro obstáculo significativo. Enquanto algumas jurisdições — notavelmente a União Europeia com seu AI Act — avançam na regulamentação de IA, a maioria dos países ainda opera em um vácuo legal. Sem legislação clara, empresas enfrentam incerteza sobre quais práticas são aceitáveis, e indivíduos afetados por decisões algorítmicas têm poucos recursos legais. A falta de órgãos de monitoramento agrava esse problema: mesmo quando princípios e diretrizes existem, não há entidades independentes com autoridade para auditar sistemas, investigar violações e aplicar sanções.",
+          "Outros desafios identificados incluem distorção de máquina (quando algoritmos produzem resultados inesperados ou enviesados), conflito na prática (tensões entre princípios éticos e pressões comerciais ou técnicas), e falta de padrões técnicos compartilhados para avaliar conformidade ética."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Muitos profissionais de tecnologia não receberam formação adequada em ética durante sua educação formal, criando uma lacuna entre sofisticação técnica e consciência ética.",
+          "cite": "Desafios identificados · RQ1"
+        },
+        "terms": [
+          "conhecimento ético",
+          "frameworks legais",
+          "órgãos de monitoramento",
+          "distorção de máquina",
+          "conflito na prática"
+        ]
+      },
+      {
+        "no": "04",
+        "heading": "Severidade e Impacto: Quando Princípios Colidem com a Realidade",
+        "paragraphs": [
+          "Uma das contribuições mais importantes do estudo foi a análise de severidade: como cada desafio impacta cada princípio ético. Os pesquisadores pediram aos participantes que avaliassem a gravidade de cada desafio em relação a princípios específicos, gerando um mapa detalhado de vulnerabilidades.",
+          "O resultado mais marcante foi a identificação do conflito na prática como o desafio mais severo. Esse achado revela uma tensão fundamental: mesmo quando profissionais e organizações reconhecem a importância de princípios éticos, eles frequentemente enfrentam pressões que os forçam a fazer concessões. Prazos apertados, demandas de clientes, limitações técnicas, competição de mercado — todos esses fatores podem empurrar equipes a priorizar funcionalidade e velocidade em detrimento de considerações éticas.",
+          "Por exemplo, implementar transparência plena pode conflitar com proteção de propriedade intelectual; garantir fairness absoluta pode reduzir a acurácia preditiva de um modelo; respeitar autonomia humana pode tornar sistemas menos eficientes. Esses trade-offs não são meramente técnicos — são dilemas morais que exigem julgamento contextual, negociação de valores e, frequentemente, escolhas difíceis.",
+          "A análise de impacto também revelou que certos desafios afetam alguns princípios de forma desproporcional. A falta de conhecimento ético, por exemplo, tem impacto particularmente severo sobre fairness e explicabilidade, enquanto a ausência de frameworks legais afeta mais diretamente accountability e privacidade. Essas nuances são cruciais para priorizar intervenções: não basta abordar desafios de forma genérica; é preciso entender suas manifestações específicas em diferentes contextos."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Conflito na prática emergiu como o desafio mais severo: mesmo reconhecendo princípios éticos, profissionais enfrentam pressões que os forçam a fazer concessões.",
+          "cite": "Análise de impacto · RQ2"
+        },
+        "terms": [
+          "análise de severidade",
+          "conflito na prática",
+          "trade-offs",
+          "julgamento contextual"
+        ]
+      },
+      {
+        "no": "05",
+        "heading": "Profissionais e Legisladores: Convergências e Divergências",
+        "paragraphs": [
+          "Uma das questões centrais do estudo era se profissionais de IA e legisladores compartilham percepções semelhantes sobre princípios e desafios éticos. A resposta é nuançada: há convergência significativa, mas também diferenças importantes.",
+          "A análise estatística usando correlação de Spearman revelou uma correlação positiva e significativa entre as percepções dos dois grupos. Isso é encorajador: sugere que existe uma base comum de entendimento que pode facilitar diálogo e colaboração. Tanto profissionais quanto legisladores reconhecem os mesmos princípios como prioritários e identificam desafios semelhantes.",
+          "No entanto, testes estatísticos mais refinados (teste t independente) identificaram diferenças significativas para princípios e desafios específicos. Por exemplo, legisladores tendem a atribuir maior importância ao princípio de fairness do que profissionais técnicos. Isso pode refletir a exposição dos legisladores a casos de discriminação algorítmica e seu papel em proteger direitos civis. Por outro lado, profissionais demonstraram maior preocupação com desafios técnicos específicos, como distorção de máquina.",
+          "Uma diferença particularmente notável emergiu em relação à falta de órgãos de monitoramento. Legisladores percebem esse desafio como mais crítico do que profissionais, possivelmente porque reconhecem a importância de mecanismos de enforcement para garantir conformidade. Profissionais, por sua vez, podem estar mais focados em desafios imediatos de implementação técnica.",
+          "Essas diferenças não são necessariamente problemáticas — elas refletem perspectivas complementares que, se integradas, podem enriquecer o desenvolvimento de sistemas de IA mais éticos. O desafio está em criar espaços de diálogo onde essas perspectivas possam convergir em soluções práticas."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Profissionais e legisladores compartilham uma base comum de entendimento, mas diferem em prioridades específicas — diferenças que refletem perspectivas complementares.",
+          "cite": "Análise comparativa · RQ3"
+        },
+        "terms": [
+          "correlação de Spearman",
+          "teste t independente",
+          "perspectivas complementares",
+          "enforcement"
+        ]
+      },
+      {
+        "no": "06",
+        "heading": "Implicações para Pesquisa e Prática",
+        "paragraphs": [
+          "Os achados deste estudo têm implicações profundas tanto para a pesquisa acadêmica quanto para a prática industrial e regulatória. Para pesquisadores, o estudo confirma empiricamente princípios e desafios previamente identificados em revisões sistemáticas da literatura, mas também revela lacunas importantes que demandam investigação adicional.",
+          "Uma necessidade urgente é o desenvolvimento de soluções práticas e contextualizadas. Princípios genéricos como transparência e fairness são importantes, mas insuficientes. É preciso traduzi-los em padrões específicos de domínio, métricas mensuráveis e ferramentas que possam ser integradas ao ciclo de vida de desenvolvimento de software. Por exemplo, o que significa transparência em um sistema de diagnóstico médico versus um algoritmo de recomendação de conteúdo? Como medir fairness em contextos onde múltiplas definições de justiça podem estar em conflito?",
+          "Outra direção de pesquisa crucial é a exploração das causas profundas dos desafios identificados e o desenvolvimento de estratégias de mitigação. Por que existe falta de conhecimento ético entre profissionais de tecnologia? Que reformas educacionais são necessárias? Como frameworks legais podem ser desenhados para equilibrar proteção e inovação? Que modelos de governança podem garantir monitoramento efetivo sem sufocar o desenvolvimento tecnológico?",
+          "Para a prática, o estudo oferece uma visão geral valiosa que pode orientar profissionais na priorização de esforços. Saber que transparência, accountability e privacidade são os princípios mais críticos permite que equipes de desenvolvimento foquem recursos limitados onde terão maior impacto. Compreender que conflito na prática é o desafio mais severo ajuda organizações a antecipar tensões e desenvolver processos de tomada de decisão que explicitem trade-offs éticos.",
+          "Para legisladores e formuladores de políticas, o estudo fornece evidências empíricas que podem informar o design de regulamentações. A identificação da falta de frameworks legais e órgãos de monitoramento como desafios principais sugere que investimento em infraestrutura regulatória é prioritário. Ao mesmo tempo, a correlação entre percepções de profissionais e legisladores indica que regulamentações desenvolvidas em colaboração com a indústria têm maior probabilidade de serem efetivas e viáveis."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Princípios genéricos são importantes, mas insuficientes. É preciso traduzi-los em padrões específicos de domínio, métricas mensuráveis e ferramentas integradas ao desenvolvimento.",
+          "cite": "Implicações para pesquisa"
+        },
+        "terms": [
+          "soluções contextualizadas",
+          "métricas mensuráveis",
+          "causas profundas",
+          "infraestrutura regulatória"
+        ]
+      },
+      {
+        "no": "07",
+        "heading": "Rumo a uma IA Verdadeiramente Ética",
+        "paragraphs": [
+          "O estudo revela cinco observações principais que devem orientar o futuro da ética de IA. Primeira, a importância de papéis emergentes: legisladores não são meros reguladores externos, mas stakeholders essenciais cujas perspectivas devem ser integradas desde as fases iniciais de design de sistemas de IA. Segunda, achados confirmatórios: a validação empírica de princípios e desafios previamente identificados na literatura fortalece a base de conhecimento e justifica investimento em soluções.",
+          "Terceira, aderência a princípios e desafios: o consenso em torno de transparência, accountability e privacidade, e o reconhecimento compartilhado de falta de conhecimento ético, frameworks legais e monitoramento, criam uma agenda clara para ação. Quarta, consciência de risco: a identificação de conflito na prática como desafio mais severo alerta para os impactos de longo prazo de decisões que priorizam conveniência sobre ética. Quinta, percepções correlacionadas: a convergência entre profissionais e legisladores oferece uma base promissora para colaboração multidisciplinar.",
+          "Olhando para o futuro, os pesquisadores propõem três direções principais de trabalho. Primeiro, investigação empírica mais ampla, expandindo a amostra para incluir mais países, setores e tipos de sistemas de IA, permitindo análises comparativas mais robustas. Segundo, exploração profunda das causas dos desafios e desenvolvimento de soluções específicas — por exemplo, programas de educação em ética para profissionais de tecnologia, templates de frameworks legais adaptáveis a diferentes jurisdições, modelos de órgãos de monitoramento independentes.",
+          "Terceiro, e talvez mais ambicioso, o desenvolvimento de um modelo de maturidade de ética de IA. Inspirado em modelos de maturidade de capacidade usados em engenharia de software, esse framework permitiria que organizações avaliem seu nível atual de maturidade ética e identifiquem caminhos de melhoria progressiva. Tal modelo poderia incluir níveis que vão desde conformidade básica com princípios até integração profunda de considerações éticas em todos os aspectos da cultura organizacional e processos de desenvolvimento."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "O desenvolvimento de um modelo de maturidade de ética de IA permitiria que organizações avaliem seu nível atual e identifiquem caminhos de melhoria progressiva.",
+          "cite": "Trabalho futuro"
+        },
+        "terms": [
+          "stakeholders",
+          "agenda para ação",
+          "colaboração multidisciplinar",
+          "modelo de maturidade"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine que você está prestes a solicitar um empréstimo bancário. O sistema automatizado analisa milhares de variáveis — sua renda, histórico de crédito, padrões de consumo — e, em segundos, retorna uma resposta: \"Negado\". Você pergunta o porquê, mas ninguém consegue explicar. O algoritmo decidiu, e sua lógica permanece opaca, mesmo para os engenheiros que o construíram. Agora imagine que esse mesmo sistema, treinado com dados históricos enviesados, sistematicamente rejeita pedidos de pessoas de determinados bairros ou gêneros, perpetuando desigualdades sem que ninguém perceba — até que seja tarde demais. Esse cenário não é ficção: em 2018, a Amazon descobriu que seu sistema de recrutamento baseado em inteligência artificial discriminava candidatas mulheres, porque havia sido treinado com currículos predominantemente masculinos. À medida que a IA se infiltra em decisões críticas — da saúde à justiça criminal, da educação ao mercado de trabalho —, a pergunta que ecoa é: como garantir que essas tecnologias sirvam ao bem-estar coletivo, em vez de amplificar injustiças? É nesse contexto que a ética de IA emerge não como um luxo filosófico, mas como uma necessidade urgente para profissionais, legisladores e sociedade.",
+    "closing_paragraph": "A jornada da ética de IA está apenas começando. Este estudo empírico oferece um mapa inicial do território — identificando os princípios mais valorizados, os desafios mais urgentes, e as áreas de convergência e divergência entre aqueles que constroem e aqueles que regulam sistemas de IA. Mas mapas não substituem a viagem. A verdadeira transformação exigirá esforço sustentado de múltiplos atores: educadores reformando currículos para incluir ética como componente central da formação técnica; pesquisadores desenvolvendo ferramentas práticas e contextualizadas; empresas investindo em processos que tornem considerações éticas parte integral do desenvolvimento; legisladores criando frameworks que protejam sem sufocar inovação; e sociedade civil mantendo vigilância crítica. A boa notícia é que existe consenso sobre o que importa e consciência crescente dos obstáculos. A questão agora é se teremos a vontade coletiva de transformar esse conhecimento em ação — antes que o próximo escândalo algorítmico nos force a fazê-lo."
+  },
+  "workshop": {
+    "title": "Ética de IA na Prática: Do Princípio ao Conflito Real",
+    "framing": "Ciclo de Kolb adaptado para ética aplicada: experiência concreta (cenário-dilema) → observação reflexiva (mapeamento de tensões) → conceituação abstrata (princípios e desafios do artigo) → experimentação ativa (proposta de operacionalização contextualizada)",
+    "duration_minutes": 75,
+    "participant_track": {
+      "steps": [
+        {
+          "phase": "Preparação assíncrona",
+          "instruction": "Antes da sessão, leia o resumo executivo do artigo (fornecido) e identifique pelo menos três princípios de ética de IA mencionados. Anote uma situação real ou hipotética em que você imagina que dois desses princípios entrem em conflito.",
+          "self_check_prompt": "Você consegue explicar em uma frase por que esses dois princípios podem ser incompatíveis em um contexto específico?"
+        },
+        {
+          "phase": "Experiência concreta (15 min)",
+          "instruction": "Você receberá um cenário-dilema de IA (ex.: sistema de crédito, recrutamento automatizado, diagnóstico médico). Em breakout room com 3-4 colegas, identifique quais princípios de ética de IA (transparência, accountability, privacidade, fairness, autonomia, explainability) estão em jogo e onde eles entram em conflito. Registre no Jamboard/Miro compartilhado da sua sala.",
+          "self_check_prompt": "Você consegue nomear pelo menos dois princípios que competem entre si neste cenário e explicar a natureza do trade-off?"
+        },
+        {
+          "phase": "Observação reflexiva (10 min)",
+          "instruction": "Retorne à sessão plenária. Observe os mapas de tensões criados por outros grupos no quadro compartilhado. Vote (usando reações/emojis) nos conflitos que você considera mais difíceis de resolver na prática.",
+          "self_check_prompt": "Você identificou padrões comuns entre os conflitos mapeados pelos diferentes grupos?"
+        },
+        {
+          "phase": "Conceituação abstrata (20 min)",
+          "instruction": "Acompanhe a apresentação facilitada sobre os achados do artigo: os três princípios mais críticos (transparência, accountability, privacidade), os três desafios mais comuns (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento) e o desafio mais severo (conflito na prática). Relacione esses achados empíricos com os conflitos que seu grupo mapeou. Anote no chat ou documento colaborativo: qual desafio do artigo explica melhor a dificuldade do seu cenário?",
+          "self_check_prompt": "Você consegue conectar pelo menos um desafio identificado no artigo com o dilema que seu grupo trabalhou?"
+        },
+        {
+          "phase": "Experimentação ativa (25 min)",
+          "instruction": "Retorne ao breakout room. Agora, usando o framework ART (Accountability, Responsibility, Transparency) mencionado no artigo, proponha uma solução operacional para o cenário do seu grupo: (1) Quem é accountable? (2) Como garantir transparência contextualizada (não apenas técnica)? (3) Que mecanismo de monitoramento seria viável? Prepare uma proposta de 2 minutos para apresentar na plenária. Use o template fornecido no Miro.",
+          "self_check_prompt": "Sua proposta especifica atores, processos e critérios de verificação concretos, ou ainda está em linguagem genérica?"
+        },
+        {
+          "phase": "Consolidação (5 min)",
+          "instruction": "Após ouvir as propostas dos outros grupos, responda individualmente (em formulário ou documento pessoal) às perguntas de reflexão final. Compartilhe voluntariamente uma insight no chat.",
+          "self_check_prompt": "Você consegue articular pelo menos uma mudança de perspectiva que teve durante a sessão?"
+        }
+      ],
+      "materials_needed": [
+        "Acesso à videoconferência (Zoom, Teams, Google Meet) com capacidade de breakout rooms",
+        "Resumo executivo do artigo (1 página, fornecido previamente)",
+        "Quadro colaborativo online (Miro, Jamboard, Mural) com template de mapeamento de tensões",
+        "Template de proposta operacional (framework ART) no quadro colaborativo",
+        "Documento ou formulário para reflexões individuais",
+        "Slides da apresentação sobre achados do artigo (fornecidos pelo facilitador)",
+        "Cenários-dilema impressos ou em PDF (um por breakout room)"
+      ],
+      "reflection_questions": [
+        "Qual princípio de ética de IA você considerava mais importante antes da sessão, e sua percepção mudou? Por quê?",
+        "Dos três desafios mais comuns identificados no artigo (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento), qual você acredita ser o mais urgente de resolver no seu contexto profissional ou de estudo?",
+        "O artigo mostra que 'conflito na prática' é o desafio mais severo. Após a dinâmica, você consegue identificar uma estratégia concreta para lidar com conflitos entre princípios éticos em projetos de IA?",
+        "As percepções de profissionais de IA e legisladores são correlacionadas, mas diferem em alguns pontos (ex.: fairness, órgãos de monitoramento). Como você explicaria essas diferenças, e o que isso sugere sobre colaboração interdisciplinar?",
+        "Se você fosse propor uma diretriz de ética de IA para o seu domínio específico (saúde, finanças, educação, etc.), qual seria o primeiro passo prático que você tomaria para evitar que ela fique apenas no papel?"
+      ]
+    },
+    "facilitator_track": {
+      "script": [
+        {
+          "time_marker": "0–5 min",
+          "activity": "Abertura e contextualização: boas-vindas, verificação de materiais, apresentação do objetivo da sessão (consolidar aprendizado do artigo através de aplicação prática) e do enquadramento pedagógico (Kolb adaptado). Explicar que vamos vivenciar conflitos éticos reais antes de revisitar os achados do artigo.",
+          "facilitator_notes": "Verifique que todos têm acesso ao quadro colaborativo e aos breakout rooms. Reforce que não há 'resposta certa' nos dilemas éticos, o objetivo é exercitar o raciocínio contextualizado. Erro comum: participantes esperarem uma 'solução definitiva' — esclareça que o foco é o processo de análise.",
+          "discussion_prompts": [
+            "Quantos de vocês já trabalharam ou estudaram um caso real de falha ética em IA?",
+            "O que vocês esperam aprender hoje sobre a distância entre princípios éticos e prática?"
+          ]
+        },
+        {
+          "time_marker": "5–20 min",
+          "activity": "Experiência concreta: distribuir participantes em breakout rooms (3-4 pessoas). Cada sala recebe um cenário-dilema diferente (ex.: sistema de crédito que maximiza lucro vs. fairness; diagnóstico médico que prioriza acurácia vs. explainability para pacientes; recrutamento que otimiza eficiência vs. transparência). Grupos mapeiam princípios em conflito no Miro/Jamboard.",
+          "facilitator_notes": "Circule pelas salas (ou monitore o quadro colaborativo) para garantir que os grupos estão identificando conflitos reais, não apenas listando princípios. Incentive especificidade: 'Como exatamente a transparência prejudica a privacidade NESTE caso?' Erro comum: grupos ficam muito abstratos ou filosóficos — traga de volta ao cenário concreto. Tenha cenários extras caso algum grupo termine rápido.",
+          "discussion_prompts": [
+            "(Nas salas) Quais stakeholders são afetados por cada lado deste conflito?",
+            "(Nas salas) Se você tivesse que escolher um princípio para priorizar, qual seria e por quê?"
+          ]
+        },
+        {
+          "time_marker": "20–30 min",
+          "activity": "Observação reflexiva: retorno à plenária. Cada grupo compartilha brevemente (1 min) o conflito principal que identificou. Facilitador organiza os conflitos no quadro em clusters (ex.: 'privacidade vs. transparência', 'fairness vs. eficiência', 'autonomia vs. accountability'). Participantes votam nos conflitos mais desafiadores.",
+          "facilitator_notes": "Use a votação para engajar todos, não apenas quem fala. Destaque padrões: 'Notem que três grupos identificaram tensão entre transparência e privacidade — isso é recorrente na literatura'. Erro comum: deixar a discussão se estender demais — seja firme com o tempo de 1 min por grupo. Prepare-se para sintetizar rapidamente os clusters.",
+          "discussion_prompts": [
+            "Alguém ficou surpreso com algum conflito mapeado por outro grupo?",
+            "Vocês acham que esses conflitos são universais ou dependem do contexto cultural/legal?"
+          ]
+        },
+        {
+          "time_marker": "30–50 min",
+          "activity": "Conceituação abstrata: apresentação facilitada (10-12 slides) sobre os achados do artigo. Estrutura sugerida: (1) Metodologia (survey com 99 profissionais e legisladores, 20 países); (2) Top 3 princípios críticos (transparência, accountability, privacidade); (3) Top 3 desafios comuns (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento); (4) Desafio mais severo: conflito na prática; (5) Diferenças entre profissionais e legisladores. Após cada seção, pausar para perguntas e pedir que participantes anotem conexões com seus cenários no chat/documento colaborativo.",
+          "facilitator_notes": "Esta é a 'ponte' entre experiência e experimentação. Não faça uma palestra passiva — intercale com perguntas ao grupo ('Vocês viram isso no cenário de vocês?'). Destaque a Figura/Tabela do artigo que mostra ranking de princípios e desafios. Erro comum: sobrecarregar com detalhes metodológicos — foque nos achados práticos. Reserve 2-3 min para perguntas de esclarecimento.",
+          "discussion_prompts": [
+            "O ranking de princípios do artigo (transparência, accountability, privacidade no topo) corresponde ao que vocês esperavam?",
+            "Por que vocês acham que 'conflito na prática' foi identificado como o desafio mais severo?",
+            "As diferenças entre profissionais e legisladores (ex.: sobre fairness) fazem sentido para vocês? O que isso revela?"
+          ]
+        },
+        {
+          "time_marker": "50–70 min",
+          "activity": "Experimentação ativa: retorno aos breakout rooms. Grupos agora propõem solução operacional para o cenário inicial, usando o framework ART (Accountability, Responsibility, Transparency). Template no Miro guia: (1) Quem é accountable (pessoa/papel específico)? (2) Como operacionalizar transparência (que informação, para quem, em que formato)? (3) Mecanismo de monitoramento (quem verifica, com que frequência, que critérios). Grupos preparam apresentação de 2 min. Facilitador visita salas para coaching.",
+          "facilitator_notes": "Este é o momento de maior aprendizado — pressione por especificidade. 'Quem exatamente é accountable? O CEO? O engenheiro de ML? Um comitê?' 'Transparência para quem — usuários finais, auditores, reguladores?' Erro comum: propostas genéricas ('precisamos de mais transparência') — desafie: 'Como você mediria se isso está funcionando?' Incentive criatividade, mas ancorada no artigo.",
+          "discussion_prompts": [
+            "(Nas salas) Sua proposta resolve o conflito ou faz um trade-off explícito? Ambos são válidos, mas sejam claros.",
+            "(Nas salas) Se vocês fossem implementar isso amanhã, qual seria o primeiro obstáculo prático?"
+          ]
+        },
+        {
+          "time_marker": "70–75 min",
+          "activity": "Consolidação e debrief: cada grupo apresenta proposta (2 min cada, máximo 3-4 grupos se o tempo permitir; demais compartilham no chat ou quadro). Facilitador destaca elementos comuns e inovadores. Participantes respondem individualmente às perguntas de reflexão final. Encerramento: facilitador resume a jornada (do conflito concreto aos princípios do artigo, de volta à operacionalização) e convida compartilhamento voluntário de insights no chat. Agradecer e indicar recursos para aprofundamento (ex.: diretrizes AI HLEG, IEEE EAD).",
+          "facilitator_notes": "Gerencie o tempo rigorosamente — se necessário, peça que apenas 2 grupos apresentem e os demais postem no quadro. Celebre a diversidade de abordagens. Erro comum: não deixar tempo para reflexão individual — ela é essencial para consolidação. Termine com nota inspiradora: 'Vocês experimentaram hoje o que o artigo chama de conflito na prática, e propuseram soluções que vão além das diretrizes genéricas'.",
+          "discussion_prompts": [
+            "Qual proposta de outro grupo vocês acharam mais viável ou inovadora?",
+            "Depois desta sessão, o que vocês fariam diferente ao avaliar um sistema de IA sob a ótica ética?",
+            "Alguém quer compartilhar uma mudança de perspectiva que teve hoje?"
+          ]
+        }
+      ],
+      "timing_table": {
+        "caption": "Cronograma da sessão: Ética de IA na Prática",
+        "columns": [
+          "Tempo",
+          "Atividade",
+          "Objetivo pedagógico"
+        ],
+        "rows": [
+          [
+            "0–5 min",
+            "Abertura e contextualização",
+            "Alinhar expectativas, apresentar enquadramento Kolb"
+          ],
+          [
+            "5–20 min",
+            "Experiência concreta (breakout rooms)",
+            "Vivenciar conflitos éticos em cenários reais (experiência concreta)"
+          ],
+          [
+            "20–30 min",
+            "Observação reflexiva (plenária)",
+            "Identificar padrões nos conflitos mapeados (observação reflexiva)"
+          ],
+          [
+            "30–50 min",
+            "Conceituação abstrata (apresentação)",
+            "Conectar experiência aos achados empíricos do artigo (conceituação abstrata)"
+          ],
+          [
+            "50–70 min",
+            "Experimentação ativa (breakout rooms)",
+            "Propor soluções operacionais usando framework ART (experimentação ativa)"
+          ],
+          [
+            "70–75 min",
+            "Consolidação e debrief (plenária)",
+            "Sintetizar aprendizados, reflexão individual, encerramento"
+          ]
+        ]
+      },
+      "debrief_structure": [
+        "Apresentação rápida de propostas operacionais (2 min por grupo, máximo 3-4 grupos; demais postam no quadro colaborativo)",
+        "Facilitador destaca elementos comuns entre as propostas (ex.: necessidade de comitês multidisciplinares, transparência em camadas, auditoria contínua)",
+        "Facilitador destaca elementos inovadores ou divergentes (ex.: abordagens específicas de domínio, trade-offs explícitos)",
+        "Participantes respondem individualmente às 5 perguntas de reflexão final (3 min, em silêncio, em formulário ou documento pessoal)",
+        "Convite para compartilhamento voluntário de insights no chat (1-2 min)",
+        "Síntese final do facilitador: recapitular a jornada Kolb (do conflito concreto aos princípios, de volta à operacionalização) e reforçar a mensagem central do artigo (princípios são críticos, mas conflito na prática é o desafio mais severo — soluções exigem contextualização)",
+        "Indicação de recursos para aprofundamento (diretrizes AI HLEG, IEEE EAD, artigos sobre operacionalização de ética de IA) e agradecimento"
+      ],
+      "consolidation_goal": "Consolidação bem-sucedida significa que cada participante é capaz de: (1) identificar e nomear pelo menos três princípios de ética de IA e explicar como eles podem entrar em conflito em um contexto específico; (2) conectar os desafios empíricos do artigo (especialmente 'conflito na prática') a situações concretas; (3) propor pelo menos um elemento operacional (quem, como, quando) para implementar um princípio ético em um cenário real, reconhecendo trade-offs inevitáveis; e (4) articular a diferença entre diretrizes genéricas e soluções contextualizadas, demonstrando pensamento crítico sobre a lacuna entre teoria e prática em ética de IA."
+    }
+  },
+  "seo_pages": [
+    {
+      "page_kind": "article",
+      "title": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+      "description": "Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. A análise de impacto mostra que conflito na prática é o desafio mais severo, evidenciando a lacuna entre diretrizes abstratas e implementação contextualizada de sistemas de IA éticos e confiáveis.",
+      "keywords": [
+        "AI ethics",
+        "ética de IA",
+        "transparency",
+        "transparência",
+        "accountability",
+        "privacy",
+        "privacidade",
+        "fairness",
+        "explainability",
+        "trustworthy AI",
+        "AI ethics principles",
+        "princípios éticos",
+        "lack of ethical knowledge",
+        "no legal frameworks",
+        "lacking monitoring bodies",
+        "conflict in practice",
+        "AI HLEG guidelines",
+        "ethically aligned design",
+        "ART framework",
+        "empirical study",
+        "estudo empírico",
+        "practitioners",
+        "lawmakers",
+        "legisladores",
+        "severity impact",
+        "ethics-on-ai",
+        "computational social systems"
+      ],
+      "og_type": "article",
+      "jsonld_type": "Article",
+      "authors": [
+        "Arif Ali Khan",
+        "Muhammad Azeem Akbar",
+        "Mahdi Fahmideh",
+        "Peng Liang",
+        "Muhammad Waseem",
+        "Aakash Ahmad",
+        "Mahmood Niazi",
+        "Pekka Abrahamsson"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html",
+      "published_date": "2023",
+      "modified_date": "2023",
+      "about": [
+        "AI ethics principles",
+        "transparency",
+        "accountability",
+        "privacy",
+        "lack of ethical knowledge",
+        "conflict in practice"
+      ],
+      "article_tags": [
+        "ethics-on-ai"
+      ]
+    },
+    {
+      "page_kind": "blog",
+      "title": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+      "description": "Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento são os desafios mais comuns. A pesquisa identifica o conflito na prática como o desafio mais severo e analisa diferenças estatísticas entre percepções de practitioners e lawmakers sobre fairness, autonomia e explainability em sistemas de IA confiáveis.",
+      "keywords": [
+        "AI ethics",
+        "ética de IA",
+        "AI ethics principles",
+        "princípios de ética",
+        "transparency",
+        "transparência",
+        "accountability",
+        "privacy",
+        "privacidade",
+        "fairness",
+        "explainability",
+        "trustworthy AI",
+        "IA confiável",
+        "ethical knowledge",
+        "conhecimento ético",
+        "legal frameworks",
+        "frameworks legais",
+        "monitoring bodies",
+        "órgãos de monitoramento",
+        "conflict in practice",
+        "conflito na prática",
+        "AI practitioners",
+        "lawmakers",
+        "legisladores",
+        "empirical study",
+        "estudo empírico",
+        "AI HLEG",
+        "ethically aligned design",
+        "EAD",
+        "ART framework",
+        "severity impact",
+        "Spearman correlation",
+        "context-aware systems",
+        "sistemas conscientes de contexto",
+        "ethics on ai",
+        "ética em IA"
+      ],
+      "og_type": "article",
+      "jsonld_type": "BlogPosting",
+      "authors": [
+        "Arif Ali Khan",
+        "Muhammad Azeem Akbar",
+        "Mahdi Fahmideh",
+        "Peng Liang",
+        "Muhammad Waseem",
+        "Aakash Ahmad",
+        "Mahmood Niazi",
+        "Pekka Abrahamsson"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/blog.html",
+      "published_date": "2023",
+      "modified_date": "2023",
+      "about": [
+        "AI ethics principles",
+        "transparency",
+        "accountability",
+        "privacy",
+        "lack of ethical knowledge",
+        "conflict in practice"
+      ],
+      "article_tags": [
+        "ethics on ai"
+      ]
+    },
+    {
+      "page_kind": "workshop",
+      "title": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers | Workshop CSS3e",
+      "description": "Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de AI ethics mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. Análise de severidade mostra que conflito na prática é o desafio mais impactante para trustworthy AI.",
+      "keywords": [
+        "AI ethics",
+        "ética de IA",
+        "transparency",
+        "accountability",
+        "privacy",
+        "fairness",
+        "autonomy",
+        "explainability",
+        "trustworthy AI",
+        "AI ethics principles",
+        "ethical knowledge",
+        "legal frameworks",
+        "monitoring bodies",
+        "conflict in practice",
+        "AI HLEG guidelines",
+        "ethically aligned design",
+        "EAD",
+        "ART framework",
+        "empirical study",
+        "practitioners",
+        "lawmakers",
+        "sistemas sociais computacionais",
+        "inteligência artificial",
+        "machine ethics"
+      ],
+      "og_type": "article",
+      "jsonld_type": "LearningResource",
+      "authors": [
+        "Arif Ali Khan",
+        "Muhammad Azeem Akbar",
+        "Mahdi Fahmideh",
+        "Peng Liang",
+        "Muhammad Waseem",
+        "Aakash Ahmad",
+        "Mahmood Niazi",
+        "Pekka Abrahamsson"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/workshop.html",
+      "published_date": "2023",
+      "modified_date": "2023",
+      "about": [
+        "AI ethics principles",
+        "transparency",
+        "accountability",
+        "privacy",
+        "lack of ethical knowledge",
+        "trustworthy AI"
+      ],
+      "article_tags": []
+    }
+  ],
+  "downloads": [
+    {
+      "title": "Artigo original em PDF",
+      "description": "Estudo empírico completo com survey de 99 profissionais e legisladores de IA sobre princípios éticos (transparência, accountability, privacidade) e desafios de implementação.",
+      "href": "ai-ethics-empirical-study.pdf",
+      "arrow_label": "PDF ↓"
+    },
+    {
+      "title": "Post de blog",
+      "description": "Versão comentada explorando as percepções de profissionais e legisladores sobre ética de IA, os princípios mais críticos e o desafio do conflito na prática.",
+      "href": "blog.html",
+      "arrow_label": "LER →"
+    }
+  ],
+  "entity_graph": {
+    "entities": [
+      {
+        "key": "ai ethics principles",
+        "name": "AI ethics principles",
+        "label": "Concept",
+        "score": 0.8642099458310339,
+        "mentions": [
+          {
+            "start": 884,
+            "end": 904,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 4232,
+            "end": 4252,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 7150,
+            "end": 7170,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 7260,
+            "end": 7280,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 8153,
+            "end": 8173,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 8263,
+            "end": 8283,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 8756,
+            "end": 8776,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 8924,
+            "end": 8944,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 12748,
+            "end": 12768,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 13165,
+            "end": 13185,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 14261,
+            "end": 14281,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 14881,
+            "end": 14901,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 18955,
+            "end": 18975,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 19047,
+            "end": 19067,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 20928,
+            "end": 20948,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 21187,
+            "end": 21207,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 21260,
+            "end": 21280,
+            "text": "AI Ethics Principles"
+          },
+          {
+            "start": 21426,
+            "end": 21446,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 21537,
+            "end": 21557,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 23478,
+            "end": 23498,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 28409,
+            "end": 28429,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 31052,
+            "end": 31072,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 31187,
+            "end": 31207,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 31876,
+            "end": 31896,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 32233,
+            "end": 32253,
+            "text": "AI Ethics Principles"
+          },
+          {
+            "start": 32420,
+            "end": 32440,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 33568,
+            "end": 33588,
+            "text": "AI ETHICS PRINCIPLES"
+          },
+          {
+            "start": 33718,
+            "end": 33738,
+            "text": "AI ETHICS PRINCIPLES"
+          },
+          {
+            "start": 33774,
+            "end": 33794,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 34723,
+            "end": 34743,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 34861,
+            "end": 34881,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 35013,
+            "end": 35033,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 36729,
+            "end": 36749,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 36898,
+            "end": 36918,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 37226,
+            "end": 37246,
+            "text": "AI ETHICS PRINCIPLES"
+          },
+          {
+            "start": 37742,
+            "end": 37762,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 38186,
+            "end": 38206,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 38346,
+            "end": 38366,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 38500,
+            "end": 38520,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 39199,
+            "end": 39219,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 39259,
+            "end": 39279,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 39544,
+            "end": 39564,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 39950,
+            "end": 39970,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 41355,
+            "end": 41375,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 41430,
+            "end": 41450,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 42269,
+            "end": 42289,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 42442,
+            "end": 42462,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 47114,
+            "end": 47134,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 47413,
+            "end": 47433,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 47884,
+            "end": 47904,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 48903,
+            "end": 48923,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 50656,
+            "end": 50676,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 50806,
+            "end": 50826,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 51574,
+            "end": 51594,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 52107,
+            "end": 52127,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 52182,
+            "end": 52202,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 52454,
+            "end": 52474,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 52679,
+            "end": 52699,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 52825,
+            "end": 52845,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 53031,
+            "end": 53051,
+            "text": "AI ethics principles"
+          },
+          {
+            "start": 54325,
+            "end": 54345,
+            "text": "AI ethics principles"
+          }
+        ]
+      },
+      {
+        "key": "ai ethics",
+        "name": "AI ethics",
+        "label": "Concept",
+        "score": 0.8147533567328202,
+        "mentions": [
+          {
+            "start": 85,
+            "end": 94,
+            "text": "AI Ethics"
+          },
+          {
+            "start": 779,
+            "end": 788,
+            "text": "AI ethics"
+          },
+          {
+            "start": 4221,
+            "end": 4230,
+            "text": "AI ethics"
+          },
+          {
+            "start": 7414,
+            "end": 7423,
+            "text": "AI ethics"
+          },
+          {
+            "start": 7524,
+            "end": 7533,
+            "text": "AI ethics"
+          },
+          {
+            "start": 7652,
+            "end": 7661,
+            "text": "AI ethics"
+          },
+          {
+            "start": 7860,
+            "end": 7869,
+            "text": "AI ethics"
+          },
+          {
+            "start": 7976,
+            "end": 7985,
+            "text": "AI ethics"
+          },
+          {
+            "start": 8263,
+            "end": 8272,
+            "text": "AI ethics"
+          },
+          {
+            "start": 8387,
+            "end": 8396,
+            "text": "AI ethics"
+          },
+          {
+            "start": 9541,
+            "end": 9550,
+            "text": "AI ethics"
+          },
+          {
+            "start": 12417,
+            "end": 12426,
+            "text": "AI ethics"
+          },
+          {
+            "start": 12596,
+            "end": 12605,
+            "text": "AI ethics"
+          },
+          {
+            "start": 12748,
+            "end": 12757,
+            "text": "AI ethics"
+          },
+          {
+            "start": 12787,
+            "end": 12796,
+            "text": "AI ETHICS"
+          },
+          {
+            "start": 13840,
+            "end": 13849,
+            "text": "AI ethics"
+          },
+          {
+            "start": 14157,
+            "end": 14166,
+            "text": "AI ethics"
+          },
+          {
+            "start": 20160,
+            "end": 20169,
+            "text": "AI ethics"
+          },
+          {
+            "start": 20272,
+            "end": 20281,
+            "text": "AI Ethics"
+          },
+          {
+            "start": 20436,
+            "end": 20445,
+            "text": "AI ethics"
+          },
+          {
+            "start": 20928,
+            "end": 20937,
+            "text": "AI ethics"
+          },
+          {
+            "start": 20955,
+            "end": 20964,
+            "text": "AI Ethics"
+          },
+          {
+            "start": 24749,
+            "end": 24758,
+            "text": "AI ethics"
+          },
+          {
+            "start": 25426,
+            "end": 25435,
+            "text": "AI ethics"
+          },
+          {
+            "start": 27640,
+            "end": 27649,
+            "text": "AI ethics"
+          },
+          {
+            "start": 27949,
+            "end": 27958,
+            "text": "AI ethics"
+          },
+          {
+            "start": 31347,
+            "end": 31356,
+            "text": "AI ethics"
+          },
+          {
+            "start": 31401,
+            "end": 31410,
+            "text": "AI ethics"
+          },
+          {
+            "start": 40452,
+            "end": 40461,
+            "text": "AI ethics"
+          },
+          {
+            "start": 40811,
+            "end": 40820,
+            "text": "AI ethics"
+          },
+          {
+            "start": 41195,
+            "end": 41204,
+            "text": "AI ETHICS"
+          },
+          {
+            "start": 41683,
+            "end": 41692,
+            "text": "AI ethics"
+          },
+          {
+            "start": 42868,
+            "end": 42877,
+            "text": "AI ethics"
+          },
+          {
+            "start": 43407,
+            "end": 43416,
+            "text": "AI ethics"
+          },
+          {
+            "start": 48903,
+            "end": 48912,
+            "text": "AI ethics"
+          },
+          {
+            "start": 49231,
+            "end": 49240,
+            "text": "AI ethics"
+          },
+          {
+            "start": 49425,
+            "end": 49434,
+            "text": "AI ethics"
+          },
+          {
+            "start": 49826,
+            "end": 49835,
+            "text": "AI Ethics"
+          },
+          {
+            "start": 50277,
+            "end": 50286,
+            "text": "AI ethics"
+          },
+          {
+            "start": 50326,
+            "end": 50335,
+            "text": "AI ethics"
+          },
+          {
+            "start": 50656,
+            "end": 50665,
+            "text": "AI ethics"
+          },
+          {
+            "start": 54093,
+            "end": 54102,
+            "text": "AI ethics"
+          },
+          {
+            "start": 54240,
+            "end": 54249,
+            "text": "AI Ethics"
+          },
+          {
+            "start": 54946,
+            "end": 54955,
+            "text": "AI ethics"
+          },
+          {
+            "start": 55239,
+            "end": 55248,
+            "text": "AI ethics"
+          },
+          {
+            "start": 60808,
+            "end": 60817,
+            "text": "AI ethics"
+          },
+          {
+            "start": 61214,
+            "end": 61223,
+            "text": "AI ethics"
+          },
+          {
+            "start": 62509,
+            "end": 62518,
+            "text": "AI ethics"
+          },
+          {
+            "start": 62593,
+            "end": 62602,
+            "text": "AI Ethics"
+          },
+          {
+            "start": 62757,
+            "end": 62766,
+            "text": "AI ethics"
+          },
+          {
+            "start": 63795,
+            "end": 63804,
+            "text": "AI ethics"
+          }
+        ]
+      },
+      {
+        "key": "ai systems",
+        "name": "AI systems",
+        "label": "System",
+        "score": 0.8325520108143488,
+        "mentions": [
+          {
+            "start": 5700,
+            "end": 5710,
+            "text": "AI systems"
+          },
+          {
+            "start": 6040,
+            "end": 6050,
+            "text": "AI systems"
+          },
+          {
+            "start": 6171,
+            "end": 6181,
+            "text": "AI systems"
+          },
+          {
+            "start": 6225,
+            "end": 6235,
+            "text": "AI systems"
+          },
+          {
+            "start": 6307,
+            "end": 6317,
+            "text": "AI systems"
+          },
+          {
+            "start": 9682,
+            "end": 9692,
+            "text": "AI systems"
+          },
+          {
+            "start": 13670,
+            "end": 13680,
+            "text": "AI systems"
+          },
+          {
+            "start": 22130,
+            "end": 22140,
+            "text": "AI systems"
+          },
+          {
+            "start": 24065,
+            "end": 24075,
+            "text": "AI systems"
+          },
+          {
+            "start": 24635,
+            "end": 24645,
+            "text": "AI systems"
+          },
+          {
+            "start": 24876,
+            "end": 24886,
+            "text": "AI systems"
+          },
+          {
+            "start": 25154,
+            "end": 25164,
+            "text": "AI systems"
+          },
+          {
+            "start": 25846,
+            "end": 25856,
+            "text": "AI systems"
+          },
+          {
+            "start": 26245,
+            "end": 26255,
+            "text": "AI systems"
+          },
+          {
+            "start": 26639,
+            "end": 26649,
+            "text": "AI systems"
+          },
+          {
+            "start": 46168,
+            "end": 46178,
+            "text": "AI systems"
+          },
+          {
+            "start": 47510,
+            "end": 47520,
+            "text": "AI systems"
+          },
+          {
+            "start": 48054,
+            "end": 48064,
+            "text": "AI systems"
+          },
+          {
+            "start": 48277,
+            "end": 48287,
+            "text": "AI systems"
+          },
+          {
+            "start": 48602,
+            "end": 48612,
+            "text": "AI systems"
+          },
+          {
+            "start": 49163,
+            "end": 49173,
+            "text": "AI systems"
+          }
+        ]
+      },
+      {
+        "key": "challenges",
+        "name": "challenges",
+        "label": "Concept",
+        "score": 0.6611635535955429,
+        "mentions": [
+          {
+            "start": 4254,
+            "end": 4264,
+            "text": "challenges"
+          },
+          {
+            "start": 8354,
+            "end": 8364,
+            "text": "challenges"
+          },
+          {
+            "start": 8781,
+            "end": 8791,
+            "text": "challenges"
+          },
+          {
+            "start": 8949,
+            "end": 8959,
+            "text": "challenges"
+          },
+          {
+            "start": 12912,
+            "end": 12922,
+            "text": "challenges"
+          },
+          {
+            "start": 12960,
+            "end": 12970,
+            "text": "challenges"
+          },
+          {
+            "start": 13187,
+            "end": 13197,
+            "text": "challenges"
+          },
+          {
+            "start": 13865,
+            "end": 13875,
+            "text": "challenges"
+          },
+          {
+            "start": 14906,
+            "end": 14916,
+            "text": "challenges"
+          },
+          {
+            "start": 14925,
+            "end": 14935,
+            "text": "challenges"
+          },
+          {
+            "start": 15053,
+            "end": 15063,
+            "text": "challenges"
+          },
+          {
+            "start": 36424,
+            "end": 36434,
+            "text": "challenges"
+          },
+          {
+            "start": 36528,
+            "end": 36538,
+            "text": "challenges"
+          },
+          {
+            "start": 37764,
+            "end": 37774,
+            "text": "challenges"
+          },
+          {
+            "start": 38211,
+            "end": 38221,
+            "text": "challenges"
+          },
+          {
+            "start": 38265,
+            "end": 38275,
+            "text": "challenges"
+          },
+          {
+            "start": 38371,
+            "end": 38381,
+            "text": "challenges"
+          },
+          {
+            "start": 42291,
+            "end": 42301,
+            "text": "challenges"
+          },
+          {
+            "start": 42577,
+            "end": 42587,
+            "text": "challenges"
+          },
+          {
+            "start": 42829,
+            "end": 42839,
+            "text": "challenges"
+          },
+          {
+            "start": 42933,
+            "end": 42943,
+            "text": "challenges"
+          },
+          {
+            "start": 52704,
+            "end": 52714,
+            "text": "challenges"
+          },
+          {
+            "start": 53765,
+            "end": 53775,
+            "text": "challenges"
+          },
+          {
+            "start": 54164,
+            "end": 54174,
+            "text": "challenges"
+          }
+        ]
+      },
+      {
+        "key": "privacy",
+        "name": "privacy",
+        "label": "Concept",
+        "score": 0.9278553619104273,
+        "mentions": [
+          {
+            "start": 1351,
+            "end": 1358,
+            "text": "privacy"
+          },
+          {
+            "start": 22710,
+            "end": 22717,
+            "text": "Privacy"
+          },
+          {
+            "start": 22919,
+            "end": 22926,
+            "text": "Privacy"
+          },
+          {
+            "start": 23116,
+            "end": 23123,
+            "text": "privacy"
+          },
+          {
+            "start": 23345,
+            "end": 23352,
+            "text": "privacy"
+          },
+          {
+            "start": 23890,
+            "end": 23897,
+            "text": "privacy"
+          },
+          {
+            "start": 24121,
+            "end": 24128,
+            "text": "privacy"
+          },
+          {
+            "start": 24272,
+            "end": 24279,
+            "text": "privacy"
+          },
+          {
+            "start": 28451,
+            "end": 28458,
+            "text": "privacy"
+          },
+          {
+            "start": 29711,
+            "end": 29718,
+            "text": "privacy"
+          },
+          {
+            "start": 29935,
+            "end": 29942,
+            "text": "privacy"
+          },
+          {
+            "start": 30007,
+            "end": 30014,
+            "text": "privacy"
+          },
+          {
+            "start": 38846,
+            "end": 38853,
+            "text": "privacy"
+          },
+          {
+            "start": 40506,
+            "end": 40513,
+            "text": "privacy"
+          },
+          {
+            "start": 49306,
+            "end": 49313,
+            "text": "privacy"
+          },
+          {
+            "start": 53931,
+            "end": 53938,
+            "text": "privacy"
+          }
+        ]
+      },
+      {
+        "key": "practitioners",
+        "name": "practitioners",
+        "label": "Organization",
+        "score": 0.7618739157915115,
+        "mentions": [
+          {
+            "start": 8320,
+            "end": 8333,
+            "text": "practitioners"
+          },
+          {
+            "start": 8485,
+            "end": 8498,
+            "text": "practitioners"
+          },
+          {
+            "start": 8592,
+            "end": 8605,
+            "text": "practitioners"
+          },
+          {
+            "start": 8886,
+            "end": 8899,
+            "text": "practitioners"
+          },
+          {
+            "start": 32877,
+            "end": 32890,
+            "text": "practitioners"
+          },
+          {
+            "start": 33043,
+            "end": 33056,
+            "text": "practitioners"
+          },
+          {
+            "start": 33317,
+            "end": 33330,
+            "text": "practitioners"
+          },
+          {
+            "start": 33662,
+            "end": 33675,
+            "text": "PRACTITIONERS"
+          },
+          {
+            "start": 34698,
+            "end": 34711,
+            "text": "practitioners"
+          },
+          {
+            "start": 35462,
+            "end": 35475,
+            "text": "practitioners"
+          },
+          {
+            "start": 35589,
+            "end": 35602,
+            "text": "practitioners"
+          },
+          {
+            "start": 35635,
+            "end": 35648,
+            "text": "practitioners"
+          },
+          {
+            "start": 35897,
+            "end": 35910,
+            "text": "practitioners"
+          },
+          {
+            "start": 36356,
+            "end": 36369,
+            "text": "practitioners"
+          },
+          {
+            "start": 40020,
+            "end": 40033,
+            "text": "practitioners"
+          },
+          {
+            "start": 41774,
+            "end": 41787,
+            "text": "practitioners"
+          },
+          {
+            "start": 42307,
+            "end": 42320,
+            "text": "practitioners"
+          }
+        ]
+      },
+      {
+        "key": "transparency",
+        "name": "transparency",
+        "label": "Concept",
+        "score": 0.9105794065528445,
+        "mentions": [
+          {
+            "start": 1317,
+            "end": 1329,
+            "text": "transparency"
+          },
+          {
+            "start": 21685,
+            "end": 21697,
+            "text": "transparency"
+          },
+          {
+            "start": 21781,
+            "end": 21793,
+            "text": "transparency"
+          },
+          {
+            "start": 21917,
+            "end": 21929,
+            "text": "Transparency"
+          },
+          {
+            "start": 23576,
+            "end": 23588,
+            "text": "transparency"
+          },
+          {
+            "start": 23737,
+            "end": 23749,
+            "text": "transparency"
+          },
+          {
+            "start": 28437,
+            "end": 28449,
+            "text": "transparency"
+          },
+          {
+            "start": 29181,
+            "end": 29193,
+            "text": "transparency"
+          },
+          {
+            "start": 29617,
+            "end": 29629,
+            "text": "transparency"
+          },
+          {
+            "start": 32993,
+            "end": 33005,
+            "text": "transparency"
+          },
+          {
+            "start": 38812,
+            "end": 38824,
+            "text": "transparency"
+          },
+          {
+            "start": 40472,
+            "end": 40484,
+            "text": "transparency"
+          },
+          {
+            "start": 48969,
+            "end": 48981,
+            "text": "transparency"
+          },
+          {
+            "start": 53917,
+            "end": 53929,
+            "text": "transparency"
+          }
+        ]
+      },
+      {
+        "key": "lawmakers",
+        "name": "lawmakers",
+        "label": "Organization",
+        "score": 0.7483965127091659,
+        "mentions": [
+          {
+            "start": 7764,
+            "end": 7773,
+            "text": "lawmakers"
+          },
+          {
+            "start": 8503,
+            "end": 8512,
+            "text": "lawmakers"
+          },
+          {
+            "start": 8610,
+            "end": 8619,
+            "text": "lawmakers"
+          },
+          {
+            "start": 8904,
+            "end": 8913,
+            "text": "lawmakers"
+          },
+          {
+            "start": 32395,
+            "end": 32404,
+            "text": "lawmakers"
+          },
+          {
+            "start": 32715,
+            "end": 32724,
+            "text": "lawmakers"
+          },
+          {
+            "start": 32895,
+            "end": 32904,
+            "text": "lawmakers"
+          },
+          {
+            "start": 33061,
+            "end": 33070,
+            "text": "lawmakers"
+          },
+          {
+            "start": 33219,
+            "end": 33228,
+            "text": "lawmakers"
+          },
+          {
+            "start": 33437,
+            "end": 33446,
+            "text": "lawmakers"
+          },
+          {
+            "start": 33680,
+            "end": 33689,
+            "text": "LAWMAKERS"
+          },
+          {
+            "start": 34684,
+            "end": 34693,
+            "text": "lawmakers"
+          },
+          {
+            "start": 34788,
+            "end": 34797,
+            "text": "lawmakers"
+          },
+          {
+            "start": 35620,
+            "end": 35629,
+            "text": "lawmakers"
+          },
+          {
+            "start": 36374,
+            "end": 36383,
+            "text": "lawmakers"
+          },
+          {
+            "start": 40035,
+            "end": 40044,
+            "text": "lawmakers"
+          },
+          {
+            "start": 43258,
+            "end": 43267,
+            "text": "lawmakers"
+          }
+        ]
+      },
+      {
+        "key": "accountability",
+        "name": "accountability",
+        "label": "Concept",
+        "score": 0.8763016278927143,
+        "mentions": [
+          {
+            "start": 1331,
+            "end": 1345,
+            "text": "accountability"
+          },
+          {
+            "start": 22279,
+            "end": 22293,
+            "text": "accountability"
+          },
+          {
+            "start": 23538,
+            "end": 23552,
+            "text": "accountability"
+          },
+          {
+            "start": 23754,
+            "end": 23768,
+            "text": "accountability"
+          },
+          {
+            "start": 28460,
+            "end": 28474,
+            "text": "accountability"
+          },
+          {
+            "start": 30185,
+            "end": 30199,
+            "text": "accountability"
+          },
+          {
+            "start": 38826,
+            "end": 38840,
+            "text": "accountability"
+          },
+          {
+            "start": 40486,
+            "end": 40500,
+            "text": "accountability"
+          },
+          {
+            "start": 48931,
+            "end": 48945,
+            "text": "accountability"
+          },
+          {
+            "start": 49290,
+            "end": 49304,
+            "text": "accountability"
+          },
+          {
+            "start": 53944,
+            "end": 53958,
+            "text": "accountability"
+          }
+        ]
+      },
+      {
+        "key": "fairness",
+        "name": "fairness",
+        "label": "Concept",
+        "score": 0.9374311149120331,
+        "mentions": [
+          {
+            "start": 1841,
+            "end": 1849,
+            "text": "fairness"
+          },
+          {
+            "start": 28476,
+            "end": 28484,
+            "text": "fairness"
+          },
+          {
+            "start": 33236,
+            "end": 33244,
+            "text": "fairness"
+          },
+          {
+            "start": 33374,
+            "end": 33382,
+            "text": "fairness"
+          },
+          {
+            "start": 33475,
+            "end": 33483,
+            "text": "fairness"
+          },
+          {
+            "start": 33864,
+            "end": 33872,
+            "text": "fairness"
+          },
+          {
+            "start": 33960,
+            "end": 33968,
+            "text": "fairness"
+          },
+          {
+            "start": 34062,
+            "end": 34070,
+            "text": "fairness"
+          },
+          {
+            "start": 34090,
+            "end": 34098,
+            "text": "fairness"
+          },
+          {
+            "start": 49315,
+            "end": 49323,
+            "text": "fairness"
+          }
+        ]
+      },
+      {
+        "key": "ethics",
+        "name": "ethics",
+        "label": "Concept",
+        "score": 0.7442912296815352,
+        "mentions": [
+          {
+            "start": 25429,
+            "end": 25435,
+            "text": "ethics"
+          },
+          {
+            "start": 25461,
+            "end": 25467,
+            "text": "ethics"
+          },
+          {
+            "start": 26235,
+            "end": 26241,
+            "text": "ethics"
+          },
+          {
+            "start": 26602,
+            "end": 26608,
+            "text": "ethics"
+          },
+          {
+            "start": 27017,
+            "end": 27023,
+            "text": "ethics"
+          },
+          {
+            "start": 40814,
+            "end": 40820,
+            "text": "ethics"
+          },
+          {
+            "start": 42445,
+            "end": 42451,
+            "text": "ethics"
+          },
+          {
+            "start": 43158,
+            "end": 43164,
+            "text": "ethics"
+          },
+          {
+            "start": 58917,
+            "end": 58923,
+            "text": "ethics"
+          },
+          {
+            "start": 59262,
+            "end": 59268,
+            "text": "ethics"
+          }
+        ]
+      },
+      {
+        "key": "ai ethics challenges",
+        "name": "AI ethics challenges",
+        "label": "Concept",
+        "score": 0.7865914106369019,
+        "mentions": [
+          {
+            "start": 34979,
+            "end": 34999,
+            "text": "AI Ethics Challenges"
+          },
+          {
+            "start": 35491,
+            "end": 35511,
+            "text": "AI ethics challenges"
+          },
+          {
+            "start": 36099,
+            "end": 36119,
+            "text": "AI ethics challenges"
+          },
+          {
+            "start": 36779,
+            "end": 36799,
+            "text": "AI ethics challenges"
+          },
+          {
+            "start": 37303,
+            "end": 37323,
+            "text": "AI ETHICS CHALLENGES"
+          },
+          {
+            "start": 37396,
+            "end": 37416,
+            "text": "AI ETHICS CHALLENGES"
+          }
+        ]
+      },
+      {
+        "key": "ai system",
+        "name": "AI system",
+        "label": "System",
+        "score": 0.7540525396664938,
+        "mentions": [
+          {
+            "start": 6603,
+            "end": 6612,
+            "text": "AI system"
+          },
+          {
+            "start": 9723,
+            "end": 9732,
+            "text": "AI system"
+          },
+          {
+            "start": 22432,
+            "end": 22441,
+            "text": "AI system"
+          },
+          {
+            "start": 23191,
+            "end": 23200,
+            "text": "AI system"
+          },
+          {
+            "start": 27424,
+            "end": 27433,
+            "text": "AI system"
+          },
+          {
+            "start": 47808,
+            "end": 47817,
+            "text": "AI system"
+          }
+        ]
+      },
+      {
+        "key": "practitioners and lawmakers",
+        "name": "practitioners and lawmakers",
+        "label": "Organization",
+        "score": 0.7158659597237905,
+        "mentions": [
+          {
+            "start": 7611,
+            "end": 7638,
+            "text": "practitioners and lawmakers"
+          },
+          {
+            "start": 8028,
+            "end": 8055,
+            "text": "practitioners and lawmakers"
+          },
+          {
+            "start": 38303,
+            "end": 38330,
+            "text": "practitioners and lawmakers"
+          },
+          {
+            "start": 38446,
+            "end": 38473,
+            "text": "practitioners and lawmakers"
+          },
+          {
+            "start": 52718,
+            "end": 52745,
+            "text": "practitioners and lawmakers"
+          },
+          {
+            "start": 53000,
+            "end": 53027,
+            "text": "practitioners and lawmakers"
+          }
+        ]
+      },
+      {
+        "key": "lack of ethical knowledge",
+        "name": "lack of ethical knowledge",
+        "label": "Concept",
+        "score": 0.7105311652024587,
+        "mentions": [
+          {
+            "start": 1427,
+            "end": 1452,
+            "text": "lack of ethical knowledge"
+          },
+          {
+            "start": 24462,
+            "end": 24487,
+            "text": "Lack of ethical knowledge"
+          },
+          {
+            "start": 28208,
+            "end": 28233,
+            "text": "lack of ethical knowledge"
+          },
+          {
+            "start": 31106,
+            "end": 31131,
+            "text": "lack of ethical knowledge"
+          },
+          {
+            "start": 38918,
+            "end": 38943,
+            "text": "lack of ethical knowledge"
+          },
+          {
+            "start": 40904,
+            "end": 40929,
+            "text": "lack of ethical knowledge"
+          }
+        ]
+      },
+      {
+        "key": "principles",
+        "name": "principles",
+        "label": "Concept",
+        "score": 0.6073653527668544,
+        "mentions": [
+          {
+            "start": 789,
+            "end": 799,
+            "text": "principles"
+          },
+          {
+            "start": 7662,
+            "end": 7672,
+            "text": "principles"
+          },
+          {
+            "start": 7986,
+            "end": 7996,
+            "text": "principles"
+          },
+          {
+            "start": 8273,
+            "end": 8283,
+            "text": "principles"
+          },
+          {
+            "start": 13850,
+            "end": 13860,
+            "text": "principles"
+          },
+          {
+            "start": 42921,
+            "end": 42931,
+            "text": "principles"
+          },
+          {
+            "start": 55297,
+            "end": 55307,
+            "text": "principles"
+          }
+        ]
+      },
+      {
+        "key": "t test",
+        "name": "t*-test",
+        "label": "Method",
+        "score": 0.6575832068920135,
+        "mentions": [
+          {
+            "start": 34199,
+            "end": 34206,
+            "text": "t*-test"
+          },
+          {
+            "start": 34494,
+            "end": 34501,
+            "text": "t*-test"
+          },
+          {
+            "start": 35981,
+            "end": 35988,
+            "text": "t*-test"
+          },
+          {
+            "start": 36264,
+            "end": 36271,
+            "text": "t*-test"
+          },
+          {
+            "start": 37214,
+            "end": 37222,
+            "text": "t* -TEST"
+          }
+        ]
+      },
+      {
+        "key": "internal validity",
+        "name": "internal validity",
+        "label": "Concept",
+        "score": 0.8216204643249512,
+        "mentions": [
+          {
+            "start": 43727,
+            "end": 43744,
+            "text": "Internal Validity"
+          },
+          {
+            "start": 43864,
+            "end": 43881,
+            "text": "internal validity"
+          },
+          {
+            "start": 44273,
+            "end": 44290,
+            "text": "internal validity"
+          },
+          {
+            "start": 44652,
+            "end": 44669,
+            "text": "internal validity"
+          }
+        ]
+      },
+      {
+        "key": "ai ethics principles and challenges",
+        "name": "AI ethics principles and challenges",
+        "label": "Concept",
+        "score": 0.807229220867157,
+        "mentions": [
+          {
+            "start": 20955,
+            "end": 20990,
+            "text": "AI Ethics Principles and Challenges"
+          },
+          {
+            "start": 38186,
+            "end": 38221,
+            "text": "AI ethics principles and challenges"
+          },
+          {
+            "start": 38346,
+            "end": 38381,
+            "text": "AI ethics principles and challenges"
+          },
+          {
+            "start": 44975,
+            "end": 45010,
+            "text": "AI ethics principles and challenges"
+          }
+        ]
+      },
+      {
+        "key": "challenging factors",
+        "name": "challenging factors",
+        "label": "Concept",
+        "score": 0.7665999233722687,
+        "mentions": [
+          {
+            "start": 54255,
+            "end": 54274,
+            "text": "challenging factors"
+          },
+          {
+            "start": 54418,
+            "end": 54437,
+            "text": "challenging factors"
+          },
+          {
+            "start": 55074,
+            "end": 55093,
+            "text": "challenging factors"
+          },
+          {
+            "start": 55312,
+            "end": 55331,
+            "text": "challenging factors"
+          }
+        ]
+      },
+      {
+        "key": "software",
+        "name": "software",
+        "label": "Software",
+        "score": 0.5898184657096863,
+        "mentions": [
+          {
+            "start": 32729,
+            "end": 32737,
+            "text": "software"
+          },
+          {
+            "start": 33308,
+            "end": 33316,
+            "text": "software"
+          },
+          {
+            "start": 34802,
+            "end": 34810,
+            "text": "software"
+          },
+          {
+            "start": 67655,
+            "end": 67663,
+            "text": "software"
+          },
+          {
+            "start": 67875,
+            "end": 67883,
+            "text": "software"
+          }
+        ]
+      },
+      {
+        "key": "law",
+        "name": "law",
+        "label": "Concept",
+        "score": 0.9192684690157572,
+        "mentions": [
+          {
+            "start": 13896,
+            "end": 13899,
+            "text": "law"
+          },
+          {
+            "start": 13979,
+            "end": 13982,
+            "text": "law"
+          },
+          {
+            "start": 14150,
+            "end": 14153,
+            "text": "law"
+          }
+        ]
+      },
+      {
+        "key": "wuhan university",
+        "name": "Wuhan University",
+        "label": "Organization",
+        "score": 0.9187604933977127,
+        "mentions": [
+          {
+            "start": 3028,
+            "end": 3044,
+            "text": "Wuhan University"
+          },
+          {
+            "start": 64425,
+            "end": 64441,
+            "text": "Wuhan University"
+          },
+          {
+            "start": 67466,
+            "end": 67482,
+            "text": "Wuhan University"
+          }
+        ]
+      },
+      {
+        "key": "conflict in practice",
+        "name": "conflict in practice",
+        "label": "Concept",
+        "score": 0.6886098831892014,
+        "mentions": [
+          {
+            "start": 28282,
+            "end": 28302,
+            "text": "conflict in practice"
+          },
+          {
+            "start": 30654,
+            "end": 30674,
+            "text": "conflict in practice"
+          },
+          {
+            "start": 30793,
+            "end": 30813,
+            "text": "conflict in practice"
+          },
+          {
+            "start": 39113,
+            "end": 39133,
+            "text": "conflict in practice"
+          }
+        ]
+      },
+      {
+        "key": "iso",
+        "name": "ISO",
+        "label": "Organization",
+        "score": 0.6824714839458466,
+        "mentions": [
+          {
+            "start": 58208,
+            "end": 58211,
+            "text": "ISO"
+          },
+          {
+            "start": 58222,
+            "end": 58225,
+            "text": "ISO"
+          },
+          {
+            "start": 58327,
+            "end": 58330,
+            "text": "iso"
+          },
+          {
+            "start": 58349,
+            "end": 58352,
+            "text": "iso"
+          }
+        ]
+      },
+      {
+        "key": "survey instrument",
+        "name": "survey instrument",
+        "label": "Software",
+        "score": 0.675074428319931,
+        "mentions": [
+          {
+            "start": 16327,
+            "end": 16344,
+            "text": "survey instrument"
+          },
+          {
+            "start": 16454,
+            "end": 16471,
+            "text": "survey instrument"
+          },
+          {
+            "start": 43935,
+            "end": 43952,
+            "text": "survey instrument"
+          },
+          {
+            "start": 44051,
+            "end": 44068,
+            "text": "survey instrument"
+          }
+        ]
+      },
+      {
+        "key": "ai technologies",
+        "name": "AI technologies",
+        "label": "System",
+        "score": 0.6615326404571533,
+        "mentions": [
+          {
+            "start": 9860,
+            "end": 9875,
+            "text": "AI technologies"
+          },
+          {
+            "start": 10092,
+            "end": 10107,
+            "text": "AI technologies"
+          },
+          {
+            "start": 10290,
+            "end": 10305,
+            "text": "AI technologies"
+          },
+          {
+            "start": 10602,
+            "end": 10617,
+            "text": "AI technologies"
+          }
+        ]
+      },
+      {
+        "key": "autonomy",
+        "name": "autonomy",
+        "label": "Concept",
+        "score": 0.8784272074699402,
+        "mentions": [
+          {
+            "start": 28486,
+            "end": 28494,
+            "text": "autonomy"
+          },
+          {
+            "start": 50857,
+            "end": 50865,
+            "text": "autonomy"
+          },
+          {
+            "start": 51204,
+            "end": 51212,
+            "text": "autonomy"
+          }
+        ]
+      },
+      {
+        "key": "monitoring bodies",
+        "name": "monitoring bodies",
+        "label": "Organization",
+        "score": 0.7969469825426737,
+        "mentions": [
+          {
+            "start": 26572,
+            "end": 26589,
+            "text": "monitoring bodies"
+          },
+          {
+            "start": 26652,
+            "end": 26669,
+            "text": "Monitoring bodies"
+          },
+          {
+            "start": 38970,
+            "end": 38987,
+            "text": "monitoring bodies"
+          }
+        ]
+      },
+      {
+        "key": "ethical aspects",
+        "name": "ethical aspects",
+        "label": "Concept",
+        "score": 0.7613879442214966,
+        "mentions": [
+          {
+            "start": 6152,
+            "end": 6167,
+            "text": "ethical aspects"
+          },
+          {
+            "start": 24612,
+            "end": 24627,
+            "text": "ethical aspects"
+          },
+          {
+            "start": 25135,
+            "end": 25150,
+            "text": "ethical aspects"
+          }
+        ]
+      },
+      {
+        "key": "no legal frameworks",
+        "name": "no legal frameworks",
+        "label": "Concept",
+        "score": 0.6962421536445618,
+        "mentions": [
+          {
+            "start": 1454,
+            "end": 1473,
+            "text": "no legal frameworks"
+          },
+          {
+            "start": 38945,
+            "end": 38964,
+            "text": "no legal frameworks"
+          },
+          {
+            "start": 54011,
+            "end": 54030,
+            "text": "no legal frameworks"
+          }
+        ]
+      },
+      {
+        "key": "regulatory bodies",
+        "name": "regulatory bodies",
+        "label": "Organization",
+        "score": 0.6714591532945633,
+        "mentions": [
+          {
+            "start": 24820,
+            "end": 24837,
+            "text": "regulatory bodies"
+          },
+          {
+            "start": 40050,
+            "end": 40067,
+            "text": "regulatory bodies"
+          },
+          {
+            "start": 48810,
+            "end": 48827,
+            "text": "regulatory bodies"
+          }
+        ]
+      },
+      {
+        "key": "spearman correlation coefficients",
+        "name": "Spearman correlation coefficients",
+        "label": "Metric",
+        "score": 0.9647077322006226,
+        "mentions": [
+          {
+            "start": 61307,
+            "end": 61340,
+            "text": "Spearman correlation coefficients"
+          },
+          {
+            "start": 61535,
+            "end": 61568,
+            "text": "Spearman correlation coefficients"
+          }
+        ]
+      },
+      {
+        "key": "transparency principle",
+        "name": "transparency principle",
+        "label": "Concept",
+        "score": 0.9538528919219971,
+        "mentions": [
+          {
+            "start": 28821,
+            "end": 28843,
+            "text": "transparency principle"
+          },
+          {
+            "start": 29371,
+            "end": 29393,
+            "text": "transparency principle"
+          }
+        ]
+      },
+      {
+        "key": "system",
+        "name": "system",
+        "label": "System",
+        "score": 0.635152538617452,
+        "mentions": [
+          {
+            "start": 22911,
+            "end": 22917,
+            "text": "system"
+          },
+          {
+            "start": 22966,
+            "end": 22972,
+            "text": "system"
+          },
+          {
+            "start": 26943,
+            "end": 26949,
+            "text": "system"
+          }
+        ]
+      },
+      {
+        "key": "university of jyvskyl",
+        "name": "University of Jyväskylä",
+        "label": "Organization",
+        "score": 0.9480705559253693,
+        "mentions": [
+          {
+            "start": 2475,
+            "end": 2498,
+            "text": "University of Jyväskylä"
+          },
+          {
+            "start": 3247,
+            "end": 3270,
+            "text": "University of Jyväskylä"
+          }
+        ]
+      },
+      {
+        "key": "university of southern queensland",
+        "name": "University of Southern Queensland",
+        "label": "Organization",
+        "score": 0.9418559074401855,
+        "mentions": [
+          {
+            "start": 2873,
+            "end": 2906,
+            "text": "University of Southern Queensland"
+          },
+          {
+            "start": 66499,
+            "end": 66532,
+            "text": "University of Southern Queensland"
+          }
+        ]
+      },
+      {
+        "key": "lappeenranta lahti university of technology",
+        "name": "Lappeenranta-Lahti University of Technology",
+        "label": "Organization",
+        "score": 0.9384011824925741,
+        "mentions": [
+          {
+            "start": 2720,
+            "end": 2763,
+            "text": "Lappeenranta-Lahti University of Technology"
+          },
+          {
+            "start": 65888,
+            "end": 65931,
+            "text": "Lappeenranta-Lahti University of Technology"
+          }
+        ]
+      },
+      {
+        "key": "likert scale",
+        "name": "Likert scale",
+        "label": "Metric",
+        "score": 0.9200694561004639,
+        "mentions": [
+          {
+            "start": 15115,
+            "end": 15127,
+            "text": "Likert scale"
+          },
+          {
+            "start": 28590,
+            "end": 28602,
+            "text": "Likert scale"
+          }
+        ]
+      },
+      {
+        "key": "university of oulu",
+        "name": "University of Oulu",
+        "label": "Organization",
+        "score": 0.9102094968159994,
+        "mentions": [
+          {
+            "start": 2585,
+            "end": 2603,
+            "text": "University of Oulu"
+          },
+          {
+            "start": 65027,
+            "end": 65045,
+            "text": "University of Oulu"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "source_key": "survey instrument",
+        "target_key": "ai ethics principles and challenges",
+        "label": "avalia",
+        "score": 1.0,
+        "quote": "The survey instrument consisted of four core sections: 1) demographics; 2) AI ethics principles; 3) challenges; and 4) challenges impact on principles.",
+        "quote_start": 14805
+      },
+      {
+        "source_key": "ai ethics principles",
+        "target_key": "fairness",
+        "label": "inclui",
+        "score": 1.0,
+        "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
+        "quote_start": 28401
+      },
+      {
+        "source_key": "ai ethics principles",
+        "target_key": "autonomy",
+        "label": "inclui",
+        "score": 1.0,
+        "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
+        "quote_start": 28401
+      },
+      {
+        "source_key": "conflict in practice",
+        "target_key": "privacy",
+        "label": "desafia",
+        "score": 1.0,
+        "quote": "Conflict in practice is deemed the most significant chal- lenge to the privacy principle.",
+        "quote_start": 29640
+      },
+      {
+        "source_key": "conflict in practice",
+        "target_key": "autonomy",
+        "label": "desafia",
+        "score": 1.0,
+        "quote": "(79%) of the survey respondents considered conflict in practice as the most common (long-term) challenge for autonomy and explainability principles.",
+        "quote_start": 30611
+      },
+      {
+        "source_key": "law",
+        "target_key": "ai ethics",
+        "label": "regula",
+        "score": 1.0,
+        "quote": "The aim of considering this type of population (lawmakers) is to understand the application of the law to AI ethics.",
+        "quote_start": 14051
+      },
+      {
+        "source_key": "lawmakers",
+        "target_key": "fairness",
+        "label": "priorizam",
+        "score": 1.0,
+        "quote": "lawmakers ranked fairness at position five as the most important principle",
+        "quote_start": 33219
+      },
+      {
+        "source_key": "practitioners",
+        "target_key": "monitoring bodies",
+        "label": "necessitam",
+        "score": 1.0,
+        "quote": "lacking monitoring bodies is ranked second by the practitioners",
+        "quote_start": 35539
+      },
+      {
+        "source_key": "ai ethics",
+        "target_key": "ethics",
+        "label": "é classificado sob",
+        "score": 1.0,
+        "quote": "Generally, AI ethics is classified under the umbrella of applied ethics",
+        "quote_start": 9530
+      },
+      {
+        "source_key": "regulatory bodies",
+        "target_key": "ai systems",
+        "label": "regulam",
+        "score": 1.0,
+        "quote": "Extant guide- lines and policies devised by researchers and regulatory bodies discussed different ethical goals for AI systems.",
+        "quote_start": 24760
+      }
+    ],
+    "engine": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+  },
+  "audio_path": null,
+  "audio_title": null,
+  "audio_subtitle": null,
+  "slides_pptx_path": "slides/deck.pptx",
+  "slides_pdf_path": "slides/deck.pdf",
+  "slides_preview_url": null,
+  "slides_edit_url": null,
+  "is_copy_of_existing": false,
+  "copy_canonical_override": null
+}
