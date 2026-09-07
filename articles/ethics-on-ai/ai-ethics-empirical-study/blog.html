@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers</title>
+<meta name="description" content="Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento são os desafios mais comuns. A pesquisa identifica o conflito na prática como o desafio mais severo e analisa diferenças estatísticas entre percepções de practitioners e lawmakers sobre fairness, autonomia e explainability em sistemas de IA confiáveis.">
+<meta name="keywords" content="AI ethics, ética de IA, AI ethics principles, princípios de ética, transparency, transparência, accountability, privacy, privacidade, fairness, explainability, trustworthy AI, IA confiável, ethical knowledge, conhecimento ético, legal frameworks, frameworks legais, monitoring bodies, órgãos de monitoramento, conflict in practice, conflito na prática, AI practitioners, lawmakers, legisladores, empirical study, estudo empírico, AI HLEG, ethically aligned design, EAD, ART framework, severity impact, Spearman correlation, context-aware systems, sistemas conscientes de contexto, ethics on ai, ética em IA">
+<meta name="author" content="Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/blog.html">
+<meta name="theme-color" content="#171415">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/blog.html">
+<meta property="og:title" content="AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers">
+<meta property="og:description" content="Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento são os desafios mais comuns. A pesquisa identifica o conflito na prática como o desafio mais severo e analisa diferenças estatísticas entre percepções de practitioners e lawmakers sobre fairness, autonomia e explainability em sistemas de IA confiáveis.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2023">
+<meta property="article:author" content="Arif Ali Khan">
+<meta property="article:author" content="Muhammad Azeem Akbar">
+<meta property="article:author" content="Mahdi Fahmideh">
+<meta property="article:author" content="Peng Liang">
+<meta property="article:author" content="Muhammad Waseem">
+<meta property="article:author" content="Aakash Ahmad">
+<meta property="article:author" content="Mahmood Niazi">
+<meta property="article:author" content="Pekka Abrahamsson">
+<meta property="article:tag" content="ethics on ai">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers">
+<meta name="twitter:description" content="Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento são os desafios mais comuns. A pesquisa identifica o conflito na prática como o desafio mais severo e analisa diferenças estatísticas entre percepções de practitioners e lawmakers sobre fairness, autonomia e explainability em sistemas de IA confiáveis.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/blog.html" },
+  "headline": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+  "description": "Estudo emp\u00edrico com 99 profissionais de IA e legisladores de 20 pa\u00edses revela que transpar\u00eancia, accountability e privacidade s\u00e3o os princ\u00edpios de \u00e9tica de IA mais cr\u00edticos, enquanto falta de conhecimento \u00e9tico, aus\u00eancia de frameworks legais e falta de \u00f3rg\u00e3os de monitoramento s\u00e3o os desafios mais comuns. A pesquisa identifica o conflito na pr\u00e1tica como o desafio mais severo e analisa diferen\u00e7as estat\u00edsticas entre percep\u00e7\u00f5es de practitioners e lawmakers sobre fairness, autonomia e explainability em sistemas de IA confi\u00e1veis.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2023",
+  "dateModified": "2023",
+  "author": [
+    { "@type": "Person", "name": "Arif Ali Khan" },
+    { "@type": "Person", "name": "Muhammad Azeem Akbar" },
+    { "@type": "Person", "name": "Mahdi Fahmideh" },
+    { "@type": "Person", "name": "Peng Liang" },
+    { "@type": "Person", "name": "Muhammad Waseem" },
+    { "@type": "Person", "name": "Aakash Ahmad" },
+    { "@type": "Person", "name": "Mahmood Niazi" },
+    { "@type": "Person", "name": "Pekka Abrahamsson" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Centro de Inform\u00e1tica, UFPE", "url": "https://ab-orbit.github.io/css3e/" },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+    "author": ["Arif Ali Khan","Muhammad Azeem Akbar","Mahdi Fahmideh","Peng Liang","Muhammad Waseem","Aakash Ahmad","Mahmood Niazi","Pekka Abrahamsson"],
+    "datePublished": "2023",
+"sameAs": "https://doi.org/10.1109/TCSS.2023.3251729",    "url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-kzxcc0z0/AI Ethics - An Empirical Study.pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "AI ethics principles" },
+    { "@type": "Thing", "name": "transparency" },
+    { "@type": "Thing", "name": "accountability" },
+    { "@type": "Thing", "name": "privacy" },
+    { "@type": "Thing", "name": "fairness" },
+    { "@type": "Thing", "name": "autonomy" },
+    { "@type": "Thing", "name": "explainability" },
+    { "@type": "Thing", "name": "lack of ethical knowledge" },
+    { "@type": "Thing", "name": "no legal frameworks" },
+    { "@type": "Thing", "name": "lacking monitoring bodies" },
+    { "@type": "Thing", "name": "conflict in practice" },
+    { "@type": "Thing", "name": "trustworthy AI" },
+    { "@type": "Thing", "name": "AI HLEG guidelines" },
+    { "@type": "Thing", "name": "ethically aligned design (EAD)" },
+    { "@type": "Thing", "name": "ART framework (Accountability, Responsibility, Transparency)" },
+    { "@type": "Thing", "name": "severity impact" },
+    { "@type": "Thing", "name": "Spearman\u0027s rank-order correlation" }
+  ],
+  "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/blog.html"
+}
+</script>
+
+<link rel="stylesheet" href="../../../resources/cases/style.css">
+<style>
+:root{
+  --accent-0: #2E7D5B;
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+</script>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Blog · AI Ethics: An Empirical Study on the Vie</div>
+    <nav class="nav">
+      <a class="btn" href="workshop.html">Dinâmica</a>
+      <a class="btn" href="index.html">Leitura do artigo</a>
+      <a class="btn" href="../../ethics-on-ai/index.html">&#8592; Ethics on AI</a>
+      <a class="btn primary" href="ai-ethics-empirical-study.pdf">PDF do ensaio</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="post-hero">
+    <p class="post-kicker">Ensaio · ethics on ai</p>
+    <h1>O Dilema Ético da Inteligência Artificial</h1>
+    <p class="post-dek">Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios para sistemas de IA confiáveis.</p>
+    <div class="byline">
+      <span><b>Baseado em</b> Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson (IEEE Transactions on Computational Social Systems, 2023)</span>
+    </div>
+  </section>
+
+  <div class="post-cover">
+    <div class="band">
+      <span>O argumento em uma frase</span>
+      <b style="font-size:22px;line-height:1.45">Apesar dos benefícios prometidos pelas tecnologias de IA, há preocupações crescentes de que sistemas complexos e opacos possam trazer mais danos sociais do que benefícios. Cenários de falha ética em IA já foram testemunhados (como o sistema de recrutamento da Amazon, que discriminava candidatas mulheres). Embora várias diretrizes, princípios e frameworks regulatórios tenham sido desenvolvidos para garantir que as tecnologias de IA sigam o bem-estar ético, as implicações desses princípios e diretrizes ainda estão sendo debatidas. Há uma lacuna entre a pesquisa em ética de IA e a prática industrial, e o estado atual da ética de IA é amplamente desconhecido para o público, profissionais, políticas e legisladores. Falta investigação empírica que explore os princípios e desafios associados à ética de IA, especialmente capturando as percepções de diferentes tipos de população (profissionais e legisladores).</b>
+    </div>
+  </div>
+
+  <nav class="toc-rail" aria-label="Seções do ensaio">
+    <a href="#s1">1 · O Dilema Ético da Inteligência Artificial</a>
+    <a href="#s2">2 · Mapeando o Território: Princípios e Desafios</a>
+    <a href="#s3">3 · Os Obstáculos na Prática</a>
+    <a href="#s4">4 · Severidade e Impacto: Quando Princípios Colidem com a Realidade</a>
+    <a href="#s5">5 · Profissionais e Legisladores: Convergências e Divergências</a>
+    <a href="#s6">6 · Implicações para Pesquisa e Prática</a>
+    <a href="#s7">7 · Rumo a uma IA Verdadeiramente Ética</a>
+  </nav>
+
+<article class="post">
+  <p class="drop">Imagine que você está prestes a solicitar um empréstimo bancário. O sistema automatizado analisa milhares de variáveis — sua renda, histórico de crédito, padrões de consumo — e, em segundos, retorna uma resposta: &#34;Negado&#34;. Você pergunta o porquê, mas ninguém consegue explicar. O algoritmo decidiu, e sua lógica permanece opaca, mesmo para os engenheiros que o construíram. Agora imagine que esse mesmo sistema, treinado com dados históricos enviesados, sistematicamente rejeita pedidos de pessoas de determinados bairros ou gêneros, perpetuando desigualdades sem que ninguém perceba — até que seja tarde demais. Esse cenário não é ficção: em 2018, a Amazon descobriu que seu sistema de recrutamento baseado em inteligência artificial discriminava candidatas mulheres, porque havia sido treinado com currículos predominantemente masculinos. À medida que a IA se infiltra em decisões críticas — da saúde à justiça criminal, da educação ao mercado de trabalho —, a pergunta que ecoa é: como garantir que essas tecnologias sirvam ao bem-estar coletivo, em vez de amplificar injustiças? É nesse contexto que a ética de IA emerge não como um luxo filosófico, mas como uma necessidade urgente para profissionais, legisladores e sociedade.</p>
+  <h2 id="s1"><span class="no">01</span>O Dilema Ético da Inteligência Artificial</h2>
+<p>A inteligência artificial promete revolucionar praticamente todos os setores da economia e da vida social. Sistemas de IA já diagnosticam doenças, dirigem veículos, recomendam conteúdo, aprovam crédito e até influenciam decisões judiciais. Essa expansão acelerada traz benefícios inegáveis: maior eficiência, personalização de serviços, descobertas científicas antes inimagináveis. Porém, junto com as promessas, surgem preocupações crescentes de que sistemas complexos e opacos possam trazer mais danos sociais do que benefícios.</p><p>Cenários de falha ética já foram testemunhados em escala global. Além do caso da Amazon, algoritmos de reconhecimento facial demonstraram vieses raciais, sistemas de pontuação de crédito perpetuaram discriminação socioeconômica, e plataformas de redes sociais amplificaram desinformação com consequências políticas graves. Esses incidentes revelam uma verdade desconfortável: a IA não é neutra. Ela reflete — e muitas vezes amplifica — os vieses, valores e falhas dos dados e das pessoas que a criam.</p><p>Em resposta a essas preocupações, organizações internacionais, empresas de tecnologia e governos desenvolveram uma profusão de diretrizes, princípios e frameworks regulatórios para garantir que as tecnologias de IA sigam padrões éticos. O High-Level Expert Group on AI da União Europeia, a IEEE com seu Ethically Aligned Design, o Google, a SAP, a ACM — todos propuseram seus conjuntos de princípios. No entanto, as implicações práticas desses princípios ainda estão sendo debatidas, e existe uma lacuna persistente entre a pesquisa acadêmica em ética de IA e a prática industrial.</p>  <h2 id="s2"><span class="no">02</span>Mapeando o Território: Princípios e Desafios</h2>
+<p>Para compreender melhor o estado atual da ética de IA, um grupo internacional de pesquisadores conduziu um estudo empírico abrangente, coletando as percepções de 99 profissionais de IA e legisladores de 20 países distribuídos por cinco continentes. O estudo é notável por capturar, pela primeira vez, as visões de dois tipos distintos de população: aqueles que constroem sistemas de IA (engenheiros, cientistas de dados, arquitetos de software) e aqueles que regulam seu uso (advogados, formuladores de políticas, especialistas em compliance).</p><p>A metodologia envolveu um questionário estruturado em quatro seções: dados demográficos, percepções sobre princípios de ética de IA, desafios enfrentados na implementação desses princípios, e análise de impacto dos desafios sobre cada princípio. O instrumento foi disponibilizado em inglês e chinês, reconhecendo a importância da indústria chinesa no cenário global de IA. Os participantes representavam organizações de diversos tamanhos — desde startups até corporações multinacionais — e trabalhavam em domínios variados, incluindo saúde, finanças, educação, transporte e governo.</p><p>Os resultados revelaram um consenso notável sobre quais princípios são mais críticos. Transparência, accountability e privacidade emergiram como as três prioridades máximas, reconhecidas tanto por profissionais quanto por legisladores. A transparência refere-se à capacidade de compreender como um sistema de IA toma decisões; a accountability diz respeito à atribuição clara de responsabilidade quando algo dá errado; e a privacidade envolve a proteção de dados pessoais sensíveis. Outros princípios importantes incluíram fairness (justiça), explicabilidade, autonomia humana e segurança.</p>  <blockquote class="pull">Transparência, accountability e privacidade emergiram como as três prioridades máximas, reconhecidas tanto por profissionais quanto por legisladores.<cite>Resultados do estudo · RQ1</cite></blockquote>
+  <h2 id="s3"><span class="no">03</span>Os Obstáculos na Prática</h2>
+<p>Identificar princípios éticos é apenas o primeiro passo. O estudo também investigou os desafios concretos que impedem a implementação efetiva desses princípios no desenvolvimento e implantação de sistemas de IA. Três desafios se destacaram como os mais comuns: falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento.</p><p>A falta de conhecimento ético reflete uma realidade preocupante: muitos profissionais de tecnologia não receberam formação adequada em ética durante sua educação formal. Engenheiros de software e cientistas de dados são treinados para otimizar algoritmos e maximizar métricas de desempenho, mas raramente são expostos a discussões sistemáticas sobre implicações sociais, vieses algorítmicos ou dilemas morais. Essa lacuna educacional se traduz em sistemas que, embora tecnicamente sofisticados, podem ser eticamente problemáticos.</p><p>A ausência de frameworks legais é outro obstáculo significativo. Enquanto algumas jurisdições — notavelmente a União Europeia com seu AI Act — avançam na regulamentação de IA, a maioria dos países ainda opera em um vácuo legal. Sem legislação clara, empresas enfrentam incerteza sobre quais práticas são aceitáveis, e indivíduos afetados por decisões algorítmicas têm poucos recursos legais. A falta de órgãos de monitoramento agrava esse problema: mesmo quando princípios e diretrizes existem, não há entidades independentes com autoridade para auditar sistemas, investigar violações e aplicar sanções.</p><p>Outros desafios identificados incluem distorção de máquina (quando algoritmos produzem resultados inesperados ou enviesados), conflito na prática (tensões entre princípios éticos e pressões comerciais ou técnicas), e falta de padrões técnicos compartilhados para avaliar conformidade ética.</p>  <blockquote class="pull">Muitos profissionais de tecnologia não receberam formação adequada em ética durante sua educação formal, criando uma lacuna entre sofisticação técnica e consciência ética.<cite>Desafios identificados · RQ1</cite></blockquote>
+  <h2 id="s4"><span class="no">04</span>Severidade e Impacto: Quando Princípios Colidem com a Realidade</h2>
+<p>Uma das contribuições mais importantes do estudo foi a análise de severidade: como cada desafio impacta cada princípio ético. Os pesquisadores pediram aos participantes que avaliassem a gravidade de cada desafio em relação a princípios específicos, gerando um mapa detalhado de vulnerabilidades.</p><p>O resultado mais marcante foi a identificação do conflito na prática como o desafio mais severo. Esse achado revela uma tensão fundamental: mesmo quando profissionais e organizações reconhecem a importância de princípios éticos, eles frequentemente enfrentam pressões que os forçam a fazer concessões. Prazos apertados, demandas de clientes, limitações técnicas, competição de mercado — todos esses fatores podem empurrar equipes a priorizar funcionalidade e velocidade em detrimento de considerações éticas.</p><p>Por exemplo, implementar transparência plena pode conflitar com proteção de propriedade intelectual; garantir fairness absoluta pode reduzir a acurácia preditiva de um modelo; respeitar autonomia humana pode tornar sistemas menos eficientes. Esses trade-offs não são meramente técnicos — são dilemas morais que exigem julgamento contextual, negociação de valores e, frequentemente, escolhas difíceis.</p><p>A análise de impacto também revelou que certos desafios afetam alguns princípios de forma desproporcional. A falta de conhecimento ético, por exemplo, tem impacto particularmente severo sobre fairness e explicabilidade, enquanto a ausência de frameworks legais afeta mais diretamente accountability e privacidade. Essas nuances são cruciais para priorizar intervenções: não basta abordar desafios de forma genérica; é preciso entender suas manifestações específicas em diferentes contextos.</p>  <blockquote class="pull">Conflito na prática emergiu como o desafio mais severo: mesmo reconhecendo princípios éticos, profissionais enfrentam pressões que os forçam a fazer concessões.<cite>Análise de impacto · RQ2</cite></blockquote>
+  <h2 id="s5"><span class="no">05</span>Profissionais e Legisladores: Convergências e Divergências</h2>
+<p>Uma das questões centrais do estudo era se profissionais de IA e legisladores compartilham percepções semelhantes sobre princípios e desafios éticos. A resposta é nuançada: há convergência significativa, mas também diferenças importantes.</p><p>A análise estatística usando correlação de Spearman revelou uma correlação positiva e significativa entre as percepções dos dois grupos. Isso é encorajador: sugere que existe uma base comum de entendimento que pode facilitar diálogo e colaboração. Tanto profissionais quanto legisladores reconhecem os mesmos princípios como prioritários e identificam desafios semelhantes.</p><p>No entanto, testes estatísticos mais refinados (teste t independente) identificaram diferenças significativas para princípios e desafios específicos. Por exemplo, legisladores tendem a atribuir maior importância ao princípio de fairness do que profissionais técnicos. Isso pode refletir a exposição dos legisladores a casos de discriminação algorítmica e seu papel em proteger direitos civis. Por outro lado, profissionais demonstraram maior preocupação com desafios técnicos específicos, como distorção de máquina.</p><p>Uma diferença particularmente notável emergiu em relação à falta de órgãos de monitoramento. Legisladores percebem esse desafio como mais crítico do que profissionais, possivelmente porque reconhecem a importância de mecanismos de enforcement para garantir conformidade. Profissionais, por sua vez, podem estar mais focados em desafios imediatos de implementação técnica.</p><p>Essas diferenças não são necessariamente problemáticas — elas refletem perspectivas complementares que, se integradas, podem enriquecer o desenvolvimento de sistemas de IA mais éticos. O desafio está em criar espaços de diálogo onde essas perspectivas possam convergir em soluções práticas.</p>  <blockquote class="pull">Profissionais e legisladores compartilham uma base comum de entendimento, mas diferem em prioridades específicas — diferenças que refletem perspectivas complementares.<cite>Análise comparativa · RQ3</cite></blockquote>
+  <h2 id="s6"><span class="no">06</span>Implicações para Pesquisa e Prática</h2>
+<p>Os achados deste estudo têm implicações profundas tanto para a pesquisa acadêmica quanto para a prática industrial e regulatória. Para pesquisadores, o estudo confirma empiricamente princípios e desafios previamente identificados em revisões sistemáticas da literatura, mas também revela lacunas importantes que demandam investigação adicional.</p><p>Uma necessidade urgente é o desenvolvimento de soluções práticas e contextualizadas. Princípios genéricos como transparência e fairness são importantes, mas insuficientes. É preciso traduzi-los em padrões específicos de domínio, métricas mensuráveis e ferramentas que possam ser integradas ao ciclo de vida de desenvolvimento de software. Por exemplo, o que significa transparência em um sistema de diagnóstico médico versus um algoritmo de recomendação de conteúdo? Como medir fairness em contextos onde múltiplas definições de justiça podem estar em conflito?</p><p>Outra direção de pesquisa crucial é a exploração das causas profundas dos desafios identificados e o desenvolvimento de estratégias de mitigação. Por que existe falta de conhecimento ético entre profissionais de tecnologia? Que reformas educacionais são necessárias? Como frameworks legais podem ser desenhados para equilibrar proteção e inovação? Que modelos de governança podem garantir monitoramento efetivo sem sufocar o desenvolvimento tecnológico?</p><p>Para a prática, o estudo oferece uma visão geral valiosa que pode orientar profissionais na priorização de esforços. Saber que transparência, accountability e privacidade são os princípios mais críticos permite que equipes de desenvolvimento foquem recursos limitados onde terão maior impacto. Compreender que conflito na prática é o desafio mais severo ajuda organizações a antecipar tensões e desenvolver processos de tomada de decisão que explicitem trade-offs éticos.</p><p>Para legisladores e formuladores de políticas, o estudo fornece evidências empíricas que podem informar o design de regulamentações. A identificação da falta de frameworks legais e órgãos de monitoramento como desafios principais sugere que investimento em infraestrutura regulatória é prioritário. Ao mesmo tempo, a correlação entre percepções de profissionais e legisladores indica que regulamentações desenvolvidas em colaboração com a indústria têm maior probabilidade de serem efetivas e viáveis.</p>  <blockquote class="pull">Princípios genéricos são importantes, mas insuficientes. É preciso traduzi-los em padrões específicos de domínio, métricas mensuráveis e ferramentas integradas ao desenvolvimento.<cite>Implicações para pesquisa</cite></blockquote>
+  <h2 id="s7"><span class="no">07</span>Rumo a uma IA Verdadeiramente Ética</h2>
+<p>O estudo revela cinco observações principais que devem orientar o futuro da ética de IA. Primeira, a importância de papéis emergentes: legisladores não são meros reguladores externos, mas stakeholders essenciais cujas perspectivas devem ser integradas desde as fases iniciais de design de sistemas de IA. Segunda, achados confirmatórios: a validação empírica de princípios e desafios previamente identificados na literatura fortalece a base de conhecimento e justifica investimento em soluções.</p><p>Terceira, aderência a princípios e desafios: o consenso em torno de transparência, accountability e privacidade, e o reconhecimento compartilhado de falta de conhecimento ético, frameworks legais e monitoramento, criam uma agenda clara para ação. Quarta, consciência de risco: a identificação de conflito na prática como desafio mais severo alerta para os impactos de longo prazo de decisões que priorizam conveniência sobre ética. Quinta, percepções correlacionadas: a convergência entre profissionais e legisladores oferece uma base promissora para colaboração multidisciplinar.</p><p>Olhando para o futuro, os pesquisadores propõem três direções principais de trabalho. Primeiro, investigação empírica mais ampla, expandindo a amostra para incluir mais países, setores e tipos de sistemas de IA, permitindo análises comparativas mais robustas. Segundo, exploração profunda das causas dos desafios e desenvolvimento de soluções específicas — por exemplo, programas de educação em ética para profissionais de tecnologia, templates de frameworks legais adaptáveis a diferentes jurisdições, modelos de órgãos de monitoramento independentes.</p><p>Terceiro, e talvez mais ambicioso, o desenvolvimento de um modelo de maturidade de ética de IA. Inspirado em modelos de maturidade de capacidade usados em engenharia de software, esse framework permitiria que organizações avaliem seu nível atual de maturidade ética e identifiquem caminhos de melhoria progressiva. Tal modelo poderia incluir níveis que vão desde conformidade básica com princípios até integração profunda de considerações éticas em todos os aspectos da cultura organizacional e processos de desenvolvimento.</p>  <blockquote class="pull">O desenvolvimento de um modelo de maturidade de ética de IA permitiria que organizações avaliem seu nível atual e identifiquem caminhos de melhoria progressiva.<cite>Trabalho futuro</cite></blockquote>
+  <p>A jornada da ética de IA está apenas começando. Este estudo empírico oferece um mapa inicial do território — identificando os princípios mais valorizados, os desafios mais urgentes, e as áreas de convergência e divergência entre aqueles que constroem e aqueles que regulam sistemas de IA. Mas mapas não substituem a viagem. A verdadeira transformação exigirá esforço sustentado de múltiplos atores: educadores reformando currículos para incluir ética como componente central da formação técnica; pesquisadores desenvolvendo ferramentas práticas e contextualizadas; empresas investindo em processos que tornem considerações éticas parte integral do desenvolvimento; legisladores criando frameworks que protejam sem sufocar inovação; e sociedade civil mantendo vigilância crítica. A boa notícia é que existe consenso sobre o que importa e consciência crescente dos obstáculos. A questão agora é se teremos a vontade coletiva de transformar esse conhecimento em ação — antes que o próximo escândalo algorítmico nos force a fazê-lo.</p>
+</article>
+
+<div class="closer">
+  <div class="callout"><b>Se os princípios de ética de IA são amplamente reconhecidos mas raramente operacionalizados na prática — e se o desafio mais severo é justamente o &#34;conflito na prática&#34; entre princípios abstratos e contextos reais —, como podemos transformar diretrizes genéricas em padrões contextualizados, específicos de domínio e juridicamente vinculantes, que equilibrem as tensões éticas inerentes sem comprometer a inovação ou a autonomia humana?</b></div>
+</div>
+  <div class="share">
+    <span>Compartilhar</span>
+    <a class="btn" id="shareLink" href="#">Copiar link</a>
+  </div>
+
+  <section class="related">
+    <h3>Continue</h3>
+    <div class="related-grid">
+      <a class="rcard" href="index.html">
+        <b>Leitura guiada do artigo</b>
+        <small>Categorias, mapa mental, tabelas e áudio.</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+      <a class="rcard" href="workshop.html">
+        <b>Dinâmica remota</b>
+        <small>Workshop para consolidação em grupo ou individual.</small>
+        <span class="arrow">ABRIR →</span>
+      </a>
+      <a class="rcard" href="ai-ethics-empirical-study.pdf">
+        <b>Artigo original</b>
+        <small>IEEE Transactions on Computational Social Systems.</small>
+        <span class="arrow">PDF ↓</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Baseado em Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson. <i>AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers</i>. IEEE Transactions on Computational Social Systems.<br><br>
+    <a href="index.html">Leitura guiada</a> &#183; <a href="workshop.html">Dinâmica</a> &#183; <a href="../../ethics-on-ai/index.html">&#8592; Ethics on AI</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('shareLink').addEventListener('click', function (ev) {
+  ev.preventDefault();
+  var btn = this;
+  var done = function (ok) {
+    btn.textContent = ok ? 'Link copiado' : 'Copie manualmente';
+    setTimeout(function () { btn.textContent = 'Copiar link'; }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); });
+  } else { done(false); }
+});
+</script>
+</body>
+</html>

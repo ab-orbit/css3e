@@ -17,3 +17,9 @@
   description: ''
   temas:
   - contexto-e-contexto-sensivel
+- slug: ethics-on-ai
+  name: Ethics on AI
+  description: Estudos sobre ética em inteligência artificial — princípios, práticas
+    e evidências empíricas sobre como equipes constroem e governam sistemas de IA.
+  temas:
+  - ethics-on-ai

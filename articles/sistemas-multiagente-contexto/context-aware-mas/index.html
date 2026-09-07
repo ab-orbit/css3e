@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</title>
-<meta name="description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes dinâmicos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.">
-<meta name="keywords" content="context-aware systems, sistemas multi-agente, multi-agent systems, CA-MAS, consciência de contexto, Sense-Learn-Reason-Predict-Act, BDI, Belief-Desire-Intention, deep reinforcement learning, MARL, multi-agent reinforcement learning, ontology-based models, modelos baseados em ontologia, Graph Neural Networks, GNN, organizational structures, estruturas organizacionais, consensus protocols, protocolos de consenso, context modeling, Actor-Critic, DQN, PPO, navegação autônoma, IoT, ambient intelligence, inteligência artificial, sistemas complexos">
+<meta name="description" content="Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Apresenta arquitetura unificada, taxonomia e processo geral para desenvolvimento de CA-MAS, cobrindo técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso, deep reinforcement learning e aplicações em oito domínios, além de desafios e direções futuras de pesquisa.">
+<meta name="keywords" content="context-aware systems, multi-agent systems, CA-MAS, sistemas multi-agente, consciência de contexto, Sense-Learn-Reason-Predict-Act, deep reinforcement learning, MARL, BDI, context modeling, ontology-based models, graph neural networks, GNN, actor-critic, organizational structures, consensus protocols, inteligência artificial, aprendizado por reforço, sistemas autônomos, coordenação de agentes">
 <meta name="author" content="Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html">
 <meta property="og:title" content="A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions">
-<meta property="og:description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes dinâmicos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.">
+<meta property="og:description" content="Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Apresenta arquitetura unificada, taxonomia e processo geral para desenvolvimento de CA-MAS, cobrindo técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso, deep reinforcement learning e aplicações em oito domínios, além de desafios e direções futuras de pesquisa.">
 <meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
@@ -27,13 +27,11 @@
 <meta property="article:author" content="Hy Nguyen">
 <meta property="article:author" content="Rajesh Vasa">
 <meta property="article:author" content="Kon Mouzakis">
-<meta property="article:tag" content="sistemas multi-agente">
-<meta property="article:tag" content="context-aware systems">
-<meta property="article:tag" content="inteligência artificial">
+<meta property="article:tag" content="sistemas-multiagente-contexto">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions">
-<meta name="twitter:description" content="Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes dinâmicos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.">
+<meta name="twitter:description" content="Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Apresenta arquitetura unificada, taxonomia e processo geral para desenvolvimento de CA-MAS, cobrindo técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso, deep reinforcement learning e aplicações em oito domínios, além de desafios e direções futuras de pesquisa.">
 <meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
 
 <script type="application/ld+json">
@@ -42,7 +40,7 @@
   "@type": "Article",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html" },
   "headline": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
-  "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes din\u00e2micos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), t\u00e9cnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplica\u00e7\u00f5es em oito dom\u00ednios: navega\u00e7\u00e3o aut\u00f4noma, ambient intelligence, IoT, supply chain, disaster relief, energia sustent\u00e1vel, assist\u00eancia digital e educa\u00e7\u00e3o.",
+  "description": "Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Apresenta arquitetura unificada, taxonomia e processo geral para desenvolvimento de CA-MAS, cobrindo t\u00e9cnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso, deep reinforcement learning e aplica\u00e7\u00f5es em oito dom\u00ednios, al\u00e9m de desafios e dire\u00e7\u00f5es futuras de pesquisa.",
   "inLanguage": "pt-BR",
   "image": "https://ab-orbit.github.io/css3e/three-categories.png",
   "datePublished": "2025-01-29",
@@ -60,13 +58,13 @@
     "name": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
     "author": ["Hung Du","Srikanth Thudumu","Hy Nguyen","Rajesh Vasa","Kon Mouzakis"],
     "datePublished": "2025-01-29",
-    "url": "/Users/jwcunha/Downloads/Context_AwareMAS.pdf"
+    "url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-uf1l7liz/2402.01968v2.pdf"
   },
   "about": [
     { "@type": "Thing", "name": "Context-Aware Multi-Agent Systems (CA-MAS)" },
+    { "@type": "Thing", "name": "Sense-Learn-Reason-Predict-Act" },
     { "@type": "Thing", "name": "Multi-Agent Systems (MAS)" },
     { "@type": "Thing", "name": "Context-Aware Systems (CAS)" },
-    { "@type": "Thing", "name": "Sense-Learn-Reason-Predict-Act" },
     { "@type": "Thing", "name": "Belief-Desire-Intention (BDI)" },
     { "@type": "Thing", "name": "Deep Reinforcement Learning (DRL)" },
     { "@type": "Thing", "name": "Multi-Agent Reinforcement Learning (MARL)" },
@@ -76,8 +74,10 @@
     { "@type": "Thing", "name": "Ontology-based models" },
     { "@type": "Thing", "name": "Graph Neural Networks (GNN)" },
     { "@type": "Thing", "name": "Actor-Critic methods" },
-    { "@type": "Thing", "name": "Deep Q Network (DQN)" },
-    { "@type": "Thing", "name": "Proximal Policy Optimization (PPO)" }
+    { "@type": "Thing", "name": "MAPE cycle (Monitor-Analyze-Plan-Execute)" },
+    { "@type": "Thing", "name": "Context graph" },
+    { "@type": "Thing", "name": "Active perception" },
+    { "@type": "Thing", "name": "Situation awareness" }
   ],
   "url": "https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html"
 }
@@ -117,9 +117,9 @@
         }
       ],
       "abstract": "Research interest in agents is rising, particularly in Artificial Intelligence (AI) techniques such as deep multi-modal representation learning, deep graph learning, and deep reinforcement learning, which suggest potential for human-like task performance within a multi-agent framework. However, challenges exist in enabling these agents to coordinate, learn, reason, predict, and navigate uncertainties in dynamic environments. Context awareness is crucial for enhancing multi-agent systems in such situations. Current research often addresses context-awareness or multi-agent system issues separately, leaving a gap in comprehensive surveys that explore both fields, especially regarding the five essential agent capabilities (Sense-Learn-Reason-Predict-Act). This survey fills that gap by presenting a unified architecture and taxonomy for developing Context-Aware Multi-Agent Systems (CA-MAS), which are vital for improving agent robustness and adaptability in real-world environments. We provide a comprehensive overview of state-of-the-art context-awareness and multi-agent systems, followed by a framework for CA-MAS development. We detail the properties of context-awareness and multi-agent systems, and a general process for context-aware systems, highlighting approaches from various domains such as ambient intelligence, autonomous navigation, digital assistance, disaster relief management, education, energy efficiency & sustainability, IoT, and supply chain management. Finally, we discuss existing CA-MAS challenges and propose future research directions.",
-      "description": "Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.",
+      "description": "Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — em um framework coerente. A pesquisa preenche uma lacuna crítica ao conectar consciência de contexto e sistemas multi-agente, oferecendo taxonomia organizada, processo geral de desenvolvimento e análise de aplicações em oito domínios distintos.",
       "datePublished": "2025-01-29",
-      "publication": "arXiv preprint arXiv:2402.01968v2 [cs.MA]",
+      "publication": "arXiv preprint",
       "keywords": [
         "Artificial Intelligence",
         "Reinforcement Learning",
@@ -392,6 +392,62 @@
           "inDefinedTermSet": "Task",
           "css3e:mentionCount": 4,
           "css3e:confidence": 0.752
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ambient intelligence",
+          "termCode": "ambient intelligence",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.701
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "An agent",
+          "termCode": "an agent",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.903
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "complex tasks",
+          "termCode": "complex tasks",
+          "inDefinedTermSet": "Task",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.677
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "CBR",
+          "termCode": "cbr",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.661
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "historical data",
+          "termCode": "historical data",
+          "inDefinedTermSet": "Dataset",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.649
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "communication",
+          "termCode": "communication",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.857
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "pedestrian trajectories",
+          "termCode": "pedestrian trajectories",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.849
         }
       ]
     }
@@ -410,47 +466,87 @@
     {
       "source": "agent",
       "sourceCode": "agent",
-      "label": "utiliza",
+      "label": "utiliza para raciocinar",
       "target": "deep reinforcement learning",
       "targetCode": "deep reinforcement learning",
       "confidence": 1.0,
-      "quote": "advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
-      "quoteOffset": 3929
+      "quote": "Moreover, advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
+      "quoteOffset": 3919
     },
     {
       "source": "agent",
       "sourceCode": "agent",
-      "label": "raciocina com",
+      "label": "estima estados futuros baseado em",
+      "target": "historical data",
+      "targetCode": "historical data",
+      "confidence": 1.0,
+      "quote": "The agent estimates and predicts future states based on its model of historical data and observations.",
+      "quoteOffset": 4310
+    },
+    {
+      "source": "agents",
+      "sourceCode": "agents",
+      "label": "compreende conhecimento através de",
+      "target": "contextual information",
+      "targetCode": "contextual information",
+      "confidence": 1.0,
+      "quote": "This results in the growing attention to the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.",
+      "quoteOffset": 6151
+    },
+    {
+      "source": "multi-agent systems",
+      "sourceCode": "multi agent systems",
+      "label": "compreende",
+      "target": "agents",
+      "targetCode": "agents",
+      "confidence": 1.0,
+      "quote": "Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.",
+      "quoteOffset": 6702
+    },
+    {
+      "source": "agent",
+      "sourceCode": "agent",
+      "label": "possui",
       "target": "goals",
       "targetCode": "goals",
       "confidence": 1.0,
-      "quote": "advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
-      "quoteOffset": 3929
+      "quote": "An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.",
+      "quoteOffset": 6888
     },
     {
       "source": "agent",
       "sourceCode": "agent",
-      "label": "deve estar ciente de",
+      "label": "forma crenças baseado em",
+      "target": "knowledge",
+      "targetCode": "knowledge",
+      "confidence": 1.0,
+      "quote": "Furthermore, an autonomous agent forms its beliefs based on its knowledge and observations of the environment and other agents.",
+      "quoteOffset": 7521
+    },
+    {
+      "source": "consensus",
+      "sourceCode": "consensus",
+      "label": "é imperativo para",
+      "target": "agents",
+      "targetCode": "agents",
+      "confidence": 1.0,
+      "quote": "In cooperative settings, achieving consensus, and a shared agreement on a particular interest is imperative for autonomous agents.",
+      "quoteOffset": 7848
+    },
+    {
+      "source": "agent",
+      "sourceCode": "agent",
+      "label": "requer estar ciente de",
       "target": "context",
       "targetCode": "context",
       "confidence": 1.0,
-      "quote": "attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
-      "quoteOffset": 8168
-    },
-    {
-      "source": "context",
-      "sourceCode": "context",
-      "label": "inclui",
-      "target": "Organizational Structure",
-      "targetCode": "organizational structure",
-      "confidence": 1.0,
-      "quote": "attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
-      "quoteOffset": 8168
+      "quote": "It is worth noting that attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
+      "quoteOffset": 8144
     },
     {
       "source": "CAS",
       "sourceCode": "cas",
-      "label": "utiliza",
+      "label": "adapta-se dinamicamente usando",
       "target": "context",
       "targetCode": "context",
       "confidence": 1.0,
@@ -460,7 +556,7 @@
     {
       "source": "contextual information",
       "sourceCode": "contextual information",
-      "label": "inclui",
+      "label": "abrange",
       "target": "Organizational Structure",
       "targetCode": "organizational structure",
       "confidence": 1.0,
@@ -468,24 +564,14 @@
       "quoteOffset": 9210
     },
     {
-      "source": "MAS",
-      "sourceCode": "mas",
-      "label": "possui",
-      "target": "Organizational Structure",
-      "targetCode": "organizational structure",
+      "source": "context",
+      "sourceCode": "context",
+      "label": "auxilia",
+      "target": "agents",
+      "targetCode": "agents",
       "confidence": 1.0,
-      "quote": "three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.",
-      "quoteOffset": 17904
-    },
-    {
-      "source": "MAS",
-      "sourceCode": "mas",
-      "label": "possui",
-      "target": "consensus",
-      "targetCode": "consensus",
-      "confidence": 1.0,
-      "quote": "three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.",
-      "quoteOffset": 17904
+      "quote": "Such context assists agents precisely retrieving relevant information for task accomplishment",
+      "quoteOffset": 9360
     },
     {
       "source": "MAS",
@@ -494,8 +580,8 @@
       "target": "expert systems",
       "targetCode": "expert systems",
       "confidence": 1.0,
-      "quote": "three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
-      "quoteOffset": 18045
+      "quote": "Furthermore, three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
+      "quoteOffset": 18032
     },
     {
       "source": "MAS",
@@ -504,63 +590,73 @@
       "target": "object-oriented programming",
       "targetCode": "object oriented programming",
       "confidence": 1.0,
-      "quote": "three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
-      "quoteOffset": 18045
+      "quote": "Furthermore, three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
+      "quoteOffset": 18032
     },
     {
-      "source": "Relationships",
-      "sourceCode": "relationships",
-      "label": "formam-se entre",
-      "target": "agents",
-      "targetCode": "agents",
+      "source": "agents",
+      "sourceCode": "agents",
+      "label": "estabelece protocolos de",
+      "target": "communication",
+      "targetCode": "communication",
       "confidence": 1.0,
-      "quote": "Depending on both organizational goals and agent-specific goals, relationships among agentsare formed into one of the following categories: cooperation or competition.",
-      "quoteOffset": 18537
-    },
-    {
-      "source": "consensus",
-      "sourceCode": "consensus",
-      "label": "é alcançado entre",
-      "target": "agents",
-      "targetCode": "agents",
-      "confidence": 1.0,
-      "quote": "achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
-      "quoteOffset": 31331
+      "quote": "Achieving this purpose necessitates organizing agents into groups with coordination, establishing communication protocols among them, and reaching consensus agreements",
+      "quoteOffset": 18852
     },
     {
       "source": "consensus",
       "sourceCode": "consensus",
-      "label": "possibilita troca de",
-      "target": "information",
-      "targetCode": "information",
+      "label": "requer",
+      "target": "agent",
+      "targetCode": "agent",
       "confidence": 1.0,
-      "quote": "achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
-      "quoteOffset": 31331
+      "quote": "Once an organizational structure is established, achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
+      "quoteOffset": 31282
     },
     {
       "source": "leader-follower consensus",
       "sourceCode": "leader follower consensus",
-      "label": "é tipo de",
-      "target": "Consensus Protocol",
-      "targetCode": "consensus protocol",
+      "label": "é protocolo de",
+      "target": "consensus",
+      "targetCode": "consensus",
       "confidence": 1.0,
-      "quote": "the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,",
-      "quoteOffset": 32493
+      "quote": "To overcome these challenges, the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus, (5) bipartite consensus, (6) sampled-data consensus, (7) quantized consensus, (8) network-based consensus, and (9) the combination of consensus with tracking mechanisms",
+      "quoteOffset": 32463
     },
     {
       "source": "group/cluster consensus",
       "sourceCode": "groupcluster consensus",
-      "label": "é tipo de",
-      "target": "Consensus Protocol",
-      "targetCode": "consensus protocol",
+      "label": "é protocolo de",
+      "target": "consensus",
+      "targetCode": "consensus",
       "confidence": 1.0,
-      "quote": "the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,",
-      "quoteOffset": 32493
+      "quote": "To overcome these challenges, the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus, (5) bipartite consensus, (6) sampled-data consensus, (7) quantized consensus, (8) network-based consensus, and (9) the combination of consensus with tracking mechanisms",
+      "quoteOffset": 32463
+    },
+    {
+      "source": "sampled-data consensus",
+      "sourceCode": "sampled data consensus",
+      "label": "é protocolo de",
+      "target": "consensus",
+      "targetCode": "consensus",
+      "confidence": 1.0,
+      "quote": "To overcome these challenges, the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus, (5) bipartite consensus, (6) sampled-data consensus, (7) quantized consensus, (8) network-based consensus, and (9) the combination of consensus with tracking mechanisms",
+      "quoteOffset": 32463
+    },
+    {
+      "source": "context",
+      "sourceCode": "context",
+      "label": "abrange",
+      "target": "information",
+      "targetCode": "information",
+      "confidence": 1.0,
+      "quote": "Context encompasses various types of information, such as people, location, physical or virtual objects, events, time, and other data that can be employed to introduce different dimensions of a situation or conceptual information regarding specific circumstances",
+      "quoteOffset": 34357
     },
     {
       "source": "Context Modeling",
       "sourceCode": "context modeling",
-      "label": "inclui",
+      "label": "inclui técnica",
       "target": "Key-value models",
       "targetCode": "key value models",
       "confidence": 1.0,
@@ -568,64 +664,64 @@
       "quoteOffset": 35140
     },
     {
-      "source": "Context Modeling",
-      "sourceCode": "context modeling",
-      "label": "inclui",
-      "target": "context ontology",
-      "targetCode": "context ontology",
+      "source": "An agent",
+      "sourceCode": "an agent",
+      "label": "sente",
+      "target": "information",
+      "targetCode": "information",
       "confidence": 1.0,
-      "quote": "Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models",
-      "quoteOffset": 35140
-    },
-    {
-      "source": "context ontology",
-      "sourceCode": "context ontology",
-      "label": "representa",
-      "target": "Relationships",
-      "targetCode": "relationships",
-      "confidence": 1.0,
-      "quote": "ontology-based context models are widely utilized due to their capability for semantic reasoning and representation of context relationships through knowledge graphs",
-      "quoteOffset": 35851
-    },
-    {
-      "source": "multi-agent systems",
-      "sourceCode": "multi agent systems",
-      "label": "é composto por",
-      "target": "agent",
-      "targetCode": "agent",
-      "confidence": 1.0,
-      "quote": "Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.",
-      "quoteOffset": 6702
+      "quote": "In the context of MAS, an agent can sense information from its knowledge, other agents, or the environment.",
+      "quoteOffset": 38848
     },
     {
       "source": "agent",
       "sourceCode": "agent",
-      "label": "resolve",
+      "label": "alcança",
       "target": "task",
       "targetCode": "task",
       "confidence": 1.0,
-      "quote": "An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.",
-      "quoteOffset": 6888
+      "quote": "An agent is an autonomous and computational entity (e.g., a software, a hardware component, or a combination of both) that operates within an environment to achieve specific tasks or goals",
+      "quoteOffset": 11753
+    },
+    {
+      "source": "deep reinforcement learning",
+      "sourceCode": "deep reinforcement learning",
+      "label": "aplica-se a",
+      "target": "MAS",
+      "targetCode": "mas",
+      "confidence": 1.0,
+      "quote": "Other surveys have delved into specific aspects of MAS, including consensus [34, 37, 39], communication [41], formation control [36, 38, 40], organizational structures [33], and deep reinforcement learning (DRL) for MAS",
+      "quoteOffset": 9842
     },
     {
       "source": "Context-Aware Multi-Agent Systems",
       "sourceCode": "context aware multi agent systems",
-      "label": "utiliza",
-      "target": "contextual information",
-      "targetCode": "contextual information",
+      "label": "é integração de sistemas em",
+      "target": "multi-agent systems",
+      "targetCode": "multi agent systems",
       "confidence": 1.0,
-      "quote": "the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.",
-      "quoteOffset": 6192
+      "quote": "the integration of context-aware systems into multi-agent systems, as known as context-aware multi-agent systems, becomes essential.",
+      "quoteOffset": 8381
     },
     {
-      "source": "Context-Aware Systems",
-      "sourceCode": "context aware systems",
-      "label": "utiliza",
-      "target": "context",
-      "targetCode": "context",
+      "source": "system",
+      "sourceCode": "system",
+      "label": "aloca responsabilidades entre",
+      "target": "agents",
+      "targetCode": "agents",
       "confidence": 1.0,
-      "quote": "Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.",
-      "quoteOffset": 8515
+      "quote": "Overcoming these limitations requires the implementation of a system that allocates task responsibilities among autonomous agents, enabling effective coordination and communication during task resolution.",
+      "quoteOffset": 5770
+    },
+    {
+      "source": "agents",
+      "sourceCode": "agents",
+      "label": "possuem",
+      "target": "flexibility",
+      "targetCode": "flexibility",
+      "confidence": 1.0,
+      "quote": "These attributes confer flexibility and adaptability on agents in dynamic environments, making MAS suited for addressing complex problems.",
+      "quoteOffset": 7383
     }
   ],
   "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1, relations=llm"
@@ -863,15 +959,15 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 
 <section class="article-hero">
   <div>
-    <div class="eyebrow">arXiv preprint arXiv:2402.01968v2 [cs.MA] · 2025</div>
+    <div class="eyebrow">arXiv preprint · 2025</div>
     <h1>Sistemas Multi-Agente Conscientes de Contexto: Arquitetura Unificada e Taxonomia</h1>
-    <p class="lede">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.</p>
+    <p class="lede">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — em um framework coerente. A pesquisa preenche uma lacuna crítica ao conectar consciência de contexto e sistemas multi-agente, oferecendo taxonomia organizada, processo geral de desenvolvimento e análise de aplicações em oito domínios distintos.</p>
     <div class="toc">
       <a href="#introducao">Introdução</a>
-      <a href="#multi-agent-systems">Sistemas Multi-Agente</a>
-      <a href="#context-aware-systems">Sistemas Conscientes de Contexto</a>
-      <a href="#ca-mas-framework">Framework CA-MAS</a>
-      <a href="#desafios-direcoes">Desafios e Direções Futuras</a>
+      <a href="#sistemas-multi-agente">Sistemas Multi-Agente</a>
+      <a href="#sistemas-conscientes-contexto">Sistemas Conscientes de Contexto</a>
+      <a href="#ca-mas">CA-MAS: Arquitetura Integrada</a>
+      <a href="#desafios-futuro">Desafios e Direções Futuras</a>
       <a href="#mapa-mental">Mapa Mental</a>
       <a href="#downloads">Downloads e Recursos</a>
     </div>
@@ -879,15 +975,13 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
   <aside class="paper meta-card">
     <h3>Referência</h3>
     <p class="authors">Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
-    <p class="affil">Todos os autores são afiliados ao Applied Artificial Intelligence Institute (A²I²) da Deakin University, Geelong, Victoria, Austrália.</p>
+    <p class="affil">Todos os autores são afiliados ao Applied Artificial Intelligence Institute (A²I²) da Deakin University, Geelong, Victoria, Austrália. O instituto concentra-se em pesquisa aplicada em inteligência artificial, incluindo aprendizado profundo, sistemas multi-agente e aplicações de IA em ambientes dinâmicos.</p>
     <div class="kv"><span class="key">Publicado em</span><span class="val">29 de janeiro de 2025</span></div>
-    <div class="kv"><span class="key">Palavras-chave</span><span class="val">Artificial Intelligence, Reinforcement Learning, Multi-Agent Systems, Context-Aware Systems</span></div>
-    <div class="kv"><span class="key">DOI</span><span class="val">arXiv:2402.01968v2</span></div>
-    <div class="kv"><span class="key">Domínios de aplicação</span><span class="val">Navegação autônoma, Ambient intelligence, IoT, Supply chain, Disaster relief, Energy efficiency, Digital assistance, Education</span></div>
+    <div class="kv"><span class="key">Palavras-chave</span><span class="val">Inteligência Artificial, Aprendizado por Reforço, Sistemas Multi-Agente, Sistemas Conscientes de Contexto</span></div>
+    <div class="kv"><span class="key">DOI</span><span class="val">Não disponível (arXiv preprint)</span></div>
+    <div class="kv"><span class="key">Venue</span><span class="val">arXiv preprint</span></div>
     <div class="callout" style="margin-bottom:0">
-      <b>O problema declarado:</b> **O Desafio da Fragmentação em Sistemas Multi-Agente**
-
-Pesquisas atuais frequentemente abordam questões de consciência de contexto ou sistemas multi-agente separadamente, deixando uma lacuna em levantamentos abrangentes que explorem ambos os campos de forma integrada. Embora avanços em IA — como deep reinforcement learning, graph learning e representação multi-modal — sugiram potencial para desempenho semelhante ao humano em frameworks multi-agente, desafios persistem em permitir que esses agentes coordenem, aprendam, raciocinem, prevejam e naveguem incertezas em ambientes dinâmicos. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura unificada e taxonomia para o desenvolvimento de Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) que integre as cinco capacidades essenciais: **Sense** (Sentir), **Learn** (Aprender), **Reason** (Raciocinar), **Predict** (Prever) e **Act** (Agir).
+      <b>O problema declarado:</b> **O Desafio da Integração:** Pesquisas atuais frequentemente abordam consciência de contexto ou sistemas multi-agente de forma isolada, deixando uma lacuna crítica em surveys que exploram ambos os campos de maneira integrada. Agentes autônomos enfrentam desafios significativos para coordenar, aprender, raciocinar, prever e navegar incertezas em ambientes dinâmicos — especialmente quando precisam operar as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act) de forma unificada. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura coerente, taxonomia organizada e princípios associados para construir Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) robustos e adaptáveis para o mundo real.
     </div>
   </aside>
 </section>
@@ -913,12 +1007,12 @@ Pesquisas atuais frequentemente abordam questões de consciência de contexto ou
     </div>
     <svg id="mapview" role="img" aria-label="Mapa mental do artigo"></svg>
     <div class="map-legend">
-      <span><i style="background:#c0392b"></i>Título do survey</span>
-      <span><i style="background:#27ae60"></i>Fundamentos MAS</span>
-      <span><i style="background:#2980b9"></i>Fundamentos CAS</span>
-      <span><i style="background:#f39c12"></i>Framework CA-MAS</span>
-      <span><i style="background:#8e44ad"></i>Aplicações</span>
-      <span><i style="background:#e74c3c"></i>Desafios</span>
+      <span><i style="background:#c0392b"></i>Título do Survey</span>
+      <span><i style="background:#27ae60"></i>Multi-Agent Systems</span>
+      <span><i style="background:#2980b9"></i>Context-Aware Systems</span>
+      <span><i style="background:#f39c12"></i>Framework CA-MAS (Sense-Learn-Reason-Predict-Act)</span>
+      <span><i style="background:#8e44ad"></i>Aplicações e Domínios</span>
+      <span><i style="background:#d35400"></i>Desafios e Futuro</span>
     </div>
   </div>
   <p class="map-note">Mapa gerado a partir da análise estruturada do artigo: layout calculado no navegador, sem imagem estática.</p>
@@ -929,8 +1023,8 @@ Pesquisas atuais frequentemente abordam questões de consciência de contexto ou
   var SVGNS = 'http://www.w3.org/2000/svg';
   var svg = document.getElementById('mapview');
 
-  var PALETTE = {"root": {"fill": "#c0392b", "text": "#fff"}, "foundations": {"fill": "#27ae60", "text": "#fff"}, "context": {"fill": "#2980b9", "text": "#fff"}, "framework": {"fill": "#f39c12", "text": "#fff"}, "applications": {"fill": "#8e44ad", "text": "#fff"}, "challenges": {"fill": "#e74c3c", "text": "#fff"}};
-  var DATA = {"t": "CA-MAS: Survey de Sistemas Multi-Agente", "k": "root", "children": [{"t": "Fundamentos de Multi-Agent Systems (MAS)", "k": "foundations", "children": [{"t": "Propriedades de Agentes Inteligentes", "children": [{"t": "Percepção (sensores)", "children": []}, {"t": "Memória e modelo de mundo", "children": []}, {"t": "Ator e custo", "children": []}, {"t": "Configurador (context-awareness)", "children": []}]}, {"t": "Estruturas Organizacionais", "children": [{"t": "Flat, hierarchies, holarchies", "children": []}, {"t": "Coalitions, teams, congregations", "children": []}, {"t": "Societies, federations, markets, matrix", "children": []}]}, {"t": "Coordenação e Consenso", "children": [{"t": "Estratégias de coordenação", "children": []}, {"t": "Protocolos de consenso", "children": []}, {"t": "Leader-follower, sampled-data", "children": []}]}]}, {"t": "Fundamentos de Context-Aware Systems (CAS)", "k": "context", "children": [{"t": "Propriedades de Contexto", "children": [{"t": "Tipo, valor, tempo", "children": []}, {"t": "Fonte e confiança", "children": []}, {"t": "Intrínseco vs. extrínseco", "children": []}]}, {"t": "Técnicas de Modelagem", "children": [{"t": "Key-value, markup schema", "children": []}, {"t": "Graphical, object-oriented", "children": []}, {"t": "Logical-based, ontology-based", "children": []}]}, {"t": "Processo Geral de CAS", "children": [{"t": "Aquisição de contexto", "children": []}, {"t": "Abstração e compreensão", "children": []}, {"t": "Utilização de contexto", "children": []}]}, {"t": "Arquiteturas CAS", "children": [{"t": "Stand-alone", "children": []}, {"t": "Centralizada", "children": []}, {"t": "Descentralizada", "children": []}]}]}, {"t": "Framework CA-MAS: Sense-Learn-Reason-Predict-Act", "k": "framework", "children": [{"t": "Sense: Modelagem de Contexto", "children": [{"t": "Context graphs G=(V,E)", "children": []}, {"t": "Ontology-based models", "children": []}, {"t": "Network abstractions", "children": []}]}, {"t": "Learn: Representação de Contexto", "children": [{"t": "Weighting mechanisms", "children": []}, {"t": "Learning-based: GNN, embeddings", "children": []}, {"t": "Time-variant/invariant functions", "children": []}]}, {"t": "Reason: Raciocínio sobre Contexto", "children": [{"t": "Rule-based reasoning", "children": []}, {"t": "Case-based reasoning (CBR)", "children": []}, {"t": "Graph-based, goal-oriented (BDI)", "children": []}]}, {"t": "Predict: Modelos Preditivos", "children": [{"t": "Weighting schemes", "children": []}, {"t": "Probabilistic models (Bayesian)", "children": []}, {"t": "Reward-based (RL, MARL)", "children": []}]}, {"t": "Act: Planejamento e Ação", "children": [{"t": "Goal-oriented algorithms", "children": []}, {"t": "DRL: DQN, PPO, Actor-Critic", "children": []}, {"t": "n-step Q-learning, SARSA", "children": []}]}]}, {"t": "Domínios de Aplicação", "k": "applications", "children": [{"t": "Navegação Autônoma", "children": [{"t": "Flat structures", "children": []}, {"t": "Sampled-data consensus", "children": []}, {"t": "Goal-oriented algorithms", "children": []}]}, {"t": "Ambient Intelligence", "children": [{"t": "Teams/coalitions", "children": []}, {"t": "Ontology-based models", "children": []}, {"t": "Graph/rule-based reasoning", "children": []}]}, {"t": "Supply Chain & IoT", "children": [{"t": "Markets/holarchies", "children": []}, {"t": "Case-based techniques", "children": []}, {"t": "Goal/rule-based reasoning", "children": []}]}, {"t": "Disaster Relief & Energy", "children": [{"t": "Hybrid structures", "children": []}, {"t": "Leader-follower consensus", "children": []}, {"t": "Goal-oriented algorithms", "children": []}]}, {"t": "Digital Assistance & Education", "children": [{"t": "Flat/teams/hierarchies", "children": []}, {"t": "Ontology-based models", "children": []}, {"t": "Fuzzy rule/case-based", "children": []}]}]}, {"t": "Desafios e Direções Futuras", "k": "challenges", "children": [{"t": "Estruturas Organizacionais Relaxadas", "children": [{"t": "Compartilhamento ineficaz de contexto", "children": []}, {"t": "Segurança e privacidade", "children": []}, {"t": "Coordenação distribuída", "children": []}]}, {"t": "Suposições de Consenso Relaxadas", "children": [{"t": "Incerteza e ambiguidade", "children": []}, {"t": "Conflitos entre agentes", "children": []}, {"t": "Robustez em ambientes dinâmicos", "children": []}]}, {"t": "Integração Ontologia-DRL", "children": [{"t": "Complexidade de representação", "children": []}, {"t": "Compatibilidade de aprendizado", "children": []}, {"t": "Eficiência computacional vs. semântica", "children": []}]}]}]};
+  var PALETTE = {"root": {"fill": "#c0392b", "text": "#fff"}, "mas": {"fill": "#27ae60", "text": "#fff"}, "cas": {"fill": "#2980b9", "text": "#fff"}, "framework": {"fill": "#f39c12", "text": "#fff"}, "apps": {"fill": "#8e44ad", "text": "#fff"}, "challenges": {"fill": "#d35400", "text": "#fff"}};
+  var DATA = {"t": "Survey CA-MAS: Técnicas, Aplicações e Desafios", "k": "root", "children": [{"t": "Fundamentos MAS", "k": "mas", "children": [{"t": "Propriedades Inteligentes", "children": [{"t": "Percepção (sensores)", "children": []}, {"t": "Memória (histórico)", "children": []}, {"t": "Modelo de mundo", "children": []}, {"t": "Ator (atuadores)", "children": []}, {"t": "Custo (função objetivo)", "children": []}, {"t": "Configurador (consciência contexto)", "children": []}]}, {"t": "Estruturas Organizacionais (10 tipos)", "children": [{"t": "Flat, Hierarchies, Holarchies", "children": []}, {"t": "Coalitions, Teams, Congregations", "children": []}, {"t": "Societies, Federations, Markets, Matrix", "children": []}]}, {"t": "Coordenação e Consenso", "children": [{"t": "Estratégias de coordenação", "children": []}, {"t": "Formação de organização", "children": []}, {"t": "Protocolos de consenso", "children": []}]}]}, {"t": "Fundamentos CAS", "k": "cas", "children": [{"t": "Propriedades de Contexto", "children": [{"t": "Tipo, Valor, Tempo", "children": []}, {"t": "Fonte, Confiança", "children": []}, {"t": "Intrínseco vs Extrínseco", "children": []}]}, {"t": "Modelagem de Contexto (6 técnicas)", "children": [{"t": "Key-value, Markup schema", "children": []}, {"t": "Graphical, Object-oriented", "children": []}, {"t": "Logical-based, Ontology-based", "children": []}]}, {"t": "Processo CAS (3 estágios)", "children": [{"t": "Aquisição de contexto", "children": []}, {"t": "Abstração e compreensão", "children": []}, {"t": "Utilização de contexto", "children": []}]}, {"t": "Arquiteturas CAS", "children": [{"t": "Stand-alone", "children": []}, {"t": "Centralizada", "children": []}, {"t": "Descentralizada", "children": []}]}]}, {"t": "Framework CA-MAS (5 capacidades)", "k": "framework", "children": [{"t": "Sense (Perceber)", "children": [{"t": "Percepção de contexto", "children": []}, {"t": "Detecção de padrões", "children": []}, {"t": "Grafo de contexto G=(V,E)", "children": []}]}, {"t": "Learn (Aprender)", "children": [{"t": "Modelagem de contexto", "children": []}, {"t": "Esquemas de ponderação", "children": []}, {"t": "Aprendizado de representação (GNN, LSTM)", "children": []}]}, {"t": "Reason (Raciocinar)", "children": [{"t": "Baseado em regras e casos", "children": []}, {"t": "Raciocínio em grafos (BBN)", "children": []}, {"t": "Orientado a objetivos (DRL, BDI)", "children": []}]}, {"t": "Predict (Prever)", "children": [{"t": "Modelos preditivos", "children": []}, {"t": "Esquemas probabilísticos", "children": []}, {"t": "Baseados em recompensas", "children": []}]}, {"t": "Act (Agir)", "children": [{"t": "Execução de ações", "children": []}, {"t": "Alcance de objetivos", "children": []}, {"t": "Coordenação multi-agente", "children": []}]}]}, {"t": "Aplicações (8 domínios)", "k": "apps", "children": [{"t": "Domínios Inteligentes", "children": [{"t": "Ambient Intelligence", "children": []}, {"t": "IoT", "children": []}, {"t": "Digital Assistance", "children": []}]}, {"t": "Domínios Operacionais", "children": [{"t": "Navegação autônoma", "children": []}, {"t": "Disaster relief management", "children": []}, {"t": "Supply chain management", "children": []}]}, {"t": "Domínios Sociais", "children": [{"t": "Educação", "children": []}, {"t": "Eficiência energética", "children": []}, {"t": "Sustentabilidade", "children": []}]}]}, {"t": "Desafios e Direções Futuras", "k": "challenges", "children": [{"t": "Restrições Organizacionais", "children": [{"t": "Compartilhamento de contexto ineficaz", "children": []}, {"t": "Segurança e privacidade", "children": []}]}, {"t": "Suposições de Consenso", "children": [{"t": "Incerteza e ambiguidade", "children": []}, {"t": "Conflitos entre agentes", "children": []}]}, {"t": "Dependência de Ontologias", "children": [{"t": "Regras pré-definidas rígidas", "children": []}, {"t": "Robustez em ambientes dinâmicos", "children": []}]}, {"t": "Propostas de Pesquisa", "children": [{"t": "Estruturas organizacionais em CA-MAS", "children": []}, {"t": "Técnicas de consenso aplicadas", "children": []}, {"t": "Integração ontologias + GNN/VAE", "children": []}]}]}]};
 
   var ROW = 34, COLGAP = 54, PAD = 26, RADIUS = 9;
   var view = { x: 0, y: 0, k: 1 };
@@ -1169,68 +1263,70 @@ Pesquisas atuais frequentemente abordam questões de consciência de contexto ou
 <section class="section" id="ensaio">
   <h2><span class="num">ENSAIO</span>A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</h2>
   <div class="prose">
-    <p class="drop">Imagine uma frota de drones de resgate sobrevoando uma área devastada por um desastre natural. Cada drone precisa não apenas enxergar o terreno à sua frente, mas compreender o que os outros estão fazendo, antecipar onde as vítimas podem estar, adaptar-se a mudanças repentinas no clima e coordenar suas ações sem depender de um comando central que pode falhar a qualquer momento. Esse cenário ilustra o desafio central dos sistemas multi-agente modernos: como fazer com que agentes autônomos não apenas reajam ao ambiente, mas compreendam o contexto em que operam e colaborem de forma inteligente. É nesse cruzamento entre consciência de contexto e coordenação multi-agente que surge uma nova fronteira da inteligência artificial.</p>
-    <h3>01. Das cinco capacidades essenciais dos agentes inteligentes</h3>
-<p>A evolução da IA trouxe uma mudança de paradigma: de sistemas passivos que processam entradas para agentes autônomos que percebem, aprendem e agem. Mas o que torna um agente verdadeiramente inteligente? A resposta está em cinco capacidades fundamentais que formam o ciclo Sense-Learn-Reason-Predict-Act — sentir o ambiente, aprender com dados sensoriais, raciocinar sobre situações, prever consequências e agir de forma coordenada.</p><p>Um agente autônomo possui seis propriedades inteligentes: percepção (sensores que captam o ambiente), memória (histórico de experiências), modelo de mundo (representação interna do ambiente), ator (mecanismo de decisão e ação), custo (função que avalia desempenho) e configurador — este último sendo precisamente a consciência de contexto. É essa última propriedade que permite ao agente adaptar seu comportamento não apenas ao que percebe, mas ao significado do que percebe.</p>    <h3>02. Contexto como informação estruturada e temporal</h3>
-<p>Mas o que exatamente é contexto? Mais do que simples dados brutos, contexto é informação estruturada com cinco propriedades-chave: tipo (categórico, numérico, temporal), valor (a informação em si), tempo (quando foi capturado), fonte (de onde veio) e confiança (quão confiável é). Distinguimos ainda contexto intrínseco — características inerentes ao agente, como sua localização ou estado interno — de contexto extrínseco, que vem do ambiente ou de outros agentes.</p><p>A modelagem de contexto evoluiu de simples pares chave-valor para abordagens sofisticadas baseadas em ontologias, que capturam relações semânticas complexas entre diferentes tipos de informação contextual. Técnicas como redes neurais em grafos (GNN) permitem que agentes aprendam representações de contexto que capturam tanto a estrutura quanto a dinâmica temporal do ambiente. O processo geral de sistemas conscientes de contexto envolve três estágios: aquisição (coleta de dados sensoriais), abstração e compreensão (transformação em representações significativas), e utilização (aplicação para decisões e ações).</p>    <blockquote>Contexto é informação estruturada com cinco propriedades-chave: tipo, valor, tempo, fonte e confiança.<cite>Seção 02 · Modelagem de Contexto</cite></blockquote>
-    <h3>03. Coordenação e estruturas organizacionais</h3>
-<p>Quando múltiplos agentes precisam colaborar, a estrutura organizacional torna-se crucial. Sistemas multi-agente podem adotar desde estruturas planas (flat), onde todos os agentes têm igual autoridade, até hierarquias complexas, holarchias (hierarquias recursivas onde cada nível é simultaneamente um todo e uma parte), coalizões temporárias, times especializados, ou até mercados onde agentes negociam recursos.</p><p>A coordenação efetiva requer mecanismos de consenso — protocolos que garantem que agentes cheguem a acordos sobre o estado do mundo ou sobre ações a tomar. Abordagens variam desde consenso líder-seguidor (onde um agente coordena os demais) até protocolos de dados amostrados que permitem sincronização mesmo com comunicação intermitente. Em aplicações como navegação autônoma, estruturas planas com algoritmos orientados a objetivos (goal-oriented) predominam, enquanto gerenciamento de desastres frequentemente combina times com holarchias e consenso líder-seguidor.</p>    <h3>04. Desafios na integração de ontologias e aprendizado profundo</h3>
-<p>Três desafios principais emergem na construção de sistemas multi-agente conscientes de contexto. Primeiro, estruturas organizacionais relaxadas podem causar compartilhamento ineficaz de contexto e vulnerabilidades de segurança e privacidade — quando agentes não têm hierarquia clara, como garantir que informações sensíveis sejam protegidas? Segundo, suposições de consenso relaxadas levam a incerteza, ambiguidade e conflitos — em ambientes dinâmicos, agentes podem ter visões contraditórias do contexto.</p><p>O terceiro desafio é talvez o mais profundo: a complexidade na integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos como Deep Reinforcement Learning (DRL). Ontologias oferecem riqueza semântica e interpretabilidade, capturando relações complexas entre conceitos. Já técnicas de aprendizado por reforço multi-agente (MARL) como Proximal Policy Optimization (PPO) e métodos Actor-Critic oferecem adaptabilidade e robustez em ambientes incertos. Combinar a representação simbólica das ontologias com a natureza subsimbólica das redes neurais profundas permanece um problema em aberto, exigindo arquiteturas híbridas que preservem o melhor de ambos os mundos.</p>    <blockquote>Combinar a representação simbólica das ontologias com a natureza subsimbólica das redes neurais profundas permanece um problema em aberto.<cite>Seção 04 · Desafios de Integração</cite></blockquote>
-    <p>A convergência entre consciência de contexto e sistemas multi-agente não é apenas uma questão técnica — é uma necessidade para que agentes artificiais operem em ambientes reais, onde a incerteza é a norma e a colaboração é essencial. Das aplicações em IoT e eficiência energética até assistência digital e educação, os domínios que se beneficiam de CA-MAS compartilham uma característica: a complexidade não pode ser resolvida por um único agente, e o contexto não pode ser ignorado. O caminho à frente exige não apenas avanços algorítmicos, mas uma compreensão mais profunda de como estruturar a colaboração, representar conhecimento e equilibrar autonomia com coordenação.</p>
+    <p class="drop">Imagine uma frota de drones de resgate sobrevoando uma área atingida por um desastre natural. Cada drone precisa decidir para onde ir, o que procurar e como coordenar com os demais — tudo isso enquanto o cenário muda a cada segundo: fumaça encobre edifícios, vítimas se movem, outros drones entram e saem da área. Não basta que cada drone seja &#34;inteligente&#34; isoladamente; eles precisam perceber o contexto ao redor, aprender com ele, raciocinar sobre prioridades, prever movimentos e agir de forma coordenada. É exatamente esse desafio que motiva o campo dos Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), uma área que integra duas fronteiras da inteligência artificial: a capacidade de múltiplos agentes colaborarem e a habilidade de compreender e reagir ao contexto dinâmico do ambiente.</p>
+    <h3>01. Das cinco capacidades essenciais ao ciclo Sense-Learn-Reason-Predict-Act</h3>
+<p>Um agente autônomo moderno não é apenas um programa que executa tarefas: ele precisa dominar cinco capacidades fundamentais que, juntas, formam o ciclo **Sense-Learn-Reason-Predict-Act**. Primeiro, o agente deve **perceber** (Sense) o contexto ao redor — não apenas dados brutos de sensores, mas padrões significativos extraídos de grafos de contexto, onde cada nó representa uma informação contextual e cada aresta uma relação. Em seguida, ele precisa **aprender** (Learn) representações desses contextos, seja por meio de **modelagem de contexto** baseada em ontologias, esquemas de ponderação ou técnicas de **aprendizado de representação** como redes neurais de grafos (GNN) e embeddings temporais.</p><p>A terceira capacidade é **raciocinar** (Reason) sobre o que foi aprendido. Aqui entram abordagens como **raciocínio baseado em regras**, raciocínio probabilístico com redes Bayesianas, e o poderoso **raciocínio orientado a objetivos** que utiliza aprendizado por reforço profundo (DRL) para maximizar utilidades e recompensas. O agente então **prevê** (Predict) estados futuros do ambiente usando modelos preditivos — desde regressões simples até redes recorrentes (LSTM) que capturam dependências temporais. Por fim, ele **age** (Act), executando ações que modificam o ambiente para alcançar seus objetivos, muitas vezes coordenando-se com outros agentes por meio de **protocolos de consenso** e estruturas organizacionais como hierarquias, coalizões ou mercados.</p>    <blockquote>Um agente moderno não apenas executa tarefas: ele percebe, aprende, raciocina, prevê e age em coordenação com outros.<cite>Ciclo CA-MAS</cite></blockquote>
+    <h3>02. Contexto como grafo: modelando relações dinâmicas</h3>
+<p>A chave para que múltiplos agentes operem de forma coesa em ambientes dinâmicos está na forma como representam o **contexto**. Diferente de sistemas tradicionais que tratam contexto como simples pares chave-valor, os CA-MAS modernos utilizam **grafos de contexto** G = (V, E), onde cada vértice V representa uma informação contextual (localização, temperatura, presença de obstáculos) e cada aresta E captura relações entre esses contextos. Essa representação permite detectar **padrões de contexto** — subgrafos H = (V′, E′) que se repetem e indicam situações conhecidas.</p><p>Além da estrutura, cada contexto carrega cinco propriedades essenciais: tipo (identidade, localização, atividade, tempo), valor (quantitativo ou qualitativo), timestamp, fonte (sensor, outro agente, inferência) e nível de confiança. A distinção entre **contexto intrínseco** (propriedades inerentes ao agente, como bateria ou capacidade de processamento) e **contexto extrínseco** (informações do ambiente, como clima ou posição de outros agentes) é fundamental para que o agente saiba o que pode controlar e o que deve apenas observar. Técnicas de **modelagem baseada em ontologias** permitem representar semanticamente essas relações, facilitando o compartilhamento de conhecimento entre agentes heterogêneos.</p>    <h3>03. Coordenação e consenso: quando agentes precisam concordar</h3>
+<p>Em um sistema com múltiplos agentes, a capacidade individual de perceber e raciocinar não basta: é preciso **coordenação**. As **estruturas organizacionais** definem como agentes se relacionam — desde arquiteturas planas (flat), onde todos têm igual autoridade, até hierarquias rígidas, coalizões temporárias, times especializados, federações e até mercados onde agentes negociam recursos. Cada estrutura tem trade-offs: hierarquias facilitam controle centralizado mas podem criar gargalos; mercados promovem eficiência mas exigem mecanismos de negociação complexos.</p><p>Quando agentes precisam tomar decisões conjuntas, entram em cena os **protocolos de consenso**. Algoritmos como Raft e Paxos garantem que, mesmo com falhas de comunicação ou agentes maliciosos, o sistema converge para um estado acordado. Em ambientes dinâmicos, onde o contexto muda rapidamente, protocolos de consenso probabilístico e técnicas de **aprendizado por reforço multi-agente** (MARL) permitem que agentes aprendam políticas de coordenação sem depender exclusivamente de regras pré-definidas. O desafio está em balancear a necessidade de consenso com a autonomia individual — relaxar demais as restrições organizacionais pode levar a compartilhamento de contexto ineficaz e vulnerabilidades de segurança.</p>    <blockquote>Coordenação eficaz exige balancear consenso coletivo com autonomia individual — um equilíbrio delicado em ambientes dinâmicos.<cite>Desafios de CA-MAS</cite></blockquote>
+    <h3>04. Desafios e o futuro: da rigidez das ontologias à adaptabilidade dos grafos neurais</h3>
+<p>Apesar dos avanços, três desafios principais limitam a adoção de CA-MAS em larga escala. Primeiro, **restrições organizacionais relaxadas** podem levar a compartilhamento de contexto ineficaz e preocupações críticas de segurança e privacidade — como garantir que agentes não vazem informações sensíveis ao coordenar? Segundo, **suposições de consenso relaxadas** resultam em incerteza, ambiguidade e conflitos: quando agentes discordam sobre o estado do ambiente, qual versão da realidade prevalece? Terceiro, a **dependência de ontologias** baseadas em regras pré-definidas afeta a robustez em ambientes verdadeiramente dinâmicos — ontologias são rígidas e não se adaptam facilmente a situações imprevistas.</p><p>As direções futuras apontam para a integração de ontologias de agentes com frameworks de **raciocínio orientado a objetivos** usando Redes Neurais de Grafos (GNN) e Autoencoders Variacionais (VAE). Essa abordagem híbrida promete combinar a interpretabilidade semântica das ontologias com a capacidade de aprendizado adaptativo das redes neurais. Outras frentes incluem investigar estruturas organizacionais emergentes em CA-MAS — onde a organização não é imposta, mas surge da interação entre agentes — e aplicar técnicas de consenso distribuído que funcionem mesmo com comunicação intermitente e agentes não-confiáveis. O objetivo final é criar sistemas que não apenas reajam ao contexto, mas que antecipem mudanças e se reorganizem proativamente.</p>    <p>Os Sistemas Multi-Agente Conscientes de Contexto representam uma mudança de paradigma na forma como projetamos inteligência artificial: de sistemas passivos que seguem scripts para ecossistemas adaptativos que percebem, aprendem, raciocinam, preveem e agem de forma coordenada. Aplicações já surgem em navegação autônoma, gestão de desastres, eficiência energética, educação personalizada e cadeias de suprimento inteligentes. No entanto, o caminho à frente exige resolver tensões fundamentais entre rigidez e flexibilidade, entre consenso e autonomia, entre interpretabilidade e adaptabilidade. À medida que esses sistemas se tornam mais sofisticados, uma questão central emerge sobre o equilíbrio entre capacidade semântica e adaptação dinâmica em ambientes de larga escala.</p>
   </div>
   <div class="callout">
-    <b>A pergunta que fica:</b> Se a integração entre ontologias de agentes e frameworks de raciocínio orientado a objetivos (como Deep Reinforcement Learning) permanece um desafio aberto devido à complexidade de representação e compatibilidade de aprendizado, como podemos projetar arquiteturas CA-MAS que equilibrem a riqueza semântica das ontologias com a adaptabilidade e robustez necessárias para ambientes dinâmicos e incertos — sem sacrificar a eficiência computacional ou a capacidade de generalização dos agentes?
+    <b>A pergunta que fica:</b> Se a integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos (usando GNN e VAE) pode resolver a rigidez de regras pré-definidas em CA-MAS, como garantir que essa integração preserve a interpretabilidade semântica das ontologias enquanto mantém a adaptabilidade necessária para ambientes verdadeiramente dinâmicos e imprevisíveis — e qual seria o custo computacional e de manutenção dessa abordagem híbrida em sistemas de larga escala?
   </div>
 </section>
   <section class="section" id="tabelas">
     <h2><span class="num">REFERÊNCIA</span>Conceitos e notação</h2>
-    <h3 style="margin-top:26px">Capacidades Essenciais de Agentes em CA-MAS (Sense-Learn-Reason-Predict-Act)</h3>
+    <h3 style="margin-top:26px">Conceitos fundamentais de Context-Aware Multi-Agent Systems (CA-MAS)</h3>
 <div class="tablewrap">
   <table class="data">
-    <thead><tr><th>Capacidade</th><th>Descrição</th><th>Técnicas Principais</th></tr></thead>
+    <thead><tr><th>Conceito</th><th>Definição</th></tr></thead>
     <tbody>
-      <tr><td>Sense (Sentir)</td><td>Aquisição e modelagem de informações contextuais do ambiente</td><td>Key-value models, Markup schema, Graphical models, Object-oriented, Logical-based, Ontology-based</td></tr>
-      <tr><td>Learn (Aprender)</td><td>Aprendizado de representações contextuais a partir de dados sensoriais</td><td>Weighting mechanisms (attention, gating), Learning-based approaches (GNN, deep multi-modal learning, embeddings)</td></tr>
-      <tr><td>Reason (Raciocinar)</td><td>Inferência e raciocínio sobre contexto para tomada de decisão</td><td>Rule-based (fuzzy logic), Case-based (CBR), Graph-based (network abstractions, Bayesian), Goal-oriented (BDI)</td></tr>
-      <tr><td>Predict (Prever)</td><td>Modelagem preditiva de estados futuros e comportamentos</td><td>Weighting schemes, Probabilistic models (Bayesian, Markov), Reward-based models (Q-learning, SARSA, Actor-Critic)</td></tr>
-      <tr><td>Act (Agir)</td><td>Execução coordenada de ações baseadas em previsões e objetivos</td><td>Deep RL (DQN, PPO, A3C), MARL, Consensus protocols, Coordination strategies</td></tr>
+      <tr><td>Context-Aware Multi-Agent Systems (CA-MAS)</td><td>Sistemas que integram consciência de contexto com múltiplos agentes autônomos para coordenar, aprender, raciocinar, prever e agir em ambientes dinâmicos e incertos</td></tr>
+      <tr><td>Sense-Learn-Reason-Predict-Act</td><td>Cinco capacidades essenciais dos agentes: perceber contexto, aprender representações, raciocinar sobre situações, prever estados futuros e executar ações para alcançar objetivos</td></tr>
+      <tr><td>Context (Contexto)</td><td>Informação caracterizada por cinco propriedades: tipo, valor, tempo, fonte e confiança; pode ser intrínseco (interno ao agente) ou extrínseco (do ambiente)</td></tr>
+      <tr><td>Context Graph</td><td>Representação G = (V, E) onde V é o conjunto de contextos e E são as relações entre contextos, usado para detecção de padrões</td></tr>
+      <tr><td>Active Perception</td><td>Capacidade do agente de selecionar ativamente quais informações sensoriais coletar do ambiente</td></tr>
+      <tr><td>Situation Awareness</td><td>Compreensão do estado atual do ambiente baseada em contextos percebidos</td></tr>
+      <tr><td>Context Awareness</td><td>Nível mais alto de consciência que inclui compreensão de contextos históricos, atuais e futuros para tomada de decisão</td></tr>
+      <tr><td>BDI (Belief-Desire-Intention)</td><td>Arquitetura de agente baseada em crenças (modelo do mundo), desejos (objetivos) e intenções (planos de ação)</td></tr>
+      <tr><td>MARL (Multi-Agent Reinforcement Learning)</td><td>Aprendizado por reforço aplicado a múltiplos agentes que interagem e aprendem simultaneamente em um ambiente compartilhado</td></tr>
+      <tr><td>MAPE Cycle</td><td>Ciclo de controle autônomo: Monitor (monitorar), Analyze (analisar), Plan (planejar), Execute (executar)</td></tr>
     </tbody>
   </table>
-</div>    <h3 style="margin-top:26px">Estruturas Organizacionais em Sistemas Multi-Agente</h3>
+</div>    <h3 style="margin-top:26px">Notação formal em Context-Aware Multi-Agent Systems</h3>
 <div class="tablewrap">
   <table class="data">
-    <thead><tr><th>Estrutura</th><th>Características</th><th>Aplicações Típicas</th></tr></thead>
+    <thead><tr><th>Notação</th><th>Significado</th><th>Contexto de Uso</th></tr></thead>
     <tbody>
-      <tr><td>Flat</td><td>Sem hierarquia, agentes com papéis equivalentes</td><td>Navegação autônoma, IoT, Digital assistance</td></tr>
-      <tr><td>Hierarchies</td><td>Estrutura de comando top-down com níveis de autoridade</td><td>Education, Energy efficiency</td></tr>
-      <tr><td>Holarchies</td><td>Agentes podem ser atômicos ou compostos (holons)</td><td>Supply chain management, Disaster relief, Energy systems</td></tr>
-      <tr><td>Coalitions</td><td>Grupos temporários formados para objetivos específicos</td><td>Ambient intelligence, IoT</td></tr>
-      <tr><td>Teams</td><td>Grupos permanentes com objetivos compartilhados</td><td>Ambient intelligence, IoT, Disaster relief, Energy efficiency, Digital assistance</td></tr>
-      <tr><td>Congregations</td><td>Agentes compartilham recursos e espaço comum</td><td>Sistemas de recursos compartilhados</td></tr>
-      <tr><td>Societies</td><td>Estrutura social com normas e regras compartilhadas</td><td>Sistemas sociais complexos</td></tr>
-      <tr><td>Federations</td><td>Agentes autônomos com representação centralizada</td><td>Sistemas distribuídos</td></tr>
-      <tr><td>Markets</td><td>Interações baseadas em mecanismos de mercado</td><td>Supply chain management</td></tr>
-      <tr><td>Matrix</td><td>Estrutura híbrida combinando múltiplas dimensões organizacionais</td><td>Sistemas complexos multi-dimensionais</td></tr>
+      <tr><td>G = (V, E)</td><td>Grafo de contexto com vértices V (contextos) e arestas E (relações)</td><td>Modelagem e detecção de padrões de contexto</td></tr>
+      <tr><td>d(c_r, c_k) = min(d(c_r, c_{k-1}) + w(c_{k-1}, c_k))</td><td>Distância ponderada entre contextos no grafo</td><td>Cálculo de similaridade contextual</td></tr>
+      <tr><td>p(c₁, c₂, ..., c_n) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ))</td><td>Probabilidade conjunta em Bayesian Belief Networks</td><td>Raciocínio probabilístico sobre contextos</td></tr>
+      <tr><td>e = φ(c, W_c)</td><td>Embedding time-invariant de contexto c com pesos W_c</td><td>Aprendizado de representação contextual</td></tr>
+      <tr><td>eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l)</td><td>Agregação espacial de embeddings de vizinhos</td><td>Representação de contextos relacionados</td></tr>
+      <tr><td>e_t^i = φ(⋃ⱼ₌₀ᴺ e_{t-1}^j, W_k)</td><td>Embedding time-variant com dependência temporal</td><td>Modelagem de contextos dinâmicos</td></tr>
+      <tr><td>u(g_{i,k} | b_{-i}; h, θ)</td><td>Função de utilidade para objetivo g_{i,k} dado histórico h e crenças b_{-i}</td><td>Raciocínio orientado a objetivos</td></tr>
+      <tr><td>Q(h, g_{ik}) ≈ u(g_{i,k} | b_{-i}; h, θ)</td><td>Aproximação Q-value para seleção de objetivos</td><td>Deep Reinforcement Learning em CA-MAS</td></tr>
+      <tr><td>θ_{t+1} = θ_t + α δ ∇Q(h_t, g_t; θ_t)</td><td>Atualização SARSA de parâmetros</td><td>Aprendizado temporal-diferença</td></tr>
+      <tr><td>L = (1/n) ∑_j (1/k) ∑_d (y_{d,j}^i - ŷ_d^i)ᵀ (y_{d,j}^i - ŷ_d^i)</td><td>Erro quadrático médio para modelos preditivos</td><td>Predição de trajetórias/estados futuros</td></tr>
     </tbody>
   </table>
-</div>    <h3 style="margin-top:26px">Notação Formal em CA-MAS</h3>
+</div>    <h3 style="margin-top:26px">Estruturas organizacionais e técnicas de coordenação em Multi-Agent Systems</h3>
 <div class="tablewrap">
   <table class="data">
-    <thead><tr><th>Conceito</th><th>Notação</th><th>Significado</th></tr></thead>
+    <thead><tr><th>Estrutura/Técnica</th><th>Características</th><th>Aplicação</th></tr></thead>
     <tbody>
-      <tr><td>Context Graph</td><td>G = (V, E)</td><td>Grafo onde V é conjunto de contextos e E ⊆ V × V são relações</td></tr>
-      <tr><td>Context Pattern</td><td>H = (V′, E′)</td><td>Subgrafo de contexto onde V′ ⊆ V e E′ ⊆ E</td></tr>
-      <tr><td>Distância Ponderada</td><td>d(c_r, c_k) = min(d(c_r, c_{k-1}) + w(c_{k-1}, c_k))</td><td>Caminho mínimo ponderado entre contextos em network abstractions</td></tr>
-      <tr><td>Probabilidade Conjunta (BBN)</td><td>p(c₁, c₂, ..., c_n) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ))</td><td>Distribuição conjunta em Bayesian Belief Network onde B(cᵢ) são pais de cᵢ</td></tr>
-      <tr><td>Embedding Invariante</td><td>e = φ(c, W_c)</td><td>Função de embedding time-invariant com parâmetros W_c</td></tr>
-      <tr><td>Agregação de Embeddings</td><td>eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l)</td><td>Agregação de embeddings de vizinhos com parâmetros W_l</td></tr>
-      <tr><td>Embedding Temporal</td><td>e_t^i = φ(⋃ⱼ₌₀ᴺ e_{t-1}^j, W_k)</td><td>Embedding time-variant considerando histórico temporal</td></tr>
-      <tr><td>n-step Q-learning</td><td>Q(s,a) = (1 - α_n)Q_{n-1}(s,a) + α_n[r(s,a) + γ max_{a'} Q_{n-1}(s',a')]</td><td>Atualização Q-learning onde α_n = 1/(1 + N_{s,a}) é taxa de aprendizado adaptativa</td></tr>
-      <tr><td>Goal Utility</td><td>u(g_{i,k} | b_{-i}; h, θ) = θ_{ik,ik} + ∑_{j≠i} ∑_l θ_{ik,jl}p(g_{jl} | h)</td><td>Utilidade de objetivo em raciocínio goal-oriented considerando crenças de outros agentes</td></tr>
-      <tr><td>SARSA Update</td><td>θ_{t+1} = θ_t + αδ∇Q(h_t, g_t; θ_t)</td><td>Atualização de parâmetros em SARSA com gradiente da função Q</td></tr>
-      <tr><td>Case Retrieval</td><td>f(c) = {v ∈ V | g(c,v) ≥ α}</td><td>Recuperação de casos em CBR onde g é função de similaridade e α é threshold</td></tr>
-      <tr><td>MSE Loss</td><td>L = (1/nk) ∑_d ∑_j (y_{d,j}^i - ŷ_d^i)ᵀ(y_{d,j}^i - ŷ_d^i)</td><td>Erro quadrático médio para previsão multi-agente</td></tr>
-      <tr><td>GMM Distance Loss</td><td>L = ∑_{i,j} α_{i,j}D_{KL}(p_j(o) || q_i(o)) + D_{KL}(α || β)</td><td>Divergência KL entre Gaussian Mixture Models para aprendizado de comportamento</td></tr>
+      <tr><td>Flat (Plana)</td><td>Agentes com mesma autoridade, sem hierarquia</td><td>Sistemas peer-to-peer, coordenação simples</td></tr>
+      <tr><td>Hierarchies (Hierarquias)</td><td>Estrutura de comando top-down com níveis de autoridade</td><td>Organizações militares, empresariais</td></tr>
+      <tr><td>Holarchies (Holárquicas)</td><td>Hierarquias recursivas onde cada nível é autônomo</td><td>Sistemas adaptativos complexos</td></tr>
+      <tr><td>Coalitions (Coalizões)</td><td>Grupos temporários formados para objetivos específicos</td><td>Negociação, leilões, formação dinâmica de times</td></tr>
+      <tr><td>Teams (Times)</td><td>Grupos com objetivo comum e coordenação estreita</td><td>Robótica colaborativa, jogos cooperativos</td></tr>
+      <tr><td>Markets (Mercados)</td><td>Coordenação via mecanismos de preço e negociação</td><td>Alocação de recursos, economia multi-agente</td></tr>
+      <tr><td>Consensus Protocols</td><td>Algoritmos para acordo distribuído (Paxos, Raft, Byzantine)</td><td>Blockchain, sistemas distribuídos tolerantes a falhas</td></tr>
+      <tr><td>Key-Value Modeling</td><td>Contexto como pares atributo-valor</td><td>Sistemas simples, configurações</td></tr>
+      <tr><td>Ontology-Based Modeling</td><td>Contexto representado via ontologias semânticas</td><td>Raciocínio lógico, interoperabilidade</td></tr>
+      <tr><td>Graph Neural Networks (GNN)</td><td>Aprendizado de representações em grafos de contexto</td><td>Agregação espacial, relações complexas entre agentes</td></tr>
     </tbody>
   </table>
 </div>  </section>
@@ -1243,6 +1339,9 @@ Pesquisas atuais frequentemente abordam questões de consciência de contexto ou
     <div class="egraph-legend">
       <button type="button" class="egraph-chip" data-type="Concept" aria-pressed="true">
         <i style="background:#2E7D5B"></i>Concept
+      </button>
+      <button type="button" class="egraph-chip" data-type="Dataset" aria-pressed="true">
+        <i style="background:#6B3FA0"></i>Dataset
       </button>
       <button type="button" class="egraph-chip" data-type="Method" aria-pressed="true">
         <i style="background:#8A5A00"></i>Method
@@ -1263,7 +1362,7 @@ Pesquisas atuais frequentemente abordam questões de consciência de contexto ou
 
     <div class="egraph-canvas">
       <svg viewBox="0 0 900 520" role="img"
-           aria-label="Grafo de 33 entidades e 23 relações extraídas do artigo">
+           aria-label="Grafo de 40 entidades e 27 relações extraídas do artigo">
         <defs>
           <marker id="eg-arrow" viewBox="0 0 10 10" refX="9" refY="5"
                   markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -1273,376 +1372,449 @@ Pesquisas atuais frequentemente abordam questões de consciência de contexto ou
 
         <g class="egraph-edges">
           <g class="egraph-edge" data-source="Software" data-target="Concept">
-            <line x1="341.6" y1="218.1"
-                  x2="463.8" y2="183.3"
+            <line x1="365.7" y1="219.8"
+                  x2="438.2" y2="183.4"
                   marker-end="url(#eg-arrow)"></line>
             <title>agent — percebe → contextual information</title>
           </g>
           <g class="egraph-edge" data-source="Software" data-target="Method">
-            <line x1="341.6" y1="218.1"
-                  x2="248.2" y2="168.5"
+            <line x1="365.7" y1="219.8"
+                  x2="260.4" y2="192.9"
                   marker-end="url(#eg-arrow)"></line>
-            <title>agent — utiliza → deep reinforcement learning</title>
+            <title>agent — utiliza para raciocinar → deep reinforcement learning</title>
+          </g>
+          <g class="egraph-edge" data-source="Software" data-target="Dataset">
+            <line x1="365.7" y1="219.8"
+                  x2="136.4" y2="390.3"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>agent — estima estados futuros baseado em → historical data</title>
+          </g>
+          <g class="egraph-edge" data-source="Organization" data-target="Concept">
+            <line x1="514.1" y1="365.5"
+                  x2="438.2" y2="183.4"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>agents — compreende conhecimento através de → contextual information</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Organization">
+            <line x1="464.5" y1="253.3"
+                  x2="514.1" y2="365.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>multi-agent systems — compreende → agents</title>
           </g>
           <g class="egraph-edge" data-source="Software" data-target="Concept">
-            <line x1="341.6" y1="218.1"
-                  x2="571.4" y2="230.2"
+            <line x1="365.7" y1="219.8"
+                  x2="543.0" y2="226.4"
                   marker-end="url(#eg-arrow)"></line>
-            <title>agent — raciocina com → goals</title>
+            <title>agent — possui → goals</title>
           </g>
           <g class="egraph-edge" data-source="Software" data-target="Concept">
-            <line x1="341.6" y1="218.1"
-                  x2="435.8" y2="339.7"
+            <line x1="365.7" y1="219.8"
+                  x2="419.4" y2="101.4"
                   marker-end="url(#eg-arrow)"></line>
-            <title>agent — deve estar ciente de → context</title>
+            <title>agent — forma crenças baseado em → knowledge</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Organization">
+            <line x1="398.3" y1="380.3"
+                  x2="514.1" y2="365.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>consensus — é imperativo para → agents</title>
+          </g>
+          <g class="egraph-edge" data-source="Software" data-target="Concept">
+            <line x1="365.7" y1="219.8"
+                  x2="450.8" y2="336.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>agent — requer estar ciente de → context</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Concept">
+            <line x1="638.9" y1="225.5"
+                  x2="450.8" y2="336.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>CAS — adapta-se dinamicamente usando → context</title>
           </g>
           <g class="egraph-edge" data-source="Concept" data-target="Concept">
-            <line x1="435.8" y1="339.7"
-                  x2="624.3" y2="154.0"
+            <line x1="438.2" y1="183.4"
+                  x2="608.9" y2="174.0"
                   marker-end="url(#eg-arrow)"></line>
-            <title>context — inclui → Organizational Structure</title>
+            <title>contextual information — abrange → Organizational Structure</title>
           </g>
-          <g class="egraph-edge" data-source="System" data-target="Concept">
-            <line x1="701.9" y1="214.0"
-                  x2="435.8" y2="339.7"
+          <g class="egraph-edge" data-source="Concept" data-target="Organization">
+            <line x1="450.8" y1="336.5"
+                  x2="514.1" y2="365.5"
                   marker-end="url(#eg-arrow)"></line>
-            <title>CAS — utiliza → context</title>
-          </g>
-          <g class="egraph-edge" data-source="Concept" data-target="Concept">
-            <line x1="463.8" y1="183.3"
-                  x2="624.3" y2="154.0"
-                  marker-end="url(#eg-arrow)"></line>
-            <title>contextual information — inclui → Organizational Structure</title>
-          </g>
-          <g class="egraph-edge" data-source="System" data-target="Concept">
-            <line x1="330.1" y1="290.2"
-                  x2="624.3" y2="154.0"
-                  marker-end="url(#eg-arrow)"></line>
-            <title>MAS — possui → Organizational Structure</title>
-          </g>
-          <g class="egraph-edge" data-source="System" data-target="Concept">
-            <line x1="330.1" y1="290.2"
-                  x2="399.7" y2="397.9"
-                  marker-end="url(#eg-arrow)"></line>
-            <title>MAS — possui → consensus</title>
+            <title>context — auxilia → agents</title>
           </g>
           <g class="egraph-edge" data-source="System" data-target="System">
-            <line x1="330.1" y1="290.2"
-                  x2="173.3" y2="108.4"
+            <line x1="384.8" y1="290.4"
+                  x2="224.7" y2="143.5"
                   marker-end="url(#eg-arrow)"></line>
             <title>MAS — distingue-se de → expert systems</title>
           </g>
           <g class="egraph-edge" data-source="System" data-target="Software">
-            <line x1="330.1" y1="290.2"
-                  x2="561.8" y2="58.4"
+            <line x1="384.8" y1="290.4"
+                  x2="551.8" y2="106.6"
                   marker-end="url(#eg-arrow)"></line>
             <title>MAS — distingue-se de → object-oriented programming</title>
           </g>
-          <g class="egraph-edge" data-source="Concept" data-target="Organization">
-            <line x1="651.8" y1="351.5"
-                  x2="537.6" y2="392.2"
+          <g class="egraph-edge" data-source="Organization" data-target="Concept">
+            <line x1="514.1" y1="365.5"
+                  x2="58.0" y2="342.1"
                   marker-end="url(#eg-arrow)"></line>
-            <title>Relationships — formam-se entre → agents</title>
+            <title>agents — estabelece protocolos de → communication</title>
           </g>
-          <g class="egraph-edge" data-source="Concept" data-target="Organization">
-            <line x1="399.7" y1="397.9"
-                  x2="537.6" y2="392.2"
+          <g class="egraph-edge" data-source="Concept" data-target="Software">
+            <line x1="398.3" y1="380.3"
+                  x2="365.7" y2="219.8"
                   marker-end="url(#eg-arrow)"></line>
-            <title>consensus — é alcançado entre → agents</title>
-          </g>
-          <g class="egraph-edge" data-source="Concept" data-target="Concept">
-            <line x1="399.7" y1="397.9"
-                  x2="213.6" y2="429.4"
-                  marker-end="url(#eg-arrow)"></line>
-            <title>consensus — possibilita troca de → information</title>
-          </g>
-          <g class="egraph-edge" data-source="Method" data-target="Software">
-            <line x1="117.5" y1="376.7"
-                  x2="338.2" y2="461.6"
-                  marker-end="url(#eg-arrow)"></line>
-            <title>leader-follower consensus — é tipo de → Consensus Protocol</title>
-          </g>
-          <g class="egraph-edge" data-source="Method" data-target="Software">
-            <line x1="513.2" y1="122.0"
-                  x2="338.2" y2="461.6"
-                  marker-end="url(#eg-arrow)"></line>
-            <title>group/cluster consensus — é tipo de → Consensus Protocol</title>
+            <title>consensus — requer → agent</title>
           </g>
           <g class="egraph-edge" data-source="Method" data-target="Concept">
-            <line x1="188.1" y1="233.7"
-                  x2="288.8" y2="67.8"
+            <line x1="200.8" y1="350.1"
+                  x2="398.3" y2="380.3"
                   marker-end="url(#eg-arrow)"></line>
-            <title>Context Modeling — inclui → Key-value models</title>
+            <title>leader-follower consensus — é protocolo de → consensus</title>
           </g>
           <g class="egraph-edge" data-source="Method" data-target="Concept">
-            <line x1="188.1" y1="233.7"
-                  x2="782.5" y2="143.3"
+            <line x1="514.4" y1="149.6"
+                  x2="398.3" y2="380.3"
                   marker-end="url(#eg-arrow)"></line>
-            <title>Context Modeling — inclui → context ontology</title>
+            <title>group/cluster consensus — é protocolo de → consensus</title>
+          </g>
+          <g class="egraph-edge" data-source="Method" data-target="Concept">
+            <line x1="646.4" y1="279.7"
+                  x2="398.3" y2="380.3"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>sampled-data consensus — é protocolo de → consensus</title>
           </g>
           <g class="egraph-edge" data-source="Concept" data-target="Concept">
-            <line x1="782.5" y1="143.3"
-                  x2="651.8" y2="351.5"
+            <line x1="450.8" y1="336.5"
+                  x2="272.7" y2="387.1"
                   marker-end="url(#eg-arrow)"></line>
-            <title>context ontology — representa → Relationships</title>
+            <title>context — abrange → information</title>
           </g>
-          <g class="egraph-edge" data-source="System" data-target="Software">
-            <line x1="450.6" y1="256.7"
-                  x2="341.6" y2="218.1"
+          <g class="egraph-edge" data-source="Method" data-target="Concept">
+            <line x1="263.6" y1="241.3"
+                  x2="323.1" y2="116.8"
                   marker-end="url(#eg-arrow)"></line>
-            <title>multi-agent systems — é composto por → agent</title>
+            <title>Context Modeling — inclui técnica → Key-value models</title>
+          </g>
+          <g class="egraph-edge" data-source="Software" data-target="Concept">
+            <line x1="657.5" y1="373.7"
+                  x2="272.7" y2="387.1"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>An agent — sente → information</title>
           </g>
           <g class="egraph-edge" data-source="Software" data-target="Task">
-            <line x1="341.6" y1="218.1"
-                  x2="847.6" y2="282.8"
+            <line x1="365.7" y1="219.8"
+                  x2="748.2" y2="277.1"
                   marker-end="url(#eg-arrow)"></line>
-            <title>agent — resolve → task</title>
+            <title>agent — alcança → task</title>
           </g>
-          <g class="egraph-edge" data-source="System" data-target="Concept">
-            <line x1="91.0" y1="312.2"
-                  x2="463.8" y2="183.3"
+          <g class="egraph-edge" data-source="Method" data-target="System">
+            <line x1="260.4" y1="192.9"
+                  x2="384.8" y2="290.4"
                   marker-end="url(#eg-arrow)"></line>
-            <title>Context-Aware Multi-Agent Systems — utiliza → contextual information</title>
+            <title>deep reinforcement learning — aplica-se a → MAS</title>
           </g>
-          <g class="egraph-edge" data-source="System" data-target="Concept">
-            <line x1="349.3" y1="128.3"
-                  x2="435.8" y2="339.7"
+          <g class="egraph-edge" data-source="System" data-target="System">
+            <line x1="145.1" y1="307.3"
+                  x2="464.5" y2="253.3"
                   marker-end="url(#eg-arrow)"></line>
-            <title>Context-Aware Systems — utiliza → context</title>
+            <title>Context-Aware Multi-Agent Systems — é integração de sistemas em → multi-agent systems</title>
+          </g>
+          <g class="egraph-edge" data-source="System" data-target="Organization">
+            <line x1="138.5" y1="189.7"
+                  x2="514.1" y2="365.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>system — aloca responsabilidades entre → agents</title>
+          </g>
+          <g class="egraph-edge" data-source="Organization" data-target="Concept">
+            <line x1="514.1" y1="365.5"
+                  x2="741.4" y2="222.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>agents — possuem → flexibility</title>
           </g>
         </g>
 
         <g class="egraph-nodes">
           <g class="egraph-node" data-type="System" tabindex="0">
-            <circle cx="450.6" cy="256.7"
+            <circle cx="464.5" cy="253.3"
                     r="40.0" fill="#E8172D"></circle>
-            <text x="450.6" y="309.7"
+            <text x="464.5" y="306.3"
                   text-anchor="middle">multi-agent systems</text>
             <title>multi-agent systems · System · 37 menções</title>
           </g>
           <g class="egraph-node" data-type="System" tabindex="0">
-            <circle cx="558.6" cy="301.2"
+            <circle cx="536.6" cy="298.7"
                     r="39.2" fill="#E8172D"></circle>
-            <text x="558.6" y="353.4"
+            <text x="536.6" y="350.9"
                   text-anchor="middle">CA-MAS</text>
             <title>CA-MAS · System · 38 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="435.8" cy="339.7"
+            <circle cx="450.8" cy="336.5"
                     r="38.3" fill="#2E7D5B"></circle>
-            <text x="435.8" y="391.0"
+            <text x="450.8" y="387.8"
                   text-anchor="middle">context</text>
             <title>context · Concept · 33 menções</title>
           </g>
           <g class="egraph-node" data-type="System" tabindex="0">
-            <circle cx="330.1" cy="290.2"
+            <circle cx="384.8" cy="290.4"
                     r="34.1" fill="#E8172D"></circle>
-            <text x="330.1" y="337.3"
+            <text x="384.8" y="337.5"
                   text-anchor="middle">MAS</text>
             <title>MAS · System · 29 menções</title>
           </g>
           <g class="egraph-node" data-type="Software" tabindex="0">
-            <circle cx="341.6" cy="218.1"
+            <circle cx="365.7" cy="219.8"
                     r="32.9" fill="#0F6C6C"></circle>
-            <text x="341.6" y="264.0"
+            <text x="365.7" y="265.7"
                   text-anchor="middle">agent</text>
             <title>agent · Software · 25 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="463.8" cy="183.3"
+            <circle cx="438.2" cy="183.4"
                     r="28.6" fill="#2E7D5B"></circle>
-            <text x="463.8" y="224.9"
+            <text x="438.2" y="225.1"
                   text-anchor="middle">contextual information</text>
             <title>contextual information · Concept · 21 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="571.4" cy="230.2"
+            <circle cx="543.0" cy="226.4"
                     r="26.9" fill="#2E7D5B"></circle>
-            <text x="571.4" y="270.1"
+            <text x="543.0" y="266.3"
                   text-anchor="middle">goals</text>
             <title>goals · Concept · 19 menções</title>
           </g>
           <g class="egraph-node" data-type="Organization" tabindex="0">
-            <circle cx="537.6" cy="392.2"
+            <circle cx="514.1" cy="365.5"
                     r="25.2" fill="#7A4B2A"></circle>
-            <text x="537.6" y="430.4"
+            <text x="514.1" y="403.7"
                   text-anchor="middle">agents</text>
             <title>agents · Organization · 15 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="399.7" cy="397.9"
+            <circle cx="398.3" cy="380.3"
                     r="24.2" fill="#2E7D5B"></circle>
-            <text x="399.7" y="435.1"
+            <text x="398.3" y="417.5"
                   text-anchor="middle">consensus</text>
             <title>consensus · Concept · 14 menções</title>
           </g>
           <g class="egraph-node" data-type="Organization" tabindex="0">
-            <circle cx="275.7" cy="366.0"
+            <circle cx="340.1" cy="344.3"
                     r="23.4" fill="#7A4B2A"></circle>
-            <text x="275.7" y="402.3"
+            <text x="340.1" y="380.7"
                   text-anchor="middle">organization</text>
             <title>organization · Organization · 12 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="251.3" cy="304.1"
+            <circle cx="304.8" cy="291.1"
                     r="21.6" fill="#2E7D5B"></circle>
-            <text x="251.3" y="338.6"
+            <text x="304.8" y="325.7"
                   text-anchor="middle">context-awareness</text>
             <title>context-awareness · Concept · 9 menções</title>
           </g>
           <g class="egraph-node" data-type="Method" tabindex="0">
-            <circle cx="188.1" cy="233.7"
+            <circle cx="263.6" cy="241.3"
                     r="21.4" fill="#8A5A00"></circle>
-            <text x="188.1" y="268.1"
+            <text x="263.6" y="275.7"
                   text-anchor="middle">Context Modeling</text>
             <title>Context Modeling · Method · 9 menções</title>
           </g>
           <g class="egraph-node" data-type="Method" tabindex="0">
-            <circle cx="248.2" cy="168.5"
+            <circle cx="260.4" cy="192.9"
                     r="21.1" fill="#8A5A00"></circle>
-            <text x="248.2" y="202.6"
+            <text x="260.4" y="227.0"
                   text-anchor="middle">deep reinforcement learni…</text>
             <title>deep reinforcement learning · Method · 9 menções</title>
           </g>
           <g class="egraph-node" data-type="System" tabindex="0">
-            <circle cx="349.3" cy="128.3"
+            <circle cx="350.8" cy="161.6"
                     r="21.1" fill="#E8172D"></circle>
-            <text x="349.3" y="162.4"
+            <text x="350.8" y="195.8"
                   text-anchor="middle">Context-Aware Systems</text>
             <title>Context-Aware Systems · System · 8 menções</title>
           </g>
           <g class="egraph-node" data-type="Method" tabindex="0">
-            <circle cx="513.2" cy="122.0"
+            <circle cx="514.4" cy="149.6"
                     r="20.9" fill="#8A5A00"></circle>
-            <text x="513.2" y="155.9"
+            <text x="514.4" y="183.6"
                   text-anchor="middle">group/cluster consensus</text>
             <title>group/cluster consensus · Method · 9 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="624.3" cy="154.0"
+            <circle cx="608.9" cy="174.0"
                     r="20.9" fill="#2E7D5B"></circle>
-            <text x="624.3" y="187.9"
+            <text x="608.9" y="207.8"
                   text-anchor="middle">Organizational Structure</text>
             <title>Organizational Structure · Concept · 9 menções</title>
           </g>
           <g class="egraph-node" data-type="System" tabindex="0">
-            <circle cx="701.9" cy="214.0"
+            <circle cx="638.9" cy="225.5"
                     r="20.8" fill="#E8172D"></circle>
-            <text x="701.9" y="247.8"
+            <text x="638.9" y="259.3"
                   text-anchor="middle">CAS</text>
             <title>CAS · System · 9 menções</title>
           </g>
           <g class="egraph-node" data-type="Method" tabindex="0">
-            <circle cx="711.9" cy="286.3"
+            <circle cx="646.4" cy="279.7"
                     r="20.6" fill="#8A5A00"></circle>
-            <text x="711.9" y="319.9"
+            <text x="646.4" y="313.3"
                   text-anchor="middle">sampled-data consensus</text>
             <title>sampled-data consensus · Method · 8 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="651.8" cy="351.5"
+            <circle cx="597.5" cy="328.6"
                     r="20.2" fill="#2E7D5B"></circle>
-            <text x="651.8" y="384.7"
+            <text x="597.5" y="361.8"
                   text-anchor="middle">Relationships</text>
             <title>Relationships · Concept · 8 menções</title>
           </g>
           <g class="egraph-node" data-type="Software" tabindex="0">
-            <circle cx="338.2" cy="461.6"
+            <circle cx="362.3" cy="414.9"
                     r="19.7" fill="#0F6C6C"></circle>
-            <text x="338.2" y="494.3"
+            <text x="362.3" y="447.6"
                   text-anchor="middle">Consensus Protocol</text>
             <title>Consensus Protocol · Software · 7 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="213.6" cy="429.4"
+            <circle cx="272.7" cy="387.1"
                     r="19.6" fill="#2E7D5B"></circle>
-            <text x="213.6" y="462.0"
+            <text x="272.7" y="419.6"
                   text-anchor="middle">information</text>
             <title>information · Concept · 7 menções</title>
           </g>
           <g class="egraph-node" data-type="Method" tabindex="0">
-            <circle cx="117.5" cy="376.7"
+            <circle cx="200.8" cy="350.1"
                     r="19.3" fill="#8A5A00"></circle>
-            <text x="117.5" y="409.0"
+            <text x="200.8" y="382.4"
                   text-anchor="middle">leader-follower consensus</text>
             <title>leader-follower consensus · Method · 5 menções</title>
           </g>
           <g class="egraph-node" data-type="System" tabindex="0">
-            <circle cx="91.0" cy="312.2"
+            <circle cx="145.1" cy="307.3"
                     r="19.2" fill="#E8172D"></circle>
-            <text x="91.0" y="344.4"
+            <text x="145.1" y="339.6"
                   text-anchor="middle">Context-Aware Multi-Agent…</text>
             <title>Context-Aware Multi-Agent Systems · System · 6 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="56.0" cy="237.2"
+            <circle cx="141.7" cy="243.2"
                     r="19.2" fill="#2E7D5B"></circle>
-            <text x="56.0" y="269.4"
+            <text x="141.7" y="275.4"
                   text-anchor="middle">Information Flow</text>
             <title>Information Flow · Concept · 5 menções</title>
           </g>
           <g class="egraph-node" data-type="System" tabindex="0">
-            <circle cx="91.2" cy="167.2"
+            <circle cx="138.5" cy="189.7"
                     r="19.1" fill="#E8172D"></circle>
-            <text x="91.2" y="199.3"
+            <text x="138.5" y="221.8"
                   text-anchor="middle">system</text>
             <title>system · System · 6 menções</title>
           </g>
           <g class="egraph-node" data-type="System" tabindex="0">
-            <circle cx="173.3" cy="108.4"
+            <circle cx="224.7" cy="143.5"
                     r="19.0" fill="#E8172D"></circle>
-            <text x="173.3" y="140.3"
+            <text x="224.7" y="175.5"
                   text-anchor="middle">expert systems</text>
             <title>expert systems · System · 4 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="288.8" cy="67.8"
+            <circle cx="323.1" cy="116.8"
                     r="18.9" fill="#2E7D5B"></circle>
-            <text x="288.8" y="99.7"
+            <text x="323.1" y="148.7"
                   text-anchor="middle">Key-value models</text>
             <title>Key-value models · Concept · 5 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="423.7" cy="50.5"
+            <circle cx="419.4" cy="101.4"
                     r="18.9" fill="#2E7D5B"></circle>
-            <text x="423.7" y="82.4"
+            <text x="419.4" y="133.3"
                   text-anchor="middle">knowledge</text>
             <title>knowledge · Concept · 5 menções</title>
           </g>
           <g class="egraph-node" data-type="Software" tabindex="0">
-            <circle cx="561.8" cy="58.4"
+            <circle cx="551.8" cy="106.6"
                     r="18.8" fill="#0F6C6C"></circle>
-            <text x="561.8" y="90.2"
+            <text x="551.8" y="138.4"
                   text-anchor="middle">object-oriented programmi…</text>
             <title>object-oriented programming · Software · 4 menções</title>
           </g>
           <g class="egraph-node" data-type="Method" tabindex="0">
-            <circle cx="686.4" cy="90.6"
+            <circle cx="655.9" cy="128.8"
                     r="18.7" fill="#8A5A00"></circle>
-            <text x="686.4" y="122.3"
+            <text x="655.9" y="160.5"
                   text-anchor="middle">Reinforcement learning</text>
             <title>Reinforcement learning · Method · 5 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="782.5" cy="143.3"
+            <circle cx="758.9" cy="170.1"
                     r="18.7" fill="#2E7D5B"></circle>
-            <text x="782.5" y="175.0"
+            <text x="758.9" y="201.8"
                   text-anchor="middle">context ontology</text>
             <title>context ontology · Concept · 4 menções</title>
           </g>
           <g class="egraph-node" data-type="Concept" tabindex="0">
-            <circle cx="838.5" cy="210.0"
+            <circle cx="741.4" cy="222.5"
                     r="18.6" fill="#2E7D5B"></circle>
-            <text x="838.5" y="241.6"
+            <text x="741.4" y="254.1"
                   text-anchor="middle">flexibility</text>
             <title>flexibility · Concept · 5 menções</title>
           </g>
           <g class="egraph-node" data-type="Task" tabindex="0">
-            <circle cx="847.6" cy="282.8"
+            <circle cx="748.2" cy="277.1"
                     r="18.6" fill="#2B5F86"></circle>
-            <text x="847.6" y="314.4"
+            <text x="748.2" y="308.7"
                   text-anchor="middle">task</text>
             <title>task · Task · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="723.0" cy="329.6"
+                    r="18.4" fill="#2E7D5B"></circle>
+            <text x="723.0" y="361.0"
+                  text-anchor="middle">ambient intelligence</text>
+            <title>ambient intelligence · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Software" tabindex="0">
+            <circle cx="657.5" cy="373.7"
+                    r="18.3" fill="#0F6C6C"></circle>
+            <text x="657.5" y="405.1"
+                  text-anchor="middle">An agent</text>
+            <title>An agent · Software · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Task" tabindex="0">
+            <circle cx="570.9" cy="404.1"
+                    r="18.3" fill="#2B5F86"></circle>
+            <text x="570.9" y="435.5"
+                  text-anchor="middle">complex tasks</text>
+            <title>complex tasks · Task · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Software" tabindex="0">
+            <circle cx="469.7" cy="417.2"
+                    r="18.3" fill="#0F6C6C"></circle>
+            <text x="469.7" y="448.4"
+                  text-anchor="middle">CBR</text>
+            <title>CBR · Software · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Dataset" tabindex="0">
+            <circle cx="136.4" cy="390.3"
+                    r="18.2" fill="#6B3FA0"></circle>
+            <text x="136.4" y="421.6"
+                  text-anchor="middle">historical data</text>
+            <title>historical data · Dataset · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="58.0" cy="342.1"
+                    r="18.2" fill="#2E7D5B"></circle>
+            <text x="58.0" y="373.3"
+                  text-anchor="middle">communication</text>
+            <title>communication · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="80.5" cy="285.1"
+                    r="18.2" fill="#2E7D5B"></circle>
+            <text x="80.5" y="316.3"
+                  text-anchor="middle">pedestrian trajectories</text>
+            <title>pedestrian trajectories · Concept · 3 menções</title>
           </g>
         </g>
       </svg>
@@ -1662,135 +1834,159 @@ Pesquisas atuais frequentemente abordam questões de consciência de contexto ou
         </tr>
         <tr>
           <td><b>agent</b></td>
-          <td><span class="egraph-rel">utiliza</span></td>
+          <td><span class="egraph-rel">utiliza para raciocinar</span></td>
           <td><b>deep reinforcement learning</b></td>
-          <td><q>advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals</q></td>
+          <td><q>Moreover, advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals</q></td>
         </tr>
         <tr>
           <td><b>agent</b></td>
-          <td><span class="egraph-rel">raciocina com</span></td>
+          <td><span class="egraph-rel">estima estados futuros baseado em</span></td>
+          <td><b>historical data</b></td>
+          <td><q>The agent estimates and predicts future states based on its model of historical data and observations.</q></td>
+        </tr>
+        <tr>
+          <td><b>agents</b></td>
+          <td><span class="egraph-rel">compreende conhecimento através de</span></td>
+          <td><b>contextual information</b></td>
+          <td><q>This results in the growing attention to the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.</q></td>
+        </tr>
+        <tr>
+          <td><b>multi-agent systems</b></td>
+          <td><span class="egraph-rel">compreende</span></td>
+          <td><b>agents</b></td>
+          <td><q>Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.</q></td>
+        </tr>
+        <tr>
+          <td><b>agent</b></td>
+          <td><span class="egraph-rel">possui</span></td>
           <td><b>goals</b></td>
-          <td><q>advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals</q></td>
+          <td><q>An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.</q></td>
         </tr>
         <tr>
           <td><b>agent</b></td>
-          <td><span class="egraph-rel">deve estar ciente de</span></td>
-          <td><b>context</b></td>
-          <td><q>attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location</q></td>
+          <td><span class="egraph-rel">forma crenças baseado em</span></td>
+          <td><b>knowledge</b></td>
+          <td><q>Furthermore, an autonomous agent forms its beliefs based on its knowledge and observations of the environment and other agents.</q></td>
         </tr>
         <tr>
+          <td><b>consensus</b></td>
+          <td><span class="egraph-rel">é imperativo para</span></td>
+          <td><b>agents</b></td>
+          <td><q>In cooperative settings, achieving consensus, and a shared agreement on a particular interest is imperative for autonomous agents.</q></td>
+        </tr>
+        <tr>
+          <td><b>agent</b></td>
+          <td><span class="egraph-rel">requer estar ciente de</span></td>
           <td><b>context</b></td>
-          <td><span class="egraph-rel">inclui</span></td>
-          <td><b>Organizational Structure</b></td>
-          <td><q>attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location</q></td>
+          <td><q>It is worth noting that attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location</q></td>
         </tr>
         <tr>
           <td><b>CAS</b></td>
-          <td><span class="egraph-rel">utiliza</span></td>
+          <td><span class="egraph-rel">adapta-se dinamicamente usando</span></td>
           <td><b>context</b></td>
           <td><q>Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.</q></td>
         </tr>
         <tr>
           <td><b>contextual information</b></td>
-          <td><span class="egraph-rel">inclui</span></td>
+          <td><span class="egraph-rel">abrange</span></td>
           <td><b>Organizational Structure</b></td>
           <td><q>In the context of autonomous agents, contextual information encompasses task objectives, organizational structure, agent roles, and temporal aspects.</q></td>
         </tr>
         <tr>
-          <td><b>MAS</b></td>
-          <td><span class="egraph-rel">possui</span></td>
-          <td><b>Organizational Structure</b></td>
-          <td><q>three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.</q></td>
-        </tr>
-        <tr>
-          <td><b>MAS</b></td>
-          <td><span class="egraph-rel">possui</span></td>
-          <td><b>consensus</b></td>
-          <td><q>three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.</q></td>
+          <td><b>context</b></td>
+          <td><span class="egraph-rel">auxilia</span></td>
+          <td><b>agents</b></td>
+          <td><q>Such context assists agents precisely retrieving relevant information for task accomplishment</q></td>
         </tr>
         <tr>
           <td><b>MAS</b></td>
           <td><span class="egraph-rel">distingue-se de</span></td>
           <td><b>expert systems</b></td>
-          <td><q>three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming</q></td>
+          <td><q>Furthermore, three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming</q></td>
         </tr>
         <tr>
           <td><b>MAS</b></td>
           <td><span class="egraph-rel">distingue-se de</span></td>
           <td><b>object-oriented programming</b></td>
-          <td><q>three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming</q></td>
+          <td><q>Furthermore, three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming</q></td>
         </tr>
         <tr>
-          <td><b>Relationships</b></td>
-          <td><span class="egraph-rel">formam-se entre</span></td>
           <td><b>agents</b></td>
-          <td><q>Depending on both organizational goals and agent-specific goals, relationships among agentsare formed into one of the following categories: cooperation or competition.</q></td>
+          <td><span class="egraph-rel">estabelece protocolos de</span></td>
+          <td><b>communication</b></td>
+          <td><q>Achieving this purpose necessitates organizing agents into groups with coordination, establishing communication protocols among them, and reaching consensus agreements</q></td>
         </tr>
         <tr>
           <td><b>consensus</b></td>
-          <td><span class="egraph-rel">é alcançado entre</span></td>
-          <td><b>agents</b></td>
-          <td><q>achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.</q></td>
-        </tr>
-        <tr>
-          <td><b>consensus</b></td>
-          <td><span class="egraph-rel">possibilita troca de</span></td>
-          <td><b>information</b></td>
-          <td><q>achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.</q></td>
+          <td><span class="egraph-rel">requer</span></td>
+          <td><b>agent</b></td>
+          <td><q>Once an organizational structure is established, achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.</q></td>
         </tr>
         <tr>
           <td><b>leader-follower consensus</b></td>
-          <td><span class="egraph-rel">é tipo de</span></td>
-          <td><b>Consensus Protocol</b></td>
-          <td><q>the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,</q></td>
+          <td><span class="egraph-rel">é protocolo de</span></td>
+          <td><b>consensus</b></td>
+          <td><q>To overcome these challenges, the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus, (5) bipartite consensus, (6) sampled-data consensus, (7) quantized consensus, (8) network-based consensus, and (9) the combination of consensus with tracking mechanisms</q></td>
         </tr>
         <tr>
           <td><b>group/cluster consensus</b></td>
-          <td><span class="egraph-rel">é tipo de</span></td>
-          <td><b>Consensus Protocol</b></td>
-          <td><q>the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,</q></td>
+          <td><span class="egraph-rel">é protocolo de</span></td>
+          <td><b>consensus</b></td>
+          <td><q>To overcome these challenges, the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus, (5) bipartite consensus, (6) sampled-data consensus, (7) quantized consensus, (8) network-based consensus, and (9) the combination of consensus with tracking mechanisms</q></td>
+        </tr>
+        <tr>
+          <td><b>sampled-data consensus</b></td>
+          <td><span class="egraph-rel">é protocolo de</span></td>
+          <td><b>consensus</b></td>
+          <td><q>To overcome these challenges, the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus, (5) bipartite consensus, (6) sampled-data consensus, (7) quantized consensus, (8) network-based consensus, and (9) the combination of consensus with tracking mechanisms</q></td>
+        </tr>
+        <tr>
+          <td><b>context</b></td>
+          <td><span class="egraph-rel">abrange</span></td>
+          <td><b>information</b></td>
+          <td><q>Context encompasses various types of information, such as people, location, physical or virtual objects, events, time, and other data that can be employed to introduce different dimensions of a situation or conceptual information regarding specific circumstances</q></td>
         </tr>
         <tr>
           <td><b>Context Modeling</b></td>
-          <td><span class="egraph-rel">inclui</span></td>
+          <td><span class="egraph-rel">inclui técnica</span></td>
           <td><b>Key-value models</b></td>
           <td><q>Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models</q></td>
         </tr>
         <tr>
-          <td><b>Context Modeling</b></td>
-          <td><span class="egraph-rel">inclui</span></td>
-          <td><b>context ontology</b></td>
-          <td><q>Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models</q></td>
-        </tr>
-        <tr>
-          <td><b>context ontology</b></td>
-          <td><span class="egraph-rel">representa</span></td>
-          <td><b>Relationships</b></td>
-          <td><q>ontology-based context models are widely utilized due to their capability for semantic reasoning and representation of context relationships through knowledge graphs</q></td>
-        </tr>
-        <tr>
-          <td><b>multi-agent systems</b></td>
-          <td><span class="egraph-rel">é composto por</span></td>
-          <td><b>agent</b></td>
-          <td><q>Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.</q></td>
+          <td><b>An agent</b></td>
+          <td><span class="egraph-rel">sente</span></td>
+          <td><b>information</b></td>
+          <td><q>In the context of MAS, an agent can sense information from its knowledge, other agents, or the environment.</q></td>
         </tr>
         <tr>
           <td><b>agent</b></td>
-          <td><span class="egraph-rel">resolve</span></td>
+          <td><span class="egraph-rel">alcança</span></td>
           <td><b>task</b></td>
-          <td><q>An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.</q></td>
+          <td><q>An agent is an autonomous and computational entity (e.g., a software, a hardware component, or a combination of both) that operates within an environment to achieve specific tasks or goals</q></td>
+        </tr>
+        <tr>
+          <td><b>deep reinforcement learning</b></td>
+          <td><span class="egraph-rel">aplica-se a</span></td>
+          <td><b>MAS</b></td>
+          <td><q>Other surveys have delved into specific aspects of MAS, including consensus [34, 37, 39], communication [41], formation control [36, 38, 40], organizational structures [33], and deep reinforcement learning (DRL) for MAS</q></td>
         </tr>
         <tr>
           <td><b>Context-Aware Multi-Agent Systems</b></td>
-          <td><span class="egraph-rel">utiliza</span></td>
-          <td><b>contextual information</b></td>
-          <td><q>the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.</q></td>
+          <td><span class="egraph-rel">é integração de sistemas em</span></td>
+          <td><b>multi-agent systems</b></td>
+          <td><q>the integration of context-aware systems into multi-agent systems, as known as context-aware multi-agent systems, becomes essential.</q></td>
         </tr>
         <tr>
-          <td><b>Context-Aware Systems</b></td>
-          <td><span class="egraph-rel">utiliza</span></td>
-          <td><b>context</b></td>
-          <td><q>Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.</q></td>
+          <td><b>system</b></td>
+          <td><span class="egraph-rel">aloca responsabilidades entre</span></td>
+          <td><b>agents</b></td>
+          <td><q>Overcoming these limitations requires the implementation of a system that allocates task responsibilities among autonomous agents, enabling effective coordination and communication during task resolution.</q></td>
+        </tr>
+        <tr>
+          <td><b>agents</b></td>
+          <td><span class="egraph-rel">possuem</span></td>
+          <td><b>flexibility</b></td>
+          <td><q>These attributes confer flexibility and adaptability on agents in dynamic environments, making MAS suited for addressing complex problems.</q></td>
         </tr>
       </tbody>
     </table>
@@ -1851,13 +2047,13 @@ Pesquisas atuais frequentemente abordam questões de consciência de contexto ou
   <h2><span class="num">FONTES</span>Material</h2>
   <div class="dl-grid">
     <a class="dl" href="context-aware-mas.pdf">
-      <b>Artigo Original (PDF)</b>
-      <small>Baixe o artigo completo sobre sistemas multi-agente conscientes de contexto.</small>
+      <b>Artigo original em PDF</b>
+      <small>Survey completo sobre técnicas, aplicações e desafios de Sistemas Multi-Agente Conscientes de Contexto (CA-MAS).</small>
       <span class="arrow">PDF ↓</span>
     </a>
     <a class="dl" href="blog.html">
-      <b>Post no Blog</b>
-      <small>Leia a versão comentada e expandida deste artigo no formato de blog.</small>
+      <b>Post de blog</b>
+      <small>Versão em formato de leitura guiada explorando a arquitetura unificada e taxonomia para desenvolvimento de CA-MAS.</small>
       <span class="arrow">LER →</span>
     </a>
   </div>
@@ -1866,7 +2062,7 @@ Pesquisas atuais frequentemente abordam questões de consciência de contexto ou
 
 <footer>
   <div class="wrap">
-    Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis. A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions. arXiv preprint arXiv:2402.01968v2 [cs.MA].<br><br>
+    Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis. A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions. arXiv preprint.<br><br>
     <a href="workshop.html">Dinâmica</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="../../css-context-sensitive-systems/index.html">&#8592; CSS - Context Sensitive Systems</a>
   </div>
 </footer>

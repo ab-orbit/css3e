@@ -1,0 +1,492 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html",
+      "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html",
+      "name": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+      "headline": "Ética de IA: O Que Pensam Profissionais e Legisladores",
+      "inLanguage": "pt-BR",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Arif Ali Khan"
+        },
+        {
+          "@type": "Person",
+          "name": "Muhammad Azeem Akbar"
+        },
+        {
+          "@type": "Person",
+          "name": "Mahdi Fahmideh"
+        },
+        {
+          "@type": "Person",
+          "name": "Peng Liang"
+        },
+        {
+          "@type": "Person",
+          "name": "Muhammad Waseem"
+        },
+        {
+          "@type": "Person",
+          "name": "Aakash Ahmad"
+        },
+        {
+          "@type": "Person",
+          "name": "Mahmood Niazi"
+        },
+        {
+          "@type": "Person",
+          "name": "Pekka Abrahamsson"
+        }
+      ],
+      "abstract": "Artificial intelligence (AI) solutions and technologies are being increasingly adopted in smart systems contexts; however, such technologies are concerned with ethical uncertainties. Various guidelines, principles, and regulatory frameworks are designed to ensure that AI technologies adhere to ethical well-being. However, the implications of AI ethics principles and guidelines are still being debated. To further explore the significance of AI ethics principles and relevant challenges, we conducted a survey of 99 randomly selected representative AI practitioners and lawmakers (e.g., AI engineers and lawyers) from 20 countries across five continents. To the best of our knowledge, this is the first empirical study that unveils the perceptions of two different types of population (AI practitioners and lawmakers) and the study findings confirm that transparency, accountability, and privacy are the most critical AI ethics principles. On the other hand, lack of ethical knowledge, no legal frameworks, and lacking monitoring bodies are found to be the most common AI ethics challenges. The impact analysis of the challenges across principles reveals that conflict in practice is a highly severe challenge. Moreover, the perceptions of practitioners and lawmakers are statistically correlated with significant differences for particular principles (e.g. fairness and freedom) and challenges (e.g. lacking monitoring bodies and machine distortion). Our findings stimulate further research, particularly empowering existing capability maturity models to support ethics-aware AI systems' development and quality assessment.",
+      "description": "Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios para sistemas de IA confiáveis.",
+      "datePublished": "2023",
+      "publication": "IEEE Transactions on Computational Social Systems",
+      "keywords": [
+        "Accountable artificial intelligence",
+        "Artificial intelligence (AI)",
+        "AI ethics",
+        "AI ethics principles",
+        "challenges",
+        "machine ethics"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.1109/TCSS.2023.3251729"
+      },
+      "sameAs": "https://doi.org/10.1109/TCSS.2023.3251729",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "AI ethics principles",
+          "termCode": "ai ethics principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 61,
+          "css3e:confidence": 0.864
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI ethics",
+          "termCode": "ai ethics",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 51,
+          "css3e:confidence": 0.815
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI systems",
+          "termCode": "ai systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 21,
+          "css3e:confidence": 0.833
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "challenges",
+          "termCode": "challenges",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 24,
+          "css3e:confidence": 0.661
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "privacy",
+          "termCode": "privacy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 16,
+          "css3e:confidence": 0.928
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "practitioners",
+          "termCode": "practitioners",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 17,
+          "css3e:confidence": 0.762
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "transparency",
+          "termCode": "transparency",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 14,
+          "css3e:confidence": 0.911
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "lawmakers",
+          "termCode": "lawmakers",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 17,
+          "css3e:confidence": 0.748
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "DefinedTerm",
+          "name": "accountability",
+          "termCode": "accountability",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 11,
+          "css3e:confidence": 0.876
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "fairness",
+          "termCode": "fairness",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.937
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethics",
+          "termCode": "ethics",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.744
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI ethics challenges",
+          "termCode": "ai ethics challenges",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.787
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI system",
+          "termCode": "ai system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.754
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "practitioners and lawmakers",
+          "termCode": "practitioners and lawmakers",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.716
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "lack of ethical knowledge",
+          "termCode": "lack of ethical knowledge",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.711
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "principles",
+          "termCode": "principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.607
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "t*-test",
+          "termCode": "t test",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.658
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "internal validity",
+          "termCode": "internal validity",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.822
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI ethics principles and challenges",
+          "termCode": "ai ethics principles and challenges",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.807
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "challenging factors",
+          "termCode": "challenging factors",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.767
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "software",
+          "termCode": "software",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.59
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "law",
+          "termCode": "law",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.919
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Wuhan University",
+          "termCode": "wuhan university",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.919
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "conflict in practice",
+          "termCode": "conflict in practice",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.689
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ISO",
+          "termCode": "iso",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.682
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "survey instrument",
+          "termCode": "survey instrument",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.675
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI technologies",
+          "termCode": "ai technologies",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.662
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "autonomy",
+          "termCode": "autonomy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.878
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "monitoring bodies",
+          "termCode": "monitoring bodies",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.797
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethical aspects",
+          "termCode": "ethical aspects",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.761
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "no legal frameworks",
+          "termCode": "no legal frameworks",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.696
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "regulatory bodies",
+          "termCode": "regulatory bodies",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.671
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Spearman correlation coefficients",
+          "termCode": "spearman correlation coefficients",
+          "inDefinedTermSet": "Metric",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.965
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "transparency principle",
+          "termCode": "transparency principle",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.954
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "system",
+          "termCode": "system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.635
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "University of Jyväskylä",
+          "termCode": "university of jyvskyl",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.948
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "University of Southern Queensland",
+          "termCode": "university of southern queensland",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.942
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Lappeenranta-Lahti University of Technology",
+          "termCode": "lappeenranta lahti university of technology",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.938
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Likert scale",
+          "termCode": "likert scale",
+          "inDefinedTermSet": "Metric",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.92
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "University of Oulu",
+          "termCode": "university of oulu",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.91
+        }
+      ]
+    }
+  ],
+  "css3e:relations": [
+    {
+      "source": "survey instrument",
+      "sourceCode": "survey instrument",
+      "label": "avalia",
+      "target": "AI ethics principles and challenges",
+      "targetCode": "ai ethics principles and challenges",
+      "confidence": 1.0,
+      "quote": "The survey instrument consisted of four core sections: 1) demographics; 2) AI ethics principles; 3) challenges; and 4) challenges impact on principles.",
+      "quoteOffset": 14805
+    },
+    {
+      "source": "AI ethics principles",
+      "sourceCode": "ai ethics principles",
+      "label": "inclui",
+      "target": "fairness",
+      "targetCode": "fairness",
+      "confidence": 1.0,
+      "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
+      "quoteOffset": 28401
+    },
+    {
+      "source": "AI ethics principles",
+      "sourceCode": "ai ethics principles",
+      "label": "inclui",
+      "target": "autonomy",
+      "targetCode": "autonomy",
+      "confidence": 1.0,
+      "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
+      "quoteOffset": 28401
+    },
+    {
+      "source": "conflict in practice",
+      "sourceCode": "conflict in practice",
+      "label": "desafia",
+      "target": "privacy",
+      "targetCode": "privacy",
+      "confidence": 1.0,
+      "quote": "Conflict in practice is deemed the most significant chal- lenge to the privacy principle.",
+      "quoteOffset": 29640
+    },
+    {
+      "source": "conflict in practice",
+      "sourceCode": "conflict in practice",
+      "label": "desafia",
+      "target": "autonomy",
+      "targetCode": "autonomy",
+      "confidence": 1.0,
+      "quote": "(79%) of the survey respondents considered conflict in practice as the most common (long-term) challenge for autonomy and explainability principles.",
+      "quoteOffset": 30611
+    },
+    {
+      "source": "law",
+      "sourceCode": "law",
+      "label": "regula",
+      "target": "AI ethics",
+      "targetCode": "ai ethics",
+      "confidence": 1.0,
+      "quote": "The aim of considering this type of population (lawmakers) is to understand the application of the law to AI ethics.",
+      "quoteOffset": 14051
+    },
+    {
+      "source": "lawmakers",
+      "sourceCode": "lawmakers",
+      "label": "priorizam",
+      "target": "fairness",
+      "targetCode": "fairness",
+      "confidence": 1.0,
+      "quote": "lawmakers ranked fairness at position five as the most important principle",
+      "quoteOffset": 33219
+    },
+    {
+      "source": "practitioners",
+      "sourceCode": "practitioners",
+      "label": "necessitam",
+      "target": "monitoring bodies",
+      "targetCode": "monitoring bodies",
+      "confidence": 1.0,
+      "quote": "lacking monitoring bodies is ranked second by the practitioners",
+      "quoteOffset": 35539
+    },
+    {
+      "source": "AI ethics",
+      "sourceCode": "ai ethics",
+      "label": "é classificado sob",
+      "target": "ethics",
+      "targetCode": "ethics",
+      "confidence": 1.0,
+      "quote": "Generally, AI ethics is classified under the umbrella of applied ethics",
+      "quoteOffset": 9530
+    },
+    {
+      "source": "regulatory bodies",
+      "sourceCode": "regulatory bodies",
+      "label": "regulam",
+      "target": "AI systems",
+      "targetCode": "ai systems",
+      "confidence": 1.0,
+      "quote": "Extant guide- lines and policies devised by researchers and regulatory bodies discussed different ethical goals for AI systems.",
+      "quoteOffset": 24760
+    }
+  ],
+  "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+}

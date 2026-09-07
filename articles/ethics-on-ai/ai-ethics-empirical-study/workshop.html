@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers | Workshop CSS3e</title>
+<meta name="description" content="Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de AI ethics mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. Análise de severidade mostra que conflito na prática é o desafio mais impactante para trustworthy AI.">
+<meta name="keywords" content="AI ethics, ética de IA, transparency, accountability, privacy, fairness, autonomy, explainability, trustworthy AI, AI ethics principles, ethical knowledge, legal frameworks, monitoring bodies, conflict in practice, AI HLEG guidelines, ethically aligned design, EAD, ART framework, empirical study, practitioners, lawmakers, sistemas sociais computacionais, inteligência artificial, machine ethics">
+<meta name="author" content="Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/workshop.html">
+<meta name="theme-color" content="#171415">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/workshop.html">
+<meta property="og:title" content="AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers | Workshop CSS3e">
+<meta property="og:description" content="Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de AI ethics mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. Análise de severidade mostra que conflito na prática é o desafio mais impactante para trustworthy AI.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers | Workshop CSS3e">
+<meta name="twitter:description" content="Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de AI ethics mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. Análise de severidade mostra que conflito na prática é o desafio mais impactante para trustworthy AI.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/workshop.html" },
+  "headline": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers | Workshop CSS3e",
+  "description": "Estudo emp\u00edrico com 99 profissionais de IA e legisladores de 20 pa\u00edses revela que transpar\u00eancia, accountability e privacidade s\u00e3o os princ\u00edpios de AI ethics mais cr\u00edticos, enquanto falta de conhecimento \u00e9tico, aus\u00eancia de frameworks legais e car\u00eancia de \u00f3rg\u00e3os de monitoramento s\u00e3o os desafios mais comuns. An\u00e1lise de severidade mostra que conflito na pr\u00e1tica \u00e9 o desafio mais impactante para trustworthy AI.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2023",
+  "dateModified": "2023",
+  "author": [
+    { "@type": "Person", "name": "Arif Ali Khan" },
+    { "@type": "Person", "name": "Muhammad Azeem Akbar" },
+    { "@type": "Person", "name": "Mahdi Fahmideh" },
+    { "@type": "Person", "name": "Peng Liang" },
+    { "@type": "Person", "name": "Muhammad Waseem" },
+    { "@type": "Person", "name": "Aakash Ahmad" },
+    { "@type": "Person", "name": "Mahmood Niazi" },
+    { "@type": "Person", "name": "Pekka Abrahamsson" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Centro de Inform\u00e1tica, UFPE", "url": "https://ab-orbit.github.io/css3e/" },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+    "author": ["Arif Ali Khan","Muhammad Azeem Akbar","Mahdi Fahmideh","Peng Liang","Muhammad Waseem","Aakash Ahmad","Mahmood Niazi","Pekka Abrahamsson"],
+    "datePublished": "2023",
+"sameAs": "https://doi.org/10.1109/TCSS.2023.3251729",    "url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-kzxcc0z0/AI Ethics - An Empirical Study.pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "AI ethics principles" },
+    { "@type": "Thing", "name": "transparency" },
+    { "@type": "Thing", "name": "accountability" },
+    { "@type": "Thing", "name": "privacy" },
+    { "@type": "Thing", "name": "fairness" },
+    { "@type": "Thing", "name": "autonomy" },
+    { "@type": "Thing", "name": "explainability" },
+    { "@type": "Thing", "name": "lack of ethical knowledge" },
+    { "@type": "Thing", "name": "no legal frameworks" },
+    { "@type": "Thing", "name": "lacking monitoring bodies" },
+    { "@type": "Thing", "name": "conflict in practice" },
+    { "@type": "Thing", "name": "trustworthy AI" },
+    { "@type": "Thing", "name": "AI HLEG guidelines" },
+    { "@type": "Thing", "name": "ethically aligned design (EAD)" },
+    { "@type": "Thing", "name": "ART framework (Accountability, Responsibility, Transparency)" },
+    { "@type": "Thing", "name": "severity impact" },
+    { "@type": "Thing", "name": "Spearman\u0027s rank-order correlation" }
+  ],
+  "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/workshop.html"
+}
+</script>
+
+<link rel="stylesheet" href="../../../resources/cases/style.css">
+<style>
+:root{
+  --accent-0: #2E7D5B;
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Dinâmica · AI Ethics: An Empirical Study on the Vie</div>
+    <nav class="nav">
+      <a class="btn" href="index.html">Leitura do artigo</a>
+      <a class="btn" href="blog.html">Blog</a>
+      <a class="btn" href="../../ethics-on-ai/index.html">&#8592; Ethics on AI</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="article-hero" style="grid-template-columns:1fr">
+    <div>
+      <div class="eyebrow">DINÂMICA REMOTA · CONSOLIDAÇÃO DE CONTEÚDO</div>
+      <h1>Ética de IA na Prática: Do Princípio ao Conflito Real</h1>
+      <p class="lede">Workshop remoto construído a partir de "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers" (Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson, IEEE Transactions on Computational Social Systems) para consolidar o conteúdo em grupo ou individualmente.</p>
+    </div>
+  </section>
+
+<section class="section" id="visao-geral">
+  <h2><span class="num">DINÂMICA</span>Ética de IA na Prática: Do Princípio ao Conflito Real</h2>
+  <div class="case-grid">
+    <div class="panel">
+      <h3>Enquadramento</h3>
+      <p>Ciclo de Kolb adaptado para ética aplicada: experiência concreta (cenário-dilema) → observação reflexiva (mapeamento de tensões) → conceituação abstrata (princípios e desafios do artigo) → experimentação ativa (proposta de operacionalização contextualizada)</p>
+    </div>
+    <div class="panel">
+      <h3>Duração</h3>
+      <p>75 minutos, remoto (videoconferência + material assíncrono).</p>
+    </div>
+  </div>
+</section>
+
+<section class="section track-toggle" id="trilhas">
+  <div class="track-tabs" role="tablist" aria-label="Visão da dinâmica">
+    <button class="track-tab active" data-track="participante" role="tab" aria-selected="true">Visão do participante</button>
+    <button class="track-tab" data-track="facilitador" role="tab" aria-selected="false">Visão do facilitador</button>
+  </div>
+
+  <div class="track-panel" data-track-panel="participante">
+    <h3>Passo a passo</h3>
+    <div class="step-card">
+      <div class="case-no">Preparação assíncrona</div>
+      <p>Antes da sessão, leia o resumo executivo do artigo (fornecido) e identifique pelo menos três princípios de ética de IA mencionados. Anote uma situação real ou hipotética em que você imagina que dois desses princípios entrem em conflito.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Você consegue explicar em uma frase por que esses dois princípios podem ser incompatíveis em um contexto específico?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Experiência concreta (15 min)</div>
+      <p>Você receberá um cenário-dilema de IA (ex.: sistema de crédito, recrutamento automatizado, diagnóstico médico). Em breakout room com 3-4 colegas, identifique quais princípios de ética de IA (transparência, accountability, privacidade, fairness, autonomia, explainability) estão em jogo e onde eles entram em conflito. Registre no Jamboard/Miro compartilhado da sua sala.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Você consegue nomear pelo menos dois princípios que competem entre si neste cenário e explicar a natureza do trade-off?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Observação reflexiva (10 min)</div>
+      <p>Retorne à sessão plenária. Observe os mapas de tensões criados por outros grupos no quadro compartilhado. Vote (usando reações/emojis) nos conflitos que você considera mais difíceis de resolver na prática.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Você identificou padrões comuns entre os conflitos mapeados pelos diferentes grupos?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Conceituação abstrata (20 min)</div>
+      <p>Acompanhe a apresentação facilitada sobre os achados do artigo: os três princípios mais críticos (transparência, accountability, privacidade), os três desafios mais comuns (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento) e o desafio mais severo (conflito na prática). Relacione esses achados empíricos com os conflitos que seu grupo mapeou. Anote no chat ou documento colaborativo: qual desafio do artigo explica melhor a dificuldade do seu cenário?</p>
+      <p class="self-check"><b>Autoavaliação:</b> Você consegue conectar pelo menos um desafio identificado no artigo com o dilema que seu grupo trabalhou?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Experimentação ativa (25 min)</div>
+      <p>Retorne ao breakout room. Agora, usando o framework ART (Accountability, Responsibility, Transparency) mencionado no artigo, proponha uma solução operacional para o cenário do seu grupo: (1) Quem é accountable? (2) Como garantir transparência contextualizada (não apenas técnica)? (3) Que mecanismo de monitoramento seria viável? Prepare uma proposta de 2 minutos para apresentar na plenária. Use o template fornecido no Miro.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Sua proposta especifica atores, processos e critérios de verificação concretos, ou ainda está em linguagem genérica?</p>
+    </div>
+    <div class="step-card">
+      <div class="case-no">Consolidação (5 min)</div>
+      <p>Após ouvir as propostas dos outros grupos, responda individualmente (em formulário ou documento pessoal) às perguntas de reflexão final. Compartilhe voluntariamente uma insight no chat.</p>
+      <p class="self-check"><b>Autoavaliação:</b> Você consegue articular pelo menos uma mudança de perspectiva que teve durante a sessão?</p>
+    </div>
+
+    <div class="case-grid" style="margin-top:20px">
+      <div class="panel">
+        <h3>Materiais necessários</h3>
+        <ul><li>Acesso à videoconferência (Zoom, Teams, Google Meet) com capacidade de breakout rooms</li><li>Resumo executivo do artigo (1 página, fornecido previamente)</li><li>Quadro colaborativo online (Miro, Jamboard, Mural) com template de mapeamento de tensões</li><li>Template de proposta operacional (framework ART) no quadro colaborativo</li><li>Documento ou formulário para reflexões individuais</li><li>Slides da apresentação sobre achados do artigo (fornecidos pelo facilitador)</li><li>Cenários-dilema impressos ou em PDF (um por breakout room)</li></ul>
+      </div>
+      <div class="panel">
+        <h3>Perguntas de reflexão (consolidação individual)</h3>
+        <ul><li>Qual princípio de ética de IA você considerava mais importante antes da sessão, e sua percepção mudou? Por quê?</li><li>Dos três desafios mais comuns identificados no artigo (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento), qual você acredita ser o mais urgente de resolver no seu contexto profissional ou de estudo?</li><li>O artigo mostra que &#39;conflito na prática&#39; é o desafio mais severo. Após a dinâmica, você consegue identificar uma estratégia concreta para lidar com conflitos entre princípios éticos em projetos de IA?</li><li>As percepções de profissionais de IA e legisladores são correlacionadas, mas diferem em alguns pontos (ex.: fairness, órgãos de monitoramento). Como você explicaria essas diferenças, e o que isso sugere sobre colaboração interdisciplinar?</li><li>Se você fosse propor uma diretriz de ética de IA para o seu domínio específico (saúde, finanças, educação, etc.), qual seria o primeiro passo prático que você tomaria para evitar que ela fique apenas no papel?</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-panel" data-track-panel="facilitador" hidden>
+    <h3>Roteiro</h3>
+    <div class="step-card">
+      <div class="case-no">0–5 min</div>
+      <p><b>Abertura e contextualização: boas-vindas, verificação de materiais, apresentação do objetivo da sessão (consolidar aprendizado do artigo através de aplicação prática) e do enquadramento pedagógico (Kolb adaptado). Explicar que vamos vivenciar conflitos éticos reais antes de revisitar os achados do artigo.</b></p>
+      <p>Verifique que todos têm acesso ao quadro colaborativo e aos breakout rooms. Reforce que não há &#39;resposta certa&#39; nos dilemas éticos, o objetivo é exercitar o raciocínio contextualizado. Erro comum: participantes esperarem uma &#39;solução definitiva&#39; — esclareça que o foco é o processo de análise.</p>
+      <ul><li>Quantos de vocês já trabalharam ou estudaram um caso real de falha ética em IA?</li><li>O que vocês esperam aprender hoje sobre a distância entre princípios éticos e prática?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">5–20 min</div>
+      <p><b>Experiência concreta: distribuir participantes em breakout rooms (3-4 pessoas). Cada sala recebe um cenário-dilema diferente (ex.: sistema de crédito que maximiza lucro vs. fairness; diagnóstico médico que prioriza acurácia vs. explainability para pacientes; recrutamento que otimiza eficiência vs. transparência). Grupos mapeiam princípios em conflito no Miro/Jamboard.</b></p>
+      <p>Circule pelas salas (ou monitore o quadro colaborativo) para garantir que os grupos estão identificando conflitos reais, não apenas listando princípios. Incentive especificidade: &#39;Como exatamente a transparência prejudica a privacidade NESTE caso?&#39; Erro comum: grupos ficam muito abstratos ou filosóficos — traga de volta ao cenário concreto. Tenha cenários extras caso algum grupo termine rápido.</p>
+      <ul><li>(Nas salas) Quais stakeholders são afetados por cada lado deste conflito?</li><li>(Nas salas) Se você tivesse que escolher um princípio para priorizar, qual seria e por quê?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">20–30 min</div>
+      <p><b>Observação reflexiva: retorno à plenária. Cada grupo compartilha brevemente (1 min) o conflito principal que identificou. Facilitador organiza os conflitos no quadro em clusters (ex.: &#39;privacidade vs. transparência&#39;, &#39;fairness vs. eficiência&#39;, &#39;autonomia vs. accountability&#39;). Participantes votam nos conflitos mais desafiadores.</b></p>
+      <p>Use a votação para engajar todos, não apenas quem fala. Destaque padrões: &#39;Notem que três grupos identificaram tensão entre transparência e privacidade — isso é recorrente na literatura&#39;. Erro comum: deixar a discussão se estender demais — seja firme com o tempo de 1 min por grupo. Prepare-se para sintetizar rapidamente os clusters.</p>
+      <ul><li>Alguém ficou surpreso com algum conflito mapeado por outro grupo?</li><li>Vocês acham que esses conflitos são universais ou dependem do contexto cultural/legal?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">30–50 min</div>
+      <p><b>Conceituação abstrata: apresentação facilitada (10-12 slides) sobre os achados do artigo. Estrutura sugerida: (1) Metodologia (survey com 99 profissionais e legisladores, 20 países); (2) Top 3 princípios críticos (transparência, accountability, privacidade); (3) Top 3 desafios comuns (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento); (4) Desafio mais severo: conflito na prática; (5) Diferenças entre profissionais e legisladores. Após cada seção, pausar para perguntas e pedir que participantes anotem conexões com seus cenários no chat/documento colaborativo.</b></p>
+      <p>Esta é a &#39;ponte&#39; entre experiência e experimentação. Não faça uma palestra passiva — intercale com perguntas ao grupo (&#39;Vocês viram isso no cenário de vocês?&#39;). Destaque a Figura/Tabela do artigo que mostra ranking de princípios e desafios. Erro comum: sobrecarregar com detalhes metodológicos — foque nos achados práticos. Reserve 2-3 min para perguntas de esclarecimento.</p>
+      <ul><li>O ranking de princípios do artigo (transparência, accountability, privacidade no topo) corresponde ao que vocês esperavam?</li><li>Por que vocês acham que &#39;conflito na prática&#39; foi identificado como o desafio mais severo?</li><li>As diferenças entre profissionais e legisladores (ex.: sobre fairness) fazem sentido para vocês? O que isso revela?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">50–70 min</div>
+      <p><b>Experimentação ativa: retorno aos breakout rooms. Grupos agora propõem solução operacional para o cenário inicial, usando o framework ART (Accountability, Responsibility, Transparency). Template no Miro guia: (1) Quem é accountable (pessoa/papel específico)? (2) Como operacionalizar transparência (que informação, para quem, em que formato)? (3) Mecanismo de monitoramento (quem verifica, com que frequência, que critérios). Grupos preparam apresentação de 2 min. Facilitador visita salas para coaching.</b></p>
+      <p>Este é o momento de maior aprendizado — pressione por especificidade. &#39;Quem exatamente é accountable? O CEO? O engenheiro de ML? Um comitê?&#39; &#39;Transparência para quem — usuários finais, auditores, reguladores?&#39; Erro comum: propostas genéricas (&#39;precisamos de mais transparência&#39;) — desafie: &#39;Como você mediria se isso está funcionando?&#39; Incentive criatividade, mas ancorada no artigo.</p>
+      <ul><li>(Nas salas) Sua proposta resolve o conflito ou faz um trade-off explícito? Ambos são válidos, mas sejam claros.</li><li>(Nas salas) Se vocês fossem implementar isso amanhã, qual seria o primeiro obstáculo prático?</li></ul>
+    </div>
+    <div class="step-card">
+      <div class="case-no">70–75 min</div>
+      <p><b>Consolidação e debrief: cada grupo apresenta proposta (2 min cada, máximo 3-4 grupos se o tempo permitir; demais compartilham no chat ou quadro). Facilitador destaca elementos comuns e inovadores. Participantes respondem individualmente às perguntas de reflexão final. Encerramento: facilitador resume a jornada (do conflito concreto aos princípios do artigo, de volta à operacionalização) e convida compartilhamento voluntário de insights no chat. Agradecer e indicar recursos para aprofundamento (ex.: diretrizes AI HLEG, IEEE EAD).</b></p>
+      <p>Gerencie o tempo rigorosamente — se necessário, peça que apenas 2 grupos apresentem e os demais postem no quadro. Celebre a diversidade de abordagens. Erro comum: não deixar tempo para reflexão individual — ela é essencial para consolidação. Termine com nota inspiradora: &#39;Vocês experimentaram hoje o que o artigo chama de conflito na prática, e propuseram soluções que vão além das diretrizes genéricas&#39;.</p>
+      <ul><li>Qual proposta de outro grupo vocês acharam mais viável ou inovadora?</li><li>Depois desta sessão, o que vocês fariam diferente ao avaliar um sistema de IA sob a ótica ética?</li><li>Alguém quer compartilhar uma mudança de perspectiva que teve hoje?</li></ul>
+    </div>
+
+    <h3 style="margin-top:28px">Tabela de tempo</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Tempo</th><th>Atividade</th><th>Objetivo pedagógico</th></tr></thead>
+    <tbody>
+      <tr><td>0–5 min</td><td>Abertura e contextualização</td><td>Alinhar expectativas, apresentar enquadramento Kolb</td></tr>
+      <tr><td>5–20 min</td><td>Experiência concreta (breakout rooms)</td><td>Vivenciar conflitos éticos em cenários reais (experiência concreta)</td></tr>
+      <tr><td>20–30 min</td><td>Observação reflexiva (plenária)</td><td>Identificar padrões nos conflitos mapeados (observação reflexiva)</td></tr>
+      <tr><td>30–50 min</td><td>Conceituação abstrata (apresentação)</td><td>Conectar experiência aos achados empíricos do artigo (conceituação abstrata)</td></tr>
+      <tr><td>50–70 min</td><td>Experimentação ativa (breakout rooms)</td><td>Propor soluções operacionais usando framework ART (experimentação ativa)</td></tr>
+      <tr><td>70–75 min</td><td>Consolidação e debrief (plenária)</td><td>Sintetizar aprendizados, reflexão individual, encerramento</td></tr>
+    </tbody>
+  </table>
+</div>
+    <div class="case-grid" style="margin-top:20px">
+      <div class="panel">
+        <h3>Estrutura do debrief</h3>
+        <ul><li>Apresentação rápida de propostas operacionais (2 min por grupo, máximo 3-4 grupos; demais postam no quadro colaborativo)</li><li>Facilitador destaca elementos comuns entre as propostas (ex.: necessidade de comitês multidisciplinares, transparência em camadas, auditoria contínua)</li><li>Facilitador destaca elementos inovadores ou divergentes (ex.: abordagens específicas de domínio, trade-offs explícitos)</li><li>Participantes respondem individualmente às 5 perguntas de reflexão final (3 min, em silêncio, em formulário ou documento pessoal)</li><li>Convite para compartilhamento voluntário de insights no chat (1-2 min)</li><li>Síntese final do facilitador: recapitular a jornada Kolb (do conflito concreto aos princípios, de volta à operacionalização) e reforçar a mensagem central do artigo (princípios são críticos, mas conflito na prática é o desafio mais severo — soluções exigem contextualização)</li><li>Indicação de recursos para aprofundamento (diretrizes AI HLEG, IEEE EAD, artigos sobre operacionalização de ética de IA) e agradecimento</li></ul>
+      </div>
+      <div class="panel">
+        <h3>Objetivo de consolidação</h3>
+        <p>Consolidação bem-sucedida significa que cada participante é capaz de: (1) identificar e nomear pelo menos três princípios de ética de IA e explicar como eles podem entrar em conflito em um contexto específico; (2) conectar os desafios empíricos do artigo (especialmente &#39;conflito na prática&#39;) a situações concretas; (3) propor pelo menos um elemento operacional (quem, como, quando) para implementar um princípio ético em um cenário real, reconhecendo trade-offs inevitáveis; e (4) articular a diferença entre diretrizes genéricas e soluções contextualizadas, demonstrando pensamento crítico sobre a lacuna entre teoria e prática em ética de IA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.track-tab');
+  var panels = document.querySelectorAll('[data-track-panel]');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      panels.forEach(function (p) { p.hidden = p.dataset.trackPanel !== tab.dataset.track; });
+    });
+  });
+})();
+</script>
+</main>
+
+<footer>
+  <div class="wrap">
+    Dinâmica derivada de Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson. <i>AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers</i>. IEEE Transactions on Computational Social Systems.<br><br>
+    <a href="index.html">Leitura guiada</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="../../ethics-on-ai/index.html">&#8592; Ethics on AI</a>
+  </div>
+</footer>
+
+</body>
+</html>

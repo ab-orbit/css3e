@@ -26,11 +26,11 @@
         "affiliation": "Applied Artificial Intelligence Institute (A²I²), Deakin University, Geelong, VIC, Australia, 3216"
       }
     ],
-    "venue": "arXiv preprint arXiv:2402.01968v2 [cs.MA]",
+    "venue": "arXiv preprint",
     "pages": "",
     "date_published": "2025-01-29",
     "doi": "",
-    "source_pdf_url": "/Users/jwcunha/Downloads/Context_AwareMAS.pdf",
+    "source_pdf_url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-uf1l7liz/2402.01968v2.pdf",
     "abstract": "Research interest in agents is rising, particularly in Artificial Intelligence (AI) techniques such as deep multi-modal representation learning, deep graph learning, and deep reinforcement learning, which suggest potential for human-like task performance within a multi-agent framework. However, challenges exist in enabling these agents to coordinate, learn, reason, predict, and navigate uncertainties in dynamic environments. Context awareness is crucial for enhancing multi-agent systems in such situations. Current research often addresses context-awareness or multi-agent system issues separately, leaving a gap in comprehensive surveys that explore both fields, especially regarding the five essential agent capabilities (Sense-Learn-Reason-Predict-Act). This survey fills that gap by presenting a unified architecture and taxonomy for developing Context-Aware Multi-Agent Systems (CA-MAS), which are vital for improving agent robustness and adaptability in real-world environments. We provide a comprehensive overview of state-of-the-art context-awareness and multi-agent systems, followed by a framework for CA-MAS development. We detail the properties of context-awareness and multi-agent systems, and a general process for context-aware systems, highlighting approaches from various domains such as ambient intelligence, autonomous navigation, digital assistance, disaster relief management, education, energy efficiency & sustainability, IoT, and supply chain management. Finally, we discuss existing CA-MAS challenges and propose future research directions.",
     "keywords": [
       "Artificial Intelligence",
@@ -38,12 +38,12 @@
       "Multi-Agent Systems",
       "Context-Aware Systems"
     ],
-    "problem_statement": "Pesquisas atuais frequentemente abordam questões de consciência de contexto ou sistemas multi-agente separadamente, deixando uma lacuna em levantamentos abrangentes que explorem ambos os campos, especialmente no que diz respeito às cinco capacidades essenciais dos agentes: Sense (Sentir), Learn (Aprender), Reason (Raciocinar), Predict (Prever) e Act (Agir). Embora avanços em IA sugiram potencial para desempenho semelhante ao humano em frameworks multi-agente, desafios persistem em permitir que esses agentes coordenem, aprendam, raciocinem, prevejam e naveguem incertezas em ambientes dinâmicos. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura unificada e taxonomia para o desenvolvimento de Sistemas Multi-Agente Conscientes de Contexto (CA-MAS).",
+    "problem_statement": "Pesquisas atuais frequentemente abordam consciência de contexto ou sistemas multi-agente de forma separada, deixando uma lacuna em surveys abrangentes que exploram ambos os campos, especialmente no que diz respeito às cinco capacidades essenciais dos agentes: Sense (Perceber), Learn (Aprender), Reason (Raciocinar), Predict (Prever) e Act (Agir). Agentes autônomos enfrentam desafios significativos para coordenar, aprender, raciocinar, prever e navegar incertezas em ambientes dinâmicos. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura coerente, uma taxonomia organizada e princípios associados para construir Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) que integrem essas cinco capacidades de forma unificada.",
     "key_concepts": [
       "Context-Aware Multi-Agent Systems (CA-MAS)",
+      "Sense-Learn-Reason-Predict-Act",
       "Multi-Agent Systems (MAS)",
       "Context-Aware Systems (CAS)",
-      "Sense-Learn-Reason-Predict-Act",
       "Belief-Desire-Intention (BDI)",
       "Deep Reinforcement Learning (DRL)",
       "Multi-Agent Reinforcement Learning (MARL)",
@@ -53,65 +53,67 @@
       "Ontology-based models",
       "Graph Neural Networks (GNN)",
       "Actor-Critic methods",
-      "Deep Q Network (DQN)",
-      "Proximal Policy Optimization (PPO)"
+      "MAPE cycle (Monitor-Analyze-Plan-Execute)",
+      "Context graph",
+      "Active perception",
+      "Situation awareness"
     ],
     "categories": [],
     "section_outline": [
       {
         "heading": "1 Introduction",
-        "summary": "Apresenta a mudança de paradigma na IA de sistemas passivos para agentes autônomos dinâmicos. Destaca cinco avanços que permitem agentes com desempenho semelhante ao humano: percepção de contexto, aprendizado de dados sensoriais, raciocínio, previsão/ação e coordenação multi-agente. Introduz a necessidade de CA-MAS para superar limitações de agentes únicos em tarefas complexas distribuídas."
+        "summary": "Apresenta a mudança de paradigma na IA de sistemas passivos para agentes dinâmicos. Destaca cinco avanços que permitem agentes com desempenho semelhante ao humano: percepção de contexto, aprendizado de dados sensoriais, raciocínio, predição/ação e coordenação entre agentes. Argumenta que sistemas multi-agente conscientes de contexto (CA-MAS) são essenciais para superar limitações de agentes únicos em tarefas complexas distribuídas."
       },
       {
         "heading": "2 Multi-Agent Systems",
-        "summary": "Define agentes autônomos e suas propriedades inteligentes: percepção, memória, modelo de mundo, ator, custo e configurador (consciência de contexto). Descreve o ambiente MAS, vantagens sobre sistemas de agente único, estruturas organizacionais (flat, hierarchies, holarchies, coalitions, teams, congregations, societies, federations, markets, matrix), estratégias de coordenação e mecanismos de consenso."
+        "summary": "Define agentes autônomos e suas propriedades inteligentes: percepção, memória, modelo de mundo, ator, custo e configurador (consciência de contexto). Descreve o ambiente de MAS, vantagens sobre agentes únicos, diferenças entre MAS, sistemas especialistas e programação orientada a objetos. Detalha dez estruturas organizacionais (flat, hierarchies, holarchies, coalitions, teams, congregations, societies, federations, markets, matrix), estratégias de coordenação, mecanismos de formação de organização e protocolos de consenso."
       },
       {
         "heading": "3 Context-Aware Systems",
-        "summary": "Define contexto e suas cinco propriedades-chave (tipo, valor, tempo, fonte, confiança). Distingue contexto intrínseco e extrínseco. Apresenta seis técnicas de modelagem de contexto (key-value, markup schema, graphical, object-oriented, logical-based, ontology-based). Descreve o processo geral de CAS em três estágios: aquisição de contexto, abstração e compreensão, e utilização de contexto. Apresenta três arquiteturas de CAS: stand-alone, centralizada e descentralizada."
+        "summary": "Define contexto e suas cinco propriedades-chave (tipo, valor, tempo, fonte, confiança). Distingue contexto intrínseco e extrínseco. Apresenta seis técnicas de modelagem de contexto (key-value, markup schema, graphical, object-oriented, logical-based, ontology-based). Descreve o processo geral de CAS em três estágios: aquisição de contexto, abstração e compreensão de contexto, e utilização de contexto. Apresenta três arquiteturas de CAS: stand-alone, centralizada e descentralizada."
       },
       {
         "heading": "4 Context-aware Multi-agent Systems",
-        "summary": "Define consciência em MAS e apresenta o processo geral de CA-MAS em cinco fases: Sense, Learn, Reason, Predict e Act. Detalha técnicas e abordagens para cada fase, incluindo modelagem de contexto, aprendizado de representação (weighting mechanisms e learning-based approaches), raciocínio (rule-based, case-based, graph-based, goal-oriented), e modelos preditivos (weighting schemes, probabilistic models, reward-based models). Apresenta tabela com abordagens CA-MAS existentes em oito domínios de aplicação."
+        "summary": "Integra CAS e MAS para lidar com incertezas variáveis no tempo. Define consciência em MAS (percepção ativa, consciência situacional, consciência de contexto). Apresenta o processo geral de CA-MAS em cinco fases: Sense (perceber contexto e detectar padrões), Learn (modelagem de contexto e aprendizado de representação via esquemas de ponderação e técnicas baseadas em aprendizado), Reason (raciocínio baseado em regras, casos, grafos e orientado a objetivos com DRL), Predict (modelos preditivos com esquemas de ponderação, probabilidades ou recompensas), e Act (executar ações para alcançar objetivos). Apresenta uma tabela detalhada de abordagens CA-MAS existentes em oito domínios de aplicação."
       },
       {
         "heading": "5 Challenges and Future Directions",
-        "summary": "Identifica três desafios principais: (1) estruturas organizacionais relaxadas causando compartilhamento ineficaz de contexto e preocupações de segurança/privacidade; (2) suposições de consenso relaxadas levando a incerteza, ambiguidade e conflitos; (3) complexidade na integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos. Propõe direções futuras para cada desafio."
+        "summary": "Identifica três desafios principais: (1) restrições organizacionais relaxadas levando a compartilhamento de contexto ineficaz e preocupações de segurança/privacidade; (2) suposições de consenso relaxadas resultando em incerteza, ambiguidade e conflitos; (3) dependência de ontologias de agentes em regras pré-definidas, afetando robustez em ambientes dinâmicos. Propõe direções futuras: investigar estruturas organizacionais em CA-MAS, aplicar técnicas de consenso, e integrar ontologias de agentes com frameworks de raciocínio orientado a objetivos usando GNN e VAE."
       },
       {
         "heading": "6 Conclusion",
-        "summary": "Conclui fornecendo uma visão abrangente de CA-MAS, delineando conhecimento fundamental, propondo um processo geral baseado em pesquisas em diversos domínios, e destacando desafios e direções futuras de pesquisa."
+        "summary": "Resume a contribuição do survey: visão abrangente de CA-MAS, conhecimento fundamental para integração de CAS e MAS, processo geral de CA-MAS baseado em pesquisas em diversos domínios, e destaque de desafios e direções futuras de pesquisa."
       }
     ],
     "formal_notation_present": true,
-    "formal_notation_block": "**Context Graph and Pattern:**\n- Context graph: G = (V, E) onde V é conjunto de contextos e E ⊆ V × V\n- Context pattern: H = (V′, E′) onde V′ ⊆ V e E′ ⊆ E\n- Número de conexões: N_E = [N_V × (N_V - 1)] / 2\n\n**Network Abstractions Model:**\n- Distância ponderada: d(c_r, c_k) = min(d(c_r, c_{k-1}) + w(c_{k-1}, c_k))\n- Função de custo: u = (D_max, H_max, V, h)\n\n**Bayesian Belief Network:**\n- Probabilidade conjunta: p(c₁, c₂, ..., c_n) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ))\n\n**Embedding Functions:**\n- Time-invariant: e = φ(c, W_c)\n- Aggregation: eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l)\n- Time-variant: e_t^i = φ(⋃ⱼ₌₀ᴺ e_{t-1}^j, W_k)\n\n**Reinforcement Learning:**\n- n-step Q-learning: Q(s,a) = (1 - α_n)Q_{n-1}(s,a) + α_n[r(s,a) + γ max_{a'} Q_{n-1}(s',a')]\n  onde α_n = 1/(1 + N_{s,a})\n- Goal utility: u(g_{i,k} | b_{-i}; h, θ) = θ_{ik,ik} + ∑_{j≠i} ∑_l θ_{ik,jl}p(g_{jl} | h)\n- SARSA update: θ_{t+1} = θ_t + αδ∇Q(h_t, g_t; θ_t)\n\n**Case-Based Reasoning:**\n- Retrieval: f(c) = {v ∈ V | g(c,v) ≥ α}\n\n**Loss Functions:**\n- MSE: L = (1/nk) ∑_d ∑_j (y_{d,j}^i - ŷ_d^i)ᵀ(y_{d,j}^i - ŷ_d^i)\n- Regularized: L(θ) = (1/2) ∑_{(i,j,k)∈R} (y_{ijk} - ŷ_{ijk})² + Ω(θ)\n- GMM distance: L = ∑_{i,j} α_{i,j}D_{KL}(p_j(o) || q_i(o)) + D_{KL}(α || β)",
-    "case_study_present": true,
-    "case_summary": "O artigo apresenta múltiplos estudos de caso ilustrativos em oito domínios de aplicação (Tabela 4): (1) **Navegação autônoma** usando flat structures com sampled-data consensus e goal-oriented algorithms; (2) **Ambient intelligence** com teams/coalitions usando ontology-based models e graph/rule-based reasoning; (3) **Supply chain management** com markets/holarchies e case-based techniques; (4) **IoT** com teams/flat/coalitions e goal-oriented/rule-based algorithms; (5) **Disaster relief management** com hybrid structures (teams+holarchies) e leader-follower consensus; (6) **Energy efficiency & sustainability** com holarchies/teams/hierarchies e goal-oriented algorithms; (7) **Digital assistance** com flat/teams usando ontology-based models e graph/fuzzy rule-based algorithms; (8) **Education** com hierarchies usando ontology-based models e case-based techniques. Cada domínio demonstra diferentes combinações de estruturas organizacionais, protocolos de consenso, modelagem de contexto e abordagens de raciocínio/planejamento.",
-    "closing_question": "Se a integração entre ontologias de agentes e frameworks de raciocínio orientado a objetivos (como Deep Reinforcement Learning) permanece um desafio aberto devido à complexidade de representação e compatibilidade de aprendizado, como podemos projetar arquiteturas CA-MAS que equilibrem a riqueza semântica das ontologias com a adaptabilidade e robustez necessárias para ambientes dinâmicos e incertos — sem sacrificar a eficiência computacional ou a capacidade de generalização dos agentes?"
+    "formal_notation_block": "**Context Graph and Pattern Detection (Seção 4.2.1):**\n- Grafo de contexto: G = (V, E), onde V é conjunto de contextos e E ⊆ V × V\n- Padrão de contexto: H = (V′, E′) onde V′ ⊆ V e E′ ⊆ E\n- Número de conexões: N_E = [N_V × (N_V - 1)] / 2\n- Distância ponderada: d(c_r, c_k) = min(d(c_r, c_{k-1}) + w(c_{k-1}, c_k))\n- Função de custo: u = (D_max, H_max, V, h)\n\n**Probabilistic Context Reasoning (Seção 4.2.2):**\n- Probabilidade conjunta (BBN): p(c₁, c₂, ..., c_n) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ))\n- Exemplo com 3 contextos: p(c₁, c₂, c₃) = p(c₁) × p(c₂) × p(c₃|c₁, c₂)\n\n**Representation Learning (Seção 4.2.2):**\n- Embedding time-invariant: e = φ(c, W_c)\n- Agregação espacial: eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l)\n- Embedding time-variant: e_t^i = φ(⋃ⱼ₌₀ᴺ e_{t-1}^j, W_k)\n- Agregação com LSTM: e = φ(s, LSTM(s̃₁ᵒ, ..., s̃ₙᵒ), W_s)\n\n**Goal-Oriented Reasoning (Seção 4.2.3):**\n- Função de utilidade: u(g_{i,k} | b_{-i}; h, θ) = θ_{ik,ik} + ∑_{j≠i} ∑_l θ_{ik,jl} p(g_{jl} | h)\n- Aproximação Q-value: Q(h, g_{ik}) ≈ u(g_{i,k} | b_{-i}; h, θ)\n- Atualização SARSA: θ_{t+1} = θ_t + α δ ∇Q(h_t, g_t; θ_t)\n- Q-learning n-step: Q(s,a) = (1 - α_n)Q_{n-1}(s,a) + α_n[r(s,a) + γ max_{a'} Q_{n-1}(s', a')]\n- Loss GMM: L = ∑_{i,j} α_{i,j} D_KL(p_j(o) || q_i(o)) + D_KL(α || β)\n\n**Predictive Models (Seção 4.2.4):**\n- Erro quadrático médio (energia): L = (1/n) ∑_j (1/k) ∑_d (y_{d,j}^i - ŷ_d^i)ᵀ (y_{d,j}^i - ŷ_d^i)\n- Erro regularizado: L(θ) = (1/2) ∑_{(i,j,k)∈R} (y_{ijk} - ŷ_{ijk})² + Ω(θ)\n- PCHID: θ_k = arg min_θ ∑_{sᵢ,Sᵢ,aᵢ,i∈1...k} ||f_{θ_k}((s_t, g_{t+1}), (s_{t+1}, g_{t+1})) - a_t||²",
+    "case_study_present": false,
+    "case_summary": "",
+    "closing_question": "Se a integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos (usando GNN e VAE) pode resolver a rigidez de regras pré-definidas em CA-MAS, como garantir que essa integração preserve a interpretabilidade semântica das ontologias enquanto mantém a adaptabilidade necessária para ambientes verdadeiramente dinâmicos e imprevisíveis — e qual seria o custo computacional e de manutenção dessa abordagem híbrida em sistemas de larga escala?"
   },
   "hero": {
-    "eyebrow": "arXiv preprint arXiv:2402.01968v2 [cs.MA] · 2025",
+    "eyebrow": "arXiv preprint · 2025",
     "h1": "Sistemas Multi-Agente Conscientes de Contexto: Arquitetura Unificada e Taxonomia",
-    "lede": "Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — para superar a fragmentação atual entre pesquisas de consciência de contexto e sistemas multi-agente. A proposta preenche uma lacuna crítica ao fornecer taxonomia abrangente e framework para desenvolvimento de agentes robustos e adaptáveis em ambientes dinâmicos.",
+    "lede": "Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — em um framework coerente. A pesquisa preenche uma lacuna crítica ao conectar consciência de contexto e sistemas multi-agente, oferecendo taxonomia organizada, processo geral de desenvolvimento e análise de aplicações em oito domínios distintos.",
     "toc_anchors": [
       [
         "introducao",
         "Introdução"
       ],
       [
-        "multi-agent-systems",
+        "sistemas-multi-agente",
         "Sistemas Multi-Agente"
       ],
       [
-        "context-aware-systems",
+        "sistemas-conscientes-contexto",
         "Sistemas Conscientes de Contexto"
       ],
       [
-        "ca-mas-framework",
-        "Framework CA-MAS"
+        "ca-mas",
+        "CA-MAS: Arquitetura Integrada"
       ],
       [
-        "desafios-direcoes",
+        "desafios-futuro",
         "Desafios e Direções Futuras"
       ],
       [
@@ -124,7 +126,7 @@
       ]
     ],
     "authors_line": "Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis",
-    "affiliations": "Todos os autores são afiliados ao Applied Artificial Intelligence Institute (A²I²) da Deakin University, Geelong, Victoria, Austrália.",
+    "affiliations": "Todos os autores são afiliados ao Applied Artificial Intelligence Institute (A²I²) da Deakin University, Geelong, Victoria, Austrália. O instituto concentra-se em pesquisa aplicada em inteligência artificial, incluindo aprendizado profundo, sistemas multi-agente e aplicações de IA em ambientes dinâmicos.",
     "kv_rows": [
       [
         "Publicado em",
@@ -132,31 +134,31 @@
       ],
       [
         "Palavras-chave",
-        "Artificial Intelligence, Reinforcement Learning, Multi-Agent Systems, Context-Aware Systems"
+        "Inteligência Artificial, Aprendizado por Reforço, Sistemas Multi-Agente, Sistemas Conscientes de Contexto"
       ],
       [
         "DOI",
-        "arXiv:2402.01968v2"
+        "Não disponível (arXiv preprint)"
       ],
       [
-        "Domínios de aplicação",
-        "Navegação autônoma, Ambient intelligence, IoT, Supply chain, Disaster relief, Energy efficiency, Digital assistance, Education"
+        "Venue",
+        "arXiv preprint"
       ]
     ],
-    "problem_statement": "**O Desafio da Fragmentação em Sistemas Multi-Agente**\n\nPesquisas atuais frequentemente abordam questões de consciência de contexto ou sistemas multi-agente separadamente, deixando uma lacuna em levantamentos abrangentes que explorem ambos os campos de forma integrada. Embora avanços em IA — como deep reinforcement learning, graph learning e representação multi-modal — sugiram potencial para desempenho semelhante ao humano em frameworks multi-agente, desafios persistem em permitir que esses agentes coordenem, aprendam, raciocinem, prevejam e naveguem incertezas em ambientes dinâmicos. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura unificada e taxonomia para o desenvolvimento de Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) que integre as cinco capacidades essenciais: **Sense** (Sentir), **Learn** (Aprender), **Reason** (Raciocinar), **Predict** (Prever) e **Act** (Agir)."
+    "problem_statement": "**O Desafio da Integração:** Pesquisas atuais frequentemente abordam consciência de contexto ou sistemas multi-agente de forma isolada, deixando uma lacuna crítica em surveys que exploram ambos os campos de maneira integrada. Agentes autônomos enfrentam desafios significativos para coordenar, aprender, raciocinar, prever e navegar incertezas em ambientes dinâmicos — especialmente quando precisam operar as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act) de forma unificada. A consciência de contexto é crucial para aprimorar sistemas multi-agente nessas situações, mas falta uma arquitetura coerente, taxonomia organizada e princípios associados para construir Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) robustos e adaptáveis para o mundo real."
   },
   "categories": [],
   "mindmap": {
     "root": {
-      "t": "CA-MAS: Survey de Sistemas Multi-Agente",
+      "t": "Survey CA-MAS: Técnicas, Aplicações e Desafios",
       "k": "root",
       "children": [
         {
-          "t": "Fundamentos de Multi-Agent Systems (MAS)",
-          "k": "foundations",
+          "t": "Fundamentos MAS",
+          "k": "mas",
           "children": [
             {
-              "t": "Propriedades de Agentes Inteligentes",
+              "t": "Propriedades Inteligentes",
               "k": null,
               "children": [
                 {
@@ -165,38 +167,48 @@
                   "children": []
                 },
                 {
-                  "t": "Memória e modelo de mundo",
+                  "t": "Memória (histórico)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Ator e custo",
+                  "t": "Modelo de mundo",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Configurador (context-awareness)",
+                  "t": "Ator (atuadores)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Custo (função objetivo)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Configurador (consciência contexto)",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Estruturas Organizacionais",
+              "t": "Estruturas Organizacionais (10 tipos)",
               "k": null,
               "children": [
                 {
-                  "t": "Flat, hierarchies, holarchies",
+                  "t": "Flat, Hierarchies, Holarchies",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Coalitions, teams, congregations",
+                  "t": "Coalitions, Teams, Congregations",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Societies, federations, markets, matrix",
+                  "t": "Societies, Federations, Markets, Matrix",
                   "k": null,
                   "children": []
                 }
@@ -212,12 +224,12 @@
                   "children": []
                 },
                 {
-                  "t": "Protocolos de consenso",
+                  "t": "Formação de organização",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Leader-follower, sampled-data",
+                  "t": "Protocolos de consenso",
                   "k": null,
                   "children": []
                 }
@@ -226,53 +238,53 @@
           ]
         },
         {
-          "t": "Fundamentos de Context-Aware Systems (CAS)",
-          "k": "context",
+          "t": "Fundamentos CAS",
+          "k": "cas",
           "children": [
             {
               "t": "Propriedades de Contexto",
               "k": null,
               "children": [
                 {
-                  "t": "Tipo, valor, tempo",
+                  "t": "Tipo, Valor, Tempo",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Fonte e confiança",
+                  "t": "Fonte, Confiança",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Intrínseco vs. extrínseco",
+                  "t": "Intrínseco vs Extrínseco",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Técnicas de Modelagem",
+              "t": "Modelagem de Contexto (6 técnicas)",
               "k": null,
               "children": [
                 {
-                  "t": "Key-value, markup schema",
+                  "t": "Key-value, Markup schema",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Graphical, object-oriented",
+                  "t": "Graphical, Object-oriented",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Logical-based, ontology-based",
+                  "t": "Logical-based, Ontology-based",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Processo Geral de CAS",
+              "t": "Processo CAS (3 estágios)",
               "k": null,
               "children": [
                 {
@@ -316,109 +328,109 @@
           ]
         },
         {
-          "t": "Framework CA-MAS: Sense-Learn-Reason-Predict-Act",
+          "t": "Framework CA-MAS (5 capacidades)",
           "k": "framework",
           "children": [
             {
-              "t": "Sense: Modelagem de Contexto",
+              "t": "Sense (Perceber)",
               "k": null,
               "children": [
                 {
-                  "t": "Context graphs G=(V,E)",
+                  "t": "Percepção de contexto",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Ontology-based models",
+                  "t": "Detecção de padrões",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Network abstractions",
+                  "t": "Grafo de contexto G=(V,E)",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Learn: Representação de Contexto",
+              "t": "Learn (Aprender)",
               "k": null,
               "children": [
                 {
-                  "t": "Weighting mechanisms",
+                  "t": "Modelagem de contexto",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Learning-based: GNN, embeddings",
+                  "t": "Esquemas de ponderação",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Time-variant/invariant functions",
+                  "t": "Aprendizado de representação (GNN, LSTM)",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Reason: Raciocínio sobre Contexto",
+              "t": "Reason (Raciocinar)",
               "k": null,
               "children": [
                 {
-                  "t": "Rule-based reasoning",
+                  "t": "Baseado em regras e casos",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Case-based reasoning (CBR)",
+                  "t": "Raciocínio em grafos (BBN)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Graph-based, goal-oriented (BDI)",
+                  "t": "Orientado a objetivos (DRL, BDI)",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Predict: Modelos Preditivos",
+              "t": "Predict (Prever)",
               "k": null,
               "children": [
                 {
-                  "t": "Weighting schemes",
+                  "t": "Modelos preditivos",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Probabilistic models (Bayesian)",
+                  "t": "Esquemas probabilísticos",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Reward-based (RL, MARL)",
+                  "t": "Baseados em recompensas",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Act: Planejamento e Ação",
+              "t": "Act (Agir)",
               "k": null,
               "children": [
                 {
-                  "t": "Goal-oriented algorithms",
+                  "t": "Execução de ações",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "DRL: DQN, PPO, Actor-Critic",
+                  "t": "Alcance de objetivos",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "n-step Q-learning, SARSA",
+                  "t": "Coordenação multi-agente",
                   "k": null,
                   "children": []
                 }
@@ -427,109 +439,67 @@
           ]
         },
         {
-          "t": "Domínios de Aplicação",
-          "k": "applications",
+          "t": "Aplicações (8 domínios)",
+          "k": "apps",
           "children": [
             {
-              "t": "Navegação Autônoma",
+              "t": "Domínios Inteligentes",
               "k": null,
               "children": [
                 {
-                  "t": "Flat structures",
+                  "t": "Ambient Intelligence",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Sampled-data consensus",
+                  "t": "IoT",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Goal-oriented algorithms",
+                  "t": "Digital Assistance",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Ambient Intelligence",
+              "t": "Domínios Operacionais",
               "k": null,
               "children": [
                 {
-                  "t": "Teams/coalitions",
+                  "t": "Navegação autônoma",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Ontology-based models",
+                  "t": "Disaster relief management",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Graph/rule-based reasoning",
+                  "t": "Supply chain management",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Supply Chain & IoT",
+              "t": "Domínios Sociais",
               "k": null,
               "children": [
                 {
-                  "t": "Markets/holarchies",
+                  "t": "Educação",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Case-based techniques",
+                  "t": "Eficiência energética",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Goal/rule-based reasoning",
-                  "k": null,
-                  "children": []
-                }
-              ]
-            },
-            {
-              "t": "Disaster Relief & Energy",
-              "k": null,
-              "children": [
-                {
-                  "t": "Hybrid structures",
-                  "k": null,
-                  "children": []
-                },
-                {
-                  "t": "Leader-follower consensus",
-                  "k": null,
-                  "children": []
-                },
-                {
-                  "t": "Goal-oriented algorithms",
-                  "k": null,
-                  "children": []
-                }
-              ]
-            },
-            {
-              "t": "Digital Assistance & Education",
-              "k": null,
-              "children": [
-                {
-                  "t": "Flat/teams/hierarchies",
-                  "k": null,
-                  "children": []
-                },
-                {
-                  "t": "Ontology-based models",
-                  "k": null,
-                  "children": []
-                },
-                {
-                  "t": "Fuzzy rule/case-based",
+                  "t": "Sustentabilidade",
                   "k": null,
                   "children": []
                 }
@@ -542,11 +512,11 @@
           "k": "challenges",
           "children": [
             {
-              "t": "Estruturas Organizacionais Relaxadas",
+              "t": "Restrições Organizacionais",
               "k": null,
               "children": [
                 {
-                  "t": "Compartilhamento ineficaz de contexto",
+                  "t": "Compartilhamento de contexto ineficaz",
                   "k": null,
                   "children": []
                 },
@@ -554,16 +524,11 @@
                   "t": "Segurança e privacidade",
                   "k": null,
                   "children": []
-                },
-                {
-                  "t": "Coordenação distribuída",
-                  "k": null,
-                  "children": []
                 }
               ]
             },
             {
-              "t": "Suposições de Consenso Relaxadas",
+              "t": "Suposições de Consenso",
               "k": null,
               "children": [
                 {
@@ -575,6 +540,17 @@
                   "t": "Conflitos entre agentes",
                   "k": null,
                   "children": []
+                }
+              ]
+            },
+            {
+              "t": "Dependência de Ontologias",
+              "k": null,
+              "children": [
+                {
+                  "t": "Regras pré-definidas rígidas",
+                  "k": null,
+                  "children": []
                 },
                 {
                   "t": "Robustez em ambientes dinâmicos",
@@ -584,21 +560,21 @@
               ]
             },
             {
-              "t": "Integração Ontologia-DRL",
+              "t": "Propostas de Pesquisa",
               "k": null,
               "children": [
                 {
-                  "t": "Complexidade de representação",
+                  "t": "Estruturas organizacionais em CA-MAS",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Compatibilidade de aprendizado",
+                  "t": "Técnicas de consenso aplicadas",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Eficiência computacional vs. semântica",
+                  "t": "Integração ontologias + GNN/VAE",
                   "k": null,
                   "children": []
                 }
@@ -613,208 +589,207 @@
         "kind": "root",
         "fill": "#c0392b",
         "text": "#fff",
-        "label": "Título do survey"
+        "label": "Título do Survey"
       },
       {
-        "kind": "foundations",
+        "kind": "mas",
         "fill": "#27ae60",
         "text": "#fff",
-        "label": "Fundamentos MAS"
+        "label": "Multi-Agent Systems"
       },
       {
-        "kind": "context",
+        "kind": "cas",
         "fill": "#2980b9",
         "text": "#fff",
-        "label": "Fundamentos CAS"
+        "label": "Context-Aware Systems"
       },
       {
         "kind": "framework",
         "fill": "#f39c12",
         "text": "#fff",
-        "label": "Framework CA-MAS"
+        "label": "Framework CA-MAS (Sense-Learn-Reason-Predict-Act)"
       },
       {
-        "kind": "applications",
+        "kind": "apps",
         "fill": "#8e44ad",
         "text": "#fff",
-        "label": "Aplicações"
+        "label": "Aplicações e Domínios"
       },
       {
         "kind": "challenges",
-        "fill": "#e74c3c",
+        "fill": "#d35400",
         "text": "#fff",
-        "label": "Desafios"
+        "label": "Desafios e Futuro"
       }
     ]
   },
   "tables": [
     {
-      "caption": "Capacidades Essenciais de Agentes em CA-MAS (Sense-Learn-Reason-Predict-Act)",
-      "columns": [
-        "Capacidade",
-        "Descrição",
-        "Técnicas Principais"
-      ],
-      "rows": [
-        [
-          "Sense (Sentir)",
-          "Aquisição e modelagem de informações contextuais do ambiente",
-          "Key-value models, Markup schema, Graphical models, Object-oriented, Logical-based, Ontology-based"
-        ],
-        [
-          "Learn (Aprender)",
-          "Aprendizado de representações contextuais a partir de dados sensoriais",
-          "Weighting mechanisms (attention, gating), Learning-based approaches (GNN, deep multi-modal learning, embeddings)"
-        ],
-        [
-          "Reason (Raciocinar)",
-          "Inferência e raciocínio sobre contexto para tomada de decisão",
-          "Rule-based (fuzzy logic), Case-based (CBR), Graph-based (network abstractions, Bayesian), Goal-oriented (BDI)"
-        ],
-        [
-          "Predict (Prever)",
-          "Modelagem preditiva de estados futuros e comportamentos",
-          "Weighting schemes, Probabilistic models (Bayesian, Markov), Reward-based models (Q-learning, SARSA, Actor-Critic)"
-        ],
-        [
-          "Act (Agir)",
-          "Execução coordenada de ações baseadas em previsões e objetivos",
-          "Deep RL (DQN, PPO, A3C), MARL, Consensus protocols, Coordination strategies"
-        ]
-      ]
-    },
-    {
-      "caption": "Estruturas Organizacionais em Sistemas Multi-Agente",
-      "columns": [
-        "Estrutura",
-        "Características",
-        "Aplicações Típicas"
-      ],
-      "rows": [
-        [
-          "Flat",
-          "Sem hierarquia, agentes com papéis equivalentes",
-          "Navegação autônoma, IoT, Digital assistance"
-        ],
-        [
-          "Hierarchies",
-          "Estrutura de comando top-down com níveis de autoridade",
-          "Education, Energy efficiency"
-        ],
-        [
-          "Holarchies",
-          "Agentes podem ser atômicos ou compostos (holons)",
-          "Supply chain management, Disaster relief, Energy systems"
-        ],
-        [
-          "Coalitions",
-          "Grupos temporários formados para objetivos específicos",
-          "Ambient intelligence, IoT"
-        ],
-        [
-          "Teams",
-          "Grupos permanentes com objetivos compartilhados",
-          "Ambient intelligence, IoT, Disaster relief, Energy efficiency, Digital assistance"
-        ],
-        [
-          "Congregations",
-          "Agentes compartilham recursos e espaço comum",
-          "Sistemas de recursos compartilhados"
-        ],
-        [
-          "Societies",
-          "Estrutura social com normas e regras compartilhadas",
-          "Sistemas sociais complexos"
-        ],
-        [
-          "Federations",
-          "Agentes autônomos com representação centralizada",
-          "Sistemas distribuídos"
-        ],
-        [
-          "Markets",
-          "Interações baseadas em mecanismos de mercado",
-          "Supply chain management"
-        ],
-        [
-          "Matrix",
-          "Estrutura híbrida combinando múltiplas dimensões organizacionais",
-          "Sistemas complexos multi-dimensionais"
-        ]
-      ]
-    },
-    {
-      "caption": "Notação Formal em CA-MAS",
+      "caption": "Conceitos fundamentais de Context-Aware Multi-Agent Systems (CA-MAS)",
       "columns": [
         "Conceito",
-        "Notação",
-        "Significado"
+        "Definição"
       ],
       "rows": [
         [
+          "Context-Aware Multi-Agent Systems (CA-MAS)",
+          "Sistemas que integram consciência de contexto com múltiplos agentes autônomos para coordenar, aprender, raciocinar, prever e agir em ambientes dinâmicos e incertos"
+        ],
+        [
+          "Sense-Learn-Reason-Predict-Act",
+          "Cinco capacidades essenciais dos agentes: perceber contexto, aprender representações, raciocinar sobre situações, prever estados futuros e executar ações para alcançar objetivos"
+        ],
+        [
+          "Context (Contexto)",
+          "Informação caracterizada por cinco propriedades: tipo, valor, tempo, fonte e confiança; pode ser intrínseco (interno ao agente) ou extrínseco (do ambiente)"
+        ],
+        [
           "Context Graph",
+          "Representação G = (V, E) onde V é o conjunto de contextos e E são as relações entre contextos, usado para detecção de padrões"
+        ],
+        [
+          "Active Perception",
+          "Capacidade do agente de selecionar ativamente quais informações sensoriais coletar do ambiente"
+        ],
+        [
+          "Situation Awareness",
+          "Compreensão do estado atual do ambiente baseada em contextos percebidos"
+        ],
+        [
+          "Context Awareness",
+          "Nível mais alto de consciência que inclui compreensão de contextos históricos, atuais e futuros para tomada de decisão"
+        ],
+        [
+          "BDI (Belief-Desire-Intention)",
+          "Arquitetura de agente baseada em crenças (modelo do mundo), desejos (objetivos) e intenções (planos de ação)"
+        ],
+        [
+          "MARL (Multi-Agent Reinforcement Learning)",
+          "Aprendizado por reforço aplicado a múltiplos agentes que interagem e aprendem simultaneamente em um ambiente compartilhado"
+        ],
+        [
+          "MAPE Cycle",
+          "Ciclo de controle autônomo: Monitor (monitorar), Analyze (analisar), Plan (planejar), Execute (executar)"
+        ]
+      ]
+    },
+    {
+      "caption": "Notação formal em Context-Aware Multi-Agent Systems",
+      "columns": [
+        "Notação",
+        "Significado",
+        "Contexto de Uso"
+      ],
+      "rows": [
+        [
           "G = (V, E)",
-          "Grafo onde V é conjunto de contextos e E ⊆ V × V são relações"
+          "Grafo de contexto com vértices V (contextos) e arestas E (relações)",
+          "Modelagem e detecção de padrões de contexto"
         ],
         [
-          "Context Pattern",
-          "H = (V′, E′)",
-          "Subgrafo de contexto onde V′ ⊆ V e E′ ⊆ E"
-        ],
-        [
-          "Distância Ponderada",
           "d(c_r, c_k) = min(d(c_r, c_{k-1}) + w(c_{k-1}, c_k))",
-          "Caminho mínimo ponderado entre contextos em network abstractions"
+          "Distância ponderada entre contextos no grafo",
+          "Cálculo de similaridade contextual"
         ],
         [
-          "Probabilidade Conjunta (BBN)",
           "p(c₁, c₂, ..., c_n) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ))",
-          "Distribuição conjunta em Bayesian Belief Network onde B(cᵢ) são pais de cᵢ"
+          "Probabilidade conjunta em Bayesian Belief Networks",
+          "Raciocínio probabilístico sobre contextos"
         ],
         [
-          "Embedding Invariante",
           "e = φ(c, W_c)",
-          "Função de embedding time-invariant com parâmetros W_c"
+          "Embedding time-invariant de contexto c com pesos W_c",
+          "Aprendizado de representação contextual"
         ],
         [
-          "Agregação de Embeddings",
           "eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l)",
-          "Agregação de embeddings de vizinhos com parâmetros W_l"
+          "Agregação espacial de embeddings de vizinhos",
+          "Representação de contextos relacionados"
         ],
         [
-          "Embedding Temporal",
           "e_t^i = φ(⋃ⱼ₌₀ᴺ e_{t-1}^j, W_k)",
-          "Embedding time-variant considerando histórico temporal"
+          "Embedding time-variant com dependência temporal",
+          "Modelagem de contextos dinâmicos"
         ],
         [
-          "n-step Q-learning",
-          "Q(s,a) = (1 - α_n)Q_{n-1}(s,a) + α_n[r(s,a) + γ max_{a'} Q_{n-1}(s',a')]",
-          "Atualização Q-learning onde α_n = 1/(1 + N_{s,a}) é taxa de aprendizado adaptativa"
+          "u(g_{i,k} | b_{-i}; h, θ)",
+          "Função de utilidade para objetivo g_{i,k} dado histórico h e crenças b_{-i}",
+          "Raciocínio orientado a objetivos"
         ],
         [
-          "Goal Utility",
-          "u(g_{i,k} | b_{-i}; h, θ) = θ_{ik,ik} + ∑_{j≠i} ∑_l θ_{ik,jl}p(g_{jl} | h)",
-          "Utilidade de objetivo em raciocínio goal-oriented considerando crenças de outros agentes"
+          "Q(h, g_{ik}) ≈ u(g_{i,k} | b_{-i}; h, θ)",
+          "Aproximação Q-value para seleção de objetivos",
+          "Deep Reinforcement Learning em CA-MAS"
         ],
         [
-          "SARSA Update",
-          "θ_{t+1} = θ_t + αδ∇Q(h_t, g_t; θ_t)",
-          "Atualização de parâmetros em SARSA com gradiente da função Q"
+          "θ_{t+1} = θ_t + α δ ∇Q(h_t, g_t; θ_t)",
+          "Atualização SARSA de parâmetros",
+          "Aprendizado temporal-diferença"
         ],
         [
-          "Case Retrieval",
-          "f(c) = {v ∈ V | g(c,v) ≥ α}",
-          "Recuperação de casos em CBR onde g é função de similaridade e α é threshold"
+          "L = (1/n) ∑_j (1/k) ∑_d (y_{d,j}^i - ŷ_d^i)ᵀ (y_{d,j}^i - ŷ_d^i)",
+          "Erro quadrático médio para modelos preditivos",
+          "Predição de trajetórias/estados futuros"
+        ]
+      ]
+    },
+    {
+      "caption": "Estruturas organizacionais e técnicas de coordenação em Multi-Agent Systems",
+      "columns": [
+        "Estrutura/Técnica",
+        "Características",
+        "Aplicação"
+      ],
+      "rows": [
+        [
+          "Flat (Plana)",
+          "Agentes com mesma autoridade, sem hierarquia",
+          "Sistemas peer-to-peer, coordenação simples"
         ],
         [
-          "MSE Loss",
-          "L = (1/nk) ∑_d ∑_j (y_{d,j}^i - ŷ_d^i)ᵀ(y_{d,j}^i - ŷ_d^i)",
-          "Erro quadrático médio para previsão multi-agente"
+          "Hierarchies (Hierarquias)",
+          "Estrutura de comando top-down com níveis de autoridade",
+          "Organizações militares, empresariais"
         ],
         [
-          "GMM Distance Loss",
-          "L = ∑_{i,j} α_{i,j}D_{KL}(p_j(o) || q_i(o)) + D_{KL}(α || β)",
-          "Divergência KL entre Gaussian Mixture Models para aprendizado de comportamento"
+          "Holarchies (Holárquicas)",
+          "Hierarquias recursivas onde cada nível é autônomo",
+          "Sistemas adaptativos complexos"
+        ],
+        [
+          "Coalitions (Coalizões)",
+          "Grupos temporários formados para objetivos específicos",
+          "Negociação, leilões, formação dinâmica de times"
+        ],
+        [
+          "Teams (Times)",
+          "Grupos com objetivo comum e coordenação estreita",
+          "Robótica colaborativa, jogos cooperativos"
+        ],
+        [
+          "Markets (Mercados)",
+          "Coordenação via mecanismos de preço e negociação",
+          "Alocação de recursos, economia multi-agente"
+        ],
+        [
+          "Consensus Protocols",
+          "Algoritmos para acordo distribuído (Paxos, Raft, Byzantine)",
+          "Blockchain, sistemas distribuídos tolerantes a falhas"
+        ],
+        [
+          "Key-Value Modeling",
+          "Contexto como pares atributo-valor",
+          "Sistemas simples, configurações"
+        ],
+        [
+          "Ontology-Based Modeling",
+          "Contexto representado via ontologias semânticas",
+          "Raciocínio lógico, interoperabilidade"
+        ],
+        [
+          "Graph Neural Networks (GNN)",
+          "Aprendizado de representações em grafos de contexto",
+          "Agregação espacial, relações complexas entre agentes"
         ]
       ]
     }
@@ -824,317 +799,304 @@
     "sections": [
       {
         "no": "01",
-        "heading": "Das cinco capacidades essenciais dos agentes inteligentes",
+        "heading": "Das cinco capacidades essenciais ao ciclo Sense-Learn-Reason-Predict-Act",
         "paragraphs": [
-          "A evolução da IA trouxe uma mudança de paradigma: de sistemas passivos que processam entradas para agentes autônomos que percebem, aprendem e agem. Mas o que torna um agente verdadeiramente inteligente? A resposta está em cinco capacidades fundamentais que formam o ciclo Sense-Learn-Reason-Predict-Act — sentir o ambiente, aprender com dados sensoriais, raciocinar sobre situações, prever consequências e agir de forma coordenada.",
-          "Um agente autônomo possui seis propriedades inteligentes: percepção (sensores que captam o ambiente), memória (histórico de experiências), modelo de mundo (representação interna do ambiente), ator (mecanismo de decisão e ação), custo (função que avalia desempenho) e configurador — este último sendo precisamente a consciência de contexto. É essa última propriedade que permite ao agente adaptar seu comportamento não apenas ao que percebe, mas ao significado do que percebe."
+          "Um agente autônomo moderno não é apenas um programa que executa tarefas: ele precisa dominar cinco capacidades fundamentais que, juntas, formam o ciclo **Sense-Learn-Reason-Predict-Act**. Primeiro, o agente deve **perceber** (Sense) o contexto ao redor — não apenas dados brutos de sensores, mas padrões significativos extraídos de grafos de contexto, onde cada nó representa uma informação contextual e cada aresta uma relação. Em seguida, ele precisa **aprender** (Learn) representações desses contextos, seja por meio de **modelagem de contexto** baseada em ontologias, esquemas de ponderação ou técnicas de **aprendizado de representação** como redes neurais de grafos (GNN) e embeddings temporais.",
+          "A terceira capacidade é **raciocinar** (Reason) sobre o que foi aprendido. Aqui entram abordagens como **raciocínio baseado em regras**, raciocínio probabilístico com redes Bayesianas, e o poderoso **raciocínio orientado a objetivos** que utiliza aprendizado por reforço profundo (DRL) para maximizar utilidades e recompensas. O agente então **prevê** (Predict) estados futuros do ambiente usando modelos preditivos — desde regressões simples até redes recorrentes (LSTM) que capturam dependências temporais. Por fim, ele **age** (Act), executando ações que modificam o ambiente para alcançar seus objetivos, muitas vezes coordenando-se com outros agentes por meio de **protocolos de consenso** e estruturas organizacionais como hierarquias, coalizões ou mercados."
         ],
         "bullets": [],
-        "pullquote": null,
+        "pullquote": {
+          "text": "Um agente moderno não apenas executa tarefas: ele percebe, aprende, raciocina, prevê e age em coordenação com outros.",
+          "cite": "Ciclo CA-MAS"
+        },
         "terms": [
           "Sense-Learn-Reason-Predict-Act",
-          "consciência de contexto",
-          "agente autônomo"
+          "modelagem de contexto",
+          "raciocínio orientado a objetivos",
+          "aprendizado de representação",
+          "protocolos de consenso"
         ]
       },
       {
         "no": "02",
-        "heading": "Contexto como informação estruturada e temporal",
+        "heading": "Contexto como grafo: modelando relações dinâmicas",
         "paragraphs": [
-          "Mas o que exatamente é contexto? Mais do que simples dados brutos, contexto é informação estruturada com cinco propriedades-chave: tipo (categórico, numérico, temporal), valor (a informação em si), tempo (quando foi capturado), fonte (de onde veio) e confiança (quão confiável é). Distinguimos ainda contexto intrínseco — características inerentes ao agente, como sua localização ou estado interno — de contexto extrínseco, que vem do ambiente ou de outros agentes.",
-          "A modelagem de contexto evoluiu de simples pares chave-valor para abordagens sofisticadas baseadas em ontologias, que capturam relações semânticas complexas entre diferentes tipos de informação contextual. Técnicas como redes neurais em grafos (GNN) permitem que agentes aprendam representações de contexto que capturam tanto a estrutura quanto a dinâmica temporal do ambiente. O processo geral de sistemas conscientes de contexto envolve três estágios: aquisição (coleta de dados sensoriais), abstração e compreensão (transformação em representações significativas), e utilização (aplicação para decisões e ações)."
-        ],
-        "bullets": [],
-        "pullquote": {
-          "text": "Contexto é informação estruturada com cinco propriedades-chave: tipo, valor, tempo, fonte e confiança.",
-          "cite": "Seção 02 · Modelagem de Contexto"
-        },
-        "terms": [
-          "contexto intrínseco",
-          "contexto extrínseco",
-          "ontologias",
-          "redes neurais em grafos"
-        ]
-      },
-      {
-        "no": "03",
-        "heading": "Coordenação e estruturas organizacionais",
-        "paragraphs": [
-          "Quando múltiplos agentes precisam colaborar, a estrutura organizacional torna-se crucial. Sistemas multi-agente podem adotar desde estruturas planas (flat), onde todos os agentes têm igual autoridade, até hierarquias complexas, holarchias (hierarquias recursivas onde cada nível é simultaneamente um todo e uma parte), coalizões temporárias, times especializados, ou até mercados onde agentes negociam recursos.",
-          "A coordenação efetiva requer mecanismos de consenso — protocolos que garantem que agentes cheguem a acordos sobre o estado do mundo ou sobre ações a tomar. Abordagens variam desde consenso líder-seguidor (onde um agente coordena os demais) até protocolos de dados amostrados que permitem sincronização mesmo com comunicação intermitente. Em aplicações como navegação autônoma, estruturas planas com algoritmos orientados a objetivos (goal-oriented) predominam, enquanto gerenciamento de desastres frequentemente combina times com holarchias e consenso líder-seguidor."
+          "A chave para que múltiplos agentes operem de forma coesa em ambientes dinâmicos está na forma como representam o **contexto**. Diferente de sistemas tradicionais que tratam contexto como simples pares chave-valor, os CA-MAS modernos utilizam **grafos de contexto** G = (V, E), onde cada vértice V representa uma informação contextual (localização, temperatura, presença de obstáculos) e cada aresta E captura relações entre esses contextos. Essa representação permite detectar **padrões de contexto** — subgrafos H = (V′, E′) que se repetem e indicam situações conhecidas.",
+          "Além da estrutura, cada contexto carrega cinco propriedades essenciais: tipo (identidade, localização, atividade, tempo), valor (quantitativo ou qualitativo), timestamp, fonte (sensor, outro agente, inferência) e nível de confiança. A distinção entre **contexto intrínseco** (propriedades inerentes ao agente, como bateria ou capacidade de processamento) e **contexto extrínseco** (informações do ambiente, como clima ou posição de outros agentes) é fundamental para que o agente saiba o que pode controlar e o que deve apenas observar. Técnicas de **modelagem baseada em ontologias** permitem representar semanticamente essas relações, facilitando o compartilhamento de conhecimento entre agentes heterogêneos."
         ],
         "bullets": [],
         "pullquote": null,
         "terms": [
+          "grafos de contexto",
+          "padrões de contexto",
+          "contexto intrínseco",
+          "contexto extrínseco",
+          "modelagem baseada em ontologias"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Coordenação e consenso: quando agentes precisam concordar",
+        "paragraphs": [
+          "Em um sistema com múltiplos agentes, a capacidade individual de perceber e raciocinar não basta: é preciso **coordenação**. As **estruturas organizacionais** definem como agentes se relacionam — desde arquiteturas planas (flat), onde todos têm igual autoridade, até hierarquias rígidas, coalizões temporárias, times especializados, federações e até mercados onde agentes negociam recursos. Cada estrutura tem trade-offs: hierarquias facilitam controle centralizado mas podem criar gargalos; mercados promovem eficiência mas exigem mecanismos de negociação complexos.",
+          "Quando agentes precisam tomar decisões conjuntas, entram em cena os **protocolos de consenso**. Algoritmos como Raft e Paxos garantem que, mesmo com falhas de comunicação ou agentes maliciosos, o sistema converge para um estado acordado. Em ambientes dinâmicos, onde o contexto muda rapidamente, protocolos de consenso probabilístico e técnicas de **aprendizado por reforço multi-agente** (MARL) permitem que agentes aprendam políticas de coordenação sem depender exclusivamente de regras pré-definidas. O desafio está em balancear a necessidade de consenso com a autonomia individual — relaxar demais as restrições organizacionais pode levar a compartilhamento de contexto ineficaz e vulnerabilidades de segurança."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Coordenação eficaz exige balancear consenso coletivo com autonomia individual — um equilíbrio delicado em ambientes dinâmicos.",
+          "cite": "Desafios de CA-MAS"
+        },
+        "terms": [
           "estruturas organizacionais",
-          "holarchias",
-          "mecanismos de consenso",
-          "goal-oriented"
+          "protocolos de consenso",
+          "aprendizado por reforço multi-agente",
+          "coordenação",
+          "MARL"
         ]
       },
       {
         "no": "04",
-        "heading": "Desafios na integração de ontologias e aprendizado profundo",
+        "heading": "Desafios e o futuro: da rigidez das ontologias à adaptabilidade dos grafos neurais",
         "paragraphs": [
-          "Três desafios principais emergem na construção de sistemas multi-agente conscientes de contexto. Primeiro, estruturas organizacionais relaxadas podem causar compartilhamento ineficaz de contexto e vulnerabilidades de segurança e privacidade — quando agentes não têm hierarquia clara, como garantir que informações sensíveis sejam protegidas? Segundo, suposições de consenso relaxadas levam a incerteza, ambiguidade e conflitos — em ambientes dinâmicos, agentes podem ter visões contraditórias do contexto.",
-          "O terceiro desafio é talvez o mais profundo: a complexidade na integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos como Deep Reinforcement Learning (DRL). Ontologias oferecem riqueza semântica e interpretabilidade, capturando relações complexas entre conceitos. Já técnicas de aprendizado por reforço multi-agente (MARL) como Proximal Policy Optimization (PPO) e métodos Actor-Critic oferecem adaptabilidade e robustez em ambientes incertos. Combinar a representação simbólica das ontologias com a natureza subsimbólica das redes neurais profundas permanece um problema em aberto, exigindo arquiteturas híbridas que preservem o melhor de ambos os mundos."
+          "Apesar dos avanços, três desafios principais limitam a adoção de CA-MAS em larga escala. Primeiro, **restrições organizacionais relaxadas** podem levar a compartilhamento de contexto ineficaz e preocupações críticas de segurança e privacidade — como garantir que agentes não vazem informações sensíveis ao coordenar? Segundo, **suposições de consenso relaxadas** resultam em incerteza, ambiguidade e conflitos: quando agentes discordam sobre o estado do ambiente, qual versão da realidade prevalece? Terceiro, a **dependência de ontologias** baseadas em regras pré-definidas afeta a robustez em ambientes verdadeiramente dinâmicos — ontologias são rígidas e não se adaptam facilmente a situações imprevistas.",
+          "As direções futuras apontam para a integração de ontologias de agentes com frameworks de **raciocínio orientado a objetivos** usando Redes Neurais de Grafos (GNN) e Autoencoders Variacionais (VAE). Essa abordagem híbrida promete combinar a interpretabilidade semântica das ontologias com a capacidade de aprendizado adaptativo das redes neurais. Outras frentes incluem investigar estruturas organizacionais emergentes em CA-MAS — onde a organização não é imposta, mas surge da interação entre agentes — e aplicar técnicas de consenso distribuído que funcionem mesmo com comunicação intermitente e agentes não-confiáveis. O objetivo final é criar sistemas que não apenas reajam ao contexto, mas que antecipem mudanças e se reorganizem proativamente."
         ],
         "bullets": [],
-        "pullquote": {
-          "text": "Combinar a representação simbólica das ontologias com a natureza subsimbólica das redes neurais profundas permanece um problema em aberto.",
-          "cite": "Seção 04 · Desafios de Integração"
-        },
+        "pullquote": null,
         "terms": [
-          "Deep Reinforcement Learning",
-          "MARL",
-          "Actor-Critic",
-          "Proximal Policy Optimization"
+          "restrições organizacionais",
+          "ontologias",
+          "Redes Neurais de Grafos",
+          "raciocínio orientado a objetivos",
+          "consenso distribuído"
         ]
       }
     ],
-    "drop_cap_paragraph": "Imagine uma frota de drones de resgate sobrevoando uma área devastada por um desastre natural. Cada drone precisa não apenas enxergar o terreno à sua frente, mas compreender o que os outros estão fazendo, antecipar onde as vítimas podem estar, adaptar-se a mudanças repentinas no clima e coordenar suas ações sem depender de um comando central que pode falhar a qualquer momento. Esse cenário ilustra o desafio central dos sistemas multi-agente modernos: como fazer com que agentes autônomos não apenas reajam ao ambiente, mas compreendam o contexto em que operam e colaborem de forma inteligente. É nesse cruzamento entre consciência de contexto e coordenação multi-agente que surge uma nova fronteira da inteligência artificial.",
-    "closing_paragraph": "A convergência entre consciência de contexto e sistemas multi-agente não é apenas uma questão técnica — é uma necessidade para que agentes artificiais operem em ambientes reais, onde a incerteza é a norma e a colaboração é essencial. Das aplicações em IoT e eficiência energética até assistência digital e educação, os domínios que se beneficiam de CA-MAS compartilham uma característica: a complexidade não pode ser resolvida por um único agente, e o contexto não pode ser ignorado. O caminho à frente exige não apenas avanços algorítmicos, mas uma compreensão mais profunda de como estruturar a colaboração, representar conhecimento e equilibrar autonomia com coordenação."
+    "drop_cap_paragraph": "Imagine uma frota de drones de resgate sobrevoando uma área atingida por um desastre natural. Cada drone precisa decidir para onde ir, o que procurar e como coordenar com os demais — tudo isso enquanto o cenário muda a cada segundo: fumaça encobre edifícios, vítimas se movem, outros drones entram e saem da área. Não basta que cada drone seja \"inteligente\" isoladamente; eles precisam perceber o contexto ao redor, aprender com ele, raciocinar sobre prioridades, prever movimentos e agir de forma coordenada. É exatamente esse desafio que motiva o campo dos Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), uma área que integra duas fronteiras da inteligência artificial: a capacidade de múltiplos agentes colaborarem e a habilidade de compreender e reagir ao contexto dinâmico do ambiente.",
+    "closing_paragraph": "Os Sistemas Multi-Agente Conscientes de Contexto representam uma mudança de paradigma na forma como projetamos inteligência artificial: de sistemas passivos que seguem scripts para ecossistemas adaptativos que percebem, aprendem, raciocinam, preveem e agem de forma coordenada. Aplicações já surgem em navegação autônoma, gestão de desastres, eficiência energética, educação personalizada e cadeias de suprimento inteligentes. No entanto, o caminho à frente exige resolver tensões fundamentais entre rigidez e flexibilidade, entre consenso e autonomia, entre interpretabilidade e adaptabilidade. À medida que esses sistemas se tornam mais sofisticados, uma questão central emerge sobre o equilíbrio entre capacidade semântica e adaptação dinâmica em ambientes de larga escala."
   },
   "essay_full": {
     "variant": "full",
     "sections": [
       {
         "no": "01",
-        "heading": "A Evolução dos Agentes: De Passivos a Conscientes",
+        "heading": "Da Inteligência Passiva à Coordenação Ativa",
         "paragraphs": [
-          "A inteligência artificial está passando por uma mudança de paradigma fundamental: de sistemas passivos que respondem a comandos diretos para agentes autônomos capazes de perceber, aprender, raciocinar e agir de forma independente. Cinco avanços tecnológicos recentes tornaram possível essa transformação: a percepção de contexto através de sensores multimodais, o aprendizado profundo a partir de dados sensoriais complexos, o raciocínio simbólico e baseado em grafos, a capacidade de previsão e tomada de decisão em ambientes incertos, e finalmente, a coordenação entre múltiplos agentes trabalhando em conjunto.",
-          "Um agente autônomo moderno é muito mais do que um programa que executa tarefas. Ele possui seis propriedades inteligentes essenciais: um sistema de percepção que captura informações do ambiente, uma memória que armazena experiências passadas, um modelo de mundo que representa seu conhecimento sobre o ambiente, um componente ator que executa ações, uma função de custo que avalia o sucesso de suas decisões, e crucialmente, um configurador que implementa a consciência de contexto — a capacidade de compreender não apenas o que está acontecendo, mas o significado e as implicações dessa informação.",
-          "Contudo, tarefas complexas do mundo real raramente podem ser resolvidas por um único agente. Sistemas distribuídos, ambientes de larga escala e problemas que exigem especialização múltipla demandam a coordenação de vários agentes trabalhando em conjunto. É aqui que os sistemas multi-agente (MAS) se tornam essenciais, mas também onde surgem novos desafios: como garantir que agentes com percepções parciais e potencialmente conflitantes do ambiente possam coordenar suas ações de forma eficaz?"
+          "A inteligência artificial está passando por uma mudança de paradigma: de sistemas passivos que respondem a comandos diretos para agentes dinâmicos capazes de tomar decisões autônomas em ambientes complexos. Essa transformação é impulsionada por cinco avanços tecnológicos fundamentais que, quando combinados, permitem aos agentes desempenhar tarefas com níveis de sofisticação comparáveis aos humanos.",
+          "O primeiro avanço é a percepção de contexto, que permite aos agentes entenderem não apenas dados brutos, mas o significado desses dados dentro de uma situação específica. O segundo é o aprendizado de dados sensoriais, possibilitado por técnicas de aprendizado profundo que extraem padrões complexos de imagens, sons e outros sinais. O terceiro é o raciocínio, que permite aos agentes inferir conclusões e tomar decisões baseadas em conhecimento incompleto ou incerto.",
+          "Os dois últimos avanços — predição e ação coordenada — são especialmente críticos para sistemas multi-agente. A capacidade de prever estados futuros do ambiente permite planejamento proativo, enquanto a coordenação entre múltiplos agentes possibilita a divisão de tarefas complexas que seriam impossíveis para um único agente resolver. É nessa interseção entre consciência de contexto e coordenação multi-agente que surgem os sistemas multi-agente conscientes de contexto, ou CA-MAS (Context-Aware Multi-Agent Systems), capazes de superar as limitações de agentes isolados em cenários distribuídos e dinâmicos."
         ],
         "bullets": [],
         "pullquote": null,
         "terms": [
-          "agentes autônomos",
           "consciência de contexto",
           "sistemas multi-agente",
-          "percepção multimodal"
+          "CA-MAS",
+          "aprendizado profundo",
+          "coordenação"
         ]
       },
       {
         "no": "02",
-        "heading": "Estruturas Organizacionais: A Arquitetura da Coordenação",
+        "heading": "Anatomia de um Sistema Multi-Agente",
         "paragraphs": [
-          "Assim como organizações humanas, sistemas multi-agente podem adotar diferentes estruturas organizacionais dependendo da natureza da tarefa e do ambiente. As estruturas flat (planas) são as mais simples, onde todos os agentes têm igual autoridade e se comunicam diretamente — ideais para ambientes onde a tomada de decisão descentralizada é crucial, como em navegação autônoma de veículos. No outro extremo, as hierarchies (hierarquias) estabelecem relações claras de autoridade, com agentes supervisores coordenando agentes subordinados, uma abordagem comum em sistemas educacionais e de gestão.",
-          "Estruturas mais sofisticadas incluem as holarchies, onde cada agente pode simultaneamente atuar como um todo autônomo e como parte de um sistema maior — uma propriedade particularmente útil em supply chain management, onde cada nó da cadeia opera independentemente mas também como parte de uma rede integrada. As coalitions (coalizões) e teams (equipes) representam agrupamentos temporários ou permanentes de agentes com objetivos compartilhados, frequentemente vistos em sistemas de IoT e ambient intelligence.",
-          "A escolha da estrutura organizacional tem implicações profundas para os mecanismos de coordenação. Protocolos de consenso garantem que agentes cheguem a acordos sobre estados compartilhados do ambiente — desde abordagens simples de leader-follower (líder-seguidor) até algoritmos sofisticados de sampled-data consensus que permitem sincronização mesmo com comunicação intermitente. Estratégias de coordenação determinam como agentes negociam, compartilham recursos e resolvem conflitos, utilizando desde leilões em estruturas de market (mercado) até planejamento hierárquico em federations (federações)."
+          "Um agente autônomo é mais do que um programa que executa instruções: é uma entidade capaz de perceber seu ambiente através de sensores, processar essas informações usando um modelo interno do mundo, e agir através de atuadores para alcançar objetivos específicos. Cada agente possui seis propriedades inteligentes fundamentais: percepção (capacidade de captar informações do ambiente), memória (armazenamento de experiências passadas), modelo de mundo (representação interna do ambiente), ator (mecanismo de execução de ações), função de custo (avaliação de desempenho) e configurador — este último responsável pela consciência de contexto.",
+          "Quando múltiplos agentes operam juntos, formam um sistema multi-agente (MAS) que oferece vantagens significativas sobre agentes únicos: capacidade de resolver problemas distribuídos geograficamente, robustez através de redundância, escalabilidade para lidar com tarefas crescentes, e especialização onde cada agente pode focar em aspectos específicos do problema. Diferentemente de sistemas especialistas que dependem de regras fixas ou de programação orientada a objetos que organiza código, um MAS é composto por entidades verdadeiramente autônomas que tomam decisões independentes.",
+          "A organização desses agentes pode assumir dez estruturas diferentes, cada uma adequada a contextos específicos. Estruturas planas (flat) distribuem autoridade igualmente entre todos os agentes, ideais para ambientes onde não há hierarquia natural. Hierarquias estabelecem relações de supervisão, com agentes de nível superior coordenando os de nível inferior. Holarchias combinam autonomia individual com subordinação hierárquica, permitindo que cada agente seja simultaneamente um todo autônomo e parte de um sistema maior.",
+          "Coalizões e equipes representam formas de colaboração temporária: coalizões são grupos formados para alcançar objetivos específicos e depois dissolvidos, enquanto equipes mantêm estruturas mais estáveis com papéis definidos. Congregações reúnem agentes similares que compartilham capacidades, sociedades organizam agentes com normas e convenções sociais, e federações criam alianças entre grupos autônomos. Mercados introduzem mecanismos de negociação e competição, enquanto estruturas matriciais combinam múltiplas dimensões organizacionais simultaneamente.",
+          "A coordenação entre agentes requer protocolos de consenso que garantam que decisões coletivas sejam tomadas mesmo quando há informações conflitantes ou incompletas. Esses protocolos são essenciais para que o sistema funcione como um todo coerente, especialmente em ambientes dinâmicos onde as condições mudam constantemente e os agentes precisam adaptar suas estratégias em tempo real."
         ],
         "bullets": [],
         "pullquote": {
-          "text": "A escolha da estrutura organizacional determina não apenas como agentes se comunicam, mas como compartilham e interpretam o contexto.",
+          "text": "Um MAS é composto por entidades verdadeiramente autônomas que tomam decisões independentes, não apenas código organizado em objetos.",
           "cite": "Seção 2 · Multi-Agent Systems"
         },
         "terms": [
+          "agente autônomo",
+          "modelo de mundo",
           "estruturas organizacionais",
-          "protocolos de consenso",
-          "holarchies",
-          "coalitions"
+          "holarchias",
+          "protocolos de consenso"
         ]
       },
       {
         "no": "03",
-        "heading": "Modelando o Contexto: Além dos Dados Brutos",
+        "heading": "O Que Significa Ser Consciente do Contexto",
         "paragraphs": [
-          "Contexto não é simplesmente dados — é informação com significado. Um sensor de temperatura pode reportar 35°C, mas o contexto transforma esse número em conhecimento acionável: é uma temperatura ambiente confortável ou um sinal de superaquecimento de equipamento? Sistemas conscientes de contexto (CAS) distinguem entre cinco propriedades fundamentais de qualquer informação contextual: o tipo (temperatura, localização, identidade), o valor (35°C, coordenadas GPS), o tempo (quando foi medido), a fonte (qual sensor ou agente) e a confiança (quão confiável é essa informação).",
-          "A distinção entre contexto intrínseco e extrínseco é crucial. Contexto intrínseco refere-se a propriedades inerentes ao próprio agente — sua localização, estado interno, capacidades. Contexto extrínseco engloba informações sobre o ambiente e outros agentes — condições climáticas, posições de obstáculos, intenções de outros participantes. Ambos são essenciais para uma compreensão completa da situação.",
-          "Seis técnicas principais de modelagem de contexto oferecem diferentes trade-offs entre simplicidade e expressividade. Modelos key-value (chave-valor) são simples mas limitados. Markup schemas como XML oferecem estrutura hierárquica. Modelos graphical representam contexto como redes de relações. Abordagens object-oriented encapsulam contexto em objetos reutilizáveis. Técnicas logical-based permitem inferência formal. E finalmente, modelos ontology-based (baseados em ontologias) fornecem a representação mais rica e semântica, definindo conceitos, relações e regras de inferência que permitem raciocínio sofisticado sobre o contexto.",
-          "O processo geral de um sistema consciente de contexto ocorre em três estágios: aquisição de contexto (coleta de dados de sensores e fontes externas), abstração e compreensão (transformação de dados brutos em informação significativa através de fusão, filtragem e inferência), e utilização de contexto (aplicação do conhecimento contextual para adaptar comportamento, personalizar serviços ou tomar decisões)."
+          "Contexto é qualquer informação que caracteriza a situação de uma entidade — seja uma pessoa, lugar, objeto ou o próprio agente. Mas nem toda informação é contexto: para ser considerado contexto, um dado precisa ter cinco propriedades fundamentais. Primeiro, o tipo de contexto (localização, identidade, atividade, tempo, etc.). Segundo, o valor específico daquela informação (por exemplo, 'temperatura = 35°C'). Terceiro, a dimensão temporal — quando aquela informação foi capturada. Quarto, a fonte que gerou o dado. E quinto, a confiança ou certeza associada àquela informação.",
+          "Contextos podem ser intrínsecos ou extrínsecos. Contextos intrínsecos são propriedades inerentes ao agente ou objeto, como sua identidade ou capacidades. Contextos extrínsecos são informações sobre o ambiente externo, como localização geográfica ou condições climáticas. Essa distinção é crucial porque determina como o contexto deve ser adquirido e processado.",
+          "Para modelar contexto, pesquisadores desenvolveram seis técnicas principais. Modelos key-value são os mais simples, armazenando pares de atributo e valor. Esquemas de marcação (markup schema) usam estruturas hierárquicas como XML para organizar contextos complexos. Modelos gráficos representam relações entre contextos através de grafos. Abordagens orientadas a objetos encapsulam contextos como objetos com propriedades e métodos. Modelos baseados em lógica usam regras formais para inferir novos contextos a partir de contextos conhecidos.",
+          "A técnica mais poderosa, porém, são os modelos baseados em ontologias. Uma ontologia define formalmente os conceitos de um domínio e as relações entre eles, criando um vocabulário compartilhado que permite aos agentes interpretarem contextos de forma consistente. Por exemplo, uma ontologia de transporte urbano pode definir que 'ônibus' é um tipo de 'veículo público', que 'veículos' têm 'capacidade' e 'localização', e que 'congestionamento' é uma relação entre 'via' e 'densidade de tráfego'.",
+          "O processo de um sistema consciente de contexto (CAS) ocorre em três estágios. Primeiro, a aquisição de contexto captura dados brutos de sensores e outras fontes. Segundo, a abstração e compreensão de contexto transforma esses dados brutos em informações de alto nível — por exemplo, convertendo coordenadas GPS e horário em 'usuário está no trabalho durante horário comercial'. Terceiro, a utilização de contexto aplica essas informações para adaptar o comportamento do sistema — como ajustar notificações para modo silencioso quando o usuário está em reunião.",
+          "Arquiteturalmente, sistemas conscientes de contexto podem ser stand-alone (onde cada agente processa seu próprio contexto independentemente), centralizados (onde um servidor central coleta e processa contexto de todos os agentes) ou descentralizados (onde agentes colaboram para construir uma compreensão compartilhada do contexto sem um ponto central de controle). Cada arquitetura tem vantagens e desvantagens em termos de escalabilidade, robustez e privacidade."
         ],
         "bullets": [],
-        "pullquote": null,
+        "pullquote": {
+          "text": "Para ser considerado contexto, um dado precisa ter cinco propriedades fundamentais: tipo, valor, tempo, fonte e confiança.",
+          "cite": "Seção 3 · Context-Aware Systems"
+        },
         "terms": [
           "contexto intrínseco",
           "contexto extrínseco",
-          "ontology-based",
-          "abstração de contexto"
+          "ontologias",
+          "abstração de contexto",
+          "modelos baseados em lógica"
         ]
       },
       {
         "no": "04",
-        "heading": "O Ciclo Sense-Learn-Reason-Predict-Act: A Anatomia da Consciência",
+        "heading": "Integrando Consciência e Coordenação: O Framework CA-MAS",
         "paragraphs": [
-          "A consciência em sistemas multi-agente não é um estado binário, mas um processo contínuo que pode ser decomposto em cinco capacidades essenciais interconectadas. O ciclo Sense-Learn-Reason-Predict-Act (Sentir-Aprender-Raciocinar-Prever-Agir) representa a arquitetura fundamental de um agente consciente de contexto operando em um ambiente multi-agente.",
-          "A fase Sense (Sentir) envolve não apenas a coleta de dados sensoriais, mas a modelagem estruturada do contexto. Aqui, as técnicas de modelagem discutidas anteriormente — desde simples key-value até sofisticadas ontologias — transformam streams de dados brutos em representações estruturadas. Um drone de resgate não apenas captura imagens; ele modela a cena como um grafo de contexto G = (V, E), onde vértices V representam entidades detectadas (vítimas, obstáculos, outros agentes) e arestas E representam relações espaciais e temporais entre elas.",
-          "A fase Learn (Aprender) utiliza técnicas de aprendizado de representação para extrair padrões significativos do contexto modelado. Weighting mechanisms (mecanismos de ponderação) atribuem importância relativa a diferentes elementos contextuais — a localização de uma vítima pode ter peso maior que a temperatura ambiente. Abordagens learning-based (baseadas em aprendizado) empregam Graph Neural Networks (GNN) para aprender embeddings que capturam tanto características locais quanto estrutura global do contexto. Funções de embedding como e = φ(c, W_c) transformam contexto bruto c em representações vetoriais densas e, enquanto mecanismos de agregação como eᵢ = φ(⋃ⱼ₌₀ᴺ eⱼ, W_l) integram informações de múltiplos agentes vizinhos.",
-          "A fase Reason (Raciocinar) aplica lógica e inferência sobre as representações aprendidas. Abordagens rule-based (baseadas em regras) utilizam lógica fuzzy e sistemas de produção para inferir novos fatos a partir do contexto conhecido. Técnicas case-based (baseadas em casos) recuperam situações similares do passado usando funções de retrieval f(c) = {v ∈ V | g(c,v) ≥ α}, onde g mede similaridade e α é um limiar. Métodos graph-based exploram a estrutura de grafos de contexto para inferir relações implícitas. E crucialmente, algoritmos goal-oriented (orientados a objetivos) como os baseados na arquitetura Belief-Desire-Intention (BDI) permitem que agentes raciocinem sobre seus objetivos, crenças e intenções em relação ao contexto atual.",
-          "A fase Predict (Prever) antecipa estados futuros e consequências de ações. Weighting schemes simples extrapolam tendências. Modelos probabilísticos como Bayesian Belief Networks calculam probabilidades conjuntas p(c₁, c₂, ..., cₙ) = ∏ᵢ₌₁ⁿ p(cᵢ | B(cᵢ)) para prever configurações futuras de contexto. Reward-based models, especialmente técnicas de Deep Reinforcement Learning (DRL) e Multi-Agent Reinforcement Learning (MARL), aprendem políticas que maximizam recompensas esperadas. Algoritmos como n-step Q-learning atualizam estimativas de valor Q(s,a) iterativamente, enquanto métodos Actor-Critic e Proximal Policy Optimization (PPO) equilibram exploração e exploitação em ambientes multi-agente complexos.",
-          "Finalmente, a fase Act (Agir) executa ações selecionadas e coordena com outros agentes. Aqui, os protocolos de consenso e estratégias de coordenação discutidos anteriormente garantem que ações individuais contribuam para objetivos coletivos. Um agente pode usar SARSA para atualizar sua política θ_{t+1} = θ_t + αδ∇Q(h_t, g_t; θ_t) baseado em feedback do ambiente, enquanto simultaneamente negocia com outros agentes para evitar conflitos e maximizar eficiência global."
+          "A verdadeira inovação dos sistemas multi-agente conscientes de contexto está na integração sistemática de cinco capacidades essenciais, organizadas em um ciclo contínuo: Sense (Perceber), Learn (Aprender), Reason (Raciocinar), Predict (Prever) e Act (Agir). Esse framework não é apenas uma lista de funcionalidades, mas um processo integrado onde cada fase alimenta a próxima, criando um ciclo de melhoria contínua.",
+          "A fase Sense vai além da simples coleta de dados sensoriais. Envolve percepção ativa, onde agentes deliberadamente buscam informações relevantes para seus objetivos, e detecção de padrões em grafos de contexto. Um grafo de contexto G = (V, E) representa contextos como vértices V e suas relações como arestas E. Detectar padrões nesse grafo significa identificar subgrafos H = (V′, E′) que representam situações recorrentes ou significativas. Por exemplo, em um sistema de gestão de tráfego, um padrão pode ser a sequência 'hora do rush → congestionamento na via principal → desvio para vias secundárias'.",
+          "A fase Learn transforma dados brutos em representações úteis através de duas abordagens principais. Esquemas de ponderação atribuem importância relativa a diferentes contextos, permitindo que o sistema foque nos mais relevantes. Técnicas baseadas em aprendizado, especialmente redes neurais de grafos (GNN), aprendem embeddings — representações vetoriais compactas que capturam a essência de contextos complexos. Um embedding time-invariant e = φ(c, Wc) captura características estáticas, enquanto embeddings time-variant incorporam dinâmicas temporais usando arquiteturas como LSTM.",
+          "A fase Reason é onde o sistema toma decisões. Raciocínio baseado em regras aplica lógica if-then para situações bem definidas. Raciocínio baseado em casos recupera soluções de situações similares passadas. Raciocínio baseado em grafos navega por redes de conhecimento para inferir novas informações. Mas a abordagem mais poderosa é o raciocínio orientado a objetivos usando aprendizado por reforço profundo (DRL), onde agentes aprendem políticas que maximizam recompensas de longo prazo.",
+          "No raciocínio orientado a objetivos, cada agente mantém uma função de utilidade u(gi,k | b-i; h, θ) que estima o valor de perseguir um objetivo gi,k dado o histórico h e as crenças sobre outros agentes b-i. Essa função é aproximada por Q-values que são atualizados através de algoritmos como SARSA ou Q-learning n-step. A beleza dessa abordagem é que agentes não precisam de regras pré-programadas — eles aprendem estratégias ótimas através de tentativa e erro, adaptando-se a ambientes que mudam.",
+          "A fase Predict constrói modelos que antecipam estados futuros do ambiente ou comportamentos de outros agentes. Modelos preditivos podem usar esquemas de ponderação para estimar trajetórias futuras, probabilidades bayesianas para quantificar incertezas, ou funções de recompensa aprendidas que preveem consequências de ações. Por exemplo, em um sistema de gerenciamento de energia, modelos preditivos podem antecipar picos de demanda baseados em padrões históricos e contexto atual (dia da semana, temperatura, eventos especiais).",
+          "Finalmente, a fase Act executa ações no ambiente para alcançar os objetivos estabelecidos. Mas em um sistema multi-agente, ações individuais devem ser coordenadas para evitar conflitos e maximizar eficiência coletiva. Isso requer mecanismos de comunicação, negociação e, quando necessário, resolução de conflitos. A execução é monitorada continuamente, e os resultados alimentam novamente a fase Sense, fechando o ciclo.",
+          "Esse framework CA-MAS tem sido aplicado com sucesso em oito domínios principais: inteligência ambiente (casas inteligentes que se adaptam a rotinas dos moradores), navegação autônoma (veículos que coordenam movimentos em tráfego), assistência digital (assistentes virtuais que colaboram para atender usuários), gestão de desastres (equipes de resgate coordenadas), educação (sistemas tutores adaptativos), eficiência energética e sustentabilidade (redes elétricas inteligentes), Internet das Coisas (dispositivos conectados que colaboram) e gestão de cadeias de suprimento (otimização logística distribuída)."
         ],
         "bullets": [],
         "pullquote": {
-          "text": "A consciência de contexto não é um estado, mas um ciclo contínuo de percepção, aprendizado, raciocínio, previsão e ação adaptativa.",
-          "cite": "Seção 4 · Context-Aware Multi-Agent Systems"
+          "text": "O framework CA-MAS não é apenas uma lista de funcionalidades, mas um processo integrado onde cada fase alimenta a próxima, criando um ciclo de melhoria contínua.",
+          "cite": "Seção 4 · Context-aware Multi-agent Systems"
         },
         "terms": [
           "Sense-Learn-Reason-Predict-Act",
-          "Graph Neural Networks",
-          "Belief-Desire-Intention",
-          "Multi-Agent Reinforcement Learning",
-          "Actor-Critic"
+          "grafos de contexto",
+          "embeddings",
+          "aprendizado por reforço profundo",
+          "Q-values"
         ]
       },
       {
         "no": "05",
-        "heading": "Aplicações no Mundo Real: Da Teoria à Prática",
+        "heading": "Desafios na Fronteira da Pesquisa",
         "paragraphs": [
-          "A versatilidade dos sistemas CA-MAS se manifesta em oito domínios de aplicação distintos, cada um demonstrando diferentes combinações de estruturas organizacionais, protocolos de consenso e técnicas de raciocínio. Em navegação autônoma, veículos autônomos utilizam estruturas flat com sampled-data consensus para coordenar manobras em tempo real, empregando algoritmos goal-oriented que equilibram segurança, eficiência e conforto dos passageiros.",
-          "Sistemas de ambient intelligence para casas e edifícios inteligentes frequentemente adotam teams e coalitions, utilizando ontology-based models para representar preferências de usuários, estados de dispositivos e políticas de energia. Graph-based e rule-based reasoning permitem que o sistema infira necessidades implícitas — ajustando iluminação e temperatura não apenas baseado em comandos explícitos, mas compreendendo contexto como hora do dia, presença de ocupantes e atividades em curso.",
-          "No supply chain management, estruturas de market e holarchies permitem que cada nó da cadeia opere autonomamente enquanto participa de otimização global. Case-based techniques recuperam estratégias bem-sucedidas de situações passadas similares, adaptando-as ao contexto atual de demanda, disponibilidade de recursos e restrições logísticas.",
-          "Aplicações de disaster relief management demonstram a necessidade de estruturas híbridas — combinando teams para coordenação local de equipes de resgate com holarchies para integração com centros de comando regionais e nacionais. Leader-follower consensus permite resposta rápida em situações críticas, onde decisões centralizadas são necessárias, enquanto mantém autonomia local para adaptação a condições imprevisíveis no terreno.",
-          "Sistemas de energy efficiency & sustainability utilizam holarchies, teams e hierarchies para gerenciar smart grids, coordenando geração distribuída, armazenamento e consumo. Goal-oriented algorithms otimizam não apenas custos, mas também sustentabilidade, integrando fontes renováveis intermitentes e respondendo dinamicamente a padrões de demanda.",
-          "Em digital assistance, assistentes virtuais empregam estruturas flat e teams, usando ontology-based models para manter perfis de usuários ricos e graph-based ou fuzzy rule-based algorithms para personalizar respostas. A consciência de contexto permite que o assistente compreenda não apenas o que o usuário pergunta, mas por que e em que situação, adaptando tom, detalhe e modalidade da resposta.",
-          "Aplicações educacionais utilizam hierarchies com ontology-based models para representar conhecimento do domínio, perfis de estudantes e trajetórias de aprendizado. Case-based techniques identificam estudantes com dificuldades similares e recomendam intervenções pedagógicas personalizadas, enquanto agentes tutores coordenam para fornecer experiências de aprendizado coerentes e progressivas.",
-          "Finalmente, sistemas de IoT integram dispositivos heterogêneos usando teams, flat structures ou coalitions, dependendo da aplicação. Goal-oriented e rule-based algorithms gerenciam a complexidade de redes massivas de sensores e atuadores, garantindo que dados sejam coletados, processados e atuados de forma eficiente e contextualmente apropriada."
-        ],
-        "bullets": [],
-        "pullquote": null,
-        "terms": [
-          "ambient intelligence",
-          "supply chain management",
-          "disaster relief management",
-          "smart grids"
-        ]
-      },
-      {
-        "no": "06",
-        "heading": "Desafios e Horizontes: O Que Ainda Precisa Ser Resolvido",
-        "paragraphs": [
-          "Apesar dos avanços significativos, três desafios fundamentais limitam a adoção ampla de sistemas CA-MAS em ambientes reais. O primeiro desafio envolve estruturas organizacionais relaxadas — quando agentes operam em configurações dinâmicas onde a estrutura organizacional muda frequentemente (agentes entram e saem, coalizões se formam e dissolvem), o compartilhamento de contexto se torna ineficaz. Agentes podem não saber com quem compartilhar informações críticas, levando a redundância, inconsistência e lacunas de conhecimento. Além disso, estruturas relaxadas exacerbam preocupações de segurança e privacidade: como garantir que contexto sensível seja compartilhado apenas com agentes autorizados quando a própria noção de autorização é fluida?",
-          "O segundo desafio diz respeito a suposições de consenso relaxadas. Muitos protocolos de consenso assumem comunicação confiável, sincronização de relógio e ausência de agentes maliciosos ou defeituosos. No mundo real, essas suposições raramente se mantêm. Comunicação intermitente, latência variável e agentes com objetivos conflitantes levam a incerteza, ambiguidade e conflitos na interpretação de contexto. Um agente pode acreditar que uma área está segura enquanto outro detecta perigo iminente — como resolver tais conflitos sem um árbitro central e sem sacrificar autonomia?",
-          "O terceiro e talvez mais profundo desafio é a complexidade na integração de ontologias de agentes com frameworks de raciocínio orientado a objetivos, especialmente técnicas de Deep Reinforcement Learning. Ontologias fornecem representações ricas e semânticas de contexto, permitindo raciocínio simbólico sofisticado. DRL oferece adaptabilidade e robustez em ambientes incertos através de aprendizado por tentativa e erro. No entanto, integrar essas abordagens é não-trivial: ontologias operam em espaços simbólicos discretos, enquanto DRL trabalha com representações vetoriais contínuas. Como traduzir entre esses paradigmas sem perder a riqueza semântica das ontologias ou a capacidade de generalização do DRL?",
-          "Direções futuras de pesquisa incluem o desenvolvimento de protocolos de compartilhamento de contexto adaptativos que ajustam estratégias de comunicação baseado na estrutura organizacional atual, mecanismos de consenso robustos que toleram incerteza e conflito através de técnicas de Byzantine fault tolerance e probabilistic consensus, e arquiteturas híbridas que combinam raciocínio simbólico baseado em ontologias com aprendizado sub-simbólico através de neurosymbolic AI — sistemas que integram redes neurais com motores de inferência lógica, permitindo que agentes aprendam representações contextuais enquanto mantêm capacidades de raciocínio explicável."
+          "Apesar dos avanços impressionantes, sistemas multi-agente conscientes de contexto enfrentam três desafios fundamentais que limitam sua aplicação em larga escala. O primeiro desafio surge quando restrições organizacionais são relaxadas: em sistemas onde agentes têm alta autonomia e estruturas organizacionais flexíveis, o compartilhamento de contexto pode se tornar ineficaz. Sem hierarquias claras ou protocolos rígidos, agentes podem compartilhar informações redundantes, ignorar contextos críticos ou, pior, expor dados sensíveis.",
+          "As preocupações com segurança e privacidade são especialmente agudas em domínios como saúde e finanças, onde contextos frequentemente contêm informações pessoais identificáveis. Como garantir que um agente de monitoramento de saúde compartilhe dados vitais com agentes de emergência sem expor histórico médico completo a todos os agentes da rede? Soluções potenciais incluem criptografia homomórfica (que permite computação sobre dados criptografados) e aprendizado federado (onde modelos são treinados localmente sem compartilhar dados brutos), mas essas técnicas ainda enfrentam desafios de eficiência computacional.",
+          "O segundo desafio emerge quando suposições de consenso são relaxadas. Protocolos de consenso tradicionais assumem que agentes eventualmente concordarão sobre o estado do sistema, mas em ambientes verdadeiramente dinâmicos e adversariais, essa suposição pode não se sustentar. Incerteza sobre o ambiente, ambiguidade em observações sensoriais e conflitos genuínos entre objetivos de diferentes agentes podem impedir consenso.",
+          "Considere um sistema de gestão de tráfego onde alguns agentes priorizam fluxo geral enquanto outros priorizam veículos de emergência. Quando um acidente bloqueia uma via principal, agentes podem ter visões conflitantes sobre a melhor estratégia de desvio. Técnicas de consenso aproximado e mecanismos de votação ponderada podem ajudar, mas introduzem suas próprias complexidades: como determinar pesos justos? Como garantir que minorias com informações críticas não sejam ignoradas?",
+          "O terceiro e talvez mais profundo desafio é a dependência de ontologias de agentes em regras pré-definidas. Ontologias são poderosas porque fornecem semântica compartilhada — todos os agentes entendem que 'veículo de emergência' tem prioridade sobre 'veículo particular'. Mas essa rigidez se torna uma fraqueza em ambientes dinâmicos onde novos conceitos emergem e relações entre conceitos evoluem.",
+          "Imagine um sistema de resposta a desastres que encontra um tipo de emergência nunca visto antes — digamos, um incêndio químico com propriedades únicas. Se a ontologia não tem conceitos para representar essa situação, os agentes ficam cegos. Atualizar ontologias manualmente é lento e não escala. A solução proposta é integrar ontologias com frameworks de raciocínio orientado a objetivos usando redes neurais de grafos (GNN) e autoencoders variacionais (VAE).",
+          "GNNs podem aprender representações de conceitos ontológicos que capturam não apenas definições explícitas, mas padrões implícitos em como esses conceitos são usados. VAEs podem gerar novos conceitos interpolando entre conceitos existentes ou extrapolando para regiões não exploradas do espaço conceitual. Essa abordagem híbrida promete combinar a interpretabilidade de ontologias com a adaptabilidade de aprendizado profundo — mas levanta questões profundas sobre como validar conceitos gerados automaticamente e garantir que permaneçam semanticamente coerentes."
         ],
         "bullets": [],
         "pullquote": {
-          "text": "Integrar a riqueza semântica das ontologias com a adaptabilidade do aprendizado profundo permanece um dos desafios centrais para a próxima geração de sistemas CA-MAS.",
+          "text": "A rigidez das ontologias se torna uma fraqueza em ambientes dinâmicos onde novos conceitos emergem e relações entre conceitos evoluem.",
           "cite": "Seção 5 · Challenges and Future Directions"
         },
         "terms": [
-          "estruturas organizacionais relaxadas",
-          "Byzantine fault tolerance",
-          "neurosymbolic AI",
-          "raciocínio explicável"
+          "restrições organizacionais",
+          "protocolos de consenso",
+          "ontologias de agentes",
+          "redes neurais de grafos",
+          "autoencoders variacionais"
         ]
       }
     ],
-    "drop_cap_paragraph": "Imagine uma equipe de resgate em uma zona de desastre: bombeiros, paramédicos e drones autônomos precisam coordenar suas ações em tempo real, adaptando-se a escombros que desabam, vítimas que surgem em locais inesperados e condições climáticas que mudam a cada minuto. Cada membro da equipe percebe o ambiente de forma diferente — o drone vê de cima, o bombeiro sente o calor, o paramédico avalia sinais vitais — mas todos precisam compartilhar uma compreensão comum da situação para agir de forma eficaz. Esse desafio de coordenação inteligente em ambientes dinâmicos e incertos é exatamente o que os Sistemas Multi-Agente Conscientes de Contexto (CA-MAS) buscam resolver: permitir que agentes autônomos não apenas percebam o mundo ao seu redor, mas compreendam o significado dessa percepção, coordenem suas ações e adaptem suas estratégias conforme o contexto evolui.",
-    "closing_paragraph": "Os Sistemas Multi-Agente Conscientes de Contexto representam uma fronteira promissora na inteligência artificial, oferecendo um caminho para agentes que não apenas executam tarefas, mas compreendem o mundo ao seu redor e coordenam suas ações de forma inteligente e adaptativa. Das equipes de resgate em zonas de desastre aos assistentes virtuais em nossos smartphones, dos veículos autônomos nas ruas às redes elétricas inteligentes que alimentam nossas cidades, a capacidade de perceber, aprender, raciocinar, prever e agir com consciência de contexto está se tornando essencial. No entanto, como vimos, desafios fundamentais permanecem — especialmente na integração de diferentes paradigmas de representação e raciocínio. A jornada da teoria à prática exigirá não apenas avanços técnicos, mas também novas formas de pensar sobre como agentes autônomos podem colaborar, compartilhar conhecimento e tomar decisões em um mundo cada vez mais complexo e interconectado."
+    "drop_cap_paragraph": "Imagine uma equipe de resgate em uma zona de desastre: bombeiros, paramédicos e drones autônomos precisam coordenar suas ações em tempo real, adaptando-se a escombros que desabam, vítimas que surgem em locais inesperados e condições climáticas que mudam a cada minuto. Cada membro da equipe percebe o ambiente de forma diferente, aprende com a situação, raciocina sobre prioridades, prevê riscos e age — tudo isso enquanto compartilha informações cruciais com os demais. Esse cenário ilustra o desafio central dos sistemas multi-agente conscientes de contexto: como fazer com que agentes autônomos não apenas executem tarefas isoladas, mas colaborem de forma inteligente em ambientes dinâmicos e incertos? A resposta está na integração de duas áreas da inteligência artificial que, até recentemente, caminhavam em paralelo — sistemas conscientes de contexto e sistemas multi-agente — e na construção de uma arquitetura unificada que permita aos agentes perceber, aprender, raciocinar, prever e agir de forma coordenada.",
+    "closing_paragraph": "Os sistemas multi-agente conscientes de contexto representam uma fronteira fascinante da inteligência artificial, onde a capacidade de perceber, aprender, raciocinar, prever e agir se encontra com a necessidade de coordenação em ambientes complexos e dinâmicos. O framework apresentado neste survey oferece uma arquitetura unificada que integra décadas de pesquisa em sistemas conscientes de contexto e sistemas multi-agente, demonstrando como essas duas áreas, antes separadas, podem se complementar para criar agentes verdadeiramente autônomos e adaptativos. Das casas inteligentes que antecipam nossas necessidades aos sistemas de resgate que salvam vidas em desastres, CA-MAS estão transformando a forma como máquinas interagem com o mundo e entre si. No entanto, os desafios identificados — compartilhamento seguro de contexto, consenso em ambientes incertos e adaptação de ontologias — não são apenas obstáculos técnicos, mas questões fundamentais sobre como construir sistemas que sejam simultaneamente autônomos e coordenados, flexíveis e confiáveis, poderosos e interpretáveis. As direções futuras propostas, especialmente a integração de ontologias com aprendizado profundo, abrem caminhos promissores, mas também nos convidam a refletir sobre os trade-offs inerentes a essa integração."
   },
   "workshop": {
-    "title": "CA-MAS em Ação: Projetando Sistemas Multi-Agente Conscientes de Contexto",
-    "framing": "Ciclo de Kolb adaptado para aprendizagem técnica: experiência concreta (aplicação de taxonomia em cenário) → observação reflexiva (análise de decisões de design) → conceituação abstrata (consolidação do framework CA-MAS) → experimentação ativa (redesign e generalização)",
+    "title": "Workshop Remoto: Projetando CA-MAS na Prática – Do Conceito à Aplicação",
+    "framing": "Ciclo de Kolb adaptado para sistemas complexos: Experiência Concreta (aplicação de taxonomia em cenário) → Observação Reflexiva (análise de decisões e trade-offs) → Conceituação Abstrata (consolidação do framework Sense-Learn-Reason-Predict-Act) → Experimentação Ativa (redesign e propostas de melhoria)",
     "duration_minutes": 75,
     "participant_track": {
       "steps": [
         {
           "phase": "Preparação (pré-sessão)",
-          "instruction": "Leia o artigo focando nas seções 2, 3 e 4. Identifique e anote as cinco fases do processo CA-MAS (Sense-Learn-Reason-Predict-Act) e pelo menos três estruturas organizacionais de MAS. Prepare-se para aplicar esses conceitos em um cenário prático.",
-          "self_check_prompt": "Consigo explicar com minhas próprias palavras a diferença entre contexto intrínseco e extrínseco? Sei listar as cinco fases do CA-MAS?"
+          "instruction": "Leia o artigo focando nas seções 2 (MAS), 3 (CAS) e 4 (CA-MAS). Identifique as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act) e anote pelo menos uma técnica associada a cada capacidade. Prepare-se para aplicar essas capacidades em um cenário real.",
+          "self_check_prompt": "Consigo explicar com minhas próprias palavras o que cada uma das cinco capacidades (Sense-Learn-Reason-Predict-Act) faz em um CA-MAS? Consigo dar um exemplo de técnica para cada?"
         },
         {
           "phase": "Experiência Concreta (15 min)",
-          "instruction": "Você receberá um cenário de aplicação (ex: gestão de desastres, navegação autônoma ou supply chain). Em breakout rooms de 3-4 pessoas, projete um CA-MAS para esse cenário: (1) Escolha uma estrutura organizacional adequada da Tabela 1 do artigo; (2) Defina quais contextos os agentes precisam 'sentir' (Sense); (3) Selecione uma técnica de modelagem de contexto (seção 3.2); (4) Escolha uma abordagem de raciocínio (rule-based, case-based, graph-based ou goal-oriented). Documente suas escolhas no template compartilhado (Miro/Jamboard).",
-          "self_check_prompt": "Minhas escolhas de estrutura organizacional e técnicas estão justificadas pelas características específicas do cenário (distribuição geográfica, dinamicidade, necessidade de consenso)?"
+          "instruction": "Você receberá um cenário de aplicação (ex: gestão de desastres, navegação autônoma ou smart grid). Em breakout rooms de 3-4 pessoas, mapeie o cenário usando a taxonomia do artigo: (1) Identifique os agentes e sua estrutura organizacional (flat, hierárquica, coalização, etc.); (2) Liste os tipos de contexto relevantes (intrínseco/extrínseco, propriedades: tipo, valor, tempo, fonte, confiança); (3) Escolha uma técnica de modelagem de contexto adequada (key-value, ontology-based, graphical, etc.). Use o template compartilhado no chat para documentar suas escolhas.",
+          "self_check_prompt": "Minha equipe conseguiu justificar POR QUE escolhemos essa estrutura organizacional e essa técnica de modelagem? Identificamos pelo menos 3 tipos de contexto com suas propriedades?"
         },
         {
-          "phase": "Observação Reflexiva (20 min)",
-          "instruction": "Retorne à sessão plenária. Observe as apresentações de 2-3 grupos (5 min cada). Para cada apresentação, anote: (a) Qual foi o trade-off principal que o grupo enfrentou? (b) Que desafio da seção 5 do artigo apareceu implicitamente no design deles? (c) Como a escolha de estrutura organizacional impacta o compartilhamento de contexto? Use o chat ou documento colaborativo para registrar suas observações.",
-          "self_check_prompt": "Consigo identificar pelo menos um desafio de segurança/privacidade ou consenso que emergiria do design apresentado?"
+          "phase": "Observação Reflexiva (12 min)",
+          "instruction": "Ainda em breakout rooms, analise as implicações de suas escolhas: (1) Quais desafios do artigo (seção 5) seu design enfrenta? (restrições organizacionais, consenso, dependência de ontologias); (2) Que trade-offs você identificou? (ex: centralização vs. privacidade, ontologias rígidas vs. adaptabilidade); (3) Prepare 2-3 pontos-chave para compartilhar na plenária. Documente no template.",
+          "self_check_prompt": "Consigo articular pelo menos UM trade-off concreto entre as escolhas que fizemos? Entendo como nosso design se relaciona com os desafios mencionados no artigo?"
         },
         {
           "phase": "Conceituação Abstrata (20 min)",
-          "instruction": "Participe da discussão facilitada sobre padrões emergentes. Mapeie coletivamente: (1) Quais combinações de estrutura organizacional + técnica de modelagem apareceram mais? (2) Quais fases do Sense-Learn-Reason-Predict-Act foram mais desafiadoras de especificar? (3) Como os três desafios principais (estruturas relaxadas, consenso, integração ontologia-DRL) se manifestaram nos designs. Contribua com suas observações da fase anterior.",
-          "self_check_prompt": "Consigo agora articular por que certos domínios (ex: disaster relief) favorecem estruturas híbridas enquanto outros (ex: IoT) usam flat/coalitions?"
+          "instruction": "Na plenária, ouça as apresentações de 2-3 equipes (3 min cada). Compare as abordagens: observe como diferentes estruturas organizacionais e técnicas de modelagem afetam as cinco capacidades (Sense-Learn-Reason-Predict-Act). No chat ou em ferramenta colaborativa (Miro/Jamboard), posicione seu cenário em um eixo 2D: Eixo X = Complexidade de Coordenação (baixa → alta); Eixo Y = Dinamismo do Contexto (estático → altamente dinâmico). Anote padrões: quais técnicas aparecem em quais quadrantes?",
+          "self_check_prompt": "Consigo identificar pelo menos DUAS diferenças fundamentais entre a abordagem da minha equipe e a de outra equipe? Entendo por que essas diferenças existem (requisitos do domínio, trade-offs)?"
         },
         {
-          "phase": "Experimentação Ativa (15 min)",
-          "instruction": "Retorne ao seu grupo original. Redesenhe uma parte crítica do seu CA-MAS considerando: (1) Um dos desafios da seção 5 que você identificou; (2) Uma técnica alternativa da Tabela 4 usada em outro domínio. Prepare uma proposta de 'pivô' de 2 minutos explicando: o que mudaria, por que, e que novo trade-off isso cria. Compartilhe no canal assíncrono (Slack/Discord) após a sessão.",
-          "self_check_prompt": "Minha proposta de redesign demonstra compreensão de que não existe 'solução ótima universal', apenas escolhas contextualizadas com trade-offs explícitos?"
+          "phase": "Experimentação Ativa (18 min)",
+          "instruction": "Retorne aos breakout rooms. Agora, REDESENHE seu CA-MAS considerando: (1) Implemente explicitamente as cinco fases (Sense-Learn-Reason-Predict-Act) – escolha pelo menos uma técnica específica do artigo para cada fase (ex: GNN para Learn, DRL para Reason, LSTM para Predict); (2) Proponha uma solução para PELO MENOS UM dos três desafios da seção 5; (3) Justifique suas escolhas usando conceitos do artigo. Atualize o template com o design revisado.",
+          "self_check_prompt": "Meu redesign está CONCRETAMENTE mais robusto que a versão inicial? Consigo explicar COMO a solução proposta endereça um desafio específico do artigo?"
         },
         {
-          "phase": "Consolidação Individual (pós-sessão)",
-          "instruction": "Responda às perguntas de reflexão no formulário assíncrono. Revise os redesigns de outros grupos no canal compartilhado e comente em pelo menos dois, identificando conexões com conceitos do artigo.",
-          "self_check_prompt": "Consigo agora projetar um CA-MAS básico para um novo domínio, justificando cada escolha de design com base no framework do artigo?"
+          "phase": "Consolidação (10 min)",
+          "instruction": "Individualmente, responda às perguntas de reflexão no formulário compartilhado. Depois, no chat, compartilhe UMA insight-chave que você levará desta sessão sobre CA-MAS. Leia as contribuições dos colegas e reaja (emoji/comentário) a pelo menos duas que ressoem com você.",
+          "self_check_prompt": "Consigo agora projetar um CA-MAS básico para um novo domínio, identificando estrutura organizacional, técnicas de modelagem de contexto e as cinco capacidades essenciais? Sei onde procurar no artigo quando tiver dúvidas específicas?"
         }
       ],
       "materials_needed": [
-        "Artigo completo (PDF ou acesso digital)",
-        "Acesso a ferramenta de videoconferência com breakout rooms (Zoom, Google Meet, etc.)",
-        "Template de design CA-MAS (Miro, Jamboard, ou Google Slides colaborativo) com seções: Cenário, Estrutura Organizacional, Contextos (Sense), Modelagem, Raciocínio, Desafios Antecipados",
-        "Documento colaborativo para anotações (Google Docs ou Notion)",
-        "Canal assíncrono para compartilhamento pós-sessão (Slack, Discord, ou fórum)",
-        "Tabelas 1, 3 e 4 do artigo como referência rápida (extraídas ou em documento separado)"
+        "Artigo completo aberto (PDF ou acesso digital)",
+        "Acesso a videoconferência com breakout rooms (Zoom, Google Meet, Teams)",
+        "Template colaborativo (Google Doc ou Miro) com seções: Cenário, Agentes, Estrutura Organizacional, Tipos de Contexto, Técnica de Modelagem, Sense-Learn-Reason-Predict-Act, Desafios Identificados, Redesign",
+        "Ferramenta de quadro branco colaborativo (Miro, Jamboard, Mural) para mapeamento 2D",
+        "Formulário de reflexão individual (Google Forms ou similar)",
+        "Papel e caneta para anotações pessoais"
       ],
       "reflection_questions": [
-        "Qual foi o momento em que você percebeu a complexidade de integrar múltiplas dimensões (estrutura organizacional, modelagem de contexto, raciocínio) em um CA-MAS coerente?",
-        "Como a taxonomia do artigo (estruturas organizacionais, técnicas de modelagem, abordagens de raciocínio) ajudou ou limitou sua criatividade no design?",
-        "Dos três desafios principais apresentados na seção 5, qual você considera mais crítico para aplicações reais? Por quê?",
-        "Se você tivesse que explicar a diferença entre um MAS tradicional e um CA-MAS para alguém de outra área, que exemplo concreto você usaria?",
-        "Que pergunta de pesquisa sobre CA-MAS emergiu para você durante esta sessão que não estava explícita no artigo?"
+        "Qual das cinco capacidades (Sense-Learn-Reason-Predict-Act) você considera mais desafiadora de implementar em um CA-MAS real? Por quê?",
+        "Como a escolha da estrutura organizacional (flat, hierárquica, coalização, etc.) impacta a eficácia do compartilhamento de contexto entre agentes?",
+        "Dos três desafios principais apresentados no artigo (restrições organizacionais, consenso, dependência de ontologias), qual você considera mais crítico para aplicações no seu domínio de interesse? Que abordagem você exploraria?",
+        "Se você tivesse que explicar a diferença entre um sistema multi-agente tradicional e um CA-MAS para alguém não-técnico, que analogia ou exemplo você usaria?",
+        "Que questão ou aspecto do artigo permanece menos claro para você e merece estudo adicional?"
       ]
     },
     "facilitator_track": {
       "script": [
         {
           "time_marker": "0–5 min",
-          "activity": "Abertura e ativação de conhecimento prévio. Poll rápido: 'Quantas das 5 fases do CA-MAS você consegue nomear de memória?' (Sense, Learn, Reason, Predict, Act). Compartilhe resultados e faça ponte com objetivo da sessão.",
-          "facilitator_notes": "Não corrija respostas ainda — use o poll para diagnosticar familiaridade. Se <50% lembram 3+ fases, faça recap visual rápido (2 min) com diagrama da Fig. 3 do artigo. Estabeleça tom de 'aplicação prática' desde o início.",
+          "activity": "Abertura e alinhamento: Boas-vindas, verificação de presença, overview da estrutura da sessão. Apresentar o objetivo: aplicar a taxonomia e framework CA-MAS do artigo em cenários concretos, não apenas revisar teoria. Explicitar o ciclo de Kolb adaptado. Verificar se todos têm materiais (artigo, template, acesso a ferramentas).",
+          "facilitator_notes": "Seja explícito sobre a abordagem hands-on. Muitos participantes esperam uma palestra; reforce que esta é uma sessão de APLICAÇÃO. Verifique rapidamente no chat: 'Quem leu pelo menos as seções 2, 3 e 4?' para calibrar o nível de preparação. Se <50% leram, ajuste expectativas e ofereça 2 min de recap rápido das cinco capacidades.",
           "discussion_prompts": [
-            "Quem já trabalhou com sistemas multi-agente antes? Que desafios de coordenação vocês enfrentaram?",
-            "O que 'consciência de contexto' significa para vocês intuitivamente, antes de entrarmos na definição técnica?"
+            "Quem já trabalhou com sistemas multi-agente antes? E com sistemas conscientes de contexto?",
+            "O que vocês acham mais desafiador: coordenar múltiplos agentes OU modelar contexto dinâmico?"
           ]
         },
         {
-          "time_marker": "5–10 min",
-          "activity": "Distribuição de cenários e formação de grupos. Atribua cada breakout room a um domínio diferente (navegação autônoma, disaster relief, supply chain, IoT, etc.). Compartilhe template de design e explique as 4 tarefas: escolher estrutura organizacional, definir contextos Sense, selecionar modelagem, escolher raciocínio.",
-          "facilitator_notes": "Prepare 4-5 cenários curtos (1 parágrafo cada) com requisitos implícitos (ex: 'disaster relief após terremoto: comunicação intermitente, prioridades dinâmicas, recursos escassos'). Grupos de 3-4 são ideais. Certifique-se de que todos têm acesso ao template antes de irem para breakout rooms. Circule pelas salas nos primeiros 2 min para verificar compreensão.",
+          "time_marker": "5–20 min",
+          "activity": "Experiência Concreta (breakout rooms): Distribuir cenários (preparar 3-4 cenários diferentes: gestão de desastres, smart grid, navegação autônoma de drones, assistência educacional adaptativa). Cada breakout room recebe um cenário. Tarefa: mapear agentes, estrutura organizacional, tipos de contexto e técnica de modelagem. Circular pelos breakout rooms para observar progresso.",
+          "facilitator_notes": "ERRO COMUM: Equipes ficam abstratas demais ('usaremos agentes inteligentes'). Pressione por ESPECIFICIDADE: 'Quantos agentes? Quem coordena quem? Que contexto EXATAMENTE cada agente precisa?' Tenha os cenários prontos com 2-3 perguntas-guia cada. Se uma equipe terminar cedo, adicione: 'Agora identifiquem um protocolo de consenso adequado (seção 2.4.3)'. Tempo é apertado; avise aos 10 min que restam 5 min.",
+          "discussion_prompts": []
+        },
+        {
+          "time_marker": "20–32 min",
+          "activity": "Observação Reflexiva (breakout rooms continuam): Equipes analisam trade-offs e desafios de suas escolhas. Facilitador circula ativamente, fazendo perguntas provocativas: 'Se o contexto mudar a cada segundo, sua ontologia aguenta?' 'Como seus agentes lidam com informação conflitante?' 'Centralização resolve coordenação, mas e privacidade?'",
+          "facilitator_notes": "Este é o momento de APROFUNDAR. Não aceite respostas superficiais. Use os três desafios da seção 5 como lentes: 'Vocês têm restrições organizacionais claras ou estão assumindo compartilhamento livre de contexto?' Anote equipes com insights interessantes para convidar na plenária. Se uma equipe está travada, ofereça um dilema concreto: 'E se um agente tiver contexto desatualizado – o que acontece?'",
+          "discussion_prompts": []
+        },
+        {
+          "time_marker": "32–52 min",
+          "activity": "Conceituação Abstrata (plenária): Trazer todos de volta. Convidar 2-3 equipes (3 min cada) para apresentar: cenário, escolhas principais, um trade-off identificado. Após cada apresentação, abrir para 1-2 perguntas rápidas da plenária. Depois, facilitar mapeamento coletivo no quadro branco 2D (Complexidade de Coordenação × Dinamismo de Contexto). Pedir que cada equipe posicione seu cenário e anote técnicas usadas. Destacar padrões emergentes: 'Notem que cenários altamente dinâmicos tendem a usar GNN e DRL...'",
+          "facilitator_notes": "GESTÃO DE TEMPO CRÍTICA: Limite apresentações rigorosamente (use timer visível). Se >3 equipes, peça que outras compartilhem sínteses no chat. No mapeamento 2D, facilite a discussão: 'Por que smart grid está aqui e drones ali?' Conecte explicitamente ao artigo: 'Isso reflete a Tabela 2 do artigo, que mostra diferentes domínios usando diferentes técnicas'. Se o grupo estiver silencioso, use técnica de cold-calling gentil: 'Equipe do cenário X, vocês concordam com esse posicionamento?'",
           "discussion_prompts": [
-            "Antes de irem para os grupos: que perguntas vocês fariam ao 'cliente' desse cenário para decidir a arquitetura CA-MAS?"
+            "Que padrões vocês observam entre estrutura organizacional e tipo de aplicação?",
+            "Alguém escolheu ontology-based modeling – por quê? Quais as vantagens e limitações?",
+            "Como as cinco capacidades (Sense-Learn-Reason-Predict-Act) se manifestam diferentemente em cenários estáticos vs. dinâmicos?"
           ]
         },
         {
-          "time_marker": "10–25 min",
-          "activity": "Trabalho em breakout rooms: design do CA-MAS. Grupos aplicam taxonomia do artigo ao cenário. Facilitador circula entre salas (2-3 min cada), observando dificuldades comuns.",
-          "facilitator_notes": "ERROS COMUNS A OBSERVAR: (1) Escolher estrutura organizacional por 'parecer legal' sem justificar; (2) Listar contextos genéricos ('localização, tempo') sem especificidade do domínio; (3) Confundir técnica de modelagem com técnica de raciocínio; (4) Não conectar escolhas entre si (ex: escolher ontology-based modeling mas rule-based reasoning sem explicar integração). Faça perguntas socráticas, não dê respostas: 'Como essa estrutura hierárquica lida com a necessidade de resposta rápida que vocês mencionaram?'",
-          "discussion_prompts": [
-            "Que trade-off vocês estão enfrentando agora?",
-            "Se vocês mudassem a estrutura organizacional de X para Y, o que mais precisaria mudar no design?",
-            "Olhando a Tabela 4 do artigo, que domínio similar ao de vocês pode oferecer insights?"
-          ]
+          "time_marker": "52–70 min",
+          "activity": "Experimentação Ativa (breakout rooms): Equipes redesenham seus CA-MAS, agora implementando explicitamente as cinco fases com técnicas específicas do artigo e propondo solução para pelo menos um desafio da seção 5. Facilitador circula intensamente, validando escolhas técnicas: 'Vocês escolheram GNN para Learn – como isso se conecta com seu grafo de contexto?' 'DRL para Reason – qual a função de recompensa?' Aos 60 min, avisar que restam 10 min.",
+          "facilitator_notes": "Este é o momento de SÍNTESE APLICADA. Participantes devem conectar conceitos do artigo a decisões de design. ERRO COMUM: Listar técnicas sem justificativa. Pergunte sempre: 'POR QUE essa técnica para esse problema?' Tenha a Tabela 2 do artigo aberta para referência rápida. Se uma equipe propõe algo criativo (ex: híbrido de técnicas), valide e peça que compartilhem na plenária depois. Alguns grupos podem lutar com a notação formal – tranquilize que o foco é entendimento conceitual, não matemático.",
+          "discussion_prompts": []
         },
         {
-          "time_marker": "25–45 min",
-          "activity": "Apresentações plenárias (2-3 grupos, 5 min cada) + observação estruturada. Grupos apresentam design; audiência anota usando framework de observação (trade-offs, desafios implícitos, impacto de escolhas).",
-          "facilitator_notes": "Selecione grupos com designs contrastantes (ex: um com flat structure, outro com hierarchy). Após cada apresentação, dê 1 min para audiência anotar observações antes da próxima. Use timer visível. Se grupo não mencionar desafios, pergunte: 'Que problema da seção 5 do artigo poderia aparecer nesse design?' Capture designs em screenshots para referência na fase seguinte.",
+          "time_marker": "70–75 min",
+          "activity": "Consolidação individual e fechamento: Trazer todos de volta. Pedir que respondam individualmente às perguntas de reflexão (3 min). Depois, cada participante compartilha UMA insight no chat (2 min). Facilitador faz síntese final: recapitular o ciclo (experiência → reflexão → conceituação → experimentação), destacar 2-3 insights do chat, conectar ao objetivo de consolidação. Compartilhar recursos adicionais (seções específicas do artigo para aprofundamento, papers relacionados). Agradecer e encerrar.",
+          "facilitator_notes": "Fechamento deve ser ENERGIZANTE, não exaustivo. Celebre a aplicação prática: 'Vocês não apenas leram sobre CA-MAS – vocês PROJETARAM sistemas CA-MAS hoje'. Capture insights do chat para compartilhar depois (documento de síntese). Se houver tempo extra, lance a pergunta de fechamento do artigo sobre ontologias+GNN+VAE como provocação para estudo futuro. Reforce que o artigo é uma REFERÊNCIA para consulta contínua, não para memorização.",
           "discussion_prompts": [
-            "Para a audiência: que escolha desse grupo vocês acham mais arriscada? Por quê?",
-            "Para o grupo apresentador: se vocês tivessem mais 10 agentes no sistema, essa estrutura ainda funcionaria?",
-            "Alguém vê conexão entre esse design e algum dos 8 domínios da Tabela 4?"
-          ]
-        },
-        {
-          "time_marker": "45–65 min",
-          "activity": "Discussão facilitada: mapeamento de padrões e conceituação. Use quadro colaborativo para mapear: (eixo X) estruturas organizacionais usadas, (eixo Y) domínios/cenários, (marcadores) técnicas de modelagem e raciocínio. Identifique clusters e outliers. Conecte com os 3 desafios da seção 5.",
-          "facilitator_notes": "Esta é a fase crítica de abstração. Use técnica de 'think-pair-share': pergunta → 1 min individual → 2 min em duplas → compartilhamento plenário. Prepare visualização prévia dos 3 desafios (estruturas relaxadas → segurança/privacidade; consenso relaxado → incerteza/conflito; integração ontologia-DRL → complexidade). Faça ponte explícita: 'Vejam como 4 dos 5 grupos escolheram ontology-based modeling — isso facilita ou dificulta a integração com DRL que o artigo menciona como desafio?'",
-          "discussion_prompts": [
-            "Que padrão vocês veem: domínios com alta dinamicidade tendem a usar que tipo de estrutura?",
-            "Por que nenhum grupo escolheu market-based structure? Que cenário exigiria isso?",
-            "Como o desafio de 'compartilhamento ineficaz de contexto' se manifestaria no design do Grupo X?",
-            "Se tivéssemos que adicionar aprendizado por reforço ao design do Grupo Y, onde seria o ponto de integração mais difícil?"
-          ]
-        },
-        {
-          "time_marker": "65–75 min",
-          "activity": "Experimentação ativa: redesign em breakout rooms + debrief final. Grupos retornam para propor 'pivô' de design. Últimos 5 min: cada grupo compartilha em 1 min seu pivô. Facilitador sintetiza aprendizados e orienta consolidação assíncrona.",
-          "facilitator_notes": "Dê instrução clara: 'Não redesenhem tudo — escolham UMA decisão de design para mudar, baseada em um desafio específico da seção 5'. Circule rapidamente pelas salas. No debrief, valorize explicitamente redesigns que demonstram compreensão de trade-offs (não 'soluções perfeitas'). Termine com 'cliffhanger': 'A pergunta de fechamento do artigo sobre integração ontologia-DRL — seus redesigns se aproximaram ou se afastaram de uma resposta?' Oriente sobre expectativas assíncronas: postar pivô + comentar 2 outros até [data].",
-          "discussion_prompts": [
-            "Que novo problema seu pivô cria?",
-            "Esse pivô seria viável com as restrições computacionais de um sistema real?",
-            "Se vocês fossem publicar esse redesign, que experimento vocês precisariam fazer para validá-lo?"
+            "Que aspecto de CA-MAS vocês agora entendem melhor do que antes da sessão?",
+            "Se vocês fossem começar um projeto CA-MAS amanhã, qual seria o primeiro passo?"
           ]
         }
       ],
@@ -1148,81 +1110,72 @@
         "rows": [
           [
             "0–5 min",
-            "Abertura e poll diagnóstico",
-            "Ativar conhecimento prévio; estabelecer baseline"
+            "Abertura e alinhamento",
+            "Estabelecer expectativas e verificar preparação"
           ],
           [
-            "5–10 min",
-            "Distribuição de cenários e formação de grupos",
-            "Contextualizar aplicação; preparar experiência concreta"
+            "5–20 min",
+            "Experiência Concreta (breakout)",
+            "Aplicar taxonomia MAS/CAS em cenário real"
           ],
           [
-            "10–25 min",
-            "Design CA-MAS em breakout rooms",
-            "Aplicar taxonomia do artigo em contexto realista (experiência concreta)"
+            "20–32 min",
+            "Observação Reflexiva (breakout)",
+            "Identificar trade-offs e desafios de design"
           ],
           [
-            "25–45 min",
-            "Apresentações + observação estruturada",
-            "Expor diversidade de soluções; praticar análise crítica (observação reflexiva)"
+            "32–52 min",
+            "Conceituação Abstrata (plenária)",
+            "Comparar abordagens e extrair padrões gerais"
           ],
           [
-            "45–65 min",
-            "Mapeamento de padrões e discussão facilitada",
-            "Abstrair princípios de design; conectar com desafios teóricos (conceituação abstrata)"
+            "52–70 min",
+            "Experimentação Ativa (breakout)",
+            "Redesenhar CA-MAS com framework completo Sense-Learn-Reason-Predict-Act"
           ],
           [
-            "65–75 min",
-            "Redesign (pivô) + debrief",
-            "Aplicar aprendizado em iteração; preparar transferência (experimentação ativa)"
+            "70–75 min",
+            "Consolidação e fechamento",
+            "Reflexão individual e síntese coletiva"
           ]
         ]
       },
       "debrief_structure": [
-        "Síntese visual: Projete mapa conceitual co-criado na fase de conceituação, destacando conexões entre estruturas organizacionais, técnicas e domínios.",
-        "Validação de aprendizado: Pergunte 'Quem mudou de ideia sobre alguma escolha de design durante a sessão? O que provocou a mudança?' (metacognição explícita).",
-        "Ponte com desafios de pesquisa: Retome os 3 desafios da seção 5 e pergunte 'Qual desses vocês sentiram mais visceralmente durante o design?'",
-        "Orientação assíncrona: Explique expectativa de postar pivô (template: Mudança proposta / Justificativa baseada no artigo / Novo trade-off criado) e comentar 2 outros até [data].",
-        "Pergunta de saída: 'Complete a frase: Um CA-MAS bem projetado é aquele que... [compartilhe no chat]'. Leia 3-4 respostas em voz alta.",
-        "Fechamento com a pergunta do artigo: Releia a closing question sobre integração ontologia-DRL e convide para discussão assíncrona contínua."
+        "Reflexão individual silenciosa (3 min): Participantes respondem às 5 perguntas de reflexão no formulário, focando em aprendizados pessoais e lacunas identificadas.",
+        "Compartilhamento de insights no chat (2 min): Cada participante escreve UMA frase sobre o principal aprendizado ou mudança de perspectiva sobre CA-MAS.",
+        "Síntese facilitada (3 min): Facilitador agrupa insights em 2-3 temas emergentes (ex: 'Muitos destacaram a tensão entre adaptabilidade e interpretabilidade', 'Vários perceberam que estrutura organizacional é decisão de design, não detalhe técnico').",
+        "Conexão com objetivos de aprendizagem (1 min): Facilitador recapitula o ciclo de Kolb e como cada fase contribuiu para consolidação do framework Sense-Learn-Reason-Predict-Act.",
+        "Próximos passos e recursos (1 min): Indicar seções específicas do artigo para aprofundamento por interesse (ex: 'Se você trabalha com IoT, veja seção 4.3 Tabela 2 linha IoT'), compartilhar link para papers relacionados e comunidades de prática."
       ],
-      "consolidation_goal": "Consolidação bem-sucedida significa que participantes conseguem: (1) aplicar a taxonomia CA-MAS (estruturas organizacionais, modelagem de contexto, técnicas de raciocínio) para projetar um sistema multi-agente para um domínio específico; (2) justificar escolhas de design explicitando trade-offs entre requisitos conflitantes; (3) identificar como os três desafios principais do artigo (estruturas relaxadas, consenso, integração ontologia-DRL) emergem em designs concretos; e (4) iterar sobre um design inicial incorporando críticas fundamentadas no framework teórico do artigo."
+      "consolidation_goal": "Participantes conseguem, ao final da sessão, projetar um CA-MAS básico para um domínio específico, identificando e justificando: (1) estrutura organizacional adequada; (2) técnicas de modelagem de contexto; (3) implementação concreta das cinco capacidades Sense-Learn-Reason-Predict-Act com técnicas do artigo; (4) pelo menos um desafio (restrições organizacionais, consenso ou dependência de ontologias) e uma estratégia de mitigação. Consolidação bem-sucedida significa que o participante pode usar o artigo como referência técnica aplicada, não apenas como conhecimento teórico."
     }
   },
   "seo_pages": [
     {
       "page_kind": "article",
       "title": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
-      "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam, preveem e agem em ambientes dinâmicos. Explora as cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.",
+      "description": "Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Apresenta arquitetura unificada, taxonomia e processo geral para desenvolvimento de CA-MAS, cobrindo técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso, deep reinforcement learning e aplicações em oito domínios, além de desafios e direções futuras de pesquisa.",
       "keywords": [
         "context-aware systems",
-        "sistemas multi-agente",
         "multi-agent systems",
         "CA-MAS",
+        "sistemas multi-agente",
         "consciência de contexto",
         "Sense-Learn-Reason-Predict-Act",
-        "BDI",
-        "Belief-Desire-Intention",
         "deep reinforcement learning",
         "MARL",
-        "multi-agent reinforcement learning",
-        "ontology-based models",
-        "modelos baseados em ontologia",
-        "Graph Neural Networks",
-        "GNN",
-        "organizational structures",
-        "estruturas organizacionais",
-        "consensus protocols",
-        "protocolos de consenso",
+        "BDI",
         "context modeling",
-        "Actor-Critic",
-        "DQN",
-        "PPO",
-        "navegação autônoma",
-        "IoT",
-        "ambient intelligence",
+        "ontology-based models",
+        "graph neural networks",
+        "GNN",
+        "actor-critic",
+        "organizational structures",
+        "consensus protocols",
         "inteligência artificial",
-        "sistemas complexos"
+        "aprendizado por reforço",
+        "sistemas autônomos",
+        "coordenação de agentes"
       ],
       "og_type": "article",
       "jsonld_type": "Article",
@@ -1239,48 +1192,40 @@
       "about": [
         "Context-Aware Multi-Agent Systems (CA-MAS)",
         "Sense-Learn-Reason-Predict-Act",
-        "Multi-Agent Reinforcement Learning (MARL)",
-        "Ontology-based models",
-        "Organizational structures",
-        "Consensus protocols"
+        "Multi-Agent Systems (MAS)",
+        "Context-Aware Systems (CAS)",
+        "Deep Reinforcement Learning (DRL)",
+        "Organizational structures"
       ],
       "article_tags": [
-        "sistemas multi-agente",
-        "context-aware systems",
-        "inteligência artificial"
+        "sistemas-multiagente-contexto"
       ]
     },
     {
       "page_kind": "blog",
       "title": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
-      "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando arquitetura unificada e taxonomia para desenvolvimento de agentes que coordenam, aprendem, raciocinam e navegam incertezas em ambientes dinâmicos. Apresenta processo geral baseado em cinco capacidades essenciais (Sense-Learn-Reason-Predict-Act), técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios: navegação autônoma, ambient intelligence, IoT, supply chain, disaster relief, energia sustentável, assistência digital e educação.",
+      "description": "Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Apresenta arquitetura unificada, taxonomia detalhada, técnicas de modelagem de contexto, estruturas organizacionais, protocolos de consenso e aplicações em oito domínios.",
       "keywords": [
-        "sistemas multi-agente",
-        "multi-agent systems",
-        "context-aware systems",
-        "sistemas conscientes de contexto",
+        "context-aware multi-agent systems",
         "CA-MAS",
-        "MAS",
-        "inteligência artificial",
-        "artificial intelligence",
-        "deep reinforcement learning",
-        "MARL",
-        "multi-agent reinforcement learning",
+        "sistemas multi-agente",
+        "consciência de contexto",
         "Sense-Learn-Reason-Predict-Act",
-        "BDI",
-        "Belief-Desire-Intention",
+        "multi-agent reinforcement learning",
+        "MARL",
+        "deep reinforcement learning",
+        "DRL",
+        "context modeling",
+        "modelagem de contexto",
         "ontology-based models",
         "graph neural networks",
         "GNN",
-        "actor-critic",
-        "DQN",
-        "PPO",
+        "BDI architecture",
         "organizational structures",
         "consensus protocols",
-        "context modeling",
-        "navegação autônoma",
-        "IoT",
-        "ambient intelligence"
+        "inteligência artificial",
+        "aprendizado por reforço",
+        "agentes autônomos"
       ],
       "og_type": "article",
       "jsonld_type": "BlogPosting",
@@ -1303,44 +1248,38 @@
         "Consensus protocols"
       ],
       "article_tags": [
-        "sistemas multi-agente",
-        "context-aware systems",
-        "inteligência artificial",
-        "deep reinforcement learning"
+        "sistemas-multiagente-contexto"
       ]
     },
     {
       "page_kind": "workshop",
       "title": "A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions",
-      "description": "Levantamento abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), explorando técnicas, aplicações e desafios. Apresenta arquitetura unificada baseada nas cinco capacidades essenciais dos agentes: Sense-Learn-Reason-Predict-Act. Cobre modelagem de contexto, aprendizado de representação, raciocínio orientado a objetivos e aplicações em navegação autônoma, IoT, supply chain, educação e sustentabilidade energética.",
+      "description": "Survey abrangente sobre Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), apresentando arquitetura unificada e taxonomia para desenvolvimento de agentes que integram as cinco capacidades essenciais: Sense-Learn-Reason-Predict-Act. Explora técnicas de modelagem de contexto, estruturas organizacionais de MAS, aprendizado de representação com GNN, raciocínio orientado a objetivos com DRL/MARL, e aplicações em domínios como IoT, navegação autônoma, assistência digital e gestão de desastres.",
       "keywords": [
         "context-aware systems",
-        "multi-agent systems",
         "sistemas multi-agente",
-        "consciência de contexto",
-        "MAS",
-        "CAS",
+        "multi-agent systems",
         "CA-MAS",
+        "consciência de contexto",
+        "Sense-Learn-Reason-Predict-Act",
         "deep reinforcement learning",
+        "DRL",
         "MARL",
         "multi-agent reinforcement learning",
         "BDI",
-        "belief-desire-intention",
-        "sense-learn-reason-predict-act",
-        "ontology-based models",
+        "Belief-Desire-Intention",
         "graph neural networks",
         "GNN",
-        "actor-critic",
-        "DQN",
-        "PPO",
-        "consensus protocols",
+        "modelagem de contexto",
+        "context modeling",
+        "ontology-based models",
         "organizational structures",
-        "ambient intelligence",
-        "navegação autônoma",
-        "IoT",
-        "supply chain management",
+        "consensus protocols",
+        "actor-critic methods",
         "inteligência artificial",
-        "aprendizado por reforço"
+        "artificial intelligence",
+        "aprendizado por reforço",
+        "sistemas autônomos"
       ],
       "og_type": "article",
       "jsonld_type": "LearningResource",
@@ -1356,25 +1295,25 @@
       "modified_date": "2025-01-29",
       "about": [
         "Context-Aware Multi-Agent Systems (CA-MAS)",
-        "Multi-Agent Systems (MAS)",
-        "Context-Aware Systems (CAS)",
         "Sense-Learn-Reason-Predict-Act",
-        "Deep Reinforcement Learning (DRL)",
-        "Multi-Agent Reinforcement Learning (MARL)"
+        "Multi-Agent Reinforcement Learning (MARL)",
+        "Context modeling",
+        "Organizational structures",
+        "Deep Reinforcement Learning (DRL)"
       ],
       "article_tags": []
     }
   ],
   "downloads": [
     {
-      "title": "Artigo Original (PDF)",
-      "description": "Baixe o artigo completo sobre sistemas multi-agente conscientes de contexto.",
+      "title": "Artigo original em PDF",
+      "description": "Survey completo sobre técnicas, aplicações e desafios de Sistemas Multi-Agente Conscientes de Contexto (CA-MAS).",
       "href": "context-aware-mas.pdf",
       "arrow_label": "PDF ↓"
     },
     {
-      "title": "Post no Blog",
-      "description": "Leia a versão comentada e expandida deste artigo no formato de blog.",
+      "title": "Post de blog",
+      "description": "Versão em formato de leitura guiada explorando a arquitetura unificada e taxonomia para desenvolvimento de CA-MAS.",
       "href": "blog.html",
       "arrow_label": "LER →"
     }
@@ -3609,6 +3548,187 @@
             "text": "task"
           }
         ]
+      },
+      {
+        "key": "ambient intelligence",
+        "name": "ambient intelligence",
+        "label": "Concept",
+        "score": 0.7014105916023254,
+        "mentions": [
+          {
+            "start": 1707,
+            "end": 1727,
+            "text": "ambient intelligence"
+          },
+          {
+            "start": 6481,
+            "end": 6501,
+            "text": "ambient intelligence"
+          },
+          {
+            "start": 41384,
+            "end": 41405,
+            "text": "ambient\n\nintelligence"
+          },
+          {
+            "start": 42143,
+            "end": 42163,
+            "text": "Ambient intelligence"
+          }
+        ]
+      },
+      {
+        "key": "an agent",
+        "name": "An agent",
+        "label": "Software",
+        "score": 0.9025154113769531,
+        "mentions": [
+          {
+            "start": 3405,
+            "end": 3413,
+            "text": "an agent"
+          },
+          {
+            "start": 3476,
+            "end": 3484,
+            "text": "An agent"
+          },
+          {
+            "start": 3600,
+            "end": 3608,
+            "text": "An agent"
+          }
+        ]
+      },
+      {
+        "key": "complex tasks",
+        "name": "complex tasks",
+        "label": "Task",
+        "score": 0.6765832503636678,
+        "mentions": [
+          {
+            "start": 5750,
+            "end": 5763,
+            "text": "complex tasks"
+          },
+          {
+            "start": 17871,
+            "end": 17884,
+            "text": "complex tasks"
+          },
+          {
+            "start": 19620,
+            "end": 19633,
+            "text": "complex tasks"
+          },
+          {
+            "start": 40725,
+            "end": 40738,
+            "text": "complex tasks"
+          }
+        ]
+      },
+      {
+        "key": "cbr",
+        "name": "CBR",
+        "label": "Software",
+        "score": 0.6612727284431458,
+        "mentions": [
+          {
+            "start": 62760,
+            "end": 62763,
+            "text": "CBR"
+          },
+          {
+            "start": 63428,
+            "end": 63431,
+            "text": "CBR"
+          },
+          {
+            "start": 63612,
+            "end": 63615,
+            "text": "CBR"
+          },
+          {
+            "start": 63781,
+            "end": 63784,
+            "text": "CBR"
+          }
+        ]
+      },
+      {
+        "key": "historical data",
+        "name": "historical data",
+        "label": "Dataset",
+        "score": 0.6493543535470963,
+        "mentions": [
+          {
+            "start": 4379,
+            "end": 4394,
+            "text": "historical data"
+          },
+          {
+            "start": 45597,
+            "end": 45612,
+            "text": "historical data"
+          },
+          {
+            "start": 75045,
+            "end": 75060,
+            "text": "historical data"
+          },
+          {
+            "start": 75509,
+            "end": 75524,
+            "text": "historical data"
+          }
+        ]
+      },
+      {
+        "key": "communication",
+        "name": "communication",
+        "label": "Concept",
+        "score": 0.8570784777402878,
+        "mentions": [
+          {
+            "start": 9682,
+            "end": 9695,
+            "text": "communication"
+          },
+          {
+            "start": 9932,
+            "end": 9945,
+            "text": "communication"
+          },
+          {
+            "start": 18083,
+            "end": 18096,
+            "text": "communication"
+          }
+        ]
+      },
+      {
+        "key": "pedestrian trajectories",
+        "name": "pedestrian trajectories",
+        "label": "Concept",
+        "score": 0.8493484457333883,
+        "mentions": [
+          {
+            "start": 59382,
+            "end": 59405,
+            "text": "Pedestrian trajectories"
+          },
+          {
+            "start": 59559,
+            "end": 59582,
+            "text": "pedestrian trajectories"
+          },
+          {
+            "start": 60070,
+            "end": 60093,
+            "text": "pedestrian trajectories"
+          }
+        ]
       }
     ],
     "relations": [
@@ -3623,39 +3743,71 @@
       {
         "source_key": "agent",
         "target_key": "deep reinforcement learning",
-        "label": "utiliza",
+        "label": "utiliza para raciocinar",
         "score": 1.0,
-        "quote": "advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
-        "quote_start": 3929
+        "quote": "Moreover, advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
+        "quote_start": 3919
+      },
+      {
+        "source_key": "agent",
+        "target_key": "historical data",
+        "label": "estima estados futuros baseado em",
+        "score": 1.0,
+        "quote": "The agent estimates and predicts future states based on its model of historical data and observations.",
+        "quote_start": 4310
+      },
+      {
+        "source_key": "agents",
+        "target_key": "contextual information",
+        "label": "compreende conhecimento através de",
+        "score": 1.0,
+        "quote": "This results in the growing attention to the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.",
+        "quote_start": 6151
+      },
+      {
+        "source_key": "multi agent systems",
+        "target_key": "agents",
+        "label": "compreende",
+        "score": 1.0,
+        "quote": "Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.",
+        "quote_start": 6702
       },
       {
         "source_key": "agent",
         "target_key": "goals",
-        "label": "raciocina com",
+        "label": "possui",
         "score": 1.0,
-        "quote": "advancements in Deep Reinforcement Learning (DRL) techniques enable the agent to plan and reason with goals",
-        "quote_start": 3929
+        "quote": "An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.",
+        "quote_start": 6888
+      },
+      {
+        "source_key": "agent",
+        "target_key": "knowledge",
+        "label": "forma crenças baseado em",
+        "score": 1.0,
+        "quote": "Furthermore, an autonomous agent forms its beliefs based on its knowledge and observations of the environment and other agents.",
+        "quote_start": 7521
+      },
+      {
+        "source_key": "consensus",
+        "target_key": "agents",
+        "label": "é imperativo para",
+        "score": 1.0,
+        "quote": "In cooperative settings, achieving consensus, and a shared agreement on a particular interest is imperative for autonomous agents.",
+        "quote_start": 7848
       },
       {
         "source_key": "agent",
         "target_key": "context",
-        "label": "deve estar ciente de",
+        "label": "requer estar ciente de",
         "score": 1.0,
-        "quote": "attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
-        "quote_start": 8168
-      },
-      {
-        "source_key": "context",
-        "target_key": "organizational structure",
-        "label": "inclui",
-        "score": 1.0,
-        "quote": "attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
-        "quote_start": 8168
+        "quote": "It is worth noting that attaining consensus or understanding the behavior of other agents requires an autonomous agent to be aware of the context, including roles, organizational structure, situations, and location",
+        "quote_start": 8144
       },
       {
         "source_key": "cas",
         "target_key": "context",
-        "label": "utiliza",
+        "label": "adapta-se dinamicamente usando",
         "score": 1.0,
         "quote": "Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.",
         "quote_start": 8515
@@ -3663,138 +3815,138 @@
       {
         "source_key": "contextual information",
         "target_key": "organizational structure",
-        "label": "inclui",
+        "label": "abrange",
         "score": 1.0,
         "quote": "In the context of autonomous agents, contextual information encompasses task objectives, organizational structure, agent roles, and temporal aspects.",
         "quote_start": 9210
       },
       {
-        "source_key": "mas",
-        "target_key": "organizational structure",
-        "label": "possui",
+        "source_key": "context",
+        "target_key": "agents",
+        "label": "auxilia",
         "score": 1.0,
-        "quote": "three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.",
-        "quote_start": 17904
-      },
-      {
-        "source_key": "mas",
-        "target_key": "consensus",
-        "label": "possui",
-        "score": 1.0,
-        "quote": "three main aspects of a MAS such as organizational structure, consensus, and formation control result in the complexity of MAS.",
-        "quote_start": 17904
+        "quote": "Such context assists agents precisely retrieving relevant information for task accomplishment",
+        "quote_start": 9360
       },
       {
         "source_key": "mas",
         "target_key": "expert systems",
         "label": "distingue-se de",
         "score": 1.0,
-        "quote": "three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
-        "quote_start": 18045
+        "quote": "Furthermore, three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
+        "quote_start": 18032
       },
       {
         "source_key": "mas",
         "target_key": "object oriented programming",
         "label": "distingue-se de",
         "score": 1.0,
-        "quote": "three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
-        "quote_start": 18045
+        "quote": "Furthermore, three main features such as autonomy, communication, and society are three main features distinguishing between MAS, expert systems, and object-oriented programming",
+        "quote_start": 18032
       },
       {
-        "source_key": "relationships",
-        "target_key": "agents",
-        "label": "formam-se entre",
+        "source_key": "agents",
+        "target_key": "communication",
+        "label": "estabelece protocolos de",
         "score": 1.0,
-        "quote": "Depending on both organizational goals and agent-specific goals, relationships among agentsare formed into one of the following categories: cooperation or competition.",
-        "quote_start": 18537
-      },
-      {
-        "source_key": "consensus",
-        "target_key": "agents",
-        "label": "é alcançado entre",
-        "score": 1.0,
-        "quote": "achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
-        "quote_start": 31331
+        "quote": "Achieving this purpose necessitates organizing agents into groups with coordination, establishing communication protocols among them, and reaching consensus agreements",
+        "quote_start": 18852
       },
       {
         "source_key": "consensus",
-        "target_key": "information",
-        "label": "possibilita troca de",
+        "target_key": "agent",
+        "label": "requer",
         "score": 1.0,
-        "quote": "achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
-        "quote_start": 31331
+        "quote": "Once an organizational structure is established, achieving consensus, and mutual agreement on a common value or state becomes essential for enabling information exchange among agents.",
+        "quote_start": 31282
       },
       {
         "source_key": "leader follower consensus",
-        "target_key": "consensus protocol",
-        "label": "é tipo de",
+        "target_key": "consensus",
+        "label": "é protocolo de",
         "score": 1.0,
-        "quote": "the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,",
-        "quote_start": 32493
+        "quote": "To overcome these challenges, the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus, (5) bipartite consensus, (6) sampled-data consensus, (7) quantized consensus, (8) network-based consensus, and (9) the combination of consensus with tracking mechanisms",
+        "quote_start": 32463
       },
       {
         "source_key": "groupcluster consensus",
-        "target_key": "consensus protocol",
-        "label": "é tipo de",
+        "target_key": "consensus",
+        "label": "é protocolo de",
         "score": 1.0,
-        "quote": "the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus,",
-        "quote_start": 32493
+        "quote": "To overcome these challenges, the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus, (5) bipartite consensus, (6) sampled-data consensus, (7) quantized consensus, (8) network-based consensus, and (9) the combination of consensus with tracking mechanisms",
+        "quote_start": 32463
+      },
+      {
+        "source_key": "sampled data consensus",
+        "target_key": "consensus",
+        "label": "é protocolo de",
+        "score": 1.0,
+        "quote": "To overcome these challenges, the literature has explored nine communication protocols, including (1) leader-follower consensus, (2) group/cluster consensus, (3) scaled consensus, (4) finite-time consensus, (5) bipartite consensus, (6) sampled-data consensus, (7) quantized consensus, (8) network-based consensus, and (9) the combination of consensus with tracking mechanisms",
+        "quote_start": 32463
+      },
+      {
+        "source_key": "context",
+        "target_key": "information",
+        "label": "abrange",
+        "score": 1.0,
+        "quote": "Context encompasses various types of information, such as people, location, physical or virtual objects, events, time, and other data that can be employed to introduce different dimensions of a situation or conceptual information regarding specific circumstances",
+        "quote_start": 34357
       },
       {
         "source_key": "context modeling",
         "target_key": "key value models",
-        "label": "inclui",
+        "label": "inclui técnica",
         "score": 1.0,
         "quote": "Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models",
         "quote_start": 35140
       },
       {
-        "source_key": "context modeling",
-        "target_key": "context ontology",
-        "label": "inclui",
+        "source_key": "an agent",
+        "target_key": "information",
+        "label": "sente",
         "score": 1.0,
-        "quote": "Existing context modeling techniques in the literature fall into six categories: (1) key-value models, (2) markup schema models, (3) graphical models, (4) object-oriented models, (5) logical-based models, and (6) ontology-based models",
-        "quote_start": 35140
-      },
-      {
-        "source_key": "context ontology",
-        "target_key": "relationships",
-        "label": "representa",
-        "score": 1.0,
-        "quote": "ontology-based context models are widely utilized due to their capability for semantic reasoning and representation of context relationships through knowledge graphs",
-        "quote_start": 35851
-      },
-      {
-        "source_key": "multi agent systems",
-        "target_key": "agent",
-        "label": "é composto por",
-        "score": 1.0,
-        "quote": "Multi-Agent Systems (MAS) comprise multiple autonomous agents that interact within a shared environment, au- tonomously making decisions to accomplish tasks or address complex problems.",
-        "quote_start": 6702
+        "quote": "In the context of MAS, an agent can sense information from its knowledge, other agents, or the environment.",
+        "quote_start": 38848
       },
       {
         "source_key": "agent",
         "target_key": "task",
-        "label": "resolve",
+        "label": "alcança",
         "score": 1.0,
-        "quote": "An autonomous agent in MAS is endowed with initial knowledge about a given task and possesses its own set of goals.",
-        "quote_start": 6888
+        "quote": "An agent is an autonomous and computational entity (e.g., a software, a hardware component, or a combination of both) that operates within an environment to achieve specific tasks or goals",
+        "quote_start": 11753
+      },
+      {
+        "source_key": "deep reinforcement learning",
+        "target_key": "mas",
+        "label": "aplica-se a",
+        "score": 1.0,
+        "quote": "Other surveys have delved into specific aspects of MAS, including consensus [34, 37, 39], communication [41], formation control [36, 38, 40], organizational structures [33], and deep reinforcement learning (DRL) for MAS",
+        "quote_start": 9842
       },
       {
         "source_key": "context aware multi agent systems",
-        "target_key": "contextual information",
-        "label": "utiliza",
+        "target_key": "multi agent systems",
+        "label": "é integração de sistemas em",
         "score": 1.0,
-        "quote": "the field of context-aware multi-agent systems where agents comprehend their knowledge according to perceived contextual information to adapt to any situation and optimally solve allocated tasksand achieve the global goal.",
-        "quote_start": 6192
+        "quote": "the integration of context-aware systems into multi-agent systems, as known as context-aware multi-agent systems, becomes essential.",
+        "quote_start": 8381
       },
       {
-        "source_key": "context aware systems",
-        "target_key": "context",
-        "label": "utiliza",
+        "source_key": "system",
+        "target_key": "agents",
+        "label": "aloca responsabilidades entre",
         "score": 1.0,
-        "quote": "Context-Aware Systems (CAS) pertain to systems that dynamically adapt to the environment by leveraging context to retrieve prominent information for tasks or problems.",
-        "quote_start": 8515
+        "quote": "Overcoming these limitations requires the implementation of a system that allocates task responsibilities among autonomous agents, enabling effective coordination and communication during task resolution.",
+        "quote_start": 5770
+      },
+      {
+        "source_key": "agents",
+        "target_key": "flexibility",
+        "label": "possuem",
+        "score": 1.0,
+        "quote": "These attributes confer flexibility and adaptability on agents in dynamic environments, making MAS suited for addressing complex problems.",
+        "quote_start": 7383
       }
     ],
     "engine": "gliner=urchade/gliner_multi-v2.1, relations=llm"

@@ -1,0 +1,1706 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers</title>
+<meta name="description" content="Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. A análise de impacto mostra que conflito na prática é o desafio mais severo, evidenciando a lacuna entre diretrizes abstratas e implementação contextualizada de sistemas de IA éticos e confiáveis.">
+<meta name="keywords" content="AI ethics, ética de IA, transparency, transparência, accountability, privacy, privacidade, fairness, explainability, trustworthy AI, AI ethics principles, princípios éticos, lack of ethical knowledge, no legal frameworks, lacking monitoring bodies, conflict in practice, AI HLEG guidelines, ethically aligned design, ART framework, empirical study, estudo empírico, practitioners, lawmakers, legisladores, severity impact, ethics-on-ai, computational social systems">
+<meta name="author" content="Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html">
+<meta name="theme-color" content="#171415">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html">
+<meta property="og:title" content="AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers">
+<meta property="og:description" content="Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. A análise de impacto mostra que conflito na prática é o desafio mais severo, evidenciando a lacuna entre diretrizes abstratas e implementação contextualizada de sistemas de IA éticos e confiáveis.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2023">
+<meta property="article:author" content="Arif Ali Khan">
+<meta property="article:author" content="Muhammad Azeem Akbar">
+<meta property="article:author" content="Mahdi Fahmideh">
+<meta property="article:author" content="Peng Liang">
+<meta property="article:author" content="Muhammad Waseem">
+<meta property="article:author" content="Aakash Ahmad">
+<meta property="article:author" content="Mahmood Niazi">
+<meta property="article:author" content="Pekka Abrahamsson">
+<meta property="article:tag" content="ethics-on-ai">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers">
+<meta name="twitter:description" content="Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. A análise de impacto mostra que conflito na prática é o desafio mais severo, evidenciando a lacuna entre diretrizes abstratas e implementação contextualizada de sistemas de IA éticos e confiáveis.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html" },
+  "headline": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+  "description": "Estudo emp\u00edrico com 99 profissionais de IA e legisladores de 20 pa\u00edses revela que transpar\u00eancia, accountability e privacidade s\u00e3o os princ\u00edpios de \u00e9tica de IA mais cr\u00edticos, enquanto falta de conhecimento \u00e9tico, aus\u00eancia de frameworks legais e car\u00eancia de \u00f3rg\u00e3os de monitoramento s\u00e3o os desafios mais comuns. A an\u00e1lise de impacto mostra que conflito na pr\u00e1tica \u00e9 o desafio mais severo, evidenciando a lacuna entre diretrizes abstratas e implementa\u00e7\u00e3o contextualizada de sistemas de IA \u00e9ticos e confi\u00e1veis.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2023",
+  "dateModified": "2023",
+  "author": [
+    { "@type": "Person", "name": "Arif Ali Khan" },
+    { "@type": "Person", "name": "Muhammad Azeem Akbar" },
+    { "@type": "Person", "name": "Mahdi Fahmideh" },
+    { "@type": "Person", "name": "Peng Liang" },
+    { "@type": "Person", "name": "Muhammad Waseem" },
+    { "@type": "Person", "name": "Aakash Ahmad" },
+    { "@type": "Person", "name": "Mahmood Niazi" },
+    { "@type": "Person", "name": "Pekka Abrahamsson" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Centro de Inform\u00e1tica, UFPE", "url": "https://ab-orbit.github.io/css3e/" },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+    "author": ["Arif Ali Khan","Muhammad Azeem Akbar","Mahdi Fahmideh","Peng Liang","Muhammad Waseem","Aakash Ahmad","Mahmood Niazi","Pekka Abrahamsson"],
+    "datePublished": "2023",
+"sameAs": "https://doi.org/10.1109/TCSS.2023.3251729",    "url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-kzxcc0z0/AI Ethics - An Empirical Study.pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "AI ethics principles" },
+    { "@type": "Thing", "name": "transparency" },
+    { "@type": "Thing", "name": "accountability" },
+    { "@type": "Thing", "name": "privacy" },
+    { "@type": "Thing", "name": "fairness" },
+    { "@type": "Thing", "name": "autonomy" },
+    { "@type": "Thing", "name": "explainability" },
+    { "@type": "Thing", "name": "lack of ethical knowledge" },
+    { "@type": "Thing", "name": "no legal frameworks" },
+    { "@type": "Thing", "name": "lacking monitoring bodies" },
+    { "@type": "Thing", "name": "conflict in practice" },
+    { "@type": "Thing", "name": "trustworthy AI" },
+    { "@type": "Thing", "name": "AI HLEG guidelines" },
+    { "@type": "Thing", "name": "ethically aligned design (EAD)" },
+    { "@type": "Thing", "name": "ART framework (Accountability, Responsibility, Transparency)" },
+    { "@type": "Thing", "name": "severity impact" },
+    { "@type": "Thing", "name": "Spearman\u0027s rank-order correlation" }
+  ],
+  "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html",
+      "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html",
+      "name": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
+      "headline": "Ética de IA: O Que Pensam Profissionais e Legisladores",
+      "inLanguage": "pt-BR",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Arif Ali Khan"
+        },
+        {
+          "@type": "Person",
+          "name": "Muhammad Azeem Akbar"
+        },
+        {
+          "@type": "Person",
+          "name": "Mahdi Fahmideh"
+        },
+        {
+          "@type": "Person",
+          "name": "Peng Liang"
+        },
+        {
+          "@type": "Person",
+          "name": "Muhammad Waseem"
+        },
+        {
+          "@type": "Person",
+          "name": "Aakash Ahmad"
+        },
+        {
+          "@type": "Person",
+          "name": "Mahmood Niazi"
+        },
+        {
+          "@type": "Person",
+          "name": "Pekka Abrahamsson"
+        }
+      ],
+      "abstract": "Artificial intelligence (AI) solutions and technologies are being increasingly adopted in smart systems contexts; however, such technologies are concerned with ethical uncertainties. Various guidelines, principles, and regulatory frameworks are designed to ensure that AI technologies adhere to ethical well-being. However, the implications of AI ethics principles and guidelines are still being debated. To further explore the significance of AI ethics principles and relevant challenges, we conducted a survey of 99 randomly selected representative AI practitioners and lawmakers (e.g., AI engineers and lawyers) from 20 countries across five continents. To the best of our knowledge, this is the first empirical study that unveils the perceptions of two different types of population (AI practitioners and lawmakers) and the study findings confirm that transparency, accountability, and privacy are the most critical AI ethics principles. On the other hand, lack of ethical knowledge, no legal frameworks, and lacking monitoring bodies are found to be the most common AI ethics challenges. The impact analysis of the challenges across principles reveals that conflict in practice is a highly severe challenge. Moreover, the perceptions of practitioners and lawmakers are statistically correlated with significant differences for particular principles (e.g. fairness and freedom) and challenges (e.g. lacking monitoring bodies and machine distortion). Our findings stimulate further research, particularly empowering existing capability maturity models to support ethics-aware AI systems' development and quality assessment.",
+      "description": "Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios para sistemas de IA confiáveis.",
+      "datePublished": "2023",
+      "publication": "IEEE Transactions on Computational Social Systems",
+      "keywords": [
+        "Accountable artificial intelligence",
+        "Artificial intelligence (AI)",
+        "AI ethics",
+        "AI ethics principles",
+        "challenges",
+        "machine ethics"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.1109/TCSS.2023.3251729"
+      },
+      "sameAs": "https://doi.org/10.1109/TCSS.2023.3251729",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "AI ethics principles",
+          "termCode": "ai ethics principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 61,
+          "css3e:confidence": 0.864
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI ethics",
+          "termCode": "ai ethics",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 51,
+          "css3e:confidence": 0.815
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI systems",
+          "termCode": "ai systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 21,
+          "css3e:confidence": 0.833
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "challenges",
+          "termCode": "challenges",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 24,
+          "css3e:confidence": 0.661
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "privacy",
+          "termCode": "privacy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 16,
+          "css3e:confidence": 0.928
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "practitioners",
+          "termCode": "practitioners",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 17,
+          "css3e:confidence": 0.762
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "transparency",
+          "termCode": "transparency",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 14,
+          "css3e:confidence": 0.911
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "lawmakers",
+          "termCode": "lawmakers",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 17,
+          "css3e:confidence": 0.748
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "DefinedTerm",
+          "name": "accountability",
+          "termCode": "accountability",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 11,
+          "css3e:confidence": 0.876
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "fairness",
+          "termCode": "fairness",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.937
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethics",
+          "termCode": "ethics",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.744
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI ethics challenges",
+          "termCode": "ai ethics challenges",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.787
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI system",
+          "termCode": "ai system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.754
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "practitioners and lawmakers",
+          "termCode": "practitioners and lawmakers",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.716
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "lack of ethical knowledge",
+          "termCode": "lack of ethical knowledge",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.711
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "principles",
+          "termCode": "principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.607
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "t*-test",
+          "termCode": "t test",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.658
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "internal validity",
+          "termCode": "internal validity",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.822
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI ethics principles and challenges",
+          "termCode": "ai ethics principles and challenges",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.807
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "challenging factors",
+          "termCode": "challenging factors",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.767
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "software",
+          "termCode": "software",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.59
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "law",
+          "termCode": "law",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.919
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Wuhan University",
+          "termCode": "wuhan university",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.919
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "conflict in practice",
+          "termCode": "conflict in practice",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.689
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ISO",
+          "termCode": "iso",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.682
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "survey instrument",
+          "termCode": "survey instrument",
+          "inDefinedTermSet": "Software",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.675
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI technologies",
+          "termCode": "ai technologies",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.662
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "autonomy",
+          "termCode": "autonomy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.878
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "monitoring bodies",
+          "termCode": "monitoring bodies",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.797
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethical aspects",
+          "termCode": "ethical aspects",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.761
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "no legal frameworks",
+          "termCode": "no legal frameworks",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.696
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "regulatory bodies",
+          "termCode": "regulatory bodies",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.671
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Spearman correlation coefficients",
+          "termCode": "spearman correlation coefficients",
+          "inDefinedTermSet": "Metric",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.965
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "transparency principle",
+          "termCode": "transparency principle",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.954
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "system",
+          "termCode": "system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.635
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "University of Jyväskylä",
+          "termCode": "university of jyvskyl",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.948
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "University of Southern Queensland",
+          "termCode": "university of southern queensland",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.942
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Lappeenranta-Lahti University of Technology",
+          "termCode": "lappeenranta lahti university of technology",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.938
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Likert scale",
+          "termCode": "likert scale",
+          "inDefinedTermSet": "Metric",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.92
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "University of Oulu",
+          "termCode": "university of oulu",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.91
+        }
+      ]
+    }
+  ],
+  "css3e:relations": [
+    {
+      "source": "survey instrument",
+      "sourceCode": "survey instrument",
+      "label": "avalia",
+      "target": "AI ethics principles and challenges",
+      "targetCode": "ai ethics principles and challenges",
+      "confidence": 1.0,
+      "quote": "The survey instrument consisted of four core sections: 1) demographics; 2) AI ethics principles; 3) challenges; and 4) challenges impact on principles.",
+      "quoteOffset": 14805
+    },
+    {
+      "source": "AI ethics principles",
+      "sourceCode": "ai ethics principles",
+      "label": "inclui",
+      "target": "fairness",
+      "targetCode": "fairness",
+      "confidence": 1.0,
+      "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
+      "quoteOffset": 28401
+    },
+    {
+      "source": "AI ethics principles",
+      "sourceCode": "ai ethics principles",
+      "label": "inclui",
+      "target": "autonomy",
+      "targetCode": "autonomy",
+      "confidence": 1.0,
+      "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
+      "quoteOffset": 28401
+    },
+    {
+      "source": "conflict in practice",
+      "sourceCode": "conflict in practice",
+      "label": "desafia",
+      "target": "privacy",
+      "targetCode": "privacy",
+      "confidence": 1.0,
+      "quote": "Conflict in practice is deemed the most significant chal- lenge to the privacy principle.",
+      "quoteOffset": 29640
+    },
+    {
+      "source": "conflict in practice",
+      "sourceCode": "conflict in practice",
+      "label": "desafia",
+      "target": "autonomy",
+      "targetCode": "autonomy",
+      "confidence": 1.0,
+      "quote": "(79%) of the survey respondents considered conflict in practice as the most common (long-term) challenge for autonomy and explainability principles.",
+      "quoteOffset": 30611
+    },
+    {
+      "source": "law",
+      "sourceCode": "law",
+      "label": "regula",
+      "target": "AI ethics",
+      "targetCode": "ai ethics",
+      "confidence": 1.0,
+      "quote": "The aim of considering this type of population (lawmakers) is to understand the application of the law to AI ethics.",
+      "quoteOffset": 14051
+    },
+    {
+      "source": "lawmakers",
+      "sourceCode": "lawmakers",
+      "label": "priorizam",
+      "target": "fairness",
+      "targetCode": "fairness",
+      "confidence": 1.0,
+      "quote": "lawmakers ranked fairness at position five as the most important principle",
+      "quoteOffset": 33219
+    },
+    {
+      "source": "practitioners",
+      "sourceCode": "practitioners",
+      "label": "necessitam",
+      "target": "monitoring bodies",
+      "targetCode": "monitoring bodies",
+      "confidence": 1.0,
+      "quote": "lacking monitoring bodies is ranked second by the practitioners",
+      "quoteOffset": 35539
+    },
+    {
+      "source": "AI ethics",
+      "sourceCode": "ai ethics",
+      "label": "é classificado sob",
+      "target": "ethics",
+      "targetCode": "ethics",
+      "confidence": 1.0,
+      "quote": "Generally, AI ethics is classified under the umbrella of applied ethics",
+      "quoteOffset": 9530
+    },
+    {
+      "source": "regulatory bodies",
+      "sourceCode": "regulatory bodies",
+      "label": "regulam",
+      "target": "AI systems",
+      "targetCode": "ai systems",
+      "confidence": 1.0,
+      "quote": "Extant guide- lines and policies devised by researchers and regulatory bodies discussed different ethical goals for AI systems.",
+      "quoteOffset": 24760
+    }
+  ],
+  "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+}
+</script><link rel="stylesheet" href="../../../resources/cases/style.css">
+<style>
+:root{
+  --accent-0: #2E7D5B;
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+</script>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>AI Ethics: An Empirical Study on the Vie</div>
+    <nav class="nav">
+      <a class="btn" href="workshop.html">Dinâmica</a>
+      <a class="btn" href="blog.html">Blog</a>
+      <a class="btn" href="../../ethics-on-ai/index.html">&#8592; Ethics on AI</a>
+      <a class="btn primary" href="ai-ethics-empirical-study.pdf">PDF do artigo</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="article-hero">
+  <div>
+    <div class="eyebrow">IEEE Trans. Comput. Soc. Syst. · Vol. 10, No. 6 · December 2023</div>
+    <h1>Ética de IA: O Que Pensam Profissionais e Legisladores</h1>
+    <p class="lede">Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios para sistemas de IA confiáveis.</p>
+    <div class="toc">
+      <a href="#introducao">Introdução</a>
+      <a href="#background">Background</a>
+      <a href="#metodologia">Metodologia</a>
+      <a href="#resultados">Resultados e Discussão</a>
+      <a href="#descobertas">Principais Descobertas</a>
+      <a href="#validade">Ameaças à Validade</a>
+      <a href="#trabalhos-relacionados">Trabalhos Relacionados</a>
+      <a href="#conclusao">Conclusão</a>
+      <a href="#mapa-mental">Mapa Mental</a>
+      <a href="#downloads">Downloads</a>
+    </div>
+  </div>
+  <aside class="paper meta-card">
+    <h3>Referência</h3>
+    <p class="authors">Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson</p>
+    <p class="affil">Os autores representam uma colaboração internacional de oito instituições de pesquisa: University of Oulu (Finlândia), Lappeenranta-Lahti University of Technology (Finlândia), University of Southern Queensland (Austrália), Wuhan University (China), University of Jyväskylä (Finlândia), Lancaster University Leipzig (Alemanha), King Fahd University of Petroleum and Minerals (Arábia Saudita) e Tampere University (Finlândia).</p>
+    <div class="kv"><span class="key">Publicado em</span><span class="val">IEEE Transactions on Computational Social Systems, Vol. 10, No. 6, Dezembro 2023</span></div>
+    <div class="kv"><span class="key">Palavras-chave</span><span class="val">Accountable artificial intelligence, AI ethics, AI ethics principles, challenges, machine ethics, transparency, accountability, privacy</span></div>
+    <div class="kv"><span class="key">DOI</span><span class="val">10.1109/TCSS.2023.3251729</span></div>
+    <div class="callout" style="margin-bottom:0">
+      <b>O problema declarado:</b> Apesar dos benefícios prometidos pelas tecnologias de IA, sistemas complexos e opacos podem trazer mais danos sociais do que benefícios — como demonstrado pelo sistema de recrutamento da Amazon, que discriminava candidatas mulheres. Embora diversas diretrizes, princípios e frameworks regulatórios tenham sido desenvolvidos para garantir o bem-estar ético das tecnologias de IA, suas implicações práticas ainda estão sendo debatidas. Existe uma lacuna crítica entre a pesquisa em ética de IA e a prática industrial: o estado atual da ética de IA permanece amplamente desconhecido para o público, profissionais, políticas e legisladores. Falta investigação empírica que explore os princípios e desafios associados à ética de IA, especialmente capturando as percepções de diferentes tipos de população — profissionais que desenvolvem sistemas de IA e legisladores que regulam seu uso.
+    </div>
+  </aside>
+</section>
+
+
+<section class="section" id="mapa">
+  <h2><span class="num">MAPA</span>A estrutura do artigo, navegável</h2>
+  <p>Clique em um nó para abrir ou fechar o ramo. Arraste para mover, use a roda do mouse ou os botões para o zoom. Setas do teclado navegam entre nós quando um deles está focado.</p>
+  <div class="map-shell">
+    <div class="map-bar">
+      <span class="hint" id="maphint">carregando…</span>
+      <div class="map-tools">
+        <button class="tool" data-map="expand">Expandir tudo</button>
+        <button class="tool" data-map="collapse">Recolher</button>
+        <button class="tool" data-map="fit">Ajustar</button>
+        <button class="tool" data-map="zoomout" aria-label="Diminuir zoom">−</button>
+        <button class="tool" data-map="zoomin" aria-label="Aumentar zoom">+</button>
+      </div>
+    </div>
+    <svg id="mapview" role="img" aria-label="Mapa mental do artigo"></svg>
+    <div class="map-legend">
+      <span><i style="background:#c0392b"></i>Título do artigo</span>
+      <span><i style="background:#16a085"></i>Contexto e fundamentação</span>
+      <span><i style="background:#2980b9"></i>Metodologia</span>
+      <span><i style="background:#f39c12"></i>Resultados e achados</span>
+      <span><i style="background:#8e44ad"></i>Implicações e conclusões</span>
+    </div>
+  </div>
+  <p class="map-note">Mapa gerado a partir da análise estruturada do artigo: layout calculado no navegador, sem imagem estática.</p>
+</section>
+
+<script>
+(function () {
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('mapview');
+
+  var PALETTE = {"root": {"fill": "#c0392b", "text": "#fff"}, "context": {"fill": "#16a085", "text": "#fff"}, "method": {"fill": "#2980b9", "text": "#fff"}, "results": {"fill": "#f39c12", "text": "#fff"}, "implications": {"fill": "#8e44ad", "text": "#fff"}};
+  var DATA = {"t": "Ética de IA: Estudo Empírico (Profissionais/Legisladores)", "k": "root", "children": [{"t": "Contexto e Problema", "k": "context", "children": [{"t": "Expansão da IA e riscos éticos", "children": [{"t": "Sistemas opacos podem causar danos sociais", "children": []}, {"t": "Caso Amazon: discriminação de gênero no recrutamento", "children": []}, {"t": "Lacuna entre pesquisa e prática industrial", "children": []}]}, {"t": "Diretrizes e frameworks existentes", "children": [{"t": "AI HLEG (Europa), IEEE EAD, ISO/IEC JTC 1/SC 42", "children": []}, {"t": "Google, SAP, ACM, ART framework", "children": []}, {"t": "Implicações ainda debatidas, adoção limitada", "children": []}]}, {"t": "Questões de pesquisa (RQ1-3)", "children": [{"t": "RQ1: Percepções sobre princípios e desafios", "children": []}, {"t": "RQ2: Impacto de severidade dos desafios", "children": []}, {"t": "RQ3: Diferenças profissionais vs. legisladores", "children": []}]}]}, {"t": "Metodologia do Survey", "k": "method", "children": [{"t": "Público-alvo e coleta", "children": [{"t": "99 participantes de 20 países (5 continentes)", "children": []}, {"t": "Profissionais de IA e legisladores (advogados)", "children": []}, {"t": "Redes sociais, contatos profissionais, inglês/chinês", "children": []}]}, {"t": "Instrumento do questionário", "children": [{"t": "Seção 1: Dados demográficos", "children": []}, {"t": "Seção 2: Princípios de ética de IA", "children": []}, {"t": "Seção 3: Desafios de ética de IA", "children": []}, {"t": "Seção 4: Impacto dos desafios sobre princípios", "children": []}]}, {"t": "Análise de dados", "children": [{"t": "Análise de frequência", "children": []}, {"t": "Correlação de Spearman", "children": []}, {"t": "Teste t independente", "children": []}]}]}, {"t": "Resultados Empíricos", "k": "results", "children": [{"t": "Demografia dos participantes", "children": [{"t": "Distribuição geográfica global", "children": []}, {"t": "Diversos tamanhos de organização", "children": []}, {"t": "Papéis: engenheiros, advogados, pesquisadores", "children": []}]}, {"t": "Princípios mais críticos (RQ1)", "children": [{"t": "Transparência: princípio mais importante", "children": []}, {"t": "Accountability: responsabilização clara", "children": []}, {"t": "Privacidade: proteção de dados pessoais", "children": []}, {"t": "Fairness e autonomia também relevantes", "children": []}]}, {"t": "Desafios mais comuns (RQ1)", "children": [{"t": "Falta de conhecimento ético", "children": []}, {"t": "Ausência de frameworks legais", "children": []}, {"t": "Falta de órgãos de monitoramento", "children": []}, {"t": "Distorção de máquina", "children": []}]}, {"t": "Impacto de severidade (RQ2)", "children": [{"t": "Conflito na prática: desafio mais severo", "children": []}, {"t": "Tensão entre princípios abstratos e contextos reais", "children": []}, {"t": "Impactos de longo prazo dos desafios", "children": []}]}, {"t": "Diferenças estatísticas (RQ3)", "children": [{"t": "Correlação positiva entre grupos", "children": []}, {"t": "Diferenças em fairness e freedom", "children": []}, {"t": "Diferenças em falta de monitoramento", "children": []}, {"t": "Diferenças em distorção de máquina", "children": []}]}]}, {"t": "Implicações e Conclusões", "k": "implications", "children": [{"t": "Para a pesquisa", "children": [{"t": "Necessidade de soluções práticas contextualizadas", "children": []}, {"t": "Explorar causas e mitigação de desafios", "children": []}, {"t": "Desenvolver modelo de maturidade de ética de IA", "children": []}]}, {"t": "Para a prática", "children": [{"t": "Visão geral para profissionais da indústria", "children": []}, {"t": "Medição de impactos dos desafios", "children": []}, {"t": "Suporte a políticas e regulamentação", "children": []}]}, {"t": "Achados-chave confirmados", "children": [{"t": "Validação empírica de princípios e desafios", "children": []}, {"t": "Papéis emergentes: legisladores são críticos", "children": []}, {"t": "Consciência de risco em ambos os grupos", "children": []}]}, {"t": "Trabalho futuro", "children": [{"t": "Investigação empírica mais ampla", "children": []}, {"t": "Exploração de causas raiz dos desafios", "children": []}, {"t": "Padrões específicos de domínio", "children": []}]}]}]};
+
+  var ROW = 34, COLGAP = 54, PAD = 26, RADIUS = 9;
+  var view = { x: 0, y: 0, k: 1 };
+  var gRoot, nodes = [];
+
+  var uid = 0;
+  (function prep(n, depth, kind) {
+    n.id = ++uid;
+    n.depth = depth;
+    n.kind = n.k || kind || Object.keys(PALETTE)[0];
+    n.open = depth < (window.innerWidth <= 700 ? 1 : 2);
+    (n.children || []).forEach(function (c) { c.parent = n; prep(c, depth + 1, n.kind); });
+  })(DATA, 0, null);
+
+  function flatten(n, out) {
+    out.push(n);
+    if (n.open && n.children) n.children.forEach(function (c) { flatten(c, out); });
+    return out;
+  }
+
+  var measurer = document.createElementNS(SVGNS, 'text');
+  measurer.setAttribute('visibility', 'hidden');
+  svg.appendChild(measurer);
+  function widthOf(node) {
+    measurer.setAttribute('font-size', node.depth === 0 ? '14.5' : '13');
+    measurer.setAttribute('font-weight', node.depth <= 1 ? '780' : '400');
+    measurer.setAttribute('font-family',
+      '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif');
+    measurer.textContent = node.t;
+    var w = measurer.getComputedTextLength();
+    return Math.ceil(w) + 26 + ((node.children && node.children.length) ? 16 : 0);
+  }
+
+  function layout() {
+    var visible = flatten(DATA, []);
+    visible.forEach(function (n) { n.w = widthOf(n); });
+
+    var colW = [];
+    visible.forEach(function (n) { colW[n.depth] = Math.max(colW[n.depth] || 0, n.w); });
+    var colX = [], acc = PAD;
+    for (var d = 0; d < colW.length; d++) { colX[d] = acc; acc += (colW[d] || 0) + COLGAP; }
+
+    var row = 0;
+    (function place(n) {
+      if (n.open && n.children && n.children.length) {
+        n.children.forEach(place);
+        var f = n.children[0], l = n.children[n.children.length - 1];
+        n.y = (f.y + l.y) / 2;
+      } else {
+        n.y = PAD + row * ROW + ROW / 2;
+        row++;
+      }
+      n.x = colX[n.depth];
+    })(DATA);
+
+    return { nodes: visible, width: acc - COLGAP + PAD, height: PAD * 2 + Math.max(row, 1) * ROW };
+  }
+
+  function render(keepView) {
+    var L = layout();
+    nodes = L.nodes;
+
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.appendChild(measurer);
+
+    gRoot = document.createElementNS(SVGNS, 'g');
+    svg.appendChild(gRoot);
+
+    var gLinks = document.createElementNS(SVGNS, 'g');
+    var gNodes = document.createElementNS(SVGNS, 'g');
+    gRoot.appendChild(gLinks);
+    gRoot.appendChild(gNodes);
+
+    nodes.forEach(function (n) {
+      if (!n.parent || nodes.indexOf(n.parent) === -1) return;
+      var p = n.parent,
+          x1 = p.x + p.w, y1 = p.y, x2 = n.x, y2 = n.y,
+          mx = (x1 + x2) / 2;
+      var path = document.createElementNS(SVGNS, 'path');
+      path.setAttribute('class', 'link');
+      path.setAttribute('d', 'M' + x1 + ',' + y1 + 'C' + mx + ',' + y1 + ' ' + mx + ',' + y2 + ' ' + x2 + ',' + y2);
+      path.setAttribute('stroke', (PALETTE[n.kind] || Object.values(PALETTE)[0]).fill);
+      gLinks.appendChild(path);
+    });
+
+    nodes.forEach(function (n) {
+      var pal = PALETTE[n.kind] || Object.values(PALETTE)[0];
+      var g = document.createElementNS(SVGNS, 'g');
+      g.setAttribute('class', 'node d' + Math.min(n.depth, 2));
+      g.setAttribute('transform', 'translate(' + n.x + ',' + (n.y - 14) + ')');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      var hasKids = !!(n.children && n.children.length);
+      g.setAttribute('aria-expanded', hasKids ? String(n.open) : 'false');
+      g.setAttribute('aria-label', n.t + (hasKids ? (n.open ? ' — ramo aberto' : ' — ramo fechado, ' + n.children.length + ' itens') : ''));
+
+      var r = document.createElementNS(SVGNS, 'rect');
+      r.setAttribute('width', n.w);
+      r.setAttribute('height', 28);
+      r.setAttribute('rx', RADIUS);
+      if (n.depth <= 1) {
+        r.setAttribute('fill', pal.fill);
+        r.setAttribute('stroke', 'none');
+      } else {
+        r.setAttribute('fill', n.depth === 2 ? hexA(pal.fill, .13) : '#ffffff');
+        r.setAttribute('stroke', hexA(pal.fill, n.depth === 2 ? .55 : .32));
+        r.setAttribute('stroke-width', '1');
+      }
+      g.appendChild(r);
+
+      var t = document.createElementNS(SVGNS, 'text');
+      t.setAttribute('x', 13);
+      t.setAttribute('y', 15);
+      if (n.depth > 1) t.setAttribute('fill', '#231F20');
+      t.textContent = n.t;
+      g.appendChild(t);
+
+      if (hasKids) {
+        var mark = document.createElementNS(SVGNS, 'text');
+        mark.setAttribute('class', 'toggle');
+        mark.setAttribute('x', n.w - 13);
+        mark.setAttribute('y', 15);
+        mark.setAttribute('text-anchor', 'end');
+        mark.setAttribute('fill', n.depth <= 1 ? 'rgba(255,255,255,.85)' : pal.fill);
+        mark.textContent = n.open ? '−' : '+' + n.children.length;
+        g.appendChild(mark);
+      }
+
+      function toggle() {
+        if (!hasKids) return;
+        n.open = !n.open;
+        render(true);
+      }
+      g.addEventListener('click', toggle);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.code === 'Space') { ev.preventDefault(); toggle(); }
+        else if (ev.key === 'ArrowRight' && hasKids && !n.open) { n.open = true; render(true); }
+        else if (ev.key === 'ArrowLeft' && hasKids && n.open) { n.open = false; render(true); }
+      });
+
+      gNodes.appendChild(g);
+    });
+
+    svg.dataset.w = L.width;
+    svg.dataset.h = L.height;
+
+    document.getElementById('maphint').textContent =
+      nodes.length + ' nós visíveis · clique para abrir ou fechar';
+
+    if (keepView) applyView(); else fit();
+  }
+
+  function hexA(hex, a) {
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+
+  function applyView() {
+    gRoot.setAttribute('transform', 'translate(' + view.x + ',' + view.y + ') scale(' + view.k + ')');
+  }
+
+  function fit() {
+    var box = svg.getBoundingClientRect(),
+        w = +svg.dataset.w, h = +svg.dataset.h;
+    var reserve = window.innerWidth <= 700 ? 150 : 0;
+    var avail = Math.max(160, box.height - reserve);
+    var k = Math.max(reserve ? 0.55 : 0.7, Math.min(box.width / w, avail / h, 1.15));
+    view.k = k;
+    view.x = (w * k < box.width) ? (box.width - w * k) / 2 : 14;
+    view.y = (reserve || h * k >= avail) ? 14 : (avail - h * k) / 2 + 8;
+    applyView();
+  }
+
+  var drag = null;
+  svg.addEventListener('pointerdown', function (ev) {
+    if (ev.target.closest('.node')) return;
+    drag = { x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y };
+    svg.classList.add('dragging');
+    svg.setPointerCapture(ev.pointerId);
+  });
+  svg.addEventListener('pointermove', function (ev) {
+    if (!drag) return;
+    view.x = drag.vx + (ev.clientX - drag.x);
+    view.y = drag.vy + (ev.clientY - drag.y);
+    applyView();
+  });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (e) {
+    svg.addEventListener(e, function () { drag = null; svg.classList.remove('dragging'); });
+  });
+  svg.addEventListener('wheel', function (ev) {
+    ev.preventDefault();
+    var box = svg.getBoundingClientRect(),
+        mx = ev.clientX - box.left, my = ev.clientY - box.top,
+        f = ev.deltaY < 0 ? 1.12 : 1 / 1.12,
+        k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = mx - (mx - view.x) * (k / view.k);
+    view.y = my - (my - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }, { passive: false });
+
+  function zoomBy(f) {
+    var box = svg.getBoundingClientRect(), cx = box.width / 2, cy = box.height / 2;
+    var k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = cx - (cx - view.x) * (k / view.k);
+    view.y = cy - (cy - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }
+
+  function setAll(open) {
+    (function walk(n, d) {
+      if (n.children && n.children.length) n.open = d === 0 ? true : open;
+      (n.children || []).forEach(function (c) { walk(c, d + 1); });
+    })(DATA, 0);
+    render(false);
+  }
+
+  document.querySelectorAll('[data-map]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var a = b.dataset.map;
+      if (a === 'expand') setAll(true);
+      else if (a === 'collapse') setAll(false);
+      else if (a === 'fit') fit();
+      else if (a === 'zoomin') zoomBy(1.18);
+      else if (a === 'zoomout') zoomBy(1 / 1.18);
+    });
+  });
+
+  var rt;
+  addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fit, 140); });
+
+  render(false);
+})();
+</script>
+<section class="section" id="ensaio">
+  <h2><span class="num">ENSAIO</span>AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers</h2>
+  <div class="prose">
+    <p class="drop">Imagine um sistema de recrutamento que, treinado com dados históricos de contratações, aprende silenciosamente a descartar currículos de candidatas mulheres. Foi exatamente o que aconteceu na Amazon: uma ferramenta de IA projetada para otimizar seleções acabou reproduzindo — e amplificando — vieses de gênero enterrados nos dados. O episódio não é isolado. À medida que sistemas de inteligência artificial se infiltram em decisões sobre crédito, saúde, justiça criminal e educação, cresce a urgência de uma pergunta incômoda: como garantir que essas tecnologias opacas e complexas sirvam ao bem-estar coletivo, em vez de perpetuar injustiças? É nesse cenário que a ética de IA deixa de ser um debate filosófico abstrato e se torna uma necessidade prática — e é sobre essa transição, do princípio ao chão de fábrica, que trata o estudo empírico de Khan e colegas, publicado no IEEE Transactions on Computational Social Systems.</p>
+    <h3>01. O que profissionais e legisladores realmente pensam</h3>
+<p>Diferentemente de revisões teóricas ou análises de documentos, este estudo foi a campo: 99 profissionais de IA e legisladores de 20 países, distribuídos por cinco continentes, responderam a um questionário estruturado sobre princípios e desafios da ética de IA. A amostra incluiu engenheiros de software, cientistas de dados, advogados e formuladores de políticas — dois grupos que raramente conversam, mas que precisam convergir se quisermos sistemas de IA confiáveis.</p><p>Os resultados confirmam empiricamente o que diretrizes como as da AI HLEG (High-Level Expert Group on AI, da União Europeia) e do IEEE já apontavam: transparência, accountability e privacidade emergem como os três princípios mais críticos. Mas a pesquisa vai além: ao capturar percepções de dois tipos de população, revela que há correlação estatística significativa entre as visões de profissionais e legisladores — embora com diferenças pontuais importantes, especialmente em torno de conceitos como fairness (justiça) e da necessidade de órgãos de monitoramento.</p>    <h3>02. Os desafios que travam a ética na prática</h3>
+<p>Se os princípios são amplamente reconhecidos, por que tantos sistemas de IA ainda falham eticamente? O estudo identifica três obstáculos principais: falta de conhecimento ético entre equipes de desenvolvimento, ausência de frameworks legais claros e vinculantes, e carência de órgãos de monitoramento que fiscalizem a conformidade. Esses desafios não são apenas teóricos — eles têm impacto mensurável.</p><p>A análise de severidade revela que o desafio mais crítico é o conflito na prática: a tensão entre princípios abstratos (como "seja transparente") e as demandas concretas de contextos específicos (como proteger segredos comerciais ou lidar com modelos de aprendizado profundo inerentemente opacos). Esse conflito atravessa todos os princípios, mas afeta especialmente a explicabilidade e a autonomia — conceitos que exigem operacionalização contextualizada, não apenas adesão retórica.</p>    <blockquote>O desafio mais severo não é a falta de princípios, mas o conflito entre eles e a realidade da prática.<cite>Análise de impacto · Seção IV</cite></blockquote>
+    <h3>03. Da diretriz genérica ao padrão contextualizado</h3>
+<p>As implicações do estudo são claras: diretrizes éticas genéricas, por mais bem-intencionadas, não bastam. É preciso traduzi-las em padrões específicos de domínio — saúde, finanças, justiça criminal — que equilibrem tensões éticas inerentes sem sufocar a inovação. Os autores propõem, como trabalho futuro, o desenvolvimento de um modelo de maturidade de ética de IA, capaz de avaliar e orientar organizações na adoção progressiva de práticas éticas.</p><p>Mais importante: o estudo evidencia que a ética de IA não é apenas responsabilidade de engenheiros. Legisladores, formuladores de políticas e órgãos reguladores têm papel central — e suas percepções, embora correlacionadas com as dos profissionais, divergem em pontos críticos. Isso sugere que a construção de sistemas confiáveis exige diálogo contínuo entre quem desenvolve e quem regula, entre quem codifica e quem legisla.</p>    <p>O estudo de Khan e colegas não oferece soluções prontas — e essa é, talvez, sua maior contribuição. Ao mapear empiricamente o terreno da ética de IA, ele expõe a distância entre o que sabemos ser necessário (transparência, accountability, privacidade) e o que conseguimos implementar (sistemas opacos, responsabilidades difusas, dados vazados). A lacuna não é de conhecimento, mas de operacionalização. E fechá-la exigirá mais do que boas intenções: exigirá frameworks juridicamente vinculantes, métricas de impacto, capacitação ética de equipes e, sobretudo, a coragem de reconhecer que alguns conflitos entre princípios não têm solução técnica — apenas negociação social.</p>
+  </div>
+  <div class="callout">
+    <b>A pergunta que fica:</b> Se os princípios de ética de IA são amplamente reconhecidos mas raramente operacionalizados na prática — e se o desafio mais severo é justamente o &#34;conflito na prática&#34; entre princípios abstratos e contextos reais —, como podemos transformar diretrizes genéricas em padrões contextualizados, específicos de domínio e juridicamente vinculantes, que equilibrem as tensões éticas inerentes sem comprometer a inovação ou a autonomia humana?
+  </div>
+</section>
+  <section class="section" id="tabelas">
+    <h2><span class="num">REFERÊNCIA</span>Conceitos e notação</h2>
+    <h3 style="margin-top:26px">Princípios de Ética de IA: Conceitos e Definições</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Princípio</th><th>Definição/Significado</th><th>Criticidade (Estudo)</th></tr></thead>
+    <tbody>
+      <tr><td>Transparency (Transparência)</td><td>Capacidade de tornar visíveis e compreensíveis os processos, decisões e funcionamento dos sistemas de IA</td><td>Mais crítico</td></tr>
+      <tr><td>Accountability (Responsabilização)</td><td>Atribuição clara de responsabilidade por decisões e ações de sistemas de IA, com mecanismos de prestação de contas</td><td>Mais crítico</td></tr>
+      <tr><td>Privacy (Privacidade)</td><td>Proteção de dados pessoais e garantia de confidencialidade no processamento de informações por sistemas de IA</td><td>Mais crítico</td></tr>
+      <tr><td>Fairness (Equidade)</td><td>Garantia de tratamento justo e não discriminatório, evitando vieses em decisões automatizadas</td><td>Crítico (diferença entre profissionais e legisladores)</td></tr>
+      <tr><td>Autonomy (Autonomia)</td><td>Preservação da capacidade humana de tomada de decisão e controle sobre sistemas de IA</td><td>Crítico</td></tr>
+      <tr><td>Explainability (Explicabilidade)</td><td>Capacidade de fornecer explicações compreensíveis sobre como e por que um sistema de IA chegou a determinada decisão</td><td>Crítico</td></tr>
+      <tr><td>Trustworthy AI (IA Confiável)</td><td>Conjunto de características que tornam sistemas de IA dignos de confiança, integrando múltiplos princípios éticos</td><td>Meta-princípio</td></tr>
+    </tbody>
+  </table>
+</div>    <h3 style="margin-top:26px">Desafios de Ética de IA: Tipos e Impactos</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Desafio</th><th>Descrição</th><th>Severidade/Prevalência</th></tr></thead>
+    <tbody>
+      <tr><td>Lack of ethical knowledge (Falta de conhecimento ético)</td><td>Ausência de formação e compreensão adequada sobre princípios éticos de IA entre profissionais</td><td>Mais comum</td></tr>
+      <tr><td>No legal frameworks (Ausência de frameworks legais)</td><td>Falta de regulamentação e legislação específica para governar o desenvolvimento e uso de IA</td><td>Mais comum</td></tr>
+      <tr><td>Lacking monitoring bodies (Falta de órgãos de monitoramento)</td><td>Ausência de entidades responsáveis por fiscalizar e garantir conformidade ética em sistemas de IA</td><td>Mais comum (diferença entre profissionais e legisladores)</td></tr>
+      <tr><td>Conflict in practice (Conflito na prática)</td><td>Tensão entre princípios éticos abstratos e sua aplicação em contextos reais de desenvolvimento e uso</td><td>Desafio mais severo</td></tr>
+      <tr><td>Machine distortion (Distorção de máquina)</td><td>Vieses algorítmicos e erros sistemáticos que comprometem a qualidade e justiça das decisões de IA</td><td>Severo (diferença entre profissionais e legisladores)</td></tr>
+    </tbody>
+  </table>
+</div>    <h3 style="margin-top:26px">Frameworks e Diretrizes de Ética de IA: Principais Iniciativas</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Framework/Diretriz</th><th>Organização/Origem</th><th>Foco Principal</th></tr></thead>
+    <tbody>
+      <tr><td>AI HLEG Guidelines</td><td>High-Level Expert Group on AI (União Europeia)</td><td>Sete requisitos para IA confiável, incluindo supervisão humana e transparência</td></tr>
+      <tr><td>EAD (Ethically Aligned Design)</td><td>IEEE (Institute of Electrical and Electronics Engineers)</td><td>Design de sistemas autônomos e inteligentes alinhados com valores humanos</td></tr>
+      <tr><td>ART Framework</td><td>Diversos autores acadêmicos</td><td>Accountability, Responsibility e Transparency como pilares centrais</td></tr>
+      <tr><td>ISO/IEC JTC 1/SC 42</td><td>International Organization for Standardization</td><td>Padronização internacional de IA, incluindo aspectos éticos</td></tr>
+      <tr><td>Google AI Principles</td><td>Google</td><td>Princípios corporativos para desenvolvimento responsável de IA</td></tr>
+      <tr><td>SAP Guiding Principles</td><td>SAP</td><td>Diretrizes empresariais para IA ética em contextos corporativos</td></tr>
+      <tr><td>ECCOLA</td><td>Framework acadêmico</td><td>Ferramenta prática para incorporar considerações éticas no desenvolvimento de IA</td></tr>
+      <tr><td>AI4People</td><td>Iniciativa europeia</td><td>Framework ético baseado em princípios bioéticos adaptados para IA</td></tr>
+    </tbody>
+  </table>
+</div>  </section>
+
+<section class="section" id="entidades">
+  <h2><span class="num">GRAFO</span>Entidades e relações extraídas</h2>
+  <p>Conceitos identificados automaticamente no texto do artigo. O tamanho do círculo reflete quantas vezes o conceito aparece; a cor indica o tipo.</p>
+
+  <div class="egraph">
+    <div class="egraph-legend">
+      <button type="button" class="egraph-chip" data-type="Concept" aria-pressed="true">
+        <i style="background:#2E7D5B"></i>Concept
+      </button>
+      <button type="button" class="egraph-chip" data-type="Method" aria-pressed="true">
+        <i style="background:#8A5A00"></i>Method
+      </button>
+      <button type="button" class="egraph-chip" data-type="Metric" aria-pressed="true">
+        <i style="background:#B4233D"></i>Metric
+      </button>
+      <button type="button" class="egraph-chip" data-type="Organization" aria-pressed="true">
+        <i style="background:#7A4B2A"></i>Organization
+      </button>
+      <button type="button" class="egraph-chip" data-type="Software" aria-pressed="true">
+        <i style="background:#0F6C6C"></i>Software
+      </button>
+      <button type="button" class="egraph-chip" data-type="System" aria-pressed="true">
+        <i style="background:#E8172D"></i>System
+      </button>
+    </div>
+
+    <div class="egraph-canvas">
+      <svg viewBox="0 0 900 520" role="img"
+           aria-label="Grafo de 40 entidades e 10 relações extraídas do artigo">
+        <defs>
+          <marker id="eg-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                  markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.45)"></path>
+          </marker>
+        </defs>
+
+        <g class="egraph-edges">
+          <g class="egraph-edge" data-source="Software" data-target="Concept">
+            <line x1="212.9" y1="141.5"
+                  x2="573.2" y2="328.9"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>survey instrument — avalia → AI ethics principles and challenges</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="450.5" y1="257.7"
+                  x2="319.3" y2="339.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>AI ethics principles — inclui → fairness</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="450.5" y1="257.7"
+                  x2="430.3" y2="102.8"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>AI ethics principles — inclui → autonomy</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="123.4" y1="243.6"
+                  x2="377.1" y2="228.6"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>conflict in practice — desafia → privacy</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="123.4" y1="243.6"
+                  x2="430.3" y2="102.8"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>conflict in practice — desafia → autonomy</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="200.6" y1="347.6"
+                  x2="521.7" y2="296.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>law — regula → AI ethics</title>
+          </g>
+          <g class="egraph-edge" data-source="Organization" data-target="Concept">
+            <line x1="515.7" y1="359.2"
+                  x2="319.3" y2="339.5"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>lawmakers — priorizam → fairness</title>
+          </g>
+          <g class="egraph-edge" data-source="Organization" data-target="Organization">
+            <line x1="462.5" y1="190.9"
+                  x2="533.8" y2="108.8"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>practitioners — necessitam → monitoring bodies</title>
+          </g>
+          <g class="egraph-edge" data-source="Concept" data-target="Concept">
+            <line x1="521.7" y1="296.2"
+                  x2="277.3" y2="293.2"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>AI ethics — é classificado sob → ethics</title>
+          </g>
+          <g class="egraph-edge" data-source="Organization" data-target="System">
+            <line x1="741.4" y1="222.5"
+                  x2="437.2" y2="326.4"
+                  marker-end="url(#eg-arrow)"></line>
+            <title>regulatory bodies — regulam → AI systems</title>
+          </g>
+        </g>
+
+        <g class="egraph-nodes">
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="450.5" cy="257.7"
+                    r="40.0" fill="#2E7D5B"></circle>
+            <text x="450.5" y="310.7"
+                  text-anchor="middle">AI ethics principles</text>
+            <title>AI ethics principles · Concept · 61 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="521.7" cy="296.2"
+                    r="34.9" fill="#2E7D5B"></circle>
+            <text x="521.7" y="344.1"
+                  text-anchor="middle">AI ethics</text>
+            <title>AI ethics · Concept · 51 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="437.2" cy="326.4"
+                    r="24.0" fill="#E8172D"></circle>
+            <text x="437.2" y="363.3"
+                  text-anchor="middle">AI systems</text>
+            <title>AI systems · System · 21 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="359.1" cy="281.8"
+                    r="23.2" fill="#2E7D5B"></circle>
+            <text x="359.1" y="318.1"
+                  text-anchor="middle">challenges</text>
+            <title>challenges · Concept · 24 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="377.1" cy="228.6"
+                    r="22.8" fill="#2E7D5B"></circle>
+            <text x="377.1" y="264.4"
+                  text-anchor="middle">privacy</text>
+            <title>privacy · Concept · 16 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="462.5" cy="190.9"
+                    r="21.9" fill="#7A4B2A"></circle>
+            <text x="462.5" y="225.7"
+                  text-anchor="middle">practitioners</text>
+            <title>practitioners · Organization · 17 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="541.8" cy="233.4"
+                    r="21.8" fill="#2E7D5B"></circle>
+            <text x="541.8" y="268.2"
+                  text-anchor="middle">transparency</text>
+            <title>transparency · Concept · 14 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="515.7" cy="359.2"
+                    r="21.8" fill="#7A4B2A"></circle>
+            <text x="515.7" y="394.0"
+                  text-anchor="middle">lawmakers</text>
+            <title>lawmakers · Organization · 17 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="409.1" cy="368.1"
+                    r="20.4" fill="#2E7D5B"></circle>
+            <text x="409.1" y="401.5"
+                  text-anchor="middle">accountability</text>
+            <title>accountability · Concept · 11 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="319.3" cy="339.5"
+                    r="20.3" fill="#2E7D5B"></circle>
+            <text x="319.3" y="372.7"
+                  text-anchor="middle">fairness</text>
+            <title>fairness · Concept · 10 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="277.3" cy="293.2"
+                    r="19.4" fill="#2E7D5B"></circle>
+            <text x="277.3" y="325.6"
+                  text-anchor="middle">ethics</text>
+            <title>ethics · Concept · 10 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="273.3" cy="240.5"
+                    r="18.1" fill="#2E7D5B"></circle>
+            <text x="273.3" y="271.7"
+                  text-anchor="middle">AI ethics challenges</text>
+            <title>AI ethics challenges · Concept · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="298.6" cy="191.4"
+                    r="18.1" fill="#E8172D"></circle>
+            <text x="298.6" y="222.4"
+                  text-anchor="middle">AI system</text>
+            <title>AI system · System · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="356.7" cy="168.4"
+                    r="18.0" fill="#7A4B2A"></circle>
+            <text x="356.7" y="199.3"
+                  text-anchor="middle">practitioners and lawmake…</text>
+            <title>practitioners and lawmakers · Organization · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="544.7" cy="154.1"
+                    r="17.9" fill="#2E7D5B"></circle>
+            <text x="544.7" y="185.1"
+                  text-anchor="middle">lack of ethical knowledge</text>
+            <title>lack of ethical knowledge · Concept · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="580.7" cy="180.5"
+                    r="17.9" fill="#2E7D5B"></circle>
+            <text x="580.7" y="211.5"
+                  text-anchor="middle">principles</text>
+            <title>principles · Concept · 7 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Method" tabindex="0">
+            <circle cx="638.9" cy="225.5"
+                    r="17.5" fill="#8A5A00"></circle>
+            <text x="638.9" y="256.0"
+                  text-anchor="middle">t*-test</text>
+            <title>t*-test · Method · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="621.3" cy="279.1"
+                    r="17.5" fill="#2E7D5B"></circle>
+            <text x="621.3" y="309.6"
+                  text-anchor="middle">internal validity</text>
+            <title>internal validity · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="573.2" cy="328.9"
+                    r="17.5" fill="#2E7D5B"></circle>
+            <text x="573.2" y="359.3"
+                  text-anchor="middle">AI ethics principles and …</text>
+            <title>AI ethics principles and challenges · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="334.3" cy="409.4"
+                    r="17.4" fill="#2E7D5B"></circle>
+            <text x="334.3" y="439.8"
+                  text-anchor="middle">challenging factors</text>
+            <title>challenging factors · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Software" tabindex="0">
+            <circle cx="272.7" cy="387.1"
+                    r="17.3" fill="#0F6C6C"></circle>
+            <text x="272.7" y="417.4"
+                  text-anchor="middle">software</text>
+            <title>software · Software · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="200.6" cy="347.6"
+                    r="17.3" fill="#2E7D5B"></circle>
+            <text x="200.6" y="377.8"
+                  text-anchor="middle">law</text>
+            <title>law · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="190.9" cy="303.3"
+                    r="17.3" fill="#7A4B2A"></circle>
+            <text x="190.9" y="333.5"
+                  text-anchor="middle">Wuhan University</text>
+            <title>Wuhan University · Organization · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="123.4" cy="243.6"
+                    r="17.3" fill="#2E7D5B"></circle>
+            <text x="123.4" y="273.9"
+                  text-anchor="middle">conflict in practice</text>
+            <title>conflict in practice · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="180.9" cy="190.4"
+                    r="17.2" fill="#7A4B2A"></circle>
+            <text x="180.9" y="220.6"
+                  text-anchor="middle">ISO</text>
+            <title>ISO · Organization · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Software" tabindex="0">
+            <circle cx="212.9" cy="141.5"
+                    r="17.2" fill="#0F6C6C"></circle>
+            <text x="212.9" y="171.7"
+                  text-anchor="middle">survey instrument</text>
+            <title>survey instrument · Software · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="329.1" cy="115.9"
+                    r="17.2" fill="#E8172D"></circle>
+            <text x="329.1" y="146.1"
+                  text-anchor="middle">AI technologies</text>
+            <title>AI technologies · System · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="430.3" cy="102.8"
+                    r="17.2" fill="#2E7D5B"></circle>
+            <text x="430.3" y="133.0"
+                  text-anchor="middle">autonomy</text>
+            <title>autonomy · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="533.8" cy="108.8"
+                    r="17.1" fill="#7A4B2A"></circle>
+            <text x="533.8" y="138.9"
+                  text-anchor="middle">monitoring bodies</text>
+            <title>monitoring bodies · Organization · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="627.3" cy="132.9"
+                    r="17.0" fill="#2E7D5B"></circle>
+            <text x="627.3" y="163.0"
+                  text-anchor="middle">ethical aspects</text>
+            <title>ethical aspects · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="699.4" cy="172.4"
+                    r="17.0" fill="#2E7D5B"></circle>
+            <text x="699.4" y="202.4"
+                  text-anchor="middle">no legal frameworks</text>
+            <title>no legal frameworks · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="741.4" cy="222.5"
+                    r="16.9" fill="#7A4B2A"></circle>
+            <text x="741.4" y="252.4"
+                  text-anchor="middle">regulatory bodies</text>
+            <title>regulatory bodies · Organization · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Metric" tabindex="0">
+            <circle cx="781.8" cy="276.2"
+                    r="16.9" fill="#B4233D"></circle>
+            <text x="781.8" y="306.1"
+                  text-anchor="middle">Spearman correlation coef…</text>
+            <title>Spearman correlation coefficients · Metric · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="751.2" cy="329.9"
+                    r="16.9" fill="#2E7D5B"></circle>
+            <text x="751.2" y="359.7"
+                  text-anchor="middle">transparency principle</text>
+            <title>transparency principle · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="658.5" cy="373.2"
+                    r="16.9" fill="#E8172D"></circle>
+            <text x="658.5" y="403.1"
+                  text-anchor="middle">system</text>
+            <title>system · System · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="624.1" cy="393.1"
+                    r="16.9" fill="#7A4B2A"></circle>
+            <text x="624.1" y="423.0"
+                  text-anchor="middle">University of Jyväskylä</text>
+            <title>University of Jyväskylä · Organization · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="447.5" cy="430.6"
+                    r="16.9" fill="#7A4B2A"></circle>
+            <text x="447.5" y="460.4"
+                  text-anchor="middle">University of Southern Qu…</text>
+            <title>University of Southern Queensland · Organization · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="136.4" cy="390.3"
+                    r="16.9" fill="#7A4B2A"></circle>
+            <text x="136.4" y="420.2"
+                  text-anchor="middle">Lappeenranta-Lahti Univer…</text>
+            <title>Lappeenranta-Lahti University of Technology · Organization · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Metric" tabindex="0">
+            <circle cx="82.8" cy="343.3"
+                    r="16.8" fill="#B4233D"></circle>
+            <text x="82.8" y="373.1"
+                  text-anchor="middle">Likert scale</text>
+            <title>Likert scale · Metric · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="63.0" cy="286.1"
+                    r="16.8" fill="#7A4B2A"></circle>
+            <text x="63.0" y="316.0"
+                  text-anchor="middle">University of Oulu</text>
+            <title>University of Oulu · Organization · 2 menções</title>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <table class="egraph-triples">
+      <caption>Relações afirmadas pelo artigo, com a passagem que as sustenta</caption>
+      <thead>
+        <tr><th scope="col">Origem</th><th scope="col">Relação</th><th scope="col">Destino</th><th scope="col">Passagem de apoio</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>survey instrument</b></td>
+          <td><span class="egraph-rel">avalia</span></td>
+          <td><b>AI ethics principles and challenges</b></td>
+          <td><q>The survey instrument consisted of four core sections: 1) demographics; 2) AI ethics principles; 3) challenges; and 4) challenges impact on principles.</q></td>
+        </tr>
+        <tr>
+          <td><b>AI ethics principles</b></td>
+          <td><span class="egraph-rel">inclui</span></td>
+          <td><b>fairness</b></td>
+          <td><q>the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).</q></td>
+        </tr>
+        <tr>
+          <td><b>AI ethics principles</b></td>
+          <td><span class="egraph-rel">inclui</span></td>
+          <td><b>autonomy</b></td>
+          <td><q>the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).</q></td>
+        </tr>
+        <tr>
+          <td><b>conflict in practice</b></td>
+          <td><span class="egraph-rel">desafia</span></td>
+          <td><b>privacy</b></td>
+          <td><q>Conflict in practice is deemed the most significant chal- lenge to the privacy principle.</q></td>
+        </tr>
+        <tr>
+          <td><b>conflict in practice</b></td>
+          <td><span class="egraph-rel">desafia</span></td>
+          <td><b>autonomy</b></td>
+          <td><q>(79%) of the survey respondents considered conflict in practice as the most common (long-term) challenge for autonomy and explainability principles.</q></td>
+        </tr>
+        <tr>
+          <td><b>law</b></td>
+          <td><span class="egraph-rel">regula</span></td>
+          <td><b>AI ethics</b></td>
+          <td><q>The aim of considering this type of population (lawmakers) is to understand the application of the law to AI ethics.</q></td>
+        </tr>
+        <tr>
+          <td><b>lawmakers</b></td>
+          <td><span class="egraph-rel">priorizam</span></td>
+          <td><b>fairness</b></td>
+          <td><q>lawmakers ranked fairness at position five as the most important principle</q></td>
+        </tr>
+        <tr>
+          <td><b>practitioners</b></td>
+          <td><span class="egraph-rel">necessitam</span></td>
+          <td><b>monitoring bodies</b></td>
+          <td><q>lacking monitoring bodies is ranked second by the practitioners</q></td>
+        </tr>
+        <tr>
+          <td><b>AI ethics</b></td>
+          <td><span class="egraph-rel">é classificado sob</span></td>
+          <td><b>ethics</b></td>
+          <td><q>Generally, AI ethics is classified under the umbrella of applied ethics</q></td>
+        </tr>
+        <tr>
+          <td><b>regulatory bodies</b></td>
+          <td><span class="egraph-rel">regulam</span></td>
+          <td><b>AI systems</b></td>
+          <td><q>Extant guide- lines and policies devised by researchers and regulatory bodies discussed different ethical goals for AI systems.</q></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="egraph-note">Extraído com <code>gliner=urchade/gliner_multi-v2.1, relations=llm</code>. Cada entidade aponta para o trecho do texto onde foi encontrada; cada relação exibe a sentença verificada literalmente contra o artigo.</p>
+  </div>
+
+  <script>
+  (function () {
+    var root = document.currentScript.closest('.egraph') || document.querySelector('.egraph');
+    if (!root) return;
+    var chips = root.querySelectorAll('.egraph-chip');
+    var hidden = new Set();
+
+    function apply() {
+      root.querySelectorAll('.egraph-node').forEach(function (n) {
+        n.classList.toggle('is-dim', hidden.has(n.dataset.type));
+      });
+      root.querySelectorAll('.egraph-edge').forEach(function (e) {
+        e.classList.toggle('is-dim', hidden.has(e.dataset.source) || hidden.has(e.dataset.target));
+      });
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var type = chip.dataset.type;
+        if (hidden.has(type)) { hidden.delete(type); } else { hidden.add(type); }
+        chip.setAttribute('aria-pressed', String(!hidden.has(type)));
+        apply();
+      });
+    });
+  })();
+  </script>
+</section>
+
+<section class="section" id="slides">
+  <h2><span class="num">DECK</span>Apresentação do artigo</h2>
+  <p>Prévia da apresentação gerada a partir do artigo.</p>
+  <div class="deck">
+    <div class="deck-frame">
+      <iframe
+        src="slides/deck.pdf#view=FitH"
+        title="Apresentação: Ética de IA: O Que Pensam Profissionais e Legisladores"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="deck-bar">
+      <span>Deck em PDF · hospedado neste site</span>
+      <span class="deck-actions">
+        <a class="btn" href="slides/deck.pdf" target="_blank" rel="noopener">Abrir o PDF ↗</a>
+        <a class="btn primary" href="slides/deck.pptx" download>Baixar .pptx</a>
+      </span>
+    </div>
+  </div>
+</section>
+<section class="section" id="downloads">
+  <h2><span class="num">FONTES</span>Material</h2>
+  <div class="dl-grid">
+    <a class="dl" href="ai-ethics-empirical-study.pdf">
+      <b>Artigo original em PDF</b>
+      <small>Estudo empírico completo com survey de 99 profissionais e legisladores de IA sobre princípios éticos (transparência, accountability, privacidade) e desafios de implementação.</small>
+      <span class="arrow">PDF ↓</span>
+    </a>
+    <a class="dl" href="blog.html">
+      <b>Post de blog</b>
+      <small>Versão comentada explorando as percepções de profissionais e legisladores sobre ética de IA, os princípios mais críticos e o desafio do conflito na prática.</small>
+      <span class="arrow">LER →</span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang, Muhammad Waseem, Aakash Ahmad, Mahmood Niazi, Pekka Abrahamsson. AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers. IEEE Transactions on Computational Social Systems, pp. VOL. 10, NO. 6, DECEMBER 2023. doi:10.1109/TCSS.2023.3251729<br><br>
+    <a href="workshop.html">Dinâmica</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="../../ethics-on-ai/index.html">&#8592; Ethics on AI</a>
+  </div>
+</footer>
+
+
+</body>
+</html>
