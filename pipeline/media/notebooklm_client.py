@@ -50,6 +50,24 @@ _ARTIFACT_TIMEOUT_SECONDS = 900.0
 # Sources must finish server-side processing before an artifact can cite them.
 _SOURCE_TIMEOUT_SECONDS = 300.0
 
+# The site is written in Brazilian Portuguese, and the papers it ingests are in
+# English. NotebookLM defaults to English and, given a bare "pt", has produced
+# European Portuguese narration; the region tag plus an explicit instruction is
+# what reliably pins both artifacts to pt-BR.
+_LANGUAGE = "pt-BR"
+_AUDIO_INSTRUCTIONS = (
+    "Gere o áudio inteiramente em português do Brasil (pt-BR), com vocabulário, "
+    "pronúncia e entonação brasileiros. Mesmo que as fontes estejam em inglês, "
+    "não narre em inglês nem em português europeu. Mantenha em inglês apenas os "
+    "termos técnicos consagrados, explicando-os na primeira ocorrência."
+)
+_SLIDES_INSTRUCTIONS = (
+    "Gere os slides inteiramente em português do Brasil (pt-BR): títulos, "
+    "bullets e notas. Mesmo que as fontes estejam em inglês, não escreva em "
+    "inglês nem em português europeu. Mantenha em inglês apenas os termos "
+    "técnicos consagrados."
+)
+
 
 class NotebookLMError(RuntimeError):
     pass
@@ -197,7 +215,8 @@ def generate_audio_overview(
     dest_path: Path,
     settings: Settings,
     style: str = "DEEP_DIVE",
-    language: str = "pt",
+    language: str = _LANGUAGE,
+    instructions: str = _AUDIO_INSTRUCTIONS,
 ) -> Path:
     """Create a notebook, add the PDF, generate a podcast-style audio overview,
     poll until ready, and download it to `dest_path`. Returns dest_path.
@@ -221,6 +240,7 @@ def generate_audio_overview(
                 notebook_id,
                 source_ids=source_ids,
                 language=language,
+                instructions=instructions,
                 audio_format=audio_format,
             )
             await _await_artifact(client, notebook_id, status, "Audio overview")
@@ -239,7 +259,8 @@ def generate_slide_deck(
     pptx_dest: Path,
     pdf_dest: Path,
     settings: Settings,
-    language: str = "pt",
+    language: str = _LANGUAGE,
+    instructions: str = _SLIDES_INSTRUCTIONS,
 ) -> tuple[Path, Path]:
     """Create a notebook, add the PDF, generate a slide deck once, and download
     it twice — as PPTX and as PDF. Returns (pptx_dest, pdf_dest).
@@ -260,6 +281,7 @@ def generate_slide_deck(
                 notebook_id,
                 source_ids=source_ids,
                 language=language,
+                instructions=instructions,
                 slide_format=nb.SlideDeckFormat.PRESENTER_SLIDES,
             )
             await _await_artifact(client, notebook_id, status, "Slide deck")

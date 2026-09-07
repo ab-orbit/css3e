@@ -146,12 +146,12 @@ def test_audio_passes_source_ids_and_format(monkeypatch, settings, pdf, tmp_path
     install_fake_client(monkeypatch, calls)
 
     generate_audio_overview(
-        pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings, language="pt"
+        pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings
     )
 
     kwargs = next(c[2] for c in calls if c[0] == "generate_audio")
     assert kwargs["source_ids"] == ["src-1"]
-    assert kwargs["language"] == "pt"
+    assert kwargs["language"] == "pt-BR"
     assert kwargs["audio_format"] == nb.AudioFormat.DEEP_DIVE
 
 
@@ -349,3 +349,25 @@ def test_notebook_listing_failure_falls_back_to_creating(monkeypatch, settings, 
     generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
 
     assert "notebooks.create" in [c[0] for c in calls]
+
+
+def test_both_artifacts_are_pinned_to_brazilian_portuguese(
+    monkeypatch, settings, pdf, tmp_path
+):
+    """Sources are in English; narration and slides must not follow them."""
+    calls: list = []
+    install_fake_client(monkeypatch, calls)
+
+    generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
+    generate_slide_deck(
+        pdf,
+        title="paper",
+        pptx_dest=tmp_path / "deck.pptx",
+        pdf_dest=tmp_path / "deck.pdf",
+        settings=settings,
+    )
+
+    for call in ("generate_audio", "generate_slide_deck"):
+        kwargs = next(c[2] for c in calls if c[0] == call)
+        assert kwargs["language"] == "pt-BR"
+        assert "português do Brasil (pt-BR)" in kwargs["instructions"]
