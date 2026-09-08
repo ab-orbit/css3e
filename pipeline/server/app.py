@@ -70,6 +70,42 @@ async def create_run(
     return {"run_id": run.run_id, "slug": resolved_slug}
 
 
+@app.get("/api/articles/{tema}/{slug}/artifacts")
+def article_artifacts(tema: str, slug: str) -> dict:
+    """The regenerable artifacts of one published article, with their prompts."""
+    from pipeline.regen import RegenError, list_artifacts
+
+    try:
+        return {"tema": tema, "slug": slug, "artifacts": list_artifacts(tema, slug)}
+    except RegenError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+
+@app.post("/api/articles/{tema}/{slug}/regen")
+def regen_artifact(
+    tema: str,
+    slug: str,
+    artifact: str = Form(...),
+    prompt: str = Form(default=""),
+    save_as_default: bool = Form(default=False),
+) -> dict:
+    """Start a regeneration of one artifact of an already-published article."""
+    from pipeline.regen import ARTIFACTS, RegenError, load_package
+
+    if artifact not in ARTIFACTS:
+        raise HTTPException(status_code=400, detail=f"Artefato desconhecido: {artifact}")
+    try:
+        load_package(tema, slug)
+    except RegenError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+    run = registry.create_regen(tema=tema, slug=slug, artifact=artifact)
+    registry.start_regen(run, prompt=prompt or None, save_as_default=save_as_default)
+
+    logger.info("Regen %s started for %s/%s (%s)", run.run_id, tema, slug, artifact)
+    return {"run_id": run.run_id, "artifact": artifact}
+
+
 @app.get("/api/runs/{run_id}/events")
 def run_events(run_id: str) -> StreamingResponse:
     """Server-sent events for one run."""

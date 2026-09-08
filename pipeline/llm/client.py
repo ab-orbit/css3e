@@ -9,14 +9,15 @@ model families this project is likely to use.
 
 from __future__ import annotations
 
-from functools import lru_cache
-from pathlib import Path
 from typing import TypeVar
 
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
 
 from pipeline.config import Settings, get_settings
+from pipeline.llm.prompt_store import PROMPTS_DIR, load_prompt, save_prompt
+
+__all__ = ["PROMPTS_DIR", "load_prompt", "save_prompt", "make_chat_model", "render_prompt", "run_structured"]
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
@@ -42,16 +43,8 @@ def make_chat_model(settings: Settings | None = None, *, fast: bool = False) -> 
     )
 
 
-PROMPTS_DIR = Path(__file__).resolve().parent / "prompts"
-
-
-@lru_cache(maxsize=None)
-def load_prompt(name: str) -> str:
-    """Load a prompt .md file from pipeline/llm/prompts/<name>.md."""
-    path = PROMPTS_DIR / f"{name}.md"
-    if not path.exists():
-        raise FileNotFoundError(f"No prompt file at {path}")
-    return path.read_text(encoding="utf-8")
+# Re-exported: prompt IO lives in prompt_store so the media layer can read a
+# prompt without importing LangChain.
 
 
 def render_prompt(

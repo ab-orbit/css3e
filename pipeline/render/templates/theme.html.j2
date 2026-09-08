@@ -40,7 +40,7 @@
     <section class="tg-grid" data-view="cards">
       {% for e in entries %}
       {% set href = article_href(e) %}
-      <article class="tg-card">
+      <article class="tg-card" data-tema="{{ e.tema }}" data-slug="{{ e.slug }}">
         <a class="tg-card-hit" href="{{ href }}">
           <p class="tg-card-meta">{{ e.date_published }} · {{ e.authors | join(', ') | truncate(58) }}</p>
           <h2 class="tg-card-title">{{ e.title_pt or e.title }}</h2>
@@ -61,7 +61,7 @@
     <section class="tg-list" data-view="list" hidden>
       {% for e in entries %}
       {% set href = article_href(e) %}
-      <article class="tg-row">
+      <article class="tg-row" data-tema="{{ e.tema }}" data-slug="{{ e.slug }}">
         <div class="tg-row-main">
           <a class="tg-row-title" href="{{ href }}">{{ e.title_pt or e.title }}</a>
           {% if e.briefing %}<p class="tg-row-brief">{{ e.briefing }}</p>{% endif %}

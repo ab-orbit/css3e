@@ -174,3 +174,76 @@ class TestArticleCard:
     def test_no_card_before_the_hero(self):
         run = Run(run_id="r", pdf_path=Path("x.pdf"), slug="s")
         assert article_card("ingest_pdf", {"paper_text": "x"}, run) is None
+
+
+class TestRegenEndpoints:
+    """Per-artifact regeneration: prompts in, one run out."""
+
+    @pytest.fixture
+    def stub_regen(self, monkeypatch):
+        started: list = []
+
+        def _fake_start(self, run, *, prompt, save_as_default):
+            started.append((run, prompt, save_as_default))
+            run.emit("done", {"elapsed": 0.1})
+            run.finished = True
+
+        monkeypatch.setattr(RunRegistry, "start_regen", _fake_start)
+        return started
+
+    @pytest.fixture
+    def stub_article(self, monkeypatch):
+        """A published article, without touching the repo's real articles/."""
+        import pipeline.regen as regen_module
+
+        monkeypatch.setattr(regen_module, "load_package", lambda tema, slug: object())
+        monkeypatch.setattr(
+            regen_module,
+            "list_artifacts",
+            lambda tema, slug: [
+                {"id": "audio", "label": "Áudio", "prompt": "narre em pt-BR", "current": {}}
+            ],
+        )
+
+    def test_lists_artifacts_with_prompts(self, client, stub_article):
+        response = client.get("/api/articles/tema-x/slug-y/artifacts")
+
+        assert response.status_code == 200
+        assert response.json()["artifacts"][0]["prompt"] == "narre em pt-BR"
+
+    def test_missing_article_is_a_404(self, client, monkeypatch):
+        import pipeline.regen as regen_module
+
+        def _boom(tema, slug):
+            raise regen_module.RegenError("Sem package.json em x")
+
+        monkeypatch.setattr(regen_module, "list_artifacts", _boom)
+
+        assert client.get("/api/articles/a/b/artifacts").status_code == 404
+
+    def test_starts_a_regen_run(self, client, stub_article, stub_regen):
+        response = client.post(
+            "/api/articles/tema-x/slug-y/regen",
+            data={"artifact": "audio", "prompt": "seja breve", "save_as_default": "true"},
+        )
+
+        assert response.status_code == 200
+        run, prompt, save = stub_regen[0]
+        assert (run.tema, run.slug, run.artifact) == ("tema-x", "slug-y", "audio")
+        assert (prompt, save) == ("seja breve", True)
+
+    def test_unknown_artifact_is_rejected(self, client, stub_article, stub_regen):
+        response = client.post(
+            "/api/articles/tema-x/slug-y/regen", data={"artifact": "podcast"}
+        )
+
+        assert response.status_code == 400
+        assert stub_regen == []
+
+    def test_regen_progress_reports_its_own_phases(self, client, stub_article, stub_regen):
+        run_id = client.post(
+            "/api/articles/tema-x/slug-y/regen", data={"artifact": "audio"}
+        ).json()["run_id"]
+
+        phases = [p["name"] for p in client.get(f"/api/runs/{run_id}").json()["phases"]]
+        assert phases == ["Geração", "Publicação"]

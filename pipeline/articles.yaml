@@ -40,15 +40,15 @@
   - Aakash Ahmad
   - Mahmood Niazi
   - Pekka Abrahamsson
-  date_published: '2023'
+  date_published: 2023-12
   pages:
     article: articles/ethics-on-ai/ai-ethics-empirical-study/index.html
     blog: articles/ethics-on-ai/ai-ethics-empirical-study/blog.html
     workshop: articles/ethics-on-ai/ai-ethics-empirical-study/workshop.html
   briefing: Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência,
-    accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento
-    ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios
-    para sistemas de IA confiáveis.
+    accountability e privacidade são os princípios éticos mais críticos, mas a falta de conhecimento ético,
+    ausência de frameworks legais e conflito na prática permanecem como barreiras severas para a adoção
+    de IA eticamente alinhada.
   has_audio: false
   has_slides: true
   slides_pptx_path: slides/deck.pptx

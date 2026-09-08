@@ -53,6 +53,15 @@ _NODE_TO_PHASE = {
     node: phase for phase, nodes in PHASE_NODES.items() for node in nodes
 }
 
+# A regeneration skips extraction, analysis and the fan-out entirely: one
+# NotebookLM call, then the same publish tail. Its bar therefore needs its own
+# phases — reusing the full-run ones would show three phases that never move.
+REGEN_PHASE_NODES: dict[str, tuple[str, ...]] = {
+    "Geração": ("regen_artifact",),
+    "Publicação": ("render_html", "publish"),
+}
+REGEN_PHASE_WEIGHTS: dict[str, float] = {"Geração": 0.98, "Publicação": 0.02}
+
 
 def phase_for_node(node: str) -> str | None:
     """The phase a node belongs to, or None when it is not tracked."""
@@ -60,30 +69,44 @@ def phase_for_node(node: str) -> str | None:
 
 
 class RunProgress:
-    """Tracks which nodes have completed and derives weighted percentages."""
+    """Tracks which nodes have completed and derives weighted percentages.
 
-    def __init__(self) -> None:
+    Phases are injectable so a regeneration, which runs a different and much
+    shorter set of steps, can report a bar that describes its own work.
+    """
+
+    def __init__(
+        self,
+        phase_nodes: dict[str, tuple[str, ...]] | None = None,
+        phase_weights: dict[str, float] | None = None,
+    ) -> None:
         self._done: set[str] = set()
+        self._phase_nodes = phase_nodes or PHASE_NODES
+        self._phase_weights = phase_weights or PHASE_WEIGHTS
+        self._node_to_phase = {
+            node: phase for phase, nodes in self._phase_nodes.items() for node in nodes
+        }
 
     def all_nodes(self) -> list[str]:
-        return [node for nodes in PHASE_NODES.values() for node in nodes]
+        return [node for nodes in self._phase_nodes.values() for node in nodes]
 
     def complete(self, node: str) -> None:
         """Mark a node done. Idempotent: `publish` fires twice per run, and a
         bar that could exceed 100% would be worse than one that stalls.
         """
-        if node in _NODE_TO_PHASE:
+        if node in self._node_to_phase:
             self._done.add(node)
 
     def phase_pct(self, phase: str) -> int:
-        nodes = PHASE_NODES[phase]
+        nodes = self._phase_nodes[phase]
         done = sum(1 for node in nodes if node in self._done)
         return round(100 * done / len(nodes))
 
     @property
     def total_pct(self) -> int:
         total = sum(
-            PHASE_WEIGHTS[phase] * self.phase_pct(phase) for phase in PHASE_NODES
+            self._phase_weights[phase] * self.phase_pct(phase)
+            for phase in self._phase_nodes
         )
         rounded = min(100, round(total))
 
@@ -91,7 +114,7 @@ class RunProgress:
         # phase has not started. Hold at 99 until every phase is actually done:
         # a bar that says "done" with work pending is worse than a slow one.
         if rounded == 100 and any(
-            self.phase_pct(phase) < 100 for phase in PHASE_NODES
+            self.phase_pct(phase) < 100 for phase in self._phase_nodes
         ):
             return 99
         return rounded
@@ -101,7 +124,7 @@ class RunProgress:
         result = []
         first_unfinished_seen = False
 
-        for phase in PHASE_NODES:
+        for phase in self._phase_nodes:
             pct = self.phase_pct(phase)
             done = pct == 100
             active = not done and not first_unfinished_seen

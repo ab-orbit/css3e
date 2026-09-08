@@ -39,6 +39,7 @@ from pathlib import Path
 from typing import Any, TypeVar
 
 from pipeline.config import Settings
+from pipeline.llm.prompt_store import load_prompt
 
 logger = logging.getLogger(__name__)
 
@@ -54,19 +55,13 @@ _SOURCE_TIMEOUT_SECONDS = 300.0
 # English. NotebookLM defaults to English and, given a bare "pt", has produced
 # European Portuguese narration; the region tag plus an explicit instruction is
 # what reliably pins both artifacts to pt-BR.
+#
+# The instructions themselves live in pipeline/llm/prompts/ so the authoring
+# console can show them, edit them for one regeneration, and optionally save
+# the edit back as the new default.
 _LANGUAGE = "pt-BR"
-_AUDIO_INSTRUCTIONS = (
-    "Gere o áudio inteiramente em português do Brasil (pt-BR), com vocabulário, "
-    "pronúncia e entonação brasileiros. Mesmo que as fontes estejam em inglês, "
-    "não narre em inglês nem em português europeu. Mantenha em inglês apenas os "
-    "termos técnicos consagrados, explicando-os na primeira ocorrência."
-)
-_SLIDES_INSTRUCTIONS = (
-    "Gere os slides inteiramente em português do Brasil (pt-BR): títulos, "
-    "bullets e notas. Mesmo que as fontes estejam em inglês, não escreva em "
-    "inglês nem em português europeu. Mantenha em inglês apenas os termos "
-    "técnicos consagrados."
-)
+AUDIO_PROMPT = "audio_instructions"
+SLIDES_PROMPT = "slides_instructions"
 
 
 class NotebookLMError(RuntimeError):
@@ -216,7 +211,7 @@ def generate_audio_overview(
     settings: Settings,
     style: str = "DEEP_DIVE",
     language: str = _LANGUAGE,
-    instructions: str = _AUDIO_INSTRUCTIONS,
+    instructions: str | None = None,
 ) -> Path:
     """Create a notebook, add the PDF, generate a podcast-style audio overview,
     poll until ready, and download it to `dest_path`. Returns dest_path.
@@ -224,6 +219,7 @@ def generate_audio_overview(
     `style` names an AudioFormat member: BRIEF, DEEP_DIVE, CRITIQUE, DEBATE.
     """
     nb = _import_notebooklm()
+    instructions = instructions or load_prompt(AUDIO_PROMPT)
     try:
         audio_format = getattr(nb.AudioFormat, style.upper())
     except AttributeError as exc:
@@ -260,7 +256,7 @@ def generate_slide_deck(
     pdf_dest: Path,
     settings: Settings,
     language: str = _LANGUAGE,
-    instructions: str = _SLIDES_INSTRUCTIONS,
+    instructions: str | None = None,
 ) -> tuple[Path, Path]:
     """Create a notebook, add the PDF, generate a slide deck once, and download
     it twice — as PPTX and as PDF. Returns (pptx_dest, pdf_dest).
@@ -272,6 +268,7 @@ def generate_slide_deck(
     routing the deck through Google Drive.
     """
     nb = _import_notebooklm()
+    instructions = instructions or load_prompt(SLIDES_PROMPT)
 
     async def _work() -> tuple[Path, Path]:
         async with _open_client(settings) as client:

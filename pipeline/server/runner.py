@@ -20,7 +20,11 @@ from typing import Any
 
 from langgraph.types import Command
 
-from pipeline.server.progress import RunProgress
+from pipeline.server.progress import (
+    REGEN_PHASE_NODES,
+    REGEN_PHASE_WEIGHTS,
+    RunProgress,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -47,6 +51,8 @@ class Run:
     progress: RunProgress = field(default_factory=RunProgress)
     started_at: float = field(default_factory=time.time)
     finished: bool = False
+    kind: str = "build"
+    artifact: str | None = None
 
     def emit(self, name: str, data: dict) -> None:
         try:
@@ -87,6 +93,62 @@ class RunRegistry:
         with self._lock:
             self._runs[run.run_id] = run
         return run
+
+    def create_regen(self, *, tema: str, slug: str, artifact: str) -> Run:
+        """A run that regenerates one artifact instead of driving the graph.
+
+        Registered exactly like a full run so the console reuses the same SSE
+        endpoint, progress bar and log pane; only the phases differ.
+        """
+        run = Run(
+            run_id=uuid.uuid4().hex[:12],
+            pdf_path=Path(),
+            slug=slug,
+            tema=tema,
+            progress=RunProgress(REGEN_PHASE_NODES, REGEN_PHASE_WEIGHTS),
+            kind="regen",
+            artifact=artifact,
+        )
+        with self._lock:
+            self._runs[run.run_id] = run
+        return run
+
+    def start_regen(self, run: Run, *, prompt: str | None, save_as_default: bool) -> None:
+        threading.Thread(
+            target=self._execute_regen,
+            args=(run, prompt, save_as_default),
+            daemon=True,
+        ).start()
+
+    def _execute_regen(self, run: Run, prompt: str | None, save_as_default: bool) -> None:
+        from pipeline.regen import regenerate
+
+        handler = _QueueLogHandler(run)
+        pipeline_logger = logging.getLogger("pipeline")
+        pipeline_logger.addHandler(handler)
+
+        try:
+            run.emit("progress", run.progress.snapshot())
+            output_dir = regenerate(
+                run.tema or "geral",
+                run.slug,
+                run.artifact or "",
+                prompt=prompt,
+                save_as_default=save_as_default,
+            )
+            # One event per phase, after the fact: the work is a single
+            # blocking call, so there is nothing finer-grained to report.
+            for node in ("regen_artifact", "render_html", "publish"):
+                run.progress.complete(node)
+            run.emit("node", {"node": run.artifact, "summary": str(output_dir)})
+            run.emit("progress", run.progress.snapshot())
+            run.emit("done", {"elapsed": round(time.time() - run.started_at, 1)})
+        except Exception as exc:  # noqa: BLE001 - surfaced to the client
+            logger.exception("Regen %s failed", run.run_id)
+            run.emit("failed", {"error": f"{type(exc).__name__}: {exc}"})
+        finally:
+            pipeline_logger.removeHandler(handler)
+            run.finished = True
 
     def get(self, run_id: str) -> Run | None:
         with self._lock:
