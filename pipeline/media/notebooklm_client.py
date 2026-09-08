@@ -37,6 +37,7 @@ import binascii
 import logging
 import os
 import tempfile
+from datetime import datetime, timezone
 from collections.abc import Awaitable, Callable
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -67,6 +68,17 @@ _SOURCE_TIMEOUT_SECONDS = 300.0
 # console can show them, edit them for one regeneration, and optionally save
 # the edit back as the new default.
 _LANGUAGE = "pt-BR"
+
+# Artifact.status is a raw int the library does not expose as an enum. Observed
+# on this account: 2 while a generation runs, 3 once it is downloadable, 4 when
+# it failed. Used only to recover from a timeout, never to decide success.
+_STATUS_RUNNING = 2
+_STATUS_READY = 3
+# How long to wait for another generation in the same notebook to clear before
+# queueing one more. NotebookLM serializes them server-side, and stacking a
+# second request behind a stuck one is how a run ends up timing out.
+_IDLE_WAIT_SECONDS = 600.0
+_IDLE_POLL_SECONDS = 60.0
 AUDIO_PROMPT = "audio_instructions"
 LECTURE_AUDIO_PROMPT = "audio_lecture_instructions"
 SLIDES_PROMPT = "slides_instructions"
@@ -221,6 +233,60 @@ def notebook_url(notebook_id: str) -> str:
     return f"https://notebooklm.google.com/notebook/{notebook_id}"
 
 
+async def _audio_artifacts(client: Any, notebook_id: str) -> list[Any]:
+    try:
+        return list(await client.artifacts.list_audio(notebook_id))
+    except Exception as exc:  # noqa: BLE001 - listing is a recovery aid
+        logger.warning("Could not list audio artifacts of %s (%s)", notebook_id, exc)
+        return []
+
+
+async def _wait_until_no_audio_is_running(client: Any, notebook_id: str) -> None:
+    """Block while another audio generation is still running in this notebook.
+
+    The backend runs them one at a time; issuing a second one meanwhile leaves
+    it queued behind the first and it is the queued one that times out.
+    """
+    # Checked at least once, however short the budget: the point is to know
+    # what the notebook is doing before adding to it.
+    deadline = asyncio.get_running_loop().time() + _IDLE_WAIT_SECONDS
+    while True:
+        running = [
+            a for a in await _audio_artifacts(client, notebook_id)
+            if a.status == _STATUS_RUNNING
+        ]
+        if not running:
+            return
+        if asyncio.get_running_loop().time() >= deadline:
+            break
+        logger.info(
+            "Aguardando %d geração(ões) de áudio em andamento no notebook %s",
+            len(running),
+            notebook_id,
+        )
+        await asyncio.sleep(_IDLE_POLL_SECONDS)
+    logger.warning(
+        "Ainda há áudio em andamento em %s após %.0fs; seguindo mesmo assim",
+        notebook_id,
+        _IDLE_WAIT_SECONDS,
+    )
+
+
+async def _ready_audio_since(client: Any, notebook_id: str, since: Any) -> str | None:
+    """The newest downloadable audio created after `since`, if any.
+
+    A timeout means the client gave up waiting, not that the backend did: the
+    artifact often lands anyway, and downloading it beats regenerating.
+    """
+    candidates = [
+        a
+        for a in await _audio_artifacts(client, notebook_id)
+        if a.status == _STATUS_READY and a.created_at and a.created_at >= since
+    ]
+    candidates.sort(key=lambda a: a.created_at)
+    return candidates[-1].id if candidates else None
+
+
 async def _await_artifact(client: Any, notebook_id: str, status: Any, what: str) -> None:
     """Block until a generation task finishes, raising on a failed terminal state."""
     final = await client.artifacts.wait_for_completion(
@@ -278,6 +344,8 @@ def generate_audio_overview(
                 client, notebook_title, pdf_path, source_title
             )
             logger.info("Audio from notebook %s", notebook_url(notebook_id))
+            await _wait_until_no_audio_is_running(client, notebook_id)
+            started = datetime.now(timezone.utc)
             status = await client.artifacts.generate_audio(
                 notebook_id,
                 source_ids=source_ids,
@@ -286,10 +354,24 @@ def generate_audio_overview(
                 audio_format=audio_format,
                 audio_length=audio_length,
             )
-            await _await_artifact(client, notebook_id, status, "Audio overview")
+            artifact_id = None
+            try:
+                await _await_artifact(client, notebook_id, status, "Audio overview")
+            except NotebookLMError as exc:
+                if "timed out" not in str(exc):
+                    raise
+                artifact_id = await _ready_audio_since(client, notebook_id, started)
+                if artifact_id is None:
+                    raise
+                logger.warning(
+                    "Timeout aguardando a task; baixando o artefato %s, que ficou pronto",
+                    artifact_id,
+                )
 
             dest_path.parent.mkdir(parents=True, exist_ok=True)
-            await client.artifacts.download_audio(notebook_id, str(dest_path))
+            await client.artifacts.download_audio(
+                notebook_id, str(dest_path), artifact_id
+            )
             return dest_path
 
     return _run(_work)

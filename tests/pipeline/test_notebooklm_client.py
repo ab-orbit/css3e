@@ -27,6 +27,13 @@ from pipeline.media.notebooklm_client import (
 STORAGE_STATE = base64.b64encode(json.dumps({"cookies": []}).encode()).decode()
 
 
+@pytest.fixture(autouse=True)
+def no_idle_wait(monkeypatch):
+    """Never sleep on the notebook's queue in tests."""
+    monkeypatch.setattr(mod, "_IDLE_WAIT_SECONDS", 0.0)
+    monkeypatch.setattr(mod, "_IDLE_POLL_SECONDS", 0.0)
+
+
 @pytest.fixture
 def settings() -> Settings:
     return Settings(NOTEBOOKLM_AUTH_JSON=STORAGE_STATE)
@@ -70,10 +77,16 @@ class FakeSources:
 
 
 class FakeArtifacts:
-    def __init__(self, calls, *, error=None, download_raises=None):
+    def __init__(self, calls, *, error=None, download_raises=None, audio=None, wait_raises=None):
         self._calls = calls
         self._error = error
         self._download_raises = download_raises
+        self._audio = list(audio or [])
+        self._wait_raises = wait_raises
+
+    async def list_audio(self, notebook_id):
+        self._calls.append(("list_audio", notebook_id))
+        return list(self._audio)
 
     async def generate_audio(self, notebook_id, **kwargs):
         self._calls.append(("generate_audio", notebook_id, kwargs))
@@ -85,10 +98,12 @@ class FakeArtifacts:
 
     async def wait_for_completion(self, notebook_id, task_id, **kwargs):
         self._calls.append(("wait_for_completion", notebook_id, task_id))
+        if self._wait_raises is not None:
+            raise self._wait_raises
         return SimpleNamespace(error=self._error, error_code=7 if self._error else None)
 
-    async def download_audio(self, notebook_id, output_path, **kwargs):
-        self._calls.append(("download_audio", notebook_id, output_path))
+    async def download_audio(self, notebook_id, output_path, artifact_id=None, **kwargs):
+        self._calls.append(("download_audio", notebook_id, output_path, artifact_id))
         Path(output_path).write_bytes(b"audio")
         return output_path
 
@@ -142,10 +157,11 @@ def test_audio_happy_path(monkeypatch, settings, pdf, tmp_path):
         "sources.list",
         "sources.add_file",
         "sources.list",
+        "list_audio",
         "generate_audio",
         "wait_for_completion",
         "download_audio",
-    ]
+    ], names
 
 
 def test_audio_passes_source_ids_and_format(monkeypatch, settings, pdf, tmp_path):
@@ -408,3 +424,88 @@ def test_both_artifacts_are_pinned_to_brazilian_portuguese(
         kwargs = next(c[2] for c in calls if c[0] == call)
         assert kwargs["language"] == "pt-BR"
         assert "português do Brasil (pt-BR)" in kwargs["instructions"]
+
+
+def _audio_artifact(artifact_id, status, minutes_ago=0):
+    from datetime import datetime, timedelta, timezone
+
+    return SimpleNamespace(
+        id=artifact_id,
+        status=status,
+        created_at=datetime.now(timezone.utc) + timedelta(minutes=minutes_ago),
+    )
+
+
+def test_a_timed_out_generation_downloads_the_artifact_that_landed(
+    monkeypatch, settings, pdf, tmp_path
+):
+    """The backend often finishes after the client stops waiting."""
+    calls: list = []
+    install_fake_client(
+        monkeypatch,
+        calls,
+        sources=[SimpleNamespace(id="src-1", title="paper")],
+        audio=[_audio_artifact("art-ready", 3, minutes_ago=1)],
+        wait_raises=mod.NotebookLMError("Task x timed out after 2400.0s"),
+    )
+
+    dest = tmp_path / "a.m4a"
+    generate_audio_overview(
+        pdf, notebook_title="tema", source_title="paper", dest_path=dest, settings=settings
+    )
+
+    download = next(c for c in calls if c[0] == "download_audio")
+    assert download[3] == "art-ready"
+
+
+def test_a_timeout_with_nothing_ready_still_fails(monkeypatch, settings, pdf, tmp_path):
+    calls: list = []
+    install_fake_client(
+        monkeypatch,
+        calls,
+        sources=[SimpleNamespace(id="src-1", title="paper")],
+        audio=[_audio_artifact("art-running", 2, minutes_ago=1)],
+        wait_raises=mod.NotebookLMError("Task x timed out after 2400.0s"),
+    )
+
+    with pytest.raises(NotebookLMError, match="timed out"):
+        generate_audio_overview(
+            pdf, notebook_title="tema", source_title="paper",
+            dest_path=tmp_path / "a.m4a", settings=settings,
+        )
+
+
+def test_a_failure_that_is_not_a_timeout_is_not_recovered(monkeypatch, settings, pdf, tmp_path):
+    """Only a client-side timeout justifies picking up a stray artifact."""
+    calls: list = []
+    install_fake_client(
+        monkeypatch,
+        calls,
+        sources=[SimpleNamespace(id="src-1", title="paper")],
+        audio=[_audio_artifact("art-ready", 3, minutes_ago=1)],
+        wait_raises=mod.NotebookLMError("Audio overview generation failed: quota"),
+    )
+
+    with pytest.raises(NotebookLMError, match="quota"):
+        generate_audio_overview(
+            pdf, notebook_title="tema", source_title="paper",
+            dest_path=tmp_path / "a.m4a", settings=settings,
+        )
+
+
+def test_an_artifact_older_than_this_run_is_not_reused(monkeypatch, settings, pdf, tmp_path):
+    """Downloading a previous article's audio would be worse than failing."""
+    calls: list = []
+    install_fake_client(
+        monkeypatch,
+        calls,
+        sources=[SimpleNamespace(id="src-1", title="paper")],
+        audio=[_audio_artifact("art-old", 3, minutes_ago=-30)],
+        wait_raises=mod.NotebookLMError("Task x timed out after 2400.0s"),
+    )
+
+    with pytest.raises(NotebookLMError, match="timed out"):
+        generate_audio_overview(
+            pdf, notebook_title="tema", source_title="paper",
+            dest_path=tmp_path / "a.m4a", settings=settings,
+        )

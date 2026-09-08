@@ -15,6 +15,7 @@
     teórica comum. Este artigo propõe a teoria CIEn, que redefine contexto e consciência de contexto com
     foco explícito nos beneficiários humanos e suas expectativas, não apenas em dados e sistemas artificiais.
   has_audio: true
+  has_lecture_audio: false
   has_slides: true
   slides_pptx_path: slides/deck.pptx
   slides_pdf_path: slides/deck.pdf
@@ -49,7 +50,8 @@
     accountability e privacidade são os princípios éticos mais críticos, mas a falta de conhecimento ético,
     ausência de frameworks legais e conflito na prática permanecem como barreiras severas para a adoção
     de IA eticamente alinhada.
-  has_audio: false
+  has_audio: true
+  has_lecture_audio: false
   has_slides: true
   slides_pptx_path: slides/deck.pptx
   slides_pdf_path: slides/deck.pdf
@@ -91,6 +93,7 @@
     20 recomendações concretas para garantir que a IA promova a dignidade humana, o florescimento e a
     sustentabilidade para todos.
   has_audio: false
+  has_lecture_audio: false
   has_slides: true
   slides_pptx_path: slides/deck.pptx
   slides_pdf_path: slides/deck.pdf
@@ -121,6 +124,7 @@
     substantivas sobre como interpretá-los e implementá-los. A proliferação de soft-law responde ao avanço
     tecnológico, mas levanta questões sobre harmonização transnacional e pluralismo moral.
   has_audio: true
+  has_lecture_audio: false
   has_slides: true
   slides_pptx_path: slides/deck.pptx
   slides_pdf_path: slides/deck.pdf
@@ -155,6 +159,7 @@
     de contexto e sistemas multi-agente, oferecendo taxonomia organizada, processo geral de desenvolvimento
     e análise de aplicações em oito domínios distintos.
   has_audio: true
+  has_lecture_audio: false
   has_slides: true
   slides_pptx_path: slides/deck.pptx
   slides_pdf_path: slides/deck.pdf
@@ -185,6 +190,7 @@
     ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS
     — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.
   has_audio: false
+  has_lecture_audio: false
   has_slides: false
   slides_pptx_path: null
   slides_pdf_path: null
@@ -213,6 +219,7 @@
     ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS
     — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.
   has_audio: false
+  has_lecture_audio: false
   has_slides: false
   slides_pptx_path: null
   slides_pdf_path: null
