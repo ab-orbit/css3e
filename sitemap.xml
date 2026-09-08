@@ -86,19 +86,55 @@
   </url>
   <url>
     <loc>https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html</loc>
-    <lastmod>2023</lastmod>
+    <lastmod>2023-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/blog.html</loc>
-    <lastmod>2023</lastmod>
+    <lastmod>2023-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/workshop.html</loc>
-    <lastmod>2023</lastmod>
+    <lastmod>2023-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html</loc>
+    <lastmod>2018-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/blog.html</loc>
+    <lastmod>2018-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/workshop.html</loc>
+    <lastmod>2018-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ab-orbit.github.io/css3e/articles/ethics-on-ai/global-landscape-ethics-guidelines/index.html</loc>
+    <lastmod>2019</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ab-orbit.github.io/css3e/articles/ethics-on-ai/global-landscape-ethics-guidelines/blog.html</loc>
+    <lastmod>2019</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://ab-orbit.github.io/css3e/articles/ethics-on-ai/global-landscape-ethics-guidelines/workshop.html</loc>
+    <lastmod>2019</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

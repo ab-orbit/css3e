@@ -36,6 +36,8 @@ segurança de fronteira.
 
 - [Contexts and Context-awareness Revisited from an Intelligent Environments Perspective](https://ab-orbit.github.io/css3e/articles/contexto-e-contexto-sensivel/contexts-and-context-awareness-revisited-from-an-intelligent-environments-perspective/index.html): Contexts and Context-awareness Revisited from an Intelligent Environments Perspective — Juan Carlos Augusto et al.
 - [AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers](https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html): AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers — Arif Ali Khan et al.
+- [AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations](https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html): AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations — Luciano Floridi et al.
+- [Artificial Intelligence: the global landscape of ethics guidelines](https://ab-orbit.github.io/css3e/articles/ethics-on-ai/global-landscape-ethics-guidelines/index.html): Artificial Intelligence: the global landscape of ethics guidelines — Anna Jobin et al.
 - [A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions](https://ab-orbit.github.io/css3e/articles/sistemas-multiagente-contexto/context-aware-mas/index.html): A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions — Hung Du et al.
 
 ## Optional

@@ -1,0 +1,1739 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations</title>
+<meta name="description" content="Fundamentos para uma Good AI Society: síntese de cinco princípios éticos fundamentais (beneficence, non-maleficence, autonomy, justice e explicability) e 20 recomendações concretas para avaliar, desenvolver, incentivar e apoiar o desenvolvimento responsável de IA, equilibrando oportunidades de smart agency e augmented intelligence com riscos de black box mentality e capability caution.">
+<meta name="keywords" content="ética da IA, AI4People, Good AI Society, beneficence, non-maleficence, autonomy, justice, explicability, intelligibility, accountability, smart agency, augmented intelligence, meta-autonomy, decide-to-delegate model, dual advantage, distributed morality, black box mentality, capability caution, self-nudging, multistakeholder approach, governança de dados, digital ethics, dignidade humana, sustentabilidade, privacidade, segurança, Princípio 1, Princípio 2, Princípio 3, Princípio 4, Princípio 5">
+<meta name="author" content="Luciano Floridi, Josh Cowls, Monica Beltrametti, Raja Chatila, Patrice Chazerand, Virginia Dignum, Christoph Luetge, Robert Madelin, Ugo Pagallo, Francesca Rossi, Burkhard Schafer, Peggy Valcke, Effy Vayena">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html">
+<meta name="theme-color" content="#171415">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CSS3E · Contexto Computacional">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html">
+<meta property="og:title" content="AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations">
+<meta property="og:description" content="Fundamentos para uma Good AI Society: síntese de cinco princípios éticos fundamentais (beneficence, non-maleficence, autonomy, justice e explicability) e 20 recomendações concretas para avaliar, desenvolver, incentivar e apoiar o desenvolvimento responsável de IA, equilibrando oportunidades de smart agency e augmented intelligence com riscos de black box mentality e capability caution.">
+<meta property="og:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2018-11-26">
+<meta property="article:author" content="Luciano Floridi">
+<meta property="article:author" content="Josh Cowls">
+<meta property="article:author" content="Monica Beltrametti">
+<meta property="article:author" content="Raja Chatila">
+<meta property="article:author" content="Patrice Chazerand">
+<meta property="article:author" content="Virginia Dignum">
+<meta property="article:author" content="Christoph Luetge">
+<meta property="article:author" content="Robert Madelin">
+<meta property="article:author" content="Ugo Pagallo">
+<meta property="article:author" content="Francesca Rossi">
+<meta property="article:author" content="Burkhard Schafer">
+<meta property="article:author" content="Peggy Valcke">
+<meta property="article:author" content="Effy Vayena">
+<meta property="article:tag" content="Princípio 1">
+<meta property="article:tag" content="Princípio 2">
+<meta property="article:tag" content="Princípio 3">
+<meta property="article:tag" content="Princípio 4">
+<meta property="article:tag" content="Princípio 5">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations">
+<meta name="twitter:description" content="Fundamentos para uma Good AI Society: síntese de cinco princípios éticos fundamentais (beneficence, non-maleficence, autonomy, justice e explicability) e 20 recomendações concretas para avaliar, desenvolver, incentivar e apoiar o desenvolvimento responsável de IA, equilibrando oportunidades de smart agency e augmented intelligence com riscos de black box mentality e capability caution.">
+<meta name="twitter:image" content="https://ab-orbit.github.io/css3e/three-categories.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html" },
+  "headline": "AI4People\u2014An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations",
+  "description": "Fundamentos para uma Good AI Society: s\u00edntese de cinco princ\u00edpios \u00e9ticos fundamentais (beneficence, non-maleficence, autonomy, justice e explicability) e 20 recomenda\u00e7\u00f5es concretas para avaliar, desenvolver, incentivar e apoiar o desenvolvimento respons\u00e1vel de IA, equilibrando oportunidades de smart agency e augmented intelligence com riscos de black box mentality e capability caution.",
+  "inLanguage": "pt-BR",
+  "image": "https://ab-orbit.github.io/css3e/three-categories.png",
+  "datePublished": "2018-11-26",
+  "dateModified": "2018-11-26",
+  "author": [
+    { "@type": "Person", "name": "Luciano Floridi" },
+    { "@type": "Person", "name": "Josh Cowls" },
+    { "@type": "Person", "name": "Monica Beltrametti" },
+    { "@type": "Person", "name": "Raja Chatila" },
+    { "@type": "Person", "name": "Patrice Chazerand" },
+    { "@type": "Person", "name": "Virginia Dignum" },
+    { "@type": "Person", "name": "Christoph Luetge" },
+    { "@type": "Person", "name": "Robert Madelin" },
+    { "@type": "Person", "name": "Ugo Pagallo" },
+    { "@type": "Person", "name": "Francesca Rossi" },
+    { "@type": "Person", "name": "Burkhard Schafer" },
+    { "@type": "Person", "name": "Peggy Valcke" },
+    { "@type": "Person", "name": "Effy Vayena" }
+  ],
+  "publisher": { "@type": "Organization", "name": "Centro de Inform\u00e1tica, UFPE", "url": "https://ab-orbit.github.io/css3e/" },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "AI4People\u2014An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations",
+    "author": ["Luciano Floridi","Josh Cowls","Monica Beltrametti","Raja Chatila","Patrice Chazerand","Virginia Dignum","Christoph Luetge","Robert Madelin","Ugo Pagallo","Francesca Rossi","Burkhard Schafer","Peggy Valcke","Effy Vayena"],
+    "datePublished": "2018-11-26",
+"sameAs": "https://doi.org/10.1007/s11023-018-9482-5",    "url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-spbjsqda/ai4people.pdf"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Good AI Society" },
+    { "@type": "Thing", "name": "Dual advantage" },
+    { "@type": "Thing", "name": "Smart agency" },
+    { "@type": "Thing", "name": "Augmented Intelligence" },
+    { "@type": "Thing", "name": "Meta-autonomy" },
+    { "@type": "Thing", "name": "Decide-to-delegate model" },
+    { "@type": "Thing", "name": "Explicability" },
+    { "@type": "Thing", "name": "Intelligibility" },
+    { "@type": "Thing", "name": "Accountability" },
+    { "@type": "Thing", "name": "Beneficence" },
+    { "@type": "Thing", "name": "Non-maleficence" },
+    { "@type": "Thing", "name": "Autonomy" },
+    { "@type": "Thing", "name": "Justice" },
+    { "@type": "Thing", "name": "Self-nudging" },
+    { "@type": "Thing", "name": "Distributed morality" },
+    { "@type": "Thing", "name": "Black box mentality" },
+    { "@type": "Thing", "name": "Capability caution" },
+    { "@type": "Thing", "name": "Coordination complexity" },
+    { "@type": "Thing", "name": "Opportunity costs" },
+    { "@type": "Thing", "name": "Multistakeholder approach" }
+  ],
+  "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html",
+      "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html",
+      "name": "AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations",
+      "headline": "Como Construir uma Sociedade de IA Ética: Princípios e Recomendações para o Bem Comum",
+      "inLanguage": "pt-BR",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Luciano Floridi"
+        },
+        {
+          "@type": "Person",
+          "name": "Josh Cowls"
+        },
+        {
+          "@type": "Person",
+          "name": "Monica Beltrametti"
+        },
+        {
+          "@type": "Person",
+          "name": "Raja Chatila"
+        },
+        {
+          "@type": "Person",
+          "name": "Patrice Chazerand"
+        },
+        {
+          "@type": "Person",
+          "name": "Virginia Dignum"
+        },
+        {
+          "@type": "Person",
+          "name": "Christoph Luetge"
+        },
+        {
+          "@type": "Person",
+          "name": "Robert Madelin"
+        },
+        {
+          "@type": "Person",
+          "name": "Ugo Pagallo"
+        },
+        {
+          "@type": "Person",
+          "name": "Francesca Rossi"
+        },
+        {
+          "@type": "Person",
+          "name": "Burkhard Schafer"
+        },
+        {
+          "@type": "Person",
+          "name": "Peggy Valcke"
+        },
+        {
+          "@type": "Person",
+          "name": "Effy Vayena"
+        }
+      ],
+      "abstract": "This article reports the findings of AI4People, an Atomium—EISMD initiative designed to lay the foundations for a \"Good AI Society\". We introduce the core opportunities and risks of AI for society; present a synthesis of five ethical principles that should undergird its development and adoption; and offer 20 concrete recommendations—to assess, to develop, to incentivise, and to support good AI—which in some cases may be undertaken directly by national or supranational policy makers, while in others may be led by other stakeholders. If adopted, these recommendations would serve as a firm foundation for the establishment of a Good AI Society.",
+      "description": "A IA não é apenas mais uma tecnologia a ser regulada—é uma nova forma de agência inteligente que já está remodelando nossas vidas. Este framework ético propõe cinco princípios fundamentais e 20 recomendações concretas para garantir que a IA promova a dignidade humana, o florescimento e a sustentabilidade para todos.",
+      "datePublished": "2018-11-26",
+      "publication": "Minds and Machines",
+      "keywords": [
+        "Artificial intelligence",
+        "AI4People",
+        "Data governance",
+        "Digital ethics",
+        "Governance",
+        "Ethics of AI"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.1007/s11023-018-9482-5"
+      },
+      "sameAs": "https://doi.org/10.1007/s11023-018-9482-5",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "autonomy",
+          "termCode": "autonomy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 13,
+          "css3e:confidence": 0.899
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "justice",
+          "termCode": "justice",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.942
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI systems",
+          "termCode": "ai systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 12,
+          "css3e:confidence": 0.769
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Asilomar",
+          "termCode": "asilomar",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.785
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "EGE",
+          "termCode": "ege",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.869
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethics",
+          "termCode": "ethics",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.875
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "beneficence",
+          "termCode": "beneficence",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.937
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AIUK",
+          "termCode": "aiuk",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.813
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "DefinedTerm",
+          "name": "AI4People",
+          "termCode": "ai4people",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.946
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "bioethics",
+          "termCode": "bioethics",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.673
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "risks",
+          "termCode": "risks",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.59
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "principles",
+          "termCode": "principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.656
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "privacy",
+          "termCode": "privacy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.9
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "explicability",
+          "termCode": "explicability",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.698
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "accountability",
+          "termCode": "accountability",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.858
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "human dignity",
+          "termCode": "human dignity",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.826
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Partnership",
+          "termCode": "partnership",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.818
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "dual advantage",
+          "termCode": "dual advantage",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.814
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "non-maleficence",
+          "termCode": "non maleficence",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.779
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "societal cohesion",
+          "termCode": "societal cohesion",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.777
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "human agency",
+          "termCode": "human agency",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.874
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Ethically Aligned Design",
+          "termCode": "ethically aligned design",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.8
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Atomium",
+          "termCode": "atomium",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.792
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "organisation",
+          "termCode": "organisation",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.586
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "solidarity",
+          "termCode": "solidarity",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.76
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Partnership on AI",
+          "termCode": "partnership on ai",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.754
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Responsibility",
+          "termCode": "responsibility",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.751
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "public opinion",
+          "termCode": "public opinion",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.749
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "intent",
+          "termCode": "intent",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.711
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "well-being",
+          "termCode": "well being",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.7
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI Society",
+          "termCode": "ai society",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.7
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "human self-determination",
+          "termCode": "human self determination",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.952
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "transparency",
+          "termCode": "transparency",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.95
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "University of Oxford",
+          "termCode": "university of oxford",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.94
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethical approach to AI",
+          "termCode": "ethical approach to ai",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.622
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "society",
+          "termCode": "society",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.609
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Jus- tice",
+          "termCode": "jus tice",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.899
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethical principles",
+          "termCode": "ethical principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.59
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "system",
+          "termCode": "system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.59
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Montreal",
+          "termCode": "montreal",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.59
+        }
+      ]
+    }
+  ],
+  "css3e:relations": [],
+  "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1"
+}
+</script><link rel="stylesheet" href="../../../resources/cases/style.css">
+<style>
+:root{
+  --accent-0: #2E7D5B;
+  --accent-1: #8A5A00;
+  --accent-2: #E8172D;
+  --accent-3: #2B5F86;
+  --accent-4: #6B3FA0;
+}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--signal);z-index:60;transition:width .1s linear}
+
+.article-hero{padding:56px 0 26px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:start}
+.article-hero h1{font-size:clamp(36px,5.4vw,68px);line-height:.97;letter-spacing:-.042em;margin:12px 0 18px;max-width:16ch}
+.article-hero .lede{font-size:19px;color:rgba(255,255,255,.7);max-width:60ch}
+.meta-card{padding:22px}
+.meta-card h3{margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal)}
+.authors{margin:0 0 14px;font-weight:750;line-height:1.4}
+.affil{margin:0 0 16px;color:var(--graphite);font-size:13px;line-height:1.5}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.78)}
+.toc a:hover{border-color:var(--signal);color:#fff}
+
+.section h2 .num{font-family:var(--mono);color:var(--signal);font-size:.55em;letter-spacing:.12em;display:block;margin-bottom:8px}
+.prose{color:rgba(255,255,255,.82);font-size:16.5px;line-height:1.7}
+.prose h3{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 14px;color:#fff}
+.prose>*:first-child h3,.prose h3:first-child{margin-top:0}
+.prose p{margin:0 0 18px}
+.prose ul{margin:0 0 18px;padding-left:20px}
+.prose li{margin:0 0 9px}
+.prose strong{color:#fff}
+.prose .term,.term{color:var(--signal-2);font-weight:750}
+blockquote{margin:26px 0;padding:20px 24px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);font-size:19px;line-height:1.45;letter-spacing:-.012em;color:#fff}
+blockquote cite{display:block;margin-top:10px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-style:normal}
+
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.cat{background:var(--paper);color:var(--ink);border-radius:14px;padding:22px;border-top:4px solid var(--signal);display:flex;flex-direction:column;min-width:0}
+.cat h3{margin:12px 0 6px;font-size:23px;letter-spacing:-.028em;line-height:1.05}
+.cat .sub{margin:0 0 14px;color:var(--graphite);font-size:13px}
+.cat dl{margin:0;display:grid;gap:10px}
+.cat dt{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.cat dd{margin:3px 0 0;font-size:14px;line-height:1.45}
+
+.map-shell{background:var(--paper);border-radius:16px;border:1px solid var(--line-ink);overflow:hidden;margin-top:22px}
+.map-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line-ink);color:var(--ink)}
+.map-bar .hint{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.map-tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{border:1px solid #ccc;background:#fff;color:var(--ink);border-radius:8px;padding:7px 11px;font:12px/1 var(--ui);font-weight:750;cursor:pointer;min-height:34px}
+.tool:hover{border-color:var(--signal);color:var(--signal)}
+#mapview{display:block;width:100%;height:min(78vh,720px);background:radial-gradient(circle at 18% 12%,rgba(232,23,45,.05),transparent 42%),var(--paper);touch-action:none;cursor:grab}
+#mapview.dragging{cursor:grabbing}
+.node rect{transition:fill .15s,stroke .15s}
+.node text{font-family:var(--ui);font-size:13px;fill:var(--ink);dominant-baseline:middle;pointer-events:none}
+.node.d0 text{font-weight:800;font-size:14.5px;fill:#fff}
+.node.d1 text{font-weight:780;fill:#fff}
+.node .toggle{font-family:var(--mono);font-size:11px;font-weight:800;pointer-events:none}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible rect{stroke:var(--signal);stroke-width:3}
+.link{fill:none;stroke-width:1.6;opacity:.55}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 16px;border-top:1px solid var(--line-ink);background:var(--paper-2);color:var(--graphite);font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.map-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.map-note{margin-top:10px;color:rgba(255,255,255,.55);font:12px var(--mono)}
+
+.tablewrap{overflow-x:auto;margin-top:18px;border-radius:12px;border:1px solid var(--line-ink);background:var(--paper)}
+table.data{border-collapse:collapse;width:100%;min-width:640px;color:var(--ink)}
+table.data th,table.data td{text-align:left;padding:12px 14px;border-bottom:1px solid #e6e2e3;vertical-align:top;font-size:14px}
+table.data th{background:var(--paper-2);font:11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--graphite);white-space:nowrap}
+table.data code{font:12.5px var(--mono);background:#f3f0f1;padding:2px 5px;border-radius:5px}
+table.data tr:last-child td{border-bottom:0}
+
+.phase-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+
+.deck{position:relative;margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.deck-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0d0b0c}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.deck-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(23,20,21,.95);border-top:1px solid var(--line);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.deck-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.dl{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.dl:hover{border-color:var(--signal);transform:translateY(-3px)}
+.dl b{font-size:17px;letter-spacing:-.02em}
+.dl small{color:var(--graphite);margin-top:6px}
+.dl .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+.player{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;width:min(940px,calc(100vw - 28px));background:rgba(23,20,21,.93);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.55);color:var(--paper);padding:12px 14px}
+.player .head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.player .who{display:flex;align-items:center;gap:10px;min-width:0}
+.player .eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+.player .eq i{width:3px;height:5px;background:var(--signal);border-radius:2px;display:block}
+.player.playing .eq i{animation:eq .9s ease-in-out infinite}
+.player.playing .eq i:nth-child(2){animation-delay:.15s}
+.player.playing .eq i:nth-child(3){animation-delay:.3s}
+.player.playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:15px}}
+.player .titleline{min-width:0}
+.player .titleline b{display:block;font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.player .titleline span{font:10.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.player .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;min-width:38px;min-height:38px;display:grid;place-items:center;cursor:pointer;font:12px var(--mono);font-weight:800;padding:0 9px}
+.pbtn:hover{border-color:var(--signal-2)}
+.pbtn.play{background:var(--signal);border-color:transparent;min-width:46px;min-height:46px}
+.pbtn.play svg{width:17px;height:17px;fill:#fff}
+.seekwrap{flex:1 1 260px;display:flex;align-items:center;gap:10px;min-width:200px}
+.time{font:11px var(--mono);color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums;flex:none}
+input[type=range].rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:99px;background:rgba(255,255,255,.18);width:100%;outline:none;margin:0}
+input[type=range].rng::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+input[type=range].rng::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--signal);border:2px solid #fff;cursor:pointer}
+.seek{background:linear-gradient(var(--signal),var(--signal)) no-repeat,rgba(255,255,255,.18);background-size:0% 100%}
+.volwrap{display:flex;align-items:center;gap:8px;flex:0 1 150px;min-width:120px}
+.volwrap input{flex:1}
+.rate{background:transparent;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:12px var(--mono);font-weight:750;min-height:38px;cursor:pointer}
+.rate option{background:#171415;color:#fff}
+.player.min .row,.player.min .sub{display:none}
+.player .sub{margin-top:8px;font:10.5px var(--mono);color:rgba(255,255,255,.42);letter-spacing:.06em}
+body{padding-bottom:170px}
+
+/* ---------------- blog: post hero / cover / TOC / drop-cap / share ---------------- */
+.post-hero{padding:60px 0 20px}
+.post-kicker{font:11.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal);font-weight:800;margin:0 0 18px}
+.post-hero h1{font-size:clamp(38px,6.4vw,72px);line-height:.98;letter-spacing:-.04em;margin:0 0 20px}
+.post-dek{font-size:19px;line-height:1.5;color:rgba(255,255,255,.68);max-width:62ch;margin:0}
+.byline{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font:12px var(--mono);color:rgba(255,255,255,.5);letter-spacing:.04em}
+.byline b{color:var(--paper);font-weight:750}
+.byline .sep{color:var(--line)}
+.post-cover{margin:8px 0 32px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#171415,#2a2223)}
+/* Was `padding:46px var(--gut)`. --gut is defined nowhere, and one invalid
+   var() drops the WHOLE shorthand, so the band rendered with padding:0 —
+   text glued to the border and the label sitting on the top edge. */
+.post-cover .band{padding:clamp(28px,4vw,46px) clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:14px}
+.post-cover .band span{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal-2)}
+/* The statement is one long paragraph: justify it, but keep the measure
+   readable and hyphenate so justification can't open rivers of whitespace. */
+.post-cover .band b{max-width:68ch;text-align:justify;text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:640px){.post-cover .band b{text-align:left;hyphens:manual}}
+.post-cover .band .trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.post-cover .band .trio i{font:11px var(--mono);font-style:normal;padding:7px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75)}
+article.post{padding:44px 0 10px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.86)}
+article.post p{margin:0 0 26px}
+article.post h2{font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;margin:52px 0 20px;line-height:1.2}
+article.post h2 .no{display:block;font:11px var(--mono);letter-spacing:.14em;color:var(--signal);text-transform:uppercase;margin-bottom:10px;font-weight:800}
+article.post strong{color:#fff}
+article.post ul{margin:0 0 26px;padding-left:0;list-style:none}
+article.post ul li{position:relative;padding-left:26px;margin:0 0 14px}
+article.post ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--signal)}
+blockquote.pull{margin:40px -6px;padding:26px 30px;border-left:3px solid var(--signal);background:rgba(232,23,45,.07);border-radius:0 12px 12px 0;font-size:24px;line-height:1.4;letter-spacing:-.015em;color:#fff;font-weight:600}
+blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.48);font-style:normal;font-weight:700}
+.drop::first-letter{float:left;font-size:76px;line-height:.82;font-weight:800;color:var(--signal);padding:6px 10px 0 0}
+.closer{padding:6px 0 40px}
+.closer .callout{font-size:17px;line-height:1.6}
+.toc-rail{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.toc-rail a{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72)}
+.toc-rail a:hover{border-color:var(--signal);color:#fff}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 40px}
+.share span{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--graphite)}
+.related{padding:10px 0 60px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--signal);margin:0 0 16px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rcard{background:var(--paper);color:var(--ink);border-radius:14px;padding:20px;text-decoration:none;display:flex;flex-direction:column;min-height:150px;border:1px solid var(--line-ink)}
+.rcard:hover{border-color:var(--signal);transform:translateY(-3px)}
+.rcard b{font-size:16.5px;letter-spacing:-.02em;line-height:1.25}
+.rcard small{color:var(--graphite);margin-top:8px}
+.rcard .arrow{margin-top:auto;font:12px var(--mono);color:var(--signal);font-weight:800}
+
+/* ---------------- workshop: trilhas participante/facilitador ---------------- */
+.track-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.track-tab{border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.7);border-radius:10px;padding:12px 18px;font-weight:750;cursor:pointer}
+.track-tab.active{background:var(--signal);border-color:transparent;color:#fff}
+.step-card{background:var(--paper);color:var(--ink);border-radius:14px;padding:18px;margin-bottom:12px;border:1px solid var(--line-ink)}
+.step-card .self-check{color:var(--graphite);font-size:13.5px;margin:8px 0 0}
+
+@media(max-width:1180px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.article-hero{grid-template-columns:1fr}}
+@media(max-width:700px){.cats,.dl-grid,.phase-flow,.related-grid{grid-template-columns:1fr}
+  .player{bottom:10px;border-radius:14px;padding:10px}
+  .volwrap{display:none}
+  body{padding-bottom:190px}
+  #mapview{height:70vh}
+  blockquote.pull{margin-left:0;margin-right:0}
+}
+
+/* --- Grafo de entidades --- */
+.egraph{margin-top:22px}
+.egraph-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.egraph-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(255,255,255,.72);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.egraph-chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.egraph-chip[aria-pressed=false]{opacity:.38}
+.egraph-canvas{border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#221c1d);overflow-x:auto}
+.egraph-canvas svg{display:block;width:100%;min-width:640px;height:auto}
+.egraph-edges line{stroke:rgba(255,255,255,.28);stroke-width:1.4}
+.egraph-node text{font:11px var(--mono);fill:rgba(255,255,255,.82)}
+.egraph-node circle{stroke:rgba(0,0,0,.35);stroke-width:1.5}
+.egraph-node:hover circle,.egraph-node:focus circle{stroke:#fff;stroke-width:2.5}
+.egraph-node.is-dim,.egraph-edge.is-dim{opacity:.12}
+.egraph-triples{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.egraph-triples caption{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal-2);padding-bottom:10px}
+.egraph-triples th{text-align:left;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);border-bottom:1px solid var(--line);padding:8px 12px 8px 0}
+.egraph-triples td{padding:11px 12px 11px 0;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;color:rgba(255,255,255,.8)}
+.egraph-triples q{color:rgba(255,255,255,.6);font-style:italic}
+.egraph-rel{font:11px var(--mono);color:var(--signal);text-transform:uppercase;letter-spacing:.06em}
+.egraph-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.egraph-note code{font:11px var(--mono);color:rgba(255,255,255,.7)}
+@media (max-width:640px){.egraph-triples{font-size:13px}.egraph-triples td,.egraph-triples th{padding-right:8px}}</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+<script>
+(function () {
+  var bar = document.getElementById('progress');
+  function tick() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  addEventListener('scroll', tick, { passive: true });
+  addEventListener('resize', tick);
+  tick();
+})();
+</script>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>AI4People—An Ethical Framework for a Goo</div>
+    <nav class="nav">
+      <a class="btn" href="workshop.html">Dinâmica</a>
+      <a class="btn" href="blog.html">Blog</a>
+      <a class="btn" href="../../ethics-on-ai/index.html">&#8592; Ethics on AI</a>
+      <a class="btn primary" href="ai4people-ethical-framework.pdf">PDF do artigo</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="article-hero">
+  <div>
+    <div class="eyebrow">Minds and Machines · 2018 · pp. 689–707</div>
+    <h1>Como Construir uma Sociedade de IA Ética: Princípios e Recomendações para o Bem Comum</h1>
+    <p class="lede">A IA não é apenas mais uma tecnologia a ser regulada—é uma nova forma de agência inteligente que já está remodelando nossas vidas. Este framework ético propõe cinco princípios fundamentais e 20 recomendações concretas para garantir que a IA promova a dignidade humana, o florescimento e a sustentabilidade para todos.</p>
+    <div class="toc">
+      <a href="#introducao">Introdução</a>
+      <a href="#oportunidades-riscos">Oportunidades e Riscos da IA</a>
+      <a href="#dupla-vantagem">A Dupla Vantagem da Ética</a>
+      <a href="#principios">Os Cinco Princípios Éticos</a>
+      <a href="#recomendacoes">20 Recomendações para Ação</a>
+      <a href="#conclusao">Conclusão</a>
+      <a href="#mapa-mental">Mapa Mental</a>
+      <a href="#downloads">Downloads e Recursos</a>
+    </div>
+  </div>
+  <aside class="paper meta-card">
+    <h3>Referência</h3>
+    <p class="authors">Luciano Floridi, Josh Cowls, Monica Beltrametti, Raja Chatila, Patrice Chazerand, Virginia Dignum, Christoph Luetge, Robert Madelin, Ugo Pagallo, Francesca Rossi, Burkhard Schafer, Peggy Valcke, Effy Vayena</p>
+    <p class="affil">Colaboração internacional envolvendo University of Oxford (Oxford Internet Institute), The Alan Turing Institute, Naver Corporation, French National Center of Scientific Research, Digital Europe, University of Umeå, Delft University of Technology, Technical University of Munich, University of Turin, IBM Research, University of Padova, University of Edinburgh, Catholic University of Leuven, Bocconi University e ETH Zurich.</p>
+    <div class="kv"><span class="key">Publicado em</span><span class="val">26 de novembro de 2018</span></div>
+    <div class="kv"><span class="key">Palavras-chave</span><span class="val">Inteligência Artificial, AI4People, Governança de Dados, Ética Digital, Ética da IA</span></div>
+    <div class="kv"><span class="key">DOI</span><span class="val">10.1007/s11023-018-9482-5</span></div>
+    <div class="kv"><span class="key">Venue</span><span class="val">Minds and Machines</span></div>
+    <div class="kv"><span class="key">Tipo</span><span class="val">Framework Ético e Recomendações de Política</span></div>
+    <div class="callout" style="margin-bottom:0">
+      <b>O problema declarado:</b> A IA não é apenas mais uma utilidade que precisa ser regulada quando amadurece. É uma força poderosa, uma nova forma de agência inteligente, que já está remodelando nossas vidas, interações e ambientes. O desafio central é como direcionar essa força para o bem da sociedade, de todos nela, e dos ambientes que compartilhamos. Embora seja claro que a IA terá um impacto importante, o debate atual gira em torno de quão positivo ou negativo será esse impacto, para quem, de que maneiras, em que lugares e em que escala de tempo. Este trabalho busca responder não se a IA terá impacto, mas por quem, como, onde e quando esse impacto será sentido, estabelecendo princípios éticos e recomendações concretas para garantir que a IA promova a dignidade humana e o florescimento de todos.
+    </div>
+  </aside>
+</section>
+
+  <section class="section" id="aula">
+    <h2><span class="num">FAIXA 02</span>Aula: ai4people-ethical-framework</h2>
+    <p>Faixa 02 · aula gerada via NotebookLM, com as fontes do tema Troque de faixa pelo seletor no topo do player.</p>
+  </section>
+
+<section class="section" id="categorias">
+  <h2><span class="num">TAXONOMIA</span>As categorias do artigo</h2>
+  <div class="cats">
+    <article class="cat" style="border-top-color:var(--accent-0)">
+      <span class="tag" style="color:var(--accent-0)">Princípio 1</span>
+      <h3>Beneficence</h3>
+      <p class="sub">Promoting Well-Being, Preserving Dignity, and Sustaining the Planet</p>
+      <dl>
+        <dt>BEM-ESTAR</dt><dd>A IA deve promover o bem-estar de todos os seres sencientes e priorizar o bem-estar humano como resultado em todos os designs de sistemas</dd>
+        <dt>BEM COMUM</dt><dd>A IA deve ser desenvolvida para o bem comum e benefício da humanidade</dd>
+        <dt>DIGNIDADE HUMANA</dt><dd>A tecnologia de IA deve respeitar e fortalecer a dignidade humana</dd>
+        <dt>SUSTENTABILIDADE</dt><dd>A IA deve estar alinhada com a garantia das precondições básicas para a vida no planeta, prosperidade contínua da humanidade e preservação de um bom ambiente para as gerações futuras</dd>
+      </dl>
+    </article>
+    <article class="cat" style="border-top-color:var(--accent-1)">
+      <span class="tag" style="color:var(--accent-1)">Princípio 2</span>
+      <h3>Non-maleficence</h3>
+      <p class="sub">Privacy, Security and &#39;Capability Caution&#39;</p>
+      <dl>
+        <dt>PRIVACIDADE</dt><dd>Prevenção de violações da privacidade pessoal, garantindo que indivíduos tenham acesso e controle sobre como seus dados pessoais são usados</dd>
+        <dt>SEGURANÇA</dt><dd>A IA deve operar dentro de restrições seguras para evitar riscos</dd>
+        <dt>RESPONSABILIDADE</dt><dd>Desenvolvedores devem assumir responsabilidade trabalhando contra os riscos decorrentes de suas inovações tecnológicas</dd>
+        <dt>CAUTELA DE CAPACIDADE</dt><dd>Cautela em relação aos limites superiores das capacidades futuras da IA, evitando corrida armamentista de IA e auto-aperfeiçoamento recursivo</dd>
+      </dl>
+    </article>
+    <article class="cat" style="border-top-color:var(--accent-2)">
+      <span class="tag" style="color:var(--accent-2)">Princípio 3</span>
+      <h3>Autonomy</h3>
+      <p class="sub">The Power to Decide (Whether to Decide)</p>
+      <dl>
+        <dt>PROMOÇÃO DA AUTONOMIA HUMANA</dt><dd>O desenvolvimento da IA deve promover a autonomia de todos os seres humanos</dd>
+        <dt>CONTROLE DA AUTONOMIA DE SISTEMAS</dt><dd>Controlar a autonomia dos sistemas computacionais para que não prejudiquem a liberdade dos seres humanos</dd>
+        <dt>META-AUTONOMIA</dt><dd>Humanos devem escolher como e se delegar decisões a sistemas de IA para alcançar objetivos escolhidos por humanos</dd>
+        <dt>REVERSIBILIDADE</dt><dd>O poder autônomo de ferir, destruir ou enganar seres humanos nunca deve ser investido na IA; delegações devem ser reversíveis</dd>
+      </dl>
+    </article>
+    <article class="cat" style="border-top-color:var(--accent-3)">
+      <span class="tag" style="color:var(--accent-3)">Princípio 4</span>
+      <h3>Justice</h3>
+      <p class="sub">Promoting Prosperity and Preserving Solidarity</p>
+      <dl>
+        <dt>CORREÇÃO DE INJUSTIÇAS</dt><dd>Usar IA para corrigir erros passados, como eliminar todos os tipos de discriminação</dd>
+        <dt>BENEFÍCIO COMPARTILHADO</dt><dd>Garantir que os benefícios da IA sejam compartilhados e que haja prosperidade compartilhada</dd>
+        <dt>ACESSO EQUITATIVO</dt><dd>Contribuir para a justiça global e acesso igual aos benefícios das tecnologias de IA</dd>
+        <dt>PROTEÇÃO DA SOLIDARIEDADE</dt><dd>Defender contra ameaças a sistemas de assistência mútua, como seguro social e saúde</dd>
+      </dl>
+    </article>
+    <article class="cat" style="border-top-color:var(--accent-4)">
+      <span class="tag" style="color:var(--accent-4)">Princípio 5</span>
+      <h3>Explicability</h3>
+      <p class="sub">Enabling the Other Principles Through Intelligibility and Accountability</p>
+      <dl>
+        <dt>INTELIGIBILIDADE</dt><dd>Capacidade de entender como os sistemas de IA funcionam, tornando seus processos de tomada de decisão compreensíveis para observadores não especialistas</dd>
+        <dt>RESPONSABILIZAÇÃO</dt><dd>Capacidade de identificar quem é responsável pelas decisões e ações dos sistemas de IA, permitindo que pessoas e organizações sejam responsabilizadas por resultados negativos</dd>
+        <dt>TRANSPARÊNCIA</dt><dd>Abertura sobre como os sistemas de IA operam e tomam decisões</dd>
+        <dt>EXPLICAÇÃO ACESSÍVEL</dt><dd>Indivíduos devem poder obter uma explicação factual, direta e clara do processo de tomada de decisão, especialmente em caso de consequências indesejadas</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="mapa">
+  <h2><span class="num">MAPA</span>A estrutura do artigo, navegável</h2>
+  <p>Clique em um nó para abrir ou fechar o ramo. Arraste para mover, use a roda do mouse ou os botões para o zoom. Setas do teclado navegam entre nós quando um deles está focado.</p>
+  <div class="map-shell">
+    <div class="map-bar">
+      <span class="hint" id="maphint">carregando…</span>
+      <div class="map-tools">
+        <button class="tool" data-map="expand">Expandir tudo</button>
+        <button class="tool" data-map="collapse">Recolher</button>
+        <button class="tool" data-map="fit">Ajustar</button>
+        <button class="tool" data-map="zoomout" aria-label="Diminuir zoom">−</button>
+        <button class="tool" data-map="zoomin" aria-label="Aumentar zoom">+</button>
+      </div>
+    </div>
+    <svg id="mapview" role="img" aria-label="Mapa mental do artigo"></svg>
+    <div class="map-legend">
+      <span><i style="background:#2E7D32"></i>Oportunidades e Riscos</span>
+      <span><i style="background:#1565C0"></i>Princípios Éticos</span>
+      <span><i style="background:#F57C00"></i>Recomendações</span>
+      <span><i style="background:#6A1B9A"></i>Contexto e Abordagem</span>
+    </div>
+  </div>
+  <p class="map-note">Mapa gerado a partir da análise estruturada do artigo: layout calculado no navegador, sem imagem estática.</p>
+</section>
+
+<script>
+(function () {
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('mapview');
+
+  var PALETTE = {"oportunidades": {"fill": "#2E7D32", "text": "#fff"}, "principios": {"fill": "#1565C0", "text": "#fff"}, "recomendacoes": {"fill": "#F57C00", "text": "#fff"}, "contexto": {"fill": "#6A1B9A", "text": "#fff"}};
+  var DATA = {"t": "AI4People: Framework Ético para Good AI Society", "children": [{"t": "Oportunidades e Riscos da IA", "k": "oportunidades", "children": [{"t": "Quem podemos nos tornar", "children": [{"t": "Oportunidade: autorrealização autônoma", "children": []}, {"t": "Risco: desvalorização de habilidades humanas", "children": []}, {"t": "Disrupção do mercado de trabalho", "children": []}]}, {"t": "O que podemos fazer", "children": [{"t": "Oportunidade: ampliar agência humana", "children": []}, {"t": "Risco: mentalidade de caixa preta", "children": []}, {"t": "Ausência de responsabilidade", "children": []}]}, {"t": "O que podemos alcançar", "children": [{"t": "Oportunidade: capacidades societais aumentadas", "children": []}, {"t": "Risco: perda de controle humano", "children": []}, {"t": "Delegação excessiva a sistemas autônomos", "children": []}]}, {"t": "Como podemos interagir", "children": [{"t": "Oportunidade: coesão social aumentada", "children": []}, {"t": "Risco: erosão da autodeterminação", "children": []}, {"t": "Nudging implacável e mudança comportamental", "children": []}]}]}, {"t": "Cinco Princípios Éticos", "k": "principios", "children": [{"t": "Beneficência", "children": [{"t": "Promover bem-estar de seres sencientes", "children": []}, {"t": "Fortalecer dignidade humana", "children": []}, {"t": "Garantir sustentabilidade ambiental", "children": []}]}, {"t": "Não maleficência", "children": [{"t": "Proteger privacidade e segurança", "children": []}, {"t": "Prevenir uso indevido e excessivo", "children": []}, {"t": "Cautela de capacidade (capability caution)", "children": []}]}, {"t": "Autonomia", "children": [{"t": "Meta-autonomia: poder de decidir se delegar", "children": []}, {"t": "Modelo decidir-delegar", "children": []}, {"t": "Delegações devem ser reversíveis", "children": []}]}, {"t": "Justiça", "children": [{"t": "Corrigir discriminações passadas", "children": []}, {"t": "Garantir benefícios compartilhados", "children": []}, {"t": "Proteger solidariedade e assistência mútua", "children": []}]}, {"t": "Explicabilidade", "children": [{"t": "Inteligibilidade: como funciona?", "children": []}, {"t": "Responsabilização: quem é responsável?", "children": []}, {"t": "Habilita os outros quatro princípios", "children": []}]}]}, {"t": "20 Recomendações para Ação", "k": "recomendacoes", "children": [{"t": "Avaliar (3 pontos)", "children": [{"t": "Capacidade institucional para IA", "children": []}, {"t": "Adequação da delegação de tarefas", "children": []}, {"t": "Adequação regulatória existente", "children": []}]}, {"t": "Desenvolver (8 pontos)", "children": [{"t": "Padrões de explicabilidade", "children": []}, {"t": "Procedimentos legais para IA", "children": []}, {"t": "Mecanismos de auditoria e certificação", "children": []}, {"t": "Agência de supervisão de IA", "children": []}, {"t": "Observatório de impacto social", "children": []}]}, {"t": "Incentivar (5 pontos)", "children": [{"t": "Financiar IA socialmente preferível", "children": []}, {"t": "Pesquisa europeia coordenada", "children": []}, {"t": "Cooperação interdisciplinar", "children": []}, {"t": "Zonas de teste (sandboxes)", "children": []}]}, {"t": "Apoiar (4 pontos)", "children": [{"t": "Códigos de conduta setoriais", "children": []}, {"t": "Responsabilidade social corporativa", "children": []}, {"t": "Currículos educacionais em ética de IA", "children": []}, {"t": "Conscientização pública", "children": []}]}]}, {"t": "Abordagem e Contexto", "k": "contexto", "children": [{"t": "Dupla vantagem ética", "children": [{"t": "Identificar oportunidades aceitáveis", "children": []}, {"t": "Antecipar e evitar erros custosos", "children": []}, {"t": "Ética como sistema de alerta precoce", "children": []}]}, {"t": "Abordagem multistakeholder", "children": [{"t": "Incorporar ética nas práticas padrão", "children": []}, {"t": "Perspectiva europeia complementar", "children": []}, {"t": "Síntese de 47 princípios de 6 documentos", "children": []}]}]}]};
+
+  var ROW = 34, COLGAP = 54, PAD = 26, RADIUS = 9;
+  var view = { x: 0, y: 0, k: 1 };
+  var gRoot, nodes = [];
+
+  var uid = 0;
+  (function prep(n, depth, kind) {
+    n.id = ++uid;
+    n.depth = depth;
+    n.kind = n.k || kind || Object.keys(PALETTE)[0];
+    n.open = depth < (window.innerWidth <= 700 ? 1 : 2);
+    (n.children || []).forEach(function (c) { c.parent = n; prep(c, depth + 1, n.kind); });
+  })(DATA, 0, null);
+
+  function flatten(n, out) {
+    out.push(n);
+    if (n.open && n.children) n.children.forEach(function (c) { flatten(c, out); });
+    return out;
+  }
+
+  var measurer = document.createElementNS(SVGNS, 'text');
+  measurer.setAttribute('visibility', 'hidden');
+  svg.appendChild(measurer);
+  function widthOf(node) {
+    measurer.setAttribute('font-size', node.depth === 0 ? '14.5' : '13');
+    measurer.setAttribute('font-weight', node.depth <= 1 ? '780' : '400');
+    measurer.setAttribute('font-family',
+      '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif');
+    measurer.textContent = node.t;
+    var w = measurer.getComputedTextLength();
+    return Math.ceil(w) + 26 + ((node.children && node.children.length) ? 16 : 0);
+  }
+
+  function layout() {
+    var visible = flatten(DATA, []);
+    visible.forEach(function (n) { n.w = widthOf(n); });
+
+    var colW = [];
+    visible.forEach(function (n) { colW[n.depth] = Math.max(colW[n.depth] || 0, n.w); });
+    var colX = [], acc = PAD;
+    for (var d = 0; d < colW.length; d++) { colX[d] = acc; acc += (colW[d] || 0) + COLGAP; }
+
+    var row = 0;
+    (function place(n) {
+      if (n.open && n.children && n.children.length) {
+        n.children.forEach(place);
+        var f = n.children[0], l = n.children[n.children.length - 1];
+        n.y = (f.y + l.y) / 2;
+      } else {
+        n.y = PAD + row * ROW + ROW / 2;
+        row++;
+      }
+      n.x = colX[n.depth];
+    })(DATA);
+
+    return { nodes: visible, width: acc - COLGAP + PAD, height: PAD * 2 + Math.max(row, 1) * ROW };
+  }
+
+  function render(keepView) {
+    var L = layout();
+    nodes = L.nodes;
+
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.appendChild(measurer);
+
+    gRoot = document.createElementNS(SVGNS, 'g');
+    svg.appendChild(gRoot);
+
+    var gLinks = document.createElementNS(SVGNS, 'g');
+    var gNodes = document.createElementNS(SVGNS, 'g');
+    gRoot.appendChild(gLinks);
+    gRoot.appendChild(gNodes);
+
+    nodes.forEach(function (n) {
+      if (!n.parent || nodes.indexOf(n.parent) === -1) return;
+      var p = n.parent,
+          x1 = p.x + p.w, y1 = p.y, x2 = n.x, y2 = n.y,
+          mx = (x1 + x2) / 2;
+      var path = document.createElementNS(SVGNS, 'path');
+      path.setAttribute('class', 'link');
+      path.setAttribute('d', 'M' + x1 + ',' + y1 + 'C' + mx + ',' + y1 + ' ' + mx + ',' + y2 + ' ' + x2 + ',' + y2);
+      path.setAttribute('stroke', (PALETTE[n.kind] || Object.values(PALETTE)[0]).fill);
+      gLinks.appendChild(path);
+    });
+
+    nodes.forEach(function (n) {
+      var pal = PALETTE[n.kind] || Object.values(PALETTE)[0];
+      var g = document.createElementNS(SVGNS, 'g');
+      g.setAttribute('class', 'node d' + Math.min(n.depth, 2));
+      g.setAttribute('transform', 'translate(' + n.x + ',' + (n.y - 14) + ')');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      var hasKids = !!(n.children && n.children.length);
+      g.setAttribute('aria-expanded', hasKids ? String(n.open) : 'false');
+      g.setAttribute('aria-label', n.t + (hasKids ? (n.open ? ' — ramo aberto' : ' — ramo fechado, ' + n.children.length + ' itens') : ''));
+
+      var r = document.createElementNS(SVGNS, 'rect');
+      r.setAttribute('width', n.w);
+      r.setAttribute('height', 28);
+      r.setAttribute('rx', RADIUS);
+      if (n.depth <= 1) {
+        r.setAttribute('fill', pal.fill);
+        r.setAttribute('stroke', 'none');
+      } else {
+        r.setAttribute('fill', n.depth === 2 ? hexA(pal.fill, .13) : '#ffffff');
+        r.setAttribute('stroke', hexA(pal.fill, n.depth === 2 ? .55 : .32));
+        r.setAttribute('stroke-width', '1');
+      }
+      g.appendChild(r);
+
+      var t = document.createElementNS(SVGNS, 'text');
+      t.setAttribute('x', 13);
+      t.setAttribute('y', 15);
+      if (n.depth > 1) t.setAttribute('fill', '#231F20');
+      t.textContent = n.t;
+      g.appendChild(t);
+
+      if (hasKids) {
+        var mark = document.createElementNS(SVGNS, 'text');
+        mark.setAttribute('class', 'toggle');
+        mark.setAttribute('x', n.w - 13);
+        mark.setAttribute('y', 15);
+        mark.setAttribute('text-anchor', 'end');
+        mark.setAttribute('fill', n.depth <= 1 ? 'rgba(255,255,255,.85)' : pal.fill);
+        mark.textContent = n.open ? '−' : '+' + n.children.length;
+        g.appendChild(mark);
+      }
+
+      function toggle() {
+        if (!hasKids) return;
+        n.open = !n.open;
+        render(true);
+      }
+      g.addEventListener('click', toggle);
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.code === 'Space') { ev.preventDefault(); toggle(); }
+        else if (ev.key === 'ArrowRight' && hasKids && !n.open) { n.open = true; render(true); }
+        else if (ev.key === 'ArrowLeft' && hasKids && n.open) { n.open = false; render(true); }
+      });
+
+      gNodes.appendChild(g);
+    });
+
+    svg.dataset.w = L.width;
+    svg.dataset.h = L.height;
+
+    document.getElementById('maphint').textContent =
+      nodes.length + ' nós visíveis · clique para abrir ou fechar';
+
+    if (keepView) applyView(); else fit();
+  }
+
+  function hexA(hex, a) {
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+
+  function applyView() {
+    gRoot.setAttribute('transform', 'translate(' + view.x + ',' + view.y + ') scale(' + view.k + ')');
+  }
+
+  function fit() {
+    var box = svg.getBoundingClientRect(),
+        w = +svg.dataset.w, h = +svg.dataset.h;
+    var reserve = window.innerWidth <= 700 ? 150 : 0;
+    var avail = Math.max(160, box.height - reserve);
+    var k = Math.max(reserve ? 0.55 : 0.7, Math.min(box.width / w, avail / h, 1.15));
+    view.k = k;
+    view.x = (w * k < box.width) ? (box.width - w * k) / 2 : 14;
+    view.y = (reserve || h * k >= avail) ? 14 : (avail - h * k) / 2 + 8;
+    applyView();
+  }
+
+  var drag = null;
+  svg.addEventListener('pointerdown', function (ev) {
+    if (ev.target.closest('.node')) return;
+    drag = { x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y };
+    svg.classList.add('dragging');
+    svg.setPointerCapture(ev.pointerId);
+  });
+  svg.addEventListener('pointermove', function (ev) {
+    if (!drag) return;
+    view.x = drag.vx + (ev.clientX - drag.x);
+    view.y = drag.vy + (ev.clientY - drag.y);
+    applyView();
+  });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (e) {
+    svg.addEventListener(e, function () { drag = null; svg.classList.remove('dragging'); });
+  });
+  svg.addEventListener('wheel', function (ev) {
+    ev.preventDefault();
+    var box = svg.getBoundingClientRect(),
+        mx = ev.clientX - box.left, my = ev.clientY - box.top,
+        f = ev.deltaY < 0 ? 1.12 : 1 / 1.12,
+        k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = mx - (mx - view.x) * (k / view.k);
+    view.y = my - (my - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }, { passive: false });
+
+  function zoomBy(f) {
+    var box = svg.getBoundingClientRect(), cx = box.width / 2, cy = box.height / 2;
+    var k = Math.min(2.4, Math.max(0.25, view.k * f));
+    view.x = cx - (cx - view.x) * (k / view.k);
+    view.y = cy - (cy - view.y) * (k / view.k);
+    view.k = k;
+    applyView();
+  }
+
+  function setAll(open) {
+    (function walk(n, d) {
+      if (n.children && n.children.length) n.open = d === 0 ? true : open;
+      (n.children || []).forEach(function (c) { walk(c, d + 1); });
+    })(DATA, 0);
+    render(false);
+  }
+
+  document.querySelectorAll('[data-map]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var a = b.dataset.map;
+      if (a === 'expand') setAll(true);
+      else if (a === 'collapse') setAll(false);
+      else if (a === 'fit') fit();
+      else if (a === 'zoomin') zoomBy(1.18);
+      else if (a === 'zoomout') zoomBy(1 / 1.18);
+    });
+  });
+
+  var rt;
+  addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fit, 140); });
+
+  render(false);
+})();
+</script>
+<section class="section" id="ensaio">
+  <h2><span class="num">ENSAIO</span>AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations</h2>
+  <div class="prose">
+    <p class="drop">Imagine que você acorda numa manhã qualquer e percebe que seu assistente virtual já organizou sua agenda, priorizou seus e-mails, sugeriu a rota mais rápida para o trabalho e até recomendou o que vestir com base na previsão do tempo. Tudo isso aconteceu sem que você movesse um dedo. Conveniente? Sem dúvida. Mas em algum momento dessa sequência automatizada, você se pergunta: quando foi que eu decidi delegar todas essas escolhas? E mais importante: ainda posso voltar atrás? A inteligência artificial já não é uma promessa futurista—ela está aqui, remodelando silenciosamente nossas rotinas, decisões e até nossa noção de autonomia. O desafio não é mais perguntar *se* a IA terá impacto, mas *como* garantir que esse impacto promova o florescimento humano, a dignidade e a justiça para todos.</p>
+    <h3>01. Oportunidades e riscos: o duplo fio da agência inteligente</h3>
+<p>A IA oferece quatro grandes oportunidades para a sociedade, todas conectadas à dignidade e ao florescimento humano. Primeiro, ela pode liberar tempo de tarefas mundanas, permitindo que nos dediquemos à autorrealização—quem podemos nos tornar. Segundo, ela amplia nossa agência humana, fornecendo um reservatório crescente de agência inteligente que nos permite fazer mais—o que podemos fazer. Terceiro, ela aumenta nossas capacidades individuais e coletivas, permitindo que alcancemos objetivos antes inalcançáveis—o que podemos alcançar. Por fim, ela pode ajudar a lidar com a complexidade de coordenação de problemas globais, fortalecendo a coesão social—como podemos interagir.</p><p>Mas cada oportunidade carrega riscos correspondentes. A liberação de tempo pode desvalorizar rapidamente habilidades humanas, criando vulnerabilidades no mercado de trabalho e afetando a identidade pessoal. A ampliação da agência pode vir acompanhada de uma mentalidade de caixa preta, onde sistemas de IA são vistos como além da compreensão e controle humanos, diluindo a responsabilidade. O aumento de capacidades pode levar à delegação excessiva de decisões importantes a sistemas autônomos, reduzindo nossa capacidade de supervisão. E a coordenação social aprimorada pode corroer a autodeterminação humana através de nudging implacável, minando a dignidade ao moldar comportamentos de forma não planejada.</p>    <h3>02. Cinco princípios para uma IA ética</h3>
+<p>A síntese de 47 princípios de seis documentos internacionais sobre ética da IA revela cinco pilares fundamentais. Os quatro primeiros—beneficência, não maleficência, autonomia e justiça—são adaptados da bioética. Beneficência significa criar IA que promova o bem-estar de todos os seres sencientes, fortaleça a dignidade humana e garanta a sustentabilidade ambiental. Não maleficência exige evitar danos: proteger a privacidade, garantir segurança e exercer cautela de capacidade em relação aos limites superiores das capacidades futuras da IA.</p><p>O princípio da autonomia introduz o conceito de meta-autonomia ou modelo decidir-delegar: humanos devem sempre reter o poder de decidir quais decisões tomar, exercendo a liberdade de escolher onde necessário e cedendo-a apenas quando razões predominantes justificarem a perda de controle—e qualquer delegação deve permanecer reversível. Justiça relaciona-se à distribuição equitativa de recursos e benefícios, incluindo usar IA para corrigir discriminações passadas e prevenir novos danos a estruturas sociais de assistência mútua.</p><p>O quinto princípio, explicabilidade, é novo e não derivado da bioética. Ele sintetiza dois sentidos cruciais: inteligibilidade (como funciona?) e responsabilização (quem é responsável?). Sem explicabilidade, os outros quatro princípios não podem funcionar efetivamente—é impossível avaliar se um sistema é benéfico, seguro, respeita a autonomia ou é justo se não compreendemos como ele opera nem sabemos quem responde por suas decisões.</p>    <blockquote>Humanos devem sempre reter o poder de decidir quais decisões tomar—e qualquer delegação deve permanecer reversível.<cite>Princípio 3 · Autonomia</cite></blockquote>
+    <h3>03. Da teoria à prática: recomendações para uma boa sociedade de IA</h3>
+<p>Princípios éticos só ganham vida quando traduzidos em ações concretas. As 20 recomendações propostas organizam-se em quatro categorias. Avaliar inclui mapear a capacidade institucional para lidar com a IA, identificar quais tarefas devem ou não ser delegadas a sistemas autônomos, e revisar a adequação das estruturas regulatórias existentes. Desenvolver abrange criar mecanismos de explicabilidade, estabelecer procedimentos legais para contestar decisões algorítmicas, implementar sistemas de auditoria, definir métricas de confiabilidade, criar uma agência de supervisão e promover colaboração humano-máquina efetiva.</p><p>Incentivar envolve direcionar financiamento para IA socialmente preferível, fortalecer a pesquisa europeia em IA ética, promover cooperação interdisciplinar, incorporar considerações éticas desde o design e criar zonas de teste regulatórias. Apoiar significa desenvolver códigos de conduta setoriais, promover responsabilidade corporativa, integrar alfabetização em IA nos currículos educacionais e aumentar a conscientização pública sobre oportunidades e riscos.</p><p>Essa abordagem multistakeholder reconhece que criar uma boa sociedade de IA não é responsabilidade exclusiva de governos, empresas ou pesquisadores—é um esforço coletivo que exige a participação de todos os setores da sociedade. A dupla vantagem de uma abordagem ética é clara: organizações que incorporam esses princípios não apenas identificam oportunidades socialmente aceitáveis, mas também antecipam e evitam erros custosos, funcionando como um sistema de alerta precoce contra riscos.</p>    <p>A IA representa uma força transformadora sem precedentes, capaz de ampliar nossas capacidades e liberar nosso potencial—mas também de corroer nossa autonomia e aprofundar desigualdades existentes. O ritmo acelerado da mudança tecnológica não torna obsoleto o processo político democrático; pelo contrário, torna ainda mais urgente que esse processo seja inclusivo, equitativo e fundamentado em princípios éticos claros. As recomendações aqui apresentadas não são um ponto final, mas um ponto de partida: um convite para que governos, empresas, pesquisadores e cidadãos participem ativamente da construção de uma sociedade onde a IA sirva ao florescimento humano, não o contrário.</p>
+  </div>
+  <div class="callout">
+    <b>A pergunta que fica:</b> Se a IA representa uma força tão poderosa capaz de remodelar fundamentalmente nossas vidas, interações e ambientes, como podemos garantir que a solidariedade intergeracional entre aqueles prejudicados hoje e aqueles beneficiados amanhã seja suficientemente forte para tornar a transição disruptiva entre o presente e o futuro tão justa quanto possível para todos—e quem decide o que significa &#39;justo&#39; nesse contexto?
+  </div>
+</section>
+  <section class="section" id="tabelas">
+    <h2><span class="num">REFERÊNCIA</span>Conceitos e notação</h2>
+    <h3 style="margin-top:26px">Cinco Princípios Éticos para uma Good AI Society</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Princípio</th><th>Definição</th><th>Aspectos-chave</th></tr></thead>
+    <tbody>
+      <tr><td>Beneficence</td><td>Promover o bem-estar de todos os seres sencientes, preservar a dignidade humana e garantir a sustentabilidade do planeta</td><td>Bem-estar, bem comum, dignidade humana, sustentabilidade ambiental</td></tr>
+      <tr><td>Non-maleficence</td><td>Evitar danos causados pela IA, incluindo violações de privacidade, riscos de segurança e uso indevido ou excessivo</td><td>Privacidade, segurança, responsabilidade, cautela de capacidade (capability caution)</td></tr>
+      <tr><td>Autonomy</td><td>Equilibrar o poder de decisão entre humanos e IA; humanos retêm o poder de decidir quais decisões tomar (meta-autonomia)</td><td>Promoção da autonomia humana, controle de sistemas, modelo decidir-delegar, reversibilidade</td></tr>
+      <tr><td>Justice</td><td>Garantir distribuição justa de recursos e benefícios da IA, corrigir injustiças passadas e prevenir novos danos sociais</td><td>Correção de discriminação, benefício compartilhado, acesso equitativo, proteção da solidariedade</td></tr>
+      <tr><td>Explicability</td><td>Tornar a IA compreensível (inteligibilidade) e identificar responsáveis pelas decisões (accountability); habilita os outros princípios</td><td>Inteligibilidade (como funciona?), responsabilização (quem é responsável?), transparência, explicação acessível</td></tr>
+    </tbody>
+  </table>
+</div>    <h3 style="margin-top:26px">Oportunidades e Riscos da IA para a Sociedade</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Dimensão</th><th>Oportunidade</th><th>Risco Correspondente</th></tr></thead>
+    <tbody>
+      <tr><td>Quem podemos nos tornar</td><td>Autorrealização autônoma: IA libera tempo de tarefas mundanas para desenvolvimento pessoal</td><td>Desvalorização de habilidades humanas, disrupção do mercado de trabalho, perda de identidade pessoal</td></tr>
+      <tr><td>O que podemos fazer</td><td>Agência humana aumentada: IA fornece reservatório de 'agência inteligente' que amplia capacidades humanas</td><td>Mentalidade de 'caixa preta': ausência de responsabilidade quando sistemas são vistos como além da compreensão humana</td></tr>
+      <tr><td>O que podemos alcançar</td><td>Capacidades societais ampliadas: IA melhora e aumenta o que a sociedade pode realizar coletivamente</td><td>Perda de controle humano: delegação excessiva de decisões importantes a sistemas autônomos sem supervisão adequada</td></tr>
+      <tr><td>Como podemos interagir</td><td>Coesão social fortalecida: IA ajuda a coordenar soluções para problemas globais complexos</td><td>Erosão da autodeterminação: nudging implacável e mudanças não planejadas no comportamento humano</td></tr>
+    </tbody>
+  </table>
+</div>    <h3 style="margin-top:26px">Conceitos-chave do Framework AI4People</h3>
+<div class="tablewrap">
+  <table class="data">
+    <thead><tr><th>Conceito</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td>Good AI Society</td><td>Sociedade onde a IA é desenvolvida e utilizada de acordo com princípios éticos para promover dignidade humana e florescimento</td></tr>
+      <tr><td>Dual advantage (dupla vantagem)</td><td>Benefício duplo da abordagem ética: identificar oportunidades socialmente aceitáveis e antecipar/evitar erros custosos</td></tr>
+      <tr><td>Smart agency (agência inteligente)</td><td>Capacidade de ação autônoma e inteligente fornecida por sistemas de IA que pode ampliar a agência humana</td></tr>
+      <tr><td>Meta-autonomy (meta-autonomia)</td><td>Poder humano de decidir quais decisões tomar e quando delegar decisões a sistemas de IA (modelo 'decidir-delegar')</td></tr>
+      <tr><td>Explicability (explicabilidade)</td><td>Síntese de inteligibilidade (compreensão de como funciona) e accountability (identificação de responsáveis)</td></tr>
+      <tr><td>Black box mentality</td><td>Mentalidade problemática que vê sistemas de IA como além da compreensão e controle humanos, levando à ausência de responsabilidade</td></tr>
+      <tr><td>Capability caution</td><td>Cautela necessária em relação aos limites superiores das capacidades futuras da IA, evitando corrida armamentista</td></tr>
+      <tr><td>Self-nudging</td><td>Uso de IA para influenciar o próprio comportamento de forma escolhida pelo indivíduo, preservando autonomia</td></tr>
+      <tr><td>Distributed morality</td><td>Distribuição de responsabilidade moral entre múltiplos agentes (humanos e sistemas) em contextos de IA</td></tr>
+      <tr><td>Multistakeholder approach</td><td>Abordagem que envolve múltiplas partes interessadas (governos, empresas, sociedade civil, academia) na governança da IA</td></tr>
+    </tbody>
+  </table>
+</div>  </section>
+
+<section class="section" id="entidades">
+  <h2><span class="num">GRAFO</span>Entidades e relações extraídas</h2>
+  <p>Conceitos identificados automaticamente no texto do artigo. O tamanho do círculo reflete quantas vezes o conceito aparece; a cor indica o tipo.</p>
+
+  <div class="egraph">
+    <div class="egraph-legend">
+      <button type="button" class="egraph-chip" data-type="Concept" aria-pressed="true">
+        <i style="background:#2E7D5B"></i>Concept
+      </button>
+      <button type="button" class="egraph-chip" data-type="Organization" aria-pressed="true">
+        <i style="background:#7A4B2A"></i>Organization
+      </button>
+      <button type="button" class="egraph-chip" data-type="System" aria-pressed="true">
+        <i style="background:#E8172D"></i>System
+      </button>
+    </div>
+
+    <div class="egraph-canvas">
+      <svg viewBox="0 0 900 520" role="img"
+           aria-label="Grafo de 40 entidades e 0 relações extraídas do artigo">
+        <defs>
+          <marker id="eg-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                  markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.45)"></path>
+          </marker>
+        </defs>
+
+        <g class="egraph-edges">
+        </g>
+
+        <g class="egraph-nodes">
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="448.2" cy="256.6"
+                    r="40.0" fill="#2E7D5B"></circle>
+            <text x="448.2" y="309.6"
+                  text-anchor="middle">autonomy</text>
+            <title>autonomy · Concept · 13 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="530.6" cy="296.9"
+                    r="35.4" fill="#2E7D5B"></circle>
+            <text x="530.6" y="345.3"
+                  text-anchor="middle">justice</text>
+            <title>justice · Concept · 10 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="453.2" cy="337.4"
+                    r="35.0" fill="#E8172D"></circle>
+            <text x="453.2" y="385.4"
+                  text-anchor="middle">AI systems</text>
+            <title>AI systems · System · 12 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="359.0" cy="289.4"
+                    r="32.1" fill="#7A4B2A"></circle>
+            <text x="359.0" y="334.5"
+                  text-anchor="middle">Asilomar</text>
+            <title>Asilomar · Organization · 10 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="370.2" cy="220.1"
+                    r="32.1" fill="#7A4B2A"></circle>
+            <text x="370.2" y="265.1"
+                  text-anchor="middle">EGE</text>
+            <title>EGE · Organization · 9 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="452.8" cy="180.4"
+                    r="30.4" fill="#2E7D5B"></circle>
+            <text x="452.8" y="223.7"
+                  text-anchor="middle">ethics</text>
+            <title>ethics · Concept · 8 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="538.9" cy="228.5"
+                    r="27.5" fill="#2E7D5B"></circle>
+            <text x="538.9" y="269.1"
+                  text-anchor="middle">beneficence</text>
+            <title>beneficence · Concept · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="515.3" cy="362.6"
+                    r="26.0" fill="#7A4B2A"></circle>
+            <text x="515.3" y="401.6"
+                  text-anchor="middle">AIUK</text>
+            <title>AIUK · Organization · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="400.2" cy="377.9"
+                    r="25.7" fill="#7A4B2A"></circle>
+            <text x="400.2" y="416.6"
+                  text-anchor="middle">AI4People</text>
+            <title>AI4People · Organization · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="322.2" cy="341.5"
+                    r="25.7" fill="#2E7D5B"></circle>
+            <text x="322.2" y="380.2"
+                  text-anchor="middle">bioethics</text>
+            <title>bioethics · Concept · 7 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="261.1" cy="294.5"
+                    r="24.5" fill="#2E7D5B"></circle>
+            <text x="261.1" y="332.0"
+                  text-anchor="middle">risks</text>
+            <title>risks · Concept · 7 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="253.6" cy="240.3"
+                    r="24.1" fill="#2E7D5B"></circle>
+            <text x="253.6" y="277.4"
+                  text-anchor="middle">principles</text>
+            <title>principles · Concept · 6 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="298.6" cy="191.4"
+                    r="23.4" fill="#2E7D5B"></circle>
+            <text x="298.6" y="227.8"
+                  text-anchor="middle">privacy</text>
+            <title>privacy · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="384.4" cy="160.5"
+                    r="23.2" fill="#2E7D5B"></circle>
+            <text x="384.4" y="196.7"
+                  text-anchor="middle">explicability</text>
+            <title>explicability · Concept · 5 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="499.4" cy="143.5"
+                    r="23.0" fill="#2E7D5B"></circle>
+            <text x="499.4" y="179.6"
+                  text-anchor="middle">accountability</text>
+            <title>accountability · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="580.7" cy="180.5"
+                    r="22.8" fill="#2E7D5B"></circle>
+            <text x="580.7" y="216.3"
+                  text-anchor="middle">human dignity</text>
+            <title>human dignity · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="625.8" cy="225.8"
+                    r="22.7" fill="#7A4B2A"></circle>
+            <text x="625.8" y="261.6"
+                  text-anchor="middle">Partnership</text>
+            <title>Partnership · Organization · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="646.4" cy="279.7"
+                    r="22.7" fill="#2E7D5B"></circle>
+            <text x="646.4" y="315.4"
+                  text-anchor="middle">dual advantage</text>
+            <title>dual advantage · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="594.0" cy="328.6"
+                    r="22.4" fill="#2E7D5B"></circle>
+            <text x="594.0" y="364.0"
+                  text-anchor="middle">non-maleficence</text>
+            <title>non-maleficence · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="361.5" cy="415.7"
+                    r="22.4" fill="#2E7D5B"></circle>
+            <text x="361.5" y="451.1"
+                  text-anchor="middle">societal cohesion</text>
+            <title>societal cohesion · Concept · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="272.7" cy="387.1"
+                    r="21.4" fill="#2E7D5B"></circle>
+            <text x="272.7" y="421.4"
+                  text-anchor="middle">human agency</text>
+            <title>human agency · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="196.9" cy="347.9"
+                    r="20.9" fill="#2E7D5B"></circle>
+            <text x="196.9" y="381.8"
+                  text-anchor="middle">Ethically Aligned Design</text>
+            <title>Ethically Aligned Design · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="158.6" cy="297.5"
+                    r="20.9" fill="#7A4B2A"></circle>
+            <text x="158.6" y="331.4"
+                  text-anchor="middle">Atomium</text>
+            <title>Atomium · Organization · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="151.8" cy="242.9"
+                    r="20.8" fill="#7A4B2A"></circle>
+            <text x="151.8" y="276.7"
+                  text-anchor="middle">organisation</text>
+            <title>organisation · Organization · 4 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="180.9" cy="190.4"
+                    r="20.7" fill="#2E7D5B"></circle>
+            <text x="180.9" y="224.1"
+                  text-anchor="middle">solidarity</text>
+            <title>solidarity · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="242.5" cy="146.3"
+                    r="20.6" fill="#7A4B2A"></circle>
+            <text x="242.5" y="179.9"
+                  text-anchor="middle">Partnership on AI</text>
+            <title>Partnership on AI · Organization · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="326.1" cy="116.2"
+                    r="20.6" fill="#2E7D5B"></circle>
+            <text x="326.1" y="149.9"
+                  text-anchor="middle">Responsibility</text>
+            <title>Responsibility · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="433.2" cy="102.5"
+                    r="20.6" fill="#2E7D5B"></circle>
+            <text x="433.2" y="136.1"
+                  text-anchor="middle">public opinion</text>
+            <title>public opinion · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="534.2" cy="108.4"
+                    r="20.4" fill="#2E7D5B"></circle>
+            <text x="534.2" y="141.8"
+                  text-anchor="middle">intent</text>
+            <title>intent · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="627.3" cy="132.9"
+                    r="20.3" fill="#2E7D5B"></circle>
+            <text x="627.3" y="166.3"
+                  text-anchor="middle">well-being</text>
+            <title>well-being · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="699.4" cy="172.4"
+                    r="20.3" fill="#7A4B2A"></circle>
+            <text x="699.4" y="205.8"
+                  text-anchor="middle">AI Society</text>
+            <title>AI Society · Organization · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="758.3" cy="222.0"
+                    r="19.9" fill="#2E7D5B"></circle>
+            <text x="758.3" y="254.9"
+                  text-anchor="middle">human self-determination</text>
+            <title>human self-determination · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="748.2" cy="277.1"
+                    r="19.9" fill="#2E7D5B"></circle>
+            <text x="748.2" y="310.0"
+                  text-anchor="middle">transparency</text>
+            <title>transparency · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="726.5" cy="329.7"
+                    r="19.9" fill="#7A4B2A"></circle>
+            <text x="726.5" y="362.5"
+                  text-anchor="middle">University of Oxford</text>
+            <title>University of Oxford · Organization · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="657.5" cy="373.7"
+                    r="19.8" fill="#2E7D5B"></circle>
+            <text x="657.5" y="406.6"
+                  text-anchor="middle">ethical approach to AI</text>
+            <title>ethical approach to AI · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="570.9" cy="404.1"
+                    r="19.8" fill="#7A4B2A"></circle>
+            <text x="570.9" y="436.9"
+                  text-anchor="middle">society</text>
+            <title>society · Organization · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="469.7" cy="417.2"
+                    r="19.7" fill="#2E7D5B"></circle>
+            <text x="469.7" y="449.9"
+                  text-anchor="middle">Jus- tice</text>
+            <title>Jus- tice · Concept · 2 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Concept" tabindex="0">
+            <circle cx="136.4" cy="390.3"
+                    r="19.6" fill="#2E7D5B"></circle>
+            <text x="136.4" y="423.0"
+                  text-anchor="middle">ethical principles</text>
+            <title>ethical principles · Concept · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="System" tabindex="0">
+            <circle cx="82.0" cy="343.2"
+                    r="19.6" fill="#E8172D"></circle>
+            <text x="82.0" y="375.9"
+                  text-anchor="middle">system</text>
+            <title>system · System · 3 menções</title>
+          </g>
+          <g class="egraph-node" data-type="Organization" tabindex="0">
+            <circle cx="54.3" cy="290.5"
+                    r="19.6" fill="#7A4B2A"></circle>
+            <text x="54.3" y="323.2"
+                  text-anchor="middle">Montreal</text>
+            <title>Montreal · Organization · 3 menções</title>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+
+    <p class="egraph-note">Extraído com <code>gliner=urchade/gliner_multi-v2.1</code>. Cada entidade aponta para o trecho do texto onde foi encontrada; cada relação exibe a sentença verificada literalmente contra o artigo.</p>
+  </div>
+
+  <script>
+  (function () {
+    var root = document.currentScript.closest('.egraph') || document.querySelector('.egraph');
+    if (!root) return;
+    var chips = root.querySelectorAll('.egraph-chip');
+    var hidden = new Set();
+
+    function apply() {
+      root.querySelectorAll('.egraph-node').forEach(function (n) {
+        n.classList.toggle('is-dim', hidden.has(n.dataset.type));
+      });
+      root.querySelectorAll('.egraph-edge').forEach(function (e) {
+        e.classList.toggle('is-dim', hidden.has(e.dataset.source) || hidden.has(e.dataset.target));
+      });
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var type = chip.dataset.type;
+        if (hidden.has(type)) { hidden.delete(type); } else { hidden.add(type); }
+        chip.setAttribute('aria-pressed', String(!hidden.has(type)));
+        apply();
+      });
+    });
+  })();
+  </script>
+</section>
+
+<section class="section" id="slides">
+  <h2><span class="num">DECK</span>Apresentação do artigo</h2>
+  <p>Prévia da apresentação gerada a partir do artigo.</p>
+  <div class="deck">
+    <div class="deck-frame">
+      <iframe
+        src="slides/deck.pdf#view=FitH"
+        title="Apresentação: Como Construir uma Sociedade de IA Ética: Princípios e Recomendações para o Bem Comum"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="deck-bar">
+      <span>Deck em PDF · hospedado neste site</span>
+      <span class="deck-actions">
+        <a class="btn" href="slides/deck.pdf" target="_blank" rel="noopener">Abrir o PDF ↗</a>
+        <a class="btn primary" href="slides/deck.pptx" download>Baixar .pptx</a>
+      </span>
+    </div>
+  </div>
+</section>
+<section class="section" id="downloads">
+  <h2><span class="num">FONTES</span>Material</h2>
+  <div class="dl-grid">
+    <a class="dl" href="ai4people-ethical-framework.pdf">
+      <b>Artigo original (PDF)</b>
+      <small>Documento completo com o framework ético AI4People, incluindo os cinco princípios fundamentais e as 20 recomendações para uma Good AI Society.</small>
+      <span class="arrow">PDF ↓</span>
+    </a>
+    <a class="dl" href="blog.html">
+      <b>Post de blog</b>
+      <small>Versão comentada explorando como os princípios de beneficência, não maleficência, autonomia, justiça e explicabilidade podem orientar o desenvolvimento ético da IA.</small>
+      <span class="arrow">LER →</span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Luciano Floridi, Josh Cowls, Monica Beltrametti, Raja Chatila, Patrice Chazerand, Virginia Dignum, Christoph Luetge, Robert Madelin, Ugo Pagallo, Francesca Rossi, Burkhard Schafer, Peggy Valcke, Effy Vayena. AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations. Minds and Machines, pp. 689–707. doi:10.1007/s11023-018-9482-5<br><br>
+    <a href="workshop.html">Dinâmica</a> &#183; <a href="blog.html">Blog</a> &#183; <a href="../../ethics-on-ai/index.html">&#8592; Ethics on AI</a>
+  </div>
+</footer>
+
+<div class="player" id="player" role="region" aria-label="Player de áudio">
+  <div class="head">
+    <div class="who">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="titleline">
+        <b id="trackTitle">Aula: ai4people-ethical-framework</b>
+        <span id="trackSubtitle">Faixa 02 · aula gerada via NotebookLM, com as fontes do tema</span>
+      </span>
+    </div>
+    <button class="pbtn" id="minToggle" aria-expanded="true" title="Minimizar player">–</button>
+  </div>
+
+  <div class="row">
+    <button class="pbtn" id="back15" title="Voltar 15 segundos" aria-label="Voltar 15 segundos">−15</button>
+    <button class="pbtn play" id="playBtn" aria-label="Reproduzir">
+      <svg id="playIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <button class="pbtn" id="fwd15" title="Avançar 15 segundos" aria-label="Avançar 15 segundos">+15</button>
+
+    <span class="seekwrap">
+      <span class="time" id="cur">0:00</span>
+      <input class="rng seek" id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Posição da faixa">
+      <span class="time" id="dur">--:--</span>
+    </span>
+
+    <span class="volwrap">
+      <button class="pbtn" id="muteBtn" title="Silenciar" aria-label="Silenciar">VOL</button>
+      <input class="rng" id="vol" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+    </span>
+
+    <select class="rate" id="rate" aria-label="Velocidade de reprodução">
+      <option value="0.75">0,75×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.25">1,25×</option>
+      <option value="1.5">1,5×</option>
+      <option value="1.75">1,75×</option>
+      <option value="2">2×</option>
+    </select>
+  </div>
+  <div class="sub" id="psub">espaço = play/pause · ← → = 15 s · arquivo local, sem streaming externo</div>
+  <audio id="au" preload="metadata" src="audio/ai4people-ethical-framework-aula.m4a"></audio>
+</div>
+
+<script>
+(function () {
+  var au = document.getElementById('au'),
+      player = document.getElementById('player'),
+      playBtn = document.getElementById('playBtn'),
+      playIcon = document.getElementById('playIcon'),
+      seek = document.getElementById('seek'),
+      cur = document.getElementById('cur'),
+      dur = document.getElementById('dur'),
+      vol = document.getElementById('vol'),
+      muteBtn = document.getElementById('muteBtn'),
+      rate = document.getElementById('rate'),
+      minToggle = document.getElementById('minToggle'),
+      trackPick = document.getElementById('trackPick');
+
+  var TRACKS = [{"src": "audio/ai4people-ethical-framework-aula.m4a", "subtitle": "Faixa 02 \u00b7 aula gerada via NotebookLM, com as fontes do tema", "title": "Aula: ai4people-ethical-framework"}];
+
+  var ICON_PLAY = 'M8 5v14l11-7z',
+      ICON_PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
+
+  var scrubbing = false;
+
+  function fmt(s) {
+    if (!isFinite(s)) return '--:--';
+    s = Math.max(0, Math.floor(s));
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    var mm = h ? String(m).padStart(2, '0') : String(m);
+    return (h ? h + ':' : '') + mm + ':' + String(x).padStart(2, '0');
+  }
+
+  function paintSeek() {
+    var pct = au.duration ? (au.currentTime / au.duration) * 100 : 0;
+    seek.style.backgroundSize = pct + '% 100%';
+  }
+
+  au.addEventListener('loadedmetadata', function () { dur.textContent = fmt(au.duration); });
+
+  au.addEventListener('timeupdate', function () {
+    cur.textContent = fmt(au.currentTime);
+    if (!scrubbing && au.duration) {
+      seek.value = String((au.currentTime / au.duration) * 1000);
+      paintSeek();
+    }
+  });
+
+  au.addEventListener('play', function () {
+    player.classList.add('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PAUSE);
+    playBtn.setAttribute('aria-label', 'Pausar');
+  });
+  au.addEventListener('pause', function () {
+    player.classList.remove('playing');
+    playIcon.firstElementChild.setAttribute('d', ICON_PLAY);
+    playBtn.setAttribute('aria-label', 'Reproduzir');
+  });
+  au.addEventListener('error', function () {
+    document.getElementById('psub').textContent =
+      'Não foi possível carregar o áudio — confira o caminho do arquivo.';
+  });
+
+  if (trackPick) {
+    trackPick.addEventListener('change', function () {
+      var track = TRACKS[Number(trackPick.value)];
+      if (!track) return;
+      var wasPlaying = !au.paused;
+      au.src = track.src;
+      au.currentTime = 0;
+      document.getElementById('trackTitle').textContent = track.title;
+      document.getElementById('trackSubtitle').textContent = track.subtitle;
+      document.getElementById('psub').textContent =
+        'espaço = play/pause · ← → = 15 s · arquivo local, sem streaming externo';
+      if (wasPlaying) au.play().catch(function () {});
+    });
+  }
+
+  playBtn.addEventListener('click', function () {
+    if (au.paused) { au.play().catch(function () {}); } else { au.pause(); }
+  });
+  document.getElementById('back15').addEventListener('click', function () { au.currentTime = Math.max(0, au.currentTime - 15); });
+  document.getElementById('fwd15').addEventListener('click', function () {
+    au.currentTime = Math.min(au.duration || Infinity, au.currentTime + 15);
+  });
+
+  ['pointerdown', 'touchstart'].forEach(function (e) { seek.addEventListener(e, function () { scrubbing = true; }); });
+  ['pointerup', 'touchend', 'change'].forEach(function (e) { seek.addEventListener(e, function () { scrubbing = false; }); });
+  seek.addEventListener('input', function () {
+    if (au.duration) {
+      au.currentTime = (seek.value / 1000) * au.duration;
+      cur.textContent = fmt(au.currentTime);
+      seek.style.backgroundSize = (seek.value / 10) + '% 100%';
+    }
+  });
+
+  vol.addEventListener('input', function () {
+    au.volume = +vol.value;
+    au.muted = +vol.value === 0;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+  });
+  muteBtn.addEventListener('click', function () {
+    au.muted = !au.muted;
+    muteBtn.textContent = au.muted ? 'MUDO' : 'VOL';
+    if (!au.muted && au.volume === 0) { au.volume = 0.8; vol.value = '0.8'; }
+  });
+
+  rate.addEventListener('change', function () { au.playbackRate = +rate.value; });
+
+  minToggle.addEventListener('click', function () {
+    var min = player.classList.toggle('min');
+    minToggle.textContent = min ? '+' : '–';
+    minToggle.setAttribute('aria-expanded', String(!min));
+    minToggle.title = min ? 'Expandir player' : 'Minimizar player';
+    document.body.style.paddingBottom = min ? '110px' : '';
+  });
+
+  addEventListener('keydown', function (ev) {
+    var t = ev.target, tag = t && t.tagName;
+    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || (t && t.isContentEditable)) return;
+    if (ev.code === 'Space') { ev.preventDefault(); playBtn.click(); }
+    else if (ev.code === 'ArrowLeft' && ev.altKey) { au.currentTime = Math.max(0, au.currentTime - 15); }
+    else if (ev.code === 'ArrowRight' && ev.altKey) { au.currentTime = au.currentTime + 15; }
+  });
+
+  paintSeek();
+})();
+</script>
+</body>
+</html>

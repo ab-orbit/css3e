@@ -1,0 +1,3621 @@
+{
+  "slug": "global-landscape-ethics-guidelines",
+  "tema": "ethics-on-ai",
+  "paper": {
+    "title": "Artificial Intelligence: the global landscape of ethics guidelines",
+    "subtitle": "",
+    "authors": [
+      {
+        "name": "Anna Jobin",
+        "affiliation": "Health Ethics & Policy Lab, ETH Zurich, 8092 Zurich, Switzerland"
+      },
+      {
+        "name": "Marcello Ienca",
+        "affiliation": "Health Ethics & Policy Lab, ETH Zurich, 8092 Zurich, Switzerland"
+      },
+      {
+        "name": "Effy Vayena",
+        "affiliation": "Health Ethics & Policy Lab, ETH Zurich, 8092 Zurich, Switzerland"
+      }
+    ],
+    "venue": "Preprint",
+    "pages": "",
+    "date_published": "2019",
+    "doi": "",
+    "source_pdf_url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-8r1uaxa_/jobin.pdf",
+    "abstract": "In the last five years, private companies, research institutions as well as public sector organisations have issued principles and guidelines for ethical AI, yet there is debate about both what constitutes \"ethical AI\" and which ethical requirements, technical standards and best practices are needed for its realization. To investigate whether a global agreement on these questions is emerging, we mapped and analyzed the current corpus of principles and guidelines on ethical AI. Our results reveal a global convergence emerging around five ethical principles (transparency, justice and fairness, non-maleficence, responsibility and privacy), with substantive divergence in relation to how these principles are interpreted; why they are deemed important; what issue, domain or actors they pertain to; and how they should be implemented. Our findings highlight the importance of integrating guideline-development efforts with substantive ethical analysis and adequate implementation strategies.",
+    "keywords": [
+      "artificial intelligence",
+      "ethics",
+      "guidelines",
+      "principles",
+      "transparency",
+      "justice",
+      "fairness",
+      "non-maleficence",
+      "responsibility",
+      "privacy",
+      "AI governance",
+      "ethical AI"
+    ],
+    "problem_statement": "Apesar da proliferação de princípios e diretrizes para IA ética emitidos por empresas privadas, instituições de pesquisa e organizações do setor público, há um debate contínuo sobre o que constitui \"IA ética\" e quais requisitos éticos, padrões técnicos e melhores práticas são necessários para sua realização. Existe incerteza sobre se está emergindo um consenso global sobre essas questões fundamentais, e se as diferentes partes interessadas convergem ou divergem em suas interpretações, justificativas e estratégias de implementação dos princípios éticos para IA.",
+    "key_concepts": [
+      "ethical AI",
+      "AI principles",
+      "AI guidelines",
+      "transparency",
+      "explainability",
+      "justice and fairness",
+      "non-maleficence",
+      "responsibility",
+      "accountability",
+      "privacy",
+      "beneficence",
+      "freedom and autonomy",
+      "trust",
+      "dignity",
+      "sustainability",
+      "solidarity",
+      "algorithmic bias",
+      "soft-law governance",
+      "scoping review",
+      "content analysis",
+      "global convergence"
+    ],
+    "categories": [],
+    "section_outline": [
+      {
+        "heading": "Introduction",
+        "summary": "Contextualiza a 'revolução' da IA e seu impacto transformador na ciência e sociedade. Apresenta os temores sociais relacionados à IA (perda de empregos, uso malicioso, falta de accountability, viés algorítmico) e a resposta institucional através de comitês de especialistas e documentos de políticas. Questiona se há convergência global sobre o que constitui IA ética e os princípios que devem guiá-la."
+      },
+      {
+        "heading": "Results",
+        "summary": "Apresenta os resultados da revisão de escopo de 84 documentos contendo princípios ou diretrizes éticas para IA. Descreve a distribuição temporal (88% após 2016), geográfica (predominância de países desenvolvidos, especialmente EUA e Reino Unido), por tipo de emissor (empresas privadas e agências governamentais lideram) e por público-alvo. Identifica 11 princípios éticos emergentes, com destaque para os cinco mais prevalentes: transparência (73/84), justiça e equidade (68/84), não-maleficência (60/84), responsabilidade (60/84) e privacidade (47/84). Realiza análise temática detalhada de cada princípio, revelando divergências substantivas em interpretação, justificativa, domínio de aplicação e estratégias de implementação."
+      },
+      {
+        "heading": "Discussion",
+        "summary": "Interpreta a proliferação de soft-law como resposta de governança ao avanço da IA. Identifica convergência aparente em torno de cinco princípios éticos, mas revela divergências substantivas em quatro fatores: interpretação, justificativa, domínio de aplicação e implementação. Discute a prevalência de transparência e a ênfase em não-maleficência sobre beneficência (negativity bias). Destaca a sub-representação de sustentabilidade e solidariedade. Aponta tensões entre princípios (ex: datasets maiores vs. controle individual de dados). Propõe implicações para política científica, governança tecnológica e ética de pesquisa, enfatizando a necessidade de harmonização que respeite pluralismo cultural e moral."
+      },
+      {
+        "heading": "Limitations",
+        "summary": "Reconhece limitações metodológicas: literatura cinzenta não indexada em bases convencionais, viés de idioma (inglês), limitações típicas de análise qualitativa de conteúdo, e possibilidade de novos documentos publicados após a busca (mitigada por monitoramento contínuo até abril de 2019)."
+      },
+      {
+        "heading": "Methods",
+        "summary": "Descreve a metodologia de scoping review adaptada do framework PRISMA. Detalha o protocolo de descoberta e elegibilidade com três estratégias sequenciais de busca: busca manual em linkhubs (27 fontes), busca por palavras-chave no Google (28 fontes adicionais) e citation-chaining (17 fontes), com monitoramento contínuo até abril de 2019 (12 fontes). Total de 84 documentos elegíveis. Análise de conteúdo conduzida independentemente por dois pesquisadores em dois ciclos de codificação manual e um ciclo de mapeamento de códigos no NVivo, resultando em 1180 códigos relacionados a princípios éticos, categorizados em 11 temas éticos principais através de themeing dedutivo baseado em literatura normativa de ética."
+      }
+    ],
+    "formal_notation_present": false,
+    "formal_notation_block": "",
+    "case_study_present": false,
+    "case_summary": "",
+    "closing_question": "Se a comunidade internacional converge em torno de cinco princípios éticos para IA (transparência, justiça, não-maleficência, responsabilidade e privacidade), mas diverge substantivamente sobre como interpretá-los e implementá-los, como podemos equilibrar a necessidade de harmonização transnacional com o respeito à diversidade cultural e ao pluralismo moral — e quem deve ter autoridade para adjudicar esses desacordos fundamentais sobre os valores e implicações dos avanços em IA?"
+  },
+  "hero": {
+    "eyebrow": "Preprint · 2019",
+    "h1": "O Panorama Global das Diretrizes Éticas para Inteligência Artificial",
+    "lede": "Uma análise sistemática de 84 documentos revela convergência global em torno de cinco princípios éticos para IA — transparência, justiça, não-maleficência, responsabilidade e privacidade — mas divergências substantivas sobre como interpretá-los e implementá-los. A proliferação de soft-law responde ao avanço tecnológico, mas levanta questões sobre harmonização transnacional e pluralismo moral.",
+    "toc_anchors": [
+      [
+        "introducao",
+        "Introdução"
+      ],
+      [
+        "resultados",
+        "Resultados"
+      ],
+      [
+        "discussao",
+        "Discussão"
+      ],
+      [
+        "limitacoes",
+        "Limitações"
+      ],
+      [
+        "metodos",
+        "Métodos"
+      ],
+      [
+        "mapa-mental",
+        "Mapa Mental"
+      ],
+      [
+        "downloads",
+        "Downloads"
+      ]
+    ],
+    "authors_line": "Anna Jobin, Marcello Ienca, Effy Vayena",
+    "affiliations": "Health Ethics & Policy Lab, ETH Zurich, 8092 Zurich, Switzerland. Os autores conduzem pesquisa interdisciplinar na interseção de ética, política de saúde e tecnologias emergentes, com foco em governança de inteligência artificial e suas implicações sociais.",
+    "kv_rows": [
+      [
+        "Publicado em",
+        "2019 (Preprint)"
+      ],
+      [
+        "Palavras-chave",
+        "artificial intelligence, ethics, guidelines, principles, transparency, justice, fairness, non-maleficence, responsibility, privacy, AI governance, ethical AI"
+      ],
+      [
+        "DOI",
+        "Não disponível"
+      ]
+    ],
+    "problem_statement": "Apesar da proliferação de princípios e diretrizes para IA ética emitidos por empresas privadas, instituições de pesquisa e organizações do setor público, há um debate contínuo sobre o que constitui \"IA ética\" e quais requisitos éticos, padrões técnicos e melhores práticas são necessários para sua realização. Existe incerteza sobre se está emergindo um consenso global sobre essas questões fundamentais, e se as diferentes partes interessadas convergem ou divergem em suas interpretações, justificativas e estratégias de implementação dos princípios éticos para IA."
+  },
+  "categories": [],
+  "mindmap": {
+    "root": {
+      "t": "Panorama Global de Diretrizes Éticas para IA",
+      "k": "root",
+      "children": [
+        {
+          "t": "Contexto & Problema",
+          "k": "context",
+          "children": [
+            {
+              "t": "Revolução da IA",
+              "k": null,
+              "children": [
+                {
+                  "t": "Impacto transformador na ciência e sociedade",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Temores: desemprego, uso malicioso, viés",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Resposta Institucional",
+              "k": null,
+              "children": [
+                {
+                  "t": "Proliferação de comitês de especialistas",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Documentos de políticas e diretrizes",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Questão Central",
+              "k": null,
+              "children": [
+                {
+                  "t": "Há consenso global sobre IA ética?",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Convergência ou divergência de princípios?",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Metodologia",
+          "k": "method",
+          "children": [
+            {
+              "t": "Scoping Review (PRISMA)",
+              "k": null,
+              "children": [
+                {
+                  "t": "84 documentos elegíveis analisados",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Período: até abril de 2019",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Estratégias de Busca",
+              "k": null,
+              "children": [
+                {
+                  "t": "Busca manual em 27 linkhubs",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Google: 28 fontes adicionais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Citation-chaining: 17 fontes",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Análise de Conteúdo",
+              "k": null,
+              "children": [
+                {
+                  "t": "Dois pesquisadores independentes",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "1180 códigos em NVivo",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Themeing dedutivo: 11 temas éticos",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Resultados: Mapeamento Global",
+          "k": "results",
+          "children": [
+            {
+              "t": "Distribuição Temporal",
+              "k": null,
+              "children": [
+                {
+                  "t": "88% publicados após 2016",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Crescimento exponencial recente",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Distribuição Geográfica",
+              "k": null,
+              "children": [
+                {
+                  "t": "Predominância: países desenvolvidos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Líderes: EUA e Reino Unido",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Tipo de Emissor",
+              "k": null,
+              "children": [
+                {
+                  "t": "Empresas privadas (liderança)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Agências governamentais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Instituições de pesquisa",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Taxonomia: 11 Princípios Éticos",
+          "k": "taxonomy",
+          "children": [
+            {
+              "t": "Top 5: Convergência Aparente",
+              "k": null,
+              "children": [
+                {
+                  "t": "Transparência (73/84 documentos)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Justiça e Equidade (68/84)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Não-maleficência (60/84)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Responsabilidade (60/84)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Privacidade (47/84)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Outros Princípios",
+              "k": null,
+              "children": [
+                {
+                  "t": "Beneficência",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Liberdade e Autonomia",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Confiança",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Dignidade",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Sustentabilidade (sub-representada)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Solidariedade (sub-representada)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Análise: Divergências Substantivas",
+          "k": "analysis",
+          "children": [
+            {
+              "t": "Interpretação",
+              "k": null,
+              "children": [
+                {
+                  "t": "Transparência: explicabilidade vs. abertura",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Justiça: igualdade vs. equidade",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Justificativa",
+              "k": null,
+              "children": [
+                {
+                  "t": "Por que cada princípio é importante?",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Fundamentos éticos divergentes",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Domínio de Aplicação",
+              "k": null,
+              "children": [
+                {
+                  "t": "Quais atores e setores?",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Escopo e contexto variam",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Implementação",
+              "k": null,
+              "children": [
+                {
+                  "t": "Estratégias técnicas vs. organizacionais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Tensões entre princípios",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Discussão & Implicações",
+          "k": "discussion",
+          "children": [
+            {
+              "t": "Soft-Law como Governança",
+              "k": null,
+              "children": [
+                {
+                  "t": "Resposta institucional ao avanço da IA",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Alternativa à regulação hard-law",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Padrões Identificados",
+              "k": null,
+              "children": [
+                {
+                  "t": "Negativity bias: não-malef. > beneficência",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Prevalência de transparência",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Tensões: datasets grandes vs. privacidade",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Recomendações",
+              "k": null,
+              "children": [
+                {
+                  "t": "Harmonização respeitando pluralismo",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Integrar análise ética substantiva",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Estratégias de implementação adequadas",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Limitações",
+          "k": "limits",
+          "children": [
+            {
+              "t": "Metodológicas",
+              "k": null,
+              "children": [
+                {
+                  "t": "Literatura cinzenta não indexada",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Viés de idioma (inglês)",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Limitações de análise qualitativa",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "palette": [
+      {
+        "kind": "root",
+        "fill": "#c0392b",
+        "text": "#fff",
+        "label": "Título do Artigo"
+      },
+      {
+        "kind": "context",
+        "fill": "#16a085",
+        "text": "#fff",
+        "label": "Contexto & Problema"
+      },
+      {
+        "kind": "method",
+        "fill": "#2980b9",
+        "text": "#fff",
+        "label": "Metodologia"
+      },
+      {
+        "kind": "results",
+        "fill": "#8e44ad",
+        "text": "#fff",
+        "label": "Resultados Descritivos"
+      },
+      {
+        "kind": "taxonomy",
+        "fill": "#f39c12",
+        "text": "#fff",
+        "label": "Taxonomia de Princípios"
+      },
+      {
+        "kind": "analysis",
+        "fill": "#d35400",
+        "text": "#fff",
+        "label": "Análise de Divergências"
+      },
+      {
+        "kind": "discussion",
+        "fill": "#27ae60",
+        "text": "#fff",
+        "label": "Discussão & Implicações"
+      },
+      {
+        "kind": "limits",
+        "fill": "#7f8c8d",
+        "text": "#fff",
+        "label": "Limitações"
+      }
+    ]
+  },
+  "tables": [
+    {
+      "caption": "Cinco princípios éticos centrais para IA e suas interpretações",
+      "columns": [
+        "Princípio",
+        "Prevalência (documentos)",
+        "Interpretações e dimensões principais"
+      ],
+      "rows": [
+        [
+          "Transparência",
+          "73/84 (87%)",
+          "Explicabilidade de algoritmos, rastreabilidade de decisões, abertura de código, comunicação clara ao público, auditabilidade"
+        ],
+        [
+          "Justiça e Equidade",
+          "68/84 (81%)",
+          "Não-discriminação, mitigação de viés algorítmico, distribuição equitativa de benefícios, inclusão, diversidade"
+        ],
+        [
+          "Não-maleficência",
+          "60/84 (71%)",
+          "Segurança, proteção contra danos, robustez técnica, prevenção de uso malicioso, gestão de riscos"
+        ],
+        [
+          "Responsabilidade",
+          "60/84 (71%)",
+          "Accountability, prestação de contas, atribuição de responsabilidade, governança, supervisão humana"
+        ],
+        [
+          "Privacidade",
+          "47/84 (56%)",
+          "Proteção de dados pessoais, controle individual sobre dados, consentimento informado, anonimização"
+        ]
+      ]
+    },
+    {
+      "caption": "Princípios éticos adicionais identificados nas diretrizes de IA",
+      "columns": [
+        "Princípio",
+        "Prevalência (documentos)",
+        "Descrição"
+      ],
+      "rows": [
+        [
+          "Beneficência",
+          "Moderada",
+          "Promoção ativa do bem-estar humano, benefícios sociais, bem comum"
+        ],
+        [
+          "Liberdade e Autonomia",
+          "Moderada",
+          "Preservação da agência humana, autodeterminação, escolha individual"
+        ],
+        [
+          "Confiança",
+          "Moderada",
+          "Construção de confiança pública em sistemas de IA, confiabilidade, legitimidade"
+        ],
+        [
+          "Dignidade",
+          "Baixa",
+          "Respeito à dignidade humana, valor intrínseco das pessoas"
+        ],
+        [
+          "Sustentabilidade",
+          "Baixa",
+          "Impacto ambiental, sustentabilidade ecológica, uso responsável de recursos"
+        ],
+        [
+          "Solidariedade",
+          "Baixa",
+          "Coesão social, cooperação, responsabilidade coletiva"
+        ]
+      ]
+    },
+    {
+      "caption": "Dimensões de divergência na interpretação dos princípios éticos de IA",
+      "columns": [
+        "Dimensão",
+        "Descrição",
+        "Exemplo"
+      ],
+      "rows": [
+        [
+          "Interpretação",
+          "Significado e escopo conceitual atribuído ao princípio",
+          "Transparência como explicabilidade técnica vs. comunicação pública acessível"
+        ],
+        [
+          "Justificativa",
+          "Razões e valores subjacentes para defender o princípio",
+          "Privacidade como direito fundamental vs. como meio para evitar discriminação"
+        ],
+        [
+          "Domínio de aplicação",
+          "Questões, setores, atores ou contextos aos quais o princípio se aplica",
+          "Responsabilidade de desenvolvedores vs. usuários vs. reguladores; IA em saúde vs. justiça criminal"
+        ],
+        [
+          "Implementação",
+          "Estratégias técnicas, organizacionais ou regulatórias para operacionalizar o princípio",
+          "Auditorias algorítmicas, certificação, autorregulação vs. regulação mandatória, padrões técnicos"
+        ]
+      ]
+    }
+  ],
+  "essay_condensed": {
+    "variant": "condensed",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "A explosão das diretrizes éticas",
+        "paragraphs": [
+          "Entre 2014 e 2019, o mundo testemunhou uma verdadeira enxurrada de documentos sobre IA ética: 88% dos 84 textos analisados foram publicados após 2016, acompanhando a aceleração dos avanços em aprendizado de máquina. Empresas privadas e agências governamentais lideram essa produção, mas a geografia revela um desequilíbrio: países desenvolvidos, especialmente Estados Unidos e Reino Unido, dominam o debate, enquanto vozes do Sul Global permanecem sub-representadas.",
+          "Essa proliferação de soft-law — normas não vinculantes, mas orientadoras — representa uma resposta institucional aos temores sociais: perda de empregos pela automação, uso malicioso de tecnologias de vigilância, falta de accountability em decisões algorítmicas e viés discriminatório embutido em sistemas de IA. A questão central é se esses documentos convergem para uma visão compartilhada ou se fragmentam em interpretações incompatíveis."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "soft-law",
+          "aprendizado de máquina",
+          "accountability",
+          "viés discriminatório"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "Cinco princípios, múltiplas interpretações",
+        "paragraphs": [
+          "A análise revelou 11 princípios éticos recorrentes, mas cinco se destacam pela prevalência: transparência aparece em 73 dos 84 documentos, seguida por justiça e equidade (68), não-maleficência (60), responsabilidade (60) e privacidade (47). À primeira vista, isso sugere um consenso global emergente — uma linguagem comum para falar sobre IA ética.",
+          "Mas a convergência é apenas superficial. Transparência, por exemplo, significa coisas diferentes para diferentes atores: para uns, é a capacidade de explicar decisões algorítmicas (explainability); para outros, é divulgar informações sobre datasets de treinamento; para alguns, é simplesmente comunicar que IA está sendo usada. Justiça e equidade oscilam entre igualdade de tratamento, equidade de oportunidades e reparação de desigualdades históricas. Não-maleficência — o princípio de 'não causar dano' — é enfatizado muito mais que beneficência, revelando um viés de negatividade: é mais fácil concordar sobre o que evitar do que sobre o bem a promover."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Convergência aparente nos princípios, divergência substantiva nas interpretações, justificativas e estratégias de implementação.",
+          "cite": "Análise temática · ETH Zurich"
+        },
+        "terms": [
+          "transparência",
+          "explainability",
+          "justiça e equidade",
+          "não-maleficência",
+          "beneficência"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Tensões e lacunas no consenso",
+        "paragraphs": [
+          "Além das divergências interpretativas, emergem tensões práticas entre os próprios princípios. Datasets maiores e mais diversos podem reduzir viés algorítmico (promovendo justiça), mas colidem com o controle individual sobre dados pessoais (privacidade). Transparência total pode expor vulnerabilidades de segurança ou revelar segredos comerciais, criando dilemas entre abertura e proteção.",
+          "Igualmente revelador é o que está ausente: sustentabilidade e solidariedade aparecem em menos de 10% dos documentos, apesar do impacto ambiental do treinamento de modelos massivos e das implicações distributivas globais da IA. A sub-representação geográfica do Sul Global se reflete na sub-representação de valores como justiça intergeracional e responsabilidade coletiva. A questão de implementação permanece em aberto: quem fiscaliza, quem pune, quem adjudica conflitos entre princípios?"
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "viés algorítmico",
+          "sustentabilidade",
+          "solidariedade",
+          "justiça intergeracional"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine que você está prestes a comprar um carro autônomo. O vendedor garante que o veículo é \"ético\" — mas o que isso significa, exatamente? Que ele protege sua privacidade? Que toma decisões justas em situações de emergência? Que você pode entender como ele funciona? Nos últimos cinco anos, empresas, governos e instituições de pesquisa ao redor do mundo publicaram dezenas de documentos prometendo uma \"IA ética\". Mas será que todos estão falando da mesma coisa? Pesquisadores da ETH Zurich mapearam 84 diretrizes globais para descobrir se existe, de fato, um consenso emergente — e o que encontraram revela tanto convergência quanto tensões profundas sobre o futuro da inteligência artificial.",
+    "closing_paragraph": "O mapeamento global das diretrizes éticas para IA revela um paradoxo: há consenso suficiente para uma linguagem compartilhada, mas divergência suficiente para que essa linguagem signifique coisas radicalmente diferentes em contextos distintos. Transparência, justiça, responsabilidade — essas palavras circulam em documentos de São Francisco a Pequim, mas carregam interpretações moldadas por tradições legais, prioridades culturais e interesses econômicos específicos. O desafio não é apenas técnico ou regulatório, mas fundamentalmente político e filosófico: como construir sistemas de IA que respeitem valores universais sem impor uma monocultura ética global?"
+  },
+  "essay_full": {
+    "variant": "full",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "A Revolução da IA e o Despertar Ético Global",
+        "paragraphs": [
+          "A inteligência artificial deixou de ser ficção científica para se tornar infraestrutura invisível da vida moderna. Algoritmos de aprendizado de máquina agora diagnosticam doenças, dirigem veículos, recomendam conteúdo, avaliam candidatos a empregos e até mesmo influenciam processos judiciais. Essa transformação acelerada trouxe consigo uma onda de preocupações sociais: o medo da automação em massa e perda de empregos, o potencial de uso malicioso por atores mal-intencionados, a falta de accountability quando sistemas autônomos falham, e a descoberta perturbadora de que algoritmos podem perpetuar e amplificar vieses humanos existentes.",
+          "A resposta institucional foi rápida e global. Governos estabeleceram comitês de especialistas, empresas de tecnologia criaram conselhos de ética, organizações internacionais lançaram iniciativas de governança, e instituições acadêmicas multiplicaram centros de pesquisa dedicados à ética da IA. O resultado? Uma proliferação impressionante de documentos — princípios, diretrizes, frameworks, códigos de conduta — todos prometendo orientar o desenvolvimento e implementação de sistemas de IA de maneira ética e responsável.",
+          "Mas essa abundância de orientações levanta uma questão fundamental: estamos construindo um consenso global sobre o que significa IA ética, ou apenas criando uma cacofonia de vozes que concordam superficialmente enquanto divergem profundamente nos detalhes? Para responder a essa pergunta, pesquisadores da ETH Zurich conduziram uma análise sistemática de 84 documentos publicados entre 2016 e 2019, mapeando o panorama global das diretrizes éticas para IA."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "inteligência artificial",
+          "accountability",
+          "vieses humanos",
+          "diretrizes éticas"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "O Mapa Global: Quem Está Falando e O Que Estão Dizendo",
+        "paragraphs": [
+          "A primeira descoberta surpreendente é a velocidade dessa mobilização ética. Dos 84 documentos analisados, impressionantes 88% foram publicados após 2016, com um pico notável em 2018. Isso revela que a preocupação com IA ética não é um debate acadêmico de longa data, mas uma resposta urgente e recente aos avanços tecnológicos acelerados da última década.",
+          "A geografia dessa conversa, no entanto, é desigual. A maioria esmagadora dos documentos origina-se de países desenvolvidos, com Estados Unidos e Reino Unido liderando a produção. Europa, América do Norte e Ásia Oriental dominam o cenário, enquanto África, América Latina e grande parte da Ásia permanecem sub-representadas. Essa assimetria levanta questões importantes sobre cujas vozes, valores e preocupações estão moldando o futuro global da IA.",
+          "Quanto aos emissores, empresas privadas e agências governamentais lideram a produção de diretrizes, seguidas por organizações não-governamentais e instituições acadêmicas. Curiosamente, muitos documentos não especificam claramente seu público-alvo, sugerindo uma ambição de aplicabilidade universal — ou talvez uma falta de clareza sobre como traduzir princípios abstratos em práticas concretas para diferentes contextos.",
+          "Mas o achado mais significativo emerge da análise de conteúdo: apesar da diversidade de fontes e contextos, há uma convergência notável em torno de cinco princípios éticos centrais. Transparência aparece em 73 dos 84 documentos (87%), seguida por justiça e equidade (68 documentos, 81%), não-maleficência (60 documentos, 71%), responsabilidade (60 documentos, 71%) e privacidade (47 documentos, 56%). Outros seis princípios aparecem com menor frequência: beneficência, liberdade e autonomia, confiança, dignidade, sustentabilidade e solidariedade."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "88% dos documentos sobre ética em IA foram publicados após 2016, revelando uma mobilização global urgente e recente.",
+          "cite": "Análise temporal · ETH Zurich"
+        },
+        "terms": [
+          "países desenvolvidos",
+          "convergência",
+          "transparência",
+          "justiça e equidade",
+          "não-maleficência"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Transparência: O Princípio Mais Popular e Mais Ambíguo",
+        "paragraphs": [
+          "Transparência é o princípio mais frequentemente invocado nas diretrizes de IA ética, mas também um dos mais escorregadios. O que exatamente significa um sistema de IA ser \"transparente\"? A análise revela pelo menos três interpretações distintas, frequentemente conflitantes.",
+          "Para alguns, transparência significa explicabilidade técnica: a capacidade de entender como um algoritmo chegou a uma decisão específica. Isso é particularmente desafiador para sistemas de deep learning, cujos processos internos podem ser opacos até mesmo para seus criadores. Para outros, transparência refere-se à comunicação aberta sobre as capacidades e limitações dos sistemas de IA — uma forma de honestidade institucional. Uma terceira interpretação enfatiza o acesso público a informações sobre como sistemas de IA são desenvolvidos, treinados e implantados.",
+          "As justificativas para valorizar transparência também variam. Alguns documentos a defendem como pré-requisito para accountability: não podemos responsabilizar sistemas ou organizações se não entendemos como funcionam. Outros a veem como necessária para construir confiança pública. Ainda outros argumentam que transparência é um direito fundamental dos cidadãos em sociedades democráticas.",
+          "Quanto à implementação, as propostas vão desde requisitos técnicos específicos (como documentação obrigatória de datasets de treinamento) até mecanismos de auditoria externa e certificação. Mas muitos documentos permanecem vagos sobre como exatamente tornar sistemas complexos de IA genuinamente transparentes sem comprometer propriedade intelectual ou segurança."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "explicabilidade técnica",
+          "deep learning",
+          "accountability",
+          "auditoria externa"
+        ]
+      },
+      {
+        "no": "04",
+        "heading": "Justiça e Equidade: Navegando o Campo Minado do Viés Algorítmico",
+        "paragraphs": [
+          "O segundo princípio mais prevalente — justiça e equidade — emerge diretamente das descobertas perturbadoras sobre viés algorítmico. Sistemas de reconhecimento facial que funcionam pior para pessoas negras, algoritmos de recrutamento que discriminam mulheres, ferramentas de avaliação de risco criminal que penalizam desproporcionalmente minorias: esses casos revelaram que IA pode codificar e amplificar injustiças sociais existentes.",
+          "Mas o que significa justiça no contexto de IA? A análise identifica múltiplas concepções. Alguns documentos enfatizam não-discriminação: sistemas não devem tratar pessoas de forma diferente com base em características protegidas como raça, gênero ou religião. Outros focam em equidade distributiva: garantir que benefícios e riscos da IA sejam distribuídos justamente entre diferentes grupos sociais. Uma terceira perspectiva destaca justiça procedimental: processos decisórios devem ser imparciais e dar voz às partes afetadas.",
+          "A tensão fundamental aqui é que diferentes concepções de justiça podem entrar em conflito. Um algoritmo que trata todos exatamente da mesma forma (igualdade formal) pode perpetuar desigualdades existentes. Um que compensa desvantagens históricas (ação afirmativa algorítmica) pode ser visto como discriminação reversa. Sistemas que maximizam precisão geral podem ter desempenho desigual entre subgrupos.",
+          "As estratégias de implementação propostas incluem testes rigorosos de viés antes da implantação, diversidade nas equipes de desenvolvimento, participação de comunidades afetadas no design de sistemas, e mecanismos de recurso quando decisões algorítmicas são contestadas. Mas permanece a questão filosófica profunda: qual concepção de justiça deve prevalecer quando elas entram em conflito?"
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Diferentes concepções de justiça podem entrar em conflito: igualdade formal pode perpetuar desigualdades, enquanto compensação pode ser vista como discriminação reversa.",
+          "cite": "Análise temática · Justiça e Equidade"
+        },
+        "terms": [
+          "viés algorítmico",
+          "não-discriminação",
+          "equidade distributiva",
+          "justiça procedimental"
+        ]
+      },
+      {
+        "no": "05",
+        "heading": "Não-Maleficência: O Viés da Negatividade na Ética de IA",
+        "paragraphs": [
+          "Não-maleficência — o princípio de \"primeiro, não causar dano\" — aparece em 71% dos documentos, significativamente mais frequente que seu complemento positivo, beneficência (fazer o bem ativamente), que aparece em apenas 49%. Essa assimetria revela o que os pesquisadores chamam de \"viés da negatividade\": a tendência de focar mais em evitar danos do que em promover benefícios.",
+          "O que constitui \"dano\" no contexto de IA? As interpretações variam amplamente. Alguns documentos focam em danos físicos diretos — como veículos autônomos causando acidentes ou sistemas médicos fornecendo diagnósticos incorretos. Outros enfatizam danos psicológicos e sociais: perda de autonomia, erosão da dignidade humana, manipulação de comportamento, ou exacerbação de desigualdades sociais.",
+          "Uma categoria particularmente preocupante é o uso malicioso intencional: armas autônomas, sistemas de vigilância em massa, deepfakes para desinformação, ou ferramentas de hacking potencializadas por IA. Alguns documentos argumentam que certos usos de IA devem ser proibidos categoricamente, enquanto outros preferem regulação contextual caso a caso.",
+          "A implementação de não-maleficência envolve desde avaliações de impacto obrigatórias antes da implantação até sistemas de monitoramento contínuo após o lançamento, passando por mecanismos de desligamento de emergência (kill switches) e seguros obrigatórios para sistemas de alto risco. Mas a questão fundamental permanece: como equilibrar inovação com precaução quando os danos potenciais são incertos e os benefícios prometidos são transformadores?"
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "não-maleficência",
+          "uso malicioso",
+          "avaliações de impacto",
+          "sistemas de alto risco"
+        ]
+      },
+      {
+        "no": "06",
+        "heading": "Responsabilidade: Quem Responde Quando Algoritmos Erram?",
+        "paragraphs": [
+          "Responsabilidade e accountability aparecem em 71% dos documentos, refletindo uma preocupação central: quando sistemas de IA causam danos, quem deve ser responsabilizado? O desenvolvedor do algoritmo? A organização que o implantou? O usuário que o operou? Ou o próprio sistema, se for suficientemente autônomo?",
+          "A análise revela três dimensões de responsabilidade. Accountability legal refere-se à possibilidade de processar e penalizar atores quando sistemas de IA causam danos — um desafio quando cadeias causais são complexas e difusas. Responsabilidade moral envolve atribuir louvor ou culpa por decisões e suas consequências. Responsabilidade profissional diz respeito aos deveres especiais de desenvolvedores, cientistas de dados e organizações que criam e implantam IA.",
+          "Um problema fundamental é o que alguns chamam de \"lacuna de responsabilidade\": à medida que sistemas se tornam mais autônomos e complexos, torna-se cada vez mais difícil rastrear decisões específicas de volta a indivíduos humanos responsáveis. Isso cria o risco de uma \"diluição de responsabilidade\" onde todos podem alegar que não foram eles os responsáveis.",
+          "As propostas de implementação incluem registros obrigatórios de decisões algorítmicas (audit trails), certificação profissional para desenvolvedores de IA, seguros obrigatórios, e até mesmo a criação de novas categorias legais de responsabilidade específicas para sistemas autônomos. Alguns sugerem que organizações devem nomear \"responsáveis pela ética de IA\" com autoridade real para interromper projetos problemáticos."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "accountability",
+          "responsabilidade moral",
+          "lacuna de responsabilidade",
+          "audit trails"
+        ]
+      },
+      {
+        "no": "07",
+        "heading": "Privacidade: O Dilema dos Dados na Era do Aprendizado de Máquina",
+        "paragraphs": [
+          "Privacidade aparece em 56% dos documentos, refletindo tensões fundamentais na era do aprendizado de máquina. Sistemas de IA modernos são vorazes consumidores de dados: quanto mais dados, geralmente melhor o desempenho. Mas esses dados frequentemente contêm informações pessoais sensíveis, criando riscos de vigilância, discriminação e perda de autonomia individual.",
+          "As interpretações de privacidade variam. Alguns documentos enfatizam privacidade informacional: o direito de controlar quem tem acesso a informações pessoais. Outros focam em privacidade decisional: a capacidade de fazer escolhas sem monitoramento ou interferência. Uma terceira perspectiva destaca privacidade como dignidade: proteção contra exposição humilhante ou objetificação.",
+          "Uma tensão particular emerge entre dois objetivos aparentemente conflitantes: sistemas de IA precisam de grandes datasets para funcionar bem, mas indivíduos querem controle sobre seus dados pessoais. Técnicas como privacidade diferencial e aprendizado federado prometem reconciliar esses objetivos, permitindo que modelos aprendam com dados sem acessá-los diretamente. Mas essas soluções técnicas têm limitações e trade-offs próprios.",
+          "As estratégias de implementação incluem minimização de dados (coletar apenas o necessário), anonimização robusta, consentimento informado significativo (não apenas termos de serviço intermináveis), e o \"direito de ser esquecido\" — a capacidade de exigir que organizações deletem dados pessoais. Mas em um mundo onde dados são o combustível da inovação em IA, até onde podemos ir na proteção da privacidade sem sacrificar progresso?"
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Sistemas de IA precisam de grandes datasets para funcionar bem, mas indivíduos querem controle sobre seus dados pessoais — uma tensão fundamental da era do aprendizado de máquina.",
+          "cite": "Análise temática · Privacidade"
+        },
+        "terms": [
+          "privacidade informacional",
+          "privacidade diferencial",
+          "aprendizado federado",
+          "minimização de dados"
+        ]
+      },
+      {
+        "no": "08",
+        "heading": "Os Princípios Esquecidos: Sustentabilidade e Solidariedade",
+        "paragraphs": [
+          "Enquanto os cinco princípios principais dominam o discurso, outros valores importantes permanecem surpreendentemente sub-representados. Sustentabilidade aparece em apenas 13% dos documentos, apesar do fato de que treinar grandes modelos de IA consome quantidades massivas de energia e recursos computacionais. Um único modelo de linguagem de grande escala pode gerar uma pegada de carbono equivalente a cinco carros ao longo de suas vidas úteis.",
+          "Solidariedade — a ideia de responsabilidade coletiva e bem comum — aparece em apenas 6% dos documentos. Isso reflete uma tendência individualista no discurso ético de IA, focando em direitos individuais e responsabilidades corporativas, mas negligenciando questões de justiça global, redistribuição de benefícios da IA, e deveres para com gerações futuras.",
+          "Essa lacuna é particularmente problemática dado que os impactos da IA são globais e intergeracionais. Mudanças climáticas exacerbadas pelo consumo energético de IA afetarão principalmente países em desenvolvimento que pouco contribuíram para o problema. Sistemas de IA treinados em dados históricos podem perpetuar injustiças para gerações futuras. Automação pode deslocar trabalhadores em países em desenvolvimento que dependem de manufatura e serviços.",
+          "A sub-representação desses princípios pode refletir o perfil dos emissores de diretrizes: predominantemente empresas privadas e governos de países desenvolvidos, cujos horizontes de planejamento e incentivos podem não se alinhar naturalmente com sustentabilidade de longo prazo e solidariedade global."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "sustentabilidade",
+          "pegada de carbono",
+          "solidariedade",
+          "justiça global"
+        ]
+      },
+      {
+        "no": "09",
+        "heading": "Convergência Superficial, Divergência Profunda",
+        "paragraphs": [
+          "A análise revela um padrão paradoxal: convergência aparente em nível de princípios abstratos, mas divergência substantiva em quatro dimensões críticas. Primeiro, interpretação: o mesmo princípio (como \"transparência\") significa coisas diferentes para diferentes atores. Segundo, justificativa: mesmo quando concordam sobre um princípio, discordam sobre por que ele importa. Terceiro, domínio de aplicação: alguns focam em setores específicos (saúde, justiça criminal), outros em aplicações gerais. Quarto, implementação: há enorme variação em propostas concretas para traduzir princípios em práticas.",
+          "Essa divergência não é meramente técnica — reflete diferenças profundas em valores culturais, sistemas políticos e prioridades sociais. Uma empresa de tecnologia do Vale do Silício pode enfatizar inovação e liberdade de expressão, enquanto um governo europeu prioriza proteção de dados e dignidade humana. Um país em desenvolvimento pode focar em acesso e benefícios econômicos, enquanto uma nação desenvolvida se preocupa mais com riscos e regulação.",
+          "Há também tensões inerentes entre os próprios princípios. Transparência total pode comprometer privacidade. Maximizar beneficência (bem-estar geral) pode entrar em conflito com justiça (distribuição equitativa). Responsabilidade individual pode ser difícil de reconciliar com sistemas complexos onde muitos atores contribuem. Essas tensões não têm resoluções técnicas simples — exigem escolhas normativas sobre quais valores priorizar.",
+          "A proliferação de diretrizes de soft-law — documentos voluntários sem força legal vinculante — pode ser vista como resposta pragmática à incerteza e ao ritmo acelerado da inovação em IA. Mas também levanta preocupações sobre ethics washing: organizações adotando princípios éticos publicamente enquanto continuam práticas questionáveis, sabendo que não há mecanismos de enforcement efetivos."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "soft-law",
+          "valores culturais",
+          "ethics washing",
+          "mecanismos de enforcement"
+        ]
+      },
+      {
+        "no": "10",
+        "heading": "Implicações para Governança e Política de IA",
+        "paragraphs": [
+          "Os achados têm implicações importantes para o futuro da governança de IA. Primeiro, a convergência em torno de cinco princípios centrais oferece uma base promissora para harmonização internacional. Organizações como a OCDE, UNESCO e União Europeia podem construir sobre esse consenso emergente para desenvolver frameworks mais coerentes e interoperáveis.",
+          "Segundo, a divergência substantiva em interpretação e implementação sugere a necessidade de processos mais inclusivos e deliberativos para desenvolver diretrizes. Isso significa incluir vozes do Sul Global, comunidades marginalizadas, e disciplinas além de ciência da computação e direito — incluindo filosofia, sociologia, antropologia e estudos de ciência e tecnologia.",
+          "Terceiro, a lacuna entre princípios abstratos e implementação concreta aponta para a necessidade urgente de traduzir ética em engenharia. Isso requer desenvolvimento de ferramentas técnicas (como métricas de fairness, técnicas de explicabilidade, métodos de auditoria), mas também mudanças organizacionais (como integração de considerações éticas no ciclo de desenvolvimento de produtos) e profissionais (como treinamento em ética para cientistas de dados).",
+          "Quarto, a sub-representação de sustentabilidade e solidariedade sugere que o discurso atual de ética de IA pode estar excessivamente focado em riscos de curto prazo e direitos individuais, negligenciando desafios sistêmicos de longo prazo. Uma abordagem mais holística consideraria impactos ambientais, justiça intergeracional e redistribuição global de benefícios e riscos.",
+          "Finalmente, a predominância de soft-law levanta questões sobre quando e como transitar para regulação vinculante. Enquanto diretrizes voluntárias permitem flexibilidade e experimentação, podem ser insuficientes para prevenir danos sérios ou garantir accountability efetiva. O desafio é encontrar o equilíbrio certo entre auto-regulação da indústria, co-regulação multi-stakeholder, e regulação governamental tradicional."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A lacuna entre princípios abstratos e implementação concreta aponta para a necessidade urgente de traduzir ética em engenharia.",
+          "cite": "Discussão · Implicações para Governança"
+        },
+        "terms": [
+          "harmonização internacional",
+          "processos deliberativos",
+          "métricas de fairness",
+          "regulação vinculante"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine que você está prestes a contratar um novo funcionário para sua empresa. Você recebe duas recomendações: uma de um colega de confiança que explica detalhadamente por que o candidato é adequado, e outra de um algoritmo que simplesmente diz \"contrate esta pessoa\" sem oferecer justificativas. Qual você escolheria? Agora imagine que esse algoritmo está tomando decisões sobre quem recebe empréstimos bancários, quem é aprovado para liberdade condicional, quais pacientes recebem tratamento prioritário, e até mesmo quem é considerado suspeito por sistemas de vigilância. Essa é a realidade da inteligência artificial hoje: sistemas cada vez mais poderosos que moldam nossas vidas de maneiras profundas, mas frequentemente opacas. Nos últimos cinco anos, essa inquietação global desencadeou uma resposta sem precedentes: empresas, governos, universidades e organizações internacionais correram para publicar princípios e diretrizes sobre o que constitui uma \"IA ética\". Mas será que estamos realmente convergindo para um entendimento comum, ou apenas criando uma babel de boas intenções?",
+    "closing_paragraph": "O mapeamento global das diretrizes éticas para IA revela uma comunidade internacional em busca de terreno comum, mas ainda lutando com desacordos fundamentais sobre valores, prioridades e implementação. A convergência em torno de cinco princípios centrais — transparência, justiça, não-maleficência, responsabilidade e privacidade — é encorajadora, mas a divergência substantiva em como interpretá-los e realizá-los expõe a complexidade do desafio. Não estamos apenas desenvolvendo tecnologia; estamos negociando que tipo de futuro queremos construir e quais valores devem guiá-lo. Essa negociação não pode ser deixada apenas para empresas de tecnologia ou governos de países desenvolvidos — requer participação genuinamente global e interdisciplinar. E talvez mais importante, requer humildade: o reconhecimento de que não há respostas fáceis, que diferentes culturas e comunidades podem legitimamente priorizar valores diferentes, e que o trabalho de construir IA ética é um processo contínuo de aprendizado, ajuste e deliberação coletiva, não uma checklist a ser completada."
+  },
+  "workshop": {
+    "title": "Mapeando Princípios de IA Ética: Da Convergência Global às Tensões Locais",
+    "framing": "Ciclo de Kolb adaptado: experiência concreta (aplicação de princípios a casos) → observação reflexiva (identificação de tensões) → conceituação abstrata (análise das divergências) → experimentação ativa (proposição de estratégias de harmonização)",
+    "duration_minutes": 75,
+    "participant_track": {
+      "steps": [
+        {
+          "phase": "Preparação individual",
+          "instruction": "Antes da sessão, leia o resumo dos cinco princípios éticos convergentes (transparência, justiça e equidade, não-maleficência, responsabilidade, privacidade) e tenha em mãos o caso fictício que será enviado 24h antes. Identifique mentalmente quais princípios você considera mais relevantes para o caso.",
+          "self_check_prompt": "Consigo explicar com minhas próprias palavras o que cada um dos cinco princípios significa para mim?"
+        },
+        {
+          "phase": "Experiência concreta",
+          "instruction": "Você será alocado em uma sala de breakout (3-4 pessoas) e receberá um cenário de aplicação de IA (ex: sistema de recrutamento, diagnóstico médico, policiamento preditivo). Aplique os cinco princípios ao seu cenário: para cada princípio, identifique uma preocupação ética concreta e uma possível medida de implementação. Registre suas respostas no documento colaborativo compartilhado.",
+          "self_check_prompt": "Consegui identificar pelo menos uma preocupação ética específica para cada princípio no meu cenário? Minhas sugestões de implementação são concretas ou abstratas demais?"
+        },
+        {
+          "phase": "Observação reflexiva",
+          "instruction": "De volta ao plenário, observe as apresentações dos outros grupos (2 min cada). Anote em seu caderno: onde você vê interpretações diferentes do mesmo princípio? Onde há tensões ou trade-offs entre princípios? Quais princípios foram priorizados por cada grupo e por quê?",
+          "self_check_prompt": "Identifiquei pelo menos duas divergências substantivas entre os grupos? Compreendo por que essas divergências existem (contexto, valores, stakeholders)?"
+        },
+        {
+          "phase": "Conceituação abstrata",
+          "instruction": "Participe da discussão facilitada sobre os quatro fatores de divergência do artigo: interpretação, justificativa, domínio de aplicação e implementação. Posicione-se no chat ou verbalmente: qual fator você considera mais crítico para explicar as diferenças que observamos? Use exemplos concretos dos cenários apresentados.",
+          "self_check_prompt": "Consigo distinguir entre divergências de interpretação (o que o princípio significa) e divergências de implementação (como realizá-lo)? Entendo por que o artigo identifica 'negativity bias' (ênfase em não-maleficência sobre beneficência)?"
+        },
+        {
+          "phase": "Experimentação ativa",
+          "instruction": "Em nova rodada de breakouts (grupos diferentes), você e seu grupo receberão um dos cinco princípios. Proponham uma estratégia de harmonização que respeite o pluralismo cultural: como diferentes stakeholders (empresas, governos, sociedade civil) de diferentes regiões podem convergir operacionalmente nesse princípio, mesmo com interpretações distintas? Preparem 3 recomendações práticas.",
+          "self_check_prompt": "Minhas recomendações equilibram harmonização e pluralismo? Elas são implementáveis ou apenas aspiracionais? Considerei quem tem autoridade para adjudicar desacordos?"
+        },
+        {
+          "phase": "Consolidação",
+          "instruction": "Registre individualmente no formulário de saída: (1) uma tensão entre princípios que você identificou e como proporia resolvê-la; (2) um princípio sub-representado (sustentabilidade, solidariedade) e por que ele importa no seu contexto; (3) uma ação concreta que você pode tomar no seu trabalho/estudo para promover IA ética.",
+          "self_check_prompt": "Consigo articular como a convergência global em princípios coexiste com divergências substantivas? Tenho clareza sobre próximos passos práticos?"
+        }
+      ],
+      "materials_needed": [
+        "Acesso à plataforma de videoconferência com salas de breakout",
+        "Documento colaborativo (Google Docs ou Miro) compartilhado previamente",
+        "Resumo dos cinco princípios éticos (1 página, enviado 24h antes)",
+        "Caso fictício de aplicação de IA (enviado 24h antes)",
+        "Caderno ou documento pessoal para anotações",
+        "Formulário de reflexão final (Google Forms ou similar)"
+      ],
+      "reflection_questions": [
+        "Qual dos cinco princípios éticos você considera mais desafiador de implementar na prática, e por quê?",
+        "O artigo revela que 73% das diretrizes mencionam transparência, mas com interpretações divergentes. Como você definiria transparência em IA de forma operacional no seu campo de atuação?",
+        "Você identificou alguma tensão irreconciliável entre princípios (ex: maximizar dados para performance vs. privacidade individual)? Como diferentes culturas ou contextos podem resolver essa tensão de formas distintas?",
+        "O artigo aponta sub-representação de sustentabilidade e solidariedade. Que argumentos você faria para incluir esses princípios em diretrizes de IA ética?",
+        "Considerando a proliferação de soft-law (84 documentos em poucos anos), você acredita que autorregulação é suficiente ou é necessária regulação hard-law? Quais os riscos e benefícios de cada abordagem?",
+        "Quem deve ter autoridade para adjudicar desacordos fundamentais sobre valores em IA: governos nacionais, organismos internacionais, empresas de tecnologia, sociedade civil, ou uma combinação? Justifique."
+      ]
+    },
+    "facilitator_track": {
+      "script": [
+        {
+          "time_marker": "0–5 min",
+          "activity": "Abertura e contextualização: apresente brevemente o artigo de Jobin et al. (2019), destacando a questão central: convergência aparente em 5 princípios, mas divergências substantivas. Mostre visualmente a distribuição dos 84 documentos analisados (temporal, geográfica, por emissor).",
+          "facilitator_notes": "Use um slide simples com gráfico de barras dos 5 princípios mais prevalentes. Evite entrar em detalhes metodológicos neste momento. Objetivo é criar senso de urgência: 'muitas vozes, mas estão dizendo a mesma coisa?' Verifique que todos têm acesso ao documento colaborativo.",
+          "discussion_prompts": [
+            "Quantos de vocês já encontraram diretrizes de IA ética no trabalho ou estudo? De que tipo de organização?",
+            "Por que vocês acham que houve essa explosão de documentos após 2016?"
+          ]
+        },
+        {
+          "time_marker": "5–10 min",
+          "activity": "Formação de grupos e distribuição de cenários: divida participantes em salas de breakout (3-4 pessoas). Atribua a cada grupo um cenário de aplicação de IA (recrutamento, saúde, justiça criminal, educação, crédito financeiro). Explique a tarefa: aplicar os 5 princípios ao cenário, identificando preocupações éticas e medidas de implementação.",
+          "facilitator_notes": "Prepare cenários com nível similar de complexidade. Certifique-se de que cada cenário permite explorar todos os 5 princípios. Circule pelas salas nos primeiros 2 minutos para verificar compreensão da tarefa. Erro comum: grupos listam princípios abstratamente sem conectar ao cenário específico.",
+          "discussion_prompts": [
+            "Antes de irem para os grupos: o que vocês entendem por 'medida de implementação'? Deem um exemplo."
+          ]
+        },
+        {
+          "time_marker": "10–30 min",
+          "activity": "Trabalho em breakout rooms: grupos aplicam os 5 princípios aos cenários. Facilitador circula pelas salas, observando dinâmicas e oferecendo provocações quando necessário.",
+          "facilitator_notes": "Observe: grupos que priorizam certos princípios sobre outros (anotar para discussão posterior); dificuldades em operacionalizar princípios abstratos; tensões emergentes entre princípios (ex: transparência total vs. privacidade). Intervenha se grupos estiverem travados: 'E se vocês pensassem em transparência do ponto de vista do usuário final vs. do desenvolvedor?' Mantenha energia alta, sinalize tempo restante aos 15 e 5 minutos.",
+          "discussion_prompts": []
+        },
+        {
+          "time_marker": "30–45 min",
+          "activity": "Apresentações rápidas (2 min por grupo) e mapeamento de divergências: cada grupo apresenta seu cenário e as principais preocupações/medidas identificadas. Facilitador anota no quadro/documento compartilhado as diferentes interpretações do mesmo princípio que emergirem.",
+          "facilitator_notes": "Use técnica de 'escuta ativa comparativa': após cada apresentação, pergunte aos outros grupos se identificaram o mesmo princípio de forma diferente. Destaque explicitamente quando houver divergências (ex: 'Grupo A definiu transparência como explicabilidade técnica, Grupo B como comunicação acessível ao público leigo'). Erro comum: facilitador deixar apresentações se estenderem; seja firme com o tempo.",
+          "discussion_prompts": [
+            "Alguém mais trabalhou com [princípio X]? Vocês chegaram a conclusões similares ou diferentes?",
+            "Onde vocês veem tensões entre princípios? Por exemplo, maximizar justiça pode conflitar com privacidade?"
+          ]
+        },
+        {
+          "time_marker": "45–55 min",
+          "activity": "Conceituação: discussão facilitada sobre os 4 fatores de divergência (interpretação, justificativa, domínio, implementação). Conecte as divergências observadas nas apresentações aos achados do artigo. Introduza conceitos-chave: negativity bias, sub-representação de sustentabilidade/solidariedade.",
+          "facilitator_notes": "Este é o momento de maior densidade conceitual. Use exemplos concretos das apresentações para ilustrar cada fator. Mostre slide com citações do artigo sobre divergências. Pergunte: 'Por que transparência aparece em 73% dos documentos mas com significados tão diferentes?' Conecte ao contexto: empresas enfatizam transparência para confiança do consumidor; governos para accountability; sociedade civil para auditabilidade. Verifique compreensão: peça a alguém para resumir a diferença entre os 4 fatores.",
+          "discussion_prompts": [
+            "Qual fator de divergência vocês consideram mais problemático para harmonização global?",
+            "O artigo mostra ênfase em não-maleficência ('não causar dano') sobre beneficência ('fazer o bem'). Por que esse viés negativo?",
+            "Sustentabilidade e solidariedade são sub-representados. Isso reflete viés cultural ou geográfico nas diretrizes?"
+          ]
+        },
+        {
+          "time_marker": "55–70 min",
+          "activity": "Experimentação ativa: novos grupos de breakout (misture participantes). Cada grupo recebe um dos 5 princípios e a tarefa de propor estratégia de harmonização que respeite pluralismo. Grupos retornam e apresentam 3 recomendações práticas (1 min por grupo).",
+          "facilitator_notes": "Forme grupos intencionalmente diversos se possível (diferentes backgrounds, regiões). Tarefa é desafiadora: harmonizar sem homogeneizar. Circule e provoque: 'Como sua estratégia funcionaria na China vs. União Europeia vs. Brasil?' Nas apresentações finais, busque padrões: quais mecanismos de harmonização aparecem (certificação, auditoria independente, multi-stakeholder governance)? Celebre criatividade e pragmatismo.",
+          "discussion_prompts": [
+            "Sua estratégia requer autoridade centralizada ou pode ser distribuída?",
+            "Como vocês lidariam com desacordos fundamentais de valores entre culturas?"
+          ]
+        },
+        {
+          "time_marker": "70–75 min",
+          "activity": "Debrief e consolidação: siga estrutura de debrief (ver abaixo). Direcione participantes ao formulário de reflexão final. Encerre com a pergunta de fechamento do artigo sobre autoridade e pluralismo.",
+          "facilitator_notes": "Mantenha energia positiva mas reflexiva. Evite 'resolver' a tensão harmonização/pluralismo; o objetivo é que participantes saiam com a complexidade internalizada. Reforce que soft-law prolifera justamente porque hard-law é difícil em contexto global. Agradeça contribuições específicas que observou. Lembre que o formulário é parte da consolidação, não burocracia.",
+          "discussion_prompts": [
+            "Qual foi o momento 'aha!' de vocês hoje?",
+            "O que vocês farão diferente amanhã no trabalho/estudo com IA, considerando o que discutimos?"
+          ]
+        }
+      ],
+      "timing_table": {
+        "caption": "Visão geral do workshop: fases, atividades e objetivos de aprendizagem",
+        "columns": [
+          "Tempo",
+          "Atividade",
+          "Objetivo de aprendizagem"
+        ],
+        "rows": [
+          [
+            "0–5 min",
+            "Abertura e contextualização",
+            "Compreender a questão central: convergência vs. divergência em IA ética"
+          ],
+          [
+            "5–10 min",
+            "Formação de grupos e briefing",
+            "Preparar para aplicação concreta dos princípios"
+          ],
+          [
+            "10–30 min",
+            "Trabalho em breakout: aplicação a cenários",
+            "Experienciar a dificuldade de operacionalizar princípios abstratos"
+          ],
+          [
+            "30–45 min",
+            "Apresentações e mapeamento de divergências",
+            "Observar como diferentes grupos interpretam os mesmos princípios"
+          ],
+          [
+            "45–55 min",
+            "Discussão: 4 fatores de divergência",
+            "Conceituar as dimensões de desacordo (interpretação, justificativa, domínio, implementação)"
+          ],
+          [
+            "55–70 min",
+            "Breakout: estratégias de harmonização",
+            "Experimentar proposição de soluções que equilibrem convergência e pluralismo"
+          ],
+          [
+            "70–75 min",
+            "Debrief e consolidação",
+            "Integrar aprendizagens e identificar aplicações práticas"
+          ]
+        ]
+      },
+      "debrief_structure": [
+        "Perguntar: 'Qual princípio foi mais desafiador de aplicar e por quê?' (colher 2-3 respostas rápidas)",
+        "Destacar: 'Vocês vivenciaram hoje o que Jobin et al. documentaram: convergência nominal, divergência substantiva'",
+        "Provocar: 'Se não conseguimos concordar em uma sala com 15-20 pessoas, como 84 documentos globais poderiam convergir?'",
+        "Conectar ao contexto dos participantes: 'No Brasil/sua organização, quais stakeholders deveriam estar na mesa para definir IA ética?'",
+        "Encerrar com a pergunta de fechamento do artigo (autoridade e pluralismo) como reflexão aberta, não para responder agora",
+        "Direcionar ao formulário de consolidação e agradecer"
+      ],
+      "consolidation_goal": "Consolidação bem-sucedida significa que participantes saem capazes de: (1) nomear e distinguir os cinco princípios éticos convergentes em IA; (2) identificar pelo menos dois dos quatro fatores de divergência (interpretação, justificativa, domínio, implementação) em exemplos concretos; (3) articular pelo menos uma tensão entre princípios ou entre harmonização e pluralismo; (4) propor uma ação prática no seu contexto de trabalho/estudo informada pelos princípios discutidos."
+    }
+  },
+  "seo_pages": [
+    {
+      "page_kind": "article",
+      "title": "Artificial Intelligence: the global landscape of ethics guidelines",
+      "description": "Mapeamento e análise de 84 documentos sobre IA ética revela convergência global em torno de cinco princípios fundamentais (transparência, justiça e equidade, não-maleficência, responsabilidade e privacidade), mas divergências substantivas em interpretação, justificativa e implementação. Estudo de scoping review identifica tensões entre princípios, sub-representação de sustentabilidade e solidariedade, e a necessidade de harmonização que respeite pluralismo cultural e moral na governança de inteligência artificial.",
+      "keywords": [
+        "IA ética",
+        "ethical AI",
+        "AI principles",
+        "princípios de IA",
+        "AI guidelines",
+        "diretrizes de IA",
+        "transparency",
+        "transparência",
+        "explainability",
+        "justice and fairness",
+        "justiça e equidade",
+        "non-maleficence",
+        "não-maleficência",
+        "responsibility",
+        "responsabilidade",
+        "accountability",
+        "privacy",
+        "privacidade",
+        "algorithmic bias",
+        "viés algorítmico",
+        "AI governance",
+        "governança de IA",
+        "soft-law governance",
+        "scoping review",
+        "global convergence",
+        "convergência global",
+        "Ethics on AI"
+      ],
+      "og_type": "article",
+      "jsonld_type": "Article",
+      "authors": [
+        "Anna Jobin",
+        "Marcello Ienca",
+        "Effy Vayena"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/global-landscape-ethics-guidelines/index.html",
+      "published_date": "2019",
+      "modified_date": "2019",
+      "about": [
+        "ethical AI",
+        "AI principles",
+        "transparency",
+        "justice and fairness",
+        "accountability",
+        "global convergence"
+      ],
+      "article_tags": [
+        "Ethics on AI"
+      ]
+    },
+    {
+      "page_kind": "blog",
+      "title": "Artificial Intelligence: the global landscape of ethics guidelines",
+      "description": "Mapeamento e análise de 84 documentos globais sobre princípios éticos para IA revela convergência emergente em torno de cinco princípios (transparency, justice and fairness, non-maleficence, responsibility e privacy), mas com divergências substantivas em interpretação e implementação. Estudo identifica tensões entre soft-law governance e pluralismo moral.",
+      "keywords": [
+        "ética em IA",
+        "ethical AI",
+        "AI principles",
+        "AI guidelines",
+        "transparency",
+        "explainability",
+        "justice and fairness",
+        "non-maleficence",
+        "responsibility",
+        "accountability",
+        "privacy",
+        "viés algorítmico",
+        "algorithmic bias",
+        "soft-law governance",
+        "governança de IA",
+        "AI governance",
+        "scoping review",
+        "global convergence",
+        "pluralismo moral"
+      ],
+      "og_type": "article",
+      "jsonld_type": "BlogPosting",
+      "authors": [
+        "Anna Jobin",
+        "Marcello Ienca",
+        "Effy Vayena"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/global-landscape-ethics-guidelines/blog.html",
+      "published_date": "2019",
+      "modified_date": "2019",
+      "about": [
+        "ethical AI",
+        "AI principles",
+        "transparency",
+        "justice and fairness",
+        "non-maleficence",
+        "soft-law governance"
+      ],
+      "article_tags": []
+    },
+    {
+      "page_kind": "workshop",
+      "title": "Artificial Intelligence: the global landscape of ethics guidelines",
+      "description": "Revisão sistemática de 84 documentos globais sobre ética em IA revela convergência em cinco princípios fundamentais (transparência, justiça, não-maleficência, responsabilidade e privacidade), mas divergências substantivas em interpretação e implementação. Análise crítica da governança soft-law e dos desafios de harmonização transnacional.",
+      "keywords": [
+        "ética em IA",
+        "ethical AI",
+        "AI principles",
+        "AI guidelines",
+        "transparência",
+        "transparency",
+        "explainability",
+        "justiça e equidade",
+        "justice and fairness",
+        "non-maleficence",
+        "responsibility",
+        "accountability",
+        "privacidade",
+        "privacy",
+        "algorithmic bias",
+        "viés algorítmico",
+        "AI governance",
+        "governança de IA",
+        "soft-law governance",
+        "scoping review",
+        "global convergence",
+        "Ethics on AI"
+      ],
+      "og_type": "article",
+      "jsonld_type": "LearningResource",
+      "authors": [
+        "Anna Jobin",
+        "Marcello Ienca",
+        "Effy Vayena"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/global-landscape-ethics-guidelines/workshop.html",
+      "published_date": "2019",
+      "modified_date": "2019",
+      "about": [
+        "ethical AI",
+        "AI principles",
+        "transparency",
+        "justice and fairness",
+        "accountability",
+        "global convergence"
+      ],
+      "article_tags": []
+    }
+  ],
+  "downloads": [
+    {
+      "title": "Artigo original em PDF",
+      "description": "Revisão de escopo de 84 documentos que mapeia a convergência global em torno de cinco princípios éticos para IA e as divergências substantivas em sua interpretação e implementação.",
+      "href": "global-landscape-ethics-guidelines.pdf",
+      "arrow_label": "PDF ↓"
+    },
+    {
+      "title": "Post de blog",
+      "description": "Versão comentada explorando como a aparente convergência global em princípios éticos para IA mascara divergências profundas sobre interpretação, justificativa e implementação.",
+      "href": "blog.html",
+      "arrow_label": "LER →"
+    }
+  ],
+  "entity_graph": {
+    "entities": [
+      {
+        "key": "transparency",
+        "name": "transparency",
+        "label": "Concept",
+        "score": 0.9372305351754894,
+        "mentions": [
+          {
+            "start": 856,
+            "end": 868,
+            "text": "transparency"
+          },
+          {
+            "start": 17550,
+            "end": 17562,
+            "text": "transparency"
+          },
+          {
+            "start": 17869,
+            "end": 17881,
+            "text": "Transparency"
+          },
+          {
+            "start": 17888,
+            "end": 17900,
+            "text": "Transparency"
+          },
+          {
+            "start": 19063,
+            "end": 19075,
+            "text": "transparency"
+          },
+          {
+            "start": 19507,
+            "end": 19519,
+            "text": "Transparency"
+          },
+          {
+            "start": 19548,
+            "end": 19560,
+            "text": "transparency"
+          },
+          {
+            "start": 19781,
+            "end": 19793,
+            "text": "transparency"
+          },
+          {
+            "start": 20117,
+            "end": 20129,
+            "text": "transparency"
+          },
+          {
+            "start": 20361,
+            "end": 20373,
+            "text": "transparency"
+          },
+          {
+            "start": 20473,
+            "end": 20485,
+            "text": "transparency"
+          },
+          {
+            "start": 22764,
+            "end": 22776,
+            "text": "transparency"
+          },
+          {
+            "start": 34741,
+            "end": 34753,
+            "text": "transparency"
+          },
+          {
+            "start": 35655,
+            "end": 35667,
+            "text": "transparency"
+          },
+          {
+            "start": 35961,
+            "end": 35973,
+            "text": "transparency"
+          },
+          {
+            "start": 36107,
+            "end": 36119,
+            "text": "transparency"
+          },
+          {
+            "start": 36460,
+            "end": 36472,
+            "text": "transparency"
+          },
+          {
+            "start": 36613,
+            "end": 36625,
+            "text": "transparency"
+          },
+          {
+            "start": 36792,
+            "end": 36804,
+            "text": "transparency"
+          },
+          {
+            "start": 43381,
+            "end": 43393,
+            "text": "transparency"
+          }
+        ]
+      },
+      {
+        "key": "privacy",
+        "name": "privacy",
+        "label": "Concept",
+        "score": 0.861140554601496,
+        "mentions": [
+          {
+            "start": 928,
+            "end": 935,
+            "text": "privacy"
+          },
+          {
+            "start": 17619,
+            "end": 17626,
+            "text": "privacy"
+          },
+          {
+            "start": 18467,
+            "end": 18474,
+            "text": "Privacy"
+          },
+          {
+            "start": 18481,
+            "end": 18488,
+            "text": "Privacy"
+          },
+          {
+            "start": 19136,
+            "end": 19143,
+            "text": "privacy"
+          },
+          {
+            "start": 24098,
+            "end": 24105,
+            "text": "privacy"
+          },
+          {
+            "start": 24847,
+            "end": 24854,
+            "text": "privacy"
+          },
+          {
+            "start": 26860,
+            "end": 26867,
+            "text": "Privacy"
+          },
+          {
+            "start": 26885,
+            "end": 26892,
+            "text": "privacy"
+          },
+          {
+            "start": 27001,
+            "end": 27008,
+            "text": "privacy"
+          },
+          {
+            "start": 27145,
+            "end": 27152,
+            "text": "privacy"
+          },
+          {
+            "start": 27307,
+            "end": 27314,
+            "text": "privacy"
+          },
+          {
+            "start": 34801,
+            "end": 34808,
+            "text": "privacy"
+          },
+          {
+            "start": 35727,
+            "end": 35734,
+            "text": "privacy"
+          },
+          {
+            "start": 37943,
+            "end": 37950,
+            "text": "privacy"
+          },
+          {
+            "start": 43433,
+            "end": 43440,
+            "text": "privacy"
+          },
+          {
+            "start": 85531,
+            "end": 85538,
+            "text": "Privacy"
+          },
+          {
+            "start": 85617,
+            "end": 85624,
+            "text": "Privacy"
+          },
+          {
+            "start": 95813,
+            "end": 95820,
+            "text": "Privacy"
+          }
+        ]
+      },
+      {
+        "key": "trust",
+        "name": "trust",
+        "label": "Concept",
+        "score": 0.8119823634624481,
+        "mentions": [
+          {
+            "start": 17663,
+            "end": 17668,
+            "text": "trust"
+          },
+          {
+            "start": 18715,
+            "end": 18720,
+            "text": "Trust"
+          },
+          {
+            "start": 18727,
+            "end": 18732,
+            "text": "Trust"
+          },
+          {
+            "start": 27173,
+            "end": 27178,
+            "text": "trust"
+          },
+          {
+            "start": 30042,
+            "end": 30047,
+            "text": "Trust"
+          },
+          {
+            "start": 30063,
+            "end": 30068,
+            "text": "trust"
+          },
+          {
+            "start": 30265,
+            "end": 30270,
+            "text": "trust"
+          },
+          {
+            "start": 30300,
+            "end": 30305,
+            "text": "trust"
+          },
+          {
+            "start": 30340,
+            "end": 30345,
+            "text": "trust"
+          },
+          {
+            "start": 30468,
+            "end": 30473,
+            "text": "trust"
+          },
+          {
+            "start": 30679,
+            "end": 30684,
+            "text": "trust"
+          },
+          {
+            "start": 30733,
+            "end": 30738,
+            "text": "trust"
+          },
+          {
+            "start": 31071,
+            "end": 31076,
+            "text": "trust"
+          },
+          {
+            "start": 31248,
+            "end": 31253,
+            "text": "trust"
+          },
+          {
+            "start": 95740,
+            "end": 95745,
+            "text": "Trust"
+          }
+        ]
+      },
+      {
+        "key": "responsibility",
+        "name": "responsibility",
+        "label": "Concept",
+        "score": 0.863924190402031,
+        "mentions": [
+          {
+            "start": 909,
+            "end": 923,
+            "text": "responsibility"
+          },
+          {
+            "start": 17603,
+            "end": 17617,
+            "text": "responsibility"
+          },
+          {
+            "start": 18379,
+            "end": 18393,
+            "text": "Responsibility"
+          },
+          {
+            "start": 18400,
+            "end": 18414,
+            "text": "Responsibility"
+          },
+          {
+            "start": 19116,
+            "end": 19130,
+            "text": "responsibility"
+          },
+          {
+            "start": 25849,
+            "end": 25863,
+            "text": "responsibility"
+          },
+          {
+            "start": 26016,
+            "end": 26030,
+            "text": "responsibility"
+          },
+          {
+            "start": 26296,
+            "end": 26310,
+            "text": "responsibility"
+          },
+          {
+            "start": 34781,
+            "end": 34795,
+            "text": "responsibility"
+          },
+          {
+            "start": 35708,
+            "end": 35722,
+            "text": "responsibility"
+          },
+          {
+            "start": 36419,
+            "end": 36433,
+            "text": "responsibility"
+          },
+          {
+            "start": 36514,
+            "end": 36528,
+            "text": "responsibility"
+          },
+          {
+            "start": 36968,
+            "end": 36982,
+            "text": "responsibility"
+          },
+          {
+            "start": 43413,
+            "end": 43427,
+            "text": "responsibility"
+          }
+        ]
+      },
+      {
+        "key": "microsoft",
+        "name": "Microsoft",
+        "label": "Organization",
+        "score": 0.9216639995574951,
+        "mentions": [
+          {
+            "start": 10185,
+            "end": 10194,
+            "text": "Microsoft"
+          },
+          {
+            "start": 11162,
+            "end": 11171,
+            "text": "Microsoft"
+          },
+          {
+            "start": 60836,
+            "end": 60845,
+            "text": "Microsoft"
+          },
+          {
+            "start": 63702,
+            "end": 63711,
+            "text": "Microsoft"
+          },
+          {
+            "start": 63713,
+            "end": 63722,
+            "text": "Microsoft"
+          },
+          {
+            "start": 63788,
+            "end": 63797,
+            "text": "microsoft"
+          },
+          {
+            "start": 63843,
+            "end": 63852,
+            "text": "microsoft"
+          },
+          {
+            "start": 69878,
+            "end": 69887,
+            "text": "Microsoft"
+          },
+          {
+            "start": 69918,
+            "end": 69927,
+            "text": "Microsoft"
+          },
+          {
+            "start": 69961,
+            "end": 69970,
+            "text": "microsoft"
+          },
+          {
+            "start": 70024,
+            "end": 70033,
+            "text": "microsoft"
+          },
+          {
+            "start": 79380,
+            "end": 79389,
+            "text": "Microsoft"
+          },
+          {
+            "start": 89789,
+            "end": 89798,
+            "text": "Microsoft"
+          }
+        ]
+      },
+      {
+        "key": "ethical principles",
+        "name": "ethical principles",
+        "label": "Concept",
+        "score": 0.7796394754858578,
+        "mentions": [
+          {
+            "start": 4422,
+            "end": 4440,
+            "text": "ethical principles"
+          },
+          {
+            "start": 5213,
+            "end": 5231,
+            "text": "ethical principles"
+          },
+          {
+            "start": 34719,
+            "end": 34737,
+            "text": "ethical principles"
+          },
+          {
+            "start": 34920,
+            "end": 34938,
+            "text": "ethical principles"
+          },
+          {
+            "start": 35129,
+            "end": 35147,
+            "text": "ethical principles"
+          },
+          {
+            "start": 35193,
+            "end": 35211,
+            "text": "ethical principles"
+          },
+          {
+            "start": 40548,
+            "end": 40566,
+            "text": "ethical principles"
+          },
+          {
+            "start": 43603,
+            "end": 43621,
+            "text": "ethical principles"
+          },
+          {
+            "start": 48753,
+            "end": 48771,
+            "text": "ethical principles"
+          },
+          {
+            "start": 49822,
+            "end": 49840,
+            "text": "ethical principles"
+          },
+          {
+            "start": 50177,
+            "end": 50195,
+            "text": "ethical principles"
+          },
+          {
+            "start": 83379,
+            "end": 83397,
+            "text": "Ethical principles"
+          },
+          {
+            "start": 95620,
+            "end": 95638,
+            "text": "Ethical Principles"
+          },
+          {
+            "start": 95693,
+            "end": 95711,
+            "text": "Ethical Principles"
+          }
+        ]
+      },
+      {
+        "key": "ibm",
+        "name": "IBM",
+        "label": "Organization",
+        "score": 0.9589522530635198,
+        "mentions": [
+          {
+            "start": 10280,
+            "end": 10283,
+            "text": "IBM"
+          },
+          {
+            "start": 10324,
+            "end": 10327,
+            "text": "IBM"
+          },
+          {
+            "start": 10595,
+            "end": 10598,
+            "text": "IBM"
+          },
+          {
+            "start": 54333,
+            "end": 54336,
+            "text": "IBM"
+          },
+          {
+            "start": 54384,
+            "end": 54387,
+            "text": "IBM"
+          },
+          {
+            "start": 54424,
+            "end": 54427,
+            "text": "ibm"
+          },
+          {
+            "start": 54491,
+            "end": 54494,
+            "text": "ibm"
+          },
+          {
+            "start": 55616,
+            "end": 55619,
+            "text": "IBM"
+          },
+          {
+            "start": 81844,
+            "end": 81847,
+            "text": "IBM"
+          },
+          {
+            "start": 81890,
+            "end": 81893,
+            "text": "IBM"
+          },
+          {
+            "start": 81936,
+            "end": 81939,
+            "text": "IBM"
+          }
+        ]
+      },
+      {
+        "key": "google",
+        "name": "Google",
+        "label": "Organization",
+        "score": 0.9496762355168661,
+        "mentions": [
+          {
+            "start": 3422,
+            "end": 3428,
+            "text": "Google"
+          },
+          {
+            "start": 10377,
+            "end": 10383,
+            "text": "Google"
+          },
+          {
+            "start": 46875,
+            "end": 46881,
+            "text": "Google"
+          },
+          {
+            "start": 47525,
+            "end": 47531,
+            "text": "Google"
+          },
+          {
+            "start": 47574,
+            "end": 47580,
+            "text": "Google"
+          },
+          {
+            "start": 63545,
+            "end": 63551,
+            "text": "Google"
+          },
+          {
+            "start": 63570,
+            "end": 63576,
+            "text": "Google"
+          },
+          {
+            "start": 63615,
+            "end": 63621,
+            "text": "google"
+          },
+          {
+            "start": 63646,
+            "end": 63652,
+            "text": "google"
+          },
+          {
+            "start": 72023,
+            "end": 72029,
+            "text": "Google"
+          },
+          {
+            "start": 72247,
+            "end": 72253,
+            "text": "Google"
+          }
+        ]
+      },
+      {
+        "key": "solidarity",
+        "name": "solidarity",
+        "label": "Concept",
+        "score": 0.8499600199552683,
+        "mentions": [
+          {
+            "start": 17699,
+            "end": 17709,
+            "text": "solidarity"
+          },
+          {
+            "start": 18847,
+            "end": 18857,
+            "text": "Solidarity"
+          },
+          {
+            "start": 18863,
+            "end": 18873,
+            "text": "Solidarity"
+          },
+          {
+            "start": 32897,
+            "end": 32907,
+            "text": "Solidarity"
+          },
+          {
+            "start": 32909,
+            "end": 32919,
+            "text": "Solidarity"
+          },
+          {
+            "start": 33323,
+            "end": 33333,
+            "text": "solidarity"
+          },
+          {
+            "start": 38890,
+            "end": 38900,
+            "text": "solidarity"
+          },
+          {
+            "start": 39697,
+            "end": 39707,
+            "text": "solidarity"
+          },
+          {
+            "start": 39907,
+            "end": 39917,
+            "text": "solidarity"
+          },
+          {
+            "start": 40369,
+            "end": 40379,
+            "text": "solidarity"
+          },
+          {
+            "start": 43645,
+            "end": 43655,
+            "text": "solidarity"
+          },
+          {
+            "start": 95903,
+            "end": 95913,
+            "text": "Solidarity"
+          }
+        ]
+      },
+      {
+        "key": "sap",
+        "name": "SAP",
+        "label": "Organization",
+        "score": 0.8744875142971674,
+        "mentions": [
+          {
+            "start": 3433,
+            "end": 3436,
+            "text": "SAP"
+          },
+          {
+            "start": 6877,
+            "end": 6880,
+            "text": "SAP"
+          },
+          {
+            "start": 6930,
+            "end": 6933,
+            "text": "SAP"
+          },
+          {
+            "start": 58730,
+            "end": 58733,
+            "text": "SAP"
+          },
+          {
+            "start": 58735,
+            "end": 58738,
+            "text": "SAP"
+          },
+          {
+            "start": 58795,
+            "end": 58798,
+            "text": "SAP"
+          },
+          {
+            "start": 58835,
+            "end": 58838,
+            "text": "sap"
+          },
+          {
+            "start": 58915,
+            "end": 58918,
+            "text": "sap"
+          },
+          {
+            "start": 87537,
+            "end": 87540,
+            "text": "SAP"
+          },
+          {
+            "start": 87594,
+            "end": 87597,
+            "text": "SAP"
+          },
+          {
+            "start": 87649,
+            "end": 87652,
+            "text": "SAP"
+          }
+        ]
+      },
+      {
+        "key": "non maleficence",
+        "name": "non-maleficence",
+        "label": "Concept",
+        "score": 0.8561857839425405,
+        "mentions": [
+          {
+            "start": 892,
+            "end": 907,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 17586,
+            "end": 17601,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 18233,
+            "end": 18248,
+            "text": "Non-maleficence"
+          },
+          {
+            "start": 18255,
+            "end": 18270,
+            "text": "Non-maleficence"
+          },
+          {
+            "start": 19099,
+            "end": 19114,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 23556,
+            "end": 23571,
+            "text": "Non-maleficence"
+          },
+          {
+            "start": 23587,
+            "end": 23602,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 34764,
+            "end": 34779,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 35691,
+            "end": 35706,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 37443,
+            "end": 37458,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 43395,
+            "end": 43411,
+            "text": "non- maleficence"
+          }
+        ]
+      },
+      {
+        "key": "artificial intelligence",
+        "name": "Artificial Intelligence",
+        "label": "Concept",
+        "score": 0.6622265100479126,
+        "mentions": [
+          {
+            "start": 8138,
+            "end": 8161,
+            "text": "Artificial intelligence"
+          },
+          {
+            "start": 8807,
+            "end": 8830,
+            "text": "artificial intelligence"
+          },
+          {
+            "start": 57328,
+            "end": 57351,
+            "text": "artificial intelligence"
+          },
+          {
+            "start": 58764,
+            "end": 58787,
+            "text": "artificial intelligence"
+          },
+          {
+            "start": 62061,
+            "end": 62084,
+            "text": "Artificial intelligence"
+          },
+          {
+            "start": 65257,
+            "end": 65280,
+            "text": "Artificial intelligence"
+          },
+          {
+            "start": 79785,
+            "end": 79808,
+            "text": "Artificial Intelligence"
+          },
+          {
+            "start": 85553,
+            "end": 85576,
+            "text": "Artificial Intelligence"
+          },
+          {
+            "start": 85641,
+            "end": 85664,
+            "text": "Artificial Intelligence"
+          },
+          {
+            "start": 86346,
+            "end": 86369,
+            "text": "Artificial Intelligence"
+          },
+          {
+            "start": 86554,
+            "end": 86577,
+            "text": "Artificial Intelligence"
+          },
+          {
+            "start": 86720,
+            "end": 86743,
+            "text": "Artificial Intelligence"
+          },
+          {
+            "start": 94119,
+            "end": 94142,
+            "text": "artificial intelligence"
+          },
+          {
+            "start": 94426,
+            "end": 94449,
+            "text": "artificial intelligence"
+          }
+        ]
+      },
+      {
+        "key": "dignity",
+        "name": "dignity",
+        "label": "Concept",
+        "score": 0.8865460902452469,
+        "mentions": [
+          {
+            "start": 17670,
+            "end": 17677,
+            "text": "dignity"
+          },
+          {
+            "start": 18823,
+            "end": 18830,
+            "text": "Dignity"
+          },
+          {
+            "start": 18837,
+            "end": 18844,
+            "text": "Dignity"
+          },
+          {
+            "start": 32178,
+            "end": 32185,
+            "text": "Dignity"
+          },
+          {
+            "start": 32193,
+            "end": 32200,
+            "text": "dignity"
+          },
+          {
+            "start": 32367,
+            "end": 32374,
+            "text": "dignity"
+          },
+          {
+            "start": 32638,
+            "end": 32645,
+            "text": "dignity"
+          },
+          {
+            "start": 32653,
+            "end": 32660,
+            "text": "Dignity"
+          },
+          {
+            "start": 37952,
+            "end": 37959,
+            "text": "dignity"
+          },
+          {
+            "start": 95880,
+            "end": 95887,
+            "text": "Dignity"
+          }
+        ]
+      },
+      {
+        "key": "ethical ai",
+        "name": "ethical AI",
+        "label": "Concept",
+        "score": 0.7386888428167864,
+        "mentions": [
+          {
+            "start": 439,
+            "end": 449,
+            "text": "ethical AI"
+          },
+          {
+            "start": 500,
+            "end": 510,
+            "text": "ethical AI"
+          },
+          {
+            "start": 763,
+            "end": 773,
+            "text": "ethical AI"
+          },
+          {
+            "start": 4392,
+            "end": 4402,
+            "text": "ethical AI"
+          },
+          {
+            "start": 4758,
+            "end": 4768,
+            "text": "ethical AI"
+          },
+          {
+            "start": 4868,
+            "end": 4878,
+            "text": "ethical AI"
+          },
+          {
+            "start": 33470,
+            "end": 33480,
+            "text": "ethical AI"
+          },
+          {
+            "start": 34213,
+            "end": 34223,
+            "text": "ethical AI"
+          },
+          {
+            "start": 43479,
+            "end": 43489,
+            "text": "ethical AI"
+          },
+          {
+            "start": 44180,
+            "end": 44190,
+            "text": "ethical AI"
+          },
+          {
+            "start": 47192,
+            "end": 47202,
+            "text": "ethical AI"
+          }
+        ]
+      },
+      {
+        "key": "sustainability",
+        "name": "sustainability",
+        "label": "Concept",
+        "score": 0.8212897777557373,
+        "mentions": [
+          {
+            "start": 17679,
+            "end": 17693,
+            "text": "sustainability"
+          },
+          {
+            "start": 18735,
+            "end": 18749,
+            "text": "Sustainability"
+          },
+          {
+            "start": 18756,
+            "end": 18770,
+            "text": "Sustainability"
+          },
+          {
+            "start": 31407,
+            "end": 31421,
+            "text": "Sustainability"
+          },
+          {
+            "start": 31457,
+            "end": 31471,
+            "text": "sustainability"
+          },
+          {
+            "start": 38871,
+            "end": 38885,
+            "text": "sustainability"
+          },
+          {
+            "start": 40350,
+            "end": 40364,
+            "text": "sustainability"
+          },
+          {
+            "start": 43660,
+            "end": 43674,
+            "text": "sustainability"
+          },
+          {
+            "start": 95888,
+            "end": 95902,
+            "text": "Sustainability"
+          }
+        ]
+      },
+      {
+        "key": "citation chaining",
+        "name": "Citation chaining",
+        "label": "Method",
+        "score": 0.7329982121785482,
+        "mentions": [
+          {
+            "start": 47802,
+            "end": 47819,
+            "text": "citation-chaining"
+          },
+          {
+            "start": 48300,
+            "end": 48317,
+            "text": "citation chaining"
+          },
+          {
+            "start": 48619,
+            "end": 48636,
+            "text": "citation chaining"
+          },
+          {
+            "start": 73810,
+            "end": 73827,
+            "text": "Citation chaining"
+          },
+          {
+            "start": 74030,
+            "end": 74047,
+            "text": "Citation chaining"
+          },
+          {
+            "start": 77535,
+            "end": 77552,
+            "text": "Citation chaining"
+          },
+          {
+            "start": 77735,
+            "end": 77752,
+            "text": "Citation chaining"
+          },
+          {
+            "start": 79013,
+            "end": 79030,
+            "text": "Citation chaining"
+          },
+          {
+            "start": 79564,
+            "end": 79581,
+            "text": "Citation chaining"
+          },
+          {
+            "start": 79765,
+            "end": 79782,
+            "text": "Citation chaining"
+          }
+        ]
+      },
+      {
+        "key": "ai principles",
+        "name": "AI Principles",
+        "label": "Concept",
+        "score": 0.813307296146046,
+        "mentions": [
+          {
+            "start": 8536,
+            "end": 8549,
+            "text": "AI Principles"
+          },
+          {
+            "start": 10124,
+            "end": 10137,
+            "text": "AI Principles"
+          },
+          {
+            "start": 47082,
+            "end": 47095,
+            "text": "AI principles"
+          },
+          {
+            "start": 47323,
+            "end": 47336,
+            "text": "AI principles"
+          },
+          {
+            "start": 47427,
+            "end": 47440,
+            "text": "AI principles"
+          },
+          {
+            "start": 47619,
+            "end": 47632,
+            "text": "AI principles"
+          },
+          {
+            "start": 76270,
+            "end": 76283,
+            "text": "AI Principles"
+          },
+          {
+            "start": 76284,
+            "end": 76297,
+            "text": "AI Principles"
+          },
+          {
+            "start": 93122,
+            "end": 93135,
+            "text": "AI Principles"
+          }
+        ]
+      },
+      {
+        "key": "openai",
+        "name": "OpenAI",
+        "label": "Organization",
+        "score": 0.7720774279700385,
+        "mentions": [
+          {
+            "start": 10349,
+            "end": 10355,
+            "text": "OpenAI"
+          },
+          {
+            "start": 13620,
+            "end": 13626,
+            "text": "OpenAI"
+          },
+          {
+            "start": 52048,
+            "end": 52054,
+            "text": "OpenAI"
+          },
+          {
+            "start": 67726,
+            "end": 67732,
+            "text": "OpenAI"
+          },
+          {
+            "start": 67734,
+            "end": 67740,
+            "text": "OpenAI"
+          },
+          {
+            "start": 67751,
+            "end": 67757,
+            "text": "OpenAI"
+          },
+          {
+            "start": 67795,
+            "end": 67801,
+            "text": "openai"
+          },
+          {
+            "start": 67836,
+            "end": 67842,
+            "text": "openai"
+          },
+          {
+            "start": 82616,
+            "end": 82622,
+            "text": "OpenAI"
+          }
+        ]
+      },
+      {
+        "key": "freedom",
+        "name": "freedom",
+        "label": "Concept",
+        "score": 0.762456628409299,
+        "mentions": [
+          {
+            "start": 18636,
+            "end": 18643,
+            "text": "Freedom"
+          },
+          {
+            "start": 27156,
+            "end": 27163,
+            "text": "freedom"
+          },
+          {
+            "start": 28931,
+            "end": 28938,
+            "text": "Freedom"
+          },
+          {
+            "start": 29145,
+            "end": 29152,
+            "text": "freedom"
+          },
+          {
+            "start": 29262,
+            "end": 29269,
+            "text": "freedom"
+          },
+          {
+            "start": 29288,
+            "end": 29295,
+            "text": "freedom"
+          },
+          {
+            "start": 29445,
+            "end": 29452,
+            "text": "freedom"
+          },
+          {
+            "start": 29574,
+            "end": 29581,
+            "text": "freedom"
+          },
+          {
+            "start": 29675,
+            "end": 29682,
+            "text": "Freedom"
+          }
+        ]
+      },
+      {
+        "key": "justice",
+        "name": "Justice",
+        "label": "Concept",
+        "score": 0.8266616861025492,
+        "mentions": [
+          {
+            "start": 18032,
+            "end": 18039,
+            "text": "Justice"
+          },
+          {
+            "start": 21372,
+            "end": 21379,
+            "text": "Justice"
+          },
+          {
+            "start": 21403,
+            "end": 21410,
+            "text": "Justice"
+          },
+          {
+            "start": 21767,
+            "end": 21774,
+            "text": "justice"
+          },
+          {
+            "start": 34755,
+            "end": 34762,
+            "text": "justice"
+          },
+          {
+            "start": 36292,
+            "end": 36299,
+            "text": "justice"
+          },
+          {
+            "start": 36477,
+            "end": 36484,
+            "text": "justice"
+          },
+          {
+            "start": 95821,
+            "end": 95828,
+            "text": "Justice"
+          }
+        ]
+      },
+      {
+        "key": "beneficence",
+        "name": "beneficence",
+        "label": "Concept",
+        "score": 0.8051005125045776,
+        "mentions": [
+          {
+            "start": 17628,
+            "end": 17639,
+            "text": "beneficence"
+          },
+          {
+            "start": 18524,
+            "end": 18535,
+            "text": "Beneficence"
+          },
+          {
+            "start": 18552,
+            "end": 18563,
+            "text": "beneficence"
+          },
+          {
+            "start": 23621,
+            "end": 23632,
+            "text": "beneficence"
+          },
+          {
+            "start": 27702,
+            "end": 27713,
+            "text": "Beneficence"
+          },
+          {
+            "start": 27738,
+            "end": 27749,
+            "text": "beneficence"
+          },
+          {
+            "start": 37486,
+            "end": 37497,
+            "text": "beneficence"
+          },
+          {
+            "start": 95712,
+            "end": 95723,
+            "text": "Beneficence"
+          }
+        ]
+      },
+      {
+        "key": "tieto",
+        "name": "Tieto",
+        "label": "Organization",
+        "score": 0.9172137320041657,
+        "mentions": [
+          {
+            "start": 6442,
+            "end": 6447,
+            "text": "Tieto"
+          },
+          {
+            "start": 6471,
+            "end": 6476,
+            "text": "Tieto"
+          },
+          {
+            "start": 62633,
+            "end": 62638,
+            "text": "Tieto"
+          },
+          {
+            "start": 62640,
+            "end": 62645,
+            "text": "Tieto"
+          },
+          {
+            "start": 88570,
+            "end": 88575,
+            "text": "Tieto"
+          },
+          {
+            "start": 88599,
+            "end": 88604,
+            "text": "Tieto"
+          },
+          {
+            "start": 88628,
+            "end": 88633,
+            "text": "Tieto"
+          }
+        ]
+      },
+      {
+        "key": "unity",
+        "name": "Unity",
+        "label": "Organization",
+        "score": 0.7034039876677773,
+        "mentions": [
+          {
+            "start": 10847,
+            "end": 10852,
+            "text": "Unity"
+          },
+          {
+            "start": 62682,
+            "end": 62687,
+            "text": "Unity"
+          },
+          {
+            "start": 62701,
+            "end": 62706,
+            "text": "Unity"
+          },
+          {
+            "start": 62745,
+            "end": 62750,
+            "text": "Unity"
+          },
+          {
+            "start": 62758,
+            "end": 62763,
+            "text": "Unity"
+          },
+          {
+            "start": 89533,
+            "end": 89538,
+            "text": "Unity"
+          },
+          {
+            "start": 89577,
+            "end": 89582,
+            "text": "Unity"
+          },
+          {
+            "start": 89588,
+            "end": 89593,
+            "text": "Unity"
+          }
+        ]
+      },
+      {
+        "key": "future of life institute",
+        "name": "Future of Life Institute",
+        "label": "Organization",
+        "score": 0.9056310057640076,
+        "mentions": [
+          {
+            "start": 10138,
+            "end": 10162,
+            "text": "Future of Life Institute"
+          },
+          {
+            "start": 59822,
+            "end": 59846,
+            "text": "Future of Life Institute"
+          },
+          {
+            "start": 71446,
+            "end": 71470,
+            "text": "Future of Life Institute"
+          },
+          {
+            "start": 71720,
+            "end": 71744,
+            "text": "Future of Life Institute"
+          },
+          {
+            "start": 71781,
+            "end": 71805,
+            "text": "Future of Life Institute"
+          },
+          {
+            "start": 76298,
+            "end": 76322,
+            "text": "Future of Life Institute"
+          }
+        ]
+      },
+      {
+        "key": "justice and fairness",
+        "name": "justice and fairness",
+        "label": "Concept",
+        "score": 0.8876394828160604,
+        "mentions": [
+          {
+            "start": 870,
+            "end": 890,
+            "text": "justice and fairness"
+          },
+          {
+            "start": 17564,
+            "end": 17584,
+            "text": "justice and fairness"
+          },
+          {
+            "start": 19077,
+            "end": 19097,
+            "text": "justice and fairness"
+          },
+          {
+            "start": 35669,
+            "end": 35689,
+            "text": "justice and fairness"
+          },
+          {
+            "start": 35975,
+            "end": 35995,
+            "text": "justice and fairness"
+          },
+          {
+            "start": 36292,
+            "end": 36312,
+            "text": "justice and fairness"
+          }
+        ]
+      },
+      {
+        "key": "autonomy",
+        "name": "autonomy",
+        "label": "Concept",
+        "score": 0.8794174119830132,
+        "mentions": [
+          {
+            "start": 18645,
+            "end": 18653,
+            "text": "autonomy"
+          },
+          {
+            "start": 28943,
+            "end": 28951,
+            "text": "autonomy"
+          },
+          {
+            "start": 29187,
+            "end": 29195,
+            "text": "autonomy"
+          },
+          {
+            "start": 29239,
+            "end": 29247,
+            "text": "autonomy"
+          },
+          {
+            "start": 29687,
+            "end": 29695,
+            "text": "autonomy"
+          },
+          {
+            "start": 37961,
+            "end": 37969,
+            "text": "autonomy"
+          }
+        ]
+      },
+      {
+        "key": "public sector",
+        "name": "public sector",
+        "label": "Organization",
+        "score": 0.6465776165326437,
+        "mentions": [
+          {
+            "start": 17070,
+            "end": 17083,
+            "text": "public sector"
+          },
+          {
+            "start": 22197,
+            "end": 22210,
+            "text": "public sector"
+          },
+          {
+            "start": 33710,
+            "end": 33723,
+            "text": "public sector"
+          },
+          {
+            "start": 83219,
+            "end": 83232,
+            "text": "public sector"
+          },
+          {
+            "start": 83546,
+            "end": 83559,
+            "text": "public sector"
+          },
+          {
+            "start": 84199,
+            "end": 84212,
+            "text": "public sector"
+          },
+          {
+            "start": 92635,
+            "end": 92648,
+            "text": "public sector"
+          },
+          {
+            "start": 92799,
+            "end": 92812,
+            "text": "public sector"
+          }
+        ]
+      },
+      {
+        "key": "iiim",
+        "name": "IIIM",
+        "label": "Organization",
+        "score": 0.8485891640186309,
+        "mentions": [
+          {
+            "start": 67438,
+            "end": 67442,
+            "text": "IIIM"
+          },
+          {
+            "start": 67461,
+            "end": 67465,
+            "text": "IIIM"
+          },
+          {
+            "start": 67501,
+            "end": 67505,
+            "text": "iiim"
+          },
+          {
+            "start": 67544,
+            "end": 67548,
+            "text": "iiim"
+          },
+          {
+            "start": 74064,
+            "end": 74068,
+            "text": "IIIM"
+          },
+          {
+            "start": 74131,
+            "end": 74135,
+            "text": "IIIM"
+          }
+        ]
+      },
+      {
+        "key": "national science and technology council",
+        "name": "National Science and Technology Council",
+        "label": "Organization",
+        "score": 0.919685355254582,
+        "mentions": [
+          {
+            "start": 11265,
+            "end": 11304,
+            "text": "National Science and Technology Council"
+          },
+          {
+            "start": 11413,
+            "end": 11452,
+            "text": "National Science and Technology Council"
+          },
+          {
+            "start": 65119,
+            "end": 65158,
+            "text": "National Science and Technology Council"
+          },
+          {
+            "start": 66834,
+            "end": 66873,
+            "text": "National Science and Technology Council"
+          },
+          {
+            "start": 75027,
+            "end": 75066,
+            "text": "National Science and Technology Council"
+          }
+        ]
+      },
+      {
+        "key": "machine learning",
+        "name": "machine learning",
+        "label": "Concept",
+        "score": 0.6551056951284409,
+        "mentions": [
+          {
+            "start": 1594,
+            "end": 1610,
+            "text": "machine learning"
+          },
+          {
+            "start": 51226,
+            "end": 51242,
+            "text": "Machine learning"
+          },
+          {
+            "start": 57353,
+            "end": 57369,
+            "text": "machine learning"
+          },
+          {
+            "start": 65341,
+            "end": 65357,
+            "text": "Machine learning"
+          },
+          {
+            "start": 77328,
+            "end": 77344,
+            "text": "Machine learning"
+          },
+          {
+            "start": 78650,
+            "end": 78666,
+            "text": "machine learning"
+          },
+          {
+            "start": 94709,
+            "end": 94725,
+            "text": "machine learning"
+          }
+        ]
+      },
+      {
+        "key": "wef",
+        "name": "WEF",
+        "label": "Organization",
+        "score": 0.8988689382870992,
+        "mentions": [
+          {
+            "start": 13715,
+            "end": 13718,
+            "text": "WEF"
+          },
+          {
+            "start": 62152,
+            "end": 62155,
+            "text": "WEF"
+          },
+          {
+            "start": 69490,
+            "end": 69493,
+            "text": "WEF"
+          },
+          {
+            "start": 69548,
+            "end": 69551,
+            "text": "WEF"
+          },
+          {
+            "start": 82816,
+            "end": 82819,
+            "text": "WEF"
+          }
+        ]
+      },
+      {
+        "key": "deepmind",
+        "name": "DeepMind",
+        "label": "Organization",
+        "score": 0.74458047747612,
+        "mentions": [
+          {
+            "start": 8908,
+            "end": 8916,
+            "text": "DeepMind"
+          },
+          {
+            "start": 61730,
+            "end": 61738,
+            "text": "DeepMind"
+          },
+          {
+            "start": 61755,
+            "end": 61763,
+            "text": "DeepMind"
+          },
+          {
+            "start": 61794,
+            "end": 61802,
+            "text": "DeepMind"
+          },
+          {
+            "start": 61835,
+            "end": 61843,
+            "text": "deepmind"
+          },
+          {
+            "start": 61901,
+            "end": 61909,
+            "text": "deepmind"
+          }
+        ]
+      },
+      {
+        "key": "sage",
+        "name": "Sage",
+        "label": "Organization",
+        "score": 0.8899450302124023,
+        "mentions": [
+          {
+            "start": 8787,
+            "end": 8791,
+            "text": "Sage"
+          },
+          {
+            "start": 62326,
+            "end": 62330,
+            "text": "Sage"
+          },
+          {
+            "start": 72632,
+            "end": 72636,
+            "text": "Sage"
+          },
+          {
+            "start": 72733,
+            "end": 72737,
+            "text": "SAGE"
+          },
+          {
+            "start": 77701,
+            "end": 77705,
+            "text": "Sage"
+          }
+        ]
+      },
+      {
+        "key": "fairness",
+        "name": "fairness",
+        "label": "Concept",
+        "score": 0.7077826410531998,
+        "mentions": [
+          {
+            "start": 15193,
+            "end": 15201,
+            "text": "Fairness"
+          },
+          {
+            "start": 18041,
+            "end": 18049,
+            "text": "fairness"
+          },
+          {
+            "start": 21381,
+            "end": 21389,
+            "text": "fairness"
+          },
+          {
+            "start": 21443,
+            "end": 21451,
+            "text": "fairness"
+          },
+          {
+            "start": 36304,
+            "end": 36312,
+            "text": "fairness"
+          },
+          {
+            "start": 75636,
+            "end": 75644,
+            "text": "Fairness"
+          }
+        ]
+      },
+      {
+        "key": "ethics",
+        "name": "ethics",
+        "label": "Concept",
+        "score": 0.6729874610900879,
+        "mentions": [
+          {
+            "start": 26417,
+            "end": 26423,
+            "text": "ethics"
+          },
+          {
+            "start": 53952,
+            "end": 53958,
+            "text": "Ethics"
+          },
+          {
+            "start": 54014,
+            "end": 54020,
+            "text": "ethics"
+          },
+          {
+            "start": 85523,
+            "end": 85529,
+            "text": "Ethics"
+          },
+          {
+            "start": 85609,
+            "end": 85615,
+            "text": "Ethics"
+          },
+          {
+            "start": 87245,
+            "end": 87251,
+            "text": "ethics"
+          }
+        ]
+      },
+      {
+        "key": "comest",
+        "name": "COMEST",
+        "label": "Organization",
+        "score": 0.656868611063276,
+        "mentions": [
+          {
+            "start": 12690,
+            "end": 12696,
+            "text": "COMEST"
+          },
+          {
+            "start": 12716,
+            "end": 12722,
+            "text": "COMEST"
+          },
+          {
+            "start": 65795,
+            "end": 65801,
+            "text": "COMEST"
+          },
+          {
+            "start": 65820,
+            "end": 65826,
+            "text": "COMEST"
+          },
+          {
+            "start": 78816,
+            "end": 78822,
+            "text": "COMEST"
+          },
+          {
+            "start": 78937,
+            "end": 78943,
+            "text": "COMEST"
+          }
+        ]
+      },
+      {
+        "key": "accountability",
+        "name": "accountability",
+        "label": "Concept",
+        "score": 0.7479996979236603,
+        "mentions": [
+          {
+            "start": 18416,
+            "end": 18430,
+            "text": "accountability"
+          },
+          {
+            "start": 25868,
+            "end": 25882,
+            "text": "accountability"
+          },
+          {
+            "start": 30779,
+            "end": 30795,
+            "text": "accountability⁵⁶"
+          },
+          {
+            "start": 36533,
+            "end": 36547,
+            "text": "accountability"
+          },
+          {
+            "start": 36987,
+            "end": 37001,
+            "text": "accountability"
+          }
+        ]
+      },
+      {
+        "key": "unesco",
+        "name": "UNESCO",
+        "label": "Organization",
+        "score": 0.7393778920173645,
+        "mentions": [
+          {
+            "start": 12723,
+            "end": 12729,
+            "text": "UNESCO"
+          },
+          {
+            "start": 65802,
+            "end": 65808,
+            "text": "UNESCO"
+          },
+          {
+            "start": 65914,
+            "end": 65920,
+            "text": "unesco"
+          },
+          {
+            "start": 65966,
+            "end": 65972,
+            "text": "unesco"
+          },
+          {
+            "start": 78944,
+            "end": 78950,
+            "text": "UNESCO"
+          }
+        ]
+      },
+      {
+        "key": "intel corporation",
+        "name": "Intel Corporation",
+        "label": "Organization",
+        "score": 0.8383990824222565,
+        "mentions": [
+          {
+            "start": 10256,
+            "end": 10273,
+            "text": "Intel Corporation"
+          },
+          {
+            "start": 10811,
+            "end": 10828,
+            "text": "Intel Corporation"
+          },
+          {
+            "start": 79871,
+            "end": 79888,
+            "text": "Intel Corporation"
+          },
+          {
+            "start": 88847,
+            "end": 88864,
+            "text": "Intel Corporation"
+          }
+        ]
+      },
+      {
+        "key": "unops",
+        "name": "UNOPS",
+        "label": "Organization",
+        "score": 0.8104897290468216,
+        "mentions": [
+          {
+            "start": 40158,
+            "end": 40163,
+            "text": "UNOPS"
+          },
+          {
+            "start": 69640,
+            "end": 69645,
+            "text": "UNOPS"
+          },
+          {
+            "start": 69682,
+            "end": 69687,
+            "text": "unops"
+          },
+          {
+            "start": 69747,
+            "end": 69752,
+            "text": "unops"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "source_key": "google",
+        "target_key": "ai principles",
+        "label": "publicou",
+        "score": 1.0,
+        "quote": "In 2018 alone, companies such as Google and SAP have publicly released AI guidelines and principles.",
+        "quote_start": 3389
+      },
+      {
+        "source_key": "sap",
+        "target_key": "ai principles",
+        "label": "publicou",
+        "score": 1.0,
+        "quote": "In 2018 alone, companies such as Google and SAP have publicly released AI guidelines and principles.",
+        "quote_start": 3389
+      },
+      {
+        "source_key": "justice and fairness",
+        "target_key": "fairness",
+        "label": "expressa-se como",
+        "score": 1.0,
+        "quote": "Justice is mainly expressed in terms of fairness 23,25,27–29,48,50,58,60,66,72–77",
+        "quote_start": 21403
+      },
+      {
+        "source_key": "non maleficence",
+        "target_key": "beneficence",
+        "label": "supera",
+        "score": 1.0,
+        "quote": "As codes related to non-maleficence outnumber those related to beneficence, it appears that, for the current AI community, the moral obligation to preventing harm takes precedence over the promotion of good.",
+        "quote_start": 37423
+      },
+      {
+        "source_key": "transparency",
+        "target_key": "responsibility",
+        "label": "postula",
+        "score": 1.0,
+        "quote": "Both these themes appear to be intertwined with the theme of responsibility, as the promotion of both transparency and justice seems to postulate increased responsibility and accountability on the side of AI makers and deployers.",
+        "quote_start": 36358
+      },
+      {
+        "source_key": "justice",
+        "target_key": "responsibility",
+        "label": "postula",
+        "score": 1.0,
+        "quote": "Both these themes appear to be intertwined with the theme of responsibility, as the promotion of both transparency and justice seems to postulate increased responsibility and accountability on the side of AI makers and deployers.",
+        "quote_start": 36358
+      },
+      {
+        "source_key": "unesco",
+        "target_key": "comest",
+        "label": "inclui",
+        "score": 1.0,
+        "quote": "Report of COMEST on Robotics Ethics|COMEST/UNESCO",
+        "quote_start": 12680
+      },
+      {
+        "source_key": "privacy",
+        "target_key": "freedom",
+        "label": "relaciona-se com",
+        "score": 1.0,
+        "quote": "A few sources link privacy to freedom 38,53 or trust 74,92.",
+        "quote_start": 27126
+      },
+      {
+        "source_key": "privacy",
+        "target_key": "trust",
+        "label": "relaciona-se com",
+        "score": 1.0,
+        "quote": "A few sources link privacy to freedom 38,53 or trust 74,92.",
+        "quote_start": 27126
+      },
+      {
+        "source_key": "transparency",
+        "target_key": "justice",
+        "label": "entrelaça-se com",
+        "score": 1.0,
+        "quote": "Both these themes appear to be intertwined with the theme of responsibility, as the promotion of both transparency and justice seems to postulate increased responsibility and accountability",
+        "quote_start": 36358
+      },
+      {
+        "source_key": "autonomy",
+        "target_key": "freedom",
+        "label": "relaciona-se com",
+        "score": 1.0,
+        "quote": "others generally promote freedom 31,69,72, empowerment 28,52,99 or autonomy 31,33,62,77,81,96.",
+        "quote_start": 29120
+      },
+      {
+        "source_key": "justice and fairness",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy",
+        "quote_start": 17383
+      },
+      {
+        "source_key": "non maleficence",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy",
+        "quote_start": 17383
+      },
+      {
+        "source_key": "responsibility",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy",
+        "quote_start": 17383
+      },
+      {
+        "source_key": "privacy",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy",
+        "quote_start": 17383
+      },
+      {
+        "source_key": "beneficence",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+        "quote_start": 17383
+      },
+      {
+        "source_key": "freedom",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+        "quote_start": 17383
+      },
+      {
+        "source_key": "trust",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+        "quote_start": 17383
+      },
+      {
+        "source_key": "dignity",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+        "quote_start": 17383
+      },
+      {
+        "source_key": "sustainability",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+        "quote_start": 17383
+      },
+      {
+        "source_key": "solidarity",
+        "target_key": "ethical principles",
+        "label": "é princípio em",
+        "score": 1.0,
+        "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+        "quote_start": 17383
+      }
+    ],
+    "engine": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+  },
+  "audio_path": "audio/global-landscape-ethics-guidelines.m4a",
+  "audio_title": "Comentário em áudio: global-landscape-ethics-guidelines",
+  "audio_subtitle": "Faixa 01 · gerada via NotebookLM Audio Overview",
+  "lecture_audio_path": "audio/global-landscape-ethics-guidelines-aula.m4a",
+  "lecture_audio_title": "Aula: global-landscape-ethics-guidelines",
+  "lecture_audio_subtitle": "Faixa 02 · aula gerada via NotebookLM, com as fontes do tema",
+  "slides_pptx_path": "slides/deck.pptx",
+  "slides_pdf_path": "slides/deck.pdf",
+  "slides_preview_url": null,
+  "slides_edit_url": null,
+  "is_copy_of_existing": false,
+  "copy_canonical_override": null
+}

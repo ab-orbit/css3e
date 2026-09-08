@@ -1,0 +1,582 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/global-landscape-ethics-guidelines/index.html",
+      "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/global-landscape-ethics-guidelines/index.html",
+      "name": "Artificial Intelligence: the global landscape of ethics guidelines",
+      "headline": "O Panorama Global das Diretrizes Éticas para Inteligência Artificial",
+      "inLanguage": "pt-BR",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Anna Jobin"
+        },
+        {
+          "@type": "Person",
+          "name": "Marcello Ienca"
+        },
+        {
+          "@type": "Person",
+          "name": "Effy Vayena"
+        }
+      ],
+      "abstract": "In the last five years, private companies, research institutions as well as public sector organisations have issued principles and guidelines for ethical AI, yet there is debate about both what constitutes \"ethical AI\" and which ethical requirements, technical standards and best practices are needed for its realization. To investigate whether a global agreement on these questions is emerging, we mapped and analyzed the current corpus of principles and guidelines on ethical AI. Our results reveal a global convergence emerging around five ethical principles (transparency, justice and fairness, non-maleficence, responsibility and privacy), with substantive divergence in relation to how these principles are interpreted; why they are deemed important; what issue, domain or actors they pertain to; and how they should be implemented. Our findings highlight the importance of integrating guideline-development efforts with substantive ethical analysis and adequate implementation strategies.",
+      "description": "Uma análise sistemática de 84 documentos revela convergência global em torno de cinco princípios éticos para IA — transparência, justiça, não-maleficência, responsabilidade e privacidade — mas divergências substantivas sobre como interpretá-los e implementá-los. A proliferação de soft-law responde ao avanço tecnológico, mas levanta questões sobre harmonização transnacional e pluralismo moral.",
+      "datePublished": "2019",
+      "publication": "Preprint",
+      "keywords": [
+        "artificial intelligence",
+        "ethics",
+        "guidelines",
+        "principles",
+        "transparency",
+        "justice",
+        "fairness",
+        "non-maleficence",
+        "responsibility",
+        "privacy",
+        "AI governance",
+        "ethical AI"
+      ],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "transparency",
+          "termCode": "transparency",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 20,
+          "css3e:confidence": 0.937
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "privacy",
+          "termCode": "privacy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 19,
+          "css3e:confidence": 0.861
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "trust",
+          "termCode": "trust",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 15,
+          "css3e:confidence": 0.812
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "responsibility",
+          "termCode": "responsibility",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 14,
+          "css3e:confidence": 0.864
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Microsoft",
+          "termCode": "microsoft",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 13,
+          "css3e:confidence": 0.922
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethical principles",
+          "termCode": "ethical principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 14,
+          "css3e:confidence": 0.78
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "IBM",
+          "termCode": "ibm",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 11,
+          "css3e:confidence": 0.959
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Google",
+          "termCode": "google",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 11,
+          "css3e:confidence": 0.95
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "DefinedTerm",
+          "name": "solidarity",
+          "termCode": "solidarity",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 12,
+          "css3e:confidence": 0.85
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "SAP",
+          "termCode": "sap",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 11,
+          "css3e:confidence": 0.874
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "non-maleficence",
+          "termCode": "non maleficence",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 11,
+          "css3e:confidence": 0.856
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Artificial Intelligence",
+          "termCode": "artificial intelligence",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 14,
+          "css3e:confidence": 0.662
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "dignity",
+          "termCode": "dignity",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.887
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethical AI",
+          "termCode": "ethical ai",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 11,
+          "css3e:confidence": 0.739
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "sustainability",
+          "termCode": "sustainability",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.821
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Citation chaining",
+          "termCode": "citation chaining",
+          "inDefinedTermSet": "Method",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.733
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI Principles",
+          "termCode": "ai principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.813
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "OpenAI",
+          "termCode": "openai",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.772
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "freedom",
+          "termCode": "freedom",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.762
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Justice",
+          "termCode": "justice",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.827
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "beneficence",
+          "termCode": "beneficence",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.805
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Tieto",
+          "termCode": "tieto",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.917
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Unity",
+          "termCode": "unity",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.703
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Future of Life Institute",
+          "termCode": "future of life institute",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.906
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "justice and fairness",
+          "termCode": "justice and fairness",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.888
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "autonomy",
+          "termCode": "autonomy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.879
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "public sector",
+          "termCode": "public sector",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.647
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "IIIM",
+          "termCode": "iiim",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.849
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "National Science and Technology Council",
+          "termCode": "national science and technology council",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.92
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "machine learning",
+          "termCode": "machine learning",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.655
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "WEF",
+          "termCode": "wef",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.899
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "DeepMind",
+          "termCode": "deepmind",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.745
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Sage",
+          "termCode": "sage",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.89
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "fairness",
+          "termCode": "fairness",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.708
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethics",
+          "termCode": "ethics",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.673
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "COMEST",
+          "termCode": "comest",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.657
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "accountability",
+          "termCode": "accountability",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.748
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "UNESCO",
+          "termCode": "unesco",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.739
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Intel Corporation",
+          "termCode": "intel corporation",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.838
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "UNOPS",
+          "termCode": "unops",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.81
+        }
+      ]
+    }
+  ],
+  "css3e:relations": [
+    {
+      "source": "Google",
+      "sourceCode": "google",
+      "label": "publicou",
+      "target": "AI Principles",
+      "targetCode": "ai principles",
+      "confidence": 1.0,
+      "quote": "In 2018 alone, companies such as Google and SAP have publicly released AI guidelines and principles.",
+      "quoteOffset": 3389
+    },
+    {
+      "source": "SAP",
+      "sourceCode": "sap",
+      "label": "publicou",
+      "target": "AI Principles",
+      "targetCode": "ai principles",
+      "confidence": 1.0,
+      "quote": "In 2018 alone, companies such as Google and SAP have publicly released AI guidelines and principles.",
+      "quoteOffset": 3389
+    },
+    {
+      "source": "justice and fairness",
+      "sourceCode": "justice and fairness",
+      "label": "expressa-se como",
+      "target": "fairness",
+      "targetCode": "fairness",
+      "confidence": 1.0,
+      "quote": "Justice is mainly expressed in terms of fairness 23,25,27–29,48,50,58,60,66,72–77",
+      "quoteOffset": 21403
+    },
+    {
+      "source": "non-maleficence",
+      "sourceCode": "non maleficence",
+      "label": "supera",
+      "target": "beneficence",
+      "targetCode": "beneficence",
+      "confidence": 1.0,
+      "quote": "As codes related to non-maleficence outnumber those related to beneficence, it appears that, for the current AI community, the moral obligation to preventing harm takes precedence over the promotion of good.",
+      "quoteOffset": 37423
+    },
+    {
+      "source": "transparency",
+      "sourceCode": "transparency",
+      "label": "postula",
+      "target": "responsibility",
+      "targetCode": "responsibility",
+      "confidence": 1.0,
+      "quote": "Both these themes appear to be intertwined with the theme of responsibility, as the promotion of both transparency and justice seems to postulate increased responsibility and accountability on the side of AI makers and deployers.",
+      "quoteOffset": 36358
+    },
+    {
+      "source": "Justice",
+      "sourceCode": "justice",
+      "label": "postula",
+      "target": "responsibility",
+      "targetCode": "responsibility",
+      "confidence": 1.0,
+      "quote": "Both these themes appear to be intertwined with the theme of responsibility, as the promotion of both transparency and justice seems to postulate increased responsibility and accountability on the side of AI makers and deployers.",
+      "quoteOffset": 36358
+    },
+    {
+      "source": "UNESCO",
+      "sourceCode": "unesco",
+      "label": "inclui",
+      "target": "COMEST",
+      "targetCode": "comest",
+      "confidence": 1.0,
+      "quote": "Report of COMEST on Robotics Ethics|COMEST/UNESCO",
+      "quoteOffset": 12680
+    },
+    {
+      "source": "privacy",
+      "sourceCode": "privacy",
+      "label": "relaciona-se com",
+      "target": "freedom",
+      "targetCode": "freedom",
+      "confidence": 1.0,
+      "quote": "A few sources link privacy to freedom 38,53 or trust 74,92.",
+      "quoteOffset": 27126
+    },
+    {
+      "source": "privacy",
+      "sourceCode": "privacy",
+      "label": "relaciona-se com",
+      "target": "trust",
+      "targetCode": "trust",
+      "confidence": 1.0,
+      "quote": "A few sources link privacy to freedom 38,53 or trust 74,92.",
+      "quoteOffset": 27126
+    },
+    {
+      "source": "transparency",
+      "sourceCode": "transparency",
+      "label": "entrelaça-se com",
+      "target": "Justice",
+      "targetCode": "justice",
+      "confidence": 1.0,
+      "quote": "Both these themes appear to be intertwined with the theme of responsibility, as the promotion of both transparency and justice seems to postulate increased responsibility and accountability",
+      "quoteOffset": 36358
+    },
+    {
+      "source": "autonomy",
+      "sourceCode": "autonomy",
+      "label": "relaciona-se com",
+      "target": "freedom",
+      "targetCode": "freedom",
+      "confidence": 1.0,
+      "quote": "others generally promote freedom 31,69,72, empowerment 28,52,99 or autonomy 31,33,62,77,81,96.",
+      "quoteOffset": 29120
+    },
+    {
+      "source": "justice and fairness",
+      "sourceCode": "justice and fairness",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy",
+      "quoteOffset": 17383
+    },
+    {
+      "source": "non-maleficence",
+      "sourceCode": "non maleficence",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy",
+      "quoteOffset": 17383
+    },
+    {
+      "source": "responsibility",
+      "sourceCode": "responsibility",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy",
+      "quoteOffset": 17383
+    },
+    {
+      "source": "privacy",
+      "sourceCode": "privacy",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy",
+      "quoteOffset": 17383
+    },
+    {
+      "source": "beneficence",
+      "sourceCode": "beneficence",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+      "quoteOffset": 17383
+    },
+    {
+      "source": "freedom",
+      "sourceCode": "freedom",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+      "quoteOffset": 17383
+    },
+    {
+      "source": "trust",
+      "sourceCode": "trust",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+      "quoteOffset": 17383
+    },
+    {
+      "source": "dignity",
+      "sourceCode": "dignity",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+      "quoteOffset": 17383
+    },
+    {
+      "source": "sustainability",
+      "sourceCode": "sustainability",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+      "quoteOffset": 17383
+    },
+    {
+      "source": "solidarity",
+      "sourceCode": "solidarity",
+      "label": "é princípio em",
+      "target": "ethical principles",
+      "targetCode": "ethical principles",
+      "confidence": 1.0,
+      "quote": "Eleven overarching ethical values and principles have emerged from our content analysis. These are, by frequency of the number of sources in which they were featured: transparency, justice and fairness, non-maleficence, responsibility, privacy, beneficence, freedom and autonomy, trust, dignity, sustainability, and solidarity",
+      "quoteOffset": 17383
+    }
+  ],
+  "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1, relations=llm"
+}

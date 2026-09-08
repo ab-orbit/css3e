@@ -1,0 +1,411 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html",
+      "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html",
+      "name": "AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations",
+      "headline": "Como Construir uma Sociedade de IA Ética: Princípios e Recomendações para o Bem Comum",
+      "inLanguage": "pt-BR",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Luciano Floridi"
+        },
+        {
+          "@type": "Person",
+          "name": "Josh Cowls"
+        },
+        {
+          "@type": "Person",
+          "name": "Monica Beltrametti"
+        },
+        {
+          "@type": "Person",
+          "name": "Raja Chatila"
+        },
+        {
+          "@type": "Person",
+          "name": "Patrice Chazerand"
+        },
+        {
+          "@type": "Person",
+          "name": "Virginia Dignum"
+        },
+        {
+          "@type": "Person",
+          "name": "Christoph Luetge"
+        },
+        {
+          "@type": "Person",
+          "name": "Robert Madelin"
+        },
+        {
+          "@type": "Person",
+          "name": "Ugo Pagallo"
+        },
+        {
+          "@type": "Person",
+          "name": "Francesca Rossi"
+        },
+        {
+          "@type": "Person",
+          "name": "Burkhard Schafer"
+        },
+        {
+          "@type": "Person",
+          "name": "Peggy Valcke"
+        },
+        {
+          "@type": "Person",
+          "name": "Effy Vayena"
+        }
+      ],
+      "abstract": "This article reports the findings of AI4People, an Atomium—EISMD initiative designed to lay the foundations for a \"Good AI Society\". We introduce the core opportunities and risks of AI for society; present a synthesis of five ethical principles that should undergird its development and adoption; and offer 20 concrete recommendations—to assess, to develop, to incentivise, and to support good AI—which in some cases may be undertaken directly by national or supranational policy makers, while in others may be led by other stakeholders. If adopted, these recommendations would serve as a firm foundation for the establishment of a Good AI Society.",
+      "description": "A IA não é apenas mais uma tecnologia a ser regulada—é uma nova forma de agência inteligente que já está remodelando nossas vidas. Este framework ético propõe cinco princípios fundamentais e 20 recomendações concretas para garantir que a IA promova a dignidade humana, o florescimento e a sustentabilidade para todos.",
+      "datePublished": "2018-11-26",
+      "publication": "Minds and Machines",
+      "keywords": [
+        "Artificial intelligence",
+        "AI4People",
+        "Data governance",
+        "Digital ethics",
+        "Governance",
+        "Ethics of AI"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.1007/s11023-018-9482-5"
+      },
+      "sameAs": "https://doi.org/10.1007/s11023-018-9482-5",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "autonomy",
+          "termCode": "autonomy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 13,
+          "css3e:confidence": 0.899
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "justice",
+          "termCode": "justice",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.942
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI systems",
+          "termCode": "ai systems",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 12,
+          "css3e:confidence": 0.769
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Asilomar",
+          "termCode": "asilomar",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 10,
+          "css3e:confidence": 0.785
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "EGE",
+          "termCode": "ege",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 9,
+          "css3e:confidence": 0.869
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethics",
+          "termCode": "ethics",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 8,
+          "css3e:confidence": 0.875
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "beneficence",
+          "termCode": "beneficence",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.937
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AIUK",
+          "termCode": "aiuk",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.813
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "DefinedTerm",
+          "name": "AI4People",
+          "termCode": "ai4people",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.946
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "bioethics",
+          "termCode": "bioethics",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.673
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "risks",
+          "termCode": "risks",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 7,
+          "css3e:confidence": 0.59
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "principles",
+          "termCode": "principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 6,
+          "css3e:confidence": 0.656
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "privacy",
+          "termCode": "privacy",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.9
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "explicability",
+          "termCode": "explicability",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 5,
+          "css3e:confidence": 0.698
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "accountability",
+          "termCode": "accountability",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.858
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "human dignity",
+          "termCode": "human dignity",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.826
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Partnership",
+          "termCode": "partnership",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.818
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "dual advantage",
+          "termCode": "dual advantage",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.814
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "non-maleficence",
+          "termCode": "non maleficence",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.779
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "societal cohesion",
+          "termCode": "societal cohesion",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.777
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "human agency",
+          "termCode": "human agency",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.874
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Ethically Aligned Design",
+          "termCode": "ethically aligned design",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.8
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Atomium",
+          "termCode": "atomium",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.792
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "organisation",
+          "termCode": "organisation",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 4,
+          "css3e:confidence": 0.586
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "solidarity",
+          "termCode": "solidarity",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.76
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Partnership on AI",
+          "termCode": "partnership on ai",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.754
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Responsibility",
+          "termCode": "responsibility",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.751
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "public opinion",
+          "termCode": "public opinion",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.749
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "intent",
+          "termCode": "intent",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.711
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "well-being",
+          "termCode": "well being",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.7
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI Society",
+          "termCode": "ai society",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.7
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "human self-determination",
+          "termCode": "human self determination",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.952
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "transparency",
+          "termCode": "transparency",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.95
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "University of Oxford",
+          "termCode": "university of oxford",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.94
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethical approach to AI",
+          "termCode": "ethical approach to ai",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.622
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "society",
+          "termCode": "society",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.609
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Jus- tice",
+          "termCode": "jus tice",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 2,
+          "css3e:confidence": 0.899
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "ethical principles",
+          "termCode": "ethical principles",
+          "inDefinedTermSet": "Concept",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.59
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "system",
+          "termCode": "system",
+          "inDefinedTermSet": "System",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.59
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Montreal",
+          "termCode": "montreal",
+          "inDefinedTermSet": "Organization",
+          "css3e:mentionCount": 3,
+          "css3e:confidence": 0.59
+        }
+      ]
+    }
+  ],
+  "css3e:relations": [],
+  "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1"
+}

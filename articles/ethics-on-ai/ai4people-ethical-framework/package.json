@@ -1,0 +1,2920 @@
+{
+  "slug": "ai4people-ethical-framework",
+  "tema": "ethics-on-ai",
+  "paper": {
+    "title": "AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations",
+    "subtitle": "",
+    "authors": [
+      {
+        "name": "Luciano Floridi",
+        "affiliation": "Oxford Internet Institute, University of Oxford; The Alan Turing Institute"
+      },
+      {
+        "name": "Josh Cowls",
+        "affiliation": "Oxford Internet Institute, University of Oxford; The Alan Turing Institute"
+      },
+      {
+        "name": "Monica Beltrametti",
+        "affiliation": "Naver Corporation, Grenoble, France"
+      },
+      {
+        "name": "Raja Chatila",
+        "affiliation": "French National Center of Scientific Research; Institute of Intelligent Systems and Robotics, Pierre and Marie Curie University"
+      },
+      {
+        "name": "Patrice Chazerand",
+        "affiliation": "Digital Europe, Brussels, Belgium"
+      },
+      {
+        "name": "Virginia Dignum",
+        "affiliation": "University of Umeå; Delft Design for Values Institute, Delft University of Technology"
+      },
+      {
+        "name": "Christoph Luetge",
+        "affiliation": "TUM School of Governance, Technical University of Munich"
+      },
+      {
+        "name": "Robert Madelin",
+        "affiliation": "Centre for Technology and Global Affairs, University of Oxford"
+      },
+      {
+        "name": "Ugo Pagallo",
+        "affiliation": "Department of Law, University of Turin"
+      },
+      {
+        "name": "Francesca Rossi",
+        "affiliation": "IBM Research; University of Padova"
+      },
+      {
+        "name": "Burkhard Schafer",
+        "affiliation": "University of Edinburgh Law School"
+      },
+      {
+        "name": "Peggy Valcke",
+        "affiliation": "Centre for IT & IP Law, Catholic University of Leuven; Bocconi University"
+      },
+      {
+        "name": "Effy Vayena",
+        "affiliation": "Bioethics, Health Ethics and Policy Lab, ETH Zurich"
+      }
+    ],
+    "venue": "Minds and Machines",
+    "pages": "689–707",
+    "date_published": "2018-11-26",
+    "doi": "10.1007/s11023-018-9482-5",
+    "source_pdf_url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-spbjsqda/ai4people.pdf",
+    "abstract": "This article reports the findings of AI4People, an Atomium—EISMD initiative designed to lay the foundations for a \"Good AI Society\". We introduce the core opportunities and risks of AI for society; present a synthesis of five ethical principles that should undergird its development and adoption; and offer 20 concrete recommendations—to assess, to develop, to incentivise, and to support good AI—which in some cases may be undertaken directly by national or supranational policy makers, while in others may be led by other stakeholders. If adopted, these recommendations would serve as a firm foundation for the establishment of a Good AI Society.",
+    "keywords": [
+      "Artificial intelligence",
+      "AI4People",
+      "Data governance",
+      "Digital ethics",
+      "Governance",
+      "Ethics of AI"
+    ],
+    "problem_statement": "A IA não é apenas mais uma utilidade que precisa ser regulada quando amadurece. É uma força poderosa, uma nova forma de agência inteligente, que já está remodelando nossas vidas, interações e ambientes. O desafio central é como direcionar essa força poderosa para o bem da sociedade, de todos nela, e dos ambientes que compartilhamos. Embora seja claro que a IA terá um impacto importante na sociedade, o debate atual gira em torno de quão positivo ou negativo será esse impacto, para quem, de que maneiras, em que lugares e em que escala de tempo. O artigo busca responder não se a IA terá impacto, mas por quem, como, onde e quando esse impacto positivo ou negativo será sentido, estabelecendo princípios éticos e recomendações concretas para garantir que a IA promova a dignidade humana e o florescimento humano.",
+    "key_concepts": [
+      "Good AI Society",
+      "Dual advantage",
+      "Smart agency",
+      "Augmented Intelligence",
+      "Meta-autonomy",
+      "Decide-to-delegate model",
+      "Explicability",
+      "Intelligibility",
+      "Accountability",
+      "Beneficence",
+      "Non-maleficence",
+      "Autonomy",
+      "Justice",
+      "Self-nudging",
+      "Distributed morality",
+      "Black box mentality",
+      "Capability caution",
+      "Coordination complexity",
+      "Opportunity costs",
+      "Multistakeholder approach"
+    ],
+    "categories": [
+      {
+        "tag": "Princípio 1",
+        "name": "Beneficence",
+        "subtitle": "Promoting Well-Being, Preserving Dignity, and Sustaining the Planet",
+        "description": "Princípio de criar tecnologia de IA que seja benéfica para a humanidade, promovendo o bem-estar de todas as criaturas sencientes, servindo ao bem comum, fortalecendo a dignidade humana e garantindo a sustentabilidade ambiental para as gerações futuras.",
+        "attributes": [
+          [
+            "Bem-estar",
+            "A IA deve promover o bem-estar de todos os seres sencientes e priorizar o bem-estar humano como resultado em todos os designs de sistemas"
+          ],
+          [
+            "Bem comum",
+            "A IA deve ser desenvolvida para o bem comum e benefício da humanidade"
+          ],
+          [
+            "Dignidade humana",
+            "A tecnologia de IA deve respeitar e fortalecer a dignidade humana"
+          ],
+          [
+            "Sustentabilidade",
+            "A IA deve estar alinhada com a garantia das precondições básicas para a vida no planeta, prosperidade contínua da humanidade e preservação de um bom ambiente para as gerações futuras"
+          ]
+        ]
+      },
+      {
+        "tag": "Princípio 2",
+        "name": "Non-maleficence",
+        "subtitle": "Privacy, Security and 'Capability Caution'",
+        "description": "Princípio de evitar danos causados por tecnologias de IA, incluindo a prevenção de violações de privacidade, garantia de segurança, prevenção de uso indevido (deliberado) e uso excessivo (acidental), e exercício de cautela em relação aos limites superiores das capacidades futuras da IA.",
+        "attributes": [
+          [
+            "Privacidade",
+            "Prevenção de violações da privacidade pessoal, garantindo que indivíduos tenham acesso e controle sobre como seus dados pessoais são usados"
+          ],
+          [
+            "Segurança",
+            "A IA deve operar dentro de restrições seguras para evitar riscos"
+          ],
+          [
+            "Responsabilidade",
+            "Desenvolvedores devem assumir responsabilidade trabalhando contra os riscos decorrentes de suas inovações tecnológicas"
+          ],
+          [
+            "Cautela de capacidade",
+            "Cautela em relação aos limites superiores das capacidades futuras da IA, evitando corrida armamentista de IA e auto-aperfeiçoamento recursivo"
+          ]
+        ]
+      },
+      {
+        "tag": "Princípio 3",
+        "name": "Autonomy",
+        "subtitle": "The Power to Decide (Whether to Decide)",
+        "description": "Princípio de equilibrar o poder de tomada de decisão entre humanos e sistemas de IA. Enfatiza a 'meta-autonomia' ou modelo 'decidir-delegar': humanos devem sempre reter o poder de decidir quais decisões tomar, exercendo a liberdade de escolher onde necessário e cedendo-a em casos onde razões predominantes podem superar a perda de controle. Qualquer delegação deve permanecer anulável em princípio.",
+        "attributes": [
+          [
+            "Promoção da autonomia humana",
+            "O desenvolvimento da IA deve promover a autonomia de todos os seres humanos"
+          ],
+          [
+            "Controle da autonomia de sistemas",
+            "Controlar a autonomia dos sistemas computacionais para que não prejudiquem a liberdade dos seres humanos"
+          ],
+          [
+            "Meta-autonomia",
+            "Humanos devem escolher como e se delegar decisões a sistemas de IA para alcançar objetivos escolhidos por humanos"
+          ],
+          [
+            "Reversibilidade",
+            "O poder autônomo de ferir, destruir ou enganar seres humanos nunca deve ser investido na IA; delegações devem ser reversíveis"
+          ]
+        ]
+      },
+      {
+        "tag": "Princípio 4",
+        "name": "Justice",
+        "subtitle": "Promoting Prosperity and Preserving Solidarity",
+        "description": "Princípio relacionado à distribuição justa de recursos, benefícios e oportunidades proporcionados pela IA. Inclui usar a IA para corrigir injustiças passadas (como eliminar discriminação injusta), garantir que os benefícios sejam compartilhados ou pelo menos compartilháveis, e prevenir a criação de novos danos, como a erosão de estruturas sociais existentes de assistência mútua.",
+        "attributes": [
+          [
+            "Correção de injustiças",
+            "Usar IA para corrigir erros passados, como eliminar todos os tipos de discriminação"
+          ],
+          [
+            "Benefício compartilhado",
+            "Garantir que os benefícios da IA sejam compartilhados e que haja prosperidade compartilhada"
+          ],
+          [
+            "Acesso equitativo",
+            "Contribuir para a justiça global e acesso igual aos benefícios das tecnologias de IA"
+          ],
+          [
+            "Proteção da solidariedade",
+            "Defender contra ameaças a sistemas de assistência mútua, como seguro social e saúde"
+          ]
+        ]
+      },
+      {
+        "tag": "Princípio 5",
+        "name": "Explicability",
+        "subtitle": "Enabling the Other Principles Through Intelligibility and Accountability",
+        "description": "Novo princípio não derivado da bioética que sintetiza 'explicabilidade' tanto no sentido epistemológico de 'inteligibilidade' (como resposta à pergunta 'como funciona?') quanto no sentido ético de 'responsabilização' (como resposta à pergunta 'quem é responsável pela forma como funciona?'). É o elemento crucial que permite os outros quatro princípios funcionarem efetivamente no contexto da IA.",
+        "attributes": [
+          [
+            "Inteligibilidade",
+            "Capacidade de entender como os sistemas de IA funcionam, tornando seus processos de tomada de decisão compreensíveis para observadores não especialistas"
+          ],
+          [
+            "Responsabilização",
+            "Capacidade de identificar quem é responsável pelas decisões e ações dos sistemas de IA, permitindo que pessoas e organizações sejam responsabilizadas por resultados negativos"
+          ],
+          [
+            "Transparência",
+            "Abertura sobre como os sistemas de IA operam e tomam decisões"
+          ],
+          [
+            "Explicação acessível",
+            "Indivíduos devem poder obter uma explicação factual, direta e clara do processo de tomada de decisão, especialmente em caso de consequências indesejadas"
+          ]
+        ]
+      }
+    ],
+    "section_outline": [
+      {
+        "heading": "1 Introduction",
+        "summary": "Apresenta a iniciativa AI4People e seu objetivo de propor recomendações para o desenvolvimento de uma Good AI Society. Estrutura o artigo em torno de oportunidades e riscos da IA, princípios éticos e 20 recomendações específicas."
+      },
+      {
+        "heading": "2 The Opportunities and Risks of AI for Society",
+        "summary": "Identifica quatro oportunidades principais que a IA oferece para a sociedade, relacionadas à dignidade humana e ao florescimento: quem podemos nos tornar (autorrealização autônoma), o que podemos fazer (agência humana), o que podemos alcançar (capacidades individuais e sociais) e como podemos interagir (coesão social). Para cada oportunidade, discute os riscos correspondentes de uso inadequado, subutilização ou uso excessivo da IA."
+      },
+      {
+        "heading": "2.1 Who We Can Become: Enabling Human Self-Realisation, Without Devaluing Human Abilities",
+        "summary": "A IA pode permitir a autorrealização ao liberar tempo de tarefas mundanas. O risco é a desvalorização rápida de habilidades antigas e a disrupção do mercado de trabalho, afetando identidade pessoal e criando vulnerabilidades sociais."
+      },
+      {
+        "heading": "2.2 What We Can Do: Enhancing Human Agency, Without Removing Human Responsibility",
+        "summary": "A IA fornece um reservatório crescente de 'agência inteligente' que pode ampliar a agência humana. O risco é a ausência de responsabilidade devido à mentalidade de 'caixa preta', onde sistemas de IA são vistos como além da compreensão e controle humanos."
+      },
+      {
+        "heading": "2.3 What We Can Achieve: Increasing Societal Capabilities, Without Reducing Human Control",
+        "summary": "A IA oferece oportunidades para melhorar e aumentar as capacidades da sociedade. O risco é delegar tarefas e decisões importantes a sistemas autônomos que deveriam permanecer sob supervisão humana, reduzindo nossa capacidade de monitorar, prevenir ou corrigir erros."
+      },
+      {
+        "heading": "2.4 How We Can Interact: Cultivating Societal Cohesion, Without Eroding Human Self-Determination",
+        "summary": "A IA pode ajudar a lidar com a complexidade de coordenação de problemas globais, apoiando maior coesão e colaboração social. O risco é que sistemas de IA possam corroer a autodeterminação humana, levando a mudanças não planejadas no comportamento humano e minando a dignidade humana através de nudging implacável."
+      },
+      {
+        "heading": "3 The Dual Advantage of an Ethical Approach to AI",
+        "summary": "Argumenta que uma abordagem ética à IA confere uma 'dupla vantagem': permite que organizações identifiquem e aproveitem novas oportunidades socialmente aceitáveis e antecipem e evitem erros custosos. Enfatiza que conformidade legal é necessária mas insuficiente, e que a ética funciona como um sistema de alerta precoce contra riscos."
+      },
+      {
+        "heading": "4 A Unified Framework of Principles for AI in Society",
+        "summary": "Sintetiza 47 princípios de seis documentos de alto perfil sobre ética da IA em cinco princípios fundamentais: beneficência, não maleficência, autonomia, justiça e explicabilidade (um novo princípio não derivado da bioética)."
+      },
+      {
+        "heading": "4.1 Beneficence: Promoting Well-Being, Preserving Dignity, and Sustaining the Planet",
+        "summary": "Princípio de criar IA benéfica para a humanidade, promovendo bem-estar, dignidade humana e sustentabilidade ambiental."
+      },
+      {
+        "heading": "4.2 Non-maleficence: Privacy, Security and 'Capability Caution'",
+        "summary": "Princípio de evitar danos, incluindo violações de privacidade, uso indevido de IA e cautela em relação aos limites superiores das capacidades futuras da IA."
+      },
+      {
+        "heading": "4.3 Autonomy: The Power to Decide (Whether to Decide)",
+        "summary": "Princípio de equilibrar o poder de tomada de decisão entre humanos e máquinas, enfatizando 'meta-autonomia' ou o modelo 'decidir-delegar': humanos devem sempre reter o poder de decidir quais decisões tomar."
+      },
+      {
+        "heading": "4.4 Justice: Promoting Prosperity and Preserving Solidarity",
+        "summary": "Princípio relacionado à distribuição justa de recursos e benefícios da IA, incluindo corrigir discriminações passadas, garantir benefícios compartilhados e prevenir novos danos a estruturas sociais existentes."
+      },
+      {
+        "heading": "4.5 Explicability: Enabling the Other Principles Through Intelligibility and Accountability",
+        "summary": "Novo princípio que sintetiza 'explicabilidade' tanto no sentido epistemológico de 'inteligibilidade' (como funciona?) quanto no sentido ético de 'responsabilização' (quem é responsável?). É crucial para permitir os outros quatro princípios."
+      },
+      {
+        "heading": "5 Recommendations for a Good AI Society",
+        "summary": "Apresenta 20 pontos de ação organizados em quatro categorias: avaliar, desenvolver, incentivar e apoiar. Inclui um preâmbulo que enfatiza a incorporação de princípios éticos nas práticas padrão da IA e uma abordagem multistakeholder."
+      },
+      {
+        "heading": "5.1 Preamble",
+        "summary": "Estabelece que os princípios éticos devem ser incorporados nas práticas padrão da IA, que criar uma Good AI Society requer uma abordagem multistakeholder, e que o documento representa uma abordagem europeia complementar a outras abordagens."
+      },
+      {
+        "heading": "5.2 Action Points",
+        "summary": "Detalha 20 recomendações específicas divididas em: Avaliação (3 recomendações sobre capacidade institucional, delegação de tarefas e adequação regulatória), Desenvolvimento (8 recomendações sobre explicabilidade, procedimentos legais, auditoria, mecanismos de reparação, métricas de confiabilidade, agência de supervisão, observatório e colaboração humano-máquina), Incentivação (5 recomendações sobre financiamento de IA socialmente preferível, pesquisa europeia, cooperação interdisciplinar, inclusão de considerações éticas e zonas de teste), e Apoio (4 recomendações sobre códigos de conduta, responsabilidade corporativa, currículos educacionais e conscientização pública)."
+      },
+      {
+        "heading": "6 Conclusion",
+        "summary": "Conclui que, com o ritmo rápido de mudança tecnológica, o processo político nas democracias liberais não está ultrapassado. As recomendações oferecidas representam um programa ambicioso, inclusivo e equitativo de formulação de políticas e inovação tecnológica para garantir os benefícios e mitigar os riscos da IA para todas as pessoas e para o mundo compartilhado."
+      }
+    ],
+    "formal_notation_present": false,
+    "formal_notation_block": "",
+    "case_study_present": false,
+    "case_summary": "",
+    "closing_question": "Se a IA representa uma força tão poderosa capaz de remodelar fundamentalmente nossas vidas, interações e ambientes, como podemos garantir que a solidariedade intergeracional entre aqueles prejudicados hoje e aqueles beneficiados amanhã seja suficientemente forte para tornar a transição disruptiva entre o presente e o futuro tão justa quanto possível para todos—e quem decide o que significa 'justo' nesse contexto?"
+  },
+  "hero": {
+    "eyebrow": "Minds and Machines · 2018 · pp. 689–707",
+    "h1": "Como Construir uma Sociedade de IA Ética: Princípios e Recomendações para o Bem Comum",
+    "lede": "A IA não é apenas mais uma tecnologia a ser regulada—é uma nova forma de agência inteligente que já está remodelando nossas vidas. Este framework ético propõe cinco princípios fundamentais e 20 recomendações concretas para garantir que a IA promova a dignidade humana, o florescimento e a sustentabilidade para todos.",
+    "toc_anchors": [
+      [
+        "introducao",
+        "Introdução"
+      ],
+      [
+        "oportunidades-riscos",
+        "Oportunidades e Riscos da IA"
+      ],
+      [
+        "dupla-vantagem",
+        "A Dupla Vantagem da Ética"
+      ],
+      [
+        "principios",
+        "Os Cinco Princípios Éticos"
+      ],
+      [
+        "recomendacoes",
+        "20 Recomendações para Ação"
+      ],
+      [
+        "conclusao",
+        "Conclusão"
+      ],
+      [
+        "mapa-mental",
+        "Mapa Mental"
+      ],
+      [
+        "downloads",
+        "Downloads e Recursos"
+      ]
+    ],
+    "authors_line": "Luciano Floridi, Josh Cowls, Monica Beltrametti, Raja Chatila, Patrice Chazerand, Virginia Dignum, Christoph Luetge, Robert Madelin, Ugo Pagallo, Francesca Rossi, Burkhard Schafer, Peggy Valcke, Effy Vayena",
+    "affiliations": "Colaboração internacional envolvendo University of Oxford (Oxford Internet Institute), The Alan Turing Institute, Naver Corporation, French National Center of Scientific Research, Digital Europe, University of Umeå, Delft University of Technology, Technical University of Munich, University of Turin, IBM Research, University of Padova, University of Edinburgh, Catholic University of Leuven, Bocconi University e ETH Zurich.",
+    "kv_rows": [
+      [
+        "Publicado em",
+        "26 de novembro de 2018"
+      ],
+      [
+        "Palavras-chave",
+        "Inteligência Artificial, AI4People, Governança de Dados, Ética Digital, Ética da IA"
+      ],
+      [
+        "DOI",
+        "10.1007/s11023-018-9482-5"
+      ],
+      [
+        "Venue",
+        "Minds and Machines"
+      ],
+      [
+        "Tipo",
+        "Framework Ético e Recomendações de Política"
+      ]
+    ],
+    "problem_statement": "A IA não é apenas mais uma utilidade que precisa ser regulada quando amadurece. É uma força poderosa, uma nova forma de agência inteligente, que já está remodelando nossas vidas, interações e ambientes. O desafio central é como direcionar essa força para o bem da sociedade, de todos nela, e dos ambientes que compartilhamos. Embora seja claro que a IA terá um impacto importante, o debate atual gira em torno de quão positivo ou negativo será esse impacto, para quem, de que maneiras, em que lugares e em que escala de tempo. Este trabalho busca responder não se a IA terá impacto, mas por quem, como, onde e quando esse impacto será sentido, estabelecendo princípios éticos e recomendações concretas para garantir que a IA promova a dignidade humana e o florescimento de todos."
+  },
+  "categories": [
+    {
+      "tag": "Princípio 1",
+      "accent_index": 0,
+      "name": "Beneficence",
+      "subtitle": "Promoting Well-Being, Preserving Dignity, and Sustaining the Planet",
+      "dl_items": [
+        [
+          "BEM-ESTAR",
+          "A IA deve promover o bem-estar de todos os seres sencientes e priorizar o bem-estar humano como resultado em todos os designs de sistemas"
+        ],
+        [
+          "BEM COMUM",
+          "A IA deve ser desenvolvida para o bem comum e benefício da humanidade"
+        ],
+        [
+          "DIGNIDADE HUMANA",
+          "A tecnologia de IA deve respeitar e fortalecer a dignidade humana"
+        ],
+        [
+          "SUSTENTABILIDADE",
+          "A IA deve estar alinhada com a garantia das precondições básicas para a vida no planeta, prosperidade contínua da humanidade e preservação de um bom ambiente para as gerações futuras"
+        ]
+      ]
+    },
+    {
+      "tag": "Princípio 2",
+      "accent_index": 1,
+      "name": "Non-maleficence",
+      "subtitle": "Privacy, Security and 'Capability Caution'",
+      "dl_items": [
+        [
+          "PRIVACIDADE",
+          "Prevenção de violações da privacidade pessoal, garantindo que indivíduos tenham acesso e controle sobre como seus dados pessoais são usados"
+        ],
+        [
+          "SEGURANÇA",
+          "A IA deve operar dentro de restrições seguras para evitar riscos"
+        ],
+        [
+          "RESPONSABILIDADE",
+          "Desenvolvedores devem assumir responsabilidade trabalhando contra os riscos decorrentes de suas inovações tecnológicas"
+        ],
+        [
+          "CAUTELA DE CAPACIDADE",
+          "Cautela em relação aos limites superiores das capacidades futuras da IA, evitando corrida armamentista de IA e auto-aperfeiçoamento recursivo"
+        ]
+      ]
+    },
+    {
+      "tag": "Princípio 3",
+      "accent_index": 2,
+      "name": "Autonomy",
+      "subtitle": "The Power to Decide (Whether to Decide)",
+      "dl_items": [
+        [
+          "PROMOÇÃO DA AUTONOMIA HUMANA",
+          "O desenvolvimento da IA deve promover a autonomia de todos os seres humanos"
+        ],
+        [
+          "CONTROLE DA AUTONOMIA DE SISTEMAS",
+          "Controlar a autonomia dos sistemas computacionais para que não prejudiquem a liberdade dos seres humanos"
+        ],
+        [
+          "META-AUTONOMIA",
+          "Humanos devem escolher como e se delegar decisões a sistemas de IA para alcançar objetivos escolhidos por humanos"
+        ],
+        [
+          "REVERSIBILIDADE",
+          "O poder autônomo de ferir, destruir ou enganar seres humanos nunca deve ser investido na IA; delegações devem ser reversíveis"
+        ]
+      ]
+    },
+    {
+      "tag": "Princípio 4",
+      "accent_index": 3,
+      "name": "Justice",
+      "subtitle": "Promoting Prosperity and Preserving Solidarity",
+      "dl_items": [
+        [
+          "CORREÇÃO DE INJUSTIÇAS",
+          "Usar IA para corrigir erros passados, como eliminar todos os tipos de discriminação"
+        ],
+        [
+          "BENEFÍCIO COMPARTILHADO",
+          "Garantir que os benefícios da IA sejam compartilhados e que haja prosperidade compartilhada"
+        ],
+        [
+          "ACESSO EQUITATIVO",
+          "Contribuir para a justiça global e acesso igual aos benefícios das tecnologias de IA"
+        ],
+        [
+          "PROTEÇÃO DA SOLIDARIEDADE",
+          "Defender contra ameaças a sistemas de assistência mútua, como seguro social e saúde"
+        ]
+      ]
+    },
+    {
+      "tag": "Princípio 5",
+      "accent_index": 4,
+      "name": "Explicability",
+      "subtitle": "Enabling the Other Principles Through Intelligibility and Accountability",
+      "dl_items": [
+        [
+          "INTELIGIBILIDADE",
+          "Capacidade de entender como os sistemas de IA funcionam, tornando seus processos de tomada de decisão compreensíveis para observadores não especialistas"
+        ],
+        [
+          "RESPONSABILIZAÇÃO",
+          "Capacidade de identificar quem é responsável pelas decisões e ações dos sistemas de IA, permitindo que pessoas e organizações sejam responsabilizadas por resultados negativos"
+        ],
+        [
+          "TRANSPARÊNCIA",
+          "Abertura sobre como os sistemas de IA operam e tomam decisões"
+        ],
+        [
+          "EXPLICAÇÃO ACESSÍVEL",
+          "Indivíduos devem poder obter uma explicação factual, direta e clara do processo de tomada de decisão, especialmente em caso de consequências indesejadas"
+        ]
+      ]
+    }
+  ],
+  "mindmap": {
+    "root": {
+      "t": "AI4People: Framework Ético para Good AI Society",
+      "k": null,
+      "children": [
+        {
+          "t": "Oportunidades e Riscos da IA",
+          "k": "oportunidades",
+          "children": [
+            {
+              "t": "Quem podemos nos tornar",
+              "k": null,
+              "children": [
+                {
+                  "t": "Oportunidade: autorrealização autônoma",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Risco: desvalorização de habilidades humanas",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Disrupção do mercado de trabalho",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "O que podemos fazer",
+              "k": null,
+              "children": [
+                {
+                  "t": "Oportunidade: ampliar agência humana",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Risco: mentalidade de caixa preta",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ausência de responsabilidade",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "O que podemos alcançar",
+              "k": null,
+              "children": [
+                {
+                  "t": "Oportunidade: capacidades societais aumentadas",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Risco: perda de controle humano",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Delegação excessiva a sistemas autônomos",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Como podemos interagir",
+              "k": null,
+              "children": [
+                {
+                  "t": "Oportunidade: coesão social aumentada",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Risco: erosão da autodeterminação",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Nudging implacável e mudança comportamental",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Cinco Princípios Éticos",
+          "k": "principios",
+          "children": [
+            {
+              "t": "Beneficência",
+              "k": null,
+              "children": [
+                {
+                  "t": "Promover bem-estar de seres sencientes",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Fortalecer dignidade humana",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Garantir sustentabilidade ambiental",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Não maleficência",
+              "k": null,
+              "children": [
+                {
+                  "t": "Proteger privacidade e segurança",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Prevenir uso indevido e excessivo",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Cautela de capacidade (capability caution)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Autonomia",
+              "k": null,
+              "children": [
+                {
+                  "t": "Meta-autonomia: poder de decidir se delegar",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Modelo decidir-delegar",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Delegações devem ser reversíveis",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Justiça",
+              "k": null,
+              "children": [
+                {
+                  "t": "Corrigir discriminações passadas",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Garantir benefícios compartilhados",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Proteger solidariedade e assistência mútua",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Explicabilidade",
+              "k": null,
+              "children": [
+                {
+                  "t": "Inteligibilidade: como funciona?",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Responsabilização: quem é responsável?",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Habilita os outros quatro princípios",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "20 Recomendações para Ação",
+          "k": "recomendacoes",
+          "children": [
+            {
+              "t": "Avaliar (3 pontos)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Capacidade institucional para IA",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Adequação da delegação de tarefas",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Adequação regulatória existente",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Desenvolver (8 pontos)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Padrões de explicabilidade",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Procedimentos legais para IA",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Mecanismos de auditoria e certificação",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Agência de supervisão de IA",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Observatório de impacto social",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Incentivar (5 pontos)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Financiar IA socialmente preferível",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Pesquisa europeia coordenada",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Cooperação interdisciplinar",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Zonas de teste (sandboxes)",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Apoiar (4 pontos)",
+              "k": null,
+              "children": [
+                {
+                  "t": "Códigos de conduta setoriais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Responsabilidade social corporativa",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Currículos educacionais em ética de IA",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Conscientização pública",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Abordagem e Contexto",
+          "k": "contexto",
+          "children": [
+            {
+              "t": "Dupla vantagem ética",
+              "k": null,
+              "children": [
+                {
+                  "t": "Identificar oportunidades aceitáveis",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Antecipar e evitar erros custosos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ética como sistema de alerta precoce",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Abordagem multistakeholder",
+              "k": null,
+              "children": [
+                {
+                  "t": "Incorporar ética nas práticas padrão",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Perspectiva europeia complementar",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Síntese de 47 princípios de 6 documentos",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "palette": [
+      {
+        "kind": "oportunidades",
+        "fill": "#2E7D32",
+        "text": "#fff",
+        "label": "Oportunidades e Riscos"
+      },
+      {
+        "kind": "principios",
+        "fill": "#1565C0",
+        "text": "#fff",
+        "label": "Princípios Éticos"
+      },
+      {
+        "kind": "recomendacoes",
+        "fill": "#F57C00",
+        "text": "#fff",
+        "label": "Recomendações"
+      },
+      {
+        "kind": "contexto",
+        "fill": "#6A1B9A",
+        "text": "#fff",
+        "label": "Contexto e Abordagem"
+      }
+    ]
+  },
+  "tables": [
+    {
+      "caption": "Cinco Princípios Éticos para uma Good AI Society",
+      "columns": [
+        "Princípio",
+        "Definição",
+        "Aspectos-chave"
+      ],
+      "rows": [
+        [
+          "Beneficence",
+          "Promover o bem-estar de todos os seres sencientes, preservar a dignidade humana e garantir a sustentabilidade do planeta",
+          "Bem-estar, bem comum, dignidade humana, sustentabilidade ambiental"
+        ],
+        [
+          "Non-maleficence",
+          "Evitar danos causados pela IA, incluindo violações de privacidade, riscos de segurança e uso indevido ou excessivo",
+          "Privacidade, segurança, responsabilidade, cautela de capacidade (capability caution)"
+        ],
+        [
+          "Autonomy",
+          "Equilibrar o poder de decisão entre humanos e IA; humanos retêm o poder de decidir quais decisões tomar (meta-autonomia)",
+          "Promoção da autonomia humana, controle de sistemas, modelo decidir-delegar, reversibilidade"
+        ],
+        [
+          "Justice",
+          "Garantir distribuição justa de recursos e benefícios da IA, corrigir injustiças passadas e prevenir novos danos sociais",
+          "Correção de discriminação, benefício compartilhado, acesso equitativo, proteção da solidariedade"
+        ],
+        [
+          "Explicability",
+          "Tornar a IA compreensível (inteligibilidade) e identificar responsáveis pelas decisões (accountability); habilita os outros princípios",
+          "Inteligibilidade (como funciona?), responsabilização (quem é responsável?), transparência, explicação acessível"
+        ]
+      ]
+    },
+    {
+      "caption": "Oportunidades e Riscos da IA para a Sociedade",
+      "columns": [
+        "Dimensão",
+        "Oportunidade",
+        "Risco Correspondente"
+      ],
+      "rows": [
+        [
+          "Quem podemos nos tornar",
+          "Autorrealização autônoma: IA libera tempo de tarefas mundanas para desenvolvimento pessoal",
+          "Desvalorização de habilidades humanas, disrupção do mercado de trabalho, perda de identidade pessoal"
+        ],
+        [
+          "O que podemos fazer",
+          "Agência humana aumentada: IA fornece reservatório de 'agência inteligente' que amplia capacidades humanas",
+          "Mentalidade de 'caixa preta': ausência de responsabilidade quando sistemas são vistos como além da compreensão humana"
+        ],
+        [
+          "O que podemos alcançar",
+          "Capacidades societais ampliadas: IA melhora e aumenta o que a sociedade pode realizar coletivamente",
+          "Perda de controle humano: delegação excessiva de decisões importantes a sistemas autônomos sem supervisão adequada"
+        ],
+        [
+          "Como podemos interagir",
+          "Coesão social fortalecida: IA ajuda a coordenar soluções para problemas globais complexos",
+          "Erosão da autodeterminação: nudging implacável e mudanças não planejadas no comportamento humano"
+        ]
+      ]
+    },
+    {
+      "caption": "Conceitos-chave do Framework AI4People",
+      "columns": [
+        "Conceito",
+        "Significado"
+      ],
+      "rows": [
+        [
+          "Good AI Society",
+          "Sociedade onde a IA é desenvolvida e utilizada de acordo com princípios éticos para promover dignidade humana e florescimento"
+        ],
+        [
+          "Dual advantage (dupla vantagem)",
+          "Benefício duplo da abordagem ética: identificar oportunidades socialmente aceitáveis e antecipar/evitar erros custosos"
+        ],
+        [
+          "Smart agency (agência inteligente)",
+          "Capacidade de ação autônoma e inteligente fornecida por sistemas de IA que pode ampliar a agência humana"
+        ],
+        [
+          "Meta-autonomy (meta-autonomia)",
+          "Poder humano de decidir quais decisões tomar e quando delegar decisões a sistemas de IA (modelo 'decidir-delegar')"
+        ],
+        [
+          "Explicability (explicabilidade)",
+          "Síntese de inteligibilidade (compreensão de como funciona) e accountability (identificação de responsáveis)"
+        ],
+        [
+          "Black box mentality",
+          "Mentalidade problemática que vê sistemas de IA como além da compreensão e controle humanos, levando à ausência de responsabilidade"
+        ],
+        [
+          "Capability caution",
+          "Cautela necessária em relação aos limites superiores das capacidades futuras da IA, evitando corrida armamentista"
+        ],
+        [
+          "Self-nudging",
+          "Uso de IA para influenciar o próprio comportamento de forma escolhida pelo indivíduo, preservando autonomia"
+        ],
+        [
+          "Distributed morality",
+          "Distribuição de responsabilidade moral entre múltiplos agentes (humanos e sistemas) em contextos de IA"
+        ],
+        [
+          "Multistakeholder approach",
+          "Abordagem que envolve múltiplas partes interessadas (governos, empresas, sociedade civil, academia) na governança da IA"
+        ]
+      ]
+    }
+  ],
+  "essay_condensed": {
+    "variant": "condensed",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "Oportunidades e riscos: o duplo fio da agência inteligente",
+        "paragraphs": [
+          "A IA oferece quatro grandes oportunidades para a sociedade, todas conectadas à dignidade e ao florescimento humano. Primeiro, ela pode liberar tempo de tarefas mundanas, permitindo que nos dediquemos à autorrealização—quem podemos nos tornar. Segundo, ela amplia nossa agência humana, fornecendo um reservatório crescente de agência inteligente que nos permite fazer mais—o que podemos fazer. Terceiro, ela aumenta nossas capacidades individuais e coletivas, permitindo que alcancemos objetivos antes inalcançáveis—o que podemos alcançar. Por fim, ela pode ajudar a lidar com a complexidade de coordenação de problemas globais, fortalecendo a coesão social—como podemos interagir.",
+          "Mas cada oportunidade carrega riscos correspondentes. A liberação de tempo pode desvalorizar rapidamente habilidades humanas, criando vulnerabilidades no mercado de trabalho e afetando a identidade pessoal. A ampliação da agência pode vir acompanhada de uma mentalidade de caixa preta, onde sistemas de IA são vistos como além da compreensão e controle humanos, diluindo a responsabilidade. O aumento de capacidades pode levar à delegação excessiva de decisões importantes a sistemas autônomos, reduzindo nossa capacidade de supervisão. E a coordenação social aprimorada pode corroer a autodeterminação humana através de nudging implacável, minando a dignidade ao moldar comportamentos de forma não planejada."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "agência inteligente",
+          "caixa preta",
+          "nudging",
+          "autodeterminação"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "Cinco princípios para uma IA ética",
+        "paragraphs": [
+          "A síntese de 47 princípios de seis documentos internacionais sobre ética da IA revela cinco pilares fundamentais. Os quatro primeiros—beneficência, não maleficência, autonomia e justiça—são adaptados da bioética. Beneficência significa criar IA que promova o bem-estar de todos os seres sencientes, fortaleça a dignidade humana e garanta a sustentabilidade ambiental. Não maleficência exige evitar danos: proteger a privacidade, garantir segurança e exercer cautela de capacidade em relação aos limites superiores das capacidades futuras da IA.",
+          "O princípio da autonomia introduz o conceito de meta-autonomia ou modelo decidir-delegar: humanos devem sempre reter o poder de decidir quais decisões tomar, exercendo a liberdade de escolher onde necessário e cedendo-a apenas quando razões predominantes justificarem a perda de controle—e qualquer delegação deve permanecer reversível. Justiça relaciona-se à distribuição equitativa de recursos e benefícios, incluindo usar IA para corrigir discriminações passadas e prevenir novos danos a estruturas sociais de assistência mútua.",
+          "O quinto princípio, explicabilidade, é novo e não derivado da bioética. Ele sintetiza dois sentidos cruciais: inteligibilidade (como funciona?) e responsabilização (quem é responsável?). Sem explicabilidade, os outros quatro princípios não podem funcionar efetivamente—é impossível avaliar se um sistema é benéfico, seguro, respeita a autonomia ou é justo se não compreendemos como ele opera nem sabemos quem responde por suas decisões."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Humanos devem sempre reter o poder de decidir quais decisões tomar—e qualquer delegação deve permanecer reversível.",
+          "cite": "Princípio 3 · Autonomia"
+        },
+        "terms": [
+          "meta-autonomia",
+          "decidir-delegar",
+          "explicabilidade",
+          "inteligibilidade",
+          "responsabilização"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Da teoria à prática: recomendações para uma boa sociedade de IA",
+        "paragraphs": [
+          "Princípios éticos só ganham vida quando traduzidos em ações concretas. As 20 recomendações propostas organizam-se em quatro categorias. Avaliar inclui mapear a capacidade institucional para lidar com a IA, identificar quais tarefas devem ou não ser delegadas a sistemas autônomos, e revisar a adequação das estruturas regulatórias existentes. Desenvolver abrange criar mecanismos de explicabilidade, estabelecer procedimentos legais para contestar decisões algorítmicas, implementar sistemas de auditoria, definir métricas de confiabilidade, criar uma agência de supervisão e promover colaboração humano-máquina efetiva.",
+          "Incentivar envolve direcionar financiamento para IA socialmente preferível, fortalecer a pesquisa europeia em IA ética, promover cooperação interdisciplinar, incorporar considerações éticas desde o design e criar zonas de teste regulatórias. Apoiar significa desenvolver códigos de conduta setoriais, promover responsabilidade corporativa, integrar alfabetização em IA nos currículos educacionais e aumentar a conscientização pública sobre oportunidades e riscos.",
+          "Essa abordagem multistakeholder reconhece que criar uma boa sociedade de IA não é responsabilidade exclusiva de governos, empresas ou pesquisadores—é um esforço coletivo que exige a participação de todos os setores da sociedade. A dupla vantagem de uma abordagem ética é clara: organizações que incorporam esses princípios não apenas identificam oportunidades socialmente aceitáveis, mas também antecipam e evitam erros custosos, funcionando como um sistema de alerta precoce contra riscos."
+        ],
+        "bullets": [],
+        "pullquote": null,
+        "terms": [
+          "multistakeholder",
+          "dupla vantagem",
+          "zonas de teste",
+          "alfabetização em IA"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine que você acorda numa manhã qualquer e percebe que seu assistente virtual já organizou sua agenda, priorizou seus e-mails, sugeriu a rota mais rápida para o trabalho e até recomendou o que vestir com base na previsão do tempo. Tudo isso aconteceu sem que você movesse um dedo. Conveniente? Sem dúvida. Mas em algum momento dessa sequência automatizada, você se pergunta: quando foi que eu decidi delegar todas essas escolhas? E mais importante: ainda posso voltar atrás? A inteligência artificial já não é uma promessa futurista—ela está aqui, remodelando silenciosamente nossas rotinas, decisões e até nossa noção de autonomia. O desafio não é mais perguntar *se* a IA terá impacto, mas *como* garantir que esse impacto promova o florescimento humano, a dignidade e a justiça para todos.",
+    "closing_paragraph": "A IA representa uma força transformadora sem precedentes, capaz de ampliar nossas capacidades e liberar nosso potencial—mas também de corroer nossa autonomia e aprofundar desigualdades existentes. O ritmo acelerado da mudança tecnológica não torna obsoleto o processo político democrático; pelo contrário, torna ainda mais urgente que esse processo seja inclusivo, equitativo e fundamentado em princípios éticos claros. As recomendações aqui apresentadas não são um ponto final, mas um ponto de partida: um convite para que governos, empresas, pesquisadores e cidadãos participem ativamente da construção de uma sociedade onde a IA sirva ao florescimento humano, não o contrário."
+  },
+  "essay_full": {
+    "variant": "full",
+    "sections": [
+      {
+        "no": "01",
+        "heading": "A Dupla Face da Revolução: Oportunidades e Riscos da IA",
+        "paragraphs": [
+          "A inteligência artificial não é apenas mais uma tecnologia que precisa ser regulada quando amadurece. Ela representa uma nova forma de agência inteligente—uma capacidade de agir, decidir e influenciar que antes era exclusivamente humana. O artigo AI4People, resultado de uma iniciativa conjunta do Atomium e da EISMD envolvendo 13 especialistas de instituições como Oxford, MIT e IBM, identifica quatro dimensões fundamentais em que a IA pode transformar a sociedade: quem podemos nos tornar, o que podemos fazer, o que podemos alcançar e como podemos interagir.",
+          "Comecemos pela primeira dimensão: a autorrealização humana. A IA promete liberar as pessoas de tarefas repetitivas e mundanas, criando tempo e espaço para atividades mais criativas e significativas. Um assistente virtual pode gerenciar sua agenda, um robô pode limpar sua casa, algoritmos podem processar dados que levariam anos para um humano analisar. Mas essa mesma capacidade traz um risco sombrio: a desvalorização rápida de habilidades que antes definiam identidades profissionais inteiras. Motoristas de caminhão, operadores de telemarketing, até mesmo radiologistas—profissões que sustentam milhões de famílias—podem se tornar obsoletas em questão de décadas, ou até anos.",
+          "A segunda dimensão diz respeito à agência humana—nossa capacidade de agir no mundo. A IA oferece um reservatório crescente de agência inteligente que pode ampliar dramaticamente o que somos capazes de fazer. Um cirurgião assistido por IA pode realizar procedimentos mais precisos; um cientista pode descobrir padrões em dados que seriam invisíveis ao olho humano. Mas aqui surge o que os autores chamam de mentalidade de caixa preta: a tendência de ver sistemas de IA como além da compreensão e controle humanos, levando a uma ausência de responsabilidade quando as coisas dão errado.",
+          "A terceira dimensão envolve as capacidades societais—o que podemos alcançar coletivamente. A IA pode otimizar redes de energia, prever epidemias, coordenar respostas a desastres naturais. Mas o risco é delegar tarefas e decisões importantes demais a sistemas autônomos, reduzindo nossa capacidade de monitorar, prevenir ou corrigir erros. Quando um algoritmo decide quem recebe um empréstimo, quem é liberado sob fiança, ou quem recebe tratamento médico prioritário, estamos confortáveis em ceder esse nível de controle?",
+          "Finalmente, a quarta dimensão trata da coesão social—como interagimos uns com os outros. A IA pode ajudar a lidar com a complexidade de coordenação de problemas globais como mudanças climáticas, pandemias e desigualdade. Mas também pode corroer a autodeterminação humana através do que os autores chamam de nudging implacável—pequenos empurrões constantes que, acumulados, podem mudar fundamentalmente nosso comportamento sem que percebamos, minando nossa dignidade e liberdade de escolha."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A IA não é apenas mais uma tecnologia que precisa ser regulada quando amadurece—ela representa uma nova forma de agência inteligente que está remodelando nossas vidas.",
+          "cite": "Oportunidades e Riscos · AI4People"
+        },
+        "terms": [
+          "agência inteligente",
+          "mentalidade de caixa preta",
+          "nudging implacável",
+          "autodeterminação humana"
+        ]
+      },
+      {
+        "no": "02",
+        "heading": "A Dupla Vantagem da Ética: Além da Conformidade Legal",
+        "paragraphs": [
+          "Diante desse cenário complexo de oportunidades e riscos, muitos poderiam pensar que basta criar leis e regulamentações adequadas. Afinal, não é assim que lidamos com outras tecnologias potencialmente perigosas, como automóveis ou medicamentos? Os autores do AI4People argumentam que, no caso da IA, a conformidade legal é necessária mas profundamente insuficiente.",
+          "A razão é simples: a lei é reativa por natureza. Ela responde a problemas que já ocorreram, codificando lições aprendidas com erros passados. Mas a IA está evoluindo em uma velocidade que torna essa abordagem reativa perigosamente lenta. Quando uma nova aplicação de IA causa danos—digamos, um algoritmo de contratação que discrimina sistematicamente contra mulheres, ou um sistema de reconhecimento facial que identifica erroneamente pessoas negras como criminosos—o dano já está feito, muitas vezes afetando milhares ou milhões de pessoas.",
+          "É aqui que entra o que os autores chamam de dupla vantagem de uma abordagem ética. Primeiro, a ética permite que organizações identifiquem e aproveitem novas oportunidades que são socialmente aceitáveis e desejáveis, ganhando vantagem competitiva ao construir confiança pública. Segundo, e talvez mais importante, a ética funciona como um sistema de alerta precoce, permitindo que organizações antecipem e evitem erros custosos antes que eles aconteçam.",
+          "Pense na ética como os sensores de um carro autônomo: eles não apenas reagem a obstáculos que já estão no caminho, mas detectam potenciais problemas à distância, permitindo ajustes de curso antes que uma colisão seja inevitável. No contexto da IA, isso significa questionar não apenas 'podemos construir isso?' mas 'devemos construir isso? Para quem isso será benéfico? Quem pode ser prejudicado? Como podemos mitigar esses riscos?'"
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A ética funciona como um sistema de alerta precoce, permitindo que organizações antecipem e evitem erros custosos antes que eles aconteçam.",
+          "cite": "Dupla Vantagem · AI4People"
+        },
+        "terms": [
+          "dupla vantagem",
+          "sistema de alerta precoce",
+          "conformidade legal"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Cinco Princípios para uma Boa Sociedade de IA",
+        "paragraphs": [
+          "Mas o que significa, concretamente, uma abordagem ética à IA? O projeto AI4People analisou seis documentos de alto perfil sobre ética da IA—incluindo diretrizes da IEEE, da Partnership on AI, e do Future of Life Institute—e sintetizou 47 princípios diferentes em cinco princípios fundamentais. Quatro deles vêm da bioética tradicional: beneficência, não maleficência, autonomia e justiça. O quinto, explicabilidade, é uma contribuição original que os autores argumentam ser essencial para o contexto específico da IA.",
+          "O princípio da beneficência estabelece que a IA deve promover ativamente o bem-estar de todos os seres sencientes, servir ao bem comum, fortalecer a dignidade humana e garantir a sustentabilidade ambiental para as gerações futuras. Não basta que a IA não cause danos—ela deve ativamente fazer o bem. Isso significa, por exemplo, que um sistema de IA para diagnóstico médico não deve apenas evitar erros, mas deve ser projetado para melhorar o acesso à saúde, especialmente para populações carentes.",
+          "O princípio da não maleficência foca em evitar danos. Isso inclui proteger a privacidade pessoal, garantir que indivíduos tenham acesso e controle sobre como seus dados são usados, assegurar que sistemas de IA operem dentro de restrições seguras, e exercer o que os autores chamam de cautela de capacidade—uma atenção especial aos limites superiores das capacidades futuras da IA, evitando cenários de corrida armamentista ou auto-aperfeiçoamento recursivo descontrolado.",
+          "O princípio da autonomia é particularmente interessante porque reconhece a tensão fundamental entre autonomia humana e autonomia de máquinas. A solução proposta é o conceito de meta-autonomia ou o modelo decidir-delegar: humanos devem sempre reter o poder de decidir quais decisões tomar. Podemos escolher delegar certas decisões a sistemas de IA—como deixar um piloto automático dirigir nosso carro—mas essa delegação deve sempre ser reversível em princípio. O poder autônomo de ferir, destruir ou enganar seres humanos nunca deve ser investido na IA.",
+          "O princípio da justiça trata da distribuição justa dos benefícios e riscos da IA. Isso tem três dimensões: usar IA para corrigir injustiças passadas (como eliminar discriminação algorítmica), garantir que os benefícios sejam compartilhados amplamente (não apenas capturados por uma elite tecnológica), e prevenir a criação de novos danos, como a erosão de estruturas sociais de assistência mútua—pensem em como plataformas de trabalho sob demanda podem minar sistemas tradicionais de seguro social e saúde.",
+          "Finalmente, o princípio da explicabilidade é a contribuição mais original do framework. Ele sintetiza dois aspectos: inteligibilidade (a capacidade de entender como os sistemas de IA funcionam) e responsabilização (a capacidade de identificar quem é responsável pelas decisões e ações desses sistemas). Sem explicabilidade, os outros quatro princípios não podem funcionar efetivamente. Como podemos saber se um sistema está promovendo o bem-estar se não entendemos como ele funciona? Como podemos responsabilizar alguém por danos se não conseguimos rastrear a cadeia de decisões que levou ao resultado prejudicial?"
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Humanos devem sempre reter o poder de decidir quais decisões tomar—a meta-autonomia significa que podemos delegar, mas essa delegação deve sempre ser reversível.",
+          "cite": "Princípio da Autonomia · AI4People"
+        },
+        "terms": [
+          "beneficência",
+          "não maleficência",
+          "meta-autonomia",
+          "decidir-delegar",
+          "explicabilidade",
+          "inteligibilidade",
+          "responsabilização",
+          "cautela de capacidade"
+        ]
+      },
+      {
+        "no": "04",
+        "heading": "Da Teoria à Prática: Vinte Recomendações Concretas",
+        "paragraphs": [
+          "Princípios abstratos são importantes, mas podem parecer distantes da realidade de quem desenvolve, regula ou usa sistemas de IA no dia a dia. É por isso que o AI4People oferece 20 recomendações concretas, organizadas em quatro categorias: avaliar, desenvolver, incentivar e apoiar.",
+          "As recomendações de avaliação focam em construir capacidade institucional. Primeiro, governos precisam avaliar sua própria capacidade de compreender e regular a IA—muitos órgãos reguladores simplesmente não têm expertise técnica suficiente. Segundo, é necessário avaliar sistematicamente quais tarefas devem ser delegadas a sistemas de IA e quais devem permanecer sob controle humano. Terceiro, regulamentações existentes precisam ser revisadas para identificar lacunas e inadequações—leis de privacidade projetadas para bancos de dados estáticos, por exemplo, podem ser insuficientes para algoritmos de aprendizado de máquina que evoluem continuamente.",
+          "As recomendações de desenvolvimento são as mais numerosas e técnicas. Elas incluem: estabelecer padrões de explicabilidade para sistemas de IA, especialmente aqueles usados em decisões que afetam direitos fundamentais; garantir que procedimentos legais tradicionais (como o direito de contestar decisões) sejam adaptados para o contexto da IA; criar mecanismos de auditoria independente para sistemas de IA críticos; desenvolver sistemas de reparação quando a IA causa danos; estabelecer métricas de confiabilidade e segurança; criar uma agência de supervisão dedicada à IA (similar a agências reguladoras para medicamentos ou aviação); estabelecer um observatório europeu de IA para monitorar desenvolvimentos e impactos; e promover pesquisa sobre colaboração humano-máquina efetiva.",
+          "As recomendações de incentivação focam em direcionar o desenvolvimento da IA em direções socialmente desejáveis. Isso inclui: financiar preferencialmente pesquisa em IA que aborde desafios sociais importantes; fortalecer a pesquisa europeia em IA para garantir que valores europeus sejam incorporados no desenvolvimento tecnológico; promover cooperação interdisciplinar entre cientistas da computação, filósofos, juristas e cientistas sociais; exigir que propostas de pesquisa em IA incluam considerações éticas desde o início; e criar zonas de teste regulatório (sandboxes) onde inovações podem ser experimentadas em ambientes controlados.",
+          "Finalmente, as recomendações de apoio focam em criar uma cultura de responsabilidade. Isso inclui: desenvolver códigos de conduta profissional para desenvolvedores de IA (similar aos códigos médicos ou de engenharia); promover responsabilidade social corporativa específica para IA; integrar educação sobre IA e suas implicações éticas em currículos educacionais em todos os níveis; e aumentar a conscientização pública sobre como a IA funciona e como ela afeta a sociedade."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Governos precisam avaliar sua própria capacidade de compreender e regular a IA—muitos órgãos reguladores simplesmente não têm expertise técnica suficiente.",
+          "cite": "Recomendações de Avaliação · AI4People"
+        },
+        "terms": [
+          "capacidade institucional",
+          "auditoria independente",
+          "zonas de teste regulatório",
+          "responsabilidade social corporativa"
+        ]
+      },
+      {
+        "no": "05",
+        "heading": "Uma Abordagem Multistakeholder: Quem Deve Agir?",
+        "paragraphs": [
+          "Uma das características mais importantes do framework AI4People é o reconhecimento de que criar uma boa sociedade de IA não é responsabilidade de um único ator. Diferentes recomendações devem ser lideradas por diferentes stakeholders—governos, empresas, academia, sociedade civil—trabalhando em coordenação.",
+          "Algumas recomendações podem e devem ser implementadas diretamente por formuladores de políticas nacionais ou supranacionais. A criação de uma agência de supervisão de IA, por exemplo, requer ação governamental. O estabelecimento de padrões de explicabilidade para sistemas de IA usados em serviços públicos é claramente uma responsabilidade do Estado. A revisão de regulamentações existentes para identificar lacunas no contexto da IA é trabalho para legisladores e reguladores.",
+          "Outras recomendações são mais apropriadamente lideradas por outros stakeholders. O desenvolvimento de códigos de conduta profissional, por exemplo, é melhor feito por associações profissionais de cientistas da computação e engenheiros, com input de outras disciplinas. A promoção de responsabilidade social corporativa específica para IA deve vir das próprias empresas, embora possa ser incentivada por pressão pública e de investidores. A integração de educação sobre IA em currículos é responsabilidade de instituições educacionais, embora governos possam fornecer diretrizes e recursos.",
+          "Essa abordagem multistakeholder reflete uma compreensão sofisticada da governança da IA. A tecnologia está evoluindo rápido demais para que apenas governos ditem todas as regras. Ao mesmo tempo, deixar tudo para auto-regulação da indústria seria ingênuo, dado os incentivos econômicos que podem entrar em conflito com o bem público. A solução é uma rede de responsabilidades compartilhadas, onde diferentes atores têm papéis específicos mas complementares.",
+          "Os autores também enfatizam que o documento representa uma abordagem europeia complementar a outras abordagens regionais. Isso não significa que os princípios sejam exclusivamente europeus—conceitos como dignidade humana, justiça e autonomia têm ressonância universal. Mas o framework reflete prioridades e valores que são particularmente importantes na tradição europeia, como a ênfase em solidariedade social e a cautela em relação ao poder corporativo desregulado."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A tecnologia está evoluindo rápido demais para que apenas governos ditem todas as regras, mas deixar tudo para auto-regulação da indústria seria ingênuo.",
+          "cite": "Abordagem Multistakeholder · AI4People"
+        },
+        "terms": [
+          "abordagem multistakeholder",
+          "governança da IA",
+          "responsabilidades compartilhadas"
+        ]
+      },
+      {
+        "no": "06",
+        "heading": "O Desafio da Velocidade: Democracia na Era da IA",
+        "paragraphs": [
+          "Um dos receios mais comuns sobre a governança da IA é que o processo político democrático seja simplesmente lento demais para acompanhar o ritmo da mudança tecnológica. Enquanto legisladores debatem e negociam, a tecnologia já avançou várias gerações. Enquanto reguladores tentam entender como um sistema de IA funciona, uma versão nova e mais poderosa já foi lançada. Isso não significa que a democracia liberal está ultrapassada na era da IA?",
+          "Os autores do AI4People rejeitam firmemente essa conclusão derrotista. Eles argumentam que, embora o ritmo da mudança tecnológica seja de fato sem precedentes, isso não torna o processo político democrático obsoleto—torna-o mais importante do que nunca. A questão não é se a democracia pode acompanhar a tecnologia, mas como adaptar instituições democráticas para governar efetivamente em um contexto de mudança rápida.",
+          "Parte da resposta está nas próprias recomendações: construir capacidade institucional, criar agências especializadas, estabelecer observatórios para monitoramento contínuo, promover cooperação interdisciplinar. Essas são todas formas de tornar a governança democrática mais ágil e informada, sem abandonar princípios fundamentais de transparência, participação e accountability.",
+          "Outra parte da resposta está em reconhecer que nem toda governança precisa vir na forma de leis formais. Códigos de conduta profissional, padrões da indústria, certificações de terceiros, pressão de consumidores e investidores—todos esses mecanismos podem complementar a regulação formal, criando uma ecologia de governança mais flexível e responsiva.",
+          "Mas talvez o ponto mais profundo seja este: a velocidade da mudança tecnológica torna ainda mais crucial que decisões fundamentais sobre o tipo de sociedade que queremos sejam tomadas democraticamente, não deixadas para tecnocratas ou executivos de empresas de tecnologia. Quando a IA tem o potencial de remodelar aspectos fundamentais da vida humana—trabalho, privacidade, autonomia, justiça—essas não são questões técnicas que podem ser resolvidas por especialistas. São questões profundamente políticas e éticas que exigem deliberação pública ampla."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "A velocidade da mudança tecnológica torna ainda mais crucial que decisões fundamentais sobre o tipo de sociedade que queremos sejam tomadas democraticamente.",
+          "cite": "Democracia e IA · AI4People"
+        },
+        "terms": [
+          "processo político democrático",
+          "capacidade institucional",
+          "ecologia de governança",
+          "deliberação pública"
+        ]
+      },
+      {
+        "no": "07",
+        "heading": "Solidariedade Intergeracional: O Teste Final da Justiça",
+        "paragraphs": [
+          "Há uma dimensão da justiça na IA que é particularmente difícil de enfrentar: a dimensão temporal. As transformações trazidas pela IA não acontecem uniformemente para todos ao mesmo tempo. Algumas pessoas e comunidades são afetadas primeiro e mais intensamente—pense nos motoristas de caminhão que podem perder seus empregos para veículos autônomos, ou nos trabalhadores de call centers substituídos por chatbots. Outras pessoas se beneficiam—consumidores que têm acesso a serviços mais baratos e convenientes, investidores que lucram com empresas de IA, trabalhadores qualificados cujas habilidades se tornam mais valiosas.",
+          "Essa distribuição desigual de custos e benefícios ao longo do tempo levanta uma questão ética fundamental: que tipo de solidariedade devemos ter entre aqueles que são prejudicados hoje e aqueles que serão beneficiados amanhã? É fácil dizer que, no longo prazo, a IA criará mais empregos do que destruirá, ou que aumentará a prosperidade geral. Mas 'no longo prazo' pode significar décadas, e como John Maynard Keynes famosamente observou, 'no longo prazo, todos estaremos mortos'.",
+          "O princípio da justiça no framework AI4People aborda isso de várias formas. Primeiro, enfatiza a necessidade de usar a IA para corrigir injustiças passadas, não apenas evitar criar novas. Segundo, insiste que os benefícios da IA devem ser compartilhados, não apenas compartilháveis em teoria. Terceiro, alerta contra a erosão de estruturas sociais existentes de assistência mútua—sistemas de seguro social, saúde pública, educação—que são precisamente os mecanismos pelos quais sociedades demonstram solidariedade entre ganhadores e perdedores de mudanças econômicas.",
+          "Mas há uma tensão real aqui. Transições tecnológicas disruptivas sempre criaram ganhadores e perdedores. A Revolução Industrial trouxe prosperidade sem precedentes, mas também causou sofrimento imenso para gerações de trabalhadores cujas habilidades se tornaram obsoletas. Olhando para trás, a maioria de nós diria que a transição valeu a pena—mas isso é fácil de dizer quando não somos nós que perdemos nossos meios de subsistência.",
+          "O framework AI4People não oferece uma solução mágica para essa tensão, mas oferece algo importante: um conjunto de princípios e mecanismos para tornar a transição tão justa quanto possível. Isso inclui investir em requalificação e educação, fortalecer redes de segurança social, garantir que os benefícios econômicos da IA sejam taxados e redistribuídos de forma apropriada, e dar voz àqueles que são mais afetados nas decisões sobre como a IA é desenvolvida e implantada.",
+          "Crucialmente, o framework também insiste que essas não são decisões puramente técnicas ou econômicas. São decisões éticas e políticas sobre que tipo de sociedade queremos ser. Uma sociedade que maximiza eficiência e crescimento econômico a qualquer custo? Ou uma sociedade que valoriza dignidade humana, autonomia e solidariedade, mesmo quando isso significa aceitar um ritmo de mudança mais lento ou uma distribuição de benefícios mais equitativa?"
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "É fácil dizer que no longo prazo a IA criará prosperidade—mas 'no longo prazo' pode significar décadas, e como Keynes observou, 'no longo prazo, todos estaremos mortos'.",
+          "cite": "Justiça Temporal · AI4People"
+        },
+        "terms": [
+          "solidariedade intergeracional",
+          "distribuição desigual",
+          "redes de segurança social",
+          "transições disruptivas"
+        ]
+      }
+    ],
+    "drop_cap_paragraph": "Imagine que você acorda numa manhã comum e, antes mesmo de sair da cama, seu smartphone já organizou sua agenda, sugeriu a melhor rota para o trabalho considerando o trânsito em tempo real, e recomendou uma playlist que parece ler seu humor. No caminho, você passa por câmeras de reconhecimento facial que monitoram a segurança pública, enquanto algoritmos decidem quais notícias aparecem no seu feed e quais anúncios você verá. Ao chegar ao trabalho, um sistema de IA já triou seus e-mails, priorizou tarefas e até redigiu respostas automáticas. Essa não é uma cena de ficção científica distante—é a realidade de milhões de pessoas hoje. A inteligência artificial deixou de ser uma promessa futurista para se tornar uma força onipresente que está remodelando silenciosamente cada aspecto de nossas vidas. Mas aqui está a questão crucial: quem decide como essa força será direcionada? E, mais importante ainda, como garantimos que ela sirva ao bem comum, e não apenas aos interesses de poucos?",
+    "closing_paragraph": "O framework AI4People representa um esforço ambicioso de traduzir princípios éticos abstratos em recomendações concretas para governança da IA. Mas talvez sua contribuição mais importante seja simplesmente insistir que essas são questões que merecem deliberação pública séria, não apenas decisões técnicas deixadas para especialistas. A IA não é inevitável em suas formas específicas—cada aplicação, cada sistema, cada implantação envolve escolhas sobre valores, prioridades e trade-offs. Ao tornar essas escolhas explícitas e submetê-las a escrutínio ético, o framework oferece um caminho para garantir que a revolução da IA sirva à dignidade humana e ao florescimento de todos, não apenas aos interesses de poucos. O desafio agora é transformar essas recomendações em ação—e isso requer não apenas vontade política, mas também a participação ativa de todos os stakeholders: desenvolvedores, empresas, governos, academia e, crucialmente, o público em geral. Porque no final, a questão não é se a IA transformará nossa sociedade, mas que tipo de sociedade escolheremos construir com ela."
+  },
+  "workshop": {
+    "title": "Ética da IA em Ação: Aplicando os 5 Princípios do AI4People a Cenários Reais",
+    "framing": "Ciclo de Kolb adaptado: experiência concreta (análise de cenário) → observação reflexiva (identificação de tensões éticas) → conceituação abstrata (mapeamento aos 5 princípios) → experimentação ativa (formulação de recomendações)",
+    "duration_minutes": 75,
+    "participant_track": {
+      "steps": [
+        {
+          "phase": "Preparação (pré-sessão)",
+          "instruction": "Leia o resumo executivo do artigo AI4People (fornecido) e familiarize-se com os 5 princípios éticos: Beneficência, Não-maleficência, Autonomia, Justiça e Explicabilidade. Anote uma definição pessoal de cada princípio em suas próprias palavras.",
+          "self_check_prompt": "Você consegue explicar cada um dos 5 princípios para alguém que nunca ouviu falar deles, usando um exemplo cotidiano?"
+        },
+        {
+          "phase": "Experiência Concreta (15 min)",
+          "instruction": "Em sua sala de breakout (3-4 pessoas), leia atentamente o cenário de IA atribuído ao seu grupo. Identifique: (a) quem são os stakeholders afetados, (b) quais oportunidades a IA oferece neste contexto, e (c) quais riscos estão presentes. Documente suas observações no quadro colaborativo (Miro/Jamboard).",
+          "self_check_prompt": "Você consegue nomear pelo menos 3 stakeholders diferentes e explicar como cada um é afetado de maneira distinta pela IA neste cenário?"
+        },
+        {
+          "phase": "Observação Reflexiva (12 min)",
+          "instruction": "Ainda em seu grupo, identifique as tensões éticas no cenário: onde há conflitos entre diferentes valores? Onde um ganho para um stakeholder representa uma perda para outro? Mapeie essas tensões visualmente no quadro, usando setas ou diagramas.",
+          "self_check_prompt": "Você identificou pelo menos uma tensão onde dois princípios éticos parecem entrar em conflito? Consegue articular por que essa tensão é difícil de resolver?"
+        },
+        {
+          "phase": "Conceituação Abstrata (15 min)",
+          "instruction": "Agora mapeie as tensões identificadas aos 5 princípios do AI4People. Para cada tensão, pergunte: qual(is) princípio(s) está(ão) sendo violado(s) ou ameaçado(s)? Use etiquetas coloridas ou códigos no quadro para marcar cada tensão com os princípios relevantes. Consulte a tabela de referência dos princípios fornecida.",
+          "self_check_prompt": "Você consegue justificar por que escolheu cada princípio para cada tensão, citando atributos específicos da definição do princípio?"
+        },
+        {
+          "phase": "Experimentação Ativa (18 min)",
+          "instruction": "Com base no mapeamento, seu grupo deve formular 3-5 recomendações concretas para o cenário, inspiradas nas 20 recomendações do artigo AI4People. Cada recomendação deve: (1) abordar uma tensão específica, (2) invocar pelo menos um dos 5 princípios, (3) ser acionável (dizer quem faz o quê). Prepare uma apresentação de 2 minutos.",
+          "self_check_prompt": "Suas recomendações são específicas o suficiente para que alguém possa começar a implementá-las amanhã? Elas equilibram os interesses de diferentes stakeholders?"
+        },
+        {
+          "phase": "Compartilhamento Plenário (10 min)",
+          "instruction": "Assista às apresentações dos outros grupos. Para cada apresentação, anote mentalmente: (1) uma recomendação que você considera particularmente forte, (2) uma tensão ética que o grupo pode ter negligenciado, (3) uma conexão entre o cenário deles e o seu.",
+          "self_check_prompt": "Você consegue identificar padrões comuns entre os diferentes cenários? Algum princípio parece ser mais desafiador de aplicar do que outros?"
+        },
+        {
+          "phase": "Consolidação Individual (5 min)",
+          "instruction": "Individualmente, responda às perguntas de reflexão no documento compartilhado. Foque em como os princípios se aplicam ao seu próprio contexto profissional ou acadêmico.",
+          "self_check_prompt": "Você consegue identificar pelo menos um sistema de IA em sua vida ou trabalho onde esses princípios deveriam ser aplicados, mas atualmente não são?"
+        }
+      ],
+      "materials_needed": [
+        "Acesso à videoconferência (Zoom/Google Meet/Teams) com capacidade de breakout rooms",
+        "Quadro colaborativo online (Miro, Jamboard, ou Mural) com template pré-configurado",
+        "Documento de referência: resumo dos 5 princípios do AI4People com atributos",
+        "Cenário de IA atribuído ao seu grupo (fornecido pelo facilitador)",
+        "Documento compartilhado para reflexões individuais (Google Doc ou similar)",
+        "Papel e caneta para anotações pessoais"
+      ],
+      "reflection_questions": [
+        "Qual dos 5 princípios você considera mais difícil de operacionalizar na prática, e por quê?",
+        "Houve algum momento durante a análise do cenário em que você sentiu que dois princípios entravam em conflito irreconciliável? Como você resolveria esse conflito?",
+        "O princípio de Explicabilidade (inteligibilidade + responsabilização) realmente 'habilita' os outros quatro princípios, como o artigo sugere? Você pode pensar em um exemplo onde a falta de explicabilidade mina outro princípio?",
+        "Pensando na 'dupla vantagem' mencionada no artigo (identificar oportunidades + evitar erros), como uma organização poderia institucionalizar essa abordagem ética de forma prática?",
+        "A questão de fechamento do artigo pergunta 'quem decide o que significa justo?' no contexto de solidariedade intergeracional. Após esta sessão, como você responderia a essa pergunta?"
+      ]
+    },
+    "facilitator_track": {
+      "script": [
+        {
+          "time_marker": "0–5 min",
+          "activity": "Abertura e enquadramento pedagógico",
+          "facilitator_notes": "Estabeleça o tom: esta não é uma sessão de 'recitar princípios', mas de aplicá-los a dilemas reais. Explique o Ciclo de Kolb brevemente: vamos começar com experiência concreta (cenários), refletir sobre tensões, conectar à teoria (5 princípios), e experimentar soluções. Verifique que todos têm acesso aos materiais. ERRO COMUM: participantes querem pular direto para 'soluções' sem análise—reforce que cada fase tem valor.",
+          "discussion_prompts": [
+            "Quantos de vocês já participaram de discussões sobre ética da IA antes? O que achou mais desafiador nessas discussões?",
+            "Hoje vamos trabalhar com cenários reais. Alguém já enfrentou um dilema ético envolvendo IA em seu trabalho ou vida pessoal?"
+          ]
+        },
+        {
+          "time_marker": "5–10 min",
+          "activity": "Revisão rápida dos 5 princípios + atribuição de cenários",
+          "facilitator_notes": "Use slides visuais para revisar os 5 princípios (Beneficência, Não-maleficência, Autonomia, Justiça, Explicabilidade). Enfatize que Explicabilidade é o 'novo' princípio não derivado da bioética. Atribua cenários aos breakout rooms (prepare 4-5 cenários diferentes: ex. sistema de recrutamento com IA, diagnóstico médico automatizado, moderação de conteúdo em redes sociais, veículos autônomos, sistema de crédito algorítmico). DICA: cenários devem ter múltiplos stakeholders e tensões não-óbvias.",
+          "discussion_prompts": [
+            "Alguém pode dar um exemplo rápido de como 'Autonomia' no contexto de IA é diferente de autonomia tradicional?",
+            "Por que vocês acham que os autores adicionaram 'Explicabilidade' como um quinto princípio separado?"
+          ]
+        },
+        {
+          "time_marker": "10–25 min",
+          "activity": "Fase 1 em breakout rooms: Experiência Concreta (análise de cenário)",
+          "facilitator_notes": "Envie grupos para breakout rooms. Circule entre as salas (se a plataforma permitir) para observar. OBSERVE: grupos que ficam presos em detalhes técnicos em vez de implicações éticas; grupos que identificam apenas stakeholders óbvios (ex. esquecem trabalhadores afetados, gerações futuras, ou meio ambiente). INTERVENÇÃO: se um grupo está travado, pergunte 'E se você fosse [stakeholder X], como se sentiria sobre isso?' Garanta que estão documentando no quadro colaborativo.",
+          "discussion_prompts": []
+        },
+        {
+          "time_marker": "25–37 min",
+          "activity": "Fase 2 em breakout rooms: Observação Reflexiva (identificação de tensões)",
+          "facilitator_notes": "Grupos agora devem identificar tensões éticas. ERRO COMUM: confundir 'tensão ética' com 'problema técnico'. Exemplo de tensão: 'Maximizar eficiência (beneficência) vs. preservar empregos (justiça)'. DICA: incentive visualização—diagramas de tensão são mais poderosos que listas. Se um grupo terminar cedo, desafie-os: 'Vocês identificaram tensões entre os próprios princípios éticos, ou apenas entre IA e valores humanos?'",
+          "discussion_prompts": []
+        },
+        {
+          "time_marker": "37–52 min",
+          "activity": "Fase 3 em breakout rooms: Conceituação Abstrata (mapeamento aos princípios)",
+          "facilitator_notes": "Agora conectam tensões aos 5 princípios. OBSERVE: uso superficial de princípios ('isso é sobre justiça' sem especificar qual atributo de justiça). Incentive consulta à tabela de referência com atributos detalhados. ERRO COMUM: tentar encaixar tudo em um único princípio—lembre que cenários complexos envolvem múltiplos princípios. INTERVENÇÃO: 'Vocês estão usando os atributos específicos de cada princípio, ou apenas os nomes gerais?'",
+          "discussion_prompts": []
+        },
+        {
+          "time_marker": "52–70 min",
+          "activity": "Fase 4 em breakout rooms: Experimentação Ativa (formulação de recomendações) + preparação de apresentação",
+          "facilitator_notes": "Grupos formulam 3-5 recomendações concretas. CRITÉRIO DE QUALIDADE: recomendação deve ser acionável (quem faz o quê), ancorada em princípios, e equilibrar stakeholders. ERRO COMUM: recomendações vagas ('devemos ser mais éticos') ou unilaterais (favorecem apenas um stakeholder). Aos 60 min, avise que faltam 10 min e devem preparar apresentação de 2 min. DICA: peça que priorizem suas 2 recomendações mais fortes para a apresentação.",
+          "discussion_prompts": []
+        },
+        {
+          "time_marker": "70–80 min",
+          "activity": "Compartilhamento plenário: apresentações dos grupos (2 min cada)",
+          "facilitator_notes": "Cada grupo apresenta (2 min rigorosos—use timer visível). Como facilitador, após cada apresentação, faça uma observação de conexão: 'Notem como o Grupo A enfatizou Explicabilidade enquanto Grupo B focou em Justiça—ambos válidos, mas revelam prioridades diferentes'. OBSERVE: padrões emergentes entre cenários. Anote para o debrief. NÃO permita que apresentações virem debates longos—guarde para o debrief.",
+          "discussion_prompts": [
+            "Após cada apresentação: 'Alguém vê uma conexão entre este cenário e o cenário do seu próprio grupo?'",
+            "Após todas: 'Que padrões vocês notam? Algum princípio foi consistentemente mais desafiador?'"
+          ]
+        },
+        {
+          "time_marker": "80–90 min",
+          "activity": "Debrief estruturado e consolidação",
+          "facilitator_notes": "Siga a estrutura de debrief (veja debrief_structure abaixo). CRUCIAL: não deixe esta fase ser apressada—é onde a consolidação acontece. Use as discussion_prompts para guiar. Termine com a questão de fechamento do artigo sobre 'quem decide o que é justo'. Direcione para reflexões individuais assíncronas. ENCERRAMENTO: agradeça, reforce que ética da IA não é sobre respostas certas, mas sobre fazer as perguntas certas e equilibrar valores conscientemente.",
+          "discussion_prompts": [
+            "Qual princípio foi mais difícil de aplicar na prática? Por quê?",
+            "Alguém encontrou uma situação onde dois princípios pareciam irreconciliáveis? Como lidaram com isso?",
+            "O artigo argumenta que Explicabilidade 'habilita' os outros princípios. Vocês concordam, com base na experiência de hoje?",
+            "Pensando na 'dupla vantagem' (oportunidades + evitar erros), como isso se manifestou nos cenários que analisamos?",
+            "Questão final do artigo: 'Quem decide o que significa justo?' no contexto de IA e solidariedade intergeracional. Após hoje, como vocês responderiam?"
+          ]
+        },
+        {
+          "time_marker": "Pós-sessão",
+          "activity": "Reflexão individual assíncrona",
+          "facilitator_notes": "Envie link para documento de reflexões individuais. Dê prazo de 48h. OPCIONAL: crie fórum de discussão assíncrono onde participantes podem compartilhar insights das reflexões. Considere compilar as reflexões (anonimizadas) e compartilhar temas emergentes com o grupo.",
+          "discussion_prompts": []
+        }
+      ],
+      "timing_table": {
+        "caption": "Estrutura temporal da sessão: Ética da IA em Ação",
+        "columns": [
+          "Tempo",
+          "Atividade",
+          "Objetivo pedagógico"
+        ],
+        "rows": [
+          [
+            "0–5 min",
+            "Abertura e enquadramento",
+            "Estabelecer contrato de aprendizagem e expectativas"
+          ],
+          [
+            "5–10 min",
+            "Revisão dos 5 princípios + atribuição",
+            "Ativar conhecimento prévio e preparar para aplicação"
+          ],
+          [
+            "10–25 min",
+            "Breakout: Análise de cenário (Experiência Concreta)",
+            "Engajar com complexidade real antes de teoria"
+          ],
+          [
+            "25–37 min",
+            "Breakout: Identificação de tensões (Observação Reflexiva)",
+            "Desenvolver pensamento crítico sobre conflitos de valores"
+          ],
+          [
+            "37–52 min",
+            "Breakout: Mapeamento aos princípios (Conceituação Abstrata)",
+            "Conectar experiência concreta à estrutura teórica"
+          ],
+          [
+            "52–70 min",
+            "Breakout: Formulação de recomendações (Experimentação Ativa)",
+            "Aplicar teoria para gerar soluções práticas"
+          ],
+          [
+            "70–80 min",
+            "Apresentações plenárias",
+            "Aprender com diversidade de cenários e abordagens"
+          ],
+          [
+            "80–90 min",
+            "Debrief e consolidação",
+            "Sintetizar aprendizados e preparar transferência"
+          ],
+          [
+            "Pós-sessão",
+            "Reflexão individual assíncrona",
+            "Consolidar e conectar ao contexto pessoal/profissional"
+          ]
+        ]
+      },
+      "debrief_structure": [
+        "1. Colheita de padrões: Perguntar ao grupo que padrões notaram entre os diferentes cenários—quais tensões éticas apareceram repetidamente? (3 min)",
+        "2. Princípios em tensão: Explorar situações onde princípios entraram em conflito (ex. Autonomia vs. Beneficência). Como grupos navegaram esses conflitos? (3 min)",
+        "3. Explicabilidade como meta-princípio: Testar a afirmação do artigo de que Explicabilidade 'habilita' os outros princípios. Pedir exemplos concretos da sessão. (2 min)",
+        "4. Da teoria à prática: Discutir a 'dupla vantagem' ética—como as recomendações formuladas hoje poderiam tanto criar oportunidades quanto evitar riscos? (2 min)",
+        "5. Questão de fechamento provocativa: Apresentar a pergunta final do artigo sobre 'quem decide o que é justo' e solidariedade intergeracional. Colher 2-3 respostas breves. (3 min)",
+        "6. Ponte para aplicação: Pedir que cada participante identifique mentalmente um sistema de IA em seu contexto onde esses princípios deveriam ser aplicados. Direcionar para reflexões assíncronas. (2 min)"
+      ],
+      "consolidation_goal": "Consolidação bem-sucedida significa que participantes conseguem: (1) identificar e articular tensões éticas em cenários reais de IA usando vocabulário dos 5 princípios, (2) reconhecer que princípios éticos frequentemente entram em conflito e requerem balanceamento consciente, não aplicação mecânica, (3) formular recomendações acionáveis que equilibram múltiplos stakeholders e princípios, e (4) transferir o framework para seus próprios contextos profissionais/acadêmicos, identificando pelo menos um sistema de IA onde os princípios deveriam ser aplicados."
+    }
+  },
+  "seo_pages": [
+    {
+      "page_kind": "article",
+      "title": "AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations",
+      "description": "Fundamentos para uma Good AI Society: síntese de cinco princípios éticos fundamentais (beneficence, non-maleficence, autonomy, justice e explicability) e 20 recomendações concretas para avaliar, desenvolver, incentivar e apoiar o desenvolvimento responsável de IA, equilibrando oportunidades de smart agency e augmented intelligence com riscos de black box mentality e capability caution.",
+      "keywords": [
+        "ética da IA",
+        "AI4People",
+        "Good AI Society",
+        "beneficence",
+        "non-maleficence",
+        "autonomy",
+        "justice",
+        "explicability",
+        "intelligibility",
+        "accountability",
+        "smart agency",
+        "augmented intelligence",
+        "meta-autonomy",
+        "decide-to-delegate model",
+        "dual advantage",
+        "distributed morality",
+        "black box mentality",
+        "capability caution",
+        "self-nudging",
+        "multistakeholder approach",
+        "governança de dados",
+        "digital ethics",
+        "dignidade humana",
+        "sustentabilidade",
+        "privacidade",
+        "segurança",
+        "Princípio 1",
+        "Princípio 2",
+        "Princípio 3",
+        "Princípio 4",
+        "Princípio 5"
+      ],
+      "og_type": "article",
+      "jsonld_type": "Article",
+      "authors": [
+        "Luciano Floridi",
+        "Josh Cowls",
+        "Monica Beltrametti",
+        "Raja Chatila",
+        "Patrice Chazerand",
+        "Virginia Dignum",
+        "Christoph Luetge",
+        "Robert Madelin",
+        "Ugo Pagallo",
+        "Francesca Rossi",
+        "Burkhard Schafer",
+        "Peggy Valcke",
+        "Effy Vayena"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/index.html",
+      "published_date": "2018-11-26",
+      "modified_date": "2018-11-26",
+      "about": [
+        "Good AI Society",
+        "Dual advantage",
+        "Smart agency",
+        "Augmented Intelligence",
+        "Meta-autonomy",
+        "Explicability"
+      ],
+      "article_tags": [
+        "Princípio 1",
+        "Princípio 2",
+        "Princípio 3",
+        "Princípio 4",
+        "Princípio 5"
+      ]
+    },
+    {
+      "page_kind": "blog",
+      "title": "AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations",
+      "description": "Framework ético abrangente para uma Good AI Society proposto pela iniciativa AI4People. Sintetiza cinco princípios éticos fundamentais—beneficence, non-maleficence, autonomy, justice e explicability—e apresenta 20 recomendações concretas para avaliar, desenvolver, incentivar e apoiar IA ética, equilibrando oportunidades de autorrealização, agência e coesão social com riscos de desvalorização de habilidades, ausência de responsabilidade e erosão da autodeterminação humana.",
+      "keywords": [
+        "ética da IA",
+        "AI4People",
+        "Good AI Society",
+        "beneficence",
+        "non-maleficence",
+        "autonomy",
+        "justice",
+        "explicability",
+        "inteligibilidade",
+        "accountability",
+        "responsabilização",
+        "meta-autonomy",
+        "decide-to-delegate model",
+        "smart agency",
+        "augmented intelligence",
+        "dual advantage",
+        "capability caution",
+        "distributed morality",
+        "self-nudging",
+        "dignidade humana",
+        "sustentabilidade",
+        "privacidade",
+        "segurança",
+        "transparência",
+        "multistakeholder approach",
+        "governança de IA",
+        "digital ethics",
+        "data governance",
+        "Ethics on AI"
+      ],
+      "og_type": "article",
+      "jsonld_type": "BlogPosting",
+      "authors": [
+        "Luciano Floridi",
+        "Josh Cowls",
+        "Monica Beltrametti",
+        "Raja Chatila",
+        "Patrice Chazerand",
+        "Virginia Dignum",
+        "Christoph Luetge",
+        "Robert Madelin",
+        "Ugo Pagallo",
+        "Francesca Rossi",
+        "Burkhard Schafer",
+        "Peggy Valcke",
+        "Effy Vayena"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/blog.html",
+      "published_date": "2018-11-26",
+      "modified_date": "2018-11-26",
+      "about": [
+        "Good AI Society",
+        "Dual advantage",
+        "Smart agency",
+        "Augmented Intelligence",
+        "Meta-autonomy",
+        "Explicability"
+      ],
+      "article_tags": [
+        "Beneficence",
+        "Non-maleficence",
+        "Autonomy",
+        "Justice",
+        "Explicability"
+      ]
+    },
+    {
+      "page_kind": "workshop",
+      "title": "AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations",
+      "description": "Workshop sobre o framework ético AI4People que estabelece cinco princípios fundamentais (beneficence, non-maleficence, autonomy, justice, explicability) e 20 recomendações concretas para construir uma Good AI Society. Explora oportunidades e riscos da IA para dignidade humana, autonomia e coesão social, propondo uma abordagem multistakeholder que equilibra smart agency, meta-autonomy e distributed morality.",
+      "keywords": [
+        "AI4People",
+        "ética da IA",
+        "ethics of AI",
+        "Good AI Society",
+        "beneficence",
+        "non-maleficence",
+        "autonomy",
+        "justice",
+        "explicability",
+        "intelligibility",
+        "accountability",
+        "meta-autonomy",
+        "smart agency",
+        "augmented intelligence",
+        "decide-to-delegate model",
+        "dual advantage",
+        "distributed morality",
+        "capability caution",
+        "self-nudging",
+        "black box mentality",
+        "inteligência artificial",
+        "governança de dados",
+        "data governance",
+        "digital ethics",
+        "ética digital",
+        "dignidade humana",
+        "human dignity",
+        "multistakeholder approach",
+        "coordination complexity"
+      ],
+      "og_type": "article",
+      "jsonld_type": "LearningResource",
+      "authors": [
+        "Luciano Floridi",
+        "Josh Cowls",
+        "Monica Beltrametti",
+        "Raja Chatila",
+        "Patrice Chazerand",
+        "Virginia Dignum",
+        "Christoph Luetge",
+        "Robert Madelin",
+        "Ugo Pagallo",
+        "Francesca Rossi",
+        "Burkhard Schafer",
+        "Peggy Valcke",
+        "Effy Vayena"
+      ],
+      "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai4people-ethical-framework/workshop.html",
+      "published_date": "2018-11-26",
+      "modified_date": "2018-11-26",
+      "about": [
+        "Good AI Society",
+        "Dual advantage",
+        "Smart agency",
+        "Augmented Intelligence",
+        "Meta-autonomy",
+        "Explicability"
+      ],
+      "article_tags": []
+    }
+  ],
+  "downloads": [
+    {
+      "title": "Artigo original (PDF)",
+      "description": "Documento completo com o framework ético AI4People, incluindo os cinco princípios fundamentais e as 20 recomendações para uma Good AI Society.",
+      "href": "ai4people-ethical-framework.pdf",
+      "arrow_label": "PDF ↓"
+    },
+    {
+      "title": "Post de blog",
+      "description": "Versão comentada explorando como os princípios de beneficência, não maleficência, autonomia, justiça e explicabilidade podem orientar o desenvolvimento ético da IA.",
+      "href": "blog.html",
+      "arrow_label": "LER →"
+    }
+  ],
+  "entity_graph": {
+    "entities": [
+      {
+        "key": "autonomy",
+        "name": "autonomy",
+        "label": "Concept",
+        "score": 0.8986721634864807,
+        "mentions": [
+          {
+            "start": 21450,
+            "end": 21458,
+            "text": "autonomy"
+          },
+          {
+            "start": 26828,
+            "end": 26836,
+            "text": "Autonomy"
+          },
+          {
+            "start": 26934,
+            "end": 26942,
+            "text": "autonomy"
+          },
+          {
+            "start": 27108,
+            "end": 27116,
+            "text": "autonomy"
+          },
+          {
+            "start": 27226,
+            "end": 27234,
+            "text": "autonomy"
+          },
+          {
+            "start": 27461,
+            "end": 27469,
+            "text": "autonomy"
+          },
+          {
+            "start": 27865,
+            "end": 27873,
+            "text": "autonomy"
+          },
+          {
+            "start": 27914,
+            "end": 27922,
+            "text": "autonomy"
+          },
+          {
+            "start": 28323,
+            "end": 28331,
+            "text": "autonomy"
+          },
+          {
+            "start": 28630,
+            "end": 28638,
+            "text": "autonomy"
+          },
+          {
+            "start": 28675,
+            "end": 28683,
+            "text": "autonomy"
+          },
+          {
+            "start": 28765,
+            "end": 28773,
+            "text": "autonomy"
+          },
+          {
+            "start": 29793,
+            "end": 29801,
+            "text": "autonomy"
+          }
+        ]
+      },
+      {
+        "key": "justice",
+        "name": "justice",
+        "label": "Concept",
+        "score": 0.9424802931872281,
+        "mentions": [
+          {
+            "start": 21464,
+            "end": 21471,
+            "text": "justice"
+          },
+          {
+            "start": 29883,
+            "end": 29890,
+            "text": "Justice"
+          },
+          {
+            "start": 29993,
+            "end": 30000,
+            "text": "justice"
+          },
+          {
+            "start": 30301,
+            "end": 30308,
+            "text": "justice"
+          },
+          {
+            "start": 30415,
+            "end": 30422,
+            "text": "justice"
+          },
+          {
+            "start": 30701,
+            "end": 30708,
+            "text": "justice"
+          },
+          {
+            "start": 31649,
+            "end": 31656,
+            "text": "justice"
+          },
+          {
+            "start": 32072,
+            "end": 32079,
+            "text": "justice"
+          },
+          {
+            "start": 32237,
+            "end": 32244,
+            "text": "justice"
+          },
+          {
+            "start": 32325,
+            "end": 32332,
+            "text": "justice"
+          }
+        ]
+      },
+      {
+        "key": "ai systems",
+        "name": "AI systems",
+        "label": "System",
+        "score": 0.7688511397157397,
+        "mentions": [
+          {
+            "start": 10121,
+            "end": 10131,
+            "text": "AI systems"
+          },
+          {
+            "start": 11098,
+            "end": 11108,
+            "text": "AI systems"
+          },
+          {
+            "start": 11110,
+            "end": 11120,
+            "text": "AI systems"
+          },
+          {
+            "start": 14617,
+            "end": 14627,
+            "text": "AI systems"
+          },
+          {
+            "start": 37935,
+            "end": 37945,
+            "text": "AI systems"
+          },
+          {
+            "start": 38246,
+            "end": 38256,
+            "text": "AI systems"
+          },
+          {
+            "start": 39405,
+            "end": 39415,
+            "text": "AI systems"
+          },
+          {
+            "start": 40392,
+            "end": 40402,
+            "text": "AI systems"
+          },
+          {
+            "start": 40555,
+            "end": 40565,
+            "text": "AI systems"
+          },
+          {
+            "start": 44822,
+            "end": 44832,
+            "text": "AI systems"
+          },
+          {
+            "start": 47654,
+            "end": 47664,
+            "text": "AI systems"
+          },
+          {
+            "start": 48573,
+            "end": 48583,
+            "text": "AI systems"
+          }
+        ]
+      },
+      {
+        "key": "asilomar",
+        "name": "Asilomar",
+        "label": "Organization",
+        "score": 0.7849009990692138,
+        "mentions": [
+          {
+            "start": 19117,
+            "end": 19125,
+            "text": "Asilomar"
+          },
+          {
+            "start": 19253,
+            "end": 19261,
+            "text": "Asilomar"
+          },
+          {
+            "start": 19312,
+            "end": 19320,
+            "text": "Asilomar"
+          },
+          {
+            "start": 22728,
+            "end": 22736,
+            "text": "Asilomar"
+          },
+          {
+            "start": 23179,
+            "end": 23187,
+            "text": "Asilomar"
+          },
+          {
+            "start": 28269,
+            "end": 28277,
+            "text": "Asilomar"
+          },
+          {
+            "start": 32084,
+            "end": 32092,
+            "text": "Asilomar"
+          },
+          {
+            "start": 33912,
+            "end": 33920,
+            "text": "Asilomar"
+          },
+          {
+            "start": 53793,
+            "end": 53801,
+            "text": "Asilomar"
+          },
+          {
+            "start": 53876,
+            "end": 53884,
+            "text": "Asilomar"
+          }
+        ]
+      },
+      {
+        "key": "ege",
+        "name": "EGE",
+        "label": "Organization",
+        "score": 0.8686377514492382,
+        "mentions": [
+          {
+            "start": 20592,
+            "end": 20595,
+            "text": "EGE"
+          },
+          {
+            "start": 20598,
+            "end": 20601,
+            "text": "EGE"
+          },
+          {
+            "start": 23018,
+            "end": 23021,
+            "text": "EGE"
+          },
+          {
+            "start": 25894,
+            "end": 25897,
+            "text": "EGE"
+          },
+          {
+            "start": 27967,
+            "end": 27970,
+            "text": "EGE"
+          },
+          {
+            "start": 30653,
+            "end": 30656,
+            "text": "EGE"
+          },
+          {
+            "start": 31120,
+            "end": 31123,
+            "text": "EGE"
+          },
+          {
+            "start": 32097,
+            "end": 32100,
+            "text": "EGE"
+          },
+          {
+            "start": 33942,
+            "end": 33945,
+            "text": "EGE"
+          }
+        ]
+      },
+      {
+        "key": "ethics",
+        "name": "ethics",
+        "label": "Concept",
+        "score": 0.8752469486660428,
+        "mentions": [
+          {
+            "start": 16407,
+            "end": 16413,
+            "text": "ethics"
+          },
+          {
+            "start": 16635,
+            "end": 16641,
+            "text": "ethics"
+          },
+          {
+            "start": 17000,
+            "end": 17006,
+            "text": "Ethics"
+          },
+          {
+            "start": 39119,
+            "end": 39125,
+            "text": "ethics"
+          },
+          {
+            "start": 46524,
+            "end": 46530,
+            "text": "ethics"
+          },
+          {
+            "start": 46770,
+            "end": 46776,
+            "text": "Ethics"
+          },
+          {
+            "start": 47434,
+            "end": 47440,
+            "text": "ethics"
+          },
+          {
+            "start": 50500,
+            "end": 50506,
+            "text": "ethics"
+          }
+        ]
+      },
+      {
+        "key": "beneficence",
+        "name": "beneficence",
+        "label": "Concept",
+        "score": 0.9368725717067719,
+        "mentions": [
+          {
+            "start": 21420,
+            "end": 21431,
+            "text": "beneficence"
+          },
+          {
+            "start": 22062,
+            "end": 22073,
+            "text": "Beneficence"
+          },
+          {
+            "start": 22183,
+            "end": 22194,
+            "text": "beneficence"
+          },
+          {
+            "start": 23856,
+            "end": 23867,
+            "text": "beneficence"
+          },
+          {
+            "start": 24136,
+            "end": 24147,
+            "text": "beneficence"
+          },
+          {
+            "start": 24335,
+            "end": 24346,
+            "text": "beneficence"
+          }
+        ]
+      },
+      {
+        "key": "aiuk",
+        "name": "AIUK",
+        "label": "Organization",
+        "score": 0.8126479387283325,
+        "mentions": [
+          {
+            "start": 22719,
+            "end": 22723,
+            "text": "AIUK"
+          },
+          {
+            "start": 22879,
+            "end": 22883,
+            "text": "AIUK"
+          },
+          {
+            "start": 28132,
+            "end": 28136,
+            "text": "AIUK"
+          },
+          {
+            "start": 31148,
+            "end": 31152,
+            "text": "AIUK"
+          },
+          {
+            "start": 32354,
+            "end": 32358,
+            "text": "AIUK"
+          },
+          {
+            "start": 34020,
+            "end": 34024,
+            "text": "AIUK"
+          }
+        ]
+      },
+      {
+        "key": "ai4people",
+        "name": "AI4People",
+        "label": "Organization",
+        "score": 0.9464029754911151,
+        "mentions": [
+          {
+            "start": 127,
+            "end": 136,
+            "text": "AI4People"
+          },
+          {
+            "start": 716,
+            "end": 725,
+            "text": "AI4People"
+          },
+          {
+            "start": 1372,
+            "end": 1381,
+            "text": "AI4People"
+          },
+          {
+            "start": 1669,
+            "end": 1678,
+            "text": "AI4People"
+          },
+          {
+            "start": 1863,
+            "end": 1872,
+            "text": "AI4People"
+          }
+        ]
+      },
+      {
+        "key": "bioethics",
+        "name": "bioethics",
+        "label": "Concept",
+        "score": 0.6726191299302238,
+        "mentions": [
+          {
+            "start": 21409,
+            "end": 21418,
+            "text": "bioethics"
+          },
+          {
+            "start": 21546,
+            "end": 21555,
+            "text": "bioethics"
+          },
+          {
+            "start": 24433,
+            "end": 24442,
+            "text": "bioethics"
+          },
+          {
+            "start": 29864,
+            "end": 29873,
+            "text": "bioethics"
+          },
+          {
+            "start": 32671,
+            "end": 32680,
+            "text": "bioethics"
+          },
+          {
+            "start": 33040,
+            "end": 33049,
+            "text": "bioethics"
+          },
+          {
+            "start": 34691,
+            "end": 34700,
+            "text": "bioethics"
+          }
+        ]
+      },
+      {
+        "key": "risks",
+        "name": "risks",
+        "label": "Concept",
+        "score": 0.5896512355123248,
+        "mentions": [
+          {
+            "start": 2249,
+            "end": 2254,
+            "text": "risks"
+          },
+          {
+            "start": 2571,
+            "end": 2576,
+            "text": "risks"
+          },
+          {
+            "start": 2865,
+            "end": 2870,
+            "text": "risks"
+          },
+          {
+            "start": 5497,
+            "end": 5502,
+            "text": "risks"
+          },
+          {
+            "start": 6328,
+            "end": 6333,
+            "text": "risks"
+          },
+          {
+            "start": 17227,
+            "end": 17232,
+            "text": "risks"
+          },
+          {
+            "start": 17695,
+            "end": 17700,
+            "text": "risks"
+          }
+        ]
+      },
+      {
+        "key": "principles",
+        "name": "principles",
+        "label": "Concept",
+        "score": 0.6559759577115377,
+        "mentions": [
+          {
+            "start": 2351,
+            "end": 2361,
+            "text": "principles"
+          },
+          {
+            "start": 2593,
+            "end": 2603,
+            "text": "principles"
+          },
+          {
+            "start": 18144,
+            "end": 18154,
+            "text": "principles"
+          },
+          {
+            "start": 18353,
+            "end": 18363,
+            "text": "principles"
+          },
+          {
+            "start": 18552,
+            "end": 18562,
+            "text": "principles"
+          },
+          {
+            "start": 35623,
+            "end": 35633,
+            "text": "principles"
+          }
+        ]
+      },
+      {
+        "key": "privacy",
+        "name": "privacy",
+        "label": "Concept",
+        "score": 0.9001686871051788,
+        "mentions": [
+          {
+            "start": 24268,
+            "end": 24275,
+            "text": "Privacy"
+          },
+          {
+            "start": 24844,
+            "end": 24851,
+            "text": "privacy"
+          },
+          {
+            "start": 24990,
+            "end": 24997,
+            "text": "privacy"
+          },
+          {
+            "start": 25138,
+            "end": 25145,
+            "text": "privacy"
+          }
+        ]
+      },
+      {
+        "key": "explicability",
+        "name": "explicability",
+        "label": "Concept",
+        "score": 0.6983356376489004,
+        "mentions": [
+          {
+            "start": 21969,
+            "end": 21982,
+            "text": "explicability"
+          },
+          {
+            "start": 33058,
+            "end": 33071,
+            "text": "Explicability"
+          },
+          {
+            "start": 34355,
+            "end": 34368,
+            "text": "explicability"
+          },
+          {
+            "start": 36793,
+            "end": 36806,
+            "text": "explicability"
+          },
+          {
+            "start": 39388,
+            "end": 39401,
+            "text": "explicability"
+          }
+        ]
+      },
+      {
+        "key": "accountability",
+        "name": "accountability",
+        "label": "Concept",
+        "score": 0.8579404950141907,
+        "mentions": [
+          {
+            "start": 22038,
+            "end": 22052,
+            "text": "accountability"
+          },
+          {
+            "start": 33923,
+            "end": 33937,
+            "text": "accountability"
+          },
+          {
+            "start": 33972,
+            "end": 33986,
+            "text": "accountability"
+          },
+          {
+            "start": 34505,
+            "end": 34519,
+            "text": "accountability"
+          }
+        ]
+      },
+      {
+        "key": "human dignity",
+        "name": "human dignity",
+        "label": "Concept",
+        "score": 0.8261807203292847,
+        "mentions": [
+          {
+            "start": 2297,
+            "end": 2310,
+            "text": "human dignity"
+          },
+          {
+            "start": 2778,
+            "end": 2791,
+            "text": "human dignity"
+          },
+          {
+            "start": 15368,
+            "end": 15381,
+            "text": "human dignity"
+          },
+          {
+            "start": 23056,
+            "end": 23069,
+            "text": "human dignity"
+          }
+        ]
+      },
+      {
+        "key": "partnership",
+        "name": "Partnership",
+        "label": "Organization",
+        "score": 0.8183061003684997,
+        "mentions": [
+          {
+            "start": 23609,
+            "end": 23620,
+            "text": "Partnership"
+          },
+          {
+            "start": 25551,
+            "end": 25562,
+            "text": "Partnership"
+          },
+          {
+            "start": 31288,
+            "end": 31299,
+            "text": "Partnership"
+          },
+          {
+            "start": 34076,
+            "end": 34087,
+            "text": "Partnership"
+          }
+        ]
+      },
+      {
+        "key": "dual advantage",
+        "name": "dual advantage",
+        "label": "Concept",
+        "score": 0.8143956422805786,
+        "mentions": [
+          {
+            "start": 15552,
+            "end": 15566,
+            "text": "dual advantage"
+          },
+          {
+            "start": 15623,
+            "end": 15637,
+            "text": "Dual Advantage"
+          },
+          {
+            "start": 16377,
+            "end": 16391,
+            "text": "dual advantage"
+          },
+          {
+            "start": 17008,
+            "end": 17022,
+            "text": "dual advantage"
+          }
+        ]
+      },
+      {
+        "key": "non maleficence",
+        "name": "non-maleficence",
+        "label": "Concept",
+        "score": 0.77861008644104,
+        "mentions": [
+          {
+            "start": 21433,
+            "end": 21448,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 24366,
+            "end": 24381,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 26448,
+            "end": 26463,
+            "text": "non-maleficence"
+          },
+          {
+            "start": 28593,
+            "end": 28608,
+            "text": "non-maleficence"
+          }
+        ]
+      },
+      {
+        "key": "societal cohesion",
+        "name": "societal cohesion",
+        "label": "Concept",
+        "score": 0.7765731334686279,
+        "mentions": [
+          {
+            "start": 13133,
+            "end": 13150,
+            "text": "Societal Cohesion"
+          },
+          {
+            "start": 13640,
+            "end": 13657,
+            "text": "societal cohesion"
+          },
+          {
+            "start": 14097,
+            "end": 14114,
+            "text": "societal cohesion"
+          },
+          {
+            "start": 14950,
+            "end": 14967,
+            "text": "societal cohesion"
+          }
+        ]
+      },
+      {
+        "key": "human agency",
+        "name": "human agency",
+        "label": "Concept",
+        "score": 0.8742338021596273,
+        "mentions": [
+          {
+            "start": 4381,
+            "end": 4393,
+            "text": "human agency"
+          },
+          {
+            "start": 10742,
+            "end": 10754,
+            "text": "human agency"
+          },
+          {
+            "start": 10873,
+            "end": 10885,
+            "text": "Human agency"
+          }
+        ]
+      },
+      {
+        "key": "ethically aligned design",
+        "name": "Ethically Aligned Design",
+        "label": "Concept",
+        "score": 0.8001409967740377,
+        "mentions": [
+          {
+            "start": 19649,
+            "end": 19673,
+            "text": "Ethically Aligned Design"
+          },
+          {
+            "start": 20422,
+            "end": 20446,
+            "text": "Ethically Aligned Design"
+          },
+          {
+            "start": 56258,
+            "end": 56282,
+            "text": "Ethically Aligned Design"
+          }
+        ]
+      },
+      {
+        "key": "atomium",
+        "name": "Atomium",
+        "label": "Organization",
+        "score": 0.7924059867858887,
+        "mentions": [
+          {
+            "start": 730,
+            "end": 737,
+            "text": "Atomium"
+          },
+          {
+            "start": 52679,
+            "end": 52686,
+            "text": "Atomium"
+          },
+          {
+            "start": 52750,
+            "end": 52757,
+            "text": "Atomium"
+          }
+        ]
+      },
+      {
+        "key": "organisation",
+        "name": "organisation",
+        "label": "Organization",
+        "score": 0.5862711668014526,
+        "mentions": [
+          {
+            "start": 17766,
+            "end": 17778,
+            "text": "organisation"
+          },
+          {
+            "start": 42860,
+            "end": 42872,
+            "text": "organisation"
+          },
+          {
+            "start": 43445,
+            "end": 43457,
+            "text": "organisation"
+          },
+          {
+            "start": 43535,
+            "end": 43547,
+            "text": "organisation"
+          }
+        ]
+      },
+      {
+        "key": "solidarity",
+        "name": "solidarity",
+        "label": "Concept",
+        "score": 0.760153571764628,
+        "mentions": [
+          {
+            "start": 29928,
+            "end": 29938,
+            "text": "Solidarity"
+          },
+          {
+            "start": 30636,
+            "end": 30646,
+            "text": "solidarity"
+          },
+          {
+            "start": 30923,
+            "end": 30933,
+            "text": "solidarity"
+          }
+        ]
+      },
+      {
+        "key": "partnership on ai",
+        "name": "Partnership on AI",
+        "label": "Organization",
+        "score": 0.7537943522135416,
+        "mentions": [
+          {
+            "start": 20890,
+            "end": 20907,
+            "text": "Partnership on AI"
+          },
+          {
+            "start": 21103,
+            "end": 21120,
+            "text": "Partnership on AI"
+          },
+          {
+            "start": 55922,
+            "end": 55939,
+            "text": "Partnership on AI"
+          }
+        ]
+      },
+      {
+        "key": "responsibility",
+        "name": "Responsibility",
+        "label": "Concept",
+        "score": 0.7514115770657858,
+        "mentions": [
+          {
+            "start": 9237,
+            "end": 9251,
+            "text": "Responsibility"
+          },
+          {
+            "start": 9749,
+            "end": 9763,
+            "text": "Responsibility"
+          },
+          {
+            "start": 9963,
+            "end": 9977,
+            "text": "responsibility"
+          }
+        ]
+      },
+      {
+        "key": "public opinion",
+        "name": "public opinion",
+        "label": "Concept",
+        "score": 0.7491436998049418,
+        "mentions": [
+          {
+            "start": 38775,
+            "end": 38789,
+            "text": "public opinion"
+          },
+          {
+            "start": 48368,
+            "end": 48382,
+            "text": "public opinion"
+          },
+          {
+            "start": 48680,
+            "end": 48694,
+            "text": "public opinion"
+          }
+        ]
+      },
+      {
+        "key": "intent",
+        "name": "intent",
+        "label": "Concept",
+        "score": 0.7112569411595663,
+        "mentions": [
+          {
+            "start": 26237,
+            "end": 26243,
+            "text": "intent"
+          },
+          {
+            "start": 26570,
+            "end": 26576,
+            "text": "intent"
+          },
+          {
+            "start": 26748,
+            "end": 26754,
+            "text": "intent"
+          }
+        ]
+      },
+      {
+        "key": "well being",
+        "name": "well-being",
+        "label": "Concept",
+        "score": 0.6998461484909058,
+        "mentions": [
+          {
+            "start": 22501,
+            "end": 22511,
+            "text": "well-being"
+          },
+          {
+            "start": 22581,
+            "end": 22591,
+            "text": "well-being"
+          },
+          {
+            "start": 22670,
+            "end": 22680,
+            "text": "well-being"
+          }
+        ]
+      },
+      {
+        "key": "ai society",
+        "name": "AI Society",
+        "label": "Organization",
+        "score": 0.6997295220692953,
+        "mentions": [
+          {
+            "start": 35856,
+            "end": 35866,
+            "text": "AI Society"
+          },
+          {
+            "start": 35923,
+            "end": 35933,
+            "text": "AI Society"
+          },
+          {
+            "start": 36409,
+            "end": 36419,
+            "text": "AI Society"
+          }
+        ]
+      },
+      {
+        "key": "human self determination",
+        "name": "human self-determination",
+        "label": "Concept",
+        "score": 0.9522449374198914,
+        "mentions": [
+          {
+            "start": 14638,
+            "end": 14662,
+            "text": "human self-determination"
+          },
+          {
+            "start": 14914,
+            "end": 14938,
+            "text": "human self-determination"
+          }
+        ]
+      },
+      {
+        "key": "transparency",
+        "name": "transparency",
+        "label": "Concept",
+        "score": 0.9501458406448364,
+        "mentions": [
+          {
+            "start": 33895,
+            "end": 33907,
+            "text": "transparency"
+          },
+          {
+            "start": 33953,
+            "end": 33965,
+            "text": "transparency"
+          }
+        ]
+      },
+      {
+        "key": "university of oxford",
+        "name": "University of Oxford",
+        "label": "Organization",
+        "score": 0.9398199617862701,
+        "mentions": [
+          {
+            "start": 56757,
+            "end": 56777,
+            "text": "University of Oxford"
+          },
+          {
+            "start": 57313,
+            "end": 57333,
+            "text": "University of Oxford"
+          }
+        ]
+      },
+      {
+        "key": "ethical approach to ai",
+        "name": "ethical approach to AI",
+        "label": "Concept",
+        "score": 0.6223104397455851,
+        "mentions": [
+          {
+            "start": 15644,
+            "end": 15666,
+            "text": "Ethical Approach to AI"
+          },
+          {
+            "start": 17620,
+            "end": 17642,
+            "text": "ethical approach to AI"
+          },
+          {
+            "start": 17807,
+            "end": 17829,
+            "text": "ethical approach to AI"
+          }
+        ]
+      },
+      {
+        "key": "society",
+        "name": "society",
+        "label": "Organization",
+        "score": 0.6086518963177999,
+        "mentions": [
+          {
+            "start": 5735,
+            "end": 5742,
+            "text": "society"
+          },
+          {
+            "start": 6174,
+            "end": 6181,
+            "text": "society"
+          },
+          {
+            "start": 41278,
+            "end": 41285,
+            "text": "society"
+          }
+        ]
+      },
+      {
+        "key": "jus tice",
+        "name": "Jus- tice",
+        "label": "Concept",
+        "score": 0.8985202014446259,
+        "mentions": [
+          {
+            "start": 30614,
+            "end": 30623,
+            "text": "Jus- tice"
+          },
+          {
+            "start": 31510,
+            "end": 31519,
+            "text": "jus- tice"
+          }
+        ]
+      },
+      {
+        "key": "ethical principles",
+        "name": "ethical principles",
+        "label": "Concept",
+        "score": 0.590400775273641,
+        "mentions": [
+          {
+            "start": 3039,
+            "end": 3057,
+            "text": "ethical principles"
+          },
+          {
+            "start": 20056,
+            "end": 20074,
+            "text": "Ethical Principles"
+          },
+          {
+            "start": 36425,
+            "end": 36443,
+            "text": "ethical principles"
+          }
+        ]
+      },
+      {
+        "key": "system",
+        "name": "system",
+        "label": "System",
+        "score": 0.5900790492693583,
+        "mentions": [
+          {
+            "start": 14123,
+            "end": 14129,
+            "text": "system"
+          },
+          {
+            "start": 42919,
+            "end": 42925,
+            "text": "system"
+          },
+          {
+            "start": 43322,
+            "end": 43328,
+            "text": "system"
+          }
+        ]
+      },
+      {
+        "key": "montreal",
+        "name": "Montreal",
+        "label": "Organization",
+        "score": 0.589965283870697,
+        "mentions": [
+          {
+            "start": 22453,
+            "end": 22461,
+            "text": "Montreal"
+          },
+          {
+            "start": 22518,
+            "end": 22526,
+            "text": "Montreal"
+          },
+          {
+            "start": 32258,
+            "end": 32266,
+            "text": "Montreal"
+          }
+        ]
+      }
+    ],
+    "relations": [],
+    "engine": "gliner=urchade/gliner_multi-v2.1"
+  },
+  "audio_path": null,
+  "audio_title": null,
+  "audio_subtitle": null,
+  "lecture_audio_path": "audio/ai4people-ethical-framework-aula.m4a",
+  "lecture_audio_title": "Aula: ai4people-ethical-framework",
+  "lecture_audio_subtitle": "Faixa 02 · aula gerada via NotebookLM, com as fontes do tema",
+  "slides_pptx_path": "slides/deck.pptx",
+  "slides_pdf_path": "slides/deck.pdf",
+  "slides_preview_url": null,
+  "slides_edit_url": null,
+  "is_copy_of_existing": false,
+  "copy_canonical_override": null
+}

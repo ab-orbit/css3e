@@ -254,6 +254,14 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 .console-form{display:grid;gap:14px;margin-top:20px;max-width:520px}
 .console-form span{display:block;font:10.5px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:6px}
 .console-form input[type=text]{width:100%;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:#fff;font-size:14px}
+.console-regen{max-width:760px;border-top:1px solid var(--line);padding-top:20px}
+.console-regen-target{margin:0;font:11px var(--mono);color:var(--signal);letter-spacing:.06em}
+.console-form select{width:100%;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:#fff;font-size:14px}
+.console-form textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:#fff;font:13px/1.55 var(--mono);resize:vertical}
+.console-field-wide{max-width:none}
+.console-check{display:flex;align-items:center;gap:9px}
+.console-check span{margin:0;text-transform:none;letter-spacing:0;font:12px var(--sans,inherit);color:rgba(255,255,255,.62)}
+.console-regen-btn{cursor:pointer;font:inherit;background:transparent}
 .console-run{justify-self:start;padding:10px 20px;border-radius:8px;border:0;background:var(--signal);color:#fff;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
 .console-run-panel{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
 .console-progress-total{display:flex;align-items:center;gap:12px;margin-bottom:16px}
@@ -304,6 +312,23 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
       <input type="text" name="tema" placeholder="inferido por LLM">
     </label>
     <button type="submit" class="console-run">Processar</button>
+  </form>
+
+  <form class="console-form console-regen" id="console-regen" hidden>
+    <p class="console-regen-target" id="console-regen-target"></p>
+    <label class="console-field">
+      <span>Artefato</span>
+      <select name="artifact" id="console-regen-artifact"></select>
+    </label>
+    <label class="console-field console-field-wide">
+      <span>Prompt enviado ao NotebookLM</span>
+      <textarea name="prompt" id="console-regen-prompt" rows="6"></textarea>
+    </label>
+    <label class="console-check">
+      <input type="checkbox" name="save_as_default" id="console-regen-save" value="true">
+      <span>Salvar como padrão (grava o arquivo do prompt)</span>
+    </label>
+    <button type="submit" class="console-run">Regerar</button>
   </form>
 
   <div class="console-run-panel" id="console-panel" hidden>
@@ -379,16 +404,8 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     if (grid) grid.prepend(card);
   }
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    panel.hidden = false;
-    log.textContent = '';
-    doneEl.innerHTML = '';
-
-    fetch('/api/runs', { method: 'POST', body: new FormData(form) })
-      .then(function (r) { return r.json(); })
-      .then(function (run) {
-        line('run ' + run.run_id + ' iniciado');
+  function follow(run) {
+    line('run ' + run.run_id + ' iniciado');
         var source = new EventSource('/api/runs/' + run.run_id + '/events');
 
         source.addEventListener('progress', function (e) {
@@ -430,9 +447,93 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
           finish('Interrompido');
           source.close();
         };
+  }
+
+  function startRun(url, body) {
+    panel.hidden = false;
+    log.textContent = '';
+    doneEl.innerHTML = '';
+
+    fetch(url, { method: 'POST', body: body })
+      .then(function (r) {
+        if (!r.ok) { return r.json().then(function (e) { throw new Error(e.detail || r.status); }); }
+        return r.json();
       })
+      .then(follow)
       .catch(function (err) { line('não foi possível iniciar: ' + err); });
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    startRun('/api/runs', new FormData(form));
   });
+
+  // --- Regeneração por artefato -------------------------------------------
+  // Each gallery entry carries its tema/slug, so the button can be attached
+  // without the server rendering a second, localhost-only variant of the page.
+  var regenForm = document.getElementById('console-regen');
+  var regenTarget = document.getElementById('console-regen-target');
+  var regenArtifact = document.getElementById('console-regen-artifact');
+  var regenPrompt = document.getElementById('console-regen-prompt');
+  var regenSave = document.getElementById('console-regen-save');
+  var current = { tema: null, slug: null, artifacts: [] };
+
+  function fillPrompt() {
+    var chosen = current.artifacts.filter(function (a) { return a.id === regenArtifact.value; })[0];
+    regenPrompt.value = chosen ? chosen.prompt : '';
+    regenSave.checked = false;
+  }
+
+  function openRegen(tema, slug) {
+    fetch('/api/articles/' + encodeURIComponent(tema) + '/' + encodeURIComponent(slug) + '/artifacts')
+      .then(function (r) {
+        if (!r.ok) { throw new Error('artigo sem package.json'); }
+        return r.json();
+      })
+      .then(function (data) {
+        current = { tema: tema, slug: slug, artifacts: data.artifacts };
+        regenArtifact.innerHTML = '';
+        data.artifacts.forEach(function (a) {
+          var option = document.createElement('option');
+          option.value = a.id;
+          option.textContent = a.label;
+          regenArtifact.appendChild(option);
+        });
+        regenTarget.textContent = tema + '/' + slug;
+        fillPrompt();
+        regenForm.hidden = false;
+        regenForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      })
+      .catch(function (err) { alert('Não foi possível abrir: ' + err.message); });
+  }
+
+  regenArtifact.addEventListener('change', fillPrompt);
+
+  regenForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var body = new FormData(regenForm);
+    if (!regenSave.checked) body.delete('save_as_default');
+    startRun(
+      '/api/articles/' + encodeURIComponent(current.tema) + '/' +
+        encodeURIComponent(current.slug) + '/regen',
+      body
+    );
+  });
+
+  Array.prototype.forEach.call(
+    document.querySelectorAll('[data-slug][data-tema]'),
+    function (entry) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'tg-card-link console-regen-btn';
+      button.textContent = 'Regerar mídia';
+      button.addEventListener('click', function () {
+        openRegen(entry.dataset.tema, entry.dataset.slug);
+      });
+      var foot = entry.querySelector('.tg-card-foot, .tg-row-side');
+      if (foot) foot.appendChild(button);
+    }
+  );
 })();
 </script>
   <div class="tg" data-active-view="cards">
@@ -444,7 +545,7 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     </div>
 
     <section class="tg-grid" data-view="cards">
-      <article class="tg-card">
+      <article class="tg-card" data-tema="sistemas-sensiveis-ao-contexto" data-slug="three-categories-of-cas-workshop">
         <a class="tg-card-hit" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">
           <p class="tg-card-meta">2026-08-29 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier,...</p>
           <h2 class="tg-card-title">Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS</h2>
@@ -452,15 +553,15 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
         <div class="tg-card-foot">
 <a class="tg-card-link" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Workshop</a>        </div>
       </article>
-      <article class="tg-card">
+      <article class="tg-card" data-tema="sistemas-multiagente-contexto" data-slug="context-aware-mas">
         <a class="tg-card-hit" href="../sistemas-multiagente-contexto/context-aware-mas/index.html">
           <p class="tg-card-meta">2025-01-29 · Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
           <h2 class="tg-card-title">A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</h2>
 <p class="tg-card-brief">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — em um framework coerente. A pesquisa preenche uma lacuna crítica ao conectar consciência de contexto e sistemas multi-agente, oferecendo taxonomia organizada, processo geral de desenvolvimento e análise de aplicações em oito domínios distintos.</p>        </a>
         <div class="tg-card-foot">
-<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-deck">Deck</span><a class="tg-card-link" href="../sistemas-multiagente-contexto/context-aware-mas/blog.html">Post</a><a class="tg-card-link" href="../sistemas-multiagente-contexto/context-aware-mas/workshop.html">Workshop</a>        </div>
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-audio">Aula</span><span class="tg-badge tg-badge-deck">Deck</span><a class="tg-card-link" href="../sistemas-multiagente-contexto/context-aware-mas/blog.html">Post</a><a class="tg-card-link" href="../sistemas-multiagente-contexto/context-aware-mas/workshop.html">Workshop</a>        </div>
       </article>
-      <article class="tg-card">
+      <article class="tg-card" data-tema="sistemas-sensiveis-ao-contexto" data-slug="three-categories-of-cas">
         <a class="tg-card-hit" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html">
           <p class="tg-card-meta">2018 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier,...</p>
           <h2 class="tg-card-title">Três Categorias de Sistemas Sensíveis ao Contexto</h2>
@@ -471,7 +572,7 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     </section>
 
     <section class="tg-list" data-view="list" hidden>
-      <article class="tg-row">
+      <article class="tg-row" data-tema="sistemas-sensiveis-ao-contexto" data-slug="three-categories-of-cas-workshop">
         <div class="tg-row-main">
           <a class="tg-row-title" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/workshop.html">Prioridade em conflito: dinâmica sobre SMCAS, UDCAS e VSCAS</a>
 <p class="tg-row-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>          <p class="tg-row-meta">2026-08-29 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier, Marijn Janssen</p>
@@ -479,15 +580,15 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
         <div class="tg-row-side">
         </div>
       </article>
-      <article class="tg-row">
+      <article class="tg-row" data-tema="sistemas-multiagente-contexto" data-slug="context-aware-mas">
         <div class="tg-row-main">
           <a class="tg-row-title" href="../sistemas-multiagente-contexto/context-aware-mas/index.html">A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges and Future Directions</a>
 <p class="tg-row-brief">Este survey apresenta uma arquitetura unificada para Sistemas Multi-Agente Conscientes de Contexto (CA-MAS), integrando as cinco capacidades essenciais dos agentes — Sense, Learn, Reason, Predict e Act — em um framework coerente. A pesquisa preenche uma lacuna crítica ao conectar consciência de contexto e sistemas multi-agente, oferecendo taxonomia organizada, processo geral de desenvolvimento e análise de aplicações em oito domínios distintos.</p>          <p class="tg-row-meta">2025-01-29 · Hung Du, Srikanth Thudumu, Hy Nguyen, Rajesh Vasa, Kon Mouzakis</p>
         </div>
         <div class="tg-row-side">
-<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-deck">Deck</span>        </div>
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-audio">Aula</span><span class="tg-badge tg-badge-deck">Deck</span>        </div>
       </article>
-      <article class="tg-row">
+      <article class="tg-row" data-tema="sistemas-sensiveis-ao-contexto" data-slug="three-categories-of-cas">
         <div class="tg-row-main">
           <a class="tg-row-title" href="../sistemas-sensiveis-ao-contexto/three-categories-of-cas/index.html">Três Categorias de Sistemas Sensíveis ao Contexto</a>
 <p class="tg-row-brief">O que um sistema ajusta quando o contexto muda? Ele mesmo, o serviço que entrega ao usuário, ou o valor público que precisa preservar. Este artigo nomeia as três respostas — SMCAS, UDCAS e VSCAS — e mostra como derivá-las de modelos empresariais com SDBC e raciocínio organizacional com AORTA.</p>          <p class="tg-row-meta">2018 · Boris Shishkov, John Bruntse Larsen, Martijn Warnier, Marijn Janssen</p>

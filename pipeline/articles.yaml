@@ -124,7 +124,7 @@
     substantivas sobre como interpretá-los e implementá-los. A proliferação de soft-law responde ao avanço
     tecnológico, mas levanta questões sobre harmonização transnacional e pluralismo moral.
   has_audio: true
-  has_lecture_audio: false
+  has_lecture_audio: true
   has_slides: true
   slides_pptx_path: slides/deck.pptx
   slides_pdf_path: slides/deck.pdf
@@ -159,7 +159,7 @@
     de contexto e sistemas multi-agente, oferecendo taxonomia organizada, processo geral de desenvolvimento
     e análise de aplicações em oito domínios distintos.
   has_audio: true
-  has_lecture_audio: false
+  has_lecture_audio: true
   has_slides: true
   slides_pptx_path: slides/deck.pptx
   slides_pdf_path: slides/deck.pdf

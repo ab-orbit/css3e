@@ -254,6 +254,14 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 .console-form{display:grid;gap:14px;margin-top:20px;max-width:520px}
 .console-form span{display:block;font:10.5px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:6px}
 .console-form input[type=text]{width:100%;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:#fff;font-size:14px}
+.console-regen{max-width:760px;border-top:1px solid var(--line);padding-top:20px}
+.console-regen-target{margin:0;font:11px var(--mono);color:var(--signal);letter-spacing:.06em}
+.console-form select{width:100%;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:#fff;font-size:14px}
+.console-form textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:#fff;font:13px/1.55 var(--mono);resize:vertical}
+.console-field-wide{max-width:none}
+.console-check{display:flex;align-items:center;gap:9px}
+.console-check span{margin:0;text-transform:none;letter-spacing:0;font:12px var(--sans,inherit);color:rgba(255,255,255,.62)}
+.console-regen-btn{cursor:pointer;font:inherit;background:transparent}
 .console-run{justify-self:start;padding:10px 20px;border-radius:8px;border:0;background:var(--signal);color:#fff;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
 .console-run-panel{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
 .console-progress-total{display:flex;align-items:center;gap:12px;margin-bottom:16px}
@@ -281,7 +289,7 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
   <header class="theme-head">
     <p class="theme-kicker">Tema</p>
     <h1>Ethics on AI</h1>
-<p class="theme-dek">Estudos sobre ética em inteligência artificial — princípios, práticas e evidências empíricas sobre como equipes constroem e governam sistemas de IA.</p>    <p class="theme-count">1 artigo publicado</p>
+<p class="theme-dek">Estudos sobre ética em inteligência artificial — princípios, práticas e evidências empíricas sobre como equipes constroem e governam sistemas de IA.</p>    <p class="theme-count">3 artigos publicados</p>
   </header>
 
 <section class="console" id="console" hidden>
@@ -304,6 +312,23 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
       <input type="text" name="tema" placeholder="inferido por LLM">
     </label>
     <button type="submit" class="console-run">Processar</button>
+  </form>
+
+  <form class="console-form console-regen" id="console-regen" hidden>
+    <p class="console-regen-target" id="console-regen-target"></p>
+    <label class="console-field">
+      <span>Artefato</span>
+      <select name="artifact" id="console-regen-artifact"></select>
+    </label>
+    <label class="console-field console-field-wide">
+      <span>Prompt enviado ao NotebookLM</span>
+      <textarea name="prompt" id="console-regen-prompt" rows="6"></textarea>
+    </label>
+    <label class="console-check">
+      <input type="checkbox" name="save_as_default" id="console-regen-save" value="true">
+      <span>Salvar como padrão (grava o arquivo do prompt)</span>
+    </label>
+    <button type="submit" class="console-run">Regerar</button>
   </form>
 
   <div class="console-run-panel" id="console-panel" hidden>
@@ -379,16 +404,8 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     if (grid) grid.prepend(card);
   }
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    panel.hidden = false;
-    log.textContent = '';
-    doneEl.innerHTML = '';
-
-    fetch('/api/runs', { method: 'POST', body: new FormData(form) })
-      .then(function (r) { return r.json(); })
-      .then(function (run) {
-        line('run ' + run.run_id + ' iniciado');
+  function follow(run) {
+    line('run ' + run.run_id + ' iniciado');
         var source = new EventSource('/api/runs/' + run.run_id + '/events');
 
         source.addEventListener('progress', function (e) {
@@ -430,9 +447,93 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
           finish('Interrompido');
           source.close();
         };
+  }
+
+  function startRun(url, body) {
+    panel.hidden = false;
+    log.textContent = '';
+    doneEl.innerHTML = '';
+
+    fetch(url, { method: 'POST', body: body })
+      .then(function (r) {
+        if (!r.ok) { return r.json().then(function (e) { throw new Error(e.detail || r.status); }); }
+        return r.json();
       })
+      .then(follow)
       .catch(function (err) { line('não foi possível iniciar: ' + err); });
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    startRun('/api/runs', new FormData(form));
   });
+
+  // --- Regeneração por artefato -------------------------------------------
+  // Each gallery entry carries its tema/slug, so the button can be attached
+  // without the server rendering a second, localhost-only variant of the page.
+  var regenForm = document.getElementById('console-regen');
+  var regenTarget = document.getElementById('console-regen-target');
+  var regenArtifact = document.getElementById('console-regen-artifact');
+  var regenPrompt = document.getElementById('console-regen-prompt');
+  var regenSave = document.getElementById('console-regen-save');
+  var current = { tema: null, slug: null, artifacts: [] };
+
+  function fillPrompt() {
+    var chosen = current.artifacts.filter(function (a) { return a.id === regenArtifact.value; })[0];
+    regenPrompt.value = chosen ? chosen.prompt : '';
+    regenSave.checked = false;
+  }
+
+  function openRegen(tema, slug) {
+    fetch('/api/articles/' + encodeURIComponent(tema) + '/' + encodeURIComponent(slug) + '/artifacts')
+      .then(function (r) {
+        if (!r.ok) { throw new Error('artigo sem package.json'); }
+        return r.json();
+      })
+      .then(function (data) {
+        current = { tema: tema, slug: slug, artifacts: data.artifacts };
+        regenArtifact.innerHTML = '';
+        data.artifacts.forEach(function (a) {
+          var option = document.createElement('option');
+          option.value = a.id;
+          option.textContent = a.label;
+          regenArtifact.appendChild(option);
+        });
+        regenTarget.textContent = tema + '/' + slug;
+        fillPrompt();
+        regenForm.hidden = false;
+        regenForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      })
+      .catch(function (err) { alert('Não foi possível abrir: ' + err.message); });
+  }
+
+  regenArtifact.addEventListener('change', fillPrompt);
+
+  regenForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var body = new FormData(regenForm);
+    if (!regenSave.checked) body.delete('save_as_default');
+    startRun(
+      '/api/articles/' + encodeURIComponent(current.tema) + '/' +
+        encodeURIComponent(current.slug) + '/regen',
+      body
+    );
+  });
+
+  Array.prototype.forEach.call(
+    document.querySelectorAll('[data-slug][data-tema]'),
+    function (entry) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'tg-card-link console-regen-btn';
+      button.textContent = 'Regerar mídia';
+      button.addEventListener('click', function () {
+        openRegen(entry.dataset.tema, entry.dataset.slug);
+      });
+      var foot = entry.querySelector('.tg-card-foot, .tg-row-side');
+      if (foot) foot.appendChild(button);
+    }
+  );
 })();
 </script>
   <div class="tg" data-active-view="cards">
@@ -444,24 +545,56 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     </div>
 
     <section class="tg-grid" data-view="cards">
-      <article class="tg-card">
+      <article class="tg-card" data-tema="ethics-on-ai" data-slug="ai-ethics-empirical-study">
         <a class="tg-card-hit" href="../ethics-on-ai/ai-ethics-empirical-study/index.html">
-          <p class="tg-card-meta">2023 · Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh,...</p>
+          <p class="tg-card-meta">2023-12 · Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh,...</p>
           <h2 class="tg-card-title">AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers</h2>
-<p class="tg-card-brief">Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios para sistemas de IA confiáveis.</p>        </a>
+<p class="tg-card-brief">Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, mas a falta de conhecimento ético, ausência de frameworks legais e conflito na prática permanecem como barreiras severas para a adoção de IA eticamente alinhada.</p>        </a>
         <div class="tg-card-foot">
-<span class="tg-badge tg-badge-deck">Deck</span><a class="tg-card-link" href="../ethics-on-ai/ai-ethics-empirical-study/blog.html">Post</a><a class="tg-card-link" href="../ethics-on-ai/ai-ethics-empirical-study/workshop.html">Workshop</a>        </div>
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-audio">Aula</span><span class="tg-badge tg-badge-deck">Deck</span><a class="tg-card-link" href="../ethics-on-ai/ai-ethics-empirical-study/blog.html">Post</a><a class="tg-card-link" href="../ethics-on-ai/ai-ethics-empirical-study/workshop.html">Workshop</a>        </div>
+      </article>
+      <article class="tg-card" data-tema="ethics-on-ai" data-slug="global-landscape-ethics-guidelines">
+        <a class="tg-card-hit" href="../ethics-on-ai/global-landscape-ethics-guidelines/index.html">
+          <p class="tg-card-meta">2019 · Anna Jobin, Marcello Ienca, Effy Vayena</p>
+          <h2 class="tg-card-title">Artificial Intelligence: the global landscape of ethics guidelines</h2>
+<p class="tg-card-brief">Uma análise sistemática de 84 documentos revela convergência global em torno de cinco princípios éticos para IA — transparência, justiça, não-maleficência, responsabilidade e privacidade — mas divergências substantivas sobre como interpretá-los e implementá-los. A proliferação de soft-law responde ao avanço tecnológico, mas levanta questões sobre harmonização transnacional e pluralismo moral.</p>        </a>
+        <div class="tg-card-foot">
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-audio">Aula</span><span class="tg-badge tg-badge-deck">Deck</span><a class="tg-card-link" href="../ethics-on-ai/global-landscape-ethics-guidelines/blog.html">Post</a><a class="tg-card-link" href="../ethics-on-ai/global-landscape-ethics-guidelines/workshop.html">Workshop</a>        </div>
+      </article>
+      <article class="tg-card" data-tema="ethics-on-ai" data-slug="ai4people-ethical-framework">
+        <a class="tg-card-hit" href="../ethics-on-ai/ai4people-ethical-framework/index.html">
+          <p class="tg-card-meta">2018-11-26 · Luciano Floridi, Josh Cowls, Monica Beltrametti, Raja...</p>
+          <h2 class="tg-card-title">AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations</h2>
+<p class="tg-card-brief">A IA não é apenas mais uma tecnologia a ser regulada—é uma nova forma de agência inteligente que já está remodelando nossas vidas. Este framework ético propõe cinco princípios fundamentais e 20 recomendações concretas para garantir que a IA promova a dignidade humana, o florescimento e a sustentabilidade para todos.</p>        </a>
+        <div class="tg-card-foot">
+<span class="tg-badge tg-badge-audio">Aula</span><span class="tg-badge tg-badge-deck">Deck</span><a class="tg-card-link" href="../ethics-on-ai/ai4people-ethical-framework/blog.html">Post</a><a class="tg-card-link" href="../ethics-on-ai/ai4people-ethical-framework/workshop.html">Workshop</a>        </div>
       </article>
     </section>
 
     <section class="tg-list" data-view="list" hidden>
-      <article class="tg-row">
+      <article class="tg-row" data-tema="ethics-on-ai" data-slug="ai-ethics-empirical-study">
         <div class="tg-row-main">
           <a class="tg-row-title" href="../ethics-on-ai/ai-ethics-empirical-study/index.html">AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers</a>
-<p class="tg-row-brief">Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios para sistemas de IA confiáveis.</p>          <p class="tg-row-meta">2023 · Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang,...</p>
+<p class="tg-row-brief">Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, mas a falta de conhecimento ético, ausência de frameworks legais e conflito na prática permanecem como barreiras severas para a adoção de IA eticamente alinhada.</p>          <p class="tg-row-meta">2023-12 · Arif Ali Khan, Muhammad Azeem Akbar, Mahdi Fahmideh, Peng Liang,...</p>
         </div>
         <div class="tg-row-side">
-<span class="tg-badge tg-badge-deck">Deck</span>        </div>
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-audio">Aula</span><span class="tg-badge tg-badge-deck">Deck</span>        </div>
+      </article>
+      <article class="tg-row" data-tema="ethics-on-ai" data-slug="global-landscape-ethics-guidelines">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="../ethics-on-ai/global-landscape-ethics-guidelines/index.html">Artificial Intelligence: the global landscape of ethics guidelines</a>
+<p class="tg-row-brief">Uma análise sistemática de 84 documentos revela convergência global em torno de cinco princípios éticos para IA — transparência, justiça, não-maleficência, responsabilidade e privacidade — mas divergências substantivas sobre como interpretá-los e implementá-los. A proliferação de soft-law responde ao avanço tecnológico, mas levanta questões sobre harmonização transnacional e pluralismo moral.</p>          <p class="tg-row-meta">2019 · Anna Jobin, Marcello Ienca, Effy Vayena</p>
+        </div>
+        <div class="tg-row-side">
+<span class="tg-badge tg-badge-audio">Áudio</span><span class="tg-badge tg-badge-audio">Aula</span><span class="tg-badge tg-badge-deck">Deck</span>        </div>
+      </article>
+      <article class="tg-row" data-tema="ethics-on-ai" data-slug="ai4people-ethical-framework">
+        <div class="tg-row-main">
+          <a class="tg-row-title" href="../ethics-on-ai/ai4people-ethical-framework/index.html">AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and Recommendations</a>
+<p class="tg-row-brief">A IA não é apenas mais uma tecnologia a ser regulada—é uma nova forma de agência inteligente que já está remodelando nossas vidas. Este framework ético propõe cinco princípios fundamentais e 20 recomendações concretas para garantir que a IA promova a dignidade humana, o florescimento e a sustentabilidade para todos.</p>          <p class="tg-row-meta">2018-11-26 · Luciano Floridi, Josh Cowls, Monica Beltrametti, Raja Chatila,...</p>
+        </div>
+        <div class="tg-row-side">
+<span class="tg-badge tg-badge-audio">Aula</span><span class="tg-badge tg-badge-deck">Deck</span>        </div>
       </article>
     </section>
   </div>

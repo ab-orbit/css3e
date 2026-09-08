@@ -6,7 +6,7 @@
       "@id": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html",
       "url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html",
       "name": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
-      "headline": "Ética de IA: O Que Pensam Profissionais e Legisladores",
+      "headline": "Ética em IA: O Que Pensam Profissionais e Legisladores",
       "inLanguage": "pt-BR",
       "author": [
         {
@@ -43,8 +43,8 @@
         }
       ],
       "abstract": "Artificial intelligence (AI) solutions and technologies are being increasingly adopted in smart systems contexts; however, such technologies are concerned with ethical uncertainties. Various guidelines, principles, and regulatory frameworks are designed to ensure that AI technologies adhere to ethical well-being. However, the implications of AI ethics principles and guidelines are still being debated. To further explore the significance of AI ethics principles and relevant challenges, we conducted a survey of 99 randomly selected representative AI practitioners and lawmakers (e.g., AI engineers and lawyers) from 20 countries across five continents. To the best of our knowledge, this is the first empirical study that unveils the perceptions of two different types of population (AI practitioners and lawmakers) and the study findings confirm that transparency, accountability, and privacy are the most critical AI ethics principles. On the other hand, lack of ethical knowledge, no legal frameworks, and lacking monitoring bodies are found to be the most common AI ethics challenges. The impact analysis of the challenges across principles reveals that conflict in practice is a highly severe challenge. Moreover, the perceptions of practitioners and lawmakers are statistically correlated with significant differences for particular principles (e.g. fairness and freedom) and challenges (e.g. lacking monitoring bodies and machine distortion). Our findings stimulate further research, particularly empowering existing capability maturity models to support ethics-aware AI systems' development and quality assessment.",
-      "description": "Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios para sistemas de IA confiáveis.",
-      "datePublished": "2023",
+      "description": "Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, mas a falta de conhecimento ético, ausência de frameworks legais e conflito na prática permanecem como barreiras severas para a adoção de IA eticamente alinhada.",
+      "datePublished": "2023-12",
       "publication": "IEEE Transactions on Computational Social Systems",
       "keywords": [
         "Accountable artificial intelligence",
@@ -388,73 +388,33 @@
   ],
   "css3e:relations": [
     {
-      "source": "survey instrument",
-      "sourceCode": "survey instrument",
-      "label": "avalia",
-      "target": "AI ethics principles and challenges",
-      "targetCode": "ai ethics principles and challenges",
+      "source": "AI ethics",
+      "sourceCode": "ai ethics",
+      "label": "aplica-se a",
+      "target": "AI systems",
+      "targetCode": "ai systems",
       "confidence": 1.0,
-      "quote": "The survey instrument consisted of four core sections: 1) demographics; 2) AI ethics principles; 3) challenges; and 4) challenges impact on principles.",
-      "quoteOffset": 14805
-    },
-    {
-      "source": "AI ethics principles",
-      "sourceCode": "ai ethics principles",
-      "label": "inclui",
-      "target": "fairness",
-      "targetCode": "fairness",
-      "confidence": 1.0,
-      "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
-      "quoteOffset": 28401
-    },
-    {
-      "source": "AI ethics principles",
-      "sourceCode": "ai ethics principles",
-      "label": "inclui",
-      "target": "autonomy",
-      "targetCode": "autonomy",
-      "confidence": 1.0,
-      "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
-      "quoteOffset": 28401
+      "quote": "Generally, AI ethics is classified under the umbrella of applied ethics, which mainly concerns with ethical issues associated with developing and using AI systems.",
+      "quoteOffset": 9530
     },
     {
       "source": "conflict in practice",
       "sourceCode": "conflict in practice",
-      "label": "desafia",
-      "target": "privacy",
-      "targetCode": "privacy",
-      "confidence": 1.0,
-      "quote": "Conflict in practice is deemed the most significant chal- lenge to the privacy principle.",
-      "quoteOffset": 29640
-    },
-    {
-      "source": "conflict in practice",
-      "sourceCode": "conflict in practice",
-      "label": "desafia",
+      "label": "impacta",
       "target": "autonomy",
       "targetCode": "autonomy",
       "confidence": 1.0,
-      "quote": "(79%) of the survey respondents considered conflict in practice as the most common (long-term) challenge for autonomy and explainability principles.",
-      "quoteOffset": 30611
-    },
-    {
-      "source": "law",
-      "sourceCode": "law",
-      "label": "regula",
-      "target": "AI ethics",
-      "targetCode": "ai ethics",
-      "confidence": 1.0,
-      "quote": "The aim of considering this type of population (lawmakers) is to understand the application of the law to AI ethics.",
-      "quoteOffset": 14051
+      "quote": "Interestingly, (79%) of the survey respondents considered conflict in practice as the most common (long-term) challenge for autonomy and explainability principles.",
+      "quoteOffset": 30596
     },
     {
       "source": "lawmakers",
       "sourceCode": "lawmakers",
-      "label": "priorizam",
+      "label": "percebem diferentemente",
       "target": "fairness",
       "targetCode": "fairness",
       "confidence": 1.0,
-      "quote": "lawmakers ranked fairness at position five as the most important principle",
+      "quote": "lawmakers ranked fairness at position five as the most important principle; however, the software practitioners placed it at position seven.",
       "quoteOffset": 33219
     },
     {
@@ -464,28 +424,18 @@
       "target": "monitoring bodies",
       "targetCode": "monitoring bodies",
       "confidence": 1.0,
-      "quote": "lacking monitoring bodies is ranked second by the practitioners",
+      "quote": "lacking monitoring bodies is ranked second by the practitioners and fifth by the lawmakers.",
       "quoteOffset": 35539
     },
     {
-      "source": "AI ethics",
-      "sourceCode": "ai ethics",
-      "label": "é classificado sob",
-      "target": "ethics",
-      "targetCode": "ethics",
+      "source": "lawmakers",
+      "sourceCode": "lawmakers",
+      "label": "aplicam",
+      "target": "law",
+      "targetCode": "law",
       "confidence": 1.0,
-      "quote": "Generally, AI ethics is classified under the umbrella of applied ethics",
-      "quoteOffset": 9530
-    },
-    {
-      "source": "regulatory bodies",
-      "sourceCode": "regulatory bodies",
-      "label": "regulam",
-      "target": "AI systems",
-      "targetCode": "ai systems",
-      "confidence": 1.0,
-      "quote": "Extant guide- lines and policies devised by researchers and regulatory bodies discussed different ethical goals for AI systems.",
-      "quoteOffset": 24760
+      "quote": "The aim of considering this type of population (lawmakers) is to understand the application of the law to AI ethics.",
+      "quoteOffset": 14051
     }
   ],
   "css3e:extractedBy": "gliner=urchade/gliner_multi-v2.1, relations=llm"

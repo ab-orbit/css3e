@@ -40,9 +40,9 @@
     ],
     "venue": "IEEE Transactions on Computational Social Systems",
     "pages": "VOL. 10, NO. 6, DECEMBER 2023",
-    "date_published": "2023",
+    "date_published": "2023-12",
     "doi": "10.1109/TCSS.2023.3251729",
-    "source_pdf_url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-kzxcc0z0/AI Ethics - An Empirical Study.pdf",
+    "source_pdf_url": "/var/folders/9_/6t5hd45n2597ydghhkvtzyfh0000gn/T/css3e-upload-6oseia2_/AI Ethics - An Empirical Study.pdf",
     "abstract": "Artificial intelligence (AI) solutions and technologies are being increasingly adopted in smart systems contexts; however, such technologies are concerned with ethical uncertainties. Various guidelines, principles, and regulatory frameworks are designed to ensure that AI technologies adhere to ethical well-being. However, the implications of AI ethics principles and guidelines are still being debated. To further explore the significance of AI ethics principles and relevant challenges, we conducted a survey of 99 randomly selected representative AI practitioners and lawmakers (e.g., AI engineers and lawyers) from 20 countries across five continents. To the best of our knowledge, this is the first empirical study that unveils the perceptions of two different types of population (AI practitioners and lawmakers) and the study findings confirm that transparency, accountability, and privacy are the most critical AI ethics principles. On the other hand, lack of ethical knowledge, no legal frameworks, and lacking monitoring bodies are found to be the most common AI ethics challenges. The impact analysis of the challenges across principles reveals that conflict in practice is a highly severe challenge. Moreover, the perceptions of practitioners and lawmakers are statistically correlated with significant differences for particular principles (e.g. fairness and freedom) and challenges (e.g. lacking monitoring bodies and machine distortion). Our findings stimulate further research, particularly empowering existing capability maturity models to support ethics-aware AI systems' development and quality assessment.",
     "keywords": [
       "Accountable artificial intelligence",
@@ -52,7 +52,7 @@
       "challenges",
       "machine ethics"
     ],
-    "problem_statement": "Apesar dos benefícios prometidos pelas tecnologias de IA, há preocupações crescentes de que sistemas complexos e opacos possam trazer mais danos sociais do que benefícios. Cenários de falha ética em IA já foram testemunhados (como o sistema de recrutamento da Amazon, que discriminava candidatas mulheres). Embora várias diretrizes, princípios e frameworks regulatórios tenham sido desenvolvidos para garantir que as tecnologias de IA sigam o bem-estar ético, as implicações desses princípios e diretrizes ainda estão sendo debatidas. Há uma lacuna entre a pesquisa em ética de IA e a prática industrial, e o estado atual da ética de IA é amplamente desconhecido para o público, profissionais, políticas e legisladores. Falta investigação empírica que explore os princípios e desafios associados à ética de IA, especialmente capturando as percepções de diferentes tipos de população (profissionais e legisladores).",
+    "problem_statement": "Embora as tecnologias de IA ofereçam benefícios técnicos e sociais substanciais, elas também trazem preocupações éticas significativas. Sistemas de IA complexos e opacos podem causar mais danos sociais do que benefícios, como demonstrado por casos de viés estrutural (ex.: sistema de recrutamento da Amazon discriminando candidatas mulheres). O estado atual da ética em IA é amplamente desconhecido pelo público, profissionais, formuladores de políticas e legisladores. Há uma lacuna entre princípios éticos de alto nível e práticas industriais: diretrizes existentes são abstratas, vagas e incoerentes para implementação prática. Faltam estudos empíricos que explorem os componentes centrais da IA eticamente alinhada — conformidade legal, adesão a princípios éticos e robustez técnico-social — sob a perspectiva de profissionais da indústria e legisladores.",
     "key_concepts": [
       "AI ethics principles",
       "transparency",
@@ -66,57 +66,57 @@
       "lacking monitoring bodies",
       "conflict in practice",
       "trustworthy AI",
-      "AI HLEG guidelines",
       "ethically aligned design (EAD)",
+      "AI HLEG guidelines",
       "ART framework (Accountability, Responsibility, Transparency)",
       "severity impact",
-      "Spearman's rank-order correlation"
+      "practitioners vs. lawmakers perceptions"
     ],
     "categories": [],
     "section_outline": [
       {
-        "heading": "I. INTRODUCTION",
-        "summary": "Apresenta o contexto da expansão da IA em diversos setores, os benefícios e riscos éticos associados, cenários de falha ética (ex.: sistema de recrutamento da Amazon), a necessidade de políticas e princípios éticos, e a lacuna de conhecimento empírico sobre ética de IA. Formula três questões de pesquisa (RQ1, RQ2, RQ3) para explorar percepções de profissionais e legisladores sobre princípios e desafios de ética de IA."
+        "heading": "I. Introduction",
+        "summary": "Contextualiza a expansão da IA em diversos setores (saúde, manufatura, agricultura, bancos) e os benefícios esperados. Apresenta preocupações éticas emergentes e cenários de falha (ex.: viés no sistema de recrutamento da Amazon). Destaca a necessidade de políticas e princípios que abordem aspectos éticos, sociais, políticos, legais e intelectuais. Define as três questões de pesquisa (RQ1, RQ2, RQ3) sobre percepções de profissionais e legisladores, impactos de severidade dos desafios e diferenças estatísticas entre populações."
       },
       {
-        "heading": "II. BACKGROUND",
-        "summary": "Define ética de IA como parte da ética aplicada, discute seu papel em promover valores éticos e bem-estar coletivo. Revisa diretrizes e princípios de ética de IA desenvolvidos por organizações como Google, SAP, ACM, AI HLEG (Europa), IEEE (EAD), e ISO/IEC JTC 1/SC 42. Destaca a lacuna entre diretrizes disponíveis e sua adoção efetiva na indústria, motivando a necessidade de estudos empíricos."
+        "heading": "II. Background",
+        "summary": "Define ética em IA como ética aplicada, focada em questões relacionadas ao desenvolvimento e uso de sistemas de IA. Discute como a reflexão ética pode estimular inovações que promovam valores éticos e bem-estar coletivo. Revisa diretrizes de organizações (Google, SAP, ACM, Access Now, Amnesty International, AI HLEG, IEEE EAD, ISO/IEC JTC 1/SC 42). Aponta a lacuna entre pesquisa em ética de IA e práticas industriais, mencionando estudos anteriores que revelam baixa adoção de diretrizes éticas na indústria. Referencia o estudo de revisão sistemática da literatura (SLR) anterior dos autores que identificou 22 princípios e 15 desafios."
       },
       {
-        "heading": "III. METHODOLOGY",
-        "summary": "Descreve a metodologia de pesquisa: survey com dois grupos-alvo (profissionais de IA e legisladores), coleta de dados via redes sociais e contatos profissionais, instrumento de survey em inglês e chinês (para capturar a indústria chinesa), pilotagem com especialistas, coleta de 99 respostas válidas de 20 países em cinco continentes. Detalha as quatro seções do questionário (demografia, princípios, desafios, impacto dos desafios) e a abordagem de análise de dados (análise de frequência, correlação de Spearman, teste t independente)."
+        "heading": "III. Methodology",
+        "summary": "Descreve a metodologia do survey com dois grupos-alvo: profissionais de IA e legisladores. Explica a escolha desses grupos (profissionais tomam decisões de design com responsabilidades éticas; legisladores influenciam normas sociais e valores). Detalha o processo de coleta de dados via redes sociais (LinkedIn, WeChat, ResearchGate, Facebook) e e-mails. Apresenta a estrutura do questionário em quatro seções: demografia, princípios de ética em IA, desafios e impacto dos desafios nos princípios. Menciona versões em inglês e chinês do instrumento. Descreve pilotagem com três especialistas, coleta de dados (setembro 2021 a abril 2022), 107 respostas iniciais, 99 válidas após triagem. Explica análise descritiva por frequência, análise de significância e testes estatísticos (Spearman, t-test)."
       },
       {
-        "heading": "IV. RESULTS AND DISCUSSION",
-        "summary": "Apresenta os resultados: (A) Detalhes demográficos dos participantes (distribuição geográfica, tamanho de organização, papéis profissionais, tipos de produtos/sistemas, experiência). (B) Percepções sobre princípios de ética de IA (RQ1): transparência, accountability e privacidade são os mais críticos; desafios: falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento são os mais comuns. (C) Impactos de severidade dos desafios sobre os princípios (RQ2): conflito na prática é o desafio mais severo. (D) Diferenças estatísticas entre profissionais e legisladores (RQ3): correlação positiva e significativa, mas com diferenças para princípios específicos (ex.: fairness) e desafios (ex.: falta de órgãos de monitoramento)."
+        "heading": "IV. Results and Discussion",
+        "summary": "Apresenta resultados em quatro partes: (A) Detalhes demográficos: 99 respondentes de 20 países, cinco continentes, nove papéis profissionais, dez domínios de trabalho; maioria (29%) são profissionais do direito; 19% trabalham em sistemas inteligentes; 77% afirmam que suas organizações consideram aspectos éticos; 48% têm 3-5 anos de experiência. (B) Princípios e desafios (RQ1): ~65% dos respondentes confirmam os princípios e desafios identificados no SLR; transparência (77,8%), accountability (71,7%) e privacidade (69,7%) são os princípios mais críticos; falta de conhecimento ético (81,8%), ausência de frameworks legais (69,7%) e falta de órgãos de monitoramento (68,7%) são os desafios mais comuns; viés em IA é mencionado como desafio adicional. (C) Impactos de severidade (RQ2): conflito na prática é o desafio mais severo (impacto de longo prazo >60% em média); 'interpretar princípios de forma diferente' tem impacto de longo prazo em transparência (77%); 'conflito na prática' é severo para privacidade (74%), autonomia e explicabilidade (79%); 'restrições extras' são severas para accountability e fairness (82%); falta de conhecimento ético tem impacto de curto prazo (28% em média). (D) Inferências estatísticas (RQ3): correlação de Spearman para princípios (rs=0,819, p=0,000) indica forte correlação entre percepções de profissionais e legisladores; diferenças significativas para fairness (legisladores ranqueiam em 5º, profissionais em 7º) e freedom; teste t independente mostra que não há diferenças de alto nível (t=0,942, p=0,661); para desafios, correlação moderada (rs=0,628, p=0,012); diferenças para 'falta de órgãos de monitoramento' (profissionais ranqueiam em 2º, legisladores em 5º); teste t (t=1,291, p=0,207) indica percepções igualmente importantes."
       },
       {
-        "heading": "V. KEY FINDINGS AND IMPLICATIONS",
-        "summary": "Resume as principais descobertas: confirmação empírica dos princípios e desafios identificados na revisão sistemática anterior; transparência, accountability e privacidade como princípios mais críticos; falta de conhecimento ético, ausência de frameworks legais e falta de monitoramento como desafios principais; conflito na prática como desafio mais severo; correlação estatística entre percepções de profissionais e legisladores. Discute implicações para pesquisa (necessidade de soluções práticas, exploração de causas e mitigação de desafios, contextualização de princípios) e para a prática (visão geral para profissionais, medição de impactos, suporte a políticas)."
+        "heading": "V. Key Findings and Implications",
+        "summary": "Resume os achados-chave: (A) Papéis emergentes de legisladores além de profissionais; (B) Confirmação empírica dos princípios e desafios do SLR; (C) Transparência, privacidade e accountability são os princípios mais comuns; falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento são os desafios mais comuns; (D) Conflito na prática é o desafio mais severo (longo prazo); (E) Percepções de profissionais e legisladores são positivamente correlacionadas. Implicações para pesquisa: necessidade de soluções para escalar princípios na prática, explorar causas e mitigação de desafios, contextualizar princípios para balancear conflitos. Implicações práticas: visão geral de princípios e desafios para definir processos de IA eticamente maduros; medição de impactos errôneos dos desafios; facilitação para profissionais e formuladores de políticas."
       },
       {
-        "heading": "VI. THREATS TO VALIDITY",
-        "summary": "Discute ameaças à validade: interna (compreensão do instrumento, expertise dos participantes, viés interpessoal), de construto (confiabilidade das fontes de dados), externa (tamanho da amostra e generalização), e de conclusão (processo de coleta e análise de dados). Descreve estratégias de mitigação adotadas."
+        "heading": "VI. Threats to Validity",
+        "summary": "Discute ameaças à validade: (A) Validade interna: compreensibilidade do instrumento (mitigada por pilotagem), expertise dos participantes (mitigada por busca em redes sociais e perfis), viés interpessoal (mitigado por consenso entre autores). (B) Validade de construto: confiabilidade das fontes de dados (mitigada por leitura de discussões de grupos e perfis). (C) Validade externa: tamanho da amostra pode não ser representativo, mas 99 respostas de 20 países em cinco continentes com diversidade de experiências e domínios suportam generalização em alguma extensão. (D) Validade de conclusão: mitigada por participação de autores em coleta, análise e sessões de brainstorming."
       },
       {
-        "heading": "VII. RELATED WORK",
-        "summary": "Revisa trabalhos relacionados em duas categorias: (A) Princípios e diretrizes de ética de IA (estudos de Lu et al., Vakkuri et al., Ibáñez e Olmeda) e (B) Frameworks de ética de IA (ECCOLA, AI4People, framework de Leikas et al.). Conclui que este estudo complementa a literatura ao investigar empiricamente princípios e desafios com dois tipos de população (profissionais e legisladores)."
+        "heading": "VII. Related Work",
+        "summary": "Revisa trabalhos relacionados em duas categorias: (A) Princípios e diretrizes de ética em IA: Lu et al. (entrevistas com 21 profissionais, princípios amplos sem orientação tangível, propõem padrões de design); Lu et al. (SLR, roadmap de engenharia de software para IA responsável); Vakkuri et al. (survey com 249 profissionais, requisitos sociais e ambientais ignorados); Ibáñez e Olmeda (entrevistas com 22 profissionais, questões de governança, accountability, privacidade, fairness, explicabilidade). (B) Frameworks de ética em IA: Vakkuri et al. (framework ECCOLA, deck de cartas para desenvolvimento ético iterativo); Floridi et al. (framework AI4People, cinco princípios e 20 recomendações); Leikas et al. (framework de ética por design, captura detalhes centrados no humano). Conclusão: este estudo complementa o corpo de pesquisa ao explorar percepções de profissionais e legisladores, validar princípios e desafios via survey, e investigar a pletora de desafios na adoção de princípios e frameworks."
       },
       {
-        "heading": "VIII. CONCLUSION AND FUTURE WORK",
-        "summary": "Conclui destacando cinco observações principais: papéis emergentes (importância de legisladores além de profissionais), achados confirmatórios (validação empírica de princípios e desafios), aderência a princípios e desafios (transparência, accountability, privacidade; falta de conhecimento, frameworks legais, monitoramento), consciência de risco (impactos de longo prazo dos desafios), e percepções correlacionadas de profissionais e legisladores. Propõe trabalho futuro: investigação empírica mais ampla, exploração de causas e soluções dos desafios, e desenvolvimento de modelo de maturidade de ética de IA."
+        "heading": "VIII. Conclusion and Future Work",
+        "summary": "Resume observações: (A) Papéis emergentes de legisladores são importantes; (B) Confirmação empírica dos princípios e desafios do SLR; (C) Transparência, privacidade e accountability devem ser cuidadosamente realizados; falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento devem ser considerados; (D) Desafios têm impactos de severidade de longo prazo; (E) Percepções de profissionais e legisladores são positivamente correlacionadas. Trabalho futuro: investigação empírica mais profunda e abrangente com grupos mais amplos de profissionais para discutir causas e soluções dos desafios; propor solução robusta (modelo de maturidade de ética em IA) para integrar aspectos éticos no design e fluxo de processos de IA."
       }
     ],
     "formal_notation_present": false,
     "formal_notation_block": "",
     "case_study_present": false,
     "case_summary": "",
-    "closing_question": "Se os princípios de ética de IA são amplamente reconhecidos mas raramente operacionalizados na prática — e se o desafio mais severo é justamente o \"conflito na prática\" entre princípios abstratos e contextos reais —, como podemos transformar diretrizes genéricas em padrões contextualizados, específicos de domínio e juridicamente vinculantes, que equilibrem as tensões éticas inerentes sem comprometer a inovação ou a autonomia humana?"
+    "closing_question": "Se os princípios éticos de IA são amplamente reconhecidos por profissionais e legisladores, mas o conflito na prática permanece como o desafio mais severo, como podemos contextualizar e operacionalizar esses princípios abstratos para que resolvam tensões reais em cenários específicos — e quem deve liderar essa tradução: a indústria, os órgãos reguladores ou uma colaboração multistakeholder?"
   },
   "hero": {
     "eyebrow": "IEEE Trans. Comput. Soc. Syst. · Vol. 10, No. 6 · December 2023",
-    "h1": "Ética de IA: O Que Pensam Profissionais e Legisladores",
-    "lede": "Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, enquanto a falta de conhecimento ético, ausência de frameworks legais e conflito entre teoria e prática emergem como os maiores desafios para sistemas de IA confiáveis.",
+    "h1": "Ética em IA: O Que Pensam Profissionais e Legisladores",
+    "lede": "Um estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos, mas a falta de conhecimento ético, ausência de frameworks legais e conflito na prática permanecem como barreiras severas para a adoção de IA eticamente alinhada.",
     "toc_anchors": [
       [
         "introducao",
@@ -124,23 +124,19 @@
       ],
       [
         "background",
-        "Background"
+        "Contexto e Lacunas"
       ],
       [
         "metodologia",
-        "Metodologia"
+        "Metodologia do Survey"
       ],
       [
         "resultados",
         "Resultados e Discussão"
       ],
       [
-        "descobertas",
-        "Principais Descobertas"
-      ],
-      [
-        "validade",
-        "Ameaças à Validade"
+        "achados-implicacoes",
+        "Achados-Chave e Implicações"
       ],
       [
         "trabalhos-relacionados",
@@ -148,7 +144,7 @@
       ],
       [
         "conclusao",
-        "Conclusão"
+        "Conclusão e Trabalho Futuro"
       ],
       [
         "mapa-mental",
@@ -164,66 +160,61 @@
     "kv_rows": [
       [
         "Publicado em",
-        "IEEE Transactions on Computational Social Systems, Vol. 10, No. 6, Dezembro 2023"
+        "IEEE Transactions on Computational Social Systems, Vol. 10, No. 6, Dezembro de 2023"
       ],
       [
         "Palavras-chave",
-        "Accountable artificial intelligence, AI ethics, AI ethics principles, challenges, machine ethics, transparency, accountability, privacy"
+        "Accountable artificial intelligence, AI ethics, AI ethics principles, challenges, machine ethics"
       ],
       [
         "DOI",
         "10.1109/TCSS.2023.3251729"
       ]
     ],
-    "problem_statement": "Apesar dos benefícios prometidos pelas tecnologias de IA, sistemas complexos e opacos podem trazer mais danos sociais do que benefícios — como demonstrado pelo sistema de recrutamento da Amazon, que discriminava candidatas mulheres. Embora diversas diretrizes, princípios e frameworks regulatórios tenham sido desenvolvidos para garantir o bem-estar ético das tecnologias de IA, suas implicações práticas ainda estão sendo debatidas. Existe uma lacuna crítica entre a pesquisa em ética de IA e a prática industrial: o estado atual da ética de IA permanece amplamente desconhecido para o público, profissionais, políticas e legisladores. Falta investigação empírica que explore os princípios e desafios associados à ética de IA, especialmente capturando as percepções de diferentes tipos de população — profissionais que desenvolvem sistemas de IA e legisladores que regulam seu uso."
+    "problem_statement": "Embora as tecnologias de IA ofereçam benefícios técnicos e sociais substanciais, elas também trazem preocupações éticas significativas. Sistemas de IA complexos e opacos podem causar mais danos sociais do que benefícios — como demonstrado por casos de viés estrutural, a exemplo do sistema de recrutamento da Amazon que discriminou candidatas mulheres. O estado atual da ética em IA é amplamente desconhecido pelo público, profissionais, formuladores de políticas e legisladores. Há uma lacuna crítica entre princípios éticos de alto nível e práticas industriais: diretrizes existentes são abstratas, vagas e incoerentes para implementação prática. Faltam estudos empíricos que explorem os componentes centrais da IA eticamente alinhada — conformidade legal, adesão a princípios éticos e robustez técnico-social — sob a perspectiva de profissionais da indústria e legisladores."
   },
   "categories": [],
   "mindmap": {
     "root": {
-      "t": "Ética de IA: Estudo Empírico (Profissionais/Legisladores)",
+      "t": "Ética em IA: Visões de Praticantes e Legisladores",
       "k": "root",
       "children": [
         {
-          "t": "Contexto e Problema",
+          "t": "Contexto e Motivação",
           "k": "context",
           "children": [
             {
-              "t": "Expansão da IA e riscos éticos",
+              "t": "Expansão da IA em setores críticos",
               "k": null,
               "children": [
                 {
-                  "t": "Sistemas opacos podem causar danos sociais",
+                  "t": "Saúde, manufatura, agricultura, bancos",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Caso Amazon: discriminação de gênero no recrutamento",
-                  "k": null,
-                  "children": []
-                },
-                {
-                  "t": "Lacuna entre pesquisa e prática industrial",
+                  "t": "Benefícios técnicos e sociais esperados",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Diretrizes e frameworks existentes",
+              "t": "Preocupações éticas emergentes",
               "k": null,
               "children": [
                 {
-                  "t": "AI HLEG (Europa), IEEE EAD, ISO/IEC JTC 1/SC 42",
+                  "t": "Sistemas opacos causam danos sociais",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Google, SAP, ACM, ART framework",
+                  "t": "Caso Amazon: viés contra candidatas mulheres",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Implicações ainda debatidas, adoção limitada",
+                  "t": "Lacuna entre princípios e prática industrial",
                   "k": null,
                   "children": []
                 }
@@ -239,12 +230,71 @@
                   "children": []
                 },
                 {
-                  "t": "RQ2: Impacto de severidade dos desafios",
+                  "t": "RQ2: Impactos de severidade dos desafios",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "RQ3: Diferenças profissionais vs. legisladores",
+                  "t": "RQ3: Diferenças entre praticantes e legisladores",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Revisão de Literatura e Background",
+          "k": "background",
+          "children": [
+            {
+              "t": "Definição de ética em IA",
+              "k": null,
+              "children": [
+                {
+                  "t": "Ética aplicada ao desenvolvimento e uso de IA",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Promove inovações e bem-estar coletivo",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Diretrizes existentes",
+              "k": null,
+              "children": [
+                {
+                  "t": "Google, SAP, ACM, Access Now, Amnesty",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "AI HLEG, IEEE EAD, ISO/IEC JTC 1/SC 42",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Abstratas, vagas, baixa adoção industrial",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "SLR anterior dos autores",
+              "k": null,
+              "children": [
+                {
+                  "t": "22 princípios identificados",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "15 desafios identificados",
                   "k": null,
                   "children": []
                 }
@@ -257,58 +307,74 @@
           "k": "method",
           "children": [
             {
-              "t": "Público-alvo e coleta",
+              "t": "Grupos-alvo",
               "k": null,
               "children": [
                 {
-                  "t": "99 participantes de 20 países (5 continentes)",
+                  "t": "Praticantes de IA (decisões de design)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Profissionais de IA e legisladores (advogados)",
-                  "k": null,
-                  "children": []
-                },
-                {
-                  "t": "Redes sociais, contatos profissionais, inglês/chinês",
+                  "t": "Legisladores (normas sociais e valores)",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Instrumento do questionário",
+              "t": "Coleta de dados",
               "k": null,
               "children": [
                 {
-                  "t": "Seção 1: Dados demográficos",
+                  "t": "Redes sociais: LinkedIn, WeChat, ResearchGate",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Seção 2: Princípios de ética de IA",
+                  "t": "Set/2021 a Abr/2022",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Seção 3: Desafios de ética de IA",
-                  "k": null,
-                  "children": []
-                },
-                {
-                  "t": "Seção 4: Impacto dos desafios sobre princípios",
+                  "t": "107 respostas → 99 válidas",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Análise de dados",
+              "t": "Estrutura do questionário",
               "k": null,
               "children": [
                 {
-                  "t": "Análise de frequência",
+                  "t": "Seção 1: Demografia",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Seção 2: Princípios de ética em IA",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Seção 3: Desafios",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Seção 4: Impacto desafios × princípios",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Análise estatística",
+              "k": null,
+              "children": [
+                {
+                  "t": "Análise descritiva por frequência",
                   "k": null,
                   "children": []
                 },
@@ -331,120 +397,130 @@
           "k": "results",
           "children": [
             {
-              "t": "Demografia dos participantes",
+              "t": "Demografia (99 respondentes)",
               "k": null,
               "children": [
                 {
-                  "t": "Distribuição geográfica global",
+                  "t": "20 países, 5 continentes",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Diversos tamanhos de organização",
+                  "t": "29% profissionais do direito, 19% sist. intelig.",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Papéis: engenheiros, advogados, pesquisadores",
+                  "t": "77% org. consideram aspectos éticos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "48% têm 3-5 anos de experiência",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Princípios mais críticos (RQ1)",
+              "t": "RQ1: Princípios mais críticos",
               "k": null,
               "children": [
                 {
-                  "t": "Transparência: princípio mais importante",
+                  "t": "Transparência (77,8%)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Accountability: responsabilização clara",
+                  "t": "Accountability (71,7%)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Privacidade: proteção de dados pessoais",
+                  "t": "Privacidade (69,7%)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Fairness e autonomia também relevantes",
+                  "t": "~65% confirmam princípios do SLR",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Desafios mais comuns (RQ1)",
+              "t": "RQ1: Desafios mais comuns",
               "k": null,
               "children": [
                 {
-                  "t": "Falta de conhecimento ético",
+                  "t": "Falta de conhecimento ético (81,8%)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Ausência de frameworks legais",
+                  "t": "Ausência de frameworks legais (69,7%)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Falta de órgãos de monitoramento",
+                  "t": "Falta de órgãos de monitoramento (68,7%)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Distorção de máquina",
+                  "t": "Viés em IA (mencionado adicionalmente)",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Impacto de severidade (RQ2)",
+              "t": "RQ2: Impactos de severidade",
               "k": null,
               "children": [
                 {
-                  "t": "Conflito na prática: desafio mais severo",
+                  "t": "Conflito na prática: mais severo (>60% LP)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Tensão entre princípios abstratos e contextos reais",
+                  "t": "Interpretar princípios: 77% LP em transparência",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Impactos de longo prazo dos desafios",
+                  "t": "Restrições extras: 82% severas em fairness",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Falta conhecimento ético: 28% CP (curto prazo)",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Diferenças estatísticas (RQ3)",
+              "t": "RQ3: Análise estatística",
               "k": null,
               "children": [
                 {
-                  "t": "Correlação positiva entre grupos",
+                  "t": "Princípios: rs=0,819, p<0,001 (forte correl.)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Diferenças em fairness e freedom",
+                  "t": "Diferenças: fairness e freedom",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Diferenças em falta de monitoramento",
+                  "t": "Desafios: rs=0,628, p=0,012 (mod. correl.)",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Diferenças em distorção de máquina",
+                  "t": "Teste t: sem diferenças de alto nível",
                   "k": null,
                   "children": []
                 }
@@ -453,15 +529,41 @@
           ]
         },
         {
-          "t": "Implicações e Conclusões",
-          "k": "implications",
+          "t": "Achados-Chave e Implicações",
+          "k": "findings",
           "children": [
             {
-              "t": "Para a pesquisa",
+              "t": "Achados principais",
               "k": null,
               "children": [
                 {
-                  "t": "Necessidade de soluções práticas contextualizadas",
+                  "t": "Papéis emergentes de legisladores",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Confirmação empírica do SLR",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Conflito na prática: desafio mais severo",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Percepções correlacionadas positivamente",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "t": "Implicações para pesquisa",
+              "k": null,
+              "children": [
+                {
+                  "t": "Soluções para escalar princípios na prática",
                   "k": null,
                   "children": []
                 },
@@ -471,70 +573,124 @@
                   "children": []
                 },
                 {
-                  "t": "Desenvolver modelo de maturidade de ética de IA",
+                  "t": "Contextualizar princípios p/ balancear conflitos",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Para a prática",
+              "t": "Implicações práticas",
               "k": null,
               "children": [
                 {
-                  "t": "Visão geral para profissionais da indústria",
+                  "t": "Definir processos de IA eticamente maduros",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Medição de impactos dos desafios",
+                  "t": "Medir impactos errôneos dos desafios",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Suporte a políticas e regulamentação",
+                  "t": "Facilitar para praticantes e formuladores",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Trabalhos Relacionados",
+          "k": "related",
+          "children": [
+            {
+              "t": "Princípios e diretrizes",
+              "k": null,
+              "children": [
+                {
+                  "t": "Lu et al.: 21 entrevistas, padrões de design",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Vakkuri et al.: 249 praticantes, requisitos sociais",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Ibáñez: governança, accountability, fairness",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Achados-chave confirmados",
+              "t": "Frameworks de ética em IA",
               "k": null,
               "children": [
                 {
-                  "t": "Validação empírica de princípios e desafios",
+                  "t": "ECCOLA: deck de cartas iterativo",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Papéis emergentes: legisladores são críticos",
+                  "t": "AI4People: 5 princípios, 20 recomendações",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Consciência de risco em ambos os grupos",
+                  "t": "Leikas: ética por design centrada no humano",
+                  "k": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "t": "Conclusão e Trabalho Futuro",
+          "k": "conclusion",
+          "children": [
+            {
+              "t": "Resumo das observações",
+              "k": null,
+              "children": [
+                {
+                  "t": "Legisladores têm papel importante",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Transparência, privacidade, accountability críticos",
+                  "k": null,
+                  "children": []
+                },
+                {
+                  "t": "Desafios têm impacto de longo prazo",
                   "k": null,
                   "children": []
                 }
               ]
             },
             {
-              "t": "Trabalho futuro",
+              "t": "Direções futuras",
               "k": null,
               "children": [
                 {
-                  "t": "Investigação empírica mais ampla",
+                  "t": "Investigação empírica mais abrangente",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Exploração de causas raiz dos desafios",
+                  "t": "Discutir causas e soluções dos desafios",
                   "k": null,
                   "children": []
                 },
                 {
-                  "t": "Padrões específicos de domínio",
+                  "t": "Propor modelo de maturidade de ética em IA",
                   "k": null,
                   "children": []
                 }
@@ -553,158 +709,191 @@
       },
       {
         "kind": "context",
-        "fill": "#16a085",
+        "fill": "#27ae60",
         "text": "#fff",
-        "label": "Contexto e fundamentação"
+        "label": "Contexto e motivação"
+      },
+      {
+        "kind": "background",
+        "fill": "#2980b9",
+        "text": "#fff",
+        "label": "Background e literatura"
       },
       {
         "kind": "method",
-        "fill": "#2980b9",
+        "fill": "#f39c12",
         "text": "#fff",
         "label": "Metodologia"
       },
       {
         "kind": "results",
-        "fill": "#f39c12",
-        "text": "#fff",
-        "label": "Resultados e achados"
-      },
-      {
-        "kind": "implications",
         "fill": "#8e44ad",
         "text": "#fff",
-        "label": "Implicações e conclusões"
+        "label": "Resultados empíricos"
+      },
+      {
+        "kind": "findings",
+        "fill": "#16a085",
+        "text": "#fff",
+        "label": "Achados e implicações"
+      },
+      {
+        "kind": "related",
+        "fill": "#d35400",
+        "text": "#fff",
+        "label": "Trabalhos relacionados"
+      },
+      {
+        "kind": "conclusion",
+        "fill": "#34495e",
+        "text": "#fff",
+        "label": "Conclusão e futuro"
       }
     ]
   },
   "tables": [
     {
-      "caption": "Princípios de Ética de IA: Conceitos e Definições",
+      "caption": "Princípios de Ética em IA: Conceitos e Definições",
       "columns": [
         "Princípio",
         "Definição/Significado",
-        "Criticidade (Estudo)"
+        "Importância (% respondentes)"
       ],
       "rows": [
         [
           "Transparency (Transparência)",
           "Capacidade de tornar visíveis e compreensíveis os processos, decisões e funcionamento dos sistemas de IA",
-          "Mais crítico"
+          "77,8% (mais crítico)"
         ],
         [
           "Accountability (Responsabilização)",
-          "Atribuição clara de responsabilidade por decisões e ações de sistemas de IA, com mecanismos de prestação de contas",
-          "Mais crítico"
+          "Atribuição clara de responsabilidade por decisões e impactos dos sistemas de IA; prestação de contas",
+          "71,7%"
         ],
         [
           "Privacy (Privacidade)",
-          "Proteção de dados pessoais e garantia de confidencialidade no processamento de informações por sistemas de IA",
-          "Mais crítico"
+          "Proteção de dados pessoais e garantia de confidencialidade no processamento por sistemas de IA",
+          "69,7%"
         ],
         [
           "Fairness (Equidade)",
-          "Garantia de tratamento justo e não discriminatório, evitando vieses em decisões automatizadas",
-          "Crítico (diferença entre profissionais e legisladores)"
+          "Ausência de viés discriminatório; tratamento justo e imparcial de todos os grupos e indivíduos",
+          "Diferença significativa: legisladores (5º) vs. profissionais (7º)"
         ],
         [
           "Autonomy (Autonomia)",
-          "Preservação da capacidade humana de tomada de decisão e controle sobre sistemas de IA",
-          "Crítico"
+          "Preservação da capacidade humana de tomar decisões independentes; controle humano sobre sistemas de IA",
+          "Impacto severo de conflito na prática (79%)"
         ],
         [
           "Explainability (Explicabilidade)",
-          "Capacidade de fornecer explicações compreensíveis sobre como e por que um sistema de IA chegou a determinada decisão",
-          "Crítico"
+          "Capacidade de fornecer justificativas compreensíveis para decisões e resultados de sistemas de IA",
+          "Impacto severo de conflito na prática (79%)"
         ],
         [
-          "Trustworthy AI (IA Confiável)",
-          "Conjunto de características que tornam sistemas de IA dignos de confiança, integrando múltiplos princípios éticos",
-          "Meta-princípio"
+          "Freedom (Liberdade)",
+          "Garantia de direitos e liberdades fundamentais no contexto de uso de IA",
+          "Diferença significativa entre profissionais e legisladores"
         ]
       ]
     },
     {
-      "caption": "Desafios de Ética de IA: Tipos e Impactos",
+      "caption": "Desafios na Adoção de Ética em IA: Tipos e Impactos",
       "columns": [
         "Desafio",
         "Descrição",
-        "Severidade/Prevalência"
+        "Prevalência/Impacto"
       ],
       "rows": [
         [
           "Lack of ethical knowledge (Falta de conhecimento ético)",
-          "Ausência de formação e compreensão adequada sobre princípios éticos de IA entre profissionais",
-          "Mais comum"
+          "Ausência de formação e compreensão sobre princípios éticos entre desenvolvedores e organizações",
+          "81,8% (mais comum); impacto de curto prazo (28%)"
         ],
         [
           "No legal frameworks (Ausência de frameworks legais)",
-          "Falta de regulamentação e legislação específica para governar o desenvolvimento e uso de IA",
-          "Mais comum"
+          "Falta de regulamentações e normas jurídicas claras para governar o desenvolvimento e uso de IA",
+          "69,7%"
         ],
         [
           "Lacking monitoring bodies (Falta de órgãos de monitoramento)",
-          "Ausência de entidades responsáveis por fiscalizar e garantir conformidade ética em sistemas de IA",
-          "Mais comum (diferença entre profissionais e legisladores)"
+          "Ausência de entidades responsáveis por fiscalizar e garantir conformidade ética",
+          "68,7%; profissionais (2º) vs. legisladores (5º)"
         ],
         [
           "Conflict in practice (Conflito na prática)",
-          "Tensão entre princípios éticos abstratos e sua aplicação em contextos reais de desenvolvimento e uso",
-          "Desafio mais severo"
+          "Tensões e contradições ao tentar implementar múltiplos princípios éticos simultaneamente",
+          "Desafio mais severo; impacto de longo prazo >60%"
+        ],
+        [
+          "Interpreting principles differently (Interpretação divergente)",
+          "Diferentes stakeholders entendem e aplicam princípios éticos de formas distintas",
+          "Impacto de longo prazo em transparência (77%)"
+        ],
+        [
+          "Extra constraints (Restrições extras)",
+          "Limitações adicionais impostas pela necessidade de conformidade ética",
+          "Severo para accountability e fairness (82%)"
         ],
         [
           "Machine distortion (Distorção de máquina)",
-          "Vieses algorítmicos e erros sistemáticos que comprometem a qualidade e justiça das decisões de IA",
-          "Severo (diferença entre profissionais e legisladores)"
+          "Viés algorítmico e erros sistemáticos em sistemas de IA",
+          "Diferença significativa entre profissionais e legisladores"
+        ],
+        [
+          "AI bias (Viés em IA)",
+          "Discriminação estrutural incorporada em modelos de IA (ex.: caso Amazon recrutamento)",
+          "Mencionado como desafio adicional pelos respondentes"
         ]
       ]
     },
     {
-      "caption": "Frameworks e Diretrizes de Ética de IA: Principais Iniciativas",
+      "caption": "Frameworks e Diretrizes de Ética em IA: Abordagens Principais",
       "columns": [
         "Framework/Diretriz",
-        "Organização/Origem",
+        "Organização/Autores",
         "Foco Principal"
       ],
       "rows": [
         [
           "AI HLEG Guidelines",
           "High-Level Expert Group on AI (União Europeia)",
-          "Sete requisitos para IA confiável, incluindo supervisão humana e transparência"
+          "Sete requisitos-chave para IA confiável; abordagem centrada no humano"
         ],
         [
-          "EAD (Ethically Aligned Design)",
-          "IEEE (Institute of Electrical and Electronics Engineers)",
-          "Design de sistemas autônomos e inteligentes alinhados com valores humanos"
+          "Ethically Aligned Design (EAD)",
+          "IEEE",
+          "Design alinhado eticamente; princípios para desenvolvimento responsável de sistemas autônomos"
         ],
         [
           "ART Framework",
-          "Diversos autores acadêmicos",
-          "Accountability, Responsibility e Transparency como pilares centrais"
-        ],
-        [
-          "ISO/IEC JTC 1/SC 42",
-          "International Organization for Standardization",
-          "Padronização internacional de IA, incluindo aspectos éticos"
-        ],
-        [
-          "Google AI Principles",
-          "Google",
-          "Princípios corporativos para desenvolvimento responsável de IA"
-        ],
-        [
-          "SAP Guiding Principles",
-          "SAP",
-          "Diretrizes empresariais para IA ética em contextos corporativos"
-        ],
-        [
-          "ECCOLA",
-          "Framework acadêmico",
-          "Ferramenta prática para incorporar considerações éticas no desenvolvimento de IA"
+          "Diversos autores",
+          "Accountability, Responsibility, Transparency como pilares fundamentais"
         ],
         [
           "AI4People",
-          "Iniciativa europeia",
-          "Framework ético baseado em princípios bioéticos adaptados para IA"
+          "Floridi et al.",
+          "Cinco princípios éticos e 20 recomendações práticas"
+        ],
+        [
+          "ECCOLA",
+          "Vakkuri et al.",
+          "Deck de cartas para desenvolvimento ético iterativo; ferramenta prática para equipes"
+        ],
+        [
+          "ISO/IEC JTC 1/SC 42",
+          "ISO/IEC",
+          "Padronização internacional para inteligência artificial"
+        ],
+        [
+          "Trustworthy AI",
+          "Múltiplas organizações",
+          "Conformidade legal, adesão a princípios éticos e robustez técnico-social"
+        ],
+        [
+          "Ethics by Design Framework",
+          "Leikas et al.",
+          "Captura detalhes centrados no humano; integração de ética no processo de design"
         ]
       ]
     }
@@ -714,10 +903,10 @@
     "sections": [
       {
         "no": "01",
-        "heading": "O que profissionais e legisladores realmente pensam",
+        "heading": "O que profissionais e legisladores pensam sobre ética em IA",
         "paragraphs": [
-          "Diferentemente de revisões teóricas ou análises de documentos, este estudo foi a campo: 99 profissionais de IA e legisladores de 20 países, distribuídos por cinco continentes, responderam a um questionário estruturado sobre princípios e desafios da ética de IA. A amostra incluiu engenheiros de software, cientistas de dados, advogados e formuladores de políticas — dois grupos que raramente conversam, mas que precisam convergir se quisermos sistemas de IA confiáveis.",
-          "Os resultados confirmam empiricamente o que diretrizes como as da AI HLEG (High-Level Expert Group on AI, da União Europeia) e do IEEE já apontavam: transparência, accountability e privacidade emergem como os três princípios mais críticos. Mas a pesquisa vai além: ao capturar percepções de dois tipos de população, revela que há correlação estatística significativa entre as visões de profissionais e legisladores — embora com diferenças pontuais importantes, especialmente em torno de conceitos como fairness (justiça) e da necessidade de órgãos de monitoramento."
+          "Para mapear o estado atual da ética em IA além dos documentos de princípios, pesquisadores conduziram um survey com 99 profissionais e legisladores de 20 países, distribuídos em cinco continentes. A amostra incluiu engenheiros de IA, advogados, cientistas de dados e formuladores de políticas — perfis que, na prática, tomam decisões de design ou influenciam normas sociais. O objetivo: validar empiricamente quais princípios éticos e desafios identificados na literatura acadêmica realmente ressoam com quem está na linha de frente.",
+          "Os resultados confirmam que cerca de 65% dos respondentes reconhecem os princípios e desafios previamente mapeados em revisões sistemáticas. Três princípios emergem como os mais críticos: transparência (77,8% dos respondentes), accountability ou responsabilização (71,7%) e privacidade (69,7%). Do lado dos obstáculos, a falta de conhecimento ético (81,8%), a ausência de frameworks legais (69,7%) e a carência de órgãos de monitoramento (68,7%) lideram a lista de desafios mais comuns. Curiosamente, 77% dos participantes afirmam que suas organizações já consideram aspectos éticos — mas a distância entre intenção declarada e prática efetiva permanece nebulosa."
         ],
         "bullets": [],
         "pullquote": null,
@@ -725,373 +914,375 @@
           "transparência",
           "accountability",
           "privacidade",
-          "fairness",
-          "AI HLEG"
-        ]
-      },
-      {
-        "no": "02",
-        "heading": "Os desafios que travam a ética na prática",
-        "paragraphs": [
-          "Se os princípios são amplamente reconhecidos, por que tantos sistemas de IA ainda falham eticamente? O estudo identifica três obstáculos principais: falta de conhecimento ético entre equipes de desenvolvimento, ausência de frameworks legais claros e vinculantes, e carência de órgãos de monitoramento que fiscalizem a conformidade. Esses desafios não são apenas teóricos — eles têm impacto mensurável.",
-          "A análise de severidade revela que o desafio mais crítico é o conflito na prática: a tensão entre princípios abstratos (como \"seja transparente\") e as demandas concretas de contextos específicos (como proteger segredos comerciais ou lidar com modelos de aprendizado profundo inerentemente opacos). Esse conflito atravessa todos os princípios, mas afeta especialmente a explicabilidade e a autonomia — conceitos que exigem operacionalização contextualizada, não apenas adesão retórica."
-        ],
-        "bullets": [],
-        "pullquote": {
-          "text": "O desafio mais severo não é a falta de princípios, mas o conflito entre eles e a realidade da prática.",
-          "cite": "Análise de impacto · Seção IV"
-        },
-        "terms": [
-          "conflito na prática",
-          "explicabilidade",
           "frameworks legais",
           "órgãos de monitoramento"
         ]
       },
       {
-        "no": "03",
-        "heading": "Da diretriz genérica ao padrão contextualizado",
+        "no": "02",
+        "heading": "Conflito na prática: o desafio mais severo",
         "paragraphs": [
-          "As implicações do estudo são claras: diretrizes éticas genéricas, por mais bem-intencionadas, não bastam. É preciso traduzi-las em padrões específicos de domínio — saúde, finanças, justiça criminal — que equilibrem tensões éticas inerentes sem sufocar a inovação. Os autores propõem, como trabalho futuro, o desenvolvimento de um modelo de maturidade de ética de IA, capaz de avaliar e orientar organizações na adoção progressiva de práticas éticas.",
-          "Mais importante: o estudo evidencia que a ética de IA não é apenas responsabilidade de engenheiros. Legisladores, formuladores de políticas e órgãos reguladores têm papel central — e suas percepções, embora correlacionadas com as dos profissionais, divergem em pontos críticos. Isso sugere que a construção de sistemas confiáveis exige diálogo contínuo entre quem desenvolve e quem regula, entre quem codifica e quem legisla."
+          "Identificar princípios é o primeiro passo; implementá-los sem que entrem em colisão é o verdadeiro teste. A análise de impacto de severidade revelou que o conflito na prática — situações em que princípios éticos colidem entre si ou com requisitos técnicos e de negócio — é o desafio de maior impacto de longo prazo, afetando mais de 60% dos princípios em média. Por exemplo, maximizar a transparência de um modelo pode comprometer a privacidade dos dados de treinamento; garantir fairness pode exigir coleta de atributos sensíveis que, por sua vez, levantam questões de vigilância.",
+          "Outros desafios apresentam padrões de severidade específicos: interpretar princípios de forma diferente tem impacto de longo prazo em 77% dos casos relacionados à transparência; restrições extras (como requisitos regulatórios conflitantes) são severas para accountability e fairness (82%); já a falta de conhecimento ético, embora seja o desafio mais comum, tende a ter impacto de curto prazo (28% em média) — sugerindo que treinamento e educação podem mitigá-lo rapidamente, mas não resolvem tensões estruturais mais profundas."
+        ],
+        "bullets": [],
+        "pullquote": {
+          "text": "Conflito na prática é o desafio de maior impacto de longo prazo, afetando mais de 60% dos princípios em média.",
+          "cite": "Análise de severidade · Survey"
+        },
+        "terms": [
+          "conflito na prática",
+          "impacto de longo prazo",
+          "fairness",
+          "restrições extras"
+        ]
+      },
+      {
+        "no": "03",
+        "heading": "Profissionais e legisladores: visões convergentes, nuances divergentes",
+        "paragraphs": [
+          "A análise estatística das respostas revelou uma correlação forte e positiva entre as percepções de profissionais de IA e legisladores quanto aos princípios éticos (coeficiente de Spearman rs=0,819, p<0,001). Ambos os grupos concordam, em linhas gerais, sobre a importância de transparência, accountability e privacidade. No entanto, diferenças significativas emergem em princípios específicos: legisladores ranqueiam fairness em 5º lugar, enquanto profissionais a colocam em 7º; o princípio de liberdade (freedom) também apresenta divergências de priorização.",
+          "Quanto aos desafios, a correlação é moderada (rs=0,628, p=0,012), e a divergência mais marcante aparece na percepção sobre a falta de órgãos de monitoramento: profissionais a ranqueiam em 2º lugar, legisladores em 5º. Essa diferença sugere que quem desenvolve sistemas de IA sente mais agudamente a ausência de instâncias de supervisão externa, enquanto legisladores podem subestimar a necessidade de fiscalização contínua — ou confiar que frameworks legais, por si só, garantirão conformidade. Apesar das nuances, testes t independentes indicam que, no agregado, as percepções dos dois grupos são igualmente importantes e não apresentam diferenças de alto nível estatisticamente significativas."
         ],
         "bullets": [],
         "pullquote": null,
         "terms": [
-          "modelo de maturidade",
-          "padrões específicos de domínio",
-          "trustworthy AI"
+          "correlação",
+          "fairness",
+          "liberdade",
+          "órgãos de monitoramento",
+          "fiscalização"
         ]
       }
     ],
-    "drop_cap_paragraph": "Imagine um sistema de recrutamento que, treinado com dados históricos de contratações, aprende silenciosamente a descartar currículos de candidatas mulheres. Foi exatamente o que aconteceu na Amazon: uma ferramenta de IA projetada para otimizar seleções acabou reproduzindo — e amplificando — vieses de gênero enterrados nos dados. O episódio não é isolado. À medida que sistemas de inteligência artificial se infiltram em decisões sobre crédito, saúde, justiça criminal e educação, cresce a urgência de uma pergunta incômoda: como garantir que essas tecnologias opacas e complexas sirvam ao bem-estar coletivo, em vez de perpetuar injustiças? É nesse cenário que a ética de IA deixa de ser um debate filosófico abstrato e se torna uma necessidade prática — e é sobre essa transição, do princípio ao chão de fábrica, que trata o estudo empírico de Khan e colegas, publicado no IEEE Transactions on Computational Social Systems.",
-    "closing_paragraph": "O estudo de Khan e colegas não oferece soluções prontas — e essa é, talvez, sua maior contribuição. Ao mapear empiricamente o terreno da ética de IA, ele expõe a distância entre o que sabemos ser necessário (transparência, accountability, privacidade) e o que conseguimos implementar (sistemas opacos, responsabilidades difusas, dados vazados). A lacuna não é de conhecimento, mas de operacionalização. E fechá-la exigirá mais do que boas intenções: exigirá frameworks juridicamente vinculantes, métricas de impacto, capacitação ética de equipes e, sobretudo, a coragem de reconhecer que alguns conflitos entre princípios não têm solução técnica — apenas negociação social."
+    "drop_cap_paragraph": "Imagine um sistema de recrutamento que, treinado com dados históricos de contratações, aprende a descartar automaticamente currículos de candidatas mulheres. Não por malícia programada, mas porque o algoritmo identificou padrões do passado — e os reproduziu. Esse caso real, ocorrido na Amazon, ilustra um dilema que se repete em saúde, crédito, justiça criminal e educação: sistemas de inteligência artificial podem amplificar vieses, operar como caixas-pretas e tomar decisões que afetam vidas sem que ninguém consiga explicar exatamente por quê. À medida que a IA se infiltra em setores críticos, a pergunta deixa de ser \"o que a tecnologia pode fazer?\" e passa a ser \"o que ela deve fazer — e quem responde quando algo dá errado?\"",
+    "closing_paragraph": "Os achados deste estudo empírico confirmam que há consenso sobre quais princípios importam — transparência, accountability, privacidade — e quais barreiras persistem: falta de conhecimento, ausência de regulação, carência de supervisão. Mas o dado mais revelador é que o conflito na prática, a colisão entre princípios abstratos e contextos reais, permanece como o desafio mais severo e de impacto duradouro. Isso sugere que o próximo passo não é apenas educar ou legislar, mas contextualizar: traduzir diretrizes genéricas em orientações operacionais que resolvam tensões específicas, setor por setor, caso por caso."
   },
   "essay_full": {
     "variant": "full",
     "sections": [
       {
         "no": "01",
-        "heading": "O Dilema Ético da Inteligência Artificial",
+        "heading": "O Abismo Entre Princípios e Prática",
         "paragraphs": [
-          "A inteligência artificial promete revolucionar praticamente todos os setores da economia e da vida social. Sistemas de IA já diagnosticam doenças, dirigem veículos, recomendam conteúdo, aprovam crédito e até influenciam decisões judiciais. Essa expansão acelerada traz benefícios inegáveis: maior eficiência, personalização de serviços, descobertas científicas antes inimagináveis. Porém, junto com as promessas, surgem preocupações crescentes de que sistemas complexos e opacos possam trazer mais danos sociais do que benefícios.",
-          "Cenários de falha ética já foram testemunhados em escala global. Além do caso da Amazon, algoritmos de reconhecimento facial demonstraram vieses raciais, sistemas de pontuação de crédito perpetuaram discriminação socioeconômica, e plataformas de redes sociais amplificaram desinformação com consequências políticas graves. Esses incidentes revelam uma verdade desconfortável: a IA não é neutra. Ela reflete — e muitas vezes amplifica — os vieses, valores e falhas dos dados e das pessoas que a criam.",
-          "Em resposta a essas preocupações, organizações internacionais, empresas de tecnologia e governos desenvolveram uma profusão de diretrizes, princípios e frameworks regulatórios para garantir que as tecnologias de IA sigam padrões éticos. O High-Level Expert Group on AI da União Europeia, a IEEE com seu Ethically Aligned Design, o Google, a SAP, a ACM — todos propuseram seus conjuntos de princípios. No entanto, as implicações práticas desses princípios ainda estão sendo debatidas, e existe uma lacuna persistente entre a pesquisa acadêmica em ética de IA e a prática industrial."
+          "Nos últimos anos, organizações de peso — Google, IEEE, União Europeia, ISO — publicaram diretrizes e frameworks para orientar o desenvolvimento ético de sistemas de IA. Documentos como o AI HLEG (High-Level Expert Group on AI) da Comissão Europeia e o Ethically Aligned Design (EAD) do IEEE propõem princípios como transparência, accountability, privacidade e fairness. No papel, há consenso: a IA deve ser confiável, explicável e justa. Na prática, porém, essas diretrizes permanecem abstratas, vagas e difíceis de operacionalizar.",
+          "A lacuna entre teoria e implementação é o ponto de partida do estudo conduzido por Khan e colegas, publicado no IEEE Transactions on Computational Social Systems. Os pesquisadores realizaram um survey com 99 profissionais de IA e legisladores de 20 países, distribuídos por cinco continentes, para mapear percepções sobre princípios éticos e os desafios enfrentados na adoção desses princípios. A escolha de incluir legisladores — além dos tradicionais engenheiros e cientistas de dados — é estratégica: são eles que moldam normas sociais, influenciam políticas públicas e traduzem valores coletivos em marcos regulatórios.",
+          "O que emergiu da pesquisa é um retrato complexo: embora haja concordância sobre quais princípios importam, a implementação esbarra em obstáculos estruturais, culturais e técnicos. A ética em IA não é apenas uma questão de código ou de compliance legal; é um problema de tradução entre linguagens — a linguagem da engenharia, a linguagem do direito e a linguagem dos valores humanos."
         ],
         "bullets": [],
         "pullquote": null,
         "terms": [
-          "inteligência artificial",
-          "vieses",
-          "frameworks regulatórios",
-          "ética de IA"
+          "transparência",
+          "accountability",
+          "Ethically Aligned Design",
+          "frameworks"
         ]
       },
       {
         "no": "02",
-        "heading": "Mapeando o Território: Princípios e Desafios",
+        "heading": "Transparência, Privacidade e Accountability no Topo",
         "paragraphs": [
-          "Para compreender melhor o estado atual da ética de IA, um grupo internacional de pesquisadores conduziu um estudo empírico abrangente, coletando as percepções de 99 profissionais de IA e legisladores de 20 países distribuídos por cinco continentes. O estudo é notável por capturar, pela primeira vez, as visões de dois tipos distintos de população: aqueles que constroem sistemas de IA (engenheiros, cientistas de dados, arquitetos de software) e aqueles que regulam seu uso (advogados, formuladores de políticas, especialistas em compliance).",
-          "A metodologia envolveu um questionário estruturado em quatro seções: dados demográficos, percepções sobre princípios de ética de IA, desafios enfrentados na implementação desses princípios, e análise de impacto dos desafios sobre cada princípio. O instrumento foi disponibilizado em inglês e chinês, reconhecendo a importância da indústria chinesa no cenário global de IA. Os participantes representavam organizações de diversos tamanhos — desde startups até corporações multinacionais — e trabalhavam em domínios variados, incluindo saúde, finanças, educação, transporte e governo.",
-          "Os resultados revelaram um consenso notável sobre quais princípios são mais críticos. Transparência, accountability e privacidade emergiram como as três prioridades máximas, reconhecidas tanto por profissionais quanto por legisladores. A transparência refere-se à capacidade de compreender como um sistema de IA toma decisões; a accountability diz respeito à atribuição clara de responsabilidade quando algo dá errado; e a privacidade envolve a proteção de dados pessoais sensíveis. Outros princípios importantes incluíram fairness (justiça), explicabilidade, autonomia humana e segurança."
+          "Quando perguntados sobre quais princípios éticos são mais críticos, os respondentes apontaram três com clareza: transparência (77,8%), accountability (71,7%) e privacidade (69,7%). Esses números refletem preocupações concretas. A transparência diz respeito à capacidade de entender como um sistema de IA toma decisões — algo essencial quando algoritmos influenciam aprovações de crédito, diagnósticos médicos ou sentenças judiciais. Sem transparência, não há como auditar, contestar ou corrigir erros.",
+          "A accountability, por sua vez, trata da responsabilidade: quem responde quando um sistema de IA causa dano? O desenvolvedor? A empresa? O usuário? A ausência de clareza sobre responsabilidades cria um vácuo ético perigoso, no qual ninguém se sente obrigado a prestar contas. Já a privacidade emerge como princípio central em um contexto de coleta massiva de dados pessoais: sistemas de IA dependem de grandes volumes de informação, muitas vezes sensível, e a proteção desses dados é condição sine qua non para a confiança pública.",
+          "Interessante notar que fairness (justiça) e freedom (liberdade) geraram percepções divergentes entre profissionais e legisladores. Legisladores ranquearam fairness em 5º lugar, enquanto profissionais a colocaram em 7º. Essa diferença sugere que, para quem está no campo jurídico, a justiça algorítmica — evitar discriminação e viés — é uma prioridade mais urgente do que para engenheiros, que podem estar mais focados em desempenho técnico. A tensão entre eficiência e equidade é um dos nós mais difíceis de desatar na ética de IA."
         ],
         "bullets": [],
         "pullquote": {
-          "text": "Transparência, accountability e privacidade emergiram como as três prioridades máximas, reconhecidas tanto por profissionais quanto por legisladores.",
-          "cite": "Resultados do estudo · RQ1"
+          "text": "Sem transparência, não há como auditar, contestar ou corrigir erros.",
+          "cite": "Seção 02 · Princípios Críticos"
         },
         "terms": [
           "transparência",
           "accountability",
           "privacidade",
-          "fairness"
+          "fairness",
+          "justiça algorítmica"
         ]
       },
       {
         "no": "03",
-        "heading": "Os Obstáculos na Prática",
+        "heading": "Os Desafios Mais Comuns: Conhecimento, Leis e Monitoramento",
         "paragraphs": [
-          "Identificar princípios éticos é apenas o primeiro passo. O estudo também investigou os desafios concretos que impedem a implementação efetiva desses princípios no desenvolvimento e implantação de sistemas de IA. Três desafios se destacaram como os mais comuns: falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento.",
-          "A falta de conhecimento ético reflete uma realidade preocupante: muitos profissionais de tecnologia não receberam formação adequada em ética durante sua educação formal. Engenheiros de software e cientistas de dados são treinados para otimizar algoritmos e maximizar métricas de desempenho, mas raramente são expostos a discussões sistemáticas sobre implicações sociais, vieses algorítmicos ou dilemas morais. Essa lacuna educacional se traduz em sistemas que, embora tecnicamente sofisticados, podem ser eticamente problemáticos.",
-          "A ausência de frameworks legais é outro obstáculo significativo. Enquanto algumas jurisdições — notavelmente a União Europeia com seu AI Act — avançam na regulamentação de IA, a maioria dos países ainda opera em um vácuo legal. Sem legislação clara, empresas enfrentam incerteza sobre quais práticas são aceitáveis, e indivíduos afetados por decisões algorítmicas têm poucos recursos legais. A falta de órgãos de monitoramento agrava esse problema: mesmo quando princípios e diretrizes existem, não há entidades independentes com autoridade para auditar sistemas, investigar violações e aplicar sanções.",
-          "Outros desafios identificados incluem distorção de máquina (quando algoritmos produzem resultados inesperados ou enviesados), conflito na prática (tensões entre princípios éticos e pressões comerciais ou técnicas), e falta de padrões técnicos compartilhados para avaliar conformidade ética."
+          "Se os princípios são amplamente reconhecidos, por que sua adoção ainda é tão limitada? O estudo identificou três desafios principais. O primeiro é a falta de conhecimento ético (81,8%): muitos profissionais de IA não receberam formação em ética, filosofia ou ciências sociais. Engenheiros são treinados para otimizar métricas de desempenho — acurácia, velocidade, eficiência — mas raramente para refletir sobre implicações sociais, viés estrutural ou impactos de longo prazo.",
+          "O segundo desafio é a ausência de frameworks legais (69,7%). Embora existam diretrizes e recomendações, poucas jurisdições possuem leis vinculantes que obriguem empresas a adotar práticas éticas. A União Europeia avançou com o AI Act, mas em muitos países a regulação ainda é incipiente ou inexistente. Sem obrigatoriedade legal, a ética fica à mercê da boa vontade corporativa — e, como sabemos, boa vontade não é modelo de negócio sustentável.",
+          "O terceiro desafio é a falta de órgãos de monitoramento (68,7%). Mesmo quando princípios são declarados e políticas internas são criadas, quem fiscaliza? Quem audita? A ausência de entidades independentes capazes de avaliar, certificar e punir práticas antiéticas cria um ambiente de baixa accountability. Curiosamente, profissionais ranquearam esse desafio em 2º lugar, enquanto legisladores o colocaram em 5º — uma inversão que sugere que, para quem está na linha de frente do desenvolvimento, a falta de supervisão é sentida de forma mais aguda."
         ],
         "bullets": [],
-        "pullquote": {
-          "text": "Muitos profissionais de tecnologia não receberam formação adequada em ética durante sua educação formal, criando uma lacuna entre sofisticação técnica e consciência ética.",
-          "cite": "Desafios identificados · RQ1"
-        },
+        "pullquote": null,
         "terms": [
-          "conhecimento ético",
+          "falta de conhecimento ético",
           "frameworks legais",
           "órgãos de monitoramento",
-          "distorção de máquina",
-          "conflito na prática"
+          "AI Act"
         ]
       },
       {
         "no": "04",
-        "heading": "Severidade e Impacto: Quando Princípios Colidem com a Realidade",
+        "heading": "Conflito na Prática: O Desafio Mais Severo",
         "paragraphs": [
-          "Uma das contribuições mais importantes do estudo foi a análise de severidade: como cada desafio impacta cada princípio ético. Os pesquisadores pediram aos participantes que avaliassem a gravidade de cada desafio em relação a princípios específicos, gerando um mapa detalhado de vulnerabilidades.",
-          "O resultado mais marcante foi a identificação do conflito na prática como o desafio mais severo. Esse achado revela uma tensão fundamental: mesmo quando profissionais e organizações reconhecem a importância de princípios éticos, eles frequentemente enfrentam pressões que os forçam a fazer concessões. Prazos apertados, demandas de clientes, limitações técnicas, competição de mercado — todos esses fatores podem empurrar equipes a priorizar funcionalidade e velocidade em detrimento de considerações éticas.",
-          "Por exemplo, implementar transparência plena pode conflitar com proteção de propriedade intelectual; garantir fairness absoluta pode reduzir a acurácia preditiva de um modelo; respeitar autonomia humana pode tornar sistemas menos eficientes. Esses trade-offs não são meramente técnicos — são dilemas morais que exigem julgamento contextual, negociação de valores e, frequentemente, escolhas difíceis.",
-          "A análise de impacto também revelou que certos desafios afetam alguns princípios de forma desproporcional. A falta de conhecimento ético, por exemplo, tem impacto particularmente severo sobre fairness e explicabilidade, enquanto a ausência de frameworks legais afeta mais diretamente accountability e privacidade. Essas nuances são cruciais para priorizar intervenções: não basta abordar desafios de forma genérica; é preciso entender suas manifestações específicas em diferentes contextos."
+          "Além de identificar os desafios mais comuns, o estudo avaliou a severidade de cada um — isto é, o impacto de longo prazo que exercem sobre a adoção de princípios éticos. O resultado foi revelador: conflito na prática emergiu como o desafio mais severo, com impacto de longo prazo superior a 60% em média. Mas o que significa 'conflito na prática'?",
+          "Trata-se da tensão entre princípios que, em abstrato, parecem compatíveis, mas que, em cenários reais, entram em choque. Por exemplo: transparência e privacidade. Tornar um sistema de IA transparente pode exigir a divulgação de dados ou lógicas de decisão que comprometem a privacidade dos usuários. Outro exemplo: fairness e eficiência. Corrigir viés em um algoritmo pode reduzir sua acurácia geral, criando um trade-off entre justiça e desempenho. Esses conflitos não são meramente técnicos; são dilemas éticos que exigem escolhas contextuais, negociação de valores e, muitas vezes, sacrifícios.",
+          "O estudo mostrou que 'interpretar princípios de forma diferente' tem impacto de longo prazo em transparência (77%), enquanto 'conflito na prática' é especialmente severo para privacidade (74%), autonomia e explicabilidade (79%). Já 'restrições extras' — como custos adicionais ou complexidade técnica — são severas para accountability e fairness (82%). Esses dados sugerem que não basta listar princípios; é preciso desenvolver métodos para contextualizar, priorizar e balancear valores em situações específicas."
         ],
         "bullets": [],
         "pullquote": {
-          "text": "Conflito na prática emergiu como o desafio mais severo: mesmo reconhecendo princípios éticos, profissionais enfrentam pressões que os forçam a fazer concessões.",
-          "cite": "Análise de impacto · RQ2"
+          "text": "Conflito na prática emergiu como o desafio mais severo, com impacto de longo prazo superior a 60%.",
+          "cite": "Seção 04 · Severidade dos Desafios"
         },
         "terms": [
-          "análise de severidade",
           "conflito na prática",
-          "trade-offs",
-          "julgamento contextual"
+          "trade-off",
+          "explicabilidade",
+          "autonomia"
         ]
       },
       {
         "no": "05",
         "heading": "Profissionais e Legisladores: Convergências e Divergências",
         "paragraphs": [
-          "Uma das questões centrais do estudo era se profissionais de IA e legisladores compartilham percepções semelhantes sobre princípios e desafios éticos. A resposta é nuançada: há convergência significativa, mas também diferenças importantes.",
-          "A análise estatística usando correlação de Spearman revelou uma correlação positiva e significativa entre as percepções dos dois grupos. Isso é encorajador: sugere que existe uma base comum de entendimento que pode facilitar diálogo e colaboração. Tanto profissionais quanto legisladores reconhecem os mesmos princípios como prioritários e identificam desafios semelhantes.",
-          "No entanto, testes estatísticos mais refinados (teste t independente) identificaram diferenças significativas para princípios e desafios específicos. Por exemplo, legisladores tendem a atribuir maior importância ao princípio de fairness do que profissionais técnicos. Isso pode refletir a exposição dos legisladores a casos de discriminação algorítmica e seu papel em proteger direitos civis. Por outro lado, profissionais demonstraram maior preocupação com desafios técnicos específicos, como distorção de máquina.",
-          "Uma diferença particularmente notável emergiu em relação à falta de órgãos de monitoramento. Legisladores percebem esse desafio como mais crítico do que profissionais, possivelmente porque reconhecem a importância de mecanismos de enforcement para garantir conformidade. Profissionais, por sua vez, podem estar mais focados em desafios imediatos de implementação técnica.",
-          "Essas diferenças não são necessariamente problemáticas — elas refletem perspectivas complementares que, se integradas, podem enriquecer o desenvolvimento de sistemas de IA mais éticos. O desafio está em criar espaços de diálogo onde essas perspectivas possam convergir em soluções práticas."
+          "Uma das contribuições mais interessantes do estudo é a análise estatística das percepções de profissionais e legisladores. Os pesquisadores aplicaram o coeficiente de correlação de Spearman e encontraram uma correlação forte (rs=0,819, p=0,000) entre as visões dos dois grupos sobre princípios éticos. Isso significa que, em linhas gerais, engenheiros e advogados concordam sobre o que importa. A convergência é um sinal positivo: sugere que há base comum para diálogo e colaboração.",
+          "No entanto, diferenças significativas emergiram em pontos específicos. Como mencionado, fairness e freedom foram ranqueados de forma distinta. Para desafios, a correlação foi moderada (rs=0,628, p=0,012), e a 'falta de órgãos de monitoramento' gerou divergência: profissionais a veem como mais urgente do que legisladores. Essas diferenças não são triviais; refletem prioridades, experiências e linguagens distintas. Profissionais lidam diariamente com a complexidade técnica e a pressão por entregas rápidas; legisladores enfrentam a lentidão dos processos regulatórios e a necessidade de consenso político.",
+          "O teste t independente (t=0,942, p=0,661 para princípios; t=1,291, p=0,207 para desafios) indicou que, em alto nível, as percepções são igualmente importantes. Mas a mensagem central é clara: para que a ética em IA avance, é preciso construir pontes entre esses dois mundos. Profissionais precisam entender o contexto legal e social; legisladores precisam compreender as limitações e possibilidades técnicas. A tradução entre essas linguagens é, ela mesma, um desafio ético."
         ],
         "bullets": [],
-        "pullquote": {
-          "text": "Profissionais e legisladores compartilham uma base comum de entendimento, mas diferem em prioridades específicas — diferenças que refletem perspectivas complementares.",
-          "cite": "Análise comparativa · RQ3"
-        },
+        "pullquote": null,
         "terms": [
           "correlação de Spearman",
-          "teste t independente",
-          "perspectivas complementares",
-          "enforcement"
+          "teste t",
+          "convergência",
+          "divergência"
         ]
       },
       {
         "no": "06",
         "heading": "Implicações para Pesquisa e Prática",
         "paragraphs": [
-          "Os achados deste estudo têm implicações profundas tanto para a pesquisa acadêmica quanto para a prática industrial e regulatória. Para pesquisadores, o estudo confirma empiricamente princípios e desafios previamente identificados em revisões sistemáticas da literatura, mas também revela lacunas importantes que demandam investigação adicional.",
-          "Uma necessidade urgente é o desenvolvimento de soluções práticas e contextualizadas. Princípios genéricos como transparência e fairness são importantes, mas insuficientes. É preciso traduzi-los em padrões específicos de domínio, métricas mensuráveis e ferramentas que possam ser integradas ao ciclo de vida de desenvolvimento de software. Por exemplo, o que significa transparência em um sistema de diagnóstico médico versus um algoritmo de recomendação de conteúdo? Como medir fairness em contextos onde múltiplas definições de justiça podem estar em conflito?",
-          "Outra direção de pesquisa crucial é a exploração das causas profundas dos desafios identificados e o desenvolvimento de estratégias de mitigação. Por que existe falta de conhecimento ético entre profissionais de tecnologia? Que reformas educacionais são necessárias? Como frameworks legais podem ser desenhados para equilibrar proteção e inovação? Que modelos de governança podem garantir monitoramento efetivo sem sufocar o desenvolvimento tecnológico?",
-          "Para a prática, o estudo oferece uma visão geral valiosa que pode orientar profissionais na priorização de esforços. Saber que transparência, accountability e privacidade são os princípios mais críticos permite que equipes de desenvolvimento foquem recursos limitados onde terão maior impacto. Compreender que conflito na prática é o desafio mais severo ajuda organizações a antecipar tensões e desenvolver processos de tomada de decisão que explicitem trade-offs éticos.",
-          "Para legisladores e formuladores de políticas, o estudo fornece evidências empíricas que podem informar o design de regulamentações. A identificação da falta de frameworks legais e órgãos de monitoramento como desafios principais sugere que investimento em infraestrutura regulatória é prioritário. Ao mesmo tempo, a correlação entre percepções de profissionais e legisladores indica que regulamentações desenvolvidas em colaboração com a indústria têm maior probabilidade de serem efetivas e viáveis."
+          "Os achados do estudo têm implicações diretas para pesquisadores, desenvolvedores e formuladores de políticas. Para a pesquisa, fica evidente a necessidade de soluções que escalem princípios abstratos para práticas concretas. Não basta dizer 'seja transparente'; é preciso desenvolver ferramentas, métricas e processos que tornem a transparência operacionalizável em diferentes contextos — saúde, finanças, justiça criminal. Da mesma forma, é urgente explorar as causas e estratégias de mitigação dos desafios identificados, especialmente o conflito na prática.",
+          "Para a prática, o estudo oferece uma visão geral dos princípios e desafios que devem ser considerados ao definir processos de IA eticamente maduros. A medição de impactos errôneos dos desafios — como o estudo fez ao avaliar severidade — pode orientar a priorização de esforços. Empresas podem usar esses dados para estruturar programas de treinamento, criar comitês de ética internos e estabelecer métricas de auditoria. Formuladores de políticas, por sua vez, podem usar os achados para desenhar regulações mais granulares, que reconheçam a complexidade dos trade-offs e ofereçam orientação prática.",
+          "Uma implicação particularmente relevante é a proposta, pelos autores, de desenvolver um modelo de maturidade de ética em IA. Inspirado em modelos de maturidade de engenharia de software, esse framework permitiria que organizações avaliem seu nível de maturidade ética — desde estágios iniciais, onde princípios são ignorados, até estágios avançados, onde ética é integrada ao design e à governança. Tal modelo poderia funcionar como um roteiro, facilitando a transição de intenções para ações."
         ],
         "bullets": [],
         "pullquote": {
-          "text": "Princípios genéricos são importantes, mas insuficientes. É preciso traduzi-los em padrões específicos de domínio, métricas mensuráveis e ferramentas integradas ao desenvolvimento.",
-          "cite": "Implicações para pesquisa"
+          "text": "Não basta dizer 'seja transparente'; é preciso desenvolver ferramentas, métricas e processos que tornem a transparência operacionalizável.",
+          "cite": "Seção 06 · Implicações Práticas"
         },
         "terms": [
-          "soluções contextualizadas",
-          "métricas mensuráveis",
-          "causas profundas",
-          "infraestrutura regulatória"
+          "modelo de maturidade",
+          "operacionalização",
+          "auditoria",
+          "governança"
         ]
       },
       {
         "no": "07",
-        "heading": "Rumo a uma IA Verdadeiramente Ética",
+        "heading": "Limitações e Caminhos Futuros",
         "paragraphs": [
-          "O estudo revela cinco observações principais que devem orientar o futuro da ética de IA. Primeira, a importância de papéis emergentes: legisladores não são meros reguladores externos, mas stakeholders essenciais cujas perspectivas devem ser integradas desde as fases iniciais de design de sistemas de IA. Segunda, achados confirmatórios: a validação empírica de princípios e desafios previamente identificados na literatura fortalece a base de conhecimento e justifica investimento em soluções.",
-          "Terceira, aderência a princípios e desafios: o consenso em torno de transparência, accountability e privacidade, e o reconhecimento compartilhado de falta de conhecimento ético, frameworks legais e monitoramento, criam uma agenda clara para ação. Quarta, consciência de risco: a identificação de conflito na prática como desafio mais severo alerta para os impactos de longo prazo de decisões que priorizam conveniência sobre ética. Quinta, percepções correlacionadas: a convergência entre profissionais e legisladores oferece uma base promissora para colaboração multidisciplinar.",
-          "Olhando para o futuro, os pesquisadores propõem três direções principais de trabalho. Primeiro, investigação empírica mais ampla, expandindo a amostra para incluir mais países, setores e tipos de sistemas de IA, permitindo análises comparativas mais robustas. Segundo, exploração profunda das causas dos desafios e desenvolvimento de soluções específicas — por exemplo, programas de educação em ética para profissionais de tecnologia, templates de frameworks legais adaptáveis a diferentes jurisdições, modelos de órgãos de monitoramento independentes.",
-          "Terceiro, e talvez mais ambicioso, o desenvolvimento de um modelo de maturidade de ética de IA. Inspirado em modelos de maturidade de capacidade usados em engenharia de software, esse framework permitiria que organizações avaliem seu nível atual de maturidade ética e identifiquem caminhos de melhoria progressiva. Tal modelo poderia incluir níveis que vão desde conformidade básica com princípios até integração profunda de considerações éticas em todos os aspectos da cultura organizacional e processos de desenvolvimento."
+          "Como todo estudo empírico, este possui limitações. O tamanho da amostra — 99 respondentes — pode não ser plenamente representativo da diversidade global de profissionais e legisladores. No entanto, a distribuição geográfica (20 países, cinco continentes) e a variedade de papéis e domínios de trabalho conferem alguma robustez aos achados. Outra limitação é a possibilidade de viés interpessoal na interpretação das respostas, mitigada pelo consenso entre os oito autores do estudo.",
+          "A validade de construto — isto é, a confiabilidade das fontes de dados — foi reforçada pela coleta em redes sociais e plataformas profissionais (LinkedIn, ResearchGate, WeChat, Facebook), onde perfis e discussões puderam ser verificados. A pilotagem do questionário com três especialistas também contribuiu para a compreensibilidade do instrumento. Ainda assim, os autores reconhecem que a generalização dos resultados deve ser feita com cautela.",
+          "O trabalho futuro proposto pelos pesquisadores inclui investigações empíricas mais amplas, com grupos maiores e mais diversos, para aprofundar a compreensão das causas dos desafios e explorar soluções. Além disso, a proposta de um modelo de maturidade de ética em IA — mencionada na seção anterior — é um passo ambicioso e necessário. Tal modelo poderia integrar aspectos éticos ao design e ao fluxo de processos de IA, oferecendo uma estrutura prática para avaliação e melhoria contínua."
         ],
         "bullets": [],
-        "pullquote": {
-          "text": "O desenvolvimento de um modelo de maturidade de ética de IA permitiria que organizações avaliem seu nível atual e identifiquem caminhos de melhoria progressiva.",
-          "cite": "Trabalho futuro"
-        },
+        "pullquote": null,
         "terms": [
-          "stakeholders",
-          "agenda para ação",
-          "colaboração multidisciplinar",
-          "modelo de maturidade"
+          "validade de construto",
+          "generalização",
+          "pilotagem",
+          "investigação empírica"
         ]
       }
     ],
-    "drop_cap_paragraph": "Imagine que você está prestes a solicitar um empréstimo bancário. O sistema automatizado analisa milhares de variáveis — sua renda, histórico de crédito, padrões de consumo — e, em segundos, retorna uma resposta: \"Negado\". Você pergunta o porquê, mas ninguém consegue explicar. O algoritmo decidiu, e sua lógica permanece opaca, mesmo para os engenheiros que o construíram. Agora imagine que esse mesmo sistema, treinado com dados históricos enviesados, sistematicamente rejeita pedidos de pessoas de determinados bairros ou gêneros, perpetuando desigualdades sem que ninguém perceba — até que seja tarde demais. Esse cenário não é ficção: em 2018, a Amazon descobriu que seu sistema de recrutamento baseado em inteligência artificial discriminava candidatas mulheres, porque havia sido treinado com currículos predominantemente masculinos. À medida que a IA se infiltra em decisões críticas — da saúde à justiça criminal, da educação ao mercado de trabalho —, a pergunta que ecoa é: como garantir que essas tecnologias sirvam ao bem-estar coletivo, em vez de amplificar injustiças? É nesse contexto que a ética de IA emerge não como um luxo filosófico, mas como uma necessidade urgente para profissionais, legisladores e sociedade.",
-    "closing_paragraph": "A jornada da ética de IA está apenas começando. Este estudo empírico oferece um mapa inicial do território — identificando os princípios mais valorizados, os desafios mais urgentes, e as áreas de convergência e divergência entre aqueles que constroem e aqueles que regulam sistemas de IA. Mas mapas não substituem a viagem. A verdadeira transformação exigirá esforço sustentado de múltiplos atores: educadores reformando currículos para incluir ética como componente central da formação técnica; pesquisadores desenvolvendo ferramentas práticas e contextualizadas; empresas investindo em processos que tornem considerações éticas parte integral do desenvolvimento; legisladores criando frameworks que protejam sem sufocar inovação; e sociedade civil mantendo vigilância crítica. A boa notícia é que existe consenso sobre o que importa e consciência crescente dos obstáculos. A questão agora é se teremos a vontade coletiva de transformar esse conhecimento em ação — antes que o próximo escândalo algorítmico nos force a fazê-lo."
+    "drop_cap_paragraph": "Imagine uma candidata qualificada, com anos de experiência e formação sólida, sendo rejeitada por um sistema de recrutamento automatizado — não por falta de competência, mas porque o algoritmo aprendeu, a partir de dados históricos, que homens eram mais frequentemente contratados no passado. Esse cenário não é ficção: aconteceu na Amazon, que em 2018 descartou um sistema de IA que discriminava sistematicamente mulheres. A cena ilustra um dilema que se tornou urgente à medida que a inteligência artificial se expande por setores como saúde, bancos, agricultura e manufatura: como garantir que sistemas cada vez mais autônomos e opacos respeitem valores humanos fundamentais? A promessa de eficiência e inovação vem acompanhada de riscos éticos concretos — viés, invasão de privacidade, falta de transparência — que exigem mais do que boas intenções. Exigem princípios claros, práticas verificáveis e, sobretudo, um entendimento compartilhado entre quem desenvolve a tecnologia e quem legisla sobre ela.",
+    "closing_paragraph": "O estudo de Khan e colegas nos oferece um mapa valioso: sabemos quais princípios importam, quais desafios são mais comuns e quais têm impacto mais severo. Sabemos também que profissionais e legisladores, apesar de diferenças pontuais, compartilham uma visão convergente sobre o que está em jogo. Mas o mapa não é o território. Entre o reconhecimento de que transparência, accountability e privacidade são essenciais e a implementação efetiva desses princípios em sistemas reais, há um abismo — feito de conflitos práticos, falta de conhecimento, ausência de leis e escassez de fiscalização. Preencher esse abismo exige mais do que diretrizes abstratas; exige ferramentas concretas, colaboração multidisciplinar e, sobretudo, a coragem de fazer escolhas difíceis em contextos ambíguos. A ética em IA não é um destino, mas um processo contínuo de tradução, negociação e aprendizado coletivo."
   },
   "workshop": {
-    "title": "Ética de IA na Prática: Do Princípio ao Conflito Real",
-    "framing": "Ciclo de Kolb adaptado para ética aplicada: experiência concreta (cenário-dilema) → observação reflexiva (mapeamento de tensões) → conceituação abstrata (princípios e desafios do artigo) → experimentação ativa (proposta de operacionalização contextualizada)",
+    "title": "Ética em IA: Da Abstração à Prática — Navegando Conflitos entre Princípios",
+    "framing": "Ciclo de Kolb adaptado: experiência concreta (aplicação de princípios a cenários reais) → observação reflexiva (análise de conflitos e severidade) → conceituação abstrata (mapeamento de desafios sistêmicos) → experimentação ativa (proposição de soluções contextualizadas)",
     "duration_minutes": 75,
     "participant_track": {
       "steps": [
         {
-          "phase": "Preparação assíncrona",
-          "instruction": "Antes da sessão, leia o resumo executivo do artigo (fornecido) e identifique pelo menos três princípios de ética de IA mencionados. Anote uma situação real ou hipotética em que você imagina que dois desses princípios entrem em conflito.",
-          "self_check_prompt": "Você consegue explicar em uma frase por que esses dois princípios podem ser incompatíveis em um contexto específico?"
+          "phase": "Ancoragem: Mapeamento de Princípios",
+          "instruction": "Acesse o quadro colaborativo (Miro/Jamboard) e posicione-se em um dos três princípios mais críticos segundo o estudo: Transparência, Accountability ou Privacidade. Escreva em um post-it digital uma situação real ou hipotética de IA onde esse princípio foi violado ou está em risco.",
+          "self_check_prompt": "Você consegue explicar por que o princípio escolhido é relevante para o cenário que você descreveu? Que stakeholders são afetados?"
         },
         {
-          "phase": "Experiência concreta (15 min)",
-          "instruction": "Você receberá um cenário-dilema de IA (ex.: sistema de crédito, recrutamento automatizado, diagnóstico médico). Em breakout room com 3-4 colegas, identifique quais princípios de ética de IA (transparência, accountability, privacidade, fairness, autonomia, explainability) estão em jogo e onde eles entram em conflito. Registre no Jamboard/Miro compartilhado da sua sala.",
-          "self_check_prompt": "Você consegue nomear pelo menos dois princípios que competem entre si neste cenário e explicar a natureza do trade-off?"
+          "phase": "Experiência Concreta: Dilema de Conflito",
+          "instruction": "Em breakout rooms (3-4 pessoas), receba um cenário de conflito entre dois princípios éticos (ex: Transparência vs. Privacidade em diagnóstico médico por IA). Discuta com seu grupo: qual princípio deve prevalecer? Por quê? Que trade-offs são aceitáveis? Documente a decisão do grupo em 2-3 frases no documento compartilhado.",
+          "self_check_prompt": "Você identificou pelo menos dois stakeholders com interesses conflitantes neste cenário? Sua decisão considerou impactos de curto e longo prazo?"
         },
         {
-          "phase": "Observação reflexiva (10 min)",
-          "instruction": "Retorne à sessão plenária. Observe os mapas de tensões criados por outros grupos no quadro compartilhado. Vote (usando reações/emojis) nos conflitos que você considera mais difíceis de resolver na prática.",
-          "self_check_prompt": "Você identificou padrões comuns entre os conflitos mapeados pelos diferentes grupos?"
+          "phase": "Observação Reflexiva: Análise de Severidade",
+          "instruction": "Retorne à sessão plenária. Observe a apresentação rápida (2 min) de cada grupo. No chat ou em formulário rápido, classifique os desafios que você ouviu usando as categorias do artigo: 'conflito na prática', 'falta de conhecimento ético', 'ausência de frameworks legais', 'falta de órgãos de monitoramento'. Indique se o impacto é de curto ou longo prazo.",
+          "self_check_prompt": "Você consegue distinguir entre um desafio de conhecimento (educacional) e um desafio estrutural (sistêmico)? Qual tipo de desafio predominou nos cenários apresentados?"
         },
         {
-          "phase": "Conceituação abstrata (20 min)",
-          "instruction": "Acompanhe a apresentação facilitada sobre os achados do artigo: os três princípios mais críticos (transparência, accountability, privacidade), os três desafios mais comuns (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento) e o desafio mais severo (conflito na prática). Relacione esses achados empíricos com os conflitos que seu grupo mapeou. Anote no chat ou documento colaborativo: qual desafio do artigo explica melhor a dificuldade do seu cenário?",
-          "self_check_prompt": "Você consegue conectar pelo menos um desafio identificado no artigo com o dilema que seu grupo trabalhou?"
+          "phase": "Conceituação Abstrata: Mapeamento Sistêmico",
+          "instruction": "Participe da construção coletiva de um mapa de impacto no quadro colaborativo. Conecte os desafios identificados aos princípios afetados, usando as cores: vermelho (impacto severo de longo prazo), amarelo (impacto moderado), verde (impacto de curto prazo/mitigável). Adicione uma seta ou comentário indicando quem deveria liderar a solução: indústria, legisladores ou colaboração multistakeholder.",
+          "self_check_prompt": "Você consegue identificar pelo menos um desafio que afeta múltiplos princípios simultaneamente? Por que esse tipo de desafio é mais difícil de resolver?"
         },
         {
-          "phase": "Experimentação ativa (25 min)",
-          "instruction": "Retorne ao breakout room. Agora, usando o framework ART (Accountability, Responsibility, Transparency) mencionado no artigo, proponha uma solução operacional para o cenário do seu grupo: (1) Quem é accountable? (2) Como garantir transparência contextualizada (não apenas técnica)? (3) Que mecanismo de monitoramento seria viável? Prepare uma proposta de 2 minutos para apresentar na plenária. Use o template fornecido no Miro.",
-          "self_check_prompt": "Sua proposta especifica atores, processos e critérios de verificação concretos, ou ainda está em linguagem genérica?"
+          "phase": "Experimentação Ativa: Proposição de Soluções",
+          "instruction": "Em novos breakout rooms (misturando participantes), escolha um dos desafios mais severos identificados (ex: 'conflito na prática'). Proponha uma solução contextualizada para o cenário do seu grupo anterior: pode ser um processo, checklist, papel organizacional, mecanismo de governança, etc. Prepare uma apresentação de 1 minuto (3 slides máximo) descrevendo: (1) o desafio, (2) a solução proposta, (3) quem implementa e como medir sucesso.",
+          "self_check_prompt": "Sua solução é concreta o suficiente para ser implementada na próxima semana? Ela aborda a causa raiz do desafio ou apenas os sintomas?"
         },
         {
-          "phase": "Consolidação (5 min)",
-          "instruction": "Após ouvir as propostas dos outros grupos, responda individualmente (em formulário ou documento pessoal) às perguntas de reflexão final. Compartilhe voluntariamente uma insight no chat.",
-          "self_check_prompt": "Você consegue articular pelo menos uma mudança de perspectiva que teve durante a sessão?"
+          "phase": "Consolidação: Galeria de Soluções",
+          "instruction": "Apresente sua solução em 1 minuto. Após todas as apresentações, vote nas três soluções mais viáveis/impactantes usando reações ou poll. Reflita individualmente: qual solução você levaria para sua organização/contexto? Que adaptações seriam necessárias?",
+          "self_check_prompt": "Você consegue articular a diferença entre uma diretriz ética abstrata (ex: 'seja transparente') e uma prática operacional concreta (ex: 'publique relatórios de auditoria de modelo trimestralmente')?"
         }
       ],
       "materials_needed": [
-        "Acesso à videoconferência (Zoom, Teams, Google Meet) com capacidade de breakout rooms",
-        "Resumo executivo do artigo (1 página, fornecido previamente)",
-        "Quadro colaborativo online (Miro, Jamboard, Mural) com template de mapeamento de tensões",
-        "Template de proposta operacional (framework ART) no quadro colaborativo",
-        "Documento ou formulário para reflexões individuais",
-        "Slides da apresentação sobre achados do artigo (fornecidos pelo facilitador)",
-        "Cenários-dilema impressos ou em PDF (um por breakout room)"
+        "Acesso estável à videoconferência (Zoom, Google Meet, MS Teams)",
+        "Quadro colaborativo digital (Miro, Mural, Jamboard ou FigJam) com template pré-configurado",
+        "Documento colaborativo (Google Docs ou Notion) para registro de decisões",
+        "Cópia do resumo executivo do artigo (1 página, enviado 24h antes)",
+        "Cenários de conflito ético impressos ou em PDF (fornecidos pelo facilitador)",
+        "Papel e caneta para anotações pessoais (opcional)"
       ],
       "reflection_questions": [
-        "Qual princípio de ética de IA você considerava mais importante antes da sessão, e sua percepção mudou? Por quê?",
-        "Dos três desafios mais comuns identificados no artigo (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento), qual você acredita ser o mais urgente de resolver no seu contexto profissional ou de estudo?",
-        "O artigo mostra que 'conflito na prática' é o desafio mais severo. Após a dinâmica, você consegue identificar uma estratégia concreta para lidar com conflitos entre princípios éticos em projetos de IA?",
-        "As percepções de profissionais de IA e legisladores são correlacionadas, mas diferem em alguns pontos (ex.: fairness, órgãos de monitoramento). Como você explicaria essas diferenças, e o que isso sugere sobre colaboração interdisciplinar?",
-        "Se você fosse propor uma diretriz de ética de IA para o seu domínio específico (saúde, finanças, educação, etc.), qual seria o primeiro passo prático que você tomaria para evitar que ela fique apenas no papel?"
+        "Qual foi o momento em que você percebeu que dois princípios éticos que você valoriza entraram em conflito? Como você se sentiu ao ter que escolher?",
+        "Dos desafios identificados no artigo (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento, conflito na prática), qual você considera mais urgente no seu contexto de trabalho/estudo? Por quê?",
+        "As soluções propostas pelos grupos tenderam mais para mudanças técnicas, organizacionais ou regulatórias? O que isso revela sobre as percepções do grupo?",
+        "O artigo mostra que profissionais e legisladores têm percepções correlacionadas, mas diferem em alguns princípios (ex: fairness, freedom). Como essas diferenças apareceram nas discussões do workshop?",
+        "Se você fosse desenhar um 'modelo de maturidade de ética em IA' para sua organização, quais seriam os três primeiros passos concretos? Que resistências você antecipa?"
       ]
     },
     "facilitator_track": {
       "script": [
         {
           "time_marker": "0–5 min",
-          "activity": "Abertura e contextualização: boas-vindas, verificação de materiais, apresentação do objetivo da sessão (consolidar aprendizado do artigo através de aplicação prática) e do enquadramento pedagógico (Kolb adaptado). Explicar que vamos vivenciar conflitos éticos reais antes de revisitar os achados do artigo.",
-          "facilitator_notes": "Verifique que todos têm acesso ao quadro colaborativo e aos breakout rooms. Reforce que não há 'resposta certa' nos dilemas éticos, o objetivo é exercitar o raciocínio contextualizado. Erro comum: participantes esperarem uma 'solução definitiva' — esclareça que o foco é o processo de análise.",
+          "activity": "Abertura e contextualização: apresentação do objetivo do workshop, enquadramento pedagógico (Kolb) e visão geral do artigo (problema, método, achados-chave). Poll rápido: 'Você já trabalhou ou estudou ética em IA?' (Sim/Não/Um pouco).",
+          "facilitator_notes": "Mantenha a introdução enxuta. Enfatize que o workshop NÃO é sobre recitar princípios, mas sobre aplicá-los em conflito. Compartilhe tela com slide visual dos 3 princípios mais críticos (Transparência 77,8%, Accountability 71,7%, Privacidade 69,7%) e 3 desafios mais comuns (Falta conhecimento ético 81,8%, Sem frameworks legais 69,7%, Sem órgãos monitoramento 68,7%). Observe a distribuição do poll para calibrar o nível de profundidade.",
           "discussion_prompts": [
-            "Quantos de vocês já trabalharam ou estudaram um caso real de falha ética em IA?",
-            "O que vocês esperam aprender hoje sobre a distância entre princípios éticos e prática?"
+            "Quantos de vocês já vivenciaram um dilema ético envolvendo IA no trabalho ou estudo?",
+            "O que vocês acham que significa 'conflito na prática' quando falamos de ética em IA?"
           ]
         },
         {
-          "time_marker": "5–20 min",
-          "activity": "Experiência concreta: distribuir participantes em breakout rooms (3-4 pessoas). Cada sala recebe um cenário-dilema diferente (ex.: sistema de crédito que maximiza lucro vs. fairness; diagnóstico médico que prioriza acurácia vs. explainability para pacientes; recrutamento que otimiza eficiência vs. transparência). Grupos mapeiam princípios em conflito no Miro/Jamboard.",
-          "facilitator_notes": "Circule pelas salas (ou monitore o quadro colaborativo) para garantir que os grupos estão identificando conflitos reais, não apenas listando princípios. Incentive especificidade: 'Como exatamente a transparência prejudica a privacidade NESTE caso?' Erro comum: grupos ficam muito abstratos ou filosóficos — traga de volta ao cenário concreto. Tenha cenários extras caso algum grupo termine rápido.",
+          "time_marker": "5–12 min",
+          "activity": "Fase 1 – Ancoragem: Mapeamento de Princípios. Participantes acessam quadro colaborativo e postam cenários reais/hipotéticos de violação de princípios. Facilitador circula pelo quadro, agrupa post-its por tema, faz perguntas de clarificação no chat.",
+          "facilitator_notes": "Prepare o quadro com três colunas: Transparência, Accountability, Privacidade. Se houver silêncio inicial, compartilhe um exemplo: 'Sistema de crédito que rejeita pedidos sem explicação — qual princípio?' Erros comuns: participantes confundem princípios (ex: explicabilidade vs. transparência); esclareça que transparência é sobre processo/dados, explicabilidade é sobre decisões do modelo. Observe se algum princípio fica vazio; redistribua participantes se necessário.",
           "discussion_prompts": [
-            "(Nas salas) Quais stakeholders são afetados por cada lado deste conflito?",
-            "(Nas salas) Se você tivesse que escolher um princípio para priorizar, qual seria e por quê?"
+            "Alguém postou um cenário onde MAIS de um princípio foi violado? Compartilhe no chat.",
+            "Olhando para os cenários postados, quais setores/domínios aparecem mais? Saúde? Finanças? RH?"
           ]
         },
         {
-          "time_marker": "20–30 min",
-          "activity": "Observação reflexiva: retorno à plenária. Cada grupo compartilha brevemente (1 min) o conflito principal que identificou. Facilitador organiza os conflitos no quadro em clusters (ex.: 'privacidade vs. transparência', 'fairness vs. eficiência', 'autonomia vs. accountability'). Participantes votam nos conflitos mais desafiadores.",
-          "facilitator_notes": "Use a votação para engajar todos, não apenas quem fala. Destaque padrões: 'Notem que três grupos identificaram tensão entre transparência e privacidade — isso é recorrente na literatura'. Erro comum: deixar a discussão se estender demais — seja firme com o tempo de 1 min por grupo. Prepare-se para sintetizar rapidamente os clusters.",
+          "time_marker": "12–30 min",
+          "activity": "Fase 2 – Experiência Concreta: Dilema de Conflito. Dividir em breakout rooms (3-4 pessoas). Cada sala recebe um cenário de conflito entre dois princípios (preparado previamente). Grupos discutem e documentam decisão. Facilitador visita salas, observa dinâmica, faz perguntas provocativas.",
+          "facilitator_notes": "Prepare 5-6 cenários variados: (1) Transparência vs. Privacidade (modelo médico: explicar decisão expõe dados sensíveis); (2) Accountability vs. Autonomia (quem é responsável quando IA autônoma erra?); (3) Fairness vs. Eficiência (modelo justo é menos preciso); (4) Explicabilidade vs. Performance (modelo interpretável tem menor acurácia); (5) Privacidade vs. Segurança (monitoramento para prevenir fraude). Distribua cenários diferentes para cada sala. Ao visitar salas, observe: grupos estão polarizados ou buscando síntese? Alguém domina a conversa? Incentive vozes quietas: 'Fulano, você concorda com essa solução?' Erros comuns: grupos tentam 'ter tudo' sem reconhecer trade-offs; provoque: 'E se você TIVER que escolher um princípio como prioritário?'",
           "discussion_prompts": [
-            "Alguém ficou surpreso com algum conflito mapeado por outro grupo?",
-            "Vocês acham que esses conflitos são universais ou dependem do contexto cultural/legal?"
+            "Que stakeholders seriam mais prejudicados pela decisão que vocês estão tomando?",
+            "Existe uma solução técnica (ex: privacidade diferencial, federated learning) que poderia reduzir o conflito?",
+            "Se vocês fossem legisladores, criariam uma regra geral ou deixariam caso a caso?"
           ]
         },
         {
-          "time_marker": "30–50 min",
-          "activity": "Conceituação abstrata: apresentação facilitada (10-12 slides) sobre os achados do artigo. Estrutura sugerida: (1) Metodologia (survey com 99 profissionais e legisladores, 20 países); (2) Top 3 princípios críticos (transparência, accountability, privacidade); (3) Top 3 desafios comuns (falta de conhecimento ético, ausência de frameworks legais, falta de órgãos de monitoramento); (4) Desafio mais severo: conflito na prática; (5) Diferenças entre profissionais e legisladores. Após cada seção, pausar para perguntas e pedir que participantes anotem conexões com seus cenários no chat/documento colaborativo.",
-          "facilitator_notes": "Esta é a 'ponte' entre experiência e experimentação. Não faça uma palestra passiva — intercale com perguntas ao grupo ('Vocês viram isso no cenário de vocês?'). Destaque a Figura/Tabela do artigo que mostra ranking de princípios e desafios. Erro comum: sobrecarregar com detalhes metodológicos — foque nos achados práticos. Reserve 2-3 min para perguntas de esclarecimento.",
+          "time_marker": "30–42 min",
+          "activity": "Fase 3 – Observação Reflexiva: Análise de Severidade. Retorno à plenária. Cada grupo apresenta decisão em 2 min (use timer visível). Facilitador anota no quadro os desafios implícitos. Participantes classificam desafios via chat/poll usando categorias do artigo.",
+          "facilitator_notes": "Use timer rigoroso (2 min) para manter ritmo. Após cada apresentação, pergunte à plenária: 'Que desafio do artigo vocês veem aqui?' Anote no quadro. Prepare poll com 4 opções: (A) Conflito na prática, (B) Falta conhecimento ético, (C) Sem frameworks legais, (D) Sem órgãos monitoramento. Após poll, mostre resultado e conecte com dados do artigo: 'Conflito na prática tem impacto de longo prazo >60%; falta de conhecimento tem impacto de curto prazo 28%'. Erros comuns: participantes focam em soluções técnicas e ignoram desafios sistêmicos; redirecione: 'Essa solução resolve o conflito ou apenas o esconde?' Observe se grupos reconhecem que alguns conflitos são inerentes (não há solução perfeita).",
           "discussion_prompts": [
-            "O ranking de princípios do artigo (transparência, accountability, privacidade no topo) corresponde ao que vocês esperavam?",
-            "Por que vocês acham que 'conflito na prática' foi identificado como o desafio mais severo?",
-            "As diferenças entre profissionais e legisladores (ex.: sobre fairness) fazem sentido para vocês? O que isso revela?"
+            "Quantos grupos escolheram priorizar o mesmo princípio? O que isso revela sobre nossos valores compartilhados?",
+            "Alguém mudou de opinião ao ouvir a decisão de outro grupo? Por quê?",
+            "Os desafios que identificamos são mais técnicos, organizacionais ou sociais?"
           ]
         },
         {
-          "time_marker": "50–70 min",
-          "activity": "Experimentação ativa: retorno aos breakout rooms. Grupos agora propõem solução operacional para o cenário inicial, usando o framework ART (Accountability, Responsibility, Transparency). Template no Miro guia: (1) Quem é accountable (pessoa/papel específico)? (2) Como operacionalizar transparência (que informação, para quem, em que formato)? (3) Mecanismo de monitoramento (quem verifica, com que frequência, que critérios). Grupos preparam apresentação de 2 min. Facilitador visita salas para coaching.",
-          "facilitator_notes": "Este é o momento de maior aprendizado — pressione por especificidade. 'Quem exatamente é accountable? O CEO? O engenheiro de ML? Um comitê?' 'Transparência para quem — usuários finais, auditores, reguladores?' Erro comum: propostas genéricas ('precisamos de mais transparência') — desafie: 'Como você mediria se isso está funcionando?' Incentive criatividade, mas ancorada no artigo.",
+          "time_marker": "42–55 min",
+          "activity": "Fase 4 – Conceituação Abstrata: Mapeamento Sistêmico. Construção coletiva de mapa de impacto no quadro. Facilitador guia a conexão entre desafios e princípios, usando código de cores (vermelho/amarelo/verde). Participantes adicionam setas indicando quem lidera solução (indústria/legisladores/multistakeholder).",
+          "facilitator_notes": "Prepare template de mapa: eixo vertical = princípios (Transparência, Accountability, Privacidade, Fairness, Autonomia, Explicabilidade); eixo horizontal = desafios. Use formas geométricas coloridas para indicar severidade. Comece com um exemplo: 'Conflito na prática afeta Privacidade com severidade alta (vermelho) — quem deve liderar? Indústria sozinha consegue?' Incentive debate: artigo mostra que profissionais e legisladores têm percepções correlacionadas (rs=0,819), mas diferem em fairness e freedom. Pergunte: 'Por que legisladores valorizam fairness mais que profissionais?' Erros comuns: mapa fica caótico; limite a 3-4 conexões principais. Observe padrões: desafios estruturais (sem frameworks legais) afetam múltiplos princípios; desafios de conhecimento são mais localizados.",
           "discussion_prompts": [
-            "(Nas salas) Sua proposta resolve o conflito ou faz um trade-off explícito? Ambos são válidos, mas sejam claros.",
-            "(Nas salas) Se vocês fossem implementar isso amanhã, qual seria o primeiro obstáculo prático?"
+            "Que desafio aparece conectado a MAIS princípios? Por que ele é tão transversal?",
+            "Olhando para as setas, há consenso sobre quem deve liderar? Ou há divergência?",
+            "O artigo menciona que 77% das organizações dos respondentes consideram aspectos éticos, mas conflitos persistem. O que está faltando?"
           ]
         },
         {
-          "time_marker": "70–75 min",
-          "activity": "Consolidação e debrief: cada grupo apresenta proposta (2 min cada, máximo 3-4 grupos se o tempo permitir; demais compartilham no chat ou quadro). Facilitador destaca elementos comuns e inovadores. Participantes respondem individualmente às perguntas de reflexão final. Encerramento: facilitador resume a jornada (do conflito concreto aos princípios do artigo, de volta à operacionalização) e convida compartilhamento voluntário de insights no chat. Agradecer e indicar recursos para aprofundamento (ex.: diretrizes AI HLEG, IEEE EAD).",
-          "facilitator_notes": "Gerencie o tempo rigorosamente — se necessário, peça que apenas 2 grupos apresentem e os demais postem no quadro. Celebre a diversidade de abordagens. Erro comum: não deixar tempo para reflexão individual — ela é essencial para consolidação. Termine com nota inspiradora: 'Vocês experimentaram hoje o que o artigo chama de conflito na prática, e propuseram soluções que vão além das diretrizes genéricas'.",
+          "time_marker": "55–68 min",
+          "activity": "Fase 5 – Experimentação Ativa: Proposição de Soluções. Novos breakout rooms (misturar participantes). Grupos escolhem um desafio severo e propõem solução contextualizada (processo, checklist, papel, governança). Preparam apresentação de 1 min (3 slides). Facilitador visita salas, desafia soluções genéricas.",
+          "facilitator_notes": "Ao formar novas salas, misture perfis (se possível, junte quem priorizou princípios diferentes na Fase 2). Instrução clara: 'Solução deve ser implementável na próxima semana, não daqui a 5 anos'. Ao visitar salas, pergunte: 'Como vocês mediriam se essa solução funcionou?' 'Que recursos (tempo, dinheiro, pessoas) são necessários?' Erros comuns: soluções vagas ('criar uma cultura ética'); provoque: 'O que significa CONCRETAMENTE criar cultura ética? Treinamento? Comitê? Incentivos?' Observe criatividade: grupos propõem soluções técnicas (ferramentas de auditoria), organizacionais (papel de Ethics Officer), regulatórias (certificação)? Incentive diversidade. Prepare template de slide com 3 seções: (1) Desafio, (2) Solução, (3) Implementação & Métricas.",
           "discussion_prompts": [
-            "Qual proposta de outro grupo vocês acharam mais viável ou inovadora?",
-            "Depois desta sessão, o que vocês fariam diferente ao avaliar um sistema de IA sob a ótica ética?",
-            "Alguém quer compartilhar uma mudança de perspectiva que teve hoje?"
+            "Sua solução endereça a causa raiz ou apenas os sintomas?",
+            "Se você implementasse isso amanhã, que resistências encontraria? De quem?",
+            "Essa solução funciona para qualquer domínio (saúde, finanças, RH) ou é específica?"
+          ]
+        },
+        {
+          "time_marker": "68–75 min",
+          "activity": "Fase 6 – Consolidação: Galeria de Soluções e Fechamento. Grupos apresentam soluções (1 min cada). Votação nas 3 mais viáveis/impactantes. Facilitador sintetiza padrões, conecta com achados do artigo (conflito na prática é desafio mais severo; percepções de profissionais e legisladores correlacionadas). Reflexão individual silenciosa (1 min): 'Que solução você levaria para seu contexto?' Encerramento com pergunta provocativa do artigo.",
+          "facilitator_notes": "Use timer rigoroso (1 min). Após apresentações, lance votação rápida (poll ou reações). Ao sintetizar, destaque: (1) Diversidade de soluções (técnicas, organizacionais, regulatórias) reflete complexidade do problema; (2) Soluções multistakeholder apareceram? Isso alinha com implicação do artigo; (3) Tensão entre soluções de curto prazo (treinamento) e longo prazo (frameworks legais). Conecte com trabalho futuro do artigo: modelo de maturidade de ética em IA. Pergunte: 'Se vocês fossem desenhar esse modelo, que níveis teria? (ex: Nível 1 = Conscientização, Nível 2 = Políticas, Nível 3 = Processos, Nível 4 = Auditoria, Nível 5 = Melhoria contínua)'. Encerre com pergunta do artigo: 'Quem deve liderar a tradução de princípios abstratos em práticas concretas?' Agradeça, compartilhe perguntas de reflexão para trabalho assíncrono.",
+          "discussion_prompts": [
+            "Que padrões vocês veem nas soluções mais votadas? São mais técnicas ou organizacionais?",
+            "O artigo mostra que legisladores e profissionais concordam em 81,9% (correlação de Spearman). Nossas discussões refletiram consenso ou divergência?",
+            "Se vocês tivessem que implementar UMA solução amanhã, qual seria? Por quê?"
           ]
         }
       ],
       "timing_table": {
-        "caption": "Cronograma da sessão: Ética de IA na Prática",
+        "caption": "Estrutura temporal do workshop: da experiência concreta à experimentação ativa",
         "columns": [
           "Tempo",
           "Atividade",
-          "Objetivo pedagógico"
+          "Objetivo Pedagógico"
         ],
         "rows": [
           [
             "0–5 min",
             "Abertura e contextualização",
-            "Alinhar expectativas, apresentar enquadramento Kolb"
+            "Ancorar conhecimento prévio; apresentar dados empíricos do artigo"
           ],
           [
-            "5–20 min",
-            "Experiência concreta (breakout rooms)",
-            "Vivenciar conflitos éticos em cenários reais (experiência concreta)"
+            "5–12 min",
+            "Mapeamento de Princípios (individual + plenária)",
+            "Experiência concreta: conectar princípios a cenários reais"
           ],
           [
-            "20–30 min",
-            "Observação reflexiva (plenária)",
-            "Identificar padrões nos conflitos mapeados (observação reflexiva)"
+            "12–30 min",
+            "Dilema de Conflito (breakout rooms)",
+            "Experiência concreta: vivenciar trade-offs entre princípios"
           ],
           [
-            "30–50 min",
-            "Conceituação abstrata (apresentação)",
-            "Conectar experiência aos achados empíricos do artigo (conceituação abstrata)"
+            "30–42 min",
+            "Análise de Severidade (plenária)",
+            "Observação reflexiva: identificar desafios sistêmicos e impactos"
           ],
           [
-            "50–70 min",
-            "Experimentação ativa (breakout rooms)",
-            "Propor soluções operacionais usando framework ART (experimentação ativa)"
+            "42–55 min",
+            "Mapeamento Sistêmico (colaborativo)",
+            "Conceituação abstrata: construir modelo mental de interdependências"
           ],
           [
-            "70–75 min",
-            "Consolidação e debrief (plenária)",
-            "Sintetizar aprendizados, reflexão individual, encerramento"
+            "55–68 min",
+            "Proposição de Soluções (breakout rooms)",
+            "Experimentação ativa: traduzir princípios em práticas operacionais"
+          ],
+          [
+            "68–75 min",
+            "Galeria de Soluções e Fechamento",
+            "Consolidação: sintetizar aprendizados, votar em soluções viáveis"
           ]
         ]
       },
       "debrief_structure": [
-        "Apresentação rápida de propostas operacionais (2 min por grupo, máximo 3-4 grupos; demais postam no quadro colaborativo)",
-        "Facilitador destaca elementos comuns entre as propostas (ex.: necessidade de comitês multidisciplinares, transparência em camadas, auditoria contínua)",
-        "Facilitador destaca elementos inovadores ou divergentes (ex.: abordagens específicas de domínio, trade-offs explícitos)",
-        "Participantes respondem individualmente às 5 perguntas de reflexão final (3 min, em silêncio, em formulário ou documento pessoal)",
-        "Convite para compartilhamento voluntário de insights no chat (1-2 min)",
-        "Síntese final do facilitador: recapitular a jornada Kolb (do conflito concreto aos princípios, de volta à operacionalização) e reforçar a mensagem central do artigo (princípios são críticos, mas conflito na prática é o desafio mais severo — soluções exigem contextualização)",
-        "Indicação de recursos para aprofundamento (diretrizes AI HLEG, IEEE EAD, artigos sobre operacionalização de ética de IA) e agradecimento"
+        "Síntese de padrões: facilitador destaca temas recorrentes nas soluções (ex: predominância de soluções organizacionais vs. técnicas vs. regulatórias)",
+        "Conexão com dados do artigo: relembrar que conflito na prática tem impacto de longo prazo >60%; falta de conhecimento ético tem impacto de curto prazo 28%; percepções de profissionais e legisladores são correlacionadas (rs=0,819)",
+        "Reflexão sobre divergências: explorar momentos em que o grupo divergiu (ex: priorização de princípios, escolha de quem lidera soluções) e conectar com achados do artigo sobre diferenças entre profissionais e legisladores (fairness, freedom, órgãos de monitoramento)",
+        "Provocação final: lançar a pergunta de fechamento do artigo — 'Quem deve liderar a tradução de princípios abstratos em práticas concretas: indústria, reguladores ou colaboração multistakeholder?' — e coletar respostas rápidas no chat",
+        "Encaminhamentos: compartilhar perguntas de reflexão para trabalho assíncrono; sugerir leitura complementar (frameworks ECCOLA, AI4People, IEEE EAD mencionados no artigo); convidar para sessão futura sobre modelo de maturidade de ética em IA"
       ],
-      "consolidation_goal": "Consolidação bem-sucedida significa que cada participante é capaz de: (1) identificar e nomear pelo menos três princípios de ética de IA e explicar como eles podem entrar em conflito em um contexto específico; (2) conectar os desafios empíricos do artigo (especialmente 'conflito na prática') a situações concretas; (3) propor pelo menos um elemento operacional (quem, como, quando) para implementar um princípio ético em um cenário real, reconhecendo trade-offs inevitáveis; e (4) articular a diferença entre diretrizes genéricas e soluções contextualizadas, demonstrando pensamento crítico sobre a lacuna entre teoria e prática em ética de IA."
+      "consolidation_goal": "Consolidação bem-sucedida significa que cada participante sai capaz de: (1) distinguir entre princípios éticos abstratos e práticas operacionais concretas; (2) identificar pelo menos dois desafios sistêmicos que dificultam a adoção de ética em IA (especialmente conflito na prática); (3) articular um trade-off real entre dois princípios em um cenário específico; (4) propor uma solução contextualizada (processo, papel, ferramenta, governança) para um desafio de severidade alta; (5) reconhecer que a tradução de princípios em prática requer colaboração multistakeholder (profissionais, legisladores, sociedade civil)."
     }
   },
   "seo_pages": [
     {
       "page_kind": "article",
       "title": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
-      "description": "Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. A análise de impacto mostra que conflito na prática é o desafio mais severo, evidenciando a lacuna entre diretrizes abstratas e implementação contextualizada de sistemas de IA éticos e confiáveis.",
+      "description": "Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos em IA. Falta de conhecimento ético, ausência de frameworks legais e órgãos de monitoramento são os desafios mais comuns, enquanto conflito na prática emerge como o desafio mais severo de longo prazo.",
       "keywords": [
         "AI ethics",
-        "ética de IA",
+        "ética em IA",
+        "AI ethics principles",
+        "princípios éticos",
         "transparency",
         "transparência",
         "accountability",
@@ -1100,23 +1291,22 @@
         "fairness",
         "explainability",
         "trustworthy AI",
-        "AI ethics principles",
-        "princípios éticos",
+        "IA confiável",
+        "ethically aligned design",
+        "EAD",
         "lack of ethical knowledge",
         "no legal frameworks",
         "lacking monitoring bodies",
         "conflict in practice",
-        "AI HLEG guidelines",
-        "ethically aligned design",
-        "ART framework",
+        "practitioners vs lawmakers",
         "empirical study",
         "estudo empírico",
-        "practitioners",
-        "lawmakers",
-        "legisladores",
+        "AI HLEG",
+        "ART framework",
         "severity impact",
-        "ethics-on-ai",
-        "computational social systems"
+        "machine ethics",
+        "responsible AI",
+        "IA responsável"
       ],
       "og_type": "article",
       "jsonld_type": "Article",
@@ -1131,8 +1321,8 @@
         "Pekka Abrahamsson"
       ],
       "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/index.html",
-      "published_date": "2023",
-      "modified_date": "2023",
+      "published_date": "2023-12",
+      "modified_date": "2023-12",
       "about": [
         "AI ethics principles",
         "transparency",
@@ -1148,44 +1338,28 @@
     {
       "page_kind": "blog",
       "title": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers",
-      "description": "Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de ética de IA mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e falta de órgãos de monitoramento são os desafios mais comuns. A pesquisa identifica o conflito na prática como o desafio mais severo e analisa diferenças estatísticas entre percepções de practitioners e lawmakers sobre fairness, autonomia e explainability em sistemas de IA confiáveis.",
+      "description": "Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos em IA. Falta de conhecimento ético, ausência de frameworks legais e de órgãos de monitoramento são os desafios mais comuns. Conflito na prática emerge como o desafio mais severo de longo prazo, evidenciando a lacuna entre princípios abstratos e implementação real em sistemas de IA eticamente alinhados.",
       "keywords": [
+        "ética em IA",
         "AI ethics",
-        "ética de IA",
         "AI ethics principles",
-        "princípios de ética",
         "transparency",
-        "transparência",
         "accountability",
         "privacy",
-        "privacidade",
         "fairness",
         "explainability",
         "trustworthy AI",
-        "IA confiável",
-        "ethical knowledge",
-        "conhecimento ético",
-        "legal frameworks",
-        "frameworks legais",
-        "monitoring bodies",
-        "órgãos de monitoramento",
-        "conflict in practice",
-        "conflito na prática",
-        "AI practitioners",
-        "lawmakers",
-        "legisladores",
-        "empirical study",
-        "estudo empírico",
-        "AI HLEG",
         "ethically aligned design",
-        "EAD",
-        "ART framework",
-        "severity impact",
-        "Spearman correlation",
-        "context-aware systems",
-        "sistemas conscientes de contexto",
-        "ethics on ai",
-        "ética em IA"
+        "lack of ethical knowledge",
+        "no legal frameworks",
+        "lacking monitoring bodies",
+        "conflict in practice",
+        "practitioners vs lawmakers",
+        "empirical study",
+        "survey",
+        "sistemas inteligentes",
+        "IA responsável",
+        "viés em IA"
       ],
       "og_type": "article",
       "jsonld_type": "BlogPosting",
@@ -1200,8 +1374,8 @@
         "Pekka Abrahamsson"
       ],
       "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/blog.html",
-      "published_date": "2023",
-      "modified_date": "2023",
+      "published_date": "2023-12",
+      "modified_date": "2023-12",
       "about": [
         "AI ethics principles",
         "transparency",
@@ -1211,37 +1385,33 @@
         "conflict in practice"
       ],
       "article_tags": [
-        "ethics on ai"
+        "ethics-on-ai"
       ]
     },
     {
       "page_kind": "workshop",
-      "title": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers | Workshop CSS3e",
-      "description": "Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios de AI ethics mais críticos, enquanto falta de conhecimento ético, ausência de frameworks legais e carência de órgãos de monitoramento são os desafios mais comuns. Análise de severidade mostra que conflito na prática é o desafio mais impactante para trustworthy AI.",
+      "title": "AI Ethics: An Empirical Study on the Views of Practitioners and Lawmakers | CSS3e Workshop",
+      "description": "Estudo empírico com 99 profissionais de IA e legisladores de 20 países revela que transparência, accountability e privacidade são os princípios éticos mais críticos em IA. Falta de conhecimento ético, ausência de frameworks legais e conflito na prática emergem como desafios severos. Análise comparativa das percepções de practitioners e lawmakers sobre AI ethics principles, challenges e severity impacts.",
       "keywords": [
         "AI ethics",
-        "ética de IA",
+        "ética em IA",
+        "AI ethics principles",
         "transparency",
         "accountability",
         "privacy",
         "fairness",
-        "autonomy",
         "explainability",
         "trustworthy AI",
-        "AI ethics principles",
-        "ethical knowledge",
-        "legal frameworks",
-        "monitoring bodies",
-        "conflict in practice",
-        "AI HLEG guidelines",
         "ethically aligned design",
-        "EAD",
-        "ART framework",
+        "practitioners vs lawmakers",
         "empirical study",
-        "practitioners",
-        "lawmakers",
-        "sistemas sociais computacionais",
-        "inteligência artificial",
+        "falta de conhecimento ético",
+        "frameworks legais",
+        "conflict in practice",
+        "severity impact",
+        "AI HLEG guidelines",
+        "sistemas inteligentes",
+        "responsible AI",
         "machine ethics"
       ],
       "og_type": "article",
@@ -1257,29 +1427,29 @@
         "Pekka Abrahamsson"
       ],
       "canonical_url": "https://ab-orbit.github.io/css3e/articles/ethics-on-ai/ai-ethics-empirical-study/workshop.html",
-      "published_date": "2023",
-      "modified_date": "2023",
+      "published_date": "2023-12",
+      "modified_date": "2023-12",
       "about": [
         "AI ethics principles",
         "transparency",
         "accountability",
         "privacy",
         "lack of ethical knowledge",
-        "trustworthy AI"
+        "conflict in practice"
       ],
       "article_tags": []
     }
   ],
   "downloads": [
     {
-      "title": "Artigo original em PDF",
-      "description": "Estudo empírico completo com survey de 99 profissionais e legisladores de IA sobre princípios éticos (transparência, accountability, privacidade) e desafios de implementação.",
+      "title": "PDF do artigo original",
+      "description": "Estudo empírico completo sobre as percepções de profissionais de IA e legisladores acerca de princípios éticos (transparência, accountability, privacidade) e desafios na adoção de ética em IA.",
       "href": "ai-ethics-empirical-study.pdf",
       "arrow_label": "PDF ↓"
     },
     {
       "title": "Post de blog",
-      "description": "Versão comentada explorando as percepções de profissionais e legisladores sobre ética de IA, os princípios mais críticos e o desafio do conflito na prática.",
+      "description": "Versão em formato de leitura guiada explorando os resultados do survey com 99 participantes de 20 países sobre princípios, desafios e impactos de severidade na ética de IA.",
       "href": "blog.html",
       "arrow_label": "LER →"
     }
@@ -3404,59 +3574,27 @@
     ],
     "relations": [
       {
-        "source_key": "survey instrument",
-        "target_key": "ai ethics principles and challenges",
-        "label": "avalia",
+        "source_key": "ai ethics",
+        "target_key": "ai systems",
+        "label": "aplica-se a",
         "score": 1.0,
-        "quote": "The survey instrument consisted of four core sections: 1) demographics; 2) AI ethics principles; 3) challenges; and 4) challenges impact on principles.",
-        "quote_start": 14805
-      },
-      {
-        "source_key": "ai ethics principles",
-        "target_key": "fairness",
-        "label": "inclui",
-        "score": 1.0,
-        "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
-        "quote_start": 28401
-      },
-      {
-        "source_key": "ai ethics principles",
-        "target_key": "autonomy",
-        "label": "inclui",
-        "score": 1.0,
-        "quote": "the six AI ethics principles (i.e., transparency, privacy, accountability, fairness, autonomy, and explainability).",
-        "quote_start": 28401
-      },
-      {
-        "source_key": "conflict in practice",
-        "target_key": "privacy",
-        "label": "desafia",
-        "score": 1.0,
-        "quote": "Conflict in practice is deemed the most significant chal- lenge to the privacy principle.",
-        "quote_start": 29640
+        "quote": "Generally, AI ethics is classified under the umbrella of applied ethics, which mainly concerns with ethical issues associated with developing and using AI systems.",
+        "quote_start": 9530
       },
       {
         "source_key": "conflict in practice",
         "target_key": "autonomy",
-        "label": "desafia",
+        "label": "impacta",
         "score": 1.0,
-        "quote": "(79%) of the survey respondents considered conflict in practice as the most common (long-term) challenge for autonomy and explainability principles.",
-        "quote_start": 30611
-      },
-      {
-        "source_key": "law",
-        "target_key": "ai ethics",
-        "label": "regula",
-        "score": 1.0,
-        "quote": "The aim of considering this type of population (lawmakers) is to understand the application of the law to AI ethics.",
-        "quote_start": 14051
+        "quote": "Interestingly, (79%) of the survey respondents considered conflict in practice as the most common (long-term) challenge for autonomy and explainability principles.",
+        "quote_start": 30596
       },
       {
         "source_key": "lawmakers",
         "target_key": "fairness",
-        "label": "priorizam",
+        "label": "percebem diferentemente",
         "score": 1.0,
-        "quote": "lawmakers ranked fairness at position five as the most important principle",
+        "quote": "lawmakers ranked fairness at position five as the most important principle; however, the software practitioners placed it at position seven.",
         "quote_start": 33219
       },
       {
@@ -3464,31 +3602,26 @@
         "target_key": "monitoring bodies",
         "label": "necessitam",
         "score": 1.0,
-        "quote": "lacking monitoring bodies is ranked second by the practitioners",
+        "quote": "lacking monitoring bodies is ranked second by the practitioners and fifth by the lawmakers.",
         "quote_start": 35539
       },
       {
-        "source_key": "ai ethics",
-        "target_key": "ethics",
-        "label": "é classificado sob",
+        "source_key": "lawmakers",
+        "target_key": "law",
+        "label": "aplicam",
         "score": 1.0,
-        "quote": "Generally, AI ethics is classified under the umbrella of applied ethics",
-        "quote_start": 9530
-      },
-      {
-        "source_key": "regulatory bodies",
-        "target_key": "ai systems",
-        "label": "regulam",
-        "score": 1.0,
-        "quote": "Extant guide- lines and policies devised by researchers and regulatory bodies discussed different ethical goals for AI systems.",
-        "quote_start": 24760
+        "quote": "The aim of considering this type of population (lawmakers) is to understand the application of the law to AI ethics.",
+        "quote_start": 14051
       }
     ],
     "engine": "gliner=urchade/gliner_multi-v2.1, relations=llm"
   },
-  "audio_path": null,
-  "audio_title": null,
-  "audio_subtitle": null,
+  "audio_path": "audio/ai-ethics-empirical-study.m4a",
+  "audio_title": "Comentário em áudio: ai-ethics-empirical-study",
+  "audio_subtitle": "Faixa 01 · gerada via NotebookLM Audio Overview",
+  "lecture_audio_path": "audio/ai-ethics-empirical-study-aula.m4a",
+  "lecture_audio_title": "Aula: ai-ethics-empirical-study",
+  "lecture_audio_subtitle": "Faixa 02 · aula gerada via NotebookLM, com as fontes do tema",
   "slides_pptx_path": "slides/deck.pptx",
   "slides_pdf_path": "slides/deck.pdf",
   "slides_preview_url": null,

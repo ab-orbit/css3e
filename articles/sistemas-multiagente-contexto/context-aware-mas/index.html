@@ -990,6 +990,11 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     <p>Faixa 01 · gerada via NotebookLM Audio Overview O player fica flutuando ao pé da página — velocidade, volume e posição sob seu controle enquanto você lê.</p>
   </section>
 
+  <section class="section" id="aula">
+    <h2><span class="num">FAIXA 02</span>Aula: context-aware-mas</h2>
+    <p>Faixa 02 · aula gerada via NotebookLM, com as fontes do tema Troque de faixa pelo seletor no topo do player.</p>
+  </section>
+
 
 <section class="section" id="mapa">
   <h2><span class="num">MAPA</span>A estrutura do artigo, navegável</h2>
@@ -2072,10 +2077,14 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     <div class="who">
       <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       <span class="titleline">
-        <b>Comentário em áudio: context-aware-mas</b>
-        <span>Faixa 01 · gerada via NotebookLM Audio Overview</span>
+        <b id="trackTitle">Comentário em áudio: context-aware-mas</b>
+        <span id="trackSubtitle">Faixa 01 · gerada via NotebookLM Audio Overview</span>
       </span>
     </div>
+    <select class="rate" id="trackPick" aria-label="Faixa">
+      <option value="0">Comentário em áudio: context-aware-mas</option>
+      <option value="1">Aula: context-aware-mas</option>
+    </select>
     <button class="pbtn" id="minToggle" aria-expanded="true" title="Minimizar player">–</button>
   </div>
 
@@ -2122,7 +2131,10 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
       vol = document.getElementById('vol'),
       muteBtn = document.getElementById('muteBtn'),
       rate = document.getElementById('rate'),
-      minToggle = document.getElementById('minToggle');
+      minToggle = document.getElementById('minToggle'),
+      trackPick = document.getElementById('trackPick');
+
+  var TRACKS = [{"src": "audio/context-aware-mas.m4a", "subtitle": "Faixa 01 \u00b7 gerada via NotebookLM Audio Overview", "title": "Coment\u00e1rio em \u00e1udio: context-aware-mas"}, {"src": "audio/context-aware-mas-aula.m4a", "subtitle": "Faixa 02 \u00b7 aula gerada via NotebookLM, com as fontes do tema", "title": "Aula: context-aware-mas"}];
 
   var ICON_PLAY = 'M8 5v14l11-7z',
       ICON_PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
@@ -2166,6 +2178,21 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     document.getElementById('psub').textContent =
       'Não foi possível carregar o áudio — confira o caminho do arquivo.';
   });
+
+  if (trackPick) {
+    trackPick.addEventListener('change', function () {
+      var track = TRACKS[Number(trackPick.value)];
+      if (!track) return;
+      var wasPlaying = !au.paused;
+      au.src = track.src;
+      au.currentTime = 0;
+      document.getElementById('trackTitle').textContent = track.title;
+      document.getElementById('trackSubtitle').textContent = track.subtitle;
+      document.getElementById('psub').textContent =
+        'espaço = play/pause · ← → = 15 s · arquivo local, sem streaming externo';
+      if (wasPlaying) au.play().catch(function () {});
+    });
+  }
 
   playBtn.addEventListener('click', function () {
     if (au.paused) { au.play().catch(function () {}); } else { au.pause(); }
