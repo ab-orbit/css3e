@@ -133,11 +133,24 @@ def test_gallery_classes_do_not_collide_with_the_shared_stylesheet():
 
 
 def test_hidden_views_are_actually_hidden():
-    """`[hidden]` is a user-agent rule with lower specificity than a class, so
-    `.tg-list{display:flex}` rendered both views on top of each other.
-    """
+    """The rule must reach the rendered page, not just the template."""
     html = _theme_page()
 
-    assert ".tg-grid[hidden]" in html
-    assert ".tg-list[hidden]" in html
-    assert "display:none" in html.split(".tg-list[hidden]", 1)[1][:40]
+    assert "[hidden]{display:none!important}" in html
+
+
+def test_hidden_beats_any_later_display_rule():
+    """`hidden` must win over every class rule, wherever it is declared.
+
+    Twice now a `display:` on a class declared after the [hidden] rule tied on
+    specificity and won by order — first the two gallery views rendering
+    stacked, then both console forms showing permanently open.
+    """
+    gallery_css = (
+        REPO_ROOT
+        / "pipeline/render/templates/partials/theme_gallery.css.j2"
+    ).read_text(encoding="utf-8")
+
+    assert re.search(r"\[hidden\]\s*\{[^}]*display:\s*none\s*!important", gallery_css), (
+        "a folha da gallery precisa de [hidden]{display:none!important}"
+    )

@@ -160,3 +160,17 @@ class TestRendering:
     def test_empty_theme_still_renders(self):
         html = build_theme_page(THEME, [], settings=Settings())
         assert "CSS - Context Sensitive Systems" in html
+
+
+def test_regen_buttons_wait_for_the_gallery_to_exist():
+    """The console renders above the cards, so the injection cannot run inline.
+
+    Without this, querySelectorAll ran against a DOM that had no cards yet and
+    every entry silently lost its "Regerar mídia" button.
+    """
+    html = build_theme_page(THEME, [_entry("paper-a")], settings=Settings())
+
+    console, gallery = html.split('class="tg-grid"', 1)
+    assert "attachRegenButtons" in console
+    assert "DOMContentLoaded" in console
+    assert 'data-slug="paper-a"' in gallery

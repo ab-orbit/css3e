@@ -219,9 +219,12 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
 .tg-views{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
 .tg-view-btn{padding:7px 16px;background:transparent;border:0;color:rgba(255,255,255,.55);font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
 .tg-view-btn[aria-pressed=true]{background:var(--signal);color:#fff}
-/* [hidden] do user-agent tem especificidade menor que uma classe, entao
-   `.tg-list{display:flex}` fazia as duas views renderizarem sobrepostas. */
-.tg-grid[hidden],.tg-list[hidden]{display:none}
+/* [hidden] do user-agent tem especificidade menor que uma classe, e mesmo o
+   seletor de atributo empata com qualquer classe declarada depois: era assim
+   que `.tg-list{display:flex}` sobrepunha as duas views, e depois
+   `.console-form{display:grid}` deixava os formulários do console sempre
+   abertos. !important encerra a discussão para qualquer elemento escondido. */
+[hidden]{display:none!important}
 .tg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .tg-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#171415,#211b1c);overflow:hidden}
 .tg-card-hit{display:block;padding:24px 22px 18px;text-decoration:none;color:inherit;flex:1}
@@ -520,20 +523,32 @@ blockquote.pull cite{display:block;margin-top:14px;font:11px var(--mono);letter-
     );
   });
 
-  Array.prototype.forEach.call(
-    document.querySelectorAll('[data-slug][data-tema]'),
-    function (entry) {
-      var button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'tg-card-link console-regen-btn';
-      button.textContent = 'Regerar mídia';
-      button.addEventListener('click', function () {
-        openRegen(entry.dataset.tema, entry.dataset.slug);
-      });
-      var foot = entry.querySelector('.tg-card-foot, .tg-row-side');
-      if (foot) foot.appendChild(button);
-    }
-  );
+  function attachRegenButtons() {
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-slug][data-tema]'),
+      function (entry) {
+        if (entry.querySelector('.console-regen-btn')) return;
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'tg-card-link console-regen-btn';
+        button.textContent = 'Regerar mídia';
+        button.addEventListener('click', function () {
+          openRegen(entry.dataset.tema, entry.dataset.slug);
+        });
+        var foot = entry.querySelector('.tg-card-foot, .tg-row-side');
+        if (foot) foot.appendChild(button);
+      }
+    );
+  }
+
+  // The console partial is rendered above the gallery, so at this point the
+  // cards do not exist yet and querySelectorAll would find nothing.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachRegenButtons);
+  } else {
+    attachRegenButtons();
+  }
+
 })();
 </script>
   <div class="tg" data-active-view="cards">

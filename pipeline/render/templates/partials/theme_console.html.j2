@@ -234,19 +234,31 @@
     );
   });
 
-  Array.prototype.forEach.call(
-    document.querySelectorAll('[data-slug][data-tema]'),
-    function (entry) {
-      var button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'tg-card-link console-regen-btn';
-      button.textContent = 'Regerar mídia';
-      button.addEventListener('click', function () {
-        openRegen(entry.dataset.tema, entry.dataset.slug);
-      });
-      var foot = entry.querySelector('.tg-card-foot, .tg-row-side');
-      if (foot) foot.appendChild(button);
-    }
-  );
+  function attachRegenButtons() {
+    Array.prototype.forEach.call(
+      document.querySelectorAll('[data-slug][data-tema]'),
+      function (entry) {
+        if (entry.querySelector('.console-regen-btn')) return;
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'tg-card-link console-regen-btn';
+        button.textContent = 'Regerar mídia';
+        button.addEventListener('click', function () {
+          openRegen(entry.dataset.tema, entry.dataset.slug);
+        });
+        var foot = entry.querySelector('.tg-card-foot, .tg-row-side');
+        if (foot) foot.appendChild(button);
+      }
+    );
+  }
+
+  // The console partial is rendered above the gallery, so at this point the
+  // cards do not exist yet and querySelectorAll would find nothing.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachRegenButtons);
+  } else {
+    attachRegenButtons();
+  }
+
 })();
 </script>
