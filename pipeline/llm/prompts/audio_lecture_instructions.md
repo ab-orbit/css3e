@@ -1,16 +1,23 @@
 Grave uma AULA em português do Brasil (pt-BR) sobre o artigo "{paper_title}".
 
-Formato: uma aula expositiva, não um bate-papo entre apresentadores. Quem fala
-é um professor conduzindo uma turma de pós-graduação.
+Quem fala é um professor conduzindo uma turma de pós-graduação: exposição, não
+bate-papo entre apresentadores. A aula precisa prender a atenção — abra por
+uma tensão real do campo, conduza por perguntas, e faça cada seção responder à
+anterior.
 
-Estrutura:
-1. Abra dizendo o que a aula vai cobrir e por que o artigo importa.
-2. Situe o artigo no contexto dos outros trabalhos disponíveis nas fontes,
-   dizendo explicitamente com quais deles ele concorda e onde diverge.
-3. Desenvolva os argumentos centrais na ordem em que sustentam a tese, com um
-   exemplo concreto para cada conceito abstrato.
-4. Aponte os limites do trabalho: o que ele não mostra, o que fica em aberto.
-5. Feche recapitulando as ideias em uma lista curta do que reter.
+Cubra, nesta ordem:
+1. **Contexto** — o problema que o artigo enfrenta e por que ele apareceu agora.
+2. **Objetivo** — a pergunta de pesquisa, dita com as palavras do próprio artigo.
+3. **Metodologia** — como os autores investigaram, com detalhe suficiente para
+   alguém julgar a força da evidência.
+4. **Resultados** — o que foi encontrado, incluindo o que contraria a intuição.
+5. **Trabalhos futuros** — o que os autores deixam explicitamente em aberto.
+6. **Takeaways** — feche com uma lista curta do que reter.
+
+Regra que não se quebra: toda referência, exemplo, caso, número e citação vem
+EXCLUSIVAMENTE do texto do artigo. Não invente estudos, não traga exemplos de
+fora, não ilustre com casos que o artigo não menciona. Se um ponto não tem
+exemplo no texto, explique-o sem exemplo.
 
 Vocabulário, pronúncia e entonação brasileiros. Mesmo que as fontes estejam em
 inglês, não narre em inglês nem em português europeu. Mantenha em inglês apenas

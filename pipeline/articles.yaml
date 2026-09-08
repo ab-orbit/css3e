@@ -51,7 +51,7 @@
     ausência de frameworks legais e conflito na prática permanecem como barreiras severas para a adoção
     de IA eticamente alinhada.
   has_audio: true
-  has_lecture_audio: false
+  has_lecture_audio: true
   has_slides: true
   slides_pptx_path: slides/deck.pptx
   slides_pdf_path: slides/deck.pdf
@@ -93,7 +93,7 @@
     20 recomendações concretas para garantir que a IA promova a dignidade humana, o florescimento e a
     sustentabilidade para todos.
   has_audio: false
-  has_lecture_audio: false
+  has_lecture_audio: true
   has_slides: true
   slides_pptx_path: slides/deck.pptx
   slides_pdf_path: slides/deck.pdf
