@@ -119,6 +119,7 @@ def update_manifest_and_publish(state: PipelineState) -> dict:
         pages=pages,
         briefing=pkg.hero.lede,
         has_audio=bool(pkg.audio_path),
+        has_lecture_audio=bool(pkg.lecture_audio_path),
         has_slides=bool(pkg.slides_pdf_path or pkg.slides_preview_url),
         slides_pptx_path=pkg.slides_pptx_path,
         slides_pdf_path=pkg.slides_pdf_path,

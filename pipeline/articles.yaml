@@ -101,6 +101,36 @@
   include_in_llms_txt: true
   sitemap_priority_override: null
   canonical_override: null
+- slug: global-landscape-ethics-guidelines
+  tema: ethics-on-ai
+  title: 'Artificial Intelligence: the global landscape of ethics guidelines'
+  title_pt: ''
+  pdf_source: articles/ethics-on-ai/global-landscape-ethics-guidelines/global-landscape-ethics-guidelines.pdf
+  doi: ''
+  authors:
+  - Anna Jobin
+  - Marcello Ienca
+  - Effy Vayena
+  date_published: '2019'
+  pages:
+    article: articles/ethics-on-ai/global-landscape-ethics-guidelines/index.html
+    blog: articles/ethics-on-ai/global-landscape-ethics-guidelines/blog.html
+    workshop: articles/ethics-on-ai/global-landscape-ethics-guidelines/workshop.html
+  briefing: Uma análise sistemática de 84 documentos revela convergência global em torno de cinco princípios
+    éticos para IA — transparência, justiça, não-maleficência, responsabilidade e privacidade — mas divergências
+    substantivas sobre como interpretá-los e implementá-los. A proliferação de soft-law responde ao avanço
+    tecnológico, mas levanta questões sobre harmonização transnacional e pluralismo moral.
+  has_audio: true
+  has_slides: true
+  slides_pptx_path: slides/deck.pptx
+  slides_pdf_path: slides/deck.pdf
+  slides_preview_url: null
+  slides_edit_url: null
+  status: published
+  include_in_sitemap: true
+  include_in_llms_txt: true
+  sitemap_priority_override: null
+  canonical_override: null
 - slug: context-aware-mas
   tema: sistemas-multiagente-contexto
   title: 'A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges

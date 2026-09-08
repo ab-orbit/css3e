@@ -51,6 +51,12 @@ class ArticlePackage(CoercingModel):
     audio_path: str | None = None
     audio_title: str | None = None
     audio_subtitle: str | None = None
+    # Second, optional track: the same paper narrated as a class rather than a
+    # conversation. Generated on demand from the console, never by a full run,
+    # because most articles do not need one.
+    lecture_audio_path: str | None = None
+    lecture_audio_title: str | None = None
+    lecture_audio_subtitle: str | None = None
     slides_pptx_path: str | None = None
     # Self-hosted PDF export of the same deck — what deck_embed.html.j2
     # embeds, since a browser cannot render a .pptx inline.
@@ -113,6 +119,7 @@ class ManifestEntry(CoercingModel):
     # gallery costs no extra LLM call.
     briefing: str = ""
     has_audio: bool = False
+    has_lecture_audio: bool = False
     has_slides: bool = False
     slides_pptx_path: str | None = None
     slides_pdf_path: str | None = None

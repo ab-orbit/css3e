@@ -15,7 +15,7 @@ from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
 
 from pipeline.config import Settings, get_settings
-from pipeline.llm.prompt_store import PROMPTS_DIR, load_prompt, save_prompt
+from pipeline.llm.prompt_store import PROMPTS_DIR, load_prompt, render_prompt, save_prompt
 
 __all__ = ["PROMPTS_DIR", "load_prompt", "save_prompt", "make_chat_model", "render_prompt", "run_structured"]
 
@@ -45,31 +45,6 @@ def make_chat_model(settings: Settings | None = None, *, fast: bool = False) -> 
 
 # Re-exported: prompt IO lives in prompt_store so the media layer can read a
 # prompt without importing LangChain.
-
-
-def render_prompt(
-    template: str, variables: dict[str, str], *, prompt_name: str = "<inline>"
-) -> str:
-    """Substitute {name} placeholders, leaving every other brace untouched.
-
-    NOT str.format: the prompts are Portuguese prose that uses braces as
-    ordinary notation (e.g. "uma lista de atributos {label, texto}"), and
-    str.format reads those as placeholders and dies with a KeyError. Only the
-    names explicitly passed in `variables` are ever substituted.
-
-    Raises KeyError if a declared variable has no placeholder in the template —
-    that is a silently-dropped input, which would send a subtly wrong prompt to
-    the model rather than fail.
-    """
-    missing = [name for name in variables if "{" + name + "}" not in template]
-    if missing:
-        raise KeyError(
-            f"Prompt {prompt_name!r} has no placeholder for: {sorted(missing)}. "
-            f"Either add {{{missing[0]}}} to the template or stop passing it."
-        )
-    for name, value in variables.items():
-        template = template.replace("{" + name + "}", value)
-    return template
 
 
 def run_structured(

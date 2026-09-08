@@ -1,13 +1,23 @@
-{# Requires: audio_src (str), audio_title (str), audio_subtitle (str) #}
+{# Requires: tracks — a list of {src, title, subtitle}, at least one.
+   With more than one, a selector appears and switching a track keeps the
+   player's controls; with a single track the markup is what it always was. #}
+{% set tracks = tracks | default([{'src': audio_src, 'title': audio_title, 'subtitle': audio_subtitle}]) %}
 <div class="player" id="player" role="region" aria-label="Player de áudio">
   <div class="head">
     <div class="who">
       <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       <span class="titleline">
-        <b>{{ audio_title }}</b>
-        <span>{{ audio_subtitle }}</span>
+        <b id="trackTitle">{{ tracks[0].title }}</b>
+        <span id="trackSubtitle">{{ tracks[0].subtitle }}</span>
       </span>
     </div>
+    {% if tracks | length > 1 %}
+    <select class="rate" id="trackPick" aria-label="Faixa">
+      {% for track in tracks %}
+      <option value="{{ loop.index0 }}">{{ track.title }}</option>
+      {% endfor %}
+    </select>
+    {% endif %}
     <button class="pbtn" id="minToggle" aria-expanded="true" title="Minimizar player">–</button>
   </div>
 
@@ -39,7 +49,7 @@
     </select>
   </div>
   <div class="sub" id="psub">espaço = play/pause · ← → = 15 s · arquivo local, sem streaming externo</div>
-  <audio id="au" preload="metadata" src="{{ audio_src }}"></audio>
+  <audio id="au" preload="metadata" src="{{ tracks[0].src }}"></audio>
 </div>
 
 <script>
@@ -54,7 +64,10 @@
       vol = document.getElementById('vol'),
       muteBtn = document.getElementById('muteBtn'),
       rate = document.getElementById('rate'),
-      minToggle = document.getElementById('minToggle');
+      minToggle = document.getElementById('minToggle'),
+      trackPick = document.getElementById('trackPick');
+
+  var TRACKS = {{ tracks | tojson }};
 
   var ICON_PLAY = 'M8 5v14l11-7z',
       ICON_PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
@@ -98,6 +111,21 @@
     document.getElementById('psub').textContent =
       'Não foi possível carregar o áudio — confira o caminho do arquivo.';
   });
+
+  if (trackPick) {
+    trackPick.addEventListener('change', function () {
+      var track = TRACKS[Number(trackPick.value)];
+      if (!track) return;
+      var wasPlaying = !au.paused;
+      au.src = track.src;
+      au.currentTime = 0;
+      document.getElementById('trackTitle').textContent = track.title;
+      document.getElementById('trackSubtitle').textContent = track.subtitle;
+      document.getElementById('psub').textContent =
+        'espaço = play/pause · ← → = 15 s · arquivo local, sem streaming externo';
+      if (wasPlaying) au.play().catch(function () {});
+    });
+  }
 
   playBtn.addEventListener('click', function () {
     if (au.paused) { au.play().catch(function () {}); } else { au.pause(); }

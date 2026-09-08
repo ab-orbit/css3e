@@ -14,6 +14,11 @@ def _ctx() -> RenderContext:
     )
 
 
+def _render_article(pkg) -> str:
+    seo_by_kind = {seo.page_kind: seo for seo in pkg.seo_pages}
+    return render_article_package(pkg, seo_by_kind, _ctx(), Settings())["index.html"]
+
+
 def test_render_produces_three_pages():
     pkg = make_sample_package()
     seo_by_kind = {seo.page_kind: seo for seo in pkg.seo_pages}
@@ -127,3 +132,33 @@ def test_deck_shows_pending_notice_without_any_deck():
 
     assert "Slides pendentes" in html
     assert "<iframe" not in html.split('id="slides"')[1].split("</section>")[0]
+
+
+def test_player_offers_a_selector_when_a_lecture_track_exists():
+    """Two tracks share one player; a second <audio id="au"> would break it."""
+    pkg = make_sample_package().model_copy(
+        update={
+            "audio_path": "audio/x.m4a",
+            "audio_title": "Conversa",
+            "audio_subtitle": "Faixa 01",
+            "lecture_audio_path": "audio/x-aula.m4a",
+            "lecture_audio_title": "Aula",
+            "lecture_audio_subtitle": "Faixa 02",
+        }
+    )
+    html = _render_article(pkg)
+
+    assert html.count('id="au"') == 1
+    assert 'id="trackPick"' in html
+    assert "audio/x-aula.m4a" in html
+    assert "FAIXA 02" in html
+
+
+def test_player_has_no_selector_with_a_single_track():
+    pkg = make_sample_package().model_copy(
+        update={"audio_path": "audio/x.m4a", "audio_title": "C", "audio_subtitle": "F1"}
+    )
+    html = _render_article(pkg)
+
+    assert 'id="trackPick"' not in html
+    assert 'id="au"' in html

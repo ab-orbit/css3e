@@ -68,6 +68,7 @@ _SOURCE_TIMEOUT_SECONDS = 300.0
 # the edit back as the new default.
 _LANGUAGE = "pt-BR"
 AUDIO_PROMPT = "audio_instructions"
+LECTURE_AUDIO_PROMPT = "audio_lecture_instructions"
 SLIDES_PROMPT = "slides_instructions"
 
 
@@ -239,6 +240,7 @@ def generate_audio_overview(
     dest_path: Path,
     settings: Settings,
     style: str = "DEEP_DIVE",
+    length: str | None = None,
     language: str = _LANGUAGE,
     instructions: str | None = None,
 ) -> Path:
@@ -248,6 +250,7 @@ def generate_audio_overview(
     _prepare_notebook); `source_title` is how this paper is listed inside it.
 
     `style` names an AudioFormat member: BRIEF, DEEP_DIVE, CRITIQUE, DEBATE.
+    `length`, when given, names an AudioLength member: SHORT, DEFAULT, LONG.
     """
     nb = _import_notebooklm()
     instructions = instructions or load_prompt(AUDIO_PROMPT)
@@ -258,6 +261,16 @@ def generate_audio_overview(
         raise NotebookLMError(
             f"Unknown audio style {style!r}. Valid AudioFormat members: {valid}"
         ) from exc
+
+    audio_length = None
+    if length is not None:
+        try:
+            audio_length = getattr(nb.AudioLength, length.upper())
+        except AttributeError as exc:
+            valid = [m for m in dir(nb.AudioLength) if m.isupper()]
+            raise NotebookLMError(
+                f"Unknown audio length {length!r}. Valid AudioLength members: {valid}"
+            ) from exc
 
     async def _work() -> Path:
         async with _open_client(settings) as client:
@@ -271,6 +284,7 @@ def generate_audio_overview(
                 language=language,
                 instructions=instructions,
                 audio_format=audio_format,
+                audio_length=audio_length,
             )
             await _await_artifact(client, notebook_id, status, "Audio overview")
 

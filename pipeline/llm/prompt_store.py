@@ -36,3 +36,28 @@ def save_prompt(name: str, text: str) -> Path:
     path.write_text(text if text.endswith("\n") else text + "\n", encoding="utf-8")
     load_prompt.cache_clear()
     return path
+
+
+def render_prompt(
+    template: str, variables: dict[str, str], *, prompt_name: str = "<inline>"
+) -> str:
+    """Substitute {name} placeholders, leaving every other brace untouched.
+
+    NOT str.format: the prompts are Portuguese prose that uses braces as
+    ordinary notation (e.g. "uma lista de atributos {label, texto}"), and
+    str.format reads those as placeholders and dies with a KeyError. Only the
+    names explicitly passed in `variables` are ever substituted.
+
+    Raises KeyError if a declared variable has no placeholder in the template —
+    that is a silently-dropped input, which would send a subtly wrong prompt to
+    the model rather than fail.
+    """
+    missing = [name for name in variables if "{" + name + "}" not in template]
+    if missing:
+        raise KeyError(
+            f"Prompt {prompt_name!r} has no placeholder for: {sorted(missing)}. "
+            f"Either add {{{missing[0]}}} to the template or stop passing it."
+        )
+    for name, value in variables.items():
+        template = template.replace("{" + name + "}", value)
+    return template

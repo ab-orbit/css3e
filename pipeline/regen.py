@@ -20,8 +20,10 @@ from pathlib import Path
 
 from pipeline.config import ARTICLES_DIR, get_settings, published_pdf_name
 from pipeline.llm.prompt_store import load_prompt, save_prompt
+from pipeline.llm.prompt_store import render_prompt
 from pipeline.media.notebooklm_client import (
     AUDIO_PROMPT,
+    LECTURE_AUDIO_PROMPT,
     SLIDES_PROMPT,
     generate_audio_overview,
     generate_slide_deck,
@@ -38,9 +40,12 @@ class Artifact:
     id: str
     label: str
     prompt_name: str
-    generate: Callable[[Path, str, str, str, Path], dict]
+    # Placeholders the prompt declares, filled from the package before the
+    # instructions go to NotebookLM.
+    variables: tuple[str, ...] = ()
+    generate: Callable[[Path, str, str, str, Path], dict] = None  # type: ignore[assignment]
     # Package fields this artifact owns, used to report what exists today.
-    fields: tuple[str, ...]
+    fields: tuple[str, ...] = ()
 
 
 def _regen_audio(pdf: Path, tema: str, slug: str, instructions: str, article_dir: Path) -> dict:
@@ -56,6 +61,27 @@ def _regen_audio(pdf: Path, tema: str, slug: str, instructions: str, article_dir
         "audio_path": f"audio/{slug}.m4a",
         "audio_title": f"Comentário em áudio: {slug}",
         "audio_subtitle": "Faixa 01 · gerada via NotebookLM Audio Overview",
+    }
+
+
+def _regen_lecture_audio(
+    pdf: Path, tema: str, slug: str, instructions: str, article_dir: Path
+) -> dict:
+    generate_audio_overview(
+        pdf,
+        notebook_title=tema,
+        source_title=slug,
+        dest_path=article_dir / "audio" / f"{slug}-aula.m4a",
+        settings=get_settings(),
+        instructions=instructions,
+        # A class covers structure, context and limits; the default length cuts
+        # that short, and this is the one track meant to be listened to whole.
+        length="LONG",
+    )
+    return {
+        "lecture_audio_path": f"audio/{slug}-aula.m4a",
+        "lecture_audio_title": f"Aula: {slug}",
+        "lecture_audio_subtitle": "Faixa 02 · aula gerada via NotebookLM, com as fontes do tema",
     }
 
 
@@ -79,6 +105,14 @@ ARTIFACTS: dict[str, Artifact] = {
         prompt_name=AUDIO_PROMPT,
         generate=_regen_audio,
         fields=("audio_path", "audio_title", "audio_subtitle"),
+    ),
+    "audio_aula": Artifact(
+        id="audio_aula",
+        label="Áudio em formato de aula",
+        prompt_name=LECTURE_AUDIO_PROMPT,
+        variables=("paper_title",),
+        generate=_regen_lecture_audio,
+        fields=("lecture_audio_path", "lecture_audio_title", "lecture_audio_subtitle"),
     ),
     "slides": Artifact(
         id="slides",
@@ -111,6 +145,24 @@ def source_pdf(tema: str, slug: str) -> Path:
     if not path.exists():
         raise RegenError(f"PDF publicado não encontrado: {path}")
     return path
+
+
+def _prompt_variables(pkg: ArticlePackage) -> dict[str, str]:
+    """Values a media prompt may interpolate."""
+    return {"paper_title": pkg.paper.title}
+
+
+def _instructions(artifact: Artifact, pkg: ArticlePackage, override: str | None) -> str:
+    """The text that actually reaches NotebookLM, placeholders resolved."""
+    template = (override or "").strip() or load_prompt(artifact.prompt_name)
+    if not artifact.variables:
+        return template
+    variables = _prompt_variables(pkg)
+    return render_prompt(
+        template,
+        {name: variables[name] for name in artifact.variables},
+        prompt_name=artifact.prompt_name,
+    )
 
 
 def list_artifacts(tema: str, slug: str) -> list[dict]:
@@ -151,7 +203,7 @@ def regenerate(
     pkg = load_package(tema, slug)
     pdf = source_pdf(tema, slug)
 
-    instructions = (prompt or "").strip() or load_prompt(artifact.prompt_name)
+    instructions = _instructions(artifact, pkg, prompt)
     if save_as_default and prompt and prompt.strip():
         save_prompt(artifact.prompt_name, prompt.strip())
         logger.info("Prompt %s salvo como padrão", artifact.prompt_name)

@@ -48,9 +48,12 @@ def stub_generators(monkeypatch):
     """Record what instructions each NotebookLM call received."""
     seen: dict = {}
 
-    def _audio(pdf, *, notebook_title, source_title, dest_path, settings, instructions):
+    def _audio(
+        pdf, *, notebook_title, source_title, dest_path, settings, instructions, length=None
+    ):
         seen["audio"] = instructions
         seen["audio_notebook"] = notebook_title
+        seen["audio_length"] = length
         dest_path.parent.mkdir(parents=True, exist_ok=True)
         dest_path.write_bytes(b"audio")
         return dest_path
@@ -65,10 +68,10 @@ def stub_generators(monkeypatch):
     return seen
 
 
-def test_lists_both_artifacts_with_their_current_prompts(article):
+def test_lists_every_artifact_with_its_current_prompt(article):
     artifacts = regen.list_artifacts(article.tema, article.slug)
 
-    assert [a["id"] for a in artifacts] == ["audio", "slides"]
+    assert [a["id"] for a in artifacts] == ["audio", "audio_aula", "slides"]
     assert "pt-BR" in artifacts[0]["prompt"]
 
 
@@ -149,3 +152,26 @@ def test_regeneration_targets_the_theme_notebook(article, stub_generators, stub_
     regen.regenerate(article.tema, article.slug, "audio")
 
     assert stub_generators["audio_notebook"] == article.tema
+
+
+def test_lecture_audio_writes_a_second_track(article, stub_generators, stub_publish):
+    """The class track lives beside the conversation one, not over it."""
+    regen.regenerate(article.tema, article.slug, "audio_aula")
+
+    published = stub_publish[0]
+    assert published.lecture_audio_path == f"audio/{article.slug}-aula.m4a"
+    assert published.audio_path == article.audio_path
+
+
+def test_lecture_prompt_is_filled_with_the_paper_title(article, stub_generators, stub_publish):
+    """The prompt declares {paper_title}; an unsubstituted one would ship literally."""
+    regen.regenerate(article.tema, article.slug, "audio_aula")
+
+    assert article.paper.title in stub_generators["audio"]
+    assert "{paper_title}" not in stub_generators["audio"]
+
+
+def test_lecture_audio_is_generated_long(article, stub_generators, stub_publish):
+    regen.regenerate(article.tema, article.slug, "audio_aula")
+
+    assert stub_generators["audio_length"] == "LONG"

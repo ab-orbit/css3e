@@ -48,6 +48,7 @@
         </a>
         <div class="tg-card-foot">
           {% if e.has_audio %}<span class="tg-badge tg-badge-audio">Áudio</span>{% endif %}
+          {% if e.has_lecture_audio %}<span class="tg-badge tg-badge-audio">Aula</span>{% endif %}
           {% if e.has_slides %}<span class="tg-badge tg-badge-deck">Deck</span>{% endif %}
           {% if e.pages.blog %}<a class="tg-card-link" href="{{ article_href(e, 'blog') }}">Post</a>{% endif %}
           {% if e.pages.workshop %}<a class="tg-card-link" href="{{ article_href(e, 'workshop') }}">Workshop</a>{% endif %}
@@ -69,6 +70,7 @@
         </div>
         <div class="tg-row-side">
           {% if e.has_audio %}<span class="tg-badge tg-badge-audio">Áudio</span>{% endif %}
+          {% if e.has_lecture_audio %}<span class="tg-badge tg-badge-audio">Aula</span>{% endif %}
           {% if e.has_slides %}<span class="tg-badge tg-badge-deck">Deck</span>{% endif %}
         </div>
       </article>

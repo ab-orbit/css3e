@@ -37,6 +37,13 @@
   </section>
   {% endif %}
 
+  {% if pkg.lecture_audio_path %}
+  <section class="section" id="aula">
+    <h2><span class="num">FAIXA 02</span>{{ pkg.lecture_audio_title }}</h2>
+    <p>{{ pkg.lecture_audio_subtitle }} Troque de faixa pelo seletor no topo do player.</p>
+  </section>
+  {% endif %}
+
   {% include "partials/categories.html.j2" %}
 
   {% include "partials/mindmap.html.j2" %}
@@ -69,10 +76,14 @@
   </div>
 </footer>
 
+{% set tracks = [] %}
 {% if pkg.audio_path %}
-{% set audio_src = pkg.audio_path %}
-{% set audio_title = pkg.audio_title %}
-{% set audio_subtitle = pkg.audio_subtitle %}
+{% set _ = tracks.append({'src': pkg.audio_path, 'title': pkg.audio_title, 'subtitle': pkg.audio_subtitle}) %}
+{% endif %}
+{% if pkg.lecture_audio_path %}
+{% set _ = tracks.append({'src': pkg.lecture_audio_path, 'title': pkg.lecture_audio_title, 'subtitle': pkg.lecture_audio_subtitle}) %}
+{% endif %}
+{% if tracks %}
 {% include "partials/player.html.j2" %}
 {% endif %}
 
