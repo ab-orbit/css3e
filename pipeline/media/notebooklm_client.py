@@ -50,8 +50,11 @@ logger = logging.getLogger(__name__)
 T = TypeVar("T")
 
 # The NotebookLM backend queues generation jobs; a deep-dive audio overview on
-# a full paper regularly runs past the library's 300s default.
-_ARTIFACT_TIMEOUT_SECONDS = 900.0
+# a full paper regularly runs past the library's 300s default. Since notebooks
+# became theme-scoped, a generation reads every paper of the theme and 900s was
+# no longer enough either — one run timed out with the task still in_progress,
+# throwing away work the backend went on to finish.
+_ARTIFACT_TIMEOUT_SECONDS = 2400.0
 # Sources must finish server-side processing before an artifact can cite them.
 _SOURCE_TIMEOUT_SECONDS = 300.0
 

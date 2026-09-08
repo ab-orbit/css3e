@@ -71,3 +71,36 @@ def test_coercing_model_leaves_plain_strings_alone():
 
     assert sample.text == '{"nao": "json"}'
     assert sample.items == ["a", "b"]
+
+
+def test_every_llm_filled_schema_coerces_stringified_fields():
+    """A schema the LLM fills that is not a CoercingModel is a run waiting to die.
+
+    Both production failures so far were list-wrapper schemas outside
+    pipeline/schemas; this walks the whole package so a new one cannot be added
+    without the coercion.
+    """
+    import importlib
+    import pkgutil
+
+    import pipeline
+    from pydantic import BaseModel
+
+    from pipeline.schemas.base import CoercingModel
+
+    # Settings is filled from .env by pydantic-settings, never by a model.
+    exempt = {"pipeline.config.Settings"}
+    offenders = set()
+    for module in pkgutil.walk_packages(pipeline.__path__, prefix="pipeline."):
+        mod = importlib.import_module(module.name)
+        for name in dir(mod):
+            obj = getattr(mod, name)
+            if (
+                isinstance(obj, type)
+                and issubclass(obj, BaseModel)
+                and obj.__module__.startswith("pipeline.")
+                and not issubclass(obj, CoercingModel)
+            ):
+                offenders.add(f"{obj.__module__}.{obj.__name__}")
+
+    assert offenders - exempt == set(), f"não herdam de CoercingModel: {offenders - exempt}"

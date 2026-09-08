@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import logging
 
-from pydantic import BaseModel
+from pipeline.schemas.base import CoercingModel
 
 from pipeline.config import published_pdf_name
 from pipeline.graph.nodes._util import paper_json
@@ -14,7 +14,7 @@ from pipeline.schemas.components import DownloadItem
 logger = logging.getLogger(__name__)
 
 
-class _Downloads(BaseModel):
+class _Downloads(CoercingModel):
     items: list[DownloadItem]
 
 

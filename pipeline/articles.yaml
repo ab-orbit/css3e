@@ -60,6 +60,47 @@
   include_in_llms_txt: true
   sitemap_priority_override: null
   canonical_override: null
+- slug: ai4people-ethical-framework
+  tema: ethics-on-ai
+  title: 'AI4People—An Ethical Framework for a Good AI Society: Opportunities, Risks, Principles, and
+    Recommendations'
+  title_pt: ''
+  pdf_source: articles/ethics-on-ai/ai4people-ethical-framework/ai4people-ethical-framework.pdf
+  doi: 10.1007/s11023-018-9482-5
+  authors:
+  - Luciano Floridi
+  - Josh Cowls
+  - Monica Beltrametti
+  - Raja Chatila
+  - Patrice Chazerand
+  - Virginia Dignum
+  - Christoph Luetge
+  - Robert Madelin
+  - Ugo Pagallo
+  - Francesca Rossi
+  - Burkhard Schafer
+  - Peggy Valcke
+  - Effy Vayena
+  date_published: '2018-11-26'
+  pages:
+    article: articles/ethics-on-ai/ai4people-ethical-framework/index.html
+    blog: articles/ethics-on-ai/ai4people-ethical-framework/blog.html
+    workshop: articles/ethics-on-ai/ai4people-ethical-framework/workshop.html
+  briefing: A IA não é apenas mais uma tecnologia a ser regulada—é uma nova forma de agência inteligente
+    que já está remodelando nossas vidas. Este framework ético propõe cinco princípios fundamentais e
+    20 recomendações concretas para garantir que a IA promova a dignidade humana, o florescimento e a
+    sustentabilidade para todos.
+  has_audio: false
+  has_slides: true
+  slides_pptx_path: slides/deck.pptx
+  slides_pdf_path: slides/deck.pdf
+  slides_preview_url: null
+  slides_edit_url: null
+  status: published
+  include_in_sitemap: true
+  include_in_llms_txt: true
+  sitemap_priority_override: null
+  canonical_override: null
 - slug: context-aware-mas
   tema: sistemas-multiagente-contexto
   title: 'A Comprehensive Survey on Context-Aware Multi-Agent Systems: Techniques, Applications, Challenges

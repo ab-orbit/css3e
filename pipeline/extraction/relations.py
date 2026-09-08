@@ -22,7 +22,9 @@ import logging
 import re
 import unicodedata
 
-from pydantic import BaseModel, Field
+from pydantic import Field
+
+from pipeline.schemas.base import CoercingModel
 
 from pipeline.config import Settings
 from pipeline.llm.client import run_structured
@@ -35,7 +37,7 @@ logger = logging.getLogger(__name__)
 CONTEXT_CHARS = 40_000
 
 
-class RawRelation(BaseModel):
+class RawRelation(CoercingModel):
     """One relation as the model proposes it, before grounding."""
 
     source_key: str = Field(description="`key` of the entity that exerts the relation")
@@ -44,7 +46,7 @@ class RawRelation(BaseModel):
     quote: str = Field(description="Sentence copied verbatim from the source")
 
 
-class RawRelations(BaseModel):
+class RawRelations(CoercingModel):
     relations: list[RawRelation] = Field(default_factory=list)
 
 
