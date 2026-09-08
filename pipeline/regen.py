@@ -38,15 +38,16 @@ class Artifact:
     id: str
     label: str
     prompt_name: str
-    generate: Callable[[Path, str, str, object], dict]
+    generate: Callable[[Path, str, str, str, Path], dict]
     # Package fields this artifact owns, used to report what exists today.
     fields: tuple[str, ...]
 
 
-def _regen_audio(pdf: Path, slug: str, instructions: str, article_dir) -> dict:
+def _regen_audio(pdf: Path, tema: str, slug: str, instructions: str, article_dir: Path) -> dict:
     generate_audio_overview(
         pdf,
-        title=slug,
+        notebook_title=tema,
+        source_title=slug,
         dest_path=article_dir / "audio" / f"{slug}.m4a",
         settings=get_settings(),
         instructions=instructions,
@@ -58,10 +59,11 @@ def _regen_audio(pdf: Path, slug: str, instructions: str, article_dir) -> dict:
     }
 
 
-def _regen_slides(pdf: Path, slug: str, instructions: str, article_dir) -> dict:
+def _regen_slides(pdf: Path, tema: str, slug: str, instructions: str, article_dir: Path) -> dict:
     generate_slide_deck(
         pdf,
-        title=slug,
+        notebook_title=tema,
+        source_title=slug,
         pptx_dest=article_dir / "slides" / "deck.pptx",
         pdf_dest=article_dir / "slides" / "deck.pdf",
         settings=get_settings(),
@@ -155,7 +157,7 @@ def regenerate(
         logger.info("Prompt %s salvo como padrão", artifact.prompt_name)
 
     logger.info("Regerando %s de %s/%s", artifact.id, tema, slug)
-    updates = artifact.generate(pdf, slug, instructions, article_dir(tema, slug))
+    updates = artifact.generate(pdf, tema, slug, instructions, article_dir(tema, slug))
     pkg = pkg.model_copy(update=updates)
 
     return _render_and_publish(pkg, pdf)

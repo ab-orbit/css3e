@@ -7,6 +7,10 @@ cannot render a .pptx inline). Both come from ONE generation — the deck is
 generated once and downloaded twice — so there is no second job, no extra
 quota, and no risk of the preview drifting from the download.
 
+Notebooks are scoped to a THEME, not to an article or an artifact: every paper
+of a theme is a source in the same notebook, and each generation selects all of
+them, so an artifact can place its paper among its neighbours.
+
 The upstream client is fully async and is used as an async context manager;
 the LangGraph nodes that call into here are sync, so each public function
 opens its own client inside a single `asyncio.run`.
@@ -138,38 +142,59 @@ def _run(coro_fn: Callable[[], Awaitable[T]]) -> T:
         raise NotebookLMError(f"notebooklm-py call failed: {exc}") from exc
 
 
-async def _prepare_notebook(client: Any, title: str, pdf_path: Path) -> tuple[str, list[str]]:
-    """Return (notebook_id, source_ids) for `title`, reusing an existing notebook.
+async def _prepare_notebook(
+    client: Any, title: str, pdf_path: Path, source_title: str
+) -> tuple[str, list[str]]:
+    """Return (notebook_id, source_ids) for the notebook named `title`.
 
-    One notebook per article, not one per artifact. Audio and slides come from
-    the same PDF, so creating a notebook per generator burned a second upload
-    and left the account littered with near-duplicate notebooks ("slug" and
-    "slug (slides)"), one more pair on every re-run. Matching on the exact
-    title makes a re-run adopt what the previous run left behind.
+    One notebook per THEME, holding every paper of that theme, and every
+    artifact is generated from all of its sources. That is what makes an audio
+    overview or a deck able to relate one paper to its neighbours instead of
+    reading it in isolation — and it keeps the account from accumulating a
+    notebook per article, or the pair per artifact this used to create.
 
-    A notebook is only reused when its source upload actually landed; an empty
-    one is refilled, since an artifact built from an empty notebook silently
-    cites nothing.
+    The PDF is uploaded under `source_title` (the article slug, not the upload's
+    temporary filename) and only when the notebook does not already hold a
+    source by that name, so a re-run adopts what earlier runs left behind
+    rather than duplicating the paper.
     """
     notebook_id = await _find_notebook_id(client, title)
-    if notebook_id is not None:
-        source_ids = await client.notebooks.get_source_ids(notebook_id)
-        if source_ids:
-            logger.info("Reusing NotebookLM notebook %r (%s)", title, notebook_id)
-            return notebook_id, list(source_ids)
-        logger.info("Notebook %r exists but has no source; re-uploading", title)
-    else:
+    if notebook_id is None:
         notebook = await client.notebooks.create(title=title)
         notebook_id = notebook.id
+        logger.info("Created NotebookLM notebook %r (%s)", title, notebook_id)
 
-    source = await client.sources.add_file(
-        notebook_id,
-        pdf_path,
-        mime_type="application/pdf",
-        wait=True,
-        wait_timeout=_SOURCE_TIMEOUT_SECONDS,
+    existing = await _sources(client, notebook_id)
+    if not any(source.title == source_title for source in existing):
+        await client.sources.add_file(
+            notebook_id,
+            pdf_path,
+            mime_type="application/pdf",
+            wait=True,
+            wait_timeout=_SOURCE_TIMEOUT_SECONDS,
+            title=source_title,
+        )
+        existing = await _sources(client, notebook_id)
+
+    source_ids = [source.id for source in existing]
+    if not source_ids:
+        raise NotebookLMError(
+            f"Notebook {title!r} has no usable source after upload; refusing to "
+            "generate an artifact that would cite nothing."
+        )
+    logger.info(
+        "Notebook %r (%s): %d fonte(s) selecionada(s)", title, notebook_id, len(source_ids)
     )
-    return notebook_id, [source.id]
+    return notebook_id, source_ids
+
+
+async def _sources(client: Any, notebook_id: str) -> list[Any]:
+    """The notebook's sources, or an empty list when it has none yet."""
+    try:
+        return list(await client.sources.list(notebook_id))
+    except Exception as exc:  # noqa: BLE001 - an empty notebook may 404 here
+        logger.warning("Could not list sources of %s (%s)", notebook_id, exc)
+        return []
 
 
 async def _find_notebook_id(client: Any, title: str) -> str | None:
@@ -206,15 +231,18 @@ async def _await_artifact(client: Any, notebook_id: str, status: Any, what: str)
 def generate_audio_overview(
     pdf_path: Path,
     *,
-    title: str,
+    notebook_title: str,
+    source_title: str,
     dest_path: Path,
     settings: Settings,
     style: str = "DEEP_DIVE",
     language: str = _LANGUAGE,
     instructions: str | None = None,
 ) -> Path:
-    """Create a notebook, add the PDF, generate a podcast-style audio overview,
-    poll until ready, and download it to `dest_path`. Returns dest_path.
+    """Generate a podcast-style audio overview and download it to `dest_path`.
+
+    `notebook_title` names the theme notebook the source joins (see
+    _prepare_notebook); `source_title` is how this paper is listed inside it.
 
     `style` names an AudioFormat member: BRIEF, DEEP_DIVE, CRITIQUE, DEBATE.
     """
@@ -230,7 +258,9 @@ def generate_audio_overview(
 
     async def _work() -> Path:
         async with _open_client(settings) as client:
-            notebook_id, source_ids = await _prepare_notebook(client, title, pdf_path)
+            notebook_id, source_ids = await _prepare_notebook(
+                client, notebook_title, pdf_path, source_title
+            )
             logger.info("Audio from notebook %s", notebook_url(notebook_id))
             status = await client.artifacts.generate_audio(
                 notebook_id,
@@ -251,15 +281,18 @@ def generate_audio_overview(
 def generate_slide_deck(
     pdf_path: Path,
     *,
-    title: str,
+    notebook_title: str,
+    source_title: str,
     pptx_dest: Path,
     pdf_dest: Path,
     settings: Settings,
     language: str = _LANGUAGE,
     instructions: str | None = None,
 ) -> tuple[Path, Path]:
-    """Create a notebook, add the PDF, generate a slide deck once, and download
-    it twice — as PPTX and as PDF. Returns (pptx_dest, pdf_dest).
+    """Generate a slide deck once and download it twice — PPTX and PDF.
+
+    `notebook_title` names the theme notebook the source joins; `source_title`
+    is how this paper is listed inside it.
 
     Both formats come from the same generated artifact: PPTX is the editable
     file offered for download, PDF is what deck_embed.html.j2 puts in an
@@ -272,7 +305,9 @@ def generate_slide_deck(
 
     async def _work() -> tuple[Path, Path]:
         async with _open_client(settings) as client:
-            notebook_id, source_ids = await _prepare_notebook(client, title, pdf_path)
+            notebook_id, source_ids = await _prepare_notebook(
+                client, notebook_title, pdf_path, source_title
+            )
             logger.info("Slide deck from notebook %s", notebook_url(notebook_id))
             status = await client.artifacts.generate_slide_deck(
                 notebook_id,

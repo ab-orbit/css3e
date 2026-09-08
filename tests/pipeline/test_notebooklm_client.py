@@ -40,18 +40,13 @@ def pdf(tmp_path) -> Path:
 
 
 class FakeNotebooks:
-    def __init__(self, calls, *, existing=None, source_ids=None):
+    def __init__(self, calls, *, existing=None):
         self._calls = calls
         self._existing = existing or []
-        self._source_ids = source_ids or {}
 
     async def list(self):
         self._calls.append(("notebooks.list",))
         return [SimpleNamespace(id=nb_id, title=title) for nb_id, title in self._existing]
-
-    async def get_source_ids(self, notebook_id: str):
-        self._calls.append(("notebooks.get_source_ids", notebook_id))
-        return self._source_ids.get(notebook_id, [])
 
     async def create(self, title: str):
         self._calls.append(("notebooks.create", title))
@@ -59,12 +54,19 @@ class FakeNotebooks:
 
 
 class FakeSources:
-    def __init__(self, calls):
+    def __init__(self, calls, *, existing=None):
         self._calls = calls
+        self._sources = list(existing or [])
+
+    async def list(self, notebook_id, **kwargs):
+        self._calls.append(("sources.list", notebook_id))
+        return list(self._sources)
 
     async def add_file(self, notebook_id, file_path, **kwargs):
         self._calls.append(("sources.add_file", notebook_id, Path(file_path).name, kwargs))
-        return SimpleNamespace(id="src-1")
+        source = SimpleNamespace(id="src-1", title=kwargs.get("title") or Path(file_path).stem)
+        self._sources.append(source)
+        return source
 
 
 class FakeArtifacts:
@@ -99,9 +101,9 @@ class FakeArtifacts:
 
 
 class FakeClient:
-    def __init__(self, calls, *, existing=None, source_ids=None, **artifact_kwargs):
-        self.notebooks = FakeNotebooks(calls, existing=existing, source_ids=source_ids)
-        self.sources = FakeSources(calls)
+    def __init__(self, calls, *, existing=None, sources=None, **artifact_kwargs):
+        self.notebooks = FakeNotebooks(calls, existing=existing)
+        self.sources = FakeSources(calls, existing=sources)
         self.artifacts = FakeArtifacts(calls, **artifact_kwargs)
 
 
@@ -127,14 +129,19 @@ def test_audio_happy_path(monkeypatch, settings, pdf, tmp_path):
     install_fake_client(monkeypatch, calls)
     dest = tmp_path / "out" / "audio.m4a"
 
-    assert generate_audio_overview(pdf, title="paper", dest_path=dest, settings=settings) == dest
+    result = generate_audio_overview(
+        pdf, notebook_title="tema", source_title="paper", dest_path=dest, settings=settings
+    )
+    assert result == dest
     assert dest.read_bytes() == b"audio"
 
     names = [c[0] for c in calls]
     assert names == [
         "notebooks.list",
         "notebooks.create",
+        "sources.list",
         "sources.add_file",
+        "sources.list",
         "generate_audio",
         "wait_for_completion",
         "download_audio",
@@ -146,7 +153,7 @@ def test_audio_passes_source_ids_and_format(monkeypatch, settings, pdf, tmp_path
     install_fake_client(monkeypatch, calls)
 
     generate_audio_overview(
-        pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings
+        pdf, notebook_title="tema", source_title="paper", dest_path=tmp_path / "a.m4a", settings=settings
     )
 
     kwargs = next(c[2] for c in calls if c[0] == "generate_audio")
@@ -159,7 +166,10 @@ def test_source_upload_waits(monkeypatch, settings, pdf, tmp_path):
     calls: list = []
     install_fake_client(monkeypatch, calls)
 
-    generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
+    generate_audio_overview(
+        pdf, notebook_title="tema", source_title="paper", dest_path=tmp_path / "a.m4a",
+        settings=settings,
+    )
 
     kwargs = next(c[3] for c in calls if c[0] == "sources.add_file")
     assert kwargs["wait"] is True
@@ -169,7 +179,7 @@ def test_source_upload_waits(monkeypatch, settings, pdf, tmp_path):
 def test_unknown_audio_style_raises(settings, pdf, tmp_path):
     with pytest.raises(NotebookLMError, match="Unknown audio style"):
         generate_audio_overview(
-            pdf, title="p", dest_path=tmp_path / "a.m4a", settings=settings, style="podcast"
+            pdf, notebook_title="tema", source_title="p", dest_path=tmp_path / "a.m4a", settings=settings, style="podcast"
         )
 
 
@@ -178,7 +188,7 @@ def test_failed_generation_raises(monkeypatch, settings, pdf, tmp_path):
     install_fake_client(monkeypatch, calls, error="quota exhausted")
 
     with pytest.raises(NotebookLMError, match="Audio overview generation failed"):
-        generate_audio_overview(pdf, title="p", dest_path=tmp_path / "a.m4a", settings=settings)
+        generate_audio_overview(pdf, notebook_title="tema", source_title="p", dest_path=tmp_path / "a.m4a", settings=settings)
 
 
 def test_slides_downloads_both_formats(monkeypatch, settings, pdf, tmp_path):
@@ -192,7 +202,7 @@ def test_slides_downloads_both_formats(monkeypatch, settings, pdf, tmp_path):
     pdf_out = tmp_path / "slides" / "deck.pdf"
 
     assert generate_slide_deck(
-        pdf, title="paper", pptx_dest=pptx, pdf_dest=pdf_out, settings=settings
+        pdf, notebook_title="tema", source_title="paper", pptx_dest=pptx, pdf_dest=pdf_out, settings=settings
     ) == (pptx, pdf_out)
     assert pptx.read_bytes() == b"pptx"
     assert pdf_out.read_bytes() == b"pptx"
@@ -211,7 +221,7 @@ def test_slides_staging_file_shares_filesystem(monkeypatch, settings, pdf, tmp_p
     pptx = tmp_path / "slides" / "deck.pptx"
     pdf_out = tmp_path / "other" / "deck.pdf"
 
-    generate_slide_deck(pdf, title="p", pptx_dest=pptx, pdf_dest=pdf_out, settings=settings)
+    generate_slide_deck(pdf, notebook_title="tema", source_title="p", pptx_dest=pptx, pdf_dest=pdf_out, settings=settings)
 
     staged = [Path(c[2]).parent for c in calls if c[0] == "download_slide_deck"]
     assert staged == [pptx.parent, pdf_out.parent]
@@ -227,7 +237,7 @@ def test_slides_failed_download_leaves_no_partial(monkeypatch, settings, pdf, tm
 
     with pytest.raises(NotebookLMError, match="notebooklm-py call failed"):
         generate_slide_deck(
-            pdf, title="p", pptx_dest=pptx, pdf_dest=pdf_out, settings=settings
+            pdf, notebook_title="tema", source_title="p", pptx_dest=pptx, pdf_dest=pdf_out, settings=settings
         )
 
     assert not pptx.exists()
@@ -238,13 +248,13 @@ def test_slides_failed_download_leaves_no_partial(monkeypatch, settings, pdf, tm
 def test_missing_auth_raises(pdf, tmp_path):
     settings = Settings(NOTEBOOKLM_AUTH_JSON="")
     with pytest.raises(NotebookLMError, match="NOTEBOOKLM_AUTH_JSON is not set"):
-        generate_audio_overview(pdf, title="p", dest_path=tmp_path / "a.m4a", settings=settings)
+        generate_audio_overview(pdf, notebook_title="tema", source_title="p", dest_path=tmp_path / "a.m4a", settings=settings)
 
 
 def test_invalid_base64_auth_raises(pdf, tmp_path):
     settings = Settings(NOTEBOOKLM_AUTH_JSON="not base64!!!")
     with pytest.raises(NotebookLMError, match="not valid base64"):
-        generate_audio_overview(pdf, title="p", dest_path=tmp_path / "a.m4a", settings=settings)
+        generate_audio_overview(pdf, notebook_title="tema", source_title="p", dest_path=tmp_path / "a.m4a", settings=settings)
 
 
 def test_auth_tempfile_is_removed(monkeypatch, settings, pdf, tmp_path):
@@ -276,64 +286,84 @@ def test_auth_tempfile_is_removed(monkeypatch, settings, pdf, tmp_path):
     monkeypatch.setattr(mod, "_import_notebooklm", lambda: fake_nb)
 
     with pytest.raises(NotebookLMError):
-        generate_audio_overview(pdf, title="p", dest_path=tmp_path / "a.m4a", settings=settings)
+        generate_audio_overview(pdf, notebook_title="tema", source_title="p", dest_path=tmp_path / "a.m4a", settings=settings)
 
     assert written, "expected a temp storage-state file to be created"
     assert all(not p.exists() for p in written)
 
 
-def test_reuses_existing_notebook_with_the_same_title(monkeypatch, settings, pdf, tmp_path):
-    """One notebook per article: a re-run must adopt the previous one."""
+def test_reuses_the_theme_notebook_and_selects_every_source(
+    monkeypatch, settings, pdf, tmp_path
+):
+    """One notebook per theme: an artifact cites every paper already in it."""
     calls: list = []
     install_fake_client(
         monkeypatch,
         calls,
-        existing=[("nb-existing", "paper")],
-        source_ids={"nb-existing": ["src-old"]},
+        existing=[("nb-tema", "tema")],
+        sources=[
+            SimpleNamespace(id="src-outro", title="outro-paper"),
+            SimpleNamespace(id="src-paper", title="paper"),
+        ],
     )
 
-    generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
+    generate_audio_overview(
+        pdf, notebook_title="tema", source_title="paper", dest_path=tmp_path / "a.m4a",
+        settings=settings,
+    )
 
     names = [c[0] for c in calls]
     assert "notebooks.create" not in names
+    # Already listed under this title: no second upload of the same paper.
     assert "sources.add_file" not in names
-    assert next(c[2] for c in calls if c[0] == "generate_audio")["source_ids"] == ["src-old"]
+    kwargs = next(c[2] for c in calls if c[0] == "generate_audio")
+    assert kwargs["source_ids"] == ["src-outro", "src-paper"]
 
 
-def test_reuses_notebook_but_reuploads_when_source_is_missing(
-    monkeypatch, settings, pdf, tmp_path
-):
-    """An empty notebook would produce an artifact citing nothing."""
+def test_uploads_into_the_existing_theme_notebook(monkeypatch, settings, pdf, tmp_path):
+    """A new paper joins the theme's notebook rather than getting its own."""
     calls: list = []
-    install_fake_client(monkeypatch, calls, existing=[("nb-existing", "paper")])
+    install_fake_client(
+        monkeypatch,
+        calls,
+        existing=[("nb-tema", "tema")],
+        sources=[SimpleNamespace(id="src-outro", title="outro-paper")],
+    )
 
-    generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
+    generate_audio_overview(
+        pdf, notebook_title="tema", source_title="paper", dest_path=tmp_path / "a.m4a",
+        settings=settings,
+    )
 
     upload = next(c for c in calls if c[0] == "sources.add_file")
-    assert upload[1] == "nb-existing"
+    assert upload[1] == "nb-tema"
+    assert upload[3]["title"] == "paper"
     assert "notebooks.create" not in [c[0] for c in calls]
+    kwargs = next(c[2] for c in calls if c[0] == "generate_audio")
+    assert kwargs["source_ids"] == ["src-outro", "src-1"]
 
 
-def test_slides_share_the_article_notebook(monkeypatch, settings, pdf, tmp_path):
+def test_slides_share_the_theme_notebook(monkeypatch, settings, pdf, tmp_path):
     """Slides used to get their own '<title> (slides)' notebook."""
     calls: list = []
     install_fake_client(
         monkeypatch,
         calls,
-        existing=[("nb-existing", "paper")],
-        source_ids={"nb-existing": ["src-old"]},
+        existing=[("nb-tema", "tema")],
+        sources=[SimpleNamespace(id="src-paper", title="paper")],
     )
 
     generate_slide_deck(
         pdf,
-        title="paper",
+        notebook_title="tema",
+        source_title="paper",
         pptx_dest=tmp_path / "deck.pptx",
         pdf_dest=tmp_path / "deck.pdf",
         settings=settings,
     )
 
     assert "notebooks.create" not in [c[0] for c in calls]
-    assert next(c[1] for c in calls if c[0] == "generate_slide_deck") == "nb-existing"
+    assert next(c[1] for c in calls if c[0] == "generate_slide_deck") == "nb-tema"
 
 
 def test_notebook_listing_failure_falls_back_to_creating(monkeypatch, settings, pdf, tmp_path):
@@ -346,7 +376,10 @@ def test_notebook_listing_failure_falls_back_to_creating(monkeypatch, settings, 
 
     monkeypatch.setattr(FakeNotebooks, "list", _boom)
 
-    generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
+    generate_audio_overview(
+        pdf, notebook_title="tema", source_title="paper", dest_path=tmp_path / "a.m4a",
+        settings=settings,
+    )
 
     assert "notebooks.create" in [c[0] for c in calls]
 
@@ -358,10 +391,14 @@ def test_both_artifacts_are_pinned_to_brazilian_portuguese(
     calls: list = []
     install_fake_client(monkeypatch, calls)
 
-    generate_audio_overview(pdf, title="paper", dest_path=tmp_path / "a.m4a", settings=settings)
+    generate_audio_overview(
+        pdf, notebook_title="tema", source_title="paper", dest_path=tmp_path / "a.m4a",
+        settings=settings,
+    )
     generate_slide_deck(
         pdf,
-        title="paper",
+        notebook_title="tema",
+        source_title="paper",
         pptx_dest=tmp_path / "deck.pptx",
         pdf_dest=tmp_path / "deck.pdf",
         settings=settings,

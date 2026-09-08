@@ -31,7 +31,8 @@ def generate_slides(state: PipelineState) -> dict:
     try:
         generate_slide_deck(
             state["pdf_path"],
-            title=state["slug"],
+            notebook_title=tema,
+            source_title=state["slug"],
             pptx_dest=slides_dir / "deck.pptx",
             pdf_dest=slides_dir / "deck.pdf",
             settings=settings,

@@ -20,7 +20,8 @@ def generate_audio(state: PipelineState) -> dict:
     try:
         generate_audio_overview(
             state["pdf_path"],
-            title=state["slug"],
+            notebook_title=tema,
+            source_title=state["slug"],
             dest_path=dest,
             settings=settings,
         )

@@ -48,14 +48,16 @@ def stub_generators(monkeypatch):
     """Record what instructions each NotebookLM call received."""
     seen: dict = {}
 
-    def _audio(pdf, *, title, dest_path, settings, instructions):
+    def _audio(pdf, *, notebook_title, source_title, dest_path, settings, instructions):
         seen["audio"] = instructions
+        seen["audio_notebook"] = notebook_title
         dest_path.parent.mkdir(parents=True, exist_ok=True)
         dest_path.write_bytes(b"audio")
         return dest_path
 
-    def _slides(pdf, *, title, pptx_dest, pdf_dest, settings, instructions):
+    def _slides(pdf, *, notebook_title, source_title, pptx_dest, pdf_dest, settings, instructions):
         seen["slides"] = instructions
+        seen["slides_notebook"] = notebook_title
         return pptx_dest, pdf_dest
 
     monkeypatch.setattr(regen, "generate_audio_overview", _audio)
@@ -140,3 +142,10 @@ def test_package_json_on_disk_is_readable_after_a_regen(article, stub_generators
         (regen.article_dir(article.tema, article.slug) / "package.json").read_text()
     )
     assert raw["slug"] == article.slug
+
+
+def test_regeneration_targets_the_theme_notebook(article, stub_generators, stub_publish):
+    """Artifacts belong to the theme's notebook, not to a per-article one."""
+    regen.regenerate(article.tema, article.slug, "audio")
+
+    assert stub_generators["audio_notebook"] == article.tema
